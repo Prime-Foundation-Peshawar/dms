@@ -6,25 +6,25 @@ include('includes/header.php');
 <!-- ═══ HERO SLIDER ═══ -->
 <div id="heroSlider" aria-roledescription="carousel" aria-label="Department of Medical Sciences highlights">
 
-  <!-- SLIDE 1 — Medical Sciences -->
+  <!-- SLIDE 1 — MBBS / Peshawar Medical College -->
   <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 2">
     <div class="slide-media slide-bg-3"></div>
     <div class="slide-overlay"></div>
     <div class="container slide-inner">
       <div class="slide-content">
         <p class="slide-brand">Department of Medical Sciences</p>
-        <h1 class="slide-title">Shaping <span class="hl-teal">Compassionate</span> Physicians</h1>
-        <p class="slide-body">Peshawar Medical College and postgraduate medical programmes — outcome-based curricula, clinical skill laboratories, teaching hospitals, and research-led education.</p>
-        <p class="slide-body slide-body-sub">At Riphah International University – Peshawar Campus, students train with professional competence, integrity, and a commitment to community health needs across KP and Pakistan.</p>
+        <h1 class="slide-title">Your <span class="hl-teal">MBBS</span> Journey Starts Here</h1>
+        <p class="slide-body">Peshawar Medical College offers a PM&amp;DC-recognized five-year MBBS — rigorous basic sciences, early clinical exposure, and mentors who teach medicine with integrity.</p>
+        <p class="slide-body slide-body-sub">Study at Riphah International University – Peshawar Campus and build the competence to serve communities across KP and beyond.</p>
         <div class="slide-actions">
-          <a href="medical-education.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-journal-medical"></i> Medical Education</a>
-          <a href="pmc.php" class="btn-pmc btn-pmc-outline-white">Peshawar Medical College</a>
+          <a href="admissions.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions 2025–26</a>
+          <a href="pmc.php" class="btn-pmc btn-pmc-outline-white">About PMC</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 2 — Campus Life -->
+  <!-- SLIDE 2 — Clinical training & departments -->
   <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 2" data-lazy-bg>
     <div class="slide-media slide-bg-4"></div>
     <div class="slide-overlay"></div>
@@ -32,27 +32,27 @@ include('includes/header.php');
       <div class="row align-items-center g-4 g-xl-5">
         <div class="col-lg-6">
           <div class="slide-content">
-            <p class="slide-brand">Campus Life</p>
-            <h1 class="slide-title">A Vibrant <span class="hl">25-Kanal</span> Campus</h1>
-            <p class="slide-body">On Warsak Rd, Sher Ali Town — library, hostel, masjid, cafeteria, gym, sports, day care, counselling, and student support for a complete medical campus experience.</p>
+            <p class="slide-brand">Clinical Training</p>
+            <h1 class="slide-title">Learn Where <span class="hl">Care</span> Happens</h1>
+            <p class="slide-body">From basic sciences to clinical specialties — train across affiliated teaching hospitals and academic departments with real patients, supervised practice, and research-minded mentors.</p>
             <div class="slide-actions">
-              <a href="about.php#campus" class="btn-pmc btn-pmc-primary">Explore Campus</a>
-              <a href="contact.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-map"></i> Get Directions</a>
+              <a href="departments.php" class="btn-pmc btn-pmc-primary">Academic Departments</a>
+              <a href="about.php#campus" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-hospital"></i> Teaching Hospitals</a>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="slide-facilities" aria-label="Campus facilities">
-            <div class="sf-title">Campus Facilities</div>
+          <div class="slide-facilities" aria-label="Clinical training strengths">
+            <div class="sf-title">Where You Train</div>
             <div class="sf-grid">
-              <div class="sf-item"><i class="bi bi-book-half"></i><span>Library &amp; LRC</span></div>
-              <div class="sf-item"><i class="bi bi-house-heart"></i><span>Girls Hostel</span></div>
-              <div class="sf-item"><i class="bi bi-trophy"></i><span>Sports &amp; Gym</span></div>
-              <div class="sf-item"><i class="bi bi-brightness-high"></i><span>Masjid</span></div>
-              <div class="sf-item"><i class="bi bi-cup-hot"></i><span>Cafeteria</span></div>
-              <div class="sf-item"><i class="bi bi-bus-front"></i><span>Transportation</span></div>
-              <div class="sf-item"><i class="bi bi-emoji-smile"></i><span>Day Care</span></div>
-              <div class="sf-item"><i class="bi bi-chat-heart"></i><span>Counseling &amp; Aid</span></div>
+              <div class="sf-item"><i class="bi bi-hospital"></i><span>Kuwait Teaching Hospital</span></div>
+              <div class="sf-item"><i class="bi bi-heart-pulse"></i><span>Mercy Teaching Hospital</span></div>
+              <div class="sf-item"><i class="bi bi-building"></i><span>Prime Teaching Hospital</span></div>
+              <div class="sf-item"><i class="bi bi-diagram-3"></i><span>Academic Departments</span></div>
+              <div class="sf-item"><i class="bi bi-clipboard2-pulse"></i><span>Skills Laboratories</span></div>
+              <div class="sf-item"><i class="bi bi-people"></i><span>Expert Faculty</span></div>
+              <div class="sf-item"><i class="bi bi-journal-medical"></i><span>PG Medical Education</span></div>
+              <div class="sf-item"><i class="bi bi-search"></i><span>Research Culture</span></div>
             </div>
           </div>
         </div>
@@ -64,13 +64,13 @@ include('includes/header.php');
   <div class="slider-chrome">
     <button class="slider-prev" type="button" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
     <div class="slider-indicators" role="tablist" aria-label="Slides">
-      <button class="slider-dot active" type="button" data-slide="0" role="tab" aria-label="Medical Sciences" aria-selected="true">
+      <button class="slider-dot active" type="button" data-slide="0" role="tab" aria-label="Peshawar Medical College" aria-selected="true">
         <span class="slider-dot-track"><span class="slider-dot-bar"></span></span>
-        <span class="slider-dot-label">DMS</span>
+        <span class="slider-dot-label">MBBS</span>
       </button>
-      <button class="slider-dot" type="button" data-slide="1" role="tab" aria-label="Campus Life" aria-selected="false">
+      <button class="slider-dot" type="button" data-slide="1" role="tab" aria-label="Clinical Training" aria-selected="false">
         <span class="slider-dot-track"><span class="slider-dot-bar"></span></span>
-        <span class="slider-dot-label">Life</span>
+        <span class="slider-dot-label">Clinical</span>
       </button>
     </div>
     <button class="slider-next" type="button" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
