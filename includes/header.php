@@ -89,6 +89,7 @@
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-info-circle-fill"></i> About Us</div>
                     <a class="mega-link" href="about.php"><i class="bi bi-building"></i>About DMS</a>
+                    <a class="mega-link" href="departments.php"><i class="bi bi-diagram-3"></i>Academic Departments</a>
                     <a class="mega-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
                     <a class="mega-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
                   </div>
@@ -116,8 +117,9 @@
           <li class="nav-item mega-menu-wrapper">
             <a class="nav-link dropdown-toggle" href="#programs">Programs</a>
             <div class="dropdown-menu plain-dd" style="min-width:260px;">
-              <a class="dropdown-item" href="pmc.php"><i class="bi bi-mortarboard"></i>Peshawar Medical College — MBBS</a>
+              <a class="dropdown-item" href="pmc.php"><i class="bi bi-mortarboard"></i>Undergraduate Medical Education (PMC)</a>
               <a class="dropdown-item" href="pg-medical-education.php"><i class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
+              <a class="dropdown-item" href="departments.php"><i class="bi bi-diagram-3"></i>Academic Departments</a>
               <a class="dropdown-item" href="medical-education.php"><i class="bi bi-book"></i>Medical Education Overview</a>
             </div>
           </li>
@@ -235,7 +237,6 @@
             </div>
           </li>
 
-          <li class="nav-item"><a class="nav-link" href="https://riphahpsh.edu.pk/news-letter.php">Newsletter</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
           <li class="nav-item">
             <a class="nav-link nav-btn-apply" href="admissions.php" style="color: #ffffff !important;">
