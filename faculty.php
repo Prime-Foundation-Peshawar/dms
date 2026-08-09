@@ -1,6 +1,6 @@
 <?php include('includes/header.php'); ?>
 
-<link href="assets/css/faculty.css" rel="stylesheet"/>
+<link href="<?= dms_asset('assets/css/faculty.css') ?>" rel="stylesheet"/>
 
 <!-- PAGE HERO -->
 <div class="page-hero">

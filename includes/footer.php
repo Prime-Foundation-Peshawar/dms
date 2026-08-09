@@ -65,7 +65,7 @@
           <div class="mt-3">
             <a href="https://pmc.prime.edu.pk/portal_login.php" class="btn-pmc btn-pmc-teal"
               style="background:var(--teal);color:white;font-size:.82rem;padding:10px 20px;">
-              <i class="bi bi-person-circle"></i> Portal Login
+              <i class="bi bi-person-circle"></i> Student Portal
             </a>
           </div>
         </div>
@@ -89,7 +89,7 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/pmc-global.js"></script>
+<script src="<?= function_exists('dms_asset') ? dms_asset('assets/js/pmc-global.js') : 'assets/js/pmc-global.js' ?>"></script>
 </body>
 
 </html>

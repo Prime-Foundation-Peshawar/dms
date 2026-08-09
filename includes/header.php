@@ -7,6 +7,14 @@ if (!defined('base_url')) {
     define('base_url', 'https://dms.riphahpsh.edu.pk/');
   }
 }
+if (!function_exists('dms_asset')) {
+  /** Append filemtime query string so browsers pick up updated local assets. */
+  function dms_asset(string $path): string {
+    $full = dirname(__DIR__) . '/' . ltrim($path, '/');
+    $v = is_file($full) ? (string) filemtime($full) : (string) time();
+    return htmlspecialchars($path, ENT_QUOTES, 'UTF-8') . '?v=' . rawurlencode($v);
+  }
+}
 $page_title = $page_title ?? 'Department of Medical Sciences | Peshawar Medical College — Riphah Peshawar Campus';
 $page_description = $page_description ?? 'Department of Medical Sciences, Riphah International University – Peshawar Campus. Peshawar Medical College — PM&DC recognized MBBS and postgraduate programmes. Warsak Road, Peshawar.';
 ?>
@@ -33,9 +41,9 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <!-- PMC Global CSS -->
-  <link href="assets/css/pmc-global.css" rel="stylesheet" />
+  <link href="<?= dms_asset('assets/css/pmc-global.css') ?>" rel="stylesheet" />
   <!-- PMC CSS -->
-  <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="<?= dms_asset('assets/css/style.css') ?>" rel="stylesheet" />
   <?php if (!empty($preload_images) && is_array($preload_images)): ?>
     <?php foreach ($preload_images as $preload_href): ?>
   <link rel="preload" as="image" href="<?= htmlspecialchars($preload_href) ?>" type="image/webp" fetchpriority="high" />
@@ -61,7 +69,6 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
         </div>
         <div class="d-flex align-items-center gap-3">
           <a href="http://careers.prime.edu.pk" target="_blank"><i class="bi bi-briefcase me-1"></i>Careers</a>
-          <a href="https://pmc.prime.edu.pk/portal_login.php"><i class="bi bi-person-circle me-1"></i>Portal Login</a>
           <a href="vacant-seats.php" class="tb-cta"><i class="bi bi-door-open me-1"></i>Vacant Seats</a>
         </div>
       </div>
@@ -131,7 +138,6 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
             <div class="dropdown-menu plain-dd" style="min-width:260px;">
               <a class="dropdown-item" href="pmc.php"><i class="bi bi-mortarboard"></i>Undergraduate Medical Education (PMC)</a>
               <a class="dropdown-item" href="pg-medical-education.php"><i class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
-              <a class="dropdown-item" href="departments.php"><i class="bi bi-diagram-3"></i>Academic Departments</a>
               <a class="dropdown-item" href="medical-education.php"><i class="bi bi-book"></i>Medical Education Overview</a>
             </div>
           </li>
@@ -170,8 +176,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
                       Criteria</a>
                     <a class="mega-link" href="admissions.php#process"><i class="bi bi-list-ol"></i>Admission
                       Process</a>
-                    <a class="mega-link" href="https://pmc.prime.edu.pk/portal_login.php"><i class="bi bi-person-circle"></i>Portal
-                      Login</a>
+                    <a class="mega-link" href="https://pmc.prime.edu.pk/portal_login.php"><i class="bi bi-person-circle"></i>Student Portal</a>
                   </div>
                   <!-- <div class="col-lg-3">
                     <div class="mega-feature">
@@ -239,11 +244,6 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
           </li>
 
           <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-          <li class="nav-item">
-            <a class="nav-link nav-btn-apply" href="admissions.php" style="color: #ffffff !important;">
-              <i class="bi bi-mortarboard-fill"></i> Apply
-            </a>
-          </li>
         </ul>
       </div>
     </div>

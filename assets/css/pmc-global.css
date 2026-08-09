@@ -99,18 +99,18 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 
 /* ── TOP BAR ── */
 .pmc-topbar {
-  background: var(--navy);
+  background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 100%);
   padding: 7px 0;
   font-family: var(--font-body);
   font-size: .76rem;
   font-weight: 500;
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.88);
 }
-.pmc-topbar a { color: rgba(255,255,255,.72); transition: color var(--ease); }
-.pmc-topbar a:hover { color: var(--gold-light); }
-.pmc-topbar .sep { margin: 0 10px; opacity: .28; }
+.pmc-topbar a { color: rgba(255,255,255,.92); transition: color var(--ease); }
+.pmc-topbar a:hover { color: #fff; }
+.pmc-topbar .sep { margin: 0 10px; opacity: .35; }
 .pmc-topbar .tb-cta {
-  color: var(--gold-light) !important;
+  color: #fff !important;
   font-weight: 700;
 }
 
