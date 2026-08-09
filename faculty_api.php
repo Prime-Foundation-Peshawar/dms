@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="alert mt-4"
-                        style="background:var(--teal-pale);border:1px solid rgba(0,168,150,.25);border-radius:12px;padding:18px 22px;">
+                        style="background:var(--teal-pale);border:1px solid rgba(21,95,122,.25);border-radius:12px;padding:18px 22px;">
                         <div style="display:flex;align-items:center;gap:10px;"><i class="bi bi-info-circle-fill"
                                 style="color:var(--teal);font-size:1.1rem;"></i><span
                                 style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-dark);">For a

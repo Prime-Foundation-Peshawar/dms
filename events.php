@@ -46,7 +46,7 @@
     outline: none;
     border-color: var(--teal);
     background: white;
-    box-shadow: 0 0 0 3px rgba(0, 168, 150, .12);
+    box-shadow: 0 0 0 3px rgba(21,95,122, .12);
   }
 
   .ef-select {
@@ -295,7 +295,7 @@
   }
 
   .cat-admissions {
-    background: rgba(0, 168, 150, .85);
+    background: rgba(21,95,122, .85);
   }
 
   .cat-research {
@@ -608,7 +608,7 @@
     opacity: 0;
     transform: translateY(10px);
     transition: opacity .25s, transform .25s, background .2s;
-    box-shadow: 0 4px 18px rgba(0, 168, 150, .35);
+    box-shadow: 0 4px 18px rgba(21,95,122, .35);
   }
 
   #backToTop.visible {

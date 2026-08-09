@@ -226,8 +226,8 @@
       flex-shrink: 0;
     }
     .sf-item:hover {
-      background: rgba(27,122,158,.18);
-      border-color: rgba(27,122,158,.35);
+      background: rgba(21,95,122,.18);
+      border-color: rgba(21,95,122,.35);
     }
     @media (max-width: 991.98px) {
       .slide-facilities {
@@ -274,8 +274,8 @@
       transition: background .25s ease, border-color .25s ease, transform .25s ease;
     }
     .slider-prev:hover, .slider-next:hover {
-      background: rgba(27,122,158,.55);
-      border-color: rgba(27,122,158,.7);
+      background: rgba(21,95,122,.55);
+      border-color: rgba(21,95,122,.7);
       transform: scale(1.05);
     }
     .slider-prev:active, .slider-next:active { transform: scale(.97); }
@@ -353,7 +353,7 @@
       content: '';
       position: absolute; left: -40px; bottom: -40px;
       width: 200px; height: 200px; border-radius: 50%;
-      border: 40px solid rgba(27,122,158,.07);
+      border: 40px solid rgba(21,95,122,.07);
     }
     .about-visual-icon { font-size: 4rem; color: var(--gold); position: relative; z-index: 1; }
     .about-visual-label {
@@ -368,7 +368,7 @@
       background: var(--teal);
       border-radius: var(--r-md);
       padding: 16px 20px; text-align: center;
-      box-shadow: 0 6px 28px rgba(27,122,158,.35);
+      box-shadow: 0 6px 28px rgba(21,95,122,.35);
       z-index: 3;
     }
     .about-badge-num {
@@ -387,7 +387,7 @@
     .feat-icon {
       width: 44px; height: 44px; flex-shrink: 0;
       background: var(--teal-pale);
-      border: 1px solid rgba(27,122,158,.2);
+      border: 1px solid rgba(21,95,122,.2);
       border-radius: var(--r-sm);
       display: flex; align-items: center; justify-content: center;
       color: var(--teal); font-size: 1.05rem;
@@ -462,7 +462,7 @@
     .news-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md, 0 12px 32px rgba(10,22,40,.08));
-      border-color: rgba(27,122,158,.3);
+      border-color: rgba(21,95,122,.3);
     }
     .nc-cat {
       font-family: var(--font-head);
@@ -478,7 +478,7 @@
     .nc-cat-admissions {
       background: var(--teal-pale);
       color: var(--teal);
-      border: 1px solid rgba(27,122,158,.25);
+      border: 1px solid rgba(21,95,122,.25);
     }
     .nc-cat-news {
       background: var(--gold-pale, #f7efd4);
@@ -589,8 +589,8 @@
       transition: border-color var(--ease), background var(--ease), transform var(--ease), box-shadow var(--ease);
     }
     .hosp-card:hover {
-      border-color: rgba(0,168,150,.55);
-      background: rgba(27,122,158,.1);
+      border-color: rgba(21,95,122,.55);
+      background: rgba(21,95,122,.1);
       transform: translateY(-5px);
       box-shadow: 0 16px 40px rgba(0,0,0,.2);
     }
@@ -765,7 +765,7 @@
     }
     .about-map-card:hover {
       box-shadow: var(--shadow-md, 0 10px 28px rgba(10,22,40,.08));
-      border-color: rgba(27,122,158,.3);
+      border-color: rgba(21,95,122,.3);
       transform: translateY(-3px);
     }
     .about-map-head {
@@ -1177,7 +1177,7 @@
       transition: opacity var(--ease);
     }
     .why-card:hover {
-      border-color: rgba(27,122,158,.35);
+      border-color: rgba(21,95,122,.35);
       transform: translateY(-5px);
       box-shadow: var(--shadow-md, 0 12px 32px rgba(10,22,40,.08));
     }
@@ -1186,7 +1186,7 @@
       width: 52px;
       height: 52px;
       border-radius: 14px;
-      background: rgba(27,122,158,.1);
+      background: rgba(21,95,122,.1);
       color: var(--teal);
       display: flex;
       align-items: center;
@@ -1197,7 +1197,7 @@
     }
     .why-card:hover .why-ico {
       transform: translateY(-2px);
-      background: rgba(27,122,158,.16);
+      background: rgba(21,95,122,.16);
     }
     .why-card h4 {
       font-family: var(--font-head);
@@ -1350,7 +1350,7 @@
     .dept-index-ico {
       width: 40px; height: 40px;
       border-radius: 10px;
-      background: rgba(27,122,158,.1);
+      background: rgba(21,95,122,.1);
       color: var(--teal);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.05rem;
@@ -1473,7 +1473,7 @@
     .dept-panel-ico {
       width: 42px; height: 42px;
       border-radius: 11px;
-      background: rgba(27,122,158,.12);
+      background: rgba(21,95,122,.12);
       color: var(--teal);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.15rem;
@@ -1514,12 +1514,12 @@
       transition: border-color var(--ease), box-shadow var(--ease);
     }
     .dept-faculty-card:hover {
-      border-color: rgba(27,122,158,.3);
+      border-color: rgba(21,95,122,.3);
       box-shadow: 0 6px 18px rgba(10,22,40,.05);
     }
     .dept-faculty-card.is-hod {
-      border-color: rgba(27,122,158,.4);
-      background: linear-gradient(135deg, rgba(27,122,158,.07), rgba(255,255,255,.9));
+      border-color: rgba(21,95,122,.4);
+      background: linear-gradient(135deg, rgba(21,95,122,.07), rgba(255,255,255,.9));
       box-shadow: 0 8px 24px rgba(10,22,40,.06);
     }
     .dept-faculty-card.is-hod .dept-faculty-avatar {
@@ -1529,7 +1529,7 @@
     .dept-faculty-avatar {
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: var(--teal-pale, rgba(27,122,158,.12));
+      background: var(--teal-pale, rgba(21,95,122,.12));
       color: var(--teal);
       font-family: var(--font-head);
       font-size: .78rem;
@@ -1594,7 +1594,7 @@
       top: 12px;
       bottom: 12px;
       width: 2px;
-      background: linear-gradient(180deg, rgba(27,122,158,.35), rgba(27,122,158,.08));
+      background: linear-gradient(180deg, rgba(21,95,122,.35), rgba(21,95,122,.08));
     }
     .dept-activity {
       display: grid;
@@ -1644,7 +1644,7 @@
       transition: border-color var(--ease), box-shadow var(--ease);
     }
     .dept-activity:hover .dept-activity-body {
-      border-color: rgba(27,122,158,.3);
+      border-color: rgba(21,95,122,.3);
       box-shadow: 0 8px 22px rgba(10,22,40,.06);
     }
     .dept-activity-meta {
@@ -1655,7 +1655,7 @@
       font-size: .72rem;
       font-weight: 700;
       color: var(--teal);
-      background: rgba(27,122,158,.08);
+      background: rgba(21,95,122,.08);
       padding: 4px 10px;
       border-radius: 100px;
       margin-bottom: 8px;
@@ -1710,7 +1710,7 @@
     .dept-side-ico {
       width: 48px; height: 48px;
       border-radius: 12px;
-      background: rgba(27,122,158,.1);
+      background: rgba(21,95,122,.1);
       color: var(--teal);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.25rem;
@@ -1755,7 +1755,7 @@
       border-radius: 100px;
     }
     .dept-aside-nav a:hover {
-      background: rgba(27,122,158,.08);
+      background: rgba(21,95,122,.08);
       color: var(--teal);
     }
     .dept-aside-links {
@@ -1786,7 +1786,7 @@
       cursor: pointer; z-index: 999;
       opacity: 0; transform: translateY(10px);
       transition: opacity var(--ease), transform var(--ease), background var(--ease);
-      box-shadow: 0 4px 18px rgba(27,122,158,.35);
+      box-shadow: 0 4px 18px rgba(21,95,122,.35);
     }
     #backToTop.visible { opacity: 1; transform: translateY(0); }
     #backToTop:hover { background: var(--navy); }

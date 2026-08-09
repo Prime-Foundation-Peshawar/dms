@@ -61,7 +61,7 @@
     outline: none;
     border-color: var(--teal);
     background: white;
-    box-shadow: 0 0 0 3px rgba(0, 168, 150, .12);
+    box-shadow: 0 0 0 3px rgba(21,95,122, .12);
   }
 
   .nfb-select {
@@ -445,7 +445,7 @@
 
   /* ══ CATEGORY BADGE COLORS ══ */
   .cat-admissions {
-    background: rgba(0, 168, 150, .85);
+    background: rgba(21,95,122, .85);
   }
 
   .cat-research {

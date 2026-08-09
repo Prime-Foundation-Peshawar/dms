@@ -289,7 +289,7 @@
   /* Info box */
   .info-box {
     background: var(--teal-pale);
-    border: 1px solid rgba(0, 168, 150, .22);
+    border: 1px solid rgba(21,95,122, .22);
     border-radius: var(--r-md);
     padding: 22px 24px;
     margin: 28px 0;

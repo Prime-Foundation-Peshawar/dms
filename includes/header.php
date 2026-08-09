@@ -84,9 +84,9 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
           <img src="assets/images/logo/riphah-psh.png"
             alt="Department of Medical Sciences (DMS) — Riphah Peshawar Campus" width="200px;" />
         </div>
-        <div class="pmc-brand-text d-none d-xl-block" style="margin-left:10px;line-height:1.2;">
-          <div style="font-size:.72rem;font-weight:700;color:var(--navy);">Department of Medical Sciences</div>
-          <div style="font-size:.65rem;color:var(--teal);">Peshawar Medical College · Riphah Peshawar Campus</div>
+        <div class="pmc-brand-text d-none d-md-block" style="margin-left:10px;line-height:1.25;">
+          <div style="font-size:.88rem;font-weight:700;color:var(--navy);">Department of Medical Sciences</div>
+          <div style="font-size:.72rem;color:var(--teal);">Peshawar Medical College · Riphah Peshawar Campus</div>
         </div>
       </a>
 

@@ -9,7 +9,7 @@
     :root {
       --navy: #0A1628;
       --navy-mid: #122040;
-      --teal: #00A896;
+      --teal: #155F7A;
       --teal-pale: #E6F7F4;
       --gold: #C9A84C;
       --gold-light: #e0c068;
@@ -328,14 +328,14 @@
     .ig-zoom {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
-      background: rgba(0,168,150,.5);
+      background: rgba(21,95,122,.5);
       opacity: 0; transition: opacity .25s; color: white; font-size: 1.2rem;
     }
     .ig-item:hover .ig-zoom { opacity: 1; }
 
     .info-box {
       background: var(--teal-pale);
-      border: 1px solid rgba(0,168,150,.22);
+      border: 1px solid rgba(21,95,122,.22);
       border-radius: var(--r-md);
       padding: 22px 24px;
       margin: 28px 0;
@@ -495,7 +495,7 @@
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; z-index: 999; opacity: 0; transform: translateY(10px);
       transition: opacity .25s, transform .25s, background .2s;
-      box-shadow: 0 4px 18px rgba(0,168,150,.35);
+      box-shadow: 0 4px 18px rgba(21,95,122,.35);
     }
     #backToTop.visible { opacity: 1; transform: translateY(0); }
     #backToTop:hover   { background: var(--navy); }

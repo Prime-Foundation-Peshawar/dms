@@ -63,7 +63,7 @@
   outline: none;
   border-color: var(--teal);
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(27,122,158,.12);
+  box-shadow: 0 0 0 3px rgba(21,95,122,.12);
 }
 .search-wrap { position: relative; }
 .search-wrap i {
@@ -91,7 +91,7 @@
 .filter-select:focus {
   outline: none;
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(27,122,158,.12);
+  box-shadow: 0 0 0 3px rgba(21,95,122,.12);
 }
 .filter-clear-btn {
   width: 100%;
@@ -197,7 +197,7 @@
   transition: border-color var(--ease), box-shadow var(--ease);
 }
 .fac-list-row:hover {
-  border-color: rgba(27,122,158,.35);
+  border-color: rgba(21,95,122,.35);
   box-shadow: 0 6px 18px rgba(10,22,40,.05);
 }
 .fac-list-avatar {

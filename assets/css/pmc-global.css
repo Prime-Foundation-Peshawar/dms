@@ -16,9 +16,9 @@
   --navy:        #0B1F33;
   --navy-mid:    #143452;
   --navy-deep:   #071624;
-  --teal:        #1B7A9E;
-  --teal-light:  #3A9BC0;
-  --teal-pale:   #E8F4F9;
+  --teal:        #155F7A;
+  --teal-light:  #2A87A8;
+  --teal-pale:   #E0F0F6;
   --gold:        #C4873A;
   --gold-light:  #E0A85C;
   --gold-pale:   #FBF3E8;
@@ -338,7 +338,7 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 .page-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle at 80% 50%, rgba(27,122,158,.12) 0%, transparent 60%),
+  background-image: radial-gradient(circle at 80% 50%, rgba(21,95,122,.12) 0%, transparent 60%),
                     radial-gradient(circle at 20% 80%, rgba(196,135,58,.08) 0%, transparent 40%);
 }
 .page-hero-grid {
@@ -396,9 +396,9 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 .btn-pmc-primary {
   background: var(--teal);
   color: white;
-  box-shadow: 0 4px 18px rgba(27,122,158,.32);
+  box-shadow: 0 4px 18px rgba(21,95,122,.32);
 }
-.btn-pmc-primary:hover { background: var(--teal-light); color: white; box-shadow: 0 8px 28px rgba(27,122,158,.42); }
+.btn-pmc-primary:hover { background: var(--teal-light); color: white; box-shadow: 0 8px 28px rgba(21,95,122,.42); }
 .btn-pmc-navy {
   background: var(--navy);
   color: white;
@@ -561,7 +561,7 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 
 /* ── CTA BAND ── */
 .cta-band {
-  background: linear-gradient(120deg, var(--teal) 0%, #008f7e 100%);
+  background: linear-gradient(120deg, var(--teal) 0%, #0F4A60 100%);
   padding: 70px 0;
 }
 .cta-band h2 {

@@ -36,11 +36,11 @@
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-head); font-size: .65rem; font-weight: 800;
   text-transform: uppercase; letter-spacing: .12em; color: var(--teal-light);
-  background: rgba(0,168,150,.15); border: 1px solid rgba(0,168,150,.3);
+  background: rgba(21,95,122,.15); border: 1px solid rgba(21,95,122,.3);
   padding: 4px 12px; border-radius: 100px; margin-bottom: 12px;
   text-decoration: none; transition: background .2s;
 }
-.profile-dept-link:hover { background: rgba(0,168,150,.25); }
+.profile-dept-link:hover { background: rgba(21,95,122,.25); }
 .profile-name {
   font-family: var(--font-head); font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 900; color: white; line-height: 1.15; margin-bottom: 6px;
@@ -70,7 +70,7 @@
   background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.2);
   color: white; text-decoration: none; transition: all .2s;
 }
-.pc-btn:hover { background: rgba(0,168,150,.35); border-color: var(--teal-light); color: white; }
+.pc-btn:hover { background: rgba(21,95,122,.35); border-color: var(--teal-light); color: white; }
 
 /* ══ TAB NAV ══ */
 .profile-tabs {
@@ -261,7 +261,7 @@
             <span class="spec-tag">Clinical Anatomy</span>
           </div>
 
-          <div class="pmc-card mt-4" style="border-radius:12px;background:var(--teal-pale);border-color:rgba(0,168,150,.2);">
+          <div class="pmc-card mt-4" style="border-radius:12px;background:var(--teal-pale);border-color:rgba(21,95,122,.2);">
             <div style="display:flex;gap:14px;align-items:flex-start;">
               <div style="font-size:1.8rem;color:var(--teal);flex-shrink:0;"><i class="bi bi-patch-check-fill"></i></div>
               <div>
