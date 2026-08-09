@@ -26,7 +26,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About Us</a></li>
             <li><a href="vision-mission.php">Vision & Mission</a></li>
-            <li><a href="faculty-all.php">Faculty</a></li>
+            <li><a href="faculty.php">Faculty</a></li>
             <li><a href="admissions.php">Admissions</a></li>
             <li><a href="pmc.php">Peshawar Medical College</a></li>
             <li><a href="pg-medical-education.php">PG Medical Education</a></li>
