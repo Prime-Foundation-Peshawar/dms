@@ -1,152 +1,58 @@
-<?php include('includes/header.php'); ?>
+<?php
+$preload_images = ['assets/images/slider/hero-slide-1.webp'];
+include('includes/header.php');
+?>
 
-<div id="heroSlider">
-  <!-- SLIDE 1 — Education & Research -->
-  <div class="hero-slide slide-bg-3">
+<!-- ═══ HERO SLIDER ═══ -->
+<div id="heroSlider" aria-roledescription="carousel" aria-label="Department of Medical Sciences highlights">
+
+  <!-- SLIDE 1 — Medical Sciences -->
+  <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 2">
+    <div class="slide-media slide-bg-3"></div>
     <div class="slide-overlay"></div>
-    <div class="slide-grid"></div>
-    <div class="slide-circle-1"></div>
-    <div class="slide-circle-2"></div>
     <div class="container slide-inner">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <div class="slide-eyebrow"><i class="bi bi-flask-fill"></i> Education & Research</div>
-          <h1 class="slide-title">Learning That<br />Goes <span class="hl-teal">Beyond</span><br />the Classroom</h1>
-          <p class="slide-body">From outcome-based curricula and clinical skill labs to undergraduate research and
-            faculty publications — Department of Medical Sciences prepares doctors who think critically, act ethically,
-            and lead confidently.</p>
-          <div class="slide-actions">
-            <a href="medical-education.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-book-fill"></i> Medical
-              Education</a>
-            <a href="faculty-research.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-file-earmark-text"></i>
-              Faculty Research</a>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="slide-card">
-            <div class="sc-title"><i class="bi bi-lightbulb-fill"></i> Academic Highlights</div>
-            <div class="sc-row">
-              <div class="sc-icon"><i class="bi bi-book"></i></div>
-              <div>
-                <div class="sc-lbl">Curriculum</div>
-                <div class="sc-val">Outcome-based, PM&DC aligned curriculum</div>
-              </div>
-            </div>
-            <div class="sc-row">
-              <div class="sc-icon"><i class="bi bi-activity"></i></div>
-              <div>
-                <div class="sc-lbl">Clinical Skill Labs</div>
-                <div class="sc-val">Simulation-based hands-on training facilities</div>
-              </div>
-            </div>
-            <div class="sc-row">
-              <div class="sc-icon"><i class="bi bi-search"></i></div>
-              <div>
-                <div class="sc-lbl">Research</div>
-                <div class="sc-val">UMR Society — students publish & present papers</div>
-              </div>
-            </div>
-            <div class="sc-row">
-              <div class="sc-icon"><i class="bi bi-airplane"></i></div>
-              <div>
-                <div class="sc-lbl">Exchange Programs</div>
-                <div class="sc-val">International electives & student exchange</div>
-              </div>
-            </div>
-          </div>
+      <div class="slide-content">
+        <p class="slide-brand">Department of Medical Sciences</p>
+        <h1 class="slide-title">Shaping <span class="hl-teal">Compassionate</span> Physicians</h1>
+        <p class="slide-body">Peshawar Medical College and postgraduate medical programmes — outcome-based curricula, clinical skill laboratories, teaching hospitals, and research-led education.</p>
+        <p class="slide-body slide-body-sub">At Riphah International University – Peshawar Campus on Warsak Road, students train with professional competence, integrity, and a commitment to community health needs across KP and Pakistan.</p>
+        <div class="slide-actions">
+          <a href="medical-education.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-journal-medical"></i> Medical Education</a>
+          <a href="pmc.php" class="btn-pmc btn-pmc-outline-white">Peshawar Medical College</a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- SLIDE 2 — Campus Life -->
-  <div class="hero-slide slide-bg-4">
+  <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 2" data-lazy-bg>
+    <div class="slide-media slide-bg-4"></div>
     <div class="slide-overlay"></div>
-    <div class="slide-grid"></div>
-    <div class="slide-circle-1"></div>
-    <div class="slide-circle-2"></div>
     <div class="container slide-inner">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-4 g-xl-5">
         <div class="col-lg-6">
-          <div class="slide-eyebrow"><i class="bi bi-buildings-fill"></i> Campus Life · Peshawar</div>
-          <h1 class="slide-title">A Vibrant<br /><span class="hl">25-Kanal</span><br />Campus</h1>
-          <p class="slide-body">Situated on Warsak Road with lush green surroundings, Department of Medical Sciences
-            offers a full campus
-            experience — library, hostel, masjid, cafeteria, gym, sports, day care, counseling, first aid, and much
-            more.</p>
-          <div class="slide-actions">
-            <a href="about.php#campus" class="btn-pmc btn-pmc-gold"><i class="bi bi-images"></i> Explore Campus</a>
-            <a href="contact.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-map"></i> Get Directions</a>
+          <div class="slide-content">
+            <p class="slide-brand">Campus Life</p>
+            <h1 class="slide-title">A Vibrant <span class="hl">25-Kanal</span> Campus</h1>
+            <p class="slide-body">On Warsak Road with green surroundings — library, hostel, masjid, cafeteria, gym, sports, day care, counselling, and student support for a complete medical campus experience.</p>
+            <div class="slide-actions">
+              <a href="about.php#campus" class="btn-pmc btn-pmc-primary">Explore Campus</a>
+              <a href="contact.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-map"></i> Get Directions</a>
+            </div>
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="slide-card">
-            <div class="sc-title"><i class="bi bi-building-fill"></i> Campus Facilities</div>
-            <div class="row g-2">
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-book-half"></i></div>
-                  <div>
-                    <div class="sc-val">Library & LRC</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-house-heart"></i></div>
-                  <div>
-                    <div class="sc-val">Girls Hostel</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-trophy"></i></div>
-                  <div>
-                    <div class="sc-val">Sports & Gym</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-moon-stars"></i></div>
-                  <div>
-                    <div class="sc-val">Masjid</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-cup-hot"></i></div>
-                  <div>
-                    <div class="sc-val">Cafeteria</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-bus-front"></i></div>
-                  <div>
-                    <div class="sc-val">Transportation</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-balloon-heart"></i></div>
-                  <div>
-                    <div class="sc-val">Day Care Center</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="sc-row">
-                  <div class="sc-icon"><i class="bi bi-heart-pulse"></i></div>
-                  <div>
-                    <div class="sc-val">Counseling & Aid</div>
-                  </div>
-                </div>
-              </div>
+          <div class="slide-facilities" aria-label="Campus facilities">
+            <div class="sf-title">Campus Facilities</div>
+            <div class="sf-grid">
+              <div class="sf-item"><i class="bi bi-book-half"></i><span>Library &amp; LRC</span></div>
+              <div class="sf-item"><i class="bi bi-house-heart"></i><span>Girls Hostel</span></div>
+              <div class="sf-item"><i class="bi bi-trophy"></i><span>Sports &amp; Gym</span></div>
+              <div class="sf-item"><i class="bi bi-brightness-high"></i><span>Masjid</span></div>
+              <div class="sf-item"><i class="bi bi-cup-hot"></i><span>Cafeteria</span></div>
+              <div class="sf-item"><i class="bi bi-bus-front"></i><span>Transportation</span></div>
+              <div class="sf-item"><i class="bi bi-emoji-smile"></i><span>Day Care</span></div>
+              <div class="sf-item"><i class="bi bi-chat-heart"></i><span>Counseling &amp; Aid</span></div>
             </div>
           </div>
         </div>
@@ -155,13 +61,20 @@
   </div>
 
   <!-- Controls -->
-  <button class="slider-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
-  <button class="slider-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
-  <div class="slider-dots">
-    <button class="slider-dot active" data-slide="0"></button>
-    <button class="slider-dot" data-slide="1"></button>
+  <div class="slider-chrome">
+    <button class="slider-prev" type="button" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
+    <div class="slider-indicators" role="tablist" aria-label="Slides">
+      <button class="slider-dot active" type="button" data-slide="0" role="tab" aria-label="Medical Sciences" aria-selected="true">
+        <span class="slider-dot-track"><span class="slider-dot-bar"></span></span>
+        <span class="slider-dot-label">DMS</span>
+      </button>
+      <button class="slider-dot" type="button" data-slide="1" role="tab" aria-label="Campus Life" aria-selected="false">
+        <span class="slider-dot-track"><span class="slider-dot-bar"></span></span>
+        <span class="slider-dot-label">Life</span>
+      </button>
+    </div>
+    <button class="slider-next" type="button" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
   </div>
-  <div class="slide-progress"></div>
 </div>
 
 <!-- ═══ STATS BAR ═══ -->
@@ -204,10 +117,10 @@
               <img src="assets/images/logo/pmclogo.png"/>    
           </div>
           <h4>Peshawar Medical College</h4>
-          <p>The institute has been established with objectives of contributing towards the quality medical education in
-            line with community health needs of KP & Pakistan.</p>
+          <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at three affiliated teaching hospitals.</p>
           <div class="mt-3 mb-4">
-            <!-- <span class="pmc-tag prog-tag">Outcome-Based</span> -->
+            <span class="pmc-tag prog-tag">MBBS</span>
+            <span class="pmc-tag prog-tag">PM&amp;DC</span>
             <span class="pmc-tag prog-tag">3 Hospitals</span>
             </div>
           <a href="pmc.php" class="btn-pmc btn-pmc-outline"
@@ -216,7 +129,7 @@
       </div>
       <div class="col-lg-6 col-md-6 fu fu-delay-2">
         <div class="pmc-card">
-          <div class="pmc-card-icon"><i class="bi bi-mortarboard"></i></div>
+          <div class="pmc-card-icon"><i class="bi bi-clipboard2-pulse"></i></div>
           <h4>Postgraduate Medical Education</h4>
           <p>The postgraduate training programme started in 2011, offering FCPS and MCPS programmes recognized by CPSP,
             with plans to introduce MS and diploma programmes.</p>
@@ -245,17 +158,11 @@
         </div>
       </div>
       <div class="col-lg-7 fu fu-delay-2">
-        <span class="sec-eyebrow">About </span>
+        <span class="sec-eyebrow">About DMS</span>
         <h2 class="sec-title">Department of Medical Sciences</h2>
 
-        <p class="sec-desc">The institute has been established with objectives of contributing towards the quality
-          medical education in line with community health needs of KP & Pakistan. The aim is to train excellent medical
-          doctors, having highest standards of professional competence, integrity, commitment and research.</p>
-        <p class="sec-desc">Riphah International University Peshawar Campus is recognized by Pakistan Medical & Dental
-          Council (PM&DC)
-          according to 2024 inspection visit by Department of Medical Sciences of various public & private sector
-          colleges. It was our honour to
-          stand first among private hospitals of KP with more than 80% score.</p>
+        <p class="sec-desc">The Department of Medical Sciences is a constituent department of Riphah International University – Peshawar Campus. It comprises <strong>Peshawar Medical College</strong> and postgraduate medical programmes, preparing physicians with high standards of competence, integrity, commitment, and research in line with the community health needs of KP and Pakistan.</p>
+        <p class="sec-desc">Recognized by the Pakistan Medical &amp; Dental Council (PM&amp;DC). In the 2024 PM&amp;DC inspection of public and private sector colleges, we stood first among private hospitals of KP with more than 80% score.</p>
         <a href="about.php" class="btn-pmc btn-pmc-primary mt-4"><i class="bi bi-arrow-right-circle"></i> Read Full
           About Department of Medical Sciences</a>
       </div>
@@ -263,6 +170,46 @@
   </div>
 </section>
 
+<!-- ═══ WHY DMS ═══ -->
+<section class="pmc-section" id="why-dms">
+  <div class="container">
+    <div class="text-center mb-5 fu">
+      <span class="sec-eyebrow">Why DMS</span>
+      <h2 class="sec-title">Why Choose Medical Sciences at Riphah Peshawar</h2>
+      <p class="sec-desc mx-auto" style="max-width:560px;">Clinical depth, ethical formation, and recognised standards — built around the health needs of KP and Pakistan.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 fu fu-delay-1">
+        <div class="why-card">
+          <div class="why-ico"><i class="bi bi-award-fill"></i></div>
+          <h4>PM&amp;DC Recognised</h4>
+          <p>Top among private hospitals of KP in the 2024 PM&amp;DC inspection, with more than 80% score.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fu fu-delay-2">
+        <div class="why-card">
+          <div class="why-ico"><i class="bi bi-hospital"></i></div>
+          <h4>Three Teaching Hospitals</h4>
+          <p>Clinical rotations across Kuwait, Mercy, and Prime Teaching Hospitals for broad bedside exposure.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fu fu-delay-3">
+        <div class="why-card">
+          <div class="why-ico"><i class="bi bi-heart-pulse"></i></div>
+          <h4>Ethics &amp; Competence</h4>
+          <p>Outcome-based curricula that form physicians with integrity, research ability, and community focus.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fu fu-delay-4">
+        <div class="why-card">
+          <div class="why-ico"><i class="bi bi-mortarboard-fill"></i></div>
+          <h4>PG Pathways</h4>
+          <p>FCPS and MCPS training recognised by CPSP, with expanding postgraduate opportunities since 2011.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ TEACHING HOSPITALS ═══ -->
 <section class="pmc-section bg-navy" id="hospitals">
@@ -295,7 +242,7 @@
       </div>
       <div class="col-lg-4 col-md-6 fu fu-delay-3">
         <div class="hosp-card">
-          <div class="hosp-ico"><i class="bi bi-capsule-pill"></i></div>
+          <div class="hosp-ico"><i class="bi bi-building-fill"></i></div>
           <div class="hosp-name">Prime Teaching Hospital</div>
           <p class="hosp-desc">Equipped with modern diagnostic and surgical facilities for intensive clinical and
             surgical training rotations.</p><a href="https://pth.prime.edu.pk/" class="hosp-link" target="_blank">Learn
@@ -356,7 +303,7 @@
       </div>
       <div class="campus-tile">
         <div class="ct-inner ct-bg-6">
-          <div class="ct-ico"><i class="bi bi-moon-stars"></i></div>
+          <div class="ct-ico"><i class="bi bi-brightness-high"></i></div>
           <div class="ct-lbl">Masjid</div>
         </div>
       </div>
@@ -368,13 +315,13 @@
       </div>
       <div class="campus-tile">
         <div class="ct-inner ct-bg-8">
-          <div class="ct-ico"><i class="bi bi-balloon-heart"></i></div>
+          <div class="ct-ico"><i class="bi bi-emoji-smile"></i></div>
           <div class="ct-lbl">Day Care Center</div>
         </div>
       </div>
       <div class="campus-tile">
         <div class="ct-inner ct-bg-9">
-          <div class="ct-ico"><i class="bi bi-heart-pulse"></i></div>
+          <div class="ct-ico"><i class="bi bi-chat-heart"></i></div>
           <div class="ct-lbl">Counseling & Aid</div>
         </div>
       </div>
@@ -459,5 +406,56 @@
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ═══ CTA BAND ═══ -->
+<section class="cta-band">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7 fu">
+        <h2 class="mb-3">Ready to Join Department of Medical Sciences?</h2>
+        <p class="mb-0">Explore MBBS admissions, postgraduate pathways, or contact the campus for guidance.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end fu fu-delay-2">
+        <a href="admissions.php" class="btn-pmc btn-pmc-outline-white me-2 mb-2"><i class="bi bi-pencil-square"></i> Apply Now</a>
+        <a href="contact.php" class="btn-pmc btn-pmc-outline-white mb-2"><i class="bi bi-telephone"></i> Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RECOGNITIONS ═══ -->
+<section class="pmc-section recog-strip" id="recognitions">
+  <div class="container">
+    <div class="text-center mb-5 fu">
+      <span class="sec-eyebrow">Recognitions &amp; Accreditations</span>
+      <h2 class="sec-title" style="color:white;">Recognized by Leading Institutions</h2>
+    </div>
+    <div class="recog-grid fu">
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div>
+        <div class="recog-name">Pakistan Medical &amp; Dental Council<br /><small
+            style="opacity:.5;font-size:.62rem;">(PM&amp;DC)</small></div>
+      </div>
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-building-fill"></i></div>
+        <div class="recog-name">Riphah International University</div>
+      </div>
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-award-fill"></i></div>
+        <div class="recog-name">College of Physicians &amp; Surgeons Pakistan<br /><small
+            style="opacity:.5;font-size:.62rem;">(CPSP)</small></div>
+      </div>
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-hospital-fill"></i></div>
+        <div class="recog-name">Ministry of Health<br /><small style="opacity:.5;font-size:.62rem;">Pakistan</small>
+        </div>
+      </div>
+      <div class="recog-cell" style="border-right:none;">
+        <div class="recog-ico"><i class="bi bi-globe2"></i></div>
+        <div class="recog-name">World Health Organization<br /><small style="opacity:.5;font-size:.62rem;">(WHO)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <?php include('includes/footer.php'); ?>

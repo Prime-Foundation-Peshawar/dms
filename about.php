@@ -21,10 +21,11 @@
       <div class="col-lg-8">
         <div class="page-content fu">
 
-          <h2 class="sec-title" style="font-size:1.8rem;">Department of Medical Sciences - Riphah International University (Peshawar Campus)</h2>
+          <h2 class="sec-title" style="font-size:1.8rem;">Department of Medical Sciences (DMS)</h2>
+          <p style="font-size:.95rem;color:var(--muted,#64748b);">A constituent department of <strong>Riphah International University – Peshawar Campus</strong> · <strong>Peshawar Medical College</strong></p>
           
-          <p>Department of Medical Sciences is the oldest among the component departments of Riphah International University-Peshawar Campus.</p>
-          <p>The institute has been established with objectives of contributing towards the quality medical education in line with community health needs of KP & Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.</p>
+          <p>The Department of Medical Sciences is the oldest among the component departments of Riphah International University – Peshawar Campus. It comprises <strong>Peshawar Medical College</strong> and postgraduate medical programmes.</p>
+          <p>The institute has been established with objectives of contributing towards the quality medical education in line with community health needs of KP &amp; Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.</p>
           <p>Department of Medical Sciences is recognized by Pakistan Medical & Dental Council (PM&DC). According to the 2024 inspection visit by PM&DC of various public & private sector colleges, it was our honour to stand first among private hospitals of KP with more than 80% score.</p>
           <p>The institution is managed by a “Board of Governors”; which comprises of highly dedicated professionals & qualified academicians.</p>
           <p>The institution has opened its portal for Local, overseas Pakistani & students from other nationalities particularly from brother Muslim countries, regardless of color, creed gender, ethnicity and religion.</p>

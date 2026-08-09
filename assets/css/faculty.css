@@ -1,5 +1,5 @@
 /* ── Back to Top ── */
-#backToTop{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--teal);color:white;border:none;border-radius:10px;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(10px);transition:opacity var(--ease),transform var(--ease),background var(--ease);box-shadow:0 4px 18px rgba(0,168,150,.35);}
+#backToTop{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--teal);color:white;border:none;border-radius:10px;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(10px);transition:opacity var(--ease),transform var(--ease),background var(--ease);box-shadow:0 4px 18px rgba(27,122,158,.35);}
 #backToTop.visible{opacity:1;transform:translateY(0);}
 #backToTop:hover{background:var(--navy);}
 
@@ -57,7 +57,7 @@
   outline: none;
   border-color: var(--teal);
   background: white;
-  box-shadow: 0 0 0 3px rgba(0,168,150,.12);
+  box-shadow: 0 0 0 3px rgba(27,122,158,.12);
 }
 .search-wrap { position: relative; }
 .search-wrap i {
@@ -86,7 +86,7 @@
 .filter-select:focus {
   outline: none;
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(0,168,150,.12);
+  box-shadow: 0 0 0 3px rgba(27,122,158,.12);
 }
 
 /* View toggle */
@@ -336,7 +336,7 @@
 .empty-icon { font-size: 3rem; color: var(--gray-light); margin-bottom: 16px; }
 
 /* ── DESIGNATION BADGE COLORS ── */
-.des-professor     { background: linear-gradient(135deg, #0A1628, #1a3a6b); }
+.des-professor     { background: linear-gradient(135deg, #0B1F33, #1a3a6b); }
 .des-associate     { background: linear-gradient(135deg, #00695C, #00897B); }
 .des-assistant     { background: linear-gradient(135deg, #1565C0, #1976D2); }
 .des-senior-lec    { background: linear-gradient(135deg, #6A1B9A, #7B1FA2); }

@@ -1,38 +1,3 @@
-<!-- ═══ RECOGNITION ═══ -->
-<section class="pmc-section recog-strip">
-  <div class="container">
-    <div class="text-center mb-5 fu">
-      <span class="sec-eyebrow">Recognitions & Accreditations</span>
-      <h2 class="sec-title" style="color:white;">Recognized by Leading Institutions</h2>
-    </div>
-    <div class="recog-grid fu">
-      <div class="recog-cell">
-        <div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div>
-        <div class="recog-name">Pakistan Medical &amp; Dental Council<br /><small
-            style="opacity:.5;font-size:.62rem;">(PM&DC)</small></div>
-      </div>
-      <div class="recog-cell">
-        <div class="recog-ico"><i class="bi bi-building-fill"></i></div>
-        <div class="recog-name">Riphah International University</div>
-      </div>
-      <div class="recog-cell">
-        <div class="recog-ico"><i class="bi bi-award-fill"></i></div>
-        <div class="recog-name">College of Physicians &amp; Surgeons Pakistan<br /><small
-            style="opacity:.5;font-size:.62rem;">(CPSP)</small></div>
-      </div>
-      <div class="recog-cell">
-        <div class="recog-ico"><i class="bi bi-hospital-fill"></i></div>
-        <div class="recog-name">Ministry of Health<br /><small style="opacity:.5;font-size:.62rem;">Pakistan</small>
-        </div>
-      </div>
-      <div class="recog-cell" style="border-right:none;">
-        <div class="recog-ico"><i class="bi bi-globe-americas"></i></div>
-        <div class="recog-name">World Health Organization<br /><small style="opacity:.5;font-size:.62rem;">(WHO)</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <!-- ═══ FOOTER ═══ -->
 <footer class="pmc-footer">
   <div class="footer-top">
@@ -41,12 +6,10 @@
         <div class="col-lg-4">
           <div class="foot-brand">
             <img src="assets/images/logo/riphah-psh-white.png"
-              alt="Department of Medical Sciences - Riphah International University (Peshawar Campus)" width="250px" />
-            <!-- <div class="foot-name">Department of Medical Sciences - Riphah International University (Peshawar Campus)</div> -->
+              alt="Department of Medical Sciences (DMS) — Riphah Peshawar Campus" width="250px" />
           </div>
           <p class="foot-desc">
-            Come with commitment, grow with wisdom and leave with professional and ethical competence for a bright
-            future
+            Department of Medical Sciences, Riphah International University – Peshawar Campus — comprising Peshawar Medical College and postgraduate medical programmes.
           </p>
           <div class="foot-socials">
             <a href="https://www.facebook.com/share/17Mw2CuEkD/" class="soc-btn" target="_blank"
@@ -65,6 +28,8 @@
             <li><a href="vision-mission.php">Vision & Mission</a></li>
             <li><a href="faculty-all.php">Faculty</a></li>
             <li><a href="admissions.php">Admissions</a></li>
+            <li><a href="pmc.php">Peshawar Medical College</a></li>
+            <li><a href="pg-medical-education.php">PG Medical Education</a></li>
             <li><a href="vacant-seats.php">Vacant Seats</a></li>
             <li><a href="contact.php">Contact Us</a></li>
           </ul>

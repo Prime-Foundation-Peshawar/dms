@@ -5,11 +5,11 @@
     <div class="row align-items-center">
       <!-- Left side: title & breadcrumb -->
       <div class="col-lg-8">
-        <h1>Peshawar Medical College (PMC)</h1>
+        <h1>Peshawar Medical College</h1>
         <div class="breadcrumb-pmc">
           <a href="index.php">Home</a>
           <span class="sep"><i class="bi bi-chevron-right"></i></span>
-          Peshawar Medical College (PMC)
+          Peshawar Medical College
         </div>
       </div>
       <!-- Right side: logo -->
@@ -30,13 +30,8 @@
 
           <!-- Introduction Section -->
           <h2 class="sec-title" style="font-size:1.8rem;">Introduction</h2>
-          <!--<p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">-->
-          <!--  Peshawar Medical College is the first project of PRIME FOUNDATION.-->
-          <!--</p>-->
           <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
-            The institute has been established with objectives of contributing towards the quality medical education in
-            line with community health needs of KP & Pakistan. The aim is to train excellent medical doctors, having
-            highest standards of professional competence, integrity, commitment and research.
+            <strong>Peshawar Medical College</strong> is the medical college of the <strong>Department of Medical Sciences</strong> at Riphah International University – Peshawar Campus. Established to contribute towards quality medical education in line with the community health needs of KP and Pakistan, the College trains physicians with high standards of professional competence, integrity, commitment, and research.
           </p>
           <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
             Peshawar Medical College is recognized by Pakistan Medical & Dental Council (PM&DC) according to 2019

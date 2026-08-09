@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Department of Medical Sciences - Riphah International University (Peshawar Campus)</title>
+  <title>Department of Medical Sciences | Peshawar Medical College — Riphah Peshawar Campus</title>
   <meta name="description"
-    content="Department of Medical Sciences - Riphah International University (Peshawar Campus) — PM&DC recognized MBBS institution affiliated with Riphah International University. Warsak Road, Peshawar, KP, Pakistan." />
+    content="Department of Medical Sciences, Riphah International University – Peshawar Campus. Peshawar Medical College — PM&DC recognized MBBS and postgraduate programmes. Warsak Road, Peshawar." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo/favicon-logo.jpg" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/images/logo/favicon-logo.jpg">
   
-  <meta property="og:title" content="Department of Medical Sciences - Riphah International University (Peshawar Campus)">
-  <meta property="og:description" content="Department of Medical Sciences - Riphah International University (Peshawar Campus) — PM&DC recognized MBBS institution affiliated with Riphah International University. Warsak Road, Peshawar, KP, Pakistan.">
+  <meta property="og:title" content="Department of Medical Sciences | Peshawar Medical College — Riphah Peshawar Campus">
+  <meta property="og:description" content="Department of Medical Sciences — Peshawar Medical College. PM&DC recognized MBBS and postgraduate programmes at Riphah International University – Peshawar Campus.">
   <meta property="og:image" content="https://dms.riphahpsh.edu.pk/assets/images/logo/favicon-logo.jpg">
-  <meta property="og:url" content=https://dms.riphahpsh.edu.pk/">
+  <meta property="og:url" content="https://dms.riphahpsh.edu.pk/">
 
   <!-- Bootstrap 5.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -25,6 +25,11 @@
   <link href="assets/css/pmc-global.css" rel="stylesheet" />
   <!-- PMC CSS -->
   <link href="assets/css/style.css" rel="stylesheet" />
+  <?php if (!empty($preload_images) && is_array($preload_images)): ?>
+    <?php foreach ($preload_images as $preload_href): ?>
+  <link rel="preload" as="image" href="<?= htmlspecialchars($preload_href) ?>" type="image/webp" fetchpriority="high" />
+    <?php endforeach; ?>
+  <?php endif; ?>
 
 </head>
 
@@ -58,10 +63,11 @@
       <a class="pmc-brand" href="index.php">
         <div class="">
           <img src="assets/images/logo/riphah-psh.png"
-            alt="Department of Medical Sciences - Riphah International University (Peshawar Campus)" width="200px;" />
+            alt="Department of Medical Sciences (DMS) — Riphah Peshawar Campus" width="200px;" />
         </div>
-        <div class="pmc-brand-text">
-          <!-- optional text removed for brevity -->
+        <div class="pmc-brand-text d-none d-xl-block" style="margin-left:10px;line-height:1.2;">
+          <div style="font-size:.72rem;font-weight:700;color:var(--navy);">Department of Medical Sciences</div>
+          <div style="font-size:.65rem;color:var(--teal);">Peshawar Medical College · Riphah Peshawar Campus</div>
         </div>
       </a>
 
@@ -72,64 +78,51 @@
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav ms-auto align-items-lg-center position-static">
 
-          <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
 
           <!-- ABOUT mega -->
           <li class="nav-item mega-menu-wrapper position-static">
-            <a class="nav-link dropdown-toggle" href="about.php">About Us</a>
+            <a class="nav-link dropdown-toggle" href="about.php">About</a>
             <div class="mega-menu">
               <div class="container">
                 <div class="row g-4">
-                  <div class="col-lg-3">
+                  <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-info-circle-fill"></i> About Us</div>
-                    <a class="mega-link" href="about.php"><i class="bi bi-building"></i>Introduction</a>
-                    <a class="mega-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision & Mission</a>
+                    <a class="mega-link" href="about.php"><i class="bi bi-building"></i>About DMS</a>
+                    <a class="mega-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
                     <a class="mega-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
-                    <a class="mega-link" href="about.php#location"><i class="bi bi-geo-alt"></i>Campus Location</a>
                   </div>
-                  <div class="col-lg-3">
-                    <div class="mega-col-head"><i class="bi bi-buildings-fill"></i> Campus Life</div>
-                    <a class="mega-link" href="about.php#campus"><i class="bi bi-book-half"></i>Library & LRC</a>
-                    <a class="mega-link" href="about.php#campus"><i class="bi bi-house-heart"></i>Girls Hostel</a>
-                    <a class="mega-link" href="about.php#campus"><i class="bi bi-trophy"></i>Sports & Gym</a>
-                    <a class="mega-link" href="about.php#campus"><i class="bi bi-cup-hot"></i>Cafeteria</a>
-                    <a class="mega-link" href="about.php#campus"><i class="bi bi-moon-stars"></i>Masjid</a>
-                    <a class="mega-link" href="about.php#campus"><i class="bi bi-bus-front"></i>Transportation</a>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="mega-col-head"><i class="bi bi-hospital-fill"></i> Teaching Hospitals</div>
+                  <div class="col-lg-4">
+                    <div class="mega-col-head"><i class="bi bi-hospital-fill"></i> College &amp; Hospitals</div>
+                    <a class="mega-link" href="pmc.php"><i class="bi bi-award"></i>Peshawar Medical College</a>
                     <a class="mega-link" href="https://kth.prime.edu.pk/" target="_blank"><i
                         class="bi bi-hospital"></i>Kuwait Teaching Hospital</a>
                     <a class="mega-link" href="https://mth.prime.edu.pk/" target="_blank"><i
                         class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a>
                     <a class="mega-link" href="https://pth.prime.edu.pk/" target="_blank"><i
-                        class="bi bi-capsule-pill"></i>Prime Teaching Hospital</a>
-                    <!-- <a class="mega-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i
-                        class="bi bi-people-fill"></i>Community Dev. Center</a> -->
-                    <hr class="my-2" style="border-color:var(--border);">
+                        class="bi bi-building"></i>Prime Teaching Hospital</a>
                   </div>
-                  <div class="col-lg-3">
-                    <div class="mega-col-head"><i class="bi bi-building"></i> Other Relavent Departments</div>
-                    <a class="mega-link" href="https://dds.riphahpsh.edu.pk/" target="_blank"><i class="bi bi-hospital"></i>Department of Dental
-                      Sciences</a>
-                    <a class="mega-link" href="https://riphahpsh.edu.pk/dicr" target="_blank"><i class="bi bi-heart-pulse"></i>Department of
-                      Islamic Studies & Comparative Religion</a>
+                  <div class="col-lg-4">
+                    <div class="mega-col-head"><i class="bi bi-diagram-3"></i> Other Relevant Departments</div>
+                    <a class="mega-link" href="https://riphahpsh.edu.pk/" target="_blank"><i class="bi bi-building"></i>Main Campus</a>
+                    <a class="mega-link" href="https://dds.riphahpsh.edu.pk/" target="_blank"><i class="bi bi-clipboard2-pulse"></i>Department of Dental Sciences</a>
+                    <a class="mega-link" href="https://riphahpsh.edu.pk/islamic-studies.php" target="_blank"><i class="bi bi-book"></i>Department of Islamic Studies &amp; Comparative Religion</a>
                   </div>
-                  <!-- <div class="col-lg-3">
-                    <div class="mega-feature">
-                      <div class="mega-feature-icon"><i class="bi bi-award-fill"></i></div>
-                      <h5>PM&DC Recognized</h5>
-                      <p>Department of Medical Sciences - Riphah International University (Peshawar Campus) ranked first among private medical colleges in KP with over 80%
-                        inspection score.</p>
-                      <a class="mf-link" href="about.php">Learn More <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div> -->
                 </div>
               </div>
             </div>
           </li>
 
-          <!-- ADMISSIONS mega (unchanged except vacant seats link updated to new external if needed, but internal link kept) -->
+          <li class="nav-item mega-menu-wrapper">
+            <a class="nav-link dropdown-toggle" href="#programs">Programs</a>
+            <div class="dropdown-menu plain-dd" style="min-width:260px;">
+              <a class="dropdown-item" href="pmc.php"><i class="bi bi-mortarboard"></i>Peshawar Medical College — MBBS</a>
+              <a class="dropdown-item" href="pg-medical-education.php"><i class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
+              <a class="dropdown-item" href="medical-education.php"><i class="bi bi-book"></i>Medical Education Overview</a>
+            </div>
+          </li>
+
+          <!-- ADMISSIONS mega -->
           <li class="nav-item mega-menu-wrapper position-static">
             <a class="nav-link dropdown-toggle" href="admissions.php">Admissions</a>
             <div class="mega-menu">
@@ -199,7 +192,7 @@
                       Labs</a> -->
                   </div>
                   <div class="col-lg-4">
-                    <div class="mega-col-head"><i class="bi bi-laptop"></i> Research</div>
+                    <div class="mega-col-head"><i class="bi bi-flask"></i> Research</div>
                     <a class="mega-link" href="https://umr.prime.edu.pk/" target="_blank"><i
                         class="bi bi-search"></i>Undergraduate Medical Research (UMR)</a>
                     <a class="mega-link" href="https://sws.prime.edu.pk/"><i class="bi bi-file-earmark-text"></i>Students
@@ -238,18 +231,17 @@
               <a class="dropdown-item" href="https://riphahpsh.edu.pk/umr.php"><i class="bi bi-mortarboard"></i>UMR Society</a>
               <a class="dropdown-item" href="https://riphahpsh.edu.pk/social-welfare.php"><i class="bi bi-heart"></i>Social Welfare Society</a>
               <a class="dropdown-item" href="https://riphahpsh.edu.pk/literary-society.php"><i class="bi bi-pen"></i>Literature & Arts Society</a>
-              <a class="dropdown-item" href="#"><i class="bi bi-trophy"></i>Sports Society</a>
+              <a class="dropdown-item" href="https://riphahpsh.edu.pk/sports-society.php"><i class="bi bi-trophy"></i>Sports Society</a>
             </div>
           </li>
 
           <li class="nav-item"><a class="nav-link" href="https://riphahpsh.edu.pk/news-letter.php">Newsletter</a></li>
-          <!-- <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li> -->
           <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link nav-btn-apply" href="admissions.php" style="color: #ffffff !important;">
-              <i class="bi bi-mortarboard-fill"></i> Admissions 2026-27 Apply Now
+              <i class="bi bi-mortarboard-fill"></i> Apply
             </a>
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>

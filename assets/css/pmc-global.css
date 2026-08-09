@@ -1,8 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════
-   PMC GLOBAL STYLESHEET
+   DMS — DEPARTMENT OF MEDICAL SCIENCES
+   (legacy filename: pmc-global.css — class aliases kept for compatibility)
    Fonts  : Montserrat (headings) · Quicksand (body)
-   Colors : Navy #0A1628 · Teal #00A896 · Gold #C9A84C
-   Version: 2.0 — Full Revamp 2025
+   Colors : Clinical navy · Medical blue · Warm amber
+   Note   : Distinct from campus hub (teal/gold) while staying in-family
+   Version: 2.2 — DMS theme differentiation 2026
 ═══════════════════════════════════════════════════════════════ */
 
 /* ── GOOGLE FONTS ── */
@@ -10,34 +12,34 @@
 
 /* ── DESIGN TOKENS ── */
 :root {
-  /* Brand */
-  --navy:        #0A1628;
-  --navy-mid:    #122040;
-  --navy-deep:   #060e1a;
-  --teal:        #00A896;
-  --teal-light:  #00c9b3;
-  --teal-pale:   #e6f9f7;
-  --gold:        #C9A84C;
-  --gold-light:  #e0c068;
-  --gold-pale:   #fdf6e3;
+  /* Brand — medical / clinical (token names kept for compatibility) */
+  --navy:        #0B1F33;
+  --navy-mid:    #143452;
+  --navy-deep:   #071624;
+  --teal:        #1B7A9E;
+  --teal-light:  #3A9BC0;
+  --teal-pale:   #E8F4F9;
+  --gold:        #C4873A;
+  --gold-light:  #E0A85C;
+  --gold-pale:   #FBF3E8;
 
   /* Neutrals */
   --white:       #ffffff;
-  --off-white:   #F4F7F9;
-  --gray-light:  #eef1f5;
-  --gray-mid:    #7a8a99;
-  --gray-dark:   #3d4f60;
-  --border:      #dde3ea;
-  --text:        #1a2740;
+  --off-white:   #F3F7FA;
+  --gray-light:  #e8eef3;
+  --gray-mid:    #6e8294;
+  --gray-dark:   #334859;
+  --border:      #d5e0e8;
+  --text:        #152636;
 
   /* Typography */
   --font-head:  'Montserrat', sans-serif;
   --font-body:  'Quicksand', sans-serif;
 
   /* Shadows */
-  --shadow-sm:  0 2px 12px rgba(10,22,40,.07);
-  --shadow-md:  0 6px 28px rgba(10,22,40,.11);
-  --shadow-lg:  0 14px 50px rgba(10,22,40,.14);
+  --shadow-sm:  0 2px 12px rgba(11,31,51,.07);
+  --shadow-md:  0 6px 28px rgba(11,31,51,.11);
+  --shadow-lg:  0 14px 50px rgba(11,31,51,.14);
 
   /* Radius */
   --r-sm: 8px;
@@ -318,7 +320,7 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 
 /* Toggler */
 .pmc-toggler {
-  border: 1.5px solid rgba(10,22,40,.2);
+  border: 1.5px solid rgba(11,31,51,.2);
   border-radius: var(--r-sm);
   padding: 6px 10px;
   background: transparent;
@@ -335,8 +337,8 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 .page-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle at 80% 50%, rgba(0,168,150,.12) 0%, transparent 60%),
-                    radial-gradient(circle at 20% 80%, rgba(201,168,76,.08) 0%, transparent 40%);
+  background-image: radial-gradient(circle at 80% 50%, rgba(27,122,158,.12) 0%, transparent 60%),
+                    radial-gradient(circle at 20% 80%, rgba(196,135,58,.08) 0%, transparent 40%);
 }
 .page-hero-grid {
   position: absolute; inset: 0; opacity: .04;
@@ -393,21 +395,21 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 .btn-pmc-primary {
   background: var(--teal);
   color: white;
-  box-shadow: 0 4px 18px rgba(0,168,150,.32);
+  box-shadow: 0 4px 18px rgba(27,122,158,.32);
 }
-.btn-pmc-primary:hover { background: var(--teal-light); color: white; box-shadow: 0 8px 28px rgba(0,168,150,.42); }
+.btn-pmc-primary:hover { background: var(--teal-light); color: white; box-shadow: 0 8px 28px rgba(27,122,158,.42); }
 .btn-pmc-navy {
   background: var(--navy);
   color: white;
-  box-shadow: 0 4px 18px rgba(10,22,40,.22);
+  box-shadow: 0 4px 18px rgba(11,31,51,.22);
 }
 .btn-pmc-navy:hover { background: var(--navy-mid); color: white; }
 .btn-pmc-gold {
   background: var(--gold);
   color: var(--navy);
-  box-shadow: 0 4px 18px rgba(201,168,76,.35);
+  box-shadow: 0 4px 18px rgba(196,135,58,.35);
 }
-.btn-pmc-gold:hover { background: var(--gold-light); color: var(--navy); box-shadow: 0 8px 28px rgba(201,168,76,.45); }
+.btn-pmc-gold:hover { background: var(--gold-light); color: var(--navy); box-shadow: 0 8px 28px rgba(196,135,58,.45); }
 .btn-pmc-outline {
   background: transparent;
   color: var(--teal);
@@ -729,4 +731,36 @@ p, li, span, td, th, label, input, textarea, select, .font-body {
 @media (max-width: 575.98px) {
   .pmc-topbar .d-flex { flex-wrap: wrap; gap: 4px; }
   .recog-grid { flex-direction: column; }
+}
+
+/* ── Campus token aliases (riphah-* / campus-* → existing pmc-* system) ── */
+:root {
+  --riphah-navy: var(--navy);
+  --riphah-teal: var(--teal);
+  --riphah-gold: var(--gold);
+  --campus-navy: var(--navy);
+  --campus-teal: var(--teal);
+  --campus-gold: var(--gold);
+}
+.riphah-section,
+.campus-section { padding: 80px 0; }
+.riphah-card,
+.campus-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+}
+.btn-riphah,
+.btn-campus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: .85rem;
+  padding: 12px 22px;
+  border-radius: 999px;
+  transition: var(--ease);
 }

@@ -17,13 +17,12 @@
 
           <!-- College Introduction -->
           <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
-            Riphah International University - Peshawar Campus Peshawar with a mission to achieve excellence in professional competence and
-            ethical values, offers merit-based admissions to a five-year Bachelor of Medicine, Bachelor of Surgery
-            (MBBS) programme. The transparent admission process ensures the admission of high quality students to
-            fulfill the goal of the institution by producing graduates who are capable of delivering ethically driven
-            quality health care to the community, contribute in the advancement of health research, development of
-            evidence-based health care interventions and prove to be a socially responsible, honest, respectable and
-            patriotic professionals.
+            The <strong>Department of Medical Sciences</strong> at Riphah International University – Peshawar Campus, through <strong>Peshawar Medical College</strong>, offers merit-based admissions to a five-year Bachelor of Medicine, Bachelor of Surgery (MBBS) programme. The transparent admission process aims to produce graduates who deliver ethically driven quality health care, advance health research, and serve as socially responsible professionals.
+          </p>
+          <p style="font-size:.9rem;margin-bottom:1.25rem;">
+            <a href="https://riphahpsh.edu.pk/admissions.php" target="_blank">Campus admissions hub</a> ·
+            <a href="https://pmc.prime.edu.pk/admission2026" target="_blank">Application portal</a> ·
+            Prospectus and fee PDFs remain available via the links below (hosted on legacy download servers).
           </p>
 
           <!-- KMU & Quota Note -->

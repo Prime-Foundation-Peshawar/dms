@@ -124,7 +124,6 @@ function initSlider() {
 
   const slides = slider.querySelectorAll('.hero-slide');
   const dots   = slider.querySelectorAll('.slider-dot');
-  const prog   = slider.querySelector('.slide-progress');
   const prevBtn = slider.querySelector('.slider-prev');
   const nextBtn = slider.querySelector('.slider-next');
 
@@ -134,17 +133,53 @@ function initSlider() {
   let autoTimer = null;
   const INTERVAL = 6000;
 
+  const lazyBgs = slider.querySelectorAll('.hero-slide[data-lazy-bg]');
+  let lazyBgLoaded = false;
+  function loadLazyBgs() {
+    if (lazyBgLoaded) return;
+    lazyBgLoaded = true;
+    lazyBgs.forEach(slide => {
+      const media = slide.querySelector('.slide-media') || slide;
+      media.classList.add('bg-ready');
+      slide.removeAttribute('data-lazy-bg');
+    });
+  }
+  if (lazyBgs.length) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadLazyBgs, { timeout: 2500 });
+    } else {
+      setTimeout(loadLazyBgs, 1200);
+    }
+  }
+
+  function restartDotProgress(activeDot) {
+    if (!activeDot) return;
+    const bar = activeDot.querySelector('.slider-dot-bar');
+    if (!bar) return;
+    bar.style.animation = 'none';
+    void bar.offsetWidth;
+    bar.style.animation = `slideProgress ${INTERVAL}ms linear forwards`;
+  }
+
   function goTo(n) {
+    if (n !== current) loadLazyBgs();
     slides[current].classList.remove('active');
-    if (dots[current]) dots[current].classList.remove('active');
+    if (dots[current]) {
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+      const prevBar = dots[current].querySelector('.slider-dot-bar');
+      if (prevBar) {
+        prevBar.style.animation = 'none';
+        prevBar.style.width = '0';
+      }
+    }
     current = ((n % slides.length) + slides.length) % slides.length;
+    void slides[current].offsetWidth;
     slides[current].classList.add('active');
-    if (dots[current]) dots[current].classList.add('active');
-    // restart progress bar
-    if (prog) {
-      prog.style.animation = 'none';
-      void prog.offsetWidth; // reflow
-      prog.style.animation = `slideProgress ${INTERVAL}ms linear forwards`;
+    if (dots[current]) {
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+      restartDotProgress(dots[current]);
     }
   }
 
@@ -156,11 +191,9 @@ function initSlider() {
     if (autoTimer) clearInterval(autoTimer);
   }
 
-  // Init first slide
   goTo(0);
   startAuto();
 
-  // Controls
   if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
   if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
 
@@ -168,7 +201,6 @@ function initSlider() {
     dot.addEventListener('click', () => { goTo(i); startAuto(); });
   });
 
-  // Touch/swipe support
   let touchStartX = 0;
   slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
   slider.addEventListener('touchend', e => {
@@ -176,7 +208,6 @@ function initSlider() {
     if (Math.abs(diff) > 50) { diff > 0 ? goTo(current + 1) : goTo(current - 1); startAuto(); }
   });
 
-  // Pause on hover
   slider.addEventListener('mouseenter', stopAuto);
   slider.addEventListener('mouseleave', startAuto);
 }
