@@ -88,20 +88,64 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(c => cObs.observe(c));
   }
 
-  /* ── 5. SMOOTH ANCHOR SCROLL ── */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
+  /* ── 5. SMOOTH ANCHOR SCROLL (hash + page.php#id menu links) ── */
+  function navOffset() {
+    const navEl = document.querySelector('.pmc-nav');
+    return (navEl ? navEl.offsetHeight : 0) + 16;
+  }
+
+  function scrollToHash(hash, smooth = true) {
+    if (!hash || hash === '#') return false;
+    let target = null;
+    try { target = document.querySelector(hash); } catch (_) { return false; }
+    if (!target) return false;
+    const top = target.getBoundingClientRect().top + window.scrollY - navOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior: smooth ? 'smooth' : 'auto' });
+    return true;
+  }
+
+  function closeMenus() {
+    document.querySelectorAll('.mega-menu, .dropdown-menu.plain-dd').forEach(m => { m.style.display = ''; });
+    const collapse = document.getElementById('navMain');
+    if (collapse && collapse.classList.contains('show') && window.bootstrap?.Collapse) {
+      bootstrap.Collapse.getOrCreateInstance(collapse).hide();
+    }
+  }
+
+  document.querySelectorAll('a[href*="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
-      if (href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const navH = document.querySelector('.pmc-nav')?.offsetHeight || 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      if (!href || href === '#') return;
+
+      const url = new URL(href, window.location.href);
+      const hash = url.hash;
+      if (!hash || hash === '#') return;
+
+      // Same-page hash (e.g. #eligibility or admissions.php#eligibility)
+      const samePage =
+        url.pathname.replace(/\/+$/, '') === window.location.pathname.replace(/\/+$/, '') ||
+        url.pathname.endsWith(window.location.pathname.split('/').pop());
+
+      if (!samePage) return; // let browser navigate to other page + hash
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      e.preventDefault();
+      closeMenus();
+      history.pushState(null, '', hash);
+      scrollToHash(hash, true);
     });
   });
+
+  // Landing on page with hash (from Admissions mega menu)
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    // Defer until layout/sticky nav height is ready
+    requestAnimationFrame(() => {
+      setTimeout(() => scrollToHash(hash, false), 50);
+    });
+  }
 
   /* ── 6. BACK TO TOP ── */
   const btt = document.getElementById('backToTop');
