@@ -7,10 +7,8 @@
    Version: 2.2 — DMS theme differentiation 2026
 ═══════════════════════════════════════════════════════════════ */
 
-/* ── GOOGLE FONTS ── */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
-
 /* ── DESIGN TOKENS ── */
+/* Fonts loaded via <link> in header.php (avoids render-blocking @import) */
 :root {
   /* Brand — medical / clinical (token names kept for compatibility) */
   --navy:        #0B1F33;

@@ -359,7 +359,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/pmc.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Main Campus','bi-buildings')"
-               class="gallery-img" alt="PMC Main Campus"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="PMC Main Campus"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div>
@@ -377,7 +377,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/library.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Library','bi-book-half')"
-               class="gallery-img" alt="Library"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Library"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Library &amp; LRC</div></div>
@@ -392,7 +392,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/gym.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Sports & Gym','bi-trophy')"
-               class="gallery-img" alt="Sports Gym"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Sports Gym"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Sports &amp; Gymnasium</div></div>
@@ -407,7 +407,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/cafe.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Cafeteria','bi-cup-hot')"
-               class="gallery-img" alt="Cafeteria"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Cafeteria"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Cafeteria</div></div>
@@ -422,7 +422,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/hostel.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Girls Hostel','bi-house-heart')"
-               class="gallery-img" alt="Girls Hostel"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Girls Hostel"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Girls Hostel</div></div>
@@ -437,7 +437,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/mosque.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Masjid','bi-moon-stars')"
-               class="gallery-img" alt="Masjid"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Masjid"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">College Masjid</div></div>
@@ -452,7 +452,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/pmc-faculty.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Faculty Block','bi-building')"
-               class="gallery-img" alt="Faculty Block"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Faculty Block"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Faculty Block</div></div>
@@ -486,7 +486,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/news/news1.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Convocation 2024','bi-mortarboard')"
-               class="gallery-img" alt="Convocation"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Convocation"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">Annual Convocation 2024</div></div>
@@ -500,7 +500,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/news/news3.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('UMR Conference','bi-flask')"
-               class="gallery-img" alt="UMR Conference"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="UMR Conference"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">UMR Conference 2025</div></div>
@@ -514,7 +514,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/news/pmc.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('White Coat Ceremony','bi-heart-pulse')"
-               class="gallery-img" alt="White Coat Ceremony"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="White Coat Ceremony"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">White Coat Ceremony</div></div>
@@ -528,7 +528,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/pmc.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Sports Gala','bi-trophy')"
-               class="gallery-img" alt="Sports Gala"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Sports Gala"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">Annual Sports Gala 2025</div></div>
@@ -542,7 +542,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/library.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Blood Donation Drive','bi-droplet-half')"
-               class="gallery-img" alt="Blood Donation"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Blood Donation"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">Blood Donation Drive — SWS</div></div>
@@ -571,7 +571,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/pmc.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Kuwait Hospital','bi-hospital-fill')"
-               class="gallery-img" alt="Kuwait Hospital"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Kuwait Hospital"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Kuwait Teaching Hospital</div></div>
@@ -585,7 +585,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/gym.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Skill Labs','bi-activity')"
-               class="gallery-img" alt="Skill Labs"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Skill Labs"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Clinical Skill Labs</div></div>
@@ -599,7 +599,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/cafe.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('OPD Rotation','bi-clipboard-pulse')"
-               class="gallery-img" alt="OPD Rotations"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="OPD Rotations"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">OPD Rotations</div></div>
@@ -613,7 +613,7 @@
              onclick="openLightbox(this)">
           <img src="assets/images/campus/hostel.jpg"
                onerror="this.parentElement.innerHTML=galleryPlaceholder('Surgery Rounds','bi-scissors')"
-               class="gallery-img" alt="Surgery Rounds"/>
+               class="gallery-img" loading="lazy" decoding="async" alt="Surgery Rounds"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Surgery Ward Rounds</div></div>

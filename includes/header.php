@@ -36,6 +36,10 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
   <meta property="og:image" content="<?= htmlspecialchars(base_url) ?>assets/images/logo/favicon-logo.jpg">
   <meta property="og:url" content="<?= htmlspecialchars(base_url) ?>">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bootstrap 5.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->

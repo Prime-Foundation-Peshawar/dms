@@ -36,7 +36,10 @@
                 <p style="margin:0;font-weight:700;font-size:1.05rem;color:var(--navy);">To Achieve Excellence in
                   Professional Competence and Ethical Values.</p>
               </div>
-              <div><img src="assets/images/about/mission.jpg" /></div>
+            </div>
+            <div class="mission-flower" style="margin-top:20px;text-align:center;">
+              <img src="assets/images/about/mission.jpg" alt="Mission statement diagram"
+                style="width:100%;max-width:560px;height:auto;margin:0 auto;" />
             </div>
           </div>
           <div class="pmc-card"

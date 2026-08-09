@@ -430,7 +430,7 @@
     .ct-bg-4 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/cafe.jpg'); background-size: cover; background-position: center; }
     .ct-bg-5 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/hostel.jpg'); background-size: cover; background-position: center; }
     .ct-bg-6 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/masjid.jpg'); background-size: cover; background-position: center; }
-    .ct-bg-7 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/transport.png'); background-size: cover; background-position: center; }
+    .ct-bg-7 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/transport.jpg'); background-size: cover; background-position: center; }
     .ct-bg-8 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/daycare.jpg'); background-size: cover; background-position: center; }
     .ct-bg-9 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/first-aid.webp'); background-size: cover; background-position: center; }
     .ct-ico { font-size: 1.7rem; color: rgba(255,255,255,.85); }
@@ -844,6 +844,224 @@
       .about-attr-grid { grid-template-columns: 1fr; }
       .about-facility-grid { grid-template-columns: 1fr 1fr; }
       .about-cta-row .btn-pmc { width: 100%; justify-content: center; }
+    }
+
+    /* ── PMC PAGE ── */
+    .pmc-hero-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .pmc-hero-logo img {
+      max-height: 96px;
+      width: auto;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,.25));
+    }
+    .pmc-vm-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+      background: #fff;
+    }
+    .pmc-vm-vision { background: var(--teal-pale); border-color: rgba(21,95,122,.18); }
+    .pmc-vm-mission { background: var(--gold-pale); border-color: rgba(196,135,58,.22); }
+    .pmc-vm-slogan { background: var(--off-white); }
+    .pmc-vm-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-size: 1.15rem;
+    }
+    .pmc-vm-vision .pmc-vm-icon { color: var(--teal); border-color: rgba(21,95,122,.2); }
+    .pmc-vm-mission .pmc-vm-icon { color: var(--gold); border-color: rgba(196,135,58,.25); }
+    .pmc-vm-slogan .pmc-vm-icon { color: var(--navy); }
+    .pmc-vm-card h4 {
+      font-family: var(--font-head);
+      font-size: .98rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 8px;
+    }
+    .pmc-vm-card p { margin: 0 !important; }
+    .pmc-vm-highlight {
+      font-weight: 700 !important;
+      font-size: 1.05rem !important;
+      color: var(--navy) !important;
+    }
+    .pmc-vm-quote {
+      font-style: italic;
+      font-size: 1.02rem !important;
+      color: var(--navy) !important;
+    }
+    .pmc-vm-note {
+      margin-top: 8px !important;
+      color: var(--gray-mid) !important;
+      font-size: .9rem !important;
+    }
+    .mission-flower {
+      text-align: center;
+      margin: 8px 0 22px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .mission-flower img {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      margin: 0 auto;
+    }
+    .pmc-hosp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .pmc-hosp-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      text-decoration: none;
+      transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+    .pmc-hosp-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm, 0 6px 18px rgba(10,22,40,.06));
+    }
+    .pmc-hosp-card i { font-size: 1.45rem; color: var(--teal); margin-bottom: 4px; }
+    .pmc-hosp-card strong {
+      font-family: var(--font-head);
+      font-size: .84rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+    .pmc-hosp-card span {
+      font-family: var(--font-body);
+      font-size: .76rem;
+      font-weight: 500;
+      color: var(--gray-mid);
+    }
+    .pmc-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .pmc-gallery-item {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: var(--gray-light);
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .pmc-gallery-item--wide {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+    .pmc-gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md, 0 10px 28px rgba(10,22,40,.1));
+    }
+    .pmc-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .pmc-gallery-item:hover img { transform: scale(1.04); }
+    .pmc-gallery-zoom {
+      position: absolute;
+      top: 10px; right: 10px;
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: rgba(10,22,40,.45);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity var(--ease);
+    }
+    .pmc-gallery-item:hover .pmc-gallery-zoom { opacity: 1; }
+
+    /* Shared lightbox chrome (PMC page) */
+    .pmc-lightbox {
+      position: fixed; inset: 0;
+      background: rgba(6,14,26,.96);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .pmc-lightbox.open { display: flex; }
+    .pmc-lightbox .lb-inner { position: relative; max-width: min(920px, 92vw); width: 100%; text-align: center; }
+    .pmc-lightbox .lb-img { max-width: 100%; max-height: 72vh; border-radius: 10px; }
+    .pmc-lightbox .lb-caption {
+      margin-top: 14px;
+      font-family: var(--font-head);
+      font-size: .9rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.85);
+    }
+    .pmc-lightbox .lb-counter {
+      margin-top: 6px;
+      font-family: var(--font-body);
+      font-size: .75rem;
+      color: rgba(255,255,255,.5);
+    }
+    .pmc-lightbox .lb-close,
+    .pmc-lightbox .lb-prev,
+    .pmc-lightbox .lb-next {
+      position: absolute;
+      border: 0;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background var(--ease);
+    }
+    .pmc-lightbox .lb-close:hover,
+    .pmc-lightbox .lb-prev:hover,
+    .pmc-lightbox .lb-next:hover { background: rgba(255,255,255,.22); }
+    .pmc-lightbox .lb-close { top: 22px; right: 22px; }
+    .pmc-lightbox .lb-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+    .pmc-lightbox .lb-next { right: 18px; top: 50%; transform: translateY(-50%); }
+
+    @media (max-width: 991.98px) {
+      .pmc-hosp-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 767.98px) {
+      .pmc-gallery-grid { grid-template-columns: 1fr 1fr; }
+      .pmc-gallery-item--wide { grid-column: span 2; }
+    }
+    @media (max-width: 575.98px) {
+      .pmc-gallery-grid { grid-template-columns: 1fr; }
+      .pmc-gallery-item--wide { grid-column: span 1; aspect-ratio: 16/9; }
+      .pmc-lightbox .lb-prev,
+      .pmc-lightbox .lb-next { display: none; }
     }
 
     /* ── ADMISSIONS ── */

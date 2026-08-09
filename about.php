@@ -21,7 +21,7 @@
       <div class="col-lg-8">
         <div class="page-content">
 
-          <!-- Intro -->
+          <!-- Intro — department scope (college detail lives on pmc.php) -->
           <div class="about-intro fu">
             <span class="sec-eyebrow">Introduction</span>
             <h2 class="sec-title" style="font-size:1.75rem;">Department of Medical Sciences</h2>
@@ -29,13 +29,10 @@
               A constituent department of <strong>Riphah International University – Peshawar Campus</strong>, comprising <strong>Peshawar Medical College</strong> and postgraduate medical programmes.
             </p>
             <p>
-              The Department of Medical Sciences is the oldest among the component departments of Riphah International University – Peshawar Campus. It was established to advance quality medical education aligned with the community health needs of Khyber Pakhtunkhwa and Pakistan — preparing physicians with professional competence, integrity, commitment, and research ability.
+              DMS is the oldest component department of the Peshawar Campus. It coordinates undergraduate MBBS education through PMC, postgraduate pathways, and clinical training across affiliated teaching hospitals — with a focus on the health needs of Khyber Pakhtunkhwa and Pakistan.
             </p>
             <p>
-              DMS is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. In the 2024 PM&amp;DC inspection of public and private sector colleges, the institution stood first among private hospitals of KP with more than <strong>80% score</strong>.
-            </p>
-            <p>
-              The institution is managed by a Board of Governors of dedicated professionals and academicians. It welcomes local, overseas Pakistani, and international students — particularly from Muslim countries — regardless of color, creed, gender, ethnicity, or religion.
+              For the MBBS college profile, graduate attributes, clinical hospitals, and campus gallery, see <a href="pmc.php"><strong>Peshawar Medical College</strong></a>. Department values are on <a href="vision-mission.php"><strong>Vision &amp; Mission</strong></a>.
             </p>
           </div>
 
@@ -63,32 +60,40 @@
               </div>
             </div>
             <div class="about-fact">
-              <i class="bi bi-patch-check-fill"></i>
+              <i class="bi bi-diagram-3-fill"></i>
               <div>
-                <strong>PM&amp;DC</strong>
-                <span>#1 private (KP, 2024)</span>
+                <strong>UG + PG</strong>
+                <span>PMC &amp; postgraduate pathways</span>
               </div>
             </div>
           </div>
 
-          <!-- Graduate attributes -->
-          <div class="about-block fu" id="attributes">
+          <!-- Programmes bridge -->
+          <div class="about-block fu" id="programmes">
             <div class="about-block-head">
-              <h3>Graduate Attributes</h3>
-              <p>Minimum capabilities DMS aspires to develop in every medical graduate.</p>
+              <h3>Colleges &amp; Programmes</h3>
+              <p>Where teaching and clinical training are delivered within DMS.</p>
             </div>
-            <div class="about-attr-grid">
-              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>In-depth knowledge of basic medical sciences</span></div>
-              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Clinical acumen with solutions for local health problems</span></div>
-              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Ability to manage emergencies under pressure and workload</span></div>
-              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Use of information technology in research and evaluation</span></div>
-              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Holistic care — biological, psychological, and social</span></div>
-              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Commitment to ethical values in medical practice</span></div>
-              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Capacity to serve as effective community leaders</span></div>
+            <div class="pmc-hosp-grid">
+              <a class="pmc-hosp-card" href="pmc.php">
+                <i class="bi bi-award"></i>
+                <strong>Peshawar Medical College</strong>
+                <span>MBBS · recognition · attributes · gallery</span>
+              </a>
+              <a class="pmc-hosp-card" href="pg-medical-education.php">
+                <i class="bi bi-journal-medical"></i>
+                <strong>PG Medical Education</strong>
+                <span>FCPS / MCPS and related pathways</span>
+              </a>
+              <a class="pmc-hosp-card" href="medical-education.php">
+                <i class="bi bi-book"></i>
+                <strong>Medical Education</strong>
+                <span>Curriculum, teaching &amp; assessment</span>
+              </a>
             </div>
             <div class="about-cta-row">
-              <a href="pmc.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-award"></i> Peshawar Medical College</a>
-              <a href="vision-mission.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-eye"></i> Vision &amp; Mission</a>
+              <a href="pmc.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-award"></i> Explore PMC</a>
+              <a href="admissions.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions</a>
             </div>
           </div>
 
