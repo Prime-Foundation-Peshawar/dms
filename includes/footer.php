@@ -1,0 +1,122 @@
+<!-- ═══ RECOGNITION ═══ -->
+<section class="pmc-section recog-strip">
+  <div class="container">
+    <div class="text-center mb-5 fu">
+      <span class="sec-eyebrow">Recognitions & Accreditations</span>
+      <h2 class="sec-title" style="color:white;">Recognized by Leading Institutions</h2>
+    </div>
+    <div class="recog-grid fu">
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div>
+        <div class="recog-name">Pakistan Medical &amp; Dental Council<br /><small
+            style="opacity:.5;font-size:.62rem;">(PM&DC)</small></div>
+      </div>
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-building-fill"></i></div>
+        <div class="recog-name">Riphah International University</div>
+      </div>
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-award-fill"></i></div>
+        <div class="recog-name">College of Physicians &amp; Surgeons Pakistan<br /><small
+            style="opacity:.5;font-size:.62rem;">(CPSP)</small></div>
+      </div>
+      <div class="recog-cell">
+        <div class="recog-ico"><i class="bi bi-hospital-fill"></i></div>
+        <div class="recog-name">Ministry of Health<br /><small style="opacity:.5;font-size:.62rem;">Pakistan</small>
+        </div>
+      </div>
+      <div class="recog-cell" style="border-right:none;">
+        <div class="recog-ico"><i class="bi bi-globe-americas"></i></div>
+        <div class="recog-name">World Health Organization<br /><small style="opacity:.5;font-size:.62rem;">(WHO)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══ FOOTER ═══ -->
+<footer class="pmc-footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="foot-brand">
+            <img src="assets/images/logo/riphah-psh-white.png"
+              alt="Department of Medical Sciences - Riphah International University (Peshawar Campus)" width="250px" />
+            <!-- <div class="foot-name">Department of Medical Sciences - Riphah International University (Peshawar Campus)</div> -->
+          </div>
+          <p class="foot-desc">
+            Come with commitment, grow with wisdom and leave with professional and ethical competence for a bright
+            future
+          </p>
+          <div class="foot-socials">
+            <a href="https://www.facebook.com/share/17Mw2CuEkD/" class="soc-btn" target="_blank"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="soc-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="soc-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="soc-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <p class="foot-heading">Quick Links</p>
+          <ul class="foot-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="vision-mission.php">Vision & Mission</a></li>
+            <li><a href="faculty-all.php">Faculty</a></li>
+            <li><a href="admissions.php">Admissions</a></li>
+            <li><a href="vacant-seats.php">Vacant Seats</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <p class="foot-heading">Education</p>
+          <ul class="foot-links">
+            <li><a href="medical-education.php">Medical Education</a></li>
+            <li><a href="curriculum.php">Curriculum</a></li>
+            <li><a href="examinations.php">Examinations</a></li>
+            <li><a href="https://umr.prime.edu.pk/" target="_blank">UMR Society</a></li>
+            <li><a href="faculty-research.php">Faculty Research</a></li>
+            <li><a href="https://riphahpsh.edu.pk/news-letter.php">Newsletter</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <p class="foot-heading">Contact Us</p>
+          <div class="foot-contact"><i class="bi bi-geo-alt-fill"></i><span>Warsak Road, Peshawar, KP,
+              Pakistan</span></div>
+          <div class="foot-contact"><i class="bi bi-telephone-fill"></i><span><a
+                href="tel:+929152021914">+92-91-5202191–94</a></span></div>
+          <div class="foot-contact"><i class="bi bi-envelope-fill"></i><span><a
+                href="mailto:info@riphahpsh.edu.pk">info@riphahpsh.edu.pk</a></span></div>
+          <!--<div class="foot-contact"><i class="bi bi-clock-fill"></i><span>Mon – Sat: 8:00 AM – 2:00 PM</span></div>-->
+          <div class="mt-3">
+            <a href="https://pmc.prime.edu.pk/portal_login.php" class="btn-pmc btn-pmc-teal"
+              style="background:var(--teal);color:white;font-size:.82rem;padding:10px 20px;">
+              <i class="bi bi-person-circle"></i> Portal Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bot">
+      <span>&copy; 2026 Riphah International University - Peshawar Campus &middot; All Rights Reserved.</span>
+      <!-- <div class="d-flex gap-3 flex-wrap justify-content-center">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sitemap</a>
+      </div> -->
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/pmc-global.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,356 @@
+/* ── Back to Top ── */
+#backToTop{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--teal);color:white;border:none;border-radius:10px;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;opacity:0;transform:translateY(10px);transition:opacity var(--ease),transform var(--ease),background var(--ease);box-shadow:0 4px 18px rgba(0,168,150,.35);}
+#backToTop.visible{opacity:1;transform:translateY(0);}
+#backToTop:hover{background:var(--navy);}
+
+/* ── STATS STRIP ── */
+.fac-stats {
+  background: var(--navy);
+  padding: 0;
+}
+.fac-stat-cell {
+  padding: 24px 18px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.09);
+}
+.fac-stat-cell:last-child { border-right: none; }
+.fac-stat-num {
+  font-family: var(--font-head);
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  display: block;
+  line-height: 1;
+}
+.fac-stat-lbl {
+  font-family: var(--font-body);
+  font-size: .7rem;
+  color: rgba(255,255,255,.45);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: 5px;
+}
+
+/* ── SEARCH & FILTER BAR ── */
+.filter-bar {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 36px;
+}
+.filter-bar input[type="text"] {
+  font-family: var(--font-body);
+  font-size: .92rem;
+  font-weight: 500;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 11px 16px 11px 42px;
+  width: 100%;
+  color: var(--text);
+  transition: border-color var(--ease), box-shadow var(--ease);
+  background: var(--off-white);
+}
+.filter-bar input[type="text"]:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0,168,150,.12);
+}
+.search-wrap { position: relative; }
+.search-wrap i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-mid);
+  font-size: 1rem;
+  pointer-events: none;
+}
+.filter-select {
+  font-family: var(--font-body);
+  font-size: .88rem;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 11px 16px;
+  width: 100%;
+  color: var(--text);
+  background: var(--off-white);
+  transition: border-color var(--ease);
+  cursor: pointer;
+  appearance: auto;
+}
+.filter-select:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0,168,150,.12);
+}
+
+/* View toggle */
+.view-toggle { display: flex; gap: 6px; }
+.vt-btn {
+  width: 38px; height: 38px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--off-white);
+  color: var(--gray-mid);
+  cursor: pointer;
+  transition: all var(--ease);
+  font-size: .95rem;
+}
+.vt-btn.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+
+/* Results info */
+.results-info {
+  font-family: var(--font-body);
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--gray-mid);
+}
+.results-info span { color: var(--teal); font-weight: 700; }
+
+/* ── DEPARTMENT SECTION ── */
+.dept-section { margin-bottom: 48px; }
+.dept-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: var(--r-md);
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: opacity var(--ease);
+}
+.dept-header:hover { opacity: .92; }
+.dept-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: rgba(255,255,255,.1);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light);
+  font-size: 1.2rem;
+}
+.dept-name {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+  flex: 1;
+}
+.dept-count {
+  font-family: var(--font-body);
+  font-size: .76rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.55);
+  background: rgba(255,255,255,.1);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.dept-toggle-icon {
+  color: rgba(255,255,255,.5);
+  font-size: 1rem;
+  transition: transform .3s;
+}
+.dept-section.collapsed .dept-toggle-icon { transform: rotate(-90deg); }
+.dept-members { transition: all .3s; }
+
+/* ── GRID VIEW — Faculty Card ── */
+.fac-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px 20px;
+  text-align: center;
+  height: 100%;
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.fac-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  opacity: 0;
+  transition: opacity var(--ease);
+}
+.fac-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--teal);
+}
+.fac-card:hover::before { opacity: 1; }
+
+.fac-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+  border: 3px solid white;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+}
+.fac-name {
+  font-family: var(--font-head);
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.fac-designation {
+  font-family: var(--font-body);
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 8px;
+}
+.fac-dept {
+  font-family: var(--font-body);
+  font-size: .74rem;
+  font-weight: 600;
+  color: white;
+  background: var(--navy);
+  padding: 3px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.fac-pmdc {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--gray-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.fac-pmdc i { color: var(--teal); font-size: .8rem; }
+
+/* ── LIST VIEW — Faculty Row ── */
+.fac-list-row {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 14px 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+}
+.fac-list-row:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+.fac-list-avatar {
+  width: 46px; height: 46px; flex-shrink: 0;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+}
+.fac-list-name {
+  font-family: var(--font-head);
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--navy);
+  flex: 1;
+  min-width: 0;
+}
+.fac-list-desig {
+  font-family: var(--font-body);
+  font-size: .74rem;
+  color: var(--teal);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-top: 2px;
+}
+.fac-list-dept {
+  font-family: var(--font-body);
+  font-size: .74rem;
+  font-weight: 700;
+  color: white;
+  background: var(--navy);
+  padding: 3px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.fac-list-pmdc {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--gray-mid);
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 4px;
+}
+.fac-list-pmdc i { color: var(--teal); }
+
+/* ── SKELETON LOADER ── */
+.skeleton-wrap { display: none; }
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+.sk-card { height: 200px; border-radius: var(--r-md); margin-bottom: 20px; }
+
+/* ── LOADING / EMPTY STATES ── */
+#loadingState {
+  text-align: center;
+  padding: 60px 0;
+}
+.spinner-pmc {
+  width: 48px; height: 48px;
+  border: 4px solid var(--border);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#emptyState { display: none; text-align: center; padding: 60px 0; }
+.empty-icon { font-size: 3rem; color: var(--gray-light); margin-bottom: 16px; }
+
+/* ── DESIGNATION BADGE COLORS ── */
+.des-professor     { background: linear-gradient(135deg, #0A1628, #1a3a6b); }
+.des-associate     { background: linear-gradient(135deg, #00695C, #00897B); }
+.des-assistant     { background: linear-gradient(135deg, #1565C0, #1976D2); }
+.des-senior-lec    { background: linear-gradient(135deg, #6A1B9A, #7B1FA2); }
+.des-lecturer      { background: linear-gradient(135deg, #E65100, #F57C00); }
+.des-registrar     { background: linear-gradient(135deg, #37474F, #546E7A); }
+.des-other         { background: linear-gradient(135deg, #2E7D32, #388E3C); }
+
+/* ── DEPT ICONS MAP ── */
+
+/* ── RESPONSIVE ── */
+@media (max-width: 767.98px) {
+  .fac-list-dept, .fac-list-pmdc { display: none; }
+  .filter-bar { padding: 16px; }
+}
+@media (max-width: 575.98px) {
+  .fac-stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,.09); }
+}

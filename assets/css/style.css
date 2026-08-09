@@ -1,0 +1,366 @@
+    /* ── HERO SLIDER ── */
+    #heroSlider { position: relative; overflow: hidden; }
+
+    .hero-slide {
+      display: none;
+      min-height: 90vh;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-slide.active { display: flex; animation: slideFade .7s ease; }
+    @keyframes slideFade { from{opacity:0} to{opacity:1} }
+
+    /* slide backgrounds */
+    /* ── SLIDE BACKGROUNDS (real images) ── */
+    .slide-bg-1 {
+      background-image: url('../images/slider/pmc-faculty.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .slide-bg-2 {
+      background-image: url('../images/slider/pmc-classroom.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .slide-bg-3 {
+      background-image: url('../images/slider/umr.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .slide-bg-4 {
+      background-image: url('../images/campus/pmc-building.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .slide-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.5);  /* adjust opacity to your liking */
+      z-index: 1;
+    }
+    .slide-grid {
+      position: absolute; inset: 0; opacity: .04;
+      background-image:
+        linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .slide-circle-1 {
+      position: absolute; right: -100px; top: -100px;
+      width: 580px; height: 580px; border-radius: 50%;
+      border: 70px solid rgba(255,255,255,.03); pointer-events: none;
+    }
+    .slide-circle-2 {
+      position: absolute; right: 100px; bottom: -140px;
+      width: 340px; height: 340px; border-radius: 50%;
+      border: 50px solid rgba(0,168,150,.06); pointer-events: none;
+    }
+
+    .slide-inner { position: relative; z-index: 2; padding: 100px 0 80px; width: 100%; }
+
+    .slide-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .68rem; font-weight: 800;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(201,168,76,.13);
+      border: 1px solid rgba(201,168,76,.3);
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .slide-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.1rem, 5.5vw, 4rem);
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .slide-title .hl { color: var(--gold-light); }
+    .slide-title .hl-teal { color: var(--teal-light); }
+    .slide-body {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 36px;
+      font-weight: 500;
+    }
+    .slide-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Slide info card */
+    .slide-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.13);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--r-lg);
+      padding: 30px;
+    }
+    .sc-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .88rem; font-weight: 800;
+      color: white;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; gap: 9px;
+    }
+    .sc-title i { color: var(--gold-light); }
+    .sc-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+    .sc-row:last-child { margin-bottom: 0; }
+    .sc-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: rgba(255,255,255,.08);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal-light); font-size: .95rem;
+    }
+    .sc-lbl {
+      font-family: 'Quicksand', sans-serif;
+      font-size: .66rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: rgba(255,255,255,.38);
+    }
+    .sc-val {
+      font-family: 'Quicksand', sans-serif;
+      font-size: .87rem; font-weight: 600;
+      color: rgba(255,255,255,.87);
+      margin-top: 2px;
+    }
+
+    /* Slider controls */
+    .slider-prev, .slider-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 46px; height: 46px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.1rem;
+      cursor: pointer; z-index: 10;
+      backdrop-filter: blur(8px);
+      transition: background var(--ease);
+    }
+    .slider-prev:hover, .slider-next:hover { background: rgba(0,168,150,.5); }
+    .slider-prev { left: 20px; }
+    .slider-next { right: 20px; }
+
+    .slider-dots {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 9px; z-index: 10;
+    }
+    .slider-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: rgba(255,255,255,.3);
+      border: none; padding: 0; cursor: pointer;
+      transition: background var(--ease), transform var(--ease);
+    }
+    .slider-dot.active { background: var(--gold-light); transform: scale(1.35); }
+
+    .slide-progress {
+      position: absolute; bottom: 0; left: 0;
+      height: 3px; width: 0;
+      background: var(--teal-light);
+      z-index: 11;
+      animation: slideProgress 6000ms linear forwards;
+    }
+    @keyframes slideProgress { from{width:0} to{width:100%} }
+
+    /* ── ABOUT ── */
+    .about-visual {
+      background-image: url('../images/campus/pmc-building.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: var(--r-lg);
+      min-height: 420px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px; position: relative; overflow: hidden;
+      padding: 40px;
+    }
+    .about-visual::before {
+      content: '';
+      position: absolute; right: -70px; top: -70px;
+      width: 300px; height: 300px; border-radius: 50%;
+      border: 60px solid rgba(255,255,255,.04);
+    }
+    .about-visual::after {
+      content: '';
+      position: absolute; left: -40px; bottom: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      border: 40px solid rgba(0,168,150,.07);
+    }
+    .about-visual-icon { font-size: 4rem; color: var(--gold); position: relative; z-index: 1; }
+    .about-visual-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .82rem; font-weight: 700;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .07em; text-transform: uppercase;
+      text-align: center; position: relative; z-index: 1;
+    }
+    .about-badge {
+      position: absolute; bottom: -18px; right: -18px;
+      background: var(--teal);
+      border-radius: var(--r-md);
+      padding: 18px 22px; text-align: center;
+      box-shadow: 0 6px 28px rgba(0,168,150,.35);
+      z-index: 3;
+    }
+    .about-badge-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem; font-weight: 900;
+      color: white; display: block; line-height: 1;
+    }
+    .about-badge-lbl {
+      font-family: 'Quicksand', sans-serif;
+      font-size: .68rem; font-weight: 700;
+      color: rgba(255,255,255,.8);
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+
+    .feat-row { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 18px; }
+    .feat-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--teal-pale);
+      border: 1px solid rgba(0,168,150,.2);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal); font-size: 1.05rem;
+    }
+    .feat-title { font-family: 'Montserrat', sans-serif; font-size: .87rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .feat-text  { font-family: 'Quicksand', sans-serif; font-size: .8rem; color: var(--gray-mid); line-height: 1.55; font-weight: 500; }
+
+    /* ── PROGRAMS ── */
+    .prog-tag { margin-right: 5px; margin-bottom: 5px; }
+
+    /* ── CAMPUS MOSAIC ── */
+    .campus-mosaic {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 175px;
+      gap: 14px;
+    }
+    .campus-tile {
+      border-radius: var(--r-md);
+      overflow: hidden;
+      position: relative;
+      cursor: default;
+    }
+    .campus-tile.big { grid-column: span 2; grid-row: span 2; }
+    .ct-inner {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 9px;
+      padding: 20px;
+      transition: transform .35s ease;
+    }
+    .campus-tile:hover .ct-inner {
+      transform: scale(1.04);
+      /* background: rgba(0,0,0,0.3); */
+    }
+    .ct-bg-1 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/pmc-building.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-2 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/library.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-3 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/gym.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-4 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/cafe.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-5 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/hostel.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-6 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/masjid.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-7 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/transport.png'); background-size: cover; background-position: center; }
+    .ct-bg-8 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/daycare.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-9 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/first-aid.webp'); background-size: cover; background-position: center; }
+    .ct-ico { font-size: 1.7rem; color: rgba(255,255,255,.85); }
+    .campus-tile.big .ct-ico { font-size: 3rem; }
+    .ct-lbl { font-family: 'Montserrat', sans-serif; font-size: .76rem; font-weight: 700; color: rgba(255,255,255,.8); text-align: center; }
+    .campus-tile.big .ct-lbl { font-size: 1.05rem; }
+
+    /* ── NEWS ── */
+    .news-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      height: 100%;
+      display: flex; flex-direction: column;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .nc-img {
+      height: 175px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; color: rgba(255,255,255,.75);
+      flex-shrink: 0;
+    }
+    .nc-img-1 {
+      background-image: url('../images/news/islamiyat.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .nc-img-2 {
+        background-image: url('../images/campus/pmc-building.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    .nc-img-3 {
+        background-image: url('../images/news/news3.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    .nc-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .nc-meta { display: flex; align-items: center; gap: 7px; font-family: 'Quicksand', sans-serif; font-size: .7rem; font-weight: 700; color: var(--gray-mid); margin-bottom: 10px; }
+    .nc-cat { background: var(--teal-pale); color: var(--teal); padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+    .nc-title { font-family: 'Montserrat', sans-serif; font-size: .92rem; font-weight: 700; color: var(--navy); line-height: 1.45; margin-bottom: 9px; }
+    .nc-excerpt { font-family: 'Quicksand', sans-serif; font-size: .82rem; color: var(--gray-mid); line-height: 1.65; font-weight: 500; flex: 1; }
+    .nc-link { font-family: 'Montserrat', sans-serif; font-size: .78rem; font-weight: 700; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; transition: gap var(--ease), color var(--ease); }
+    .nc-link:hover { gap: 9px; color: var(--navy); }
+
+    /* ── HOSPITALS ── */
+    .hosp-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r-md);
+      padding: 28px;
+      height: 100%;
+      transition: border-color var(--ease), background var(--ease), transform var(--ease);
+    }
+    .hosp-card:hover { border-color: var(--teal); background: rgba(0,168,150,.07); transform: translateY(-4px); }
+    .hosp-ico { font-size: 2rem; color: var(--teal-light); margin-bottom: 16px; }
+    .hosp-name { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; color: white; margin-bottom: 8px; }
+    .hosp-desc { font-family: 'Quicksand', sans-serif; font-size: .82rem; color: rgba(255,255,255,.5); line-height: 1.65; font-weight: 500; }
+    .hosp-link { font-family: 'Montserrat', sans-serif; font-size: .76rem; font-weight: 700; color: var(--teal-light); display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; transition: gap var(--ease); }
+    .hosp-link:hover { gap: 9px; }
+
+    /* ── BACK TO TOP ── */
+    #backToTop {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      background: var(--teal);
+      color: white; border: none; border-radius: 10px;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 999;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity var(--ease), transform var(--ease), background var(--ease);
+      box-shadow: 0 4px 18px rgba(0,168,150,.35);
+    }
+    #backToTop.visible { opacity: 1; transform: translateY(0); }
+    #backToTop:hover { background: var(--navy); }
+
+    /* responsive mosaic */
+    @media (max-width: 991.98px) {
+      .campus-mosaic { grid-template-columns: repeat(2,1fr); }
+      .campus-tile.big { grid-column: span 2; grid-row: span 1; }
+    }
+    @media (max-width: 575.98px) {
+      .campus-mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
+      .hero-slide { min-height: auto; }
+      .slide-inner { padding: 70px 0 60px; }
+      .slider-prev, .slider-next { display: none; }
+    }
