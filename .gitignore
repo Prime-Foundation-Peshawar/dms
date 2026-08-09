@@ -1,0 +1,62 @@
+# Server / runtime logs
+error_log
+**/error_log
+*.log
+logs/
+tmp/
+temp/
+cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+credentials.json
+*.pem
+
+# Dependencies (if added later)
+/vendor/
+/node_modules/
+composer.lock
+package-lock.json
+yarn.lock
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# Backups and local copies
+*.bak
+*.old
+*_old.php
+* copy.php
+*copy.php
+*.sql
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# cPanel / hosting artifacts
+.well-known/
+cgi-bin/
+.php-ini
+.php-version
+.user.ini
+.ftpquota
+.softaculous/
+.cagefs/
+
+# Local tooling
+.cursor/
+.claude/
+agent-transcripts/
+todo.zip

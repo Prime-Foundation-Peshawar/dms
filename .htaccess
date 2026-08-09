@@ -1,0 +1,23 @@
+DirectoryIndex index.php index.html
+
+RewriteEngine On
+
+# Trailing slash removal (relative — works at site root and /dms/)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ $1 [R=301,L]
+
+# Extensionless PHP URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+# Redirect direct .php requests to clean URLs (production root only)
+RewriteCond %{HTTP_HOST} !^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Staging subdirectory: /dms/page.php -> /dms/page
+RewriteCond %{HTTP_HOST} ^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
+RewriteCond %{THE_REQUEST} \s/dms/(.+?)\.php[\s?] [NC]
+RewriteRule ^ /dms/%1 [R=301,L]

@@ -1,0 +1,79 @@
+name: Deploy staging
+
+on:
+  push:
+    branches:
+      - staging
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check required secrets
+        env:
+          STAGING_SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
+          STAGING_SSH_USER: ${{ secrets.STAGING_SSH_USER }}
+          STAGING_SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
+          STAGING_SSH_PORT: ${{ secrets.STAGING_SSH_PORT }}
+          STAGING_PATH: ${{ secrets.STAGING_PATH }}
+        run: |
+          missing=0
+          for name in STAGING_SSH_HOST STAGING_SSH_USER STAGING_SSH_KEY STAGING_SSH_PORT STAGING_PATH; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not set."
+              missing=1
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+          if ! printf '%s' "$STAGING_SSH_KEY" | grep -qE 'BEGIN .*PRIVATE KEY'; then
+            echo "::error::STAGING_SSH_KEY is not a private key."
+            exit 1
+          fi
+
+      - name: Deploy to staging via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        with:
+          host: ${{ secrets.STAGING_SSH_HOST }}
+          username: ${{ secrets.STAGING_SSH_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          passphrase: ${{ secrets.STAGING_SSH_PASSPHRASE }}
+          port: ${{ secrets.STAGING_SSH_PORT }}
+          envs: GH_TOKEN
+          script: |
+            set -euo pipefail
+            TARGET="${{ secrets.STAGING_PATH }}"
+            BRANCH="staging"
+            REPO="https://x-access-token:${GH_TOKEN}@github.com/bilhaz/dms.git"
+
+            mkdir -p "$(dirname "$TARGET")"
+
+            if [ ! -d "$TARGET/.git" ]; then
+              echo "Bootstrapping git repo at $TARGET"
+              rm -rf "$TARGET"
+              git clone -b "$BRANCH" "$REPO" "$TARGET"
+            fi
+
+            cd "$TARGET"
+            git remote set-url origin "$REPO"
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            git remote set-url origin "https://github.com/bilhaz/dms.git"
+            find "$TARGET" -type d -exec chmod 755 {} \;
+            find "$TARGET" -type f -exec chmod 644 {} \;
+            echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
+            echo "---- recent error_log (if any) ----"
+            tail -n 40 "$TARGET/error_log" 2>/dev/null || true
+            tail -n 40 "$HOME/public_html/error_log" 2>/dev/null || true
+            tail -n 40 "$HOME/logs/"*error* 2>/dev/null || true

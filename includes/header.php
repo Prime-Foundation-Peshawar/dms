@@ -1,21 +1,32 @@
+<?php
+if (!defined('base_url')) {
+  $host = strtolower($_SERVER['HTTP_HOST'] ?? '');
+  if ($host === 'staging.riphahpsh.edu.pk' || $host === 'www.staging.riphahpsh.edu.pk') {
+    define('base_url', 'https://staging.riphahpsh.edu.pk/dms/');
+  } else {
+    define('base_url', 'https://dms.riphahpsh.edu.pk/');
+  }
+}
+$page_title = $page_title ?? 'Department of Medical Sciences | Peshawar Medical College — Riphah Peshawar Campus';
+$page_description = $page_description ?? 'Department of Medical Sciences, Riphah International University – Peshawar Campus. Peshawar Medical College — PM&DC recognized MBBS and postgraduate programmes. Warsak Road, Peshawar.';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Department of Medical Sciences | Peshawar Medical College — Riphah Peshawar Campus</title>
-  <meta name="description"
-    content="Department of Medical Sciences, Riphah International University – Peshawar Campus. Peshawar Medical College — PM&DC recognized MBBS and postgraduate programmes. Warsak Road, Peshawar." />
+  <title><?= htmlspecialchars($page_title) ?></title>
+  <meta name="description" content="<?= htmlspecialchars($page_description) ?>" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo/favicon-logo.jpg" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/images/logo/favicon-logo.jpg">
   
-  <meta property="og:title" content="Department of Medical Sciences | Peshawar Medical College — Riphah Peshawar Campus">
-  <meta property="og:description" content="Department of Medical Sciences — Peshawar Medical College. PM&DC recognized MBBS and postgraduate programmes at Riphah International University – Peshawar Campus.">
-  <meta property="og:image" content="https://dms.riphahpsh.edu.pk/assets/images/logo/favicon-logo.jpg">
-  <meta property="og:url" content="https://dms.riphahpsh.edu.pk/">
+  <meta property="og:title" content="<?= htmlspecialchars($page_title) ?>">
+  <meta property="og:description" content="<?= htmlspecialchars($page_description) ?>">
+  <meta property="og:image" content="<?= htmlspecialchars(base_url) ?>assets/images/logo/favicon-logo.jpg">
+  <meta property="og:url" content="<?= htmlspecialchars(base_url) ?>">
 
   <!-- Bootstrap 5.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
