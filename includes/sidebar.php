@@ -23,7 +23,6 @@
             <a class="sw-link" href="https://kth.prime.edu.pk/" target="_blank"><i class="bi bi-hospital"></i>Kuwait Teaching Hospital</a>
             <a class="sw-link" href="https://mth.prime.edu.pk/" target="_blank"><i class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a>
             <a class="sw-link" href="https://pth.prime.edu.pk/" target="_blank"><i class="bi bi-building"></i>Prime Teaching Hospital</a>
-            <!-- <a class="sw-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i class="bi bi-people-fill"></i>Community Dev. Center</a> -->
           </div>
         </div>
         <div class="sidebar-widget">
@@ -36,6 +35,3 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
