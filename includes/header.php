@@ -69,6 +69,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
         </div>
         <div class="d-flex align-items-center gap-3">
           <a href="http://careers.prime.edu.pk" target="_blank"><i class="bi bi-briefcase me-1"></i>Career Portal</a>
+          <a href="https://ses.prime.edu.pk" target="_blank"><i class="bi bi-laptop me-1"></i>LMS</a>
           <a href="vacant-seats.php" class="tb-cta"><i class="bi bi-door-open me-1"></i>Vacant Seats</a>
         </div>
       </div>
