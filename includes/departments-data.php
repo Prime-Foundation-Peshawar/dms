@@ -114,7 +114,7 @@ $academic_departments = [
   ],
   'biochemistry' => [
     'name' => 'Biochemistry',
-    'icon' => 'bi-flask',
+    'icon' => 'bi-moisture',
     'group' => 'Basic Sciences',
     'intro' => [
       'The Department of Biochemistry covers molecular and metabolic processes essential to health, laboratory diagnostics, and clinical decision-making.',
@@ -1108,7 +1108,7 @@ $academic_departments = [
   ],
   'psychiatry' => [
     'name' => 'Psychiatry',
-    'icon' => 'bi-brain',
+    'icon' => 'bi-hypnotize',
     'group' => 'Clinical Sciences',
     'intro' => [
       'Psychiatry training covers mental health assessment, common psychiatric disorders, and patient-centred biopsychosocial care.',

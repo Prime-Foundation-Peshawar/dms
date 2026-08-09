@@ -22,7 +22,7 @@ include('includes/header.php');
     <div class="home-sec-head text-center fu mb-5">
       <span class="sec-eyebrow">PMC · DMS</span>
       <h2 class="sec-title">Explore Our Departments</h2>
-      <p class="sec-desc">Browse academic departments of Peshawar Medical College. Each page covers introduction, faculty, and departmental activities.</p>
+      <p class="sec-desc">Browse academic departments. Each page covers introduction, faculty, and departmental activities.</p>
     </div>
 
     <?php foreach ($groups as $groupName => $depts): ?>
@@ -44,9 +44,7 @@ include('includes/header.php');
                   <div class="dept-index-meta">
                     <span><i class="bi bi-people"></i> <?= (int)$facultyCount ?> faculty</span>
                     <span><i class="bi bi-calendar-event"></i> <?= (int)$activityCount ?> activities</span>
-                  </div>
-                  <div class="dept-index-updated">
-                    <i class="bi bi-clock-history"></i> Updated <?= htmlspecialchars($updatedLabel) ?>
+                    <span class="dept-index-updated"><i class="bi bi-clock-history"></i> <?= htmlspecialchars($updatedLabel) ?></span>
                   </div>
                 </div>
                 <i class="bi bi-arrow-right dept-index-arrow"></i>
