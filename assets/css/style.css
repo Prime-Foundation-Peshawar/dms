@@ -846,6 +846,316 @@
       .about-cta-row .btn-pmc { width: 100%; justify-content: center; }
     }
 
+    /* ── ADMISSIONS ── */
+    .adm-facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin: 28px 0 24px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .adm-fact {
+      background: #fff;
+      text-align: center;
+      padding: 18px 12px;
+    }
+    .adm-fact strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .adm-fact span {
+      display: block;
+      margin-top: 4px;
+      font-family: var(--font-body);
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--gray-mid);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .adm-fact.is-closed strong { color: var(--teal); }
+
+    .adm-notice {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--r-md);
+      padding: 22px 24px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .adm-notice-text {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .adm-notice-text i {
+      color: var(--gold-light, #e8c547);
+      font-size: 1.15rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .adm-notice-text p {
+      margin: 0 !important;
+      font-size: .9rem !important;
+      color: rgba(255,255,255,.9) !important;
+      line-height: 1.7 !important;
+    }
+    .adm-quotas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .adm-quota {
+      text-align: center;
+      padding: 12px 10px;
+      background: rgba(255,255,255,.08);
+      border-radius: var(--r-sm);
+    }
+    .adm-quota strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--gold-light, #e8c547);
+    }
+    .adm-quota span {
+      display: block;
+      margin-top: 4px;
+      font-size: .68rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.55);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .adm-block {
+      margin-top: 44px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .adm-block-head { margin-bottom: 20px; }
+    .adm-block-head h3 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 8px;
+    }
+    .adm-block-head p {
+      margin: 0 !important;
+      max-width: 560px;
+      color: var(--gray-mid) !important;
+      font-size: .92rem !important;
+    }
+
+    .adm-check {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .adm-check li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-size: .92rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    .adm-check i {
+      color: var(--teal);
+      font-size: 1.05rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .adm-merit {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .adm-merit-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) 48px;
+      gap: 12px;
+      align-items: center;
+    }
+    .adm-merit-label {
+      font-family: var(--font-body);
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+    }
+    .adm-merit-bar {
+      height: 8px;
+      background: var(--off-white, #f5f7fa);
+      border-radius: 100px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .adm-merit-bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      border-radius: 100px;
+    }
+    .adm-merit-pct {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: right;
+    }
+
+    .adm-portal-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .9rem !important;
+      margin-bottom: 18px !important;
+    }
+    .adm-portal-link i { color: var(--teal); font-size: 1.15rem; }
+    .adm-portal-link a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .adm-portal-link a:hover { color: var(--teal); }
+
+    .adm-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      counter-reset: none;
+    }
+    .adm-steps li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      font-family: var(--font-body);
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+    }
+    .adm-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--teal-pale, #E8F4F9);
+      color: var(--teal);
+      font-family: var(--font-head);
+      font-size: .85rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .adm-dates {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      background: #fff;
+    }
+    .adm-dates li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .adm-dates li:last-child { border-bottom: none; }
+    .adm-dates li:nth-child(even) { background: var(--off-white, #f5f7fa); }
+    .adm-date-event {
+      font-family: var(--font-body);
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+    }
+    .adm-date-val {
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      text-align: right;
+    }
+    .adm-date-val.is-deadline { color: #c0392b; }
+
+    .adm-docs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .adm-docs li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+    }
+    .adm-docs i { color: var(--teal); font-size: 1.05rem; flex-shrink: 0; }
+
+    .adm-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 991.98px) {
+      .adm-facts { grid-template-columns: repeat(2, 1fr); }
+      .adm-merit-row { grid-template-columns: 1fr 56px; }
+      .adm-merit-bar { grid-column: 1 / -1; order: 3; }
+      .adm-merit-pct { text-align: left; }
+    }
+    @media (max-width: 575.98px) {
+      .adm-facts { grid-template-columns: 1fr 1fr; }
+      .adm-quotas { grid-template-columns: 1fr; }
+      .adm-docs { grid-template-columns: 1fr; }
+      .adm-dates li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .adm-date-val { white-space: normal; text-align: left; }
+      .adm-cta-row .btn-pmc { width: 100%; justify-content: center; }
+    }
+
     /* ── WHY DMS ── */
     .why-card {
       background: #fff;
