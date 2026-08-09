@@ -238,17 +238,6 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
             </div>
           </li>
 
-          <!-- STUDENT SOCIETIES dropdown -->
-          <li class="nav-item mega-menu-wrapper">
-            <a class="nav-link dropdown-toggle" href="#">Societies</a>
-            <div class="dropdown-menu plain-dd" style="min-width:240px;">
-              <a class="dropdown-item" href="https://riphahpsh.edu.pk/umr.php"><i class="bi bi-mortarboard"></i>UMR Society</a>
-              <a class="dropdown-item" href="https://riphahpsh.edu.pk/social-welfare.php"><i class="bi bi-heart"></i>Social Welfare Society</a>
-              <a class="dropdown-item" href="https://riphahpsh.edu.pk/literary-society.php"><i class="bi bi-pen"></i>Literature & Arts Society</a>
-              <a class="dropdown-item" href="https://riphahpsh.edu.pk/sports-society.php"><i class="bi bi-trophy"></i>Sports Society</a>
-            </div>
-          </li>
-
           <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
           <li class="nav-item">
             <a class="nav-link nav-btn-apply" href="admissions.php" style="color: #ffffff !important;">

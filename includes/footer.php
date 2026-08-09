@@ -3,7 +3,7 @@
   <div class="footer-top">
     <div class="container">
       <div class="row g-5">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <div class="foot-brand">
             <img src="assets/images/logo/riphah-psh-white.png"
               alt="Department of Medical Sciences (DMS) — Riphah Peshawar Campus" width="250px" />
@@ -40,12 +40,20 @@
             <li><a href="medical-education.php">Medical Education</a></li>
             <li><a href="curriculum.php">Curriculum</a></li>
             <li><a href="examinations.php">Examinations</a></li>
-            <li><a href="https://umr.prime.edu.pk/" target="_blank">UMR Society</a></li>
             <li><a href="faculty-research.php">Faculty Research</a></li>
             <li><a href="https://riphahpsh.edu.pk/news-letter.php">Newsletter</a></li>
           </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-6 col-lg-2">
+          <p class="foot-heading">Societies</p>
+          <ul class="foot-links">
+            <li><a href="https://riphahpsh.edu.pk/umr.php" target="_blank" rel="noopener">UMR Society</a></li>
+            <li><a href="https://riphahpsh.edu.pk/social-welfare.php" target="_blank" rel="noopener">Social Welfare Society</a></li>
+            <li><a href="https://riphahpsh.edu.pk/literary-society.php" target="_blank" rel="noopener">Literature &amp; Arts Society</a></li>
+            <li><a href="https://riphahpsh.edu.pk/sports-society.php" target="_blank" rel="noopener">Sports Society</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
           <p class="foot-heading">Contact Us</p>
           <div class="foot-contact"><i class="bi bi-geo-alt-fill"></i><span>Warsak Road, Peshawar, KP,
               Pakistan</span></div>
