@@ -100,7 +100,6 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-info-circle-fill"></i> About Us</div>
                     <a class="mega-link" href="about.php"><i class="bi bi-building"></i>About DMS</a>
-                    <a class="mega-link" href="departments.php"><i class="bi bi-diagram-3"></i>Academic Departments</a>
                     <a class="mega-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
                     <a class="mega-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
                   </div>
@@ -124,6 +123,8 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
               </div>
             </div>
           </li>
+
+          <li class="nav-item"><a class="nav-link" href="departments.php">Departments</a></li>
 
           <li class="nav-item mega-menu-wrapper">
             <a class="nav-link dropdown-toggle" href="#programs">Programs</a>
