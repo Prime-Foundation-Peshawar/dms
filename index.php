@@ -124,7 +124,7 @@ include('includes/header.php');
             <img src="assets/images/logo/pmclogo.png" alt="Peshawar Medical College" />
           </div>
           <h4>Peshawar Medical College</h4>
-          <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at three affiliated teaching hospitals.</p>
+          <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at 3 affiliated teaching hospitals.</p>
           <div class="home-prog-tags">
             <span class="pmc-tag">MBBS</span>
             <span class="pmc-tag">PM&amp;DC</span>
@@ -192,7 +192,7 @@ include('includes/header.php');
       <div class="col-md-6 col-lg-3 fu fu-delay-2">
         <div class="why-card">
           <div class="why-ico"><i class="bi bi-hospital"></i></div>
-          <h4>Three Teaching Hospitals</h4>
+          <h4>3 Teaching Hospitals</h4>
           <p>Clinical rotations across Kuwait, Mercy, and Prime Teaching Hospitals for broad bedside exposure.</p>
         </div>
       </div>
