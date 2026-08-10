@@ -7,7 +7,7 @@ $academic_departments = [
   'anatomy' => [
     'name' => 'Anatomy',
     'icon' => 'bi-body-text',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'The Department of Anatomy provides foundational knowledge of human structure essential to clinical practice. Through lectures, dissection, histology, and imaging correlation, students develop a clear understanding of gross and microscopic anatomy.',
       'Faculty emphasize applied anatomy relevant to surgery, medicine, and diagnostic specialties, preparing MBBS students for clinical years with strong morphological and spatial reasoning.',
@@ -66,7 +66,7 @@ $academic_departments = [
   'physiology' => [
     'name' => 'Physiology',
     'icon' => 'bi-activity',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'The Department of Physiology teaches normal body-system function — the foundation for understanding disease mechanisms and therapeutics in later clinical training.',
       'Practicals and tutorials reinforce cardiovascular, respiratory, renal, and neurophysiology concepts required for competent clinical reasoning.',
@@ -115,7 +115,7 @@ $academic_departments = [
   'biochemistry' => [
     'name' => 'Biochemistry',
     'icon' => 'bi-moisture',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'The Department of Biochemistry covers molecular and metabolic processes essential to health, laboratory diagnostics, and clinical decision-making.',
       'Students learn biochemical pathways and their clinical relevance through lectures, practicals, and case-based discussions.',
@@ -164,7 +164,7 @@ $academic_departments = [
   'pathology' => [
     'name' => 'Pathology',
     'icon' => 'bi-eyedropper',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'The Department of Pathology bridges basic science and clinical practice through the study of disease mechanisms, morphology, haematology, microbiology, and chemical pathology.',
       'Teaching prepares students to interpret laboratory findings and understand the pathological basis of medicine.',
@@ -243,7 +243,7 @@ $academic_departments = [
   'pharmacology' => [
     'name' => 'Pharmacology',
     'icon' => 'bi-capsule-pill',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'The Department of Pharmacology focuses on mechanisms of drug action, therapeutics, adverse effects, and rational prescribing.',
       'Students develop safe prescribing habits aligned with clinical scenarios and essential medicine principles.',
@@ -297,7 +297,7 @@ $academic_departments = [
   'forensic-medicine' => [
     'name' => 'Forensic Medicine',
     'icon' => 'bi-shield-check',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'The Department of Forensic Medicine covers medico-legal responsibilities, injury interpretation, and the interface of medicine and law.',
       'Training prepares graduates for ethical and legal duties expected of medical practitioners.',
@@ -341,7 +341,7 @@ $academic_departments = [
   'chs' => [
     'name' => 'Community Health Sciences',
     'icon' => 'bi-people-fill',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'Community Health Sciences prepares students for population health, prevention, epidemiology, and community-oriented primary care.',
       'Field exposure and community placements connect classroom learning with real public-health needs in KP.',
@@ -395,7 +395,7 @@ $academic_departments = [
   'dhpe' => [
     'name' => 'DHPE & Research',
     'icon' => 'bi-mortarboard-fill',
-    'group' => 'Basic Sciences',
+    'group' => 'Basic',
     'intro' => [
       'The Department of Health Professions Education & Research supports teaching excellence, curriculum development, and educational scholarship across DMS.',
       'Faculty contribute to faculty development, assessment design, and research capacity building.',
@@ -439,7 +439,7 @@ $academic_departments = [
   'medicine' => [
     'name' => 'Medicine',
     'icon' => 'bi-heart-pulse-fill',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'The Department of Medicine provides clinical training in internal medicine through ward work, outpatient clinics, and bedside teaching at affiliated hospitals.',
       'Students develop history-taking, examination, diagnostic reasoning, and patient-management skills under consultant supervision.',
@@ -528,7 +528,7 @@ $academic_departments = [
   'surgery' => [
     'name' => 'Surgery',
     'icon' => 'bi-scissors',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'The Department of Surgery trains students in surgical assessment, operative principles, and peri-operative care across affiliated teaching hospitals.',
       'Clinical rotations emphasize safe practice, communication, and early recognition of surgical emergencies.',
@@ -612,7 +612,7 @@ $academic_departments = [
   'gynaecology' => [
     'name' => 'Gynaecology & Obstetrics',
     'icon' => 'bi-gender-female',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'Gynaecology & Obstetrics provides training in women’s health, antenatal care, labour-ward practice, and common gynaecological conditions.',
       'Students gain clinical exposure in teaching-hospital settings with a focus on respectful, evidence-based care.',
@@ -696,7 +696,7 @@ $academic_departments = [
   'paediatrics' => [
     'name' => 'Paediatrics',
     'icon' => 'bi-person-fill',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'The Department of Paediatrics focuses on child health, growth and development, neonatal care, and common paediatric illnesses.',
       'Hospital-based teaching builds competence in assessment and management of infants and children.',
@@ -770,7 +770,7 @@ $academic_departments = [
   'ent' => [
     'name' => 'ENT',
     'icon' => 'bi-ear-fill',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'The ENT department covers disorders of the ear, nose, and throat with clinical and operative teaching for MBBS students.',
       'Students learn examination techniques, common ENT presentations, and appropriate referral pathways.',
@@ -824,7 +824,7 @@ $academic_departments = [
   'ophthalmology' => [
     'name' => 'Ophthalmology',
     'icon' => 'bi-eye-fill',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'The Department of Ophthalmology trains students in eye examination, common ocular diseases, and vision-related public health issues.',
       'Clinical teaching develops skills in recognition of sight-threatening conditions and timely referral.',
@@ -893,7 +893,7 @@ $academic_departments = [
   'orthopaedics' => [
     'name' => 'Orthopaedics',
     'icon' => 'bi-bandaid-fill',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'Orthopaedics focuses on musculoskeletal injury and disease, trauma care, and rehabilitation principles.',
       'Students participate in clinics, wards, and trauma-related teaching at affiliated hospitals.',
@@ -942,7 +942,7 @@ $academic_departments = [
   'dermatology' => [
     'name' => 'Dermatology',
     'icon' => 'bi-droplet-half',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'The Department of Dermatology covers common skin diseases, clinical diagnosis, and outpatient-based teaching.',
       'Students learn pattern recognition and management approaches for frequently encountered dermatological conditions.',
@@ -986,7 +986,7 @@ $academic_departments = [
   'radiology' => [
     'name' => 'Radiology',
     'icon' => 'bi-radioactive',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'Radiology introduces imaging modalities and interpretation skills essential for modern clinical practice.',
       'Teaching links radiological findings with clinical scenarios across medical and surgical specialties.',
@@ -1050,7 +1050,7 @@ $academic_departments = [
   'anaesthesia' => [
     'name' => 'Anaesthesia',
     'icon' => 'bi-lungs-fill',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'The Department of Anaesthesia covers peri-operative care, airway management, pain control, and principles of safe anaesthesia.',
       'Students observe and learn critical skills relevant to emergency and operative medicine.',
@@ -1109,7 +1109,7 @@ $academic_departments = [
   'psychiatry' => [
     'name' => 'Psychiatry',
     'icon' => 'bi-hypnotize',
-    'group' => 'Clinical Sciences',
+    'group' => 'Clinical',
     'intro' => [
       'Psychiatry training covers mental health assessment, common psychiatric disorders, and patient-centred biopsychosocial care.',
       'Students develop communication skills and an understanding of stigma-sensitive clinical practice.',
@@ -1153,7 +1153,7 @@ $academic_departments = [
   'cardiology' => [
     'name' => 'Cardiology',
     'icon' => 'bi-heart-fill',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Cardiology training covers cardiovascular assessment, common heart diseases, and hospital-based clinical exposure.',
     ],
@@ -1206,7 +1206,7 @@ $academic_departments = [
   'cardiac-surgery' => [
     'name' => 'Cardiac Surgery',
     'icon' => 'bi-heart-pulse',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Cardiac Surgery provides teaching related to surgical management of cardiac disease in tertiary-care settings.',
     ],
@@ -1254,7 +1254,7 @@ $academic_departments = [
   'neurosurgery' => [
     'name' => 'Neurosurgery',
     'icon' => 'bi-radioactive',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Neurosurgery provides exposure to disorders of the brain, spine, and peripheral nerves requiring surgical assessment and care.',
     ],
@@ -1302,7 +1302,7 @@ $academic_departments = [
   'neurology' => [
     'name' => 'Neurology',
     'icon' => 'bi-lightning-charge',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Neurology focuses on disorders of the nervous system, clinical assessment, and neurological decision-making.',
     ],
@@ -1335,7 +1335,7 @@ $academic_departments = [
   'pulmonology' => [
     'name' => 'Pulmonology',
     'icon' => 'bi-lungs',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Pulmonology covers respiratory diseases, clinical assessment, and hospital-based respiratory care teaching.',
     ],
@@ -1378,7 +1378,7 @@ $academic_departments = [
   'gastroenterology' => [
     'name' => 'Gastroenterology',
     'icon' => 'bi-hospital',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Gastroenterology focuses on diseases of the digestive system with clinical teaching in hospital settings.',
     ],
@@ -1426,7 +1426,7 @@ $academic_departments = [
   'nephrology' => [
     'name' => 'Nephrology',
     'icon' => 'bi-droplet',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Nephrology focuses on kidney disease, fluid and electrolyte disorders, and related clinical management.',
     ],
@@ -1464,7 +1464,7 @@ $academic_departments = [
   'urology' => [
     'name' => 'Urology',
     'icon' => 'bi-clipboard2-pulse',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Urology covers diseases of the urinary tract and male reproductive system with clinical and operative teaching.',
     ],
@@ -1507,7 +1507,7 @@ $academic_departments = [
   'endocrinology' => [
     'name' => 'Endocrinology',
     'icon' => 'bi-clipboard-pulse',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Endocrinology focuses on hormonal disorders, diabetes care, and metabolic disease in clinical practice.',
     ],
@@ -1545,7 +1545,7 @@ $academic_departments = [
   'oncology' => [
     'name' => 'Oncology',
     'icon' => 'bi-virus',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Oncology provides teaching related to cancer diagnosis, multidisciplinary care, and supportive management.',
     ],
@@ -1588,7 +1588,7 @@ $academic_departments = [
   'family-medicine' => [
     'name' => 'Family Medicine',
     'icon' => 'bi-house-heart',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Family Medicine emphasizes comprehensive, continuity-based care across ages and common community presentations.',
     ],
@@ -1626,7 +1626,7 @@ $academic_departments = [
   'critical-care' => [
     'name' => 'Critical Care',
     'icon' => 'bi-activity',
-    'group' => 'Clinical Specialties',
+    'group' => 'Clinical',
     'intro' => [
       'Critical Care focuses on management of acutely ill patients and principles of intensive care medicine.',
     ],
