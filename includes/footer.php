@@ -37,7 +37,7 @@
         <div class="col-6 col-lg-2">
           <p class="foot-heading">Education</p>
           <ul class="foot-links">
-            <li><a href="medical-education.php">Medical Education</a></li>
+            <li><a href="pmc.php#mbbs">MBBS</a></li>
             <li><a href="curriculum.php">Curriculum</a></li>
             <li><a href="examinations.php">Examinations</a></li>
             <li><a href="faculty-research.php">Faculty Research</a></li>

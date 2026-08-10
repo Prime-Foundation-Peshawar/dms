@@ -143,7 +143,6 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
             <div class="dropdown-menu plain-dd" style="min-width:260px;">
               <a class="dropdown-item" href="pmc.php"><i class="bi bi-mortarboard"></i>Undergraduate Medical Education (PMC)</a>
               <a class="dropdown-item" href="pg-medical-education.php"><i class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
-              <a class="dropdown-item" href="medical-education.php"><i class="bi bi-book"></i>Medical Education Overview</a>
             </div>
           </li>
 
@@ -199,14 +198,13 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
 
           <!-- EDUCATION & RESEARCH mega -->
           <li class="nav-item mega-menu-wrapper position-static">
-            <a class="nav-link dropdown-toggle" href="medical-education.php">Education & Research</a>
+            <a class="nav-link dropdown-toggle" href="curriculum.php">Education & Research</a>
             <div class="mega-menu">
               <div class="container">
                 <div class="row g-4">
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-book-fill"></i> Education</div>
-                    <a class="mega-link" href="medical-education.php"><i class="bi bi-journal-medical"></i>Medical
-                      Education</a>
+                    <a class="mega-link" href="pmc.php#mbbs"><i class="bi bi-mortarboard"></i>MBBS (PMC)</a>
                     <a class="mega-link" href="pg-medical-education.php"><i
                         class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
                     <a class="mega-link" href="curriculum.php"><i class="bi bi-journal-text"></i>Curriculum</a>

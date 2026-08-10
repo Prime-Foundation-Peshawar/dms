@@ -99,6 +99,69 @@
             </div>
           </div>
 
+          <!-- MBBS programme -->
+          <div class="about-block fu" id="mbbs">
+            <div class="about-block-head">
+              <h3>MBBS</h3>
+              <p>Five-year undergraduate medical education at Peshawar Medical College.</p>
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <a href="#" class="pmc-hosp-card">
+                  <i class="bi bi-calendar3"></i>
+                  <strong>Academic Calendar</strong>
+                  <span>Session dates &amp; schedules</span>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="student-guide.php" class="pmc-hosp-card">
+                  <i class="bi bi-book-fill"></i>
+                  <strong>Student Guide</strong>
+                  <span>Policies &amp; student life</span>
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="curriculum.php" class="pmc-hosp-card">
+                  <i class="bi bi-journal-text"></i>
+                  <strong>Curriculum</strong>
+                  <span>Integrated MBBS map</span>
+                </a>
+              </div>
+            </div>
+            <p>
+              The education system is designed to train students on application of knowledge of basic sciences to clinical problems, use computers and IT in line with current trends of medical education, and achieve professional and ethical excellence at the end of education in medical college.
+            </p>
+            <p>
+              The education system and curriculum is designed to meet the challenges of contemporary global health needs and based on an <strong>integrated teaching system</strong>. It also incorporates the preliminary application of knowledge of basic sciences to clinical problems from the first professional. Students are given opportunities of exposure to real-life clinical problems relevant to their level of knowledge.
+            </p>
+            <p>
+              Use of computers and IT is part of teaching, and students are taught relevant computer software from the first year. The college self-learning resource centre is open to students and teachers, with hands-on assistance and training.
+            </p>
+            <p>
+              Internal assessment is an integral part of the evaluation system, and part of it is computer-based evaluation on subjects already taught. Students are also given training in research methodologies and paper writing. They are expected to produce at least <strong>five research papers in five years</strong> and are encouraged to submit papers to national and international conferences. The college sponsors expenses for presentation of papers accepted at national conferences.
+            </p>
+            <p>
+              Teachers and students engage in regular dialogue through the tutorial system, and teacher accessibility is facilitated to develop respectful, professional teacher–student relations. Standards outlined by professional bodies such as PM&amp;DC, CPSP, and HEC are followed in letter and spirit.
+            </p>
+            <div class="about-block-head" style="margin-top:28px;">
+              <h3 style="font-size:1.15rem;">Educational Outcomes</h3>
+              <p>Our MBBS graduates are trained to:</p>
+            </div>
+            <div class="about-attr-grid">
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Provide just, equitable and ethically driven health care for common illnesses, including preventive and therapeutic services</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Communicate effectively with patients, caregivers, colleagues and other health personnel</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Advance biomedical research and evidence-based health care interventions</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Demonstrate effective teamwork in health care provision</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Employ critical thinking, lifelong learning and self-accountability</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Model exemplary moral conduct and mentor junior colleagues</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Serve as socially responsible, honest and patriotic citizens</span></div>
+            </div>
+            <div class="about-cta-row">
+              <a href="admissions.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> MBBS Admissions</a>
+              <a href="curriculum.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-journal-text"></i> Curriculum</a>
+            </div>
+          </div>
+
           <!-- Clinical training -->
           <div class="about-block fu" id="clinical">
             <div class="about-block-head">

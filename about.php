@@ -85,10 +85,10 @@
                 <strong>PG Medical Education</strong>
                 <span>FCPS / MCPS and related pathways</span>
               </a>
-              <a class="pmc-hosp-card" href="medical-education.php">
-                <i class="bi bi-book"></i>
-                <strong>Medical Education</strong>
-                <span>Curriculum, teaching &amp; assessment</span>
+              <a class="pmc-hosp-card" href="pmc.php#mbbs">
+                <i class="bi bi-mortarboard"></i>
+                <strong>MBBS Programme</strong>
+                <span>Integrated teaching &amp; clinical learning</span>
               </a>
             </div>
             <div class="about-cta-row">

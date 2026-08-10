@@ -10,7 +10,7 @@
             <a class="sw-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
             <a class="sw-link" href="admissions.php"><i class="bi bi-mortarboard"></i>Admissions</a>
             <a class="sw-link" href="vacant-seats.php"><i class="bi bi-door-open"></i>Vacant Seats</a>
-            <a class="sw-link" href="medical-education.php"><i class="bi bi-book"></i>Medical Education</a>
+            <a class="sw-link" href="pmc.php#mbbs"><i class="bi bi-mortarboard"></i>MBBS Programme</a>
             <a class="sw-link" href="curriculum.php"><i class="bi bi-journal-text"></i>Curriculum</a>
             <a class="sw-link" href="examinations.php"><i class="bi bi-clipboard-pulse"></i>Examinations</a>
             <a class="sw-link" href="https://riphahpsh.edu.pk/" target="_blank"><i class="bi bi-globe"></i>Campus Hub</a>
