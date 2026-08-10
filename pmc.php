@@ -106,21 +106,14 @@
               <p>Five-year undergraduate medical education at Peshawar Medical College.</p>
             </div>
             <div class="row g-3 mb-4">
-              <div class="col-md-4">
-                <a href="#" class="pmc-hosp-card">
-                  <i class="bi bi-calendar3"></i>
-                  <strong>Academic Calendar</strong>
-                  <span>Session dates &amp; schedules</span>
-                </a>
-              </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <a href="student-guide.php" class="pmc-hosp-card">
                   <i class="bi bi-book-fill"></i>
                   <strong>Student Guide</strong>
                   <span>Policies &amp; student life</span>
                 </a>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <a href="curriculum.php" class="pmc-hosp-card">
                   <i class="bi bi-journal-text"></i>
                   <strong>Curriculum</strong>
