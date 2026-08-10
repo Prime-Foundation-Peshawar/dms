@@ -231,9 +231,35 @@
       border-color: rgba(21,95,122,.35);
     }
     @media (max-width: 991.98px) {
-      .slide-facilities {
-        margin: 8px auto 0;
-        max-width: 540px;
+      #heroSlider {
+        min-height: min(88vh, 700px);
+      }
+      .slide-inner {
+        padding: 100px 0 96px;
+      }
+      .slide-content { max-width: 100%; }
+      .slide-title {
+        font-size: clamp(2rem, 9vw, 2.75rem);
+      }
+      .slide-actions .btn-pmc {
+        width: 100%;
+        justify-content: center;
+      }
+      .slider-chrome {
+        bottom: 16px;
+        padding: 0 16px;
+        gap: 10px;
+      }
+      .slider-prev,
+      .slider-next {
+        display: none;
+      }
+      .slider-indicators {
+        max-width: 100%;
+        gap: 12px;
+      }
+      .slider-dot-label {
+        font-size: .62rem;
       }
     }
     #heroSlider .btn-pmc {
@@ -2017,9 +2043,7 @@
     }
     @media (max-width: 575.98px) {
       .campus-mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
-      #heroSlider { min-height: min(88vh, 680px); }
-      .slide-inner { padding: 88px 0 100px; }
-      .slider-chrome { bottom: 18px; }
-      .slider-prev, .slider-next { width: 42px; height: 42px; }
-      .slider-dot-label { font-size: .62rem; }
+      #heroSlider { min-height: min(82vh, 620px); }
+      .slide-inner { padding: 88px 0 88px; }
+      .slider-chrome { bottom: 14px; }
     }

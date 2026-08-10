@@ -113,7 +113,7 @@
       <h5>No Results Found</h5>
       <p>Try adjusting your search or filter criteria.</p>
       <button type="button" onclick="clearAllFilters()" class="btn-pmc btn-pmc-outline"><i class="bi bi-x-circle"></i> Clear All Filters</button>
-    </div>
+</div>
 
     <div id="facultyContent"></div>
 

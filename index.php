@@ -41,7 +41,7 @@ include('includes/header.php');
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 d-none d-lg-block">
           <div class="slide-facilities" aria-label="Clinical training strengths">
             <div class="sf-title">Where You Train</div>
             <div class="sf-grid">
