@@ -120,29 +120,17 @@ include('includes/header.php');
     <div class="row g-4">
       <div class="col-lg-6 fu fu-delay-1">
         <div class="pmc-card home-prog-card">
-          <div class="pmc-card-icon home-prog-logo">
-            <img src="assets/images/logo/pmclogo.png" alt="Peshawar Medical College" />
-          </div>
+          <span class="home-prog-code">Undergraduate</span>
           <h4>Peshawar Medical College</h4>
-          <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at 3 affiliated teaching hospitals.</p>
-          <div class="home-prog-tags">
-            <span class="pmc-tag">MBBS</span>
-            <span class="pmc-tag">PM&amp;DC</span>
-            <span class="pmc-tag">3 Hospitals</span>
-          </div>
+          <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at three affiliated teaching hospitals.</p>
           <a href="pmc.php" class="btn-pmc btn-pmc-outline home-prog-btn">Learn More <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
       <div class="col-lg-6 fu fu-delay-2">
         <div class="pmc-card home-prog-card">
-          <div class="pmc-card-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+          <span class="home-prog-code">Postgraduate</span>
           <h4>Postgraduate Medical Education</h4>
           <p>FCPS and MCPS programmes recognized by CPSP since 2011, with plans to introduce MS and diploma pathways.</p>
-          <div class="home-prog-tags">
-            <span class="pmc-tag">FCPS</span>
-            <span class="pmc-tag">MCPS</span>
-            <span class="pmc-tag">CPSP</span>
-          </div>
           <a href="pg-medical-education.php" class="btn-pmc btn-pmc-outline home-prog-btn">Explore <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
