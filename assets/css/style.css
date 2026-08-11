@@ -2143,6 +2143,198 @@
       .dept-panel-body { padding: 18px; }
     }
 
+    /* ── PG MEDICAL EDUCATION PAGE ── */
+    .pg-page .about-facts {
+      margin: 28px 0 36px;
+    }
+    .pg-page .about-fact i { display: none; }
+    .pg-page .about-block { margin-top: 40px; }
+    .pg-panel {
+      height: 100%;
+      padding: 26px 24px;
+      background:
+        linear-gradient(180deg, rgba(21, 95, 122, .04) 0%, transparent 40%),
+        #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+    }
+    .pg-panel-accent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(160deg, rgba(21, 95, 122, .08) 0%, rgba(196, 135, 58, .08) 100%),
+        #fff;
+    }
+    .pg-panel-label {
+      display: inline-block;
+      align-self: flex-start;
+      font-family: var(--font-head);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(21, 95, 122, .28);
+    }
+    .pg-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      color: var(--gray-dark);
+      line-height: 1.75;
+    }
+    .pg-list li + li { margin-top: 6px; }
+    .pg-mission {
+      margin: 0;
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.45;
+      letter-spacing: -.01em;
+    }
+    .pg-outcomes {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .pg-outcomes li {
+      position: relative;
+      padding: 14px 16px 14px 18px;
+      border-left: 3px solid var(--teal);
+      background: rgba(21, 95, 122, .04);
+      border-radius: 0 var(--r-sm, 8px) var(--r-sm, 8px) 0;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      color: var(--gray-dark);
+      line-height: 1.65;
+    }
+    .pg-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pg-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      font-family: var(--font-head);
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+    .pg-chip-link {
+      color: var(--teal);
+      border-color: rgba(21, 95, 122, .35);
+      background: rgba(21, 95, 122, .06);
+    }
+    .pg-chip-link:hover {
+      color: #fff;
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+    .pg-figure {
+      margin: 0 0 22px;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(10, 22, 40, .06);
+    }
+    .pg-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .pg-acc .accordion-item {
+      border: 1px solid var(--border);
+      border-radius: var(--r-md) !important;
+      overflow: hidden;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+    .pg-acc .accordion-button {
+      font-family: var(--font-head);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: #fff;
+      box-shadow: none !important;
+      padding: 14px 18px;
+    }
+    .pg-acc .accordion-button:not(.collapsed) {
+      color: var(--navy);
+      background: rgba(21, 95, 122, .07);
+    }
+    .pg-acc .accordion-button::after {
+      filter: none;
+    }
+    .pg-acc .accordion-body {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      color: var(--gray-dark);
+      line-height: 1.75;
+      padding: 4px 18px 18px;
+    }
+    .pg-acc .accordion-body ul {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+    .pg-acc .accordion-body li + li { margin-top: 6px; }
+    .pg-acc .accordion-body p { margin-bottom: 10px; }
+    .pg-acc .accordion-body p:last-child { margin-bottom: 0; }
+    .pg-note {
+      margin-top: 18px;
+      font-size: .88rem;
+      color: var(--gray-mid);
+    }
+    .pg-cta {
+      margin-top: 40px;
+      padding: 28px 26px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(21, 95, 122, .06) 0%, rgba(196, 135, 58, .08) 100%),
+        #fff;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .pg-cta h3 {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 6px;
+    }
+    .pg-cta p {
+      margin: 0;
+      font-size: .88rem;
+      color: var(--gray-mid);
+    }
+    .pg-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pg-cta-actions .btn-pmc {
+      font-size: .8rem;
+      padding: 10px 16px;
+    }
+
     /* ── BACK TO TOP ── */
     #backToTop {
       position: fixed; bottom: 28px; right: 28px;
