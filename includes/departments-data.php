@@ -1678,6 +1678,23 @@ function get_academic_department(string $slug): ?array {
   return $academic_departments[$slug] ?? null;
 }
 
+function get_department_activity(string $slug, int $index): ?array {
+  $dept = get_academic_department($slug);
+  if (!$dept) {
+    return null;
+  }
+  $activities = $dept['activities'] ?? [];
+  if (!isset($activities[$index]) || !is_array($activities[$index])) {
+    return null;
+  }
+  return [
+    'dept' => $dept,
+    'slug' => $slug,
+    'index' => $index,
+    'activity' => $activities[$index],
+  ];
+}
+
 function academic_department_groups(array $departments): array {
   $groups = [];
   foreach ($departments as $slug => $dept) {

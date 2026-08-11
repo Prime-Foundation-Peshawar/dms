@@ -141,15 +141,16 @@ include('includes/header.php');
           <div class="dept-panel-body">
             <?php if ($activities): ?>
               <div class="dept-timeline">
-                <?php foreach ($activities as $item):
+                <?php foreach ($activities as $activityIndex => $item):
                   $dateRaw = trim($item['date'] ?? '');
                   $dateMain = $dateRaw !== '' ? $dateRaw : 'TBA';
                   // Split multi-word dates for display (e.g. "Aug 2026" -> Aug / 2026)
                   $dateBits = preg_split('/\s+/', $dateMain);
                   $dateTop = $dateBits[0] ?? $dateMain;
                   $dateBottom = isset($dateBits[1]) ? implode(' ', array_slice($dateBits, 1)) : '';
+                  $activityUrl = 'department-activity.php?slug=' . urlencode($slug) . '&id=' . (int)$activityIndex;
                 ?>
-                  <article class="dept-activity">
+                  <a class="dept-activity" href="<?= htmlspecialchars($activityUrl) ?>">
                     <div class="dept-activity-datebox" aria-label="Date: <?= htmlspecialchars($dateMain) ?>">
                       <span class="dept-activity-date-top"><?= htmlspecialchars($dateTop) ?></span>
                       <?php if ($dateBottom !== ''): ?>
@@ -165,8 +166,9 @@ include('includes/header.php');
                       </div>
                       <h3><?= htmlspecialchars($item['title']) ?></h3>
                       <p><?= htmlspecialchars($item['text']) ?></p>
+                      <span class="dept-activity-more">View details <i class="bi bi-arrow-right"></i></span>
                     </div>
-                  </article>
+                  </a>
                 <?php endforeach; ?>
               </div>
             <?php else: ?>
