@@ -739,9 +739,8 @@
           </div>
           <div class="fnc-body">
             <div class="fnc-eyebrow"><i class="bi bi-star-fill"></i> Featured · Admissions</div>
-            <h2 class="fnc-title">MBBS Admissions Open for Session 2025–26</h2>
-            <p class="fnc-excerpt">PMC invites applications from eligible local, overseas Pakistani, and international
-              students for MBBS Session 2025–26. Limited seats are available — apply early.</p>
+            <h2 class="fnc-title">MBBS Admissions — Applications Closed</h2>
+            <p class="fnc-excerpt">Applications for MBBS Session 2025–26 are closed. Review eligibility, merit criteria, and guidance for the next admissions cycle on the Admissions page.</p>
             <div class="fnc-meta">
               <span><i class="bi bi-calendar3"></i> June 15, 2025</span>
               <span><i class="bi bi-person"></i> PMC Admin</span>
@@ -764,9 +763,8 @@
                 <div class="nc-date-pill"><span class="day">15</span><span class="month">Jun</span></div>
               </div>
               <div class="nc-body">
-                <div class="nc-title">MBBS Admissions Open for Session 2025–26</div>
-                <div class="nc-excerpt">PMC invites applications from eligible local, overseas Pakistani, and
-                  international students for MBBS Session 2025–26.</div>
+                <div class="nc-title">MBBS Admissions — Applications Closed</div>
+                <div class="nc-excerpt">Applications for MBBS Session 2025–26 are closed. See Admissions for next-cycle guidance.</div>
                 <div class="nc-footer">
                   <span class="nc-author"><i class="bi bi-person-circle"></i>PMC Admin</span>
                   <span class="nc-read">2 min read <i class="bi bi-arrow-right"></i></span>
@@ -950,7 +948,7 @@
             <a class="recent-item" href="single-news.php">
               <div class="ri-thumb"><i class="bi bi-mortarboard-fill"></i></div>
               <div style="flex:1;min-width:0;">
-                <div class="ri-title">MBBS Admissions Open for Session 2025–26</div>
+                <div class="ri-title">MBBS Admissions — Applications Closed</div>
                 <div class="ri-date"><i class="bi bi-calendar3"></i> June 15, 2025</div>
               </div>
             </a>

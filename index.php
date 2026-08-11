@@ -17,7 +17,7 @@ include('includes/header.php');
         <p class="slide-body">Peshawar Medical College offers a PM&amp;DC-recognized five-year MBBS — rigorous basic sciences, early clinical exposure, and mentors who teach medicine with integrity.</p>
         <p class="slide-body slide-body-sub">Study at Riphah International University – Peshawar Campus and build the competence to serve communities across KP and beyond.</p>
         <div class="slide-actions">
-          <a href="admissions.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions 2025–26</a>
+          <a href="admissions.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions Info</a>
           <a href="pmc.php" class="btn-pmc btn-pmc-outline-white">About PMC</a>
         </div>
       </div>
@@ -37,7 +37,7 @@ include('includes/header.php');
             <p class="slide-body">From basic sciences to clinical specialties — train across affiliated teaching hospitals and academic departments with real patients, supervised practice, and research-minded mentors.</p>
             <div class="slide-actions">
               <a href="departments.php" class="btn-pmc btn-pmc-primary">Academic Departments</a>
-              <a href="about.php#campus" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-hospital"></i> Teaching Hospitals</a>
+              <a href="#hospitals" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-hospital"></i> Teaching Hospitals</a>
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ include('includes/header.php');
         <span class="sec-eyebrow">About DMS</span>
         <h2 class="sec-title">Department of Medical Sciences</h2>
         <p class="sec-desc">A constituent department of Riphah International University – Peshawar Campus. It comprises <strong>Peshawar Medical College</strong> and postgraduate medical programmes, preparing physicians with competence, integrity, commitment, and research ability aligned to the health needs of KP and Pakistan.</p>
-        <p class="sec-desc">Recognized by PM&amp;DC. In the 2024 inspection, we stood first among private hospitals of KP with more than 80% score.</p>
+        <p class="sec-desc">Recognized by PM&amp;DC. In the 2024 inspection, we stood first among private medical colleges of KP with more than 80% score.</p>
         <a href="about.php" class="btn-pmc btn-pmc-primary mt-2"><i class="bi bi-arrow-right-circle"></i> Read Full About</a>
       </div>
     </div>
@@ -174,7 +174,7 @@ include('includes/header.php');
         <div class="why-card">
           <div class="why-ico"><i class="bi bi-award-fill"></i></div>
           <h4>PM&amp;DC Recognised</h4>
-          <p>Top among private hospitals of KP in the 2024 PM&amp;DC inspection, with more than 80% score.</p>
+          <p>Top among private medical colleges of KP in the 2024 PM&amp;DC inspection, with more than 80% score.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 fu fu-delay-2">
@@ -321,26 +321,11 @@ include('includes/header.php');
         <p class="sec-desc mb-0">Events, admissions, and campus notices — current items only.</p>
       </div>
       <div class="col-lg-5 text-lg-end fu fu-delay-2 mt-3 mt-lg-0">
-        <a href="all-news.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-newspaper"></i> All News</a>
+        <a href="events.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
       </div>
     </div>
     <div class="row g-4">
       <div class="col-lg-4 col-md-6 fu fu-delay-1">
-        <article class="news-card news-card-text news-card--event">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Event</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: July 2026</span>
-            </div>
-            <h3 class="nc-title">Participate in Seert-un-Nabi Week</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>8 Aug 2026</strong></p>
-            <div class="nc-actions">
-              <a target="_blank" href="assets/images/news/ad-seerat-ul-nabi.jpeg" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-2">
         <article class="news-card news-card-text news-card--admissions">
           <div class="nc-body">
             <div class="nc-meta">
@@ -356,18 +341,32 @@ include('includes/header.php');
           </div>
         </article>
       </div>
+      <div class="col-lg-4 col-md-6 fu fu-delay-2">
+        <article class="news-card news-card-text news-card--news">
+          <div class="nc-body">
+            <div class="nc-meta">
+              <span class="nc-cat nc-cat-news">Update</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: 2024</span>
+            </div>
+            <h3 class="nc-title">PM&amp;DC Inspection — Top Private Medical College in KP</h3>
+            <p class="nc-deadline"><i class="bi bi-award"></i> Score above <strong>80%</strong> in 2024 inspection</p>
+            <div class="nc-actions">
+              <a href="pmc.php" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
       <div class="col-lg-4 col-md-6 fu fu-delay-3">
         <article class="news-card news-card-text news-card--admissions">
           <div class="nc-body">
             <div class="nc-meta">
               <span class="nc-cat nc-cat-admissions">Admissions</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Apr 2026</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Session 2025–26</span>
             </div>
-            <h3 class="nc-title">BS, MPhil &amp; PhD Islamiyat</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>20 Aug 2026</strong></p>
-            <div class="nc-actions nc-actions-split">
-              <a target="_blank" href="assets/images/news/ad-islamiyat.jpeg" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-              <a target="_blank" href="assets/images/news/PG-Admission-Form-Islamiyat.pdf" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Form</a>
+            <h3 class="nc-title">MBBS Admissions — Applications Closed</h3>
+            <p class="nc-deadline"><i class="bi bi-info-circle"></i> Review eligibility, merit, and next-cycle guidance</p>
+            <div class="nc-actions">
+              <a href="admissions.php" class="nc-btn nc-btn-primary">Admissions info <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
@@ -382,11 +381,11 @@ include('includes/header.php');
     <div class="row align-items-center g-4">
       <div class="col-lg-7 fu">
         <h2 class="mb-2">Ready to Join Department of Medical Sciences?</h2>
-        <p class="mb-0">Explore MBBS admissions, postgraduate pathways, or contact us for guidance.</p>
+        <p class="mb-0">Explore MBBS admissions information, postgraduate pathways, or contact us for guidance.</p>
       </div>
       <div class="col-lg-5 text-lg-end fu fu-delay-2">
         <div class="home-cta-actions">
-          <a href="admissions.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-pencil-square"></i> Apply Now</a>
+          <a href="admissions.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-mortarboard"></i> Admissions Info</a>
           <a href="contact.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-telephone"></i> Contact Us</a>
         </div>
       </div>

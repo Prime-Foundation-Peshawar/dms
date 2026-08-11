@@ -43,7 +43,7 @@
               PMC prepares graduates for professional practice, ethical leadership, and research-minded care, with learning that stays close to the community health needs of KP and Pakistan.
             </p>
             <p>
-              The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. In the 2024 inspection, the institution stood first among private hospitals of KP with more than <strong>80% score</strong>. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
+              The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. In the 2024 inspection, the institution stood first among private medical colleges of KP with more than <strong>80% score</strong>. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
             </p>
             <p>
               For department overview, campus facilities, and location, see <a href="about.php"><strong>About DMS</strong></a>. Values are on <a href="vision-mission.php"><strong>Vision &amp; Mission</strong></a>.

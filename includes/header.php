@@ -74,7 +74,6 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
         <div class="d-flex align-items-center gap-3">
           <a href="http://careers.prime.edu.pk" target="_blank"><i class="bi bi-briefcase me-1"></i>Career Portal</a>
           <a href="https://ses.prime.edu.pk" target="_blank"><i class="bi bi-laptop me-1"></i>LMS</a>
-          <a href="vacant-seats.php" class="tb-cta"><i class="bi bi-door-open me-1"></i>Vacant Seats</a>
         </div>
       </div>
     </div>
@@ -139,7 +138,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
           <li class="nav-item"><a class="nav-link" href="departments.php">Departments</a></li>
 
           <li class="nav-item mega-menu-wrapper">
-            <a class="nav-link dropdown-toggle" href="#programs">Programs</a>
+            <a class="nav-link dropdown-toggle" href="index.php#programs">Programs</a>
             <div class="dropdown-menu plain-dd" style="min-width:260px;">
               <a class="dropdown-item" href="pmc.php"><i class="bi bi-mortarboard"></i>Undergraduate Medical Education (PMC)</a>
               <a class="dropdown-item" href="pg-medical-education.php"><i class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
@@ -154,8 +153,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
                 <div class="row g-4">
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-mortarboard-fill"></i> Apply</div>
-                    <a class="mega-link" href="admissions.php"><i class="bi bi-pencil-square"></i>Admissions 2025–26</a>
-                    <a class="mega-link" href="vacant-seats.php"><i class="bi bi-door-open"></i>Vacant Seats</a>
+                    <a class="mega-link" href="admissions.php"><i class="bi bi-pencil-square"></i>Admissions Info</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/Medical Final Prospectus 2025-26.pdf"
                       target="_blank"><i class="bi bi-file-pdf"></i>Prospectus 2025–26</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/PMC MBBS Prospectus 2024-25.pdf"

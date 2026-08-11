@@ -51,15 +51,9 @@
                 <h4>Follow Us</h4>
                 <p>Stay updated on news, events, and announcements.</p>
                 <div style="display:flex;gap:9px;margin-top:10px;"><a href="https://www.facebook.com/share/17Mw2CuEkD/"
-                    target="_blank"
+                    target="_blank" rel="noopener"
                     style="width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;"><i
-                      class="bi bi-facebook"></i></a><a href="#"
-                    style="width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;"><i
-                      class="bi bi-instagram"></i></a><a href="#"
-                    style="width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;"><i
-                      class="bi bi-linkedin"></i></a><a href="#"
-                    style="width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;"><i
-                      class="bi bi-youtube"></i></a></div>
+                      class="bi bi-facebook"></i></a></div>
               </div>
             </div>
           </div>

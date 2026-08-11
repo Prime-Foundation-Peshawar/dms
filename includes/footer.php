@@ -12,12 +12,8 @@
             Department of Medical Sciences, Riphah International University – Peshawar Campus — comprising Peshawar Medical College and postgraduate medical programmes.
           </p>
           <div class="foot-socials">
-            <a href="https://www.facebook.com/share/17Mw2CuEkD/" class="soc-btn" target="_blank"
+            <a href="https://www.facebook.com/share/17Mw2CuEkD/" class="soc-btn" target="_blank" rel="noopener"
               aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="soc-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="#" class="soc-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            <a href="#" class="soc-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
           </div>
         </div>
         <div class="col-6 col-lg-2">
@@ -30,7 +26,6 @@
             <li><a href="admissions.php">Admissions</a></li>
             <li><a href="pmc.php">Peshawar Medical College</a></li>
             <li><a href="pg-medical-education.php">PG Medical Education</a></li>
-            <li><a href="vacant-seats.php">Vacant Seats</a></li>
             <li><a href="contact.php">Contact Us</a></li>
           </ul>
         </div>
@@ -76,9 +71,6 @@
     <div class="footer-bot">
       <span>&copy; 2026 Riphah International University - Peshawar Campus &middot; All Rights Reserved.</span>
       <!-- <div class="d-flex gap-3 flex-wrap justify-content-center">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Sitemap</a>
       </div> -->
     </div>
   </div>

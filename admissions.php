@@ -199,14 +199,11 @@
           </div>
 
           <div class="adm-cta-row fu">
-            <a href="https://pmc.prime.edu.pk/admission2026" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary">
-              <i class="bi bi-box-arrow-up-right"></i> Application Portal
-            </a>
-            <a href="vacant-seats.php" class="btn-pmc btn-pmc-outline">
-              <i class="bi bi-door-open"></i> Vacant Seats
-            </a>
-            <a href="contact.php" class="btn-pmc btn-pmc-outline">
+            <a href="contact.php" class="btn-pmc btn-pmc-primary">
               <i class="bi bi-envelope"></i> Contact Admissions
+            </a>
+            <a href="pg-medical-education.php" class="btn-pmc btn-pmc-outline">
+              <i class="bi bi-journal-medical"></i> Postgraduate Pathways
             </a>
           </div>
 
@@ -233,7 +230,6 @@
             <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Scholarship Policy.pdf" target="_blank" rel="noopener"><i class="bi bi-award"></i>Scholarship Policy</a>
             <a class="sw-link" href="https://caspr.kmu.edu.pk" target="_blank" rel="noopener"><i class="bi bi-globe"></i>KMU CASPR Portal</a>
             <a class="sw-link" href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" rel="noopener"><i class="bi bi-person-circle"></i>Student Portal</a>
-            <a class="sw-link" href="vacant-seats.php"><i class="bi bi-door-open"></i>Vacant Seats</a>
             <a class="sw-link" href="https://riphahpsh.edu.pk/admissions.php" target="_blank" rel="noopener"><i class="bi bi-building"></i>Campus Admissions Hub</a>
           </div>
         </div>
