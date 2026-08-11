@@ -212,28 +212,28 @@ include('includes/header.php');
     </div>
     <div class="row g-4">
       <div class="col-lg-4 col-md-6 fu fu-delay-1">
-        <div class="hosp-card">
-          <div class="hosp-ico"><i class="bi bi-hospital-fill"></i></div>
-          <div class="hosp-name">Kuwait Teaching Hospital</div>
+        <a class="hosp-card" href="https://kth.prime.edu.pk/" target="_blank" rel="noopener">
+          <span class="hosp-code">01 · KTH</span>
+          <h3 class="hosp-name">Kuwait Teaching Hospital</h3>
           <p class="hosp-desc">Major tertiary care centre providing comprehensive clinical rotations across medical and surgical specialties.</p>
-          <a href="https://kth.prime.edu.pk/" class="hosp-link" target="_blank" rel="noopener">Learn More <i class="bi bi-arrow-right"></i></a>
-        </div>
+          <span class="hosp-link">Visit hospital <i class="bi bi-arrow-right"></i></span>
+        </a>
       </div>
       <div class="col-lg-4 col-md-6 fu fu-delay-2">
-        <div class="hosp-card">
-          <div class="hosp-ico"><i class="bi bi-heart-pulse-fill"></i></div>
-          <div class="hosp-name">Mercy Teaching Hospital</div>
+        <a class="hosp-card" href="https://mth.prime.edu.pk/" target="_blank" rel="noopener">
+          <span class="hosp-code">02 · MTH</span>
+          <h3 class="hosp-name">Mercy Teaching Hospital</h3>
           <p class="hosp-desc">Focused on community healthcare with high patient volume — ideal for broad clinical experience.</p>
-          <a href="https://mth.prime.edu.pk/" class="hosp-link" target="_blank" rel="noopener">Learn More <i class="bi bi-arrow-right"></i></a>
-        </div>
+          <span class="hosp-link">Visit hospital <i class="bi bi-arrow-right"></i></span>
+        </a>
       </div>
       <div class="col-lg-4 col-md-6 fu fu-delay-3">
-        <div class="hosp-card">
-          <div class="hosp-ico"><i class="bi bi-building-fill"></i></div>
-          <div class="hosp-name">Prime Teaching Hospital</div>
+        <a class="hosp-card" href="https://pth.prime.edu.pk/" target="_blank" rel="noopener">
+          <span class="hosp-code">03 · PTH</span>
+          <h3 class="hosp-name">Prime Teaching Hospital</h3>
           <p class="hosp-desc">Modern diagnostic and surgical facilities for intensive clinical and surgical training rotations.</p>
-          <a href="https://pth.prime.edu.pk/" class="hosp-link" target="_blank" rel="noopener">Learn More <i class="bi bi-arrow-right"></i></a>
-        </div>
+          <span class="hosp-link">Visit hospital <i class="bi bi-arrow-right"></i></span>
+        </a>
       </div>
     </div>
   </div>
