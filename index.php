@@ -165,8 +165,8 @@ include('includes/header.php');
 <section class="pmc-section" id="why-dms">
   <div class="container">
     <div class="home-sec-head text-center fu">
-      <span class="sec-eyebrow">Why DMS</span>
-      <h2 class="sec-title">Why Choose Medical Sciences at Riphah Peshawar</h2>
+      <span class="sec-eyebrow">Why PMC</span>
+      <h2 class="sec-title">Why Choose Peshawar Medical College</h2>
       <p class="sec-desc">Clinical depth, ethical formation, and recognised standards — built around the health needs of KP and Pakistan.</p>
     </div>
     <div class="row g-4">
