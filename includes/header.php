@@ -85,7 +85,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
       <a class="pmc-brand" href="index.php">
         <div class="">
           <img src="assets/images/logo/riphah-psh.png"
-            alt="Department of Medical Sciences (DMS) — Riphah Peshawar Campus" width="200px;" />
+            alt="Department of Medical Sciences (PMC) — Riphah Peshawar Campus" width="200px;" />
         </div>
         <div class="pmc-brand-text d-none d-md-block" style="margin-left:10px;line-height:1.25;">
           <div style="font-size:.88rem;font-weight:700;color:var(--navy);">Department of Medical Sciences</div>
@@ -110,7 +110,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
                 <div class="row g-4">
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-info-circle-fill"></i> About Us</div>
-                    <a class="mega-link" href="about.php"><i class="bi bi-building"></i>About DMS</a>
+                    <a class="mega-link" href="about.php"><i class="bi bi-building"></i>About PMC</a>
                     <a class="mega-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
                     <a class="mega-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
                   </div>

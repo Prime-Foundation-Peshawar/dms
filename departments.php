@@ -20,7 +20,7 @@ include('includes/header.php');
 <section class="pmc-section">
   <div class="container">
     <div class="home-sec-head text-center fu mb-5">
-      <span class="sec-eyebrow">PMC · DMS</span>
+      <span class="sec-eyebrow">PMC</span>
       <h2 class="sec-title">Explore Our Departments</h2>
       <p class="sec-desc">Browse academic departments. Each page covers introduction, faculty, and departmental activities.</p>
     </div>

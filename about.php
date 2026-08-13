@@ -29,7 +29,7 @@
               A constituent department of <strong>Riphah International University – Peshawar Campus</strong>, comprising <strong>Peshawar Medical College</strong> and postgraduate medical programmes.
             </p>
             <p>
-              DMS is the oldest component department of the Peshawar Campus. It coordinates undergraduate MBBS education through PMC, postgraduate pathways, and clinical training across affiliated teaching hospitals — with a focus on the health needs of Khyber Pakhtunkhwa and Pakistan.
+              PMC is the oldest component department of the Peshawar Campus. It coordinates undergraduate MBBS education through Peshawar Medical College, postgraduate pathways, and clinical training across affiliated teaching hospitals — with a focus on the health needs of Khyber Pakhtunkhwa and Pakistan.
             </p>
             <p>
               For the MBBS college profile, graduate attributes, clinical hospitals, and campus gallery, see <a href="pmc.php"><strong>Peshawar Medical College</strong></a>. Department values are on <a href="vision-mission.php"><strong>Vision &amp; Mission</strong></a>.
@@ -72,7 +72,7 @@
           <div class="about-block fu" id="programmes">
             <div class="about-block-head">
               <h3>Colleges &amp; Programmes</h3>
-              <p>Where teaching and clinical training are delivered within DMS.</p>
+              <p>Where teaching and clinical training are delivered within PMC.</p>
             </div>
             <div class="pmc-hosp-grid">
               <a class="pmc-hosp-card" href="pmc.php">

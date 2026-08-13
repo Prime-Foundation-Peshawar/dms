@@ -3,7 +3,7 @@
         <div class="sidebar-widget">
           <div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div>
           <div class="sw-body">
-            <a class="sw-link" href="about.php"><i class="bi bi-building"></i>About DMS</a>
+            <a class="sw-link" href="about.php"><i class="bi bi-building"></i>About PMC</a>
             <a class="sw-link" href="pmc.php"><i class="bi bi-award"></i>Peshawar Medical College</a>
             <a class="sw-link" href="pg-medical-education.php"><i class="bi bi-journal-medical"></i>PG Medical Education</a>
             <a class="sw-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>

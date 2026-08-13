@@ -60,7 +60,7 @@
           <div class="about-block fu" id="vision">
             <div class="about-block-head">
               <h3>Vision &amp; Mission</h3>
-              <p>What postgraduate education at DMS aims to build in every trainee.</p>
+              <p>What postgraduate education at PMC aims to build in every trainee.</p>
             </div>
             <div class="row g-4">
               <div class="col-md-7">

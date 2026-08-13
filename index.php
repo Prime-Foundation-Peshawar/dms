@@ -151,7 +151,7 @@ include('includes/header.php');
         </div>
       </div>
       <div class="col-lg-7 fu fu-delay-2">
-        <span class="sec-eyebrow">About DMS</span>
+        <span class="sec-eyebrow">About PMC</span>
         <h2 class="sec-title">Department of Medical Sciences</h2>
         <p class="sec-desc">A constituent department of Riphah International University – Peshawar Campus. It comprises <strong>Peshawar Medical College</strong> and postgraduate medical programmes, preparing physicians with competence, integrity, commitment, and research ability aligned to the health needs of KP and Pakistan.</p>
         <p class="sec-desc">Recognized by PM&amp;DC. In the 2024 inspection, we stood first among private medical colleges of KP with more than 80% score.</p>
@@ -161,7 +161,7 @@ include('includes/header.php');
   </div>
 </section>
 
-<!-- ═══ WHY DMS ═══ -->
+<!-- ═══ WHY PMC ═══ -->
 <section class="pmc-section" id="why-dms">
   <div class="container">
     <div class="home-sec-head text-center fu">
@@ -317,7 +317,7 @@ include('includes/header.php');
     <div class="row align-items-end mb-5">
       <div class="col-lg-7 fu">
         <span class="sec-eyebrow">News &amp; Updates</span>
-        <h2 class="sec-title">Latest from DMS</h2>
+        <h2 class="sec-title">Latest from PMC</h2>
         <p class="sec-desc mb-0">Events, admissions, and campus notices — current items only.</p>
       </div>
       <div class="col-lg-5 text-lg-end fu fu-delay-2 mt-3 mt-lg-0">

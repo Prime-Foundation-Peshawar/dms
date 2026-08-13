@@ -6,7 +6,7 @@
         <div class="col-lg-3">
           <div class="foot-brand">
             <img src="assets/images/logo/riphah-psh-white.png"
-              alt="Department of Medical Sciences (DMS) — Riphah Peshawar Campus" width="250px" />
+              alt="Department of Medical Sciences (PMC) — Riphah Peshawar Campus" width="250px" />
           </div>
           <p class="foot-desc">
             Department of Medical Sciences, Riphah International University – Peshawar Campus — comprising Peshawar Medical College and postgraduate medical programmes.

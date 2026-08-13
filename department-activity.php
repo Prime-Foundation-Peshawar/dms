@@ -18,7 +18,7 @@ $text = trim($activity['text'] ?? '');
 $details = trim($activity['details'] ?? '');
 $body = $details !== '' ? $details : $text;
 
-$page_title = $title . ' | ' . ($dept['name'] ?? 'Department') . ' | DMS';
+$page_title = $title . ' | ' . ($dept['name'] ?? 'Department') . ' | PMC';
 include('includes/header.php');
 ?>
 

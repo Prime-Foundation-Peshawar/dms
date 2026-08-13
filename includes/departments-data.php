@@ -1,6 +1,6 @@
 <?php
 /**
- * Academic departments under DMS / PMC.
+ * Academic departments under PMC.
  * Faculty sourced from faculty.php; intros/activities can be refined by each department.
  */
 $academic_departments = [
@@ -397,7 +397,7 @@ $academic_departments = [
     'icon' => 'bi-mortarboard-fill',
     'group' => 'Basic',
     'intro' => [
-      'The Department of Health Professions Education & Research supports teaching excellence, curriculum development, and educational scholarship across DMS.',
+      'The Department of Health Professions Education & Research supports teaching excellence, curriculum development, and educational scholarship across PMC.',
       'Faculty contribute to faculty development, assessment design, and research capacity building.',
     ],
     'hod' => 'Assistant Professor Dr. Neelofar Shaheen',
