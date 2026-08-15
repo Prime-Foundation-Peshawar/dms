@@ -56,6 +56,15 @@
                       class="bi bi-facebook"></i></a></div>
               </div>
             </div>
+            <div class="col-12">
+              <div class="pmc-card" style="border-radius:14px;">
+                <div style="font-size:1.6rem;color:var(--teal);margin-bottom:12px;"><i class="bi bi-heart-pulse-fill"></i></div>
+                <h4>E-Health Service</h4>
+                <p>Free health information by phone from Peshawar Medical College (Prime Foundation).</p>
+                <p style="margin-bottom:14px;"><a href="tel:0912385262" style="color:var(--teal);font-weight:700;font-size:1.15rem;">091-2385262</a></p>
+                <a href="e-health.php" class="btn-pmc btn-pmc-outline" style="font-size:.85rem;padding:8px 16px;">How to use &amp; topic codes <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
           </div>
           <h5>Location Map</h5>
           <div class="ratio ratio-16x9 rounded-3 overflow-hidden mt-3">

@@ -53,6 +53,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
   <link rel="preload" as="image" href="<?= htmlspecialchars($preload_href) ?>" type="image/webp" fetchpriority="high" />
     <?php endforeach; ?>
   <?php endif; ?>
+  <?php if (!empty($extra_head)) echo $extra_head; ?>
 
 </head>
 
@@ -113,6 +114,7 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
                     <a class="mega-link" href="about.php"><i class="bi bi-building"></i>About PMC</a>
                     <a class="mega-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
                     <a class="mega-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
+                    <a class="mega-link" href="e-health.php"><i class="bi bi-heart-pulse"></i>E-Health Service</a>
                   </div>
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-hospital-fill"></i> College &amp; Hospitals</div>

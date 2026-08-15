@@ -26,6 +26,7 @@
             <li><a href="admissions.php">Admissions</a></li>
             <li><a href="pmc.php">Peshawar Medical College</a></li>
             <li><a href="pg-medical-education.php">PG Medical Education</a></li>
+            <li><a href="e-health.php">E-Health Service</a></li>
             <li><a href="contact.php">Contact Us</a></li>
           </ul>
         </div>

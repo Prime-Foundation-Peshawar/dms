@@ -239,6 +239,25 @@ include('includes/header.php');
   </div>
 </section>
 
+<!-- ═══ E-HEALTH CTA ═══ -->
+<section class="ehealth-home-strip" id="e-health">
+  <div class="container">
+    <div class="ehealth-home-inner fu">
+      <div class="ehealth-home-copy">
+        <div class="ehealth-home-ico"><i class="bi bi-heart-pulse-fill"></i></div>
+        <div>
+          <h3>Free health info by phone</h3>
+          <p>PMC e-Health service — dial, listen, enter a 3-digit topic code after the beep.</p>
+        </div>
+      </div>
+      <div class="ehealth-home-actions">
+        <a class="ehealth-home-phone" href="tel:0912385262"><i class="bi bi-telephone-fill"></i>091-2385262</a>
+        <a href="e-health.php" class="btn-pmc btn-pmc-outline-white">How to use &amp; codes <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CAMPUS LIFE ═══ -->
 <section class="pmc-section bg-off" id="campus">
   <div class="container">
