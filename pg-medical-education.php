@@ -67,16 +67,16 @@
                 <div class="pg-panel">
                   <span class="pg-panel-label">Vision</span>
                   <ul class="pg-list">
-                    <li>Professional competence</li>
-                    <li>Excellence in ethical values and practice</li>
-                    <li>Cognizance of community health care needs</li>
-                    <li>Research mindedness and lifelong learning</li>
-                    <li>Competence in IT and current health technologies</li>
+                  <li>Professional competence</li>
+                  <li>Excellence in ethical values and practice</li>
+                  <li>Cognizance of community health care needs</li>
+                  <li>Research mindedness and lifelong learning</li>
+                  <li>Competence in IT and current health technologies</li>
                     <li>Capability to meet local and global health challenges</li>
-                    <li>Competitiveness at national and global level</li>
-                  </ul>
-                </div>
+                  <li>Competitiveness at national and global level</li>
+                </ul>
               </div>
+            </div>
               <div class="col-md-5">
                 <div class="pg-panel pg-panel-accent">
                   <span class="pg-panel-label">Mission</span>
@@ -99,7 +99,7 @@
               <li>Practice critical and reflective thinking, lifelong learning and self-accountability</li>
               <li>Model exemplary moral conduct and mentor junior colleagues</li>
               <li>Serve as socially responsible, honest and patriotic citizens</li>
-            </ul>
+          </ul>
           </div>
 
           <div class="about-block fu" id="specialties">
@@ -143,7 +143,7 @@
                     <span class="pg-chip">Anesthesia</span>
                     <span class="pg-chip">Paediatrics</span>
                     <span class="pg-chip">Diagnostic Radiology</span>
-                  </div>
+            </div>
                 </div>
               </div>
             </div>
@@ -179,7 +179,7 @@
                 <h2 class="accordion-header">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#comp1" aria-expanded="true">1. Knowledge and Critical Thinking</button>
                 </h2>
-                <div id="comp1" class="accordion-collapse collapse show" data-bs-parent="#pgCompAcc">
+              <div id="comp1" class="accordion-collapse collapse show" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <ul>
                       <li>Demonstrate application of wide and current readings to critical thinking and problem solving</li>
@@ -192,58 +192,58 @@
                       <li>Apply quality assurance procedures in daily work</li>
                       <li>Demonstrate shared decision-making and cost-effective, resource-appropriate care</li>
                       <li>Demonstrate awareness of bio-psycho-social factors in assessment and management</li>
-                    </ul>
+                      </ul>
                   </div>
-                </div>
               </div>
+            </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comp2">2. Technical Skills</button>
                 </h2>
-                <div id="comp2" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
+              <div id="comp2" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <ul>
                       <li>Demonstrate International Patient Safety Goals (IPSG)</li>
                       <li>Perform required technical skills and procedures in the specialty, including informed consent, preoperative planning, pre-/intra-/post-interventional care, and follow-up</li>
-                    </ul>
+                      </ul>
                   </div>
-                </div>
               </div>
+            </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comp3">3. Communication Skills</button>
                 </h2>
-                <div id="comp3" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
+              <div id="comp3" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <p><strong>Written</strong> — clear medical records, management plans, discharge summaries, and referral letters.</p>
                     <p><strong>Verbal</strong> — effective interpersonal and non-verbal communication; empathy; culturally sensitive counselling; respectful language on campus and in clinical settings; clear case presentations.</p>
                   </div>
-                </div>
               </div>
+            </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comp4">4. Teamwork</button>
                 </h2>
-                <div id="comp4" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
+              <div id="comp4" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <ul>
                       <li>Demonstrate constructive team-communication skills</li>
                       <li>Facilitate collaborative group interaction with respect and interdependence</li>
                       <li>Support other team members to grow</li>
                       <li>Assume responsibility and leadership when needed</li>
-                    </ul>
+                  </ul>
                   </div>
-                </div>
               </div>
+            </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comp5">5. Research</button>
                 </h2>
-                <div id="comp5" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
+              <div id="comp5" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <ul>
                       <li>Interpret and critically appraise research studies</li>
@@ -251,16 +251,16 @@
                       <li>Demonstrate academic writing through dissertation and/or publications</li>
                       <li>Guide others in research methodology</li>
                       <li>Present research clearly and logically</li>
-                    </ul>
+                      </ul>
                   </div>
-                </div>
               </div>
+            </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comp6">6. Professionalism</button>
                 </h2>
-                <div id="comp6" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
+              <div id="comp6" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <ul>
                       <li>Personal integrity: honesty, punctuality, regularity, timely task completion</li>
@@ -269,31 +269,31 @@
                       <li>Self-directed lifelong learning; know limitations and seek help when needed</li>
                       <li>Ethics — autonomy, informed consent, confidentiality, do no harm, cost-effective care</li>
                       <li>Leadership — accountability, willingness to lead, and bringing about needed change</li>
-                    </ul>
+                  </ul>
                   </div>
-                </div>
               </div>
+            </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comp7">7. Pedagogy</button>
                 </h2>
-                <div id="comp7" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
+              <div id="comp7" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <ul>
                       <li>Effective clinical and community-based teaching</li>
                       <li>Evidence of theory regarding learning and education</li>
                       <li>Practice of best teaching methods</li>
-                    </ul>
+                  </ul>
                   </div>
-                </div>
               </div>
+            </div>
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comp8">8. Advocacy</button>
                 </h2>
-                <div id="comp8" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
+              <div id="comp8" class="accordion-collapse collapse" data-bs-parent="#pgCompAcc">
                   <div class="accordion-body">
                     <p><strong>For the patient</strong> — timely care that puts patients first.</p>
                     <p><strong>For the practice</strong> — identify limitations, recommend and implement improvements.</p>
@@ -346,7 +346,7 @@
                     <span class="pg-chip">Ophthalmology</span>
                     <span class="pg-chip">Anaesthesia</span>
                     <span class="pg-chip">Diagnostic Radiology</span>
-                  </div>
+                </div>
                 </div>
               </div>
             </div>

@@ -1547,6 +1547,18 @@
         #fff;
     }
     .home-prog-card::before { opacity: 1; }
+    .home-prog-logo {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+    .home-prog-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
     .home-prog-code {
       display: inline-block;
       font-family: var(--font-head);
@@ -2562,64 +2574,136 @@
 
     /* Homepage e-health strip */
     .ehealth-home-strip {
-      background: linear-gradient(120deg, var(--navy) 0%, #0a3a4d 55%, var(--teal) 100%);
-      padding: 28px 0;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, var(--teal) 0%, #1a7a98 45%, #0F4A60 100%);
+      padding: 52px 0;
       color: #fff;
+      border-block: 4px solid var(--gold);
+    }
+    .ehealth-home-strip::before {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      border: 56px solid rgba(255,255,255,.05);
+      right: -140px; top: -180px;
+      pointer-events: none;
+    }
+    .ehealth-home-strip::after {
+      content: '';
+      position: absolute;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, .08);
+      left: -80px; bottom: -120px;
+      pointer-events: none;
     }
     .ehealth-home-inner {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 16px 24px;
+      gap: 28px 36px;
     }
     .ehealth-home-copy {
       display: flex;
-      align-items: center;
-      gap: 16px;
+      align-items: flex-start;
+      gap: 20px;
       min-width: 0;
-      flex: 1 1 280px;
+      flex: 1 1 340px;
+      max-width: 640px;
     }
     .ehealth-home-ico {
-      width: 48px; height: 48px;
-      border-radius: 12px;
+      width: 64px; height: 64px;
+      border-radius: 16px;
       background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1.55rem;
       color: var(--gold);
       flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,.18);
     }
-    .ehealth-home-copy h3 {
+    .ehealth-home-eyebrow {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .ehealth-home-copy h2 {
       font-family: var(--font-head);
-      font-size: 1.2rem;
+      font-size: clamp(1.55rem, 3.2vw, 2.15rem);
       font-weight: 800;
-      margin: 0 0 4px;
+      margin: 0 0 10px;
       color: #fff;
+      line-height: 1.2;
     }
     .ehealth-home-copy p {
       margin: 0;
-      font-size: .9rem;
-      color: rgba(255,255,255,.72);
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,.78);
+      max-width: 42ch;
     }
     .ehealth-home-actions {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px 18px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      flex: 0 1 280px;
     }
     .ehealth-home-phone {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 14px 20px;
+      background: #fff;
+      color: var(--navy);
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(0,0,0,.22);
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .ehealth-home-phone:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0,0,0,.28);
+      color: var(--navy);
+    }
+    .ehealth-home-phone-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .ehealth-home-phone-num {
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: 1.25rem;
-      color: #fff;
-      text-decoration: none;
+      font-size: clamp(1.35rem, 2.5vw, 1.65rem);
       letter-spacing: .02em;
+      color: var(--navy);
+      line-height: 1.2;
     }
-    .ehealth-home-phone:hover { color: var(--gold); }
-    .ehealth-home-phone i { margin-right: 6px; color: var(--gold); }
+    .ehealth-home-phone-num i {
+      margin-right: 8px;
+      color: var(--teal);
+      font-size: .9em;
+    }
+    .ehealth-home-link {
+      justify-content: center;
+      text-align: center;
+    }
     @media (max-width: 575.98px) {
       .ehealth-dial { padding: 18px; }
       .ehealth-dial-btn { width: 100%; justify-content: center; }
-      .ehealth-home-strip { padding: 22px 0; }
+      .ehealth-home-strip { padding: 36px 0; }
+      .ehealth-home-copy { gap: 14px; }
+      .ehealth-home-ico { width: 52px; height: 52px; font-size: 1.3rem; border-radius: 14px; }
+      .ehealth-home-actions { flex: 1 1 100%; }
     }

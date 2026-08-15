@@ -120,6 +120,9 @@ include('includes/header.php');
     <div class="row g-4">
       <div class="col-lg-6 fu fu-delay-1">
         <div class="pmc-card home-prog-card">
+          <div class="home-prog-logo">
+            <img src="assets/images/logo/pmc-crest.png" alt="Peshawar Medical College logo" width="72" height="72" loading="lazy" />
+          </div>
           <span class="home-prog-code">Undergraduate</span>
           <h4>Peshawar Medical College</h4>
           <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at three affiliated teaching hospitals.</p>
@@ -128,6 +131,9 @@ include('includes/header.php');
       </div>
       <div class="col-lg-6 fu fu-delay-2">
         <div class="pmc-card home-prog-card">
+          <div class="home-prog-logo">
+            <img src="assets/images/logo/pmc-crest.png" alt="Peshawar Medical College logo" width="72" height="72" loading="lazy" />
+          </div>
           <span class="home-prog-code">Postgraduate</span>
           <h4>Postgraduate Medical Education</h4>
           <p>FCPS and MCPS programmes recognized by CPSP since 2011, with plans to introduce MS and diploma pathways.</p>
@@ -244,15 +250,19 @@ include('includes/header.php');
   <div class="container">
     <div class="ehealth-home-inner fu">
       <div class="ehealth-home-copy">
-        <div class="ehealth-home-ico"><i class="bi bi-heart-pulse-fill"></i></div>
+        <div class="ehealth-home-ico" aria-hidden="true"><i class="bi bi-heart-pulse-fill"></i></div>
         <div>
-          <h3>Free health info by phone</h3>
-          <p>PMC e-Health service — dial, listen, enter a 3-digit topic code after the beep.</p>
+          <span class="ehealth-home-eyebrow">Public service · Free</span>
+          <h2>Free health information by phone</h2>
+          <p>Call PMC’s e-Health line, listen to the prompts, then enter a 3-digit topic code after the beep.</p>
         </div>
       </div>
       <div class="ehealth-home-actions">
-        <a class="ehealth-home-phone" href="tel:0912385262"><i class="bi bi-telephone-fill"></i>091-2385262</a>
-        <a href="e-health.php" class="btn-pmc btn-pmc-outline-white">How to use &amp; codes <i class="bi bi-arrow-right"></i></a>
+        <a class="ehealth-home-phone" href="tel:0912385262">
+          <span class="ehealth-home-phone-label">Dial now</span>
+          <span class="ehealth-home-phone-num"><i class="bi bi-telephone-fill"></i>091-2385262</span>
+        </a>
+        <a href="e-health.php" class="btn-pmc btn-pmc-outline-white ehealth-home-link">Topic codes &amp; how to use <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
   </div>
