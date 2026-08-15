@@ -359,9 +359,14 @@
 
     /* ── ABOUT ── */
     .about-visual {
-      background-image: url('../images/campus/pmc-building.jpg');
+      background-image: url('../images/slider/hub-hero-slide-1.jpg');
+      background-image:
+        image-set(
+          url('../images/slider/hub-hero-slide-1.webp') type('image/webp'),
+          url('../images/slider/hub-hero-slide-1.jpg') type('image/jpeg')
+        );
       background-size: cover;
-      background-position: center;
+      background-position: left center;
       background-repeat: no-repeat;
       border-radius: var(--r-lg);
       min-height: 420px;
@@ -486,6 +491,8 @@
     }
     .news-card--event::before { background: var(--gold); }
     .news-card--admissions::before { background: var(--teal); }
+    .news-card--career::before { background: var(--gold); }
+    .news-card--campus::before { background: var(--navy); }
     .news-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md, 0 12px 32px rgba(10,22,40,.08));
@@ -507,10 +514,15 @@
       color: var(--teal);
       border: 1px solid rgba(21,95,122,.25);
     }
-    .nc-cat-news {
+    .nc-cat-career {
       background: var(--gold-pale, #f7efd4);
       color: #8a6d1f;
       border: 1px solid rgba(201,168,76,.35);
+    }
+    .nc-cat-news {
+      background: var(--gray-light, #eef2f5);
+      color: var(--navy);
+      border: 1px solid var(--border);
     }
     .nc-meta {
       display: flex;
@@ -559,6 +571,16 @@
     }
     .nc-deadline i { color: var(--gold); font-size: .95rem; }
     .nc-deadline strong { color: var(--navy); font-weight: 700; }
+    .nc-excerpt {
+      font-family: var(--font-body);
+      font-size: .9rem;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--gray-mid, #5a6a7a);
+      margin: 0 0 18px;
+      flex: 1;
+    }
+    .hub-career-portal-card .nc-title { min-height: 0; }
     .nc-actions {
       margin-top: auto;
       padding-top: 16px;

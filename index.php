@@ -150,10 +150,6 @@ include('includes/header.php');
     <div class="row g-5 align-items-center">
       <div class="col-lg-5 fu">
         <div class="about-visual home-about-visual">
-          <div class="about-badge">
-            <span class="about-badge-num">2005</span>
-            <span class="about-badge-lbl">Established</span>
-          </div>
         </div>
       </div>
       <div class="col-lg-7 fu fu-delay-2">
@@ -340,21 +336,21 @@ include('includes/header.php');
   </div>
 </section>
 
-<!-- ═══ NEWS & EVENTS ═══ -->
-<section class="pmc-section bg-off" id="news">
+<!-- ═══ ADMISSIONS UPDATED ═══ -->
+<section class="pmc-section bg-off" id="admissions-updates">
   <div class="container">
-    <div class="row align-items-end mb-5">
-      <div class="col-lg-7 fu">
-        <span class="sec-eyebrow">News &amp; Updates</span>
-        <h2 class="sec-title">Latest from PMC</h2>
-        <p class="sec-desc mb-0">Events, admissions, and campus notices — current items only.</p>
+    <div class="row align-items-end mb-4 mb-lg-5">
+      <div class="col-lg-8 fu">
+        <span class="sec-eyebrow">Admissions</span>
+        <h2 class="sec-title">Admission Updates</h2>
+        <p class="sec-desc mb-0">Current programme openings and application guidance for Peshawar Medical College.</p>
       </div>
-      <div class="col-lg-5 text-lg-end fu fu-delay-2 mt-3 mt-lg-0">
-        <a href="events.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
+      <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
+        <a href="admissions.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions Info</a>
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-lg-4 col-md-6 fu fu-delay-1">
+      <div class="col-lg-6 col-md-6 fu fu-delay-1">
         <article class="news-card news-card-text news-card--admissions">
           <div class="nc-body">
             <div class="nc-meta">
@@ -370,22 +366,7 @@ include('includes/header.php');
           </div>
         </article>
       </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-2">
-        <article class="news-card news-card-text news-card--news">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Update</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: 2024</span>
-            </div>
-            <h3 class="nc-title">PM&amp;DC Inspection — Top Private Medical College in KP</h3>
-            <p class="nc-deadline"><i class="bi bi-award"></i> Score above <strong>80%</strong> in 2024 inspection</p>
-            <div class="nc-actions">
-              <a href="pmc.php" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-3">
+      <div class="col-lg-6 col-md-6 fu fu-delay-2">
         <article class="news-card news-card-text news-card--admissions">
           <div class="nc-body">
             <div class="nc-meta">
@@ -396,6 +377,116 @@ include('includes/header.php');
             <p class="nc-deadline"><i class="bi bi-info-circle"></i> Review eligibility, merit, and next-cycle guidance</p>
             <div class="nc-actions">
               <a href="admissions.php" class="nc-btn nc-btn-primary">Admissions info <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WE ARE HIRING ═══ -->
+<section class="pmc-section" id="careers">
+  <div class="container">
+    <div class="row align-items-end mb-4 mb-lg-5">
+      <div class="col-lg-8 fu">
+        <span class="sec-eyebrow">Careers</span>
+        <h2 class="sec-title">We Are Hiring</h2>
+        <p class="sec-desc mb-0">Faculty and staff opportunities at Riphah International University – Peshawar Campus.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
+        <a href="http://careers.prime.edu.pk" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-briefcase"></i> Career Portal</a>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6 col-md-6 fu fu-delay-1">
+        <article class="news-card news-card-text news-card--career">
+          <div class="nc-body">
+            <div class="nc-meta">
+              <span class="nc-cat nc-cat-career">Career</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Aug 2026</span>
+            </div>
+            <h3 class="nc-title">Positions Vacant</h3>
+            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>17 Aug 2026</strong></p>
+            <div class="nc-actions">
+              <a target="_blank" href="assets/images/news/career-ad.jpg" class="nc-btn nc-btn-primary">View advertisement <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-6 col-md-6 fu fu-delay-2">
+        <article class="news-card news-card-text news-card--career hub-career-portal-card">
+          <div class="nc-body">
+            <div class="nc-meta">
+              <span class="nc-cat nc-cat-career">Career Portal</span>
+            </div>
+            <h3 class="nc-title">Explore Open Roles Online</h3>
+            <p class="nc-excerpt">Browse current vacancies and submit applications through the official Career Portal.</p>
+            <div class="nc-actions">
+              <a href="http://careers.prime.edu.pk" target="_blank" rel="noopener" class="nc-btn nc-btn-primary">Visit Career Portal <i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LATEST FROM CAMPUS ═══ -->
+<section class="pmc-section bg-off" id="news">
+  <div class="container">
+    <div class="row align-items-end mb-4 mb-lg-5">
+      <div class="col-lg-8 fu">
+        <span class="sec-eyebrow">News &amp; Events</span>
+        <h2 class="sec-title">Latest from Campus</h2>
+        <p class="sec-desc mb-0">Campus notices, research activity, and student life highlights.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
+        <a href="events.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 fu fu-delay-1">
+        <article class="news-card news-card-text news-card--campus">
+          <div class="nc-body">
+            <div class="nc-meta">
+              <span class="nc-cat nc-cat-news">Update</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: 2024</span>
+            </div>
+            <h3 class="nc-title">PM&amp;DC Inspection — Top Private Medical College in KP</h3>
+            <p class="nc-excerpt">PMC stood first among private medical colleges of KP with more than 80% score in the 2024 inspection.</p>
+            <div class="nc-actions">
+              <a href="pmc.php" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 fu fu-delay-2">
+        <article class="news-card news-card-text news-card--campus">
+          <div class="nc-body">
+            <div class="nc-meta">
+              <span class="nc-cat nc-cat-news">Research</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Apr 2025</span>
+            </div>
+            <h3 class="nc-title">UMR Society Annual Research Conference</h3>
+            <p class="nc-excerpt">Undergraduate research presentations and scholarly activity from across campus programmes.</p>
+            <div class="nc-actions">
+              <a href="events.php" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 fu fu-delay-3">
+        <article class="news-card news-card-text news-card--campus">
+          <div class="nc-body">
+            <div class="nc-meta">
+              <span class="nc-cat nc-cat-news">Campus Life</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> 2026</span>
+            </div>
+            <h3 class="nc-title">Student Societies &amp; Campus Activities</h3>
+            <p class="nc-excerpt">Societies, sports, literature, and community service initiatives on Warsak Road campus.</p>
+            <div class="nc-actions">
+              <a href="events.php" class="nc-btn nc-btn-primary">View notices <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>

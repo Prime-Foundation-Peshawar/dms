@@ -192,8 +192,8 @@
                       <li>Apply quality assurance procedures in daily work</li>
                       <li>Demonstrate shared decision-making and cost-effective, resource-appropriate care</li>
                       <li>Demonstrate awareness of bio-psycho-social factors in assessment and management</li>
-                      </ul>
-                  </div>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -206,8 +206,8 @@
                     <ul>
                       <li>Demonstrate International Patient Safety Goals (IPSG)</li>
                       <li>Perform required technical skills and procedures in the specialty, including informed consent, preoperative planning, pre-/intra-/post-interventional care, and follow-up</li>
-                      </ul>
-                  </div>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -219,7 +219,7 @@
                   <div class="accordion-body">
                     <p><strong>Written</strong> — clear medical records, management plans, discharge summaries, and referral letters.</p>
                     <p><strong>Verbal</strong> — effective interpersonal and non-verbal communication; empathy; culturally sensitive counselling; respectful language on campus and in clinical settings; clear case presentations.</p>
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -235,7 +235,7 @@
                       <li>Support other team members to grow</li>
                       <li>Assume responsibility and leadership when needed</li>
                   </ul>
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -251,8 +251,8 @@
                       <li>Demonstrate academic writing through dissertation and/or publications</li>
                       <li>Guide others in research methodology</li>
                       <li>Present research clearly and logically</li>
-                      </ul>
-                  </div>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -270,7 +270,7 @@
                       <li>Ethics — autonomy, informed consent, confidentiality, do no harm, cost-effective care</li>
                       <li>Leadership — accountability, willingness to lead, and bringing about needed change</li>
                   </ul>
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -285,7 +285,7 @@
                       <li>Evidence of theory regarding learning and education</li>
                       <li>Practice of best teaching methods</li>
                   </ul>
-                  </div>
+                </div>
               </div>
             </div>
 
