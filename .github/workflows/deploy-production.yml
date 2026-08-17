@@ -1,0 +1,100 @@
+name: Deploy production
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check required secrets
+        env:
+          # Same server as staging
+          STAGING_SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
+          STAGING_SSH_PORT: ${{ secrets.STAGING_SSH_PORT }}
+          # Production uses prime account
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+          PRODUCTION_SSH_KEY: ${{ secrets.PRODUCTION_SSH_KEY }}
+          PRODUCTION_PATH: ${{ secrets.PRODUCTION_PATH }}
+        run: |
+          missing=0
+          for name in STAGING_SSH_HOST STAGING_SSH_PORT PRODUCTION_SSH_USER PRODUCTION_SSH_KEY PRODUCTION_PATH; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not set."
+              missing=1
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+          if ! printf '%s' "$PRODUCTION_SSH_KEY" | grep -qE 'BEGIN .*PRIVATE KEY'; then
+            echo "::error::PRODUCTION_SSH_KEY is not a private key."
+            exit 1
+          fi
+
+      - name: Deploy to production via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        with:
+          host: ${{ secrets.STAGING_SSH_HOST }}
+          username: ${{ secrets.PRODUCTION_SSH_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          port: ${{ secrets.STAGING_SSH_PORT }}
+          request_pty: true
+          command_timeout: 30m
+          envs: GH_TOKEN
+          script: |
+            set -euo pipefail
+            TARGET="${{ secrets.PRODUCTION_PATH }}"
+            BRANCH="master"
+            REPO="https://x-access-token:${GH_TOKEN}@github.com/Prime-Foundation-Peshawar/dms.git"
+            OLD_DIR="old"
+
+            mkdir -p "$TARGET"
+
+            if [ ! -d "$TARGET/.git" ]; then
+              echo "First production deploy — moving existing files into $TARGET/$OLD_DIR"
+              mkdir -p "$TARGET/$OLD_DIR"
+              shopt -s dotglob nullglob
+              for item in "$TARGET"/*; do
+                base="$(basename "$item")"
+                if [ "$base" = "$OLD_DIR" ]; then
+                  continue
+                fi
+                echo "Moving $base -> $OLD_DIR/"
+                mv "$item" "$TARGET/$OLD_DIR/"
+              done
+              shopt -u dotglob nullglob
+
+              echo "Initializing git repo in $TARGET (keeping $OLD_DIR)"
+              cd "$TARGET"
+              git init
+              git remote add origin "$REPO"
+              git fetch origin "$BRANCH"
+              git checkout -f -B "$BRANCH" "origin/$BRANCH"
+            fi
+
+            cd "$TARGET"
+            git remote set-url origin "$REPO"
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            # Keep the archived old site; do not delete it
+            git clean -fd -e "$OLD_DIR" -e "./$OLD_DIR" -e "./$OLD_DIR/**"
+            git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
+            find "$TARGET" -path "$TARGET/$OLD_DIR" -prune -o -type d -exec chmod 755 {} \;
+            find "$TARGET" -path "$TARGET/$OLD_DIR" -prune -o -type f -exec chmod 644 {} \;
+            echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
+            if [ -d "$TARGET/$OLD_DIR" ]; then
+              echo "Archived old site at $TARGET/$OLD_DIR ($(find "$TARGET/$OLD_DIR" -type f | wc -l) files)"
+            fi
