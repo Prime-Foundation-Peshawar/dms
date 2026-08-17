@@ -2183,6 +2183,61 @@
     }
     .pg-page .about-fact i { display: none; }
     .pg-page .about-block { margin-top: 40px; }
+    #basic-sciences,
+    #clinical-sciences {
+      scroll-margin-top: 110px;
+    }
+    .pg-stream-card {
+      display: block;
+      height: 100%;
+      padding: 24px 22px 22px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      text-decoration: none;
+      color: inherit;
+      transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+    }
+    .pg-stream-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,168,150,.4);
+      box-shadow: var(--shadow-sm);
+      color: inherit;
+    }
+    .pg-stream-card span {
+      display: block;
+      font-family: var(--font-head);
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .pg-stream-card strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .pg-stream-card p {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: .88rem;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+    .pg-subhead {
+      margin: 18px 0 10px;
+      font-family: var(--font-head);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
     .pg-panel {
       height: 100%;
       padding: 26px 24px;
