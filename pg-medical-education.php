@@ -43,8 +43,8 @@ include('includes/header.php');
             <div>
               <h3>Fall 2026 admissions — extended schedule</h3>
               <p>Apply by <strong>03 Sep 2026</strong>. Entry test: 04 Sep 2026. Interview: 05 Sep 2026. Diploma in Medical Jurisprudence (DMJ) is also open.</p>
-              <a href="assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" class="btn-pmc btn-pmc-primary"><i class="bi bi-file-earmark-pdf"></i> Admission Form</a>
-              <a href="assets/images/news/pg-medical-dental-ad-fall-2026.png" target="_blank" class="btn-pmc btn-pmc-outline"><i class="bi bi-image"></i> Advertisement</a>
+              <a href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary"><i class="bi bi-file-earmark-pdf"></i> Admission Form</a>
+              <a href="<?= hub_base ?>assets/images/news/pg-medical-dental-ad-fall-2026.png" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-image"></i> Advertisement</a>
             </div>
           </div>
 

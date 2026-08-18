@@ -343,7 +343,7 @@ include('includes/header.php');
       <div class="col-lg-8 fu">
         <span class="sec-eyebrow">Admissions</span>
         <h2 class="sec-title">Admission Updates</h2>
-        <p class="sec-desc mb-0">Current programme openings and application guidance for Peshawar Medical College.</p>
+        <p class="sec-desc mb-0">Current programme openings and application guidance for Peshawar Medical College and postgraduate medical programmes.</p>
       </div>
       <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
         <a href="admissions.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions Info</a>
@@ -355,13 +355,14 @@ include('includes/header.php');
           <div class="nc-body">
             <div class="nc-meta">
               <span class="nc-cat nc-cat-admissions">Admissions</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Apr 2026</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Aug 2026</span>
             </div>
             <h3 class="nc-title">MPhil Basic Medical Sciences</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>20 Aug 2026</strong></p>
+            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>03 Sep 2026</strong></p>
+            <p class="nc-excerpt">Extended schedule: test <strong>04 Sep 2026</strong>, interview <strong>05 Sep 2026</strong>. Includes DMJ.</p>
             <div class="nc-actions nc-actions-split">
-              <a target="_blank" href="assets/images/news/ad-medical.jpeg" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-              <a target="_blank" href="assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Form</a>
+              <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/pg-medical-dental-ad-fall-2026.png" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+              <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Form</a>
             </div>
           </div>
         </article>

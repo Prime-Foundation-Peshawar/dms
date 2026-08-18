@@ -1,11 +1,15 @@
 <?php
+$host = strtolower($_SERVER['HTTP_HOST'] ?? '');
+$is_staging = ($host === 'staging.riphahpsh.edu.pk' || $host === 'www.staging.riphahpsh.edu.pk');
 if (!defined('base_url')) {
-  $host = strtolower($_SERVER['HTTP_HOST'] ?? '');
-  if ($host === 'staging.riphahpsh.edu.pk' || $host === 'www.staging.riphahpsh.edu.pk') {
-    define('base_url', 'https://staging.riphahpsh.edu.pk/dms/');
-  } else {
-    define('base_url', 'https://dms.riphahpsh.edu.pk/');
-  }
+  define('base_url', $is_staging
+    ? 'https://staging.riphahpsh.edu.pk/dms/'
+    : 'https://dms.riphahpsh.edu.pk/');
+}
+if (!defined('hub_base')) {
+  define('hub_base', $is_staging
+    ? 'https://staging.riphahpsh.edu.pk/riphahpsh/'
+    : 'https://riphahpsh.edu.pk/');
 }
 if (!function_exists('dms_asset')) {
   /** Append filemtime query string so browsers pick up updated local assets. */
