@@ -345,12 +345,9 @@ include('includes/header.php');
         <h2 class="sec-title">Admission Updates</h2>
         <p class="sec-desc mb-0">Current programme openings and application guidance for Peshawar Medical College and postgraduate medical programmes.</p>
       </div>
-      <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
-        <a href="admissions.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions Info</a>
-      </div>
     </div>
     <div class="row g-4">
-      <div class="col-lg-6 col-md-6 fu fu-delay-1">
+      <div class="col-lg-4 col-md-6 fu fu-delay-1">
         <article class="news-card news-card-text news-card--admissions">
           <div class="nc-body">
             <div class="nc-meta">
@@ -363,21 +360,6 @@ include('includes/header.php');
             <div class="nc-actions nc-actions-split">
               <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/pg-medical-dental-ad-fall-2026.png" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
               <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Form</a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-lg-6 col-md-6 fu fu-delay-2">
-        <article class="news-card news-card-text news-card--admissions">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-admissions">Admissions</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Session 2025–26</span>
-            </div>
-            <h3 class="nc-title">MBBS Admissions — Applications Closed</h3>
-            <p class="nc-deadline"><i class="bi bi-info-circle"></i> Review eligibility, merit, and next-cycle guidance</p>
-            <div class="nc-actions">
-              <a href="admissions.php" class="nc-btn nc-btn-primary">Admissions info <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
