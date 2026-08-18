@@ -318,7 +318,50 @@ function getQualification(m) {
   return m.qualifications || m.qualification || m.degree || m.education || m.qual || m.qualification_name || '';
 }
 
+let extraPack = { profiles: {}, index: {} };
+
+function facultySlug(name) {
+  let n = String(name || '').trim();
+  const titles = /^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i;
+  while (titles.test(n)) n = n.replace(titles, '');
+  return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function slugsMatch(a, b) {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  const ta = a.split('-').filter(Boolean);
+  const tb = b.split('-').filter(Boolean);
+  if (!ta.length || !tb.length) return false;
+  const fa = ta[0], fb = tb[0], la = ta[ta.length - 1], lb = tb[tb.length - 1];
+  const firstOk = fa === fb || (fa.length >= 4 && fb.length >= 4 && (fa.startsWith(fb.slice(0, 4)) || fb.startsWith(fa.slice(0, 4))));
+  const lastOk = la === lb || la.startsWith(lb) || lb.startsWith(la) || (la.length >= 4 && lb.length >= 4 && la.slice(0, 4) === lb.slice(0, 4));
+  return firstOk && lastOk;
+}
+
+function extraFor(name) {
+  const s = facultySlug(name);
+  const canon = (extraPack.index && extraPack.index[s]) || s;
+  if (extraPack.profiles && extraPack.profiles[canon]) return extraPack.profiles[canon];
+  const rows = extraPack.profiles ? Object.values(extraPack.profiles) : [];
+  for (const rec of rows) {
+    const keys = [rec.slug, ...(rec.aliases || [])];
+    if (keys.some(k => slugsMatch(s, k))) return rec;
+  }
+  return null;
+}
+
+function hasWordProfile(extra) {
+  if (!extra) return false;
+  if (extra.photo) return true;
+  return ['qualifications', 'experience', 'publications', 'skills']
+    .some(key => Array.isArray(extra[key]) && extra[key].length > 0);
+}
+
 function renderMemberRow(m) {
+  const extra = extraFor(m.empName);
+  const linked = hasWordProfile(extra);
+  const slug = (extra && extra.slug) || facultySlug(m.empName);
   const name = escapeHtml(getDisplayName(m));
   const desig = escapeHtml(m.desTitle || 'Faculty');
   const qual = escapeHtml(getQualification(m) || '—');
@@ -326,10 +369,11 @@ function renderMemberRow(m) {
   const facReg = escapeHtml(m.facFacRegNo || '—');
   const initials = escapeHtml(getInitials(m));
   const avatarClass = getAvatarClass(m.desTitle);
-
-  return `
-    <article class="fac-list-row">
-      <div class="fac-list-avatar ${avatarClass}">${initials}</div>
+  const avatar = extra && extra.photo
+    ? `<img src="${escapeHtml(extra.photo)}" alt="">`
+    : initials;
+  const inner = `
+      <div class="fac-list-avatar ${avatarClass}">${avatar}</div>
       <div class="fac-list-main">
         <div class="fac-list-name">${name}</div>
         <div class="fac-list-desig">${desig}</div>
@@ -339,7 +383,12 @@ function renderMemberRow(m) {
           <span class="reg-chip"><i class="bi bi-card-text"></i> Faculty ${facReg}</span>
         </div>
       </div>
-    </article>`;
+      ${linked ? '<i class="bi bi-chevron-right fac-list-go" aria-hidden="true"></i>' : ''}`;
+
+  if (linked) {
+    return `<a class="fac-list-row" href="faculty-profile?n=${encodeURIComponent(slug)}">${inner}</a>`;
+  }
+  return `<article class="fac-list-row is-static">${inner}</article>`;
 }
 
 function renderFaculty(faculty) {
@@ -414,6 +463,10 @@ function clearAllFilters() {
   loading.style.display = 'block';
 
   const data = await fetchFaculty();
+  try {
+    const extraRes = await fetch('assets/data/faculty-profiles.json');
+    if (extraRes.ok) extraPack = await extraRes.json();
+  } catch (e) { /* directory still works without extra CVs */ }
   loading.style.display = 'none';
 
   if (!data) {

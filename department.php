@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/departments-data.php';
+require_once __DIR__ . '/includes/faculty-lib.php';
 
 $slug = isset($_GET['slug']) ? strtolower(trim($_GET['slug'])) : '';
 $dept = $slug !== '' ? get_academic_department($slug) : null;
@@ -101,7 +102,13 @@ include('includes/header.php');
                   }
                   if ($initials === '') $initials = 'D';
                 ?>
-                  <article class="dept-faculty-card<?= $isHod ? ' is-hod' : '' ?>">
+                <?php
+                  $profile = faculty_profile_lookup_cv($member['name']);
+                ?>
+                  <article class="dept-faculty-card<?= $isHod ? ' is-hod' : '' ?><?= $profile ? '' : ' is-static' ?>">
+                    <?php if ($profile): ?>
+                    <a class="dept-faculty-link" href="faculty-profile?n=<?= htmlspecialchars($profile['slug'] ?? faculty_slug($member['name'])) ?>">
+                    <?php endif; ?>
                     <div class="dept-faculty-avatar"><?= htmlspecialchars($initials) ?></div>
                     <div class="dept-faculty-info">
                       <div class="dept-faculty-name-row">
@@ -113,6 +120,9 @@ include('includes/header.php');
                       <p><?= htmlspecialchars($member['qualification']) ?></p>
                       <span class="reg-number">PM&amp;DC <?= htmlspecialchars($member['reg']) ?></span>
                     </div>
+                    <?php if ($profile): ?>
+                    </a>
+                    <?php endif; ?>
                   </article>
                 <?php endforeach; ?>
               </div>

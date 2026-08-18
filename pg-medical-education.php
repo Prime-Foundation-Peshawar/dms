@@ -1,4 +1,7 @@
-<?php include('includes/header.php'); ?>
+<?php
+require_once __DIR__ . '/includes/faculty-lib.php';
+include('includes/header.php');
+?>
 
 <div class="page-hero">
   <div class="page-hero-grid"></div>
@@ -31,7 +34,7 @@
             <div class="pg-director-ico"><i class="bi bi-person-badge"></i></div>
             <div>
               <span>Director, Basic Medical and Dental Sciences</span>
-              <strong>Prof. Dr. Mohsina Haq</strong>
+              <strong><?= faculty_profile_link_html('Prof. Dr. Mohsina Haq') ?></strong>
             </div>
           </div>
 
@@ -164,43 +167,43 @@
           <div class="about-block fu" id="faculty">
             <div class="about-block-head">
               <h3>Faculty</h3>
-              <p>Teaching staff of Basic Medical Sciences, under Prof. Dr. Mohsina Haq.</p>
+              <p>Teaching staff of Basic Medical Sciences, under <?= faculty_profile_link_html('Prof. Dr. Mohsina Haq') ?>.</p>
             </div>
             <div class="pg-staff-grid">
               <div class="pg-staff-card">
                 <h4>Anatomy</h4>
                 <ul class="pg-staff-list">
-                  <li><span>Dr. Nouman Wazir</span></li>
-                  <li><span>Dr. Farooq Khan</span></li>
+                  <li><?= faculty_profile_link_html('Dr. Nouman Wazir') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Farooq Khan') ?></li>
                 </ul>
               </div>
               <div class="pg-staff-card">
                 <h4>Physiology</h4>
                 <ul class="pg-staff-list">
-                  <li><span>Dr. Robina Riaz</span></li>
-                  <li><span>Dr. Farzana Khan</span></li>
+                  <li><?= faculty_profile_link_html('Dr. Robina Riaz') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Farzana Khan') ?></li>
                 </ul>
               </div>
               <div class="pg-staff-card">
                 <h4>Pharmacology</h4>
                 <ul class="pg-staff-list">
-                  <li><span>Dr. Shafaq Zafar</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Amber Javaid</span><span class="pg-qual">MPhil</span></li>
+                  <li><?= faculty_profile_link_html('Dr. Shafaq Zafar', 'PhD') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Amber Javaid', 'MPhil') ?></li>
                 </ul>
               </div>
               <div class="pg-staff-card">
                 <h4>Pathology</h4>
                 <ul class="pg-staff-list">
-                  <li><span>Dr. Mohsina Haq</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Wasifa Noshad</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Hala Rajab</span><span class="pg-qual">PhD</span></li>
+                  <li><?= faculty_profile_link_html('Dr. Mohsina Haq', 'PhD') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Wasifa Noshad', 'PhD') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Hala Rajab', 'PhD') ?></li>
                 </ul>
               </div>
               <div class="pg-staff-card">
                 <h4>Biochemistry</h4>
                 <ul class="pg-staff-list">
-                  <li><span>Dr. Shumaila Asim</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Zahoor Ullah</span><span class="pg-qual">PhD</span></li>
+                  <li><?= faculty_profile_link_html('Dr. Shumaila Asim', 'PhD') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Zahoor Ullah', 'PhD') ?></li>
                 </ul>
               </div>
             </div>

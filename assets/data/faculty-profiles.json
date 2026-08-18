@@ -1,0 +1,1525 @@
+{
+  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry).",
+  "profiles": {
+    "fozia-rauf": {
+      "slug": "fozia-rauf",
+      "aliases": [
+        "fouzia-rauf",
+        "fozia-rauf"
+      ],
+      "name": "Fozia Rauf",
+      "department": "Pathology",
+      "designation": "Head of DepartmentProfessor (Histopathology)",
+      "hod": true,
+      "photo": "assets/images/faculty/fozia-rauf.jpg",
+      "qualifications": [
+        "MBBS",
+        "FCPS (Histopathology)"
+      ],
+      "experience": [
+        "WORKING EXPERIENCEAt Peshawar Medical College:",
+        "Head, Department of Pathology, 20-05-2024-till date",
+        "Professor, Department of Pathology, 01-01-2016",
+        "Associate",
+        "Professor, Department of Pathology, 30-06-2012",
+        "Supervisor and Program Coordinator M. Phil Histopatholoyg, 2011",
+        "Supervisor FCPS (Histopathology), 2012",
+        "Assistant",
+        "Professor, Department of Pathology, 10-08-2007Senior",
+        "Consultant Histopathologist, Peshawar Medical College Diagnostic Labs and Prime Group of Hospitals (affiliated teaching hospitals of Peshawar Medical College), 10th August 2007.AT CPSP",
+        "Examiner CPSP FCPS Histopathology 2025At The Aga Khan University Hospital Karachi:",
+        "Instructor (Faculty) AKUH, Jan-July 2007",
+        "Resident AKUH, 2002-2006AT Pakistan Institute of Medical Sciences (PIMS) Islamabad",
+        "Resident Histopathology department PIMS, 2002.At Islamabad Medical & Dental College:",
+        "Demonstrator, Department of Pathology at Islamabad Medical and Dental College Bara Kahu, Islamabad, 2001.At Khyber Teaching Hospital Peshawar:",
+        "House job in Gynae/Obs at Lady Reading Hospital and general medicine at Khyber Teaching Hospital, Peshawar, Pakistan in year 2000"
+      ],
+      "skills": [],
+      "publications": [
+        "Immunohistochemical Expression of p53 in Breast Carcinoma in Women from Khyber Pakhtunkhwa, Pakistan: A Cross-Sectional Study. International Journal of Medicine, Volume 8, Issue 8. 06-08-2026 Sidra Mashal¹; Umer²; Aiman Ajmeer³; Nazli Gul4; Khalid Javed5*; Fozia Rauf; Abdal Ahmad7",
+        "Histomorphological Study of the Protective Roles of Margalla Honey (Multifloral) and Silymarin in Valproate-Induced Hepatotoxicity in Male Rats. S. Ammara Iftikhar, Jehanzeb Khan, Fozia Rauf, Sarah Yousuf, Faiza Shafqat and Abdal Ahmad, IJDDT, Volume 16 Issue 66s, 2026",
+        "Unraveling the nexus: Tumor-Infiltrating Lymphocytes (TILs), tumor stage and PD-L1 expression in colorectal carcinoma; Abdal Ahmad, Aiman Ajmeer, Hamza Farooq and Fozia Rauf Published: 26 Sept 2025",
+        "Immunohistochemical expression of programmed death ligand (pd-l1) in gastric adenocarcinoma and non-neoplastic EGFT Epithelium, Shah Faisal, Fozia Rauf, Danyal Khattak, Saria Saeed Ali, Muhammad Tayyab, Natasha Kamran, 2025-09-29",
+        "Immunohistochemical Expression of Epidermal Growth Factor Receptor (EGFR) in Oral Squamous Cell Carcinoma and Oral Potentially Malignant Disorders. Applied; Aamir, R., Rauf, F., Iqbal, F., Yousuf, S., Rehman, A., Sheikh, A. K., & Muhammad, S. (2024).",
+        "Correlation of serum CA 15-3 with histological types of breast cancer; Nowshad, M., Rauf, F., Sharif, N., Ishfaq, I., Gul, A., & Naeemullah, N. (2023). Correlation of serum CA 15-3 with histological types of breast cancer. International Journal of Health Sciences, 7(S1), 2121² 2129. 18 Jan 2023 https://doi.org/10.53730/ijhs.v7nS1.14464",
+        "Comparison of special stains (Giemsa stain and Modified Toluidine Blue stain) with immunohistochemistry as gold standard for the detection of H. pylori in gastric biopsies; Hina Khan, Fozia Rauf, Noor Muhammad, Mehwish Javaid, Sadaf Alam, Sabeen Nasir Volume 23, Issue 2, May 2022, Pages 75-81",
+        "Histomorphological Differences Between Right and Left Sided Colon Cancers. Saeed, S., Yousuf, S., Ziaullah, S., & Rauf, F. (2022). International Journal of Pathology, 30-37",
+        "Comparison of Human Papillomavirus 16 Expression by Immunohistochemistry in Cervical Carcinomas and Non-Neoplastic Cervical Mucosa. Yousuf, S., Rauf, F., & Sheikh, A. K. (2022). Journal of Postgraduate Medical Institute, 36(4), 244-52.",
+        "Detection of Epstein Barr Virus (EBV) Antigen in Oral Squamous Cell Carcinoma (OSCC) by Immunohistochemistry in Patients from KPK Province of Pakistan. Immunohistochemical Expression of Mesenchymal Epithelial Transition Factor Receptor (C-MET) In Colorectal Carcinoma. Sana Ghani1, Fozia Rauf2, Asif Rehman3, Muhammad Irfan4, Fatima Iqbal5, Yousaf Jamal Accepted for publication:15/04/2021,",
+        "Detection Of H. Pylori in Gastric Biopsies: A Cost-Effective Method for Developing Countries; Hina Khan1, Sadaf Alam2, Shahnawaz Khan3, Mumtaz Khan4, Fozia Rauf5; Professional Med J 2019;26(8):1348-1353.",
+        "Safety and Feasibility of Laparoscopic Cholecystectomy in Acute Cholecystitis. Tayeb M, Rauf F, Bakhtiar N. J Coll Physicians Surg Pak. 2018 Oct;28(10):798-800.",
+        "A Histopathological Study of Cholecystectomy Specimens in Gujrat – Pakistan Abdul Rauf1, Qamar Zaman Choudhary2 and Muhammad Ali3; Med. Forum, Vol. 29, No. 4",
+        "Role of benign ovarian cysts in the development of adenomyosis; Saudi Med Journal; 2016 Sept, Sadaf Alam, Sajjad Ahmad, Muhammad M Khan, Sabeen Nasir, Naveed Sharif, Sara Ziaullah, Ahmareen Khalid, Fozia Rauf",
+        "Is it necessary to submit grossly normal looking gall bladder specimens for histopathological examination? Tayeb M, Rauf F, Ahmad K, Khan FM. Asian Pac J Cancer Prev. 2015; 16(4):1535-8",
+        "Effect of Age on Prognosis in Different Molecular Subtypes of Female Breast Carcinoma. Sharif N, Ahmad S,Khan MM, Khalid A, Alam S, Ziaullah S, Nasir S, Rauf F. Gomal Journal of Medical Sciences, 2015 July-Sept;3:151 –5",
+        "Primary Pleomorphic Leiomyosarcoma of Male Breast; Muhammad Mumtaz Khan1, Mohammad Atique2, Naveed Sharif1, Fouzia Rauf1, Sajjad Ahmad1; Gomal Journal of Medical Sciences January-June 2013, Vol. 11, No. 1",
+        "Phytobezoar in a jejunal diverticulum as a cause of small bowel obstruction: a case report. Tayeb M, Khan FM, Rauf F, Khan MM.; J Med Case Reports 2011 Sept, 27;5: 482.",
+        "Situs inversus totals with perforated duodenal ulcer: a case report. Tayeb M, Khan FM, Rauf F.; J Med Case Reports 2011 Jul 3; 5:279",
+        "Nipple Adenoma of Breast: A Masquerader of Malignancy. Aftab K, Kayani N, Rauf F. Journal of the College of Physicians and Surgeons Pakistan 2010, Vol. 20 (7): 472-474.",
+        "Frequency of primary solid malignant neoplasms in different age groups as seen in our practice. Ahmed Z, Azad NS, Rauf F, Yaqoob N, Husain A, Ahsan A, Ahmed R, Kayani N, Pervez S, Hassan SH.; J Ayub Med Coll Abbottabad. 2007 Jul-Sep;19(3):56-63",
+        "Gastrointestinal stromal tumors: A demographic, morphologic and immunohistochemical study. Rauf F, Bhurgri Y, Pervez S. Indian J Gastroenterol 2007; 26:214-6",
+        "Metaplastic carcinoma of the breast, an intriguing rarity. Rauf F, Kiyani N, Bhurgri Y. Asian Pac J Cancer Prev. 2006 Oct-Dec;7(4):667-71",
+        "Subependymal Giant Cell Astrocytoma: Case Series. Ahmad Z, Rauf F, Azad NS, Ahsan A.; J Pak Med Assoc. 2006 Oct; 56(10):463-5.",
+        "“Mixed Epithelial and Stromal Tumor of Kidney: A Case Report”. Rauf F, Yaqoob N, Husain A.; J Pak Med Assoc. 2006 Jul; 56(7):340-1.",
+        "“Synchronous Occurrence of Gastrointestinal Stromal Tumor& Gastric Adeno Carcinoma: A Case Report”. Rauf F, Ahmad Z, Muzzafar S, HussainiAS.; J Pak Med Assoc. 2006 Apr;56(4):184-6."
+      ]
+    },
+    "mian-ihsan": {
+      "slug": "mian-ihsan",
+      "aliases": [
+        "ihsan-ullah",
+        "ihsanullah",
+        "mian-ihsan",
+        "mian-ihsanullah"
+      ],
+      "name": "Mian Ihsan",
+      "department": "Pathology",
+      "designation": "Professor (Chemical Pathology)",
+      "hod": false,
+      "photo": "assets/images/faculty/mian-ihsan.jpeg",
+      "qualifications": [
+        "MBBS",
+        "DCP",
+        "M. Phil (Chemical Pathology)"
+      ],
+      "experience": [
+        "Teaching Experience",
+        "Professor, Department of Pathology, Peshawar Medical, 2nd May 2014 till date",
+        "Professor and",
+        "Head of Department, Department of Pathology KIMS Kohat, 08-01-2013 to 30-4-2014",
+        "Associate",
+        "Professor and",
+        "Head of Department, Department of Pathology KIMS Kohat 01-01-2009 to 07-01-2013",
+        "Lecturer, Department of Pathology KMC Peshawar, 01-9-1980 to 01-01-2009"
+      ],
+      "skills": [
+        "Former Member of admission and Scrutiny Committee",
+        "KMC from 2004 to 2008.Former Chairman/member Disciplinary Committee",
+        "KIMS Kohat 2009 to 2014.Former Incharge Admission and Scrutiny Committee KIMS Kohat 2010 to 2014.Former Chairman Social Welfare Society KIMS Kohat",
+        "2012 to 2014.Former Vice Principal Academic",
+        "Student Affairs and administration KIMS",
+        "Kohat 2010 to 2014.Former Convener Purchase Committee",
+        "KIMS Kohat 2012 to 2014."
+      ],
+      "publications": []
+    },
+    "ashraf-khan": {
+      "slug": "ashraf-khan",
+      "aliases": [
+        "ashraf-khan"
+      ],
+      "name": "Ashraf Khan",
+      "department": "Pathology",
+      "designation": "Professor (Hematology)",
+      "hod": false,
+      "photo": "assets/images/faculty/ashraf-khan.jpeg",
+      "qualifications": [
+        "MBBS",
+        "DCH",
+        "DCP",
+        "M. Phil (Hematology)"
+      ],
+      "experience": [
+        "Work ExperiencePeshawar Medical College, Peshawar",
+        "Professor of Hematology Jan-2020 to Till DateAl-Razi Medical College, Peshawar",
+        "Professor of Hematology Teaching Medical Students 12/2018 to 23-12-2019Al-Razi Medical College, Peshawar",
+        "Associate",
+        "Professor of Hematology Teaching Medical Students 09/2018 to 12/2018Khyber Girls Medical College, Peshawar",
+        "Associate",
+        "Professor of Hematology 03/2018 to 09/2018Khyber Girls Medical College, Peshawar",
+        "Assistant",
+        "Professor – Pathology 10/2016 to 03/2018PGMI, Hayatabad Medical Complex, Peshawar",
+        "Assistant",
+        "Professor – Pathology 11/2009 to 09/2016PGMI, Hayatabad Medical Complex, Peshawar",
+        "Consultant Pathologist 12/2008-11/2009DHQ Hospital, Bannu District Pathologist 12/2006 to 11/2008PGMI, Hayatabad Medical Complex 03/2005 to 12/2006DHQ Hospital, Kohat District Pathologist 09/2002 to 03/2005Saidu Group of Hospitals, Swat District Pathologist 05/2002 to 09/2002Agency Headquarter Hospital, Landi Kotal Pathologist 03/2001 to 05/2002PGMI, Lahore Post Graduate Trainee 01/1999 to 01/2001PGMI, Lady Reading Hospital, Department of Pathology, Peshawar",
+        "Medical Officer 01/1998 to 01/1999PGMI, Lady Reading Hospital, Department of Pathology, Peshawar Trainee",
+        "Medical Officer - Diploma in Clinical Pathology (DCP) 01/1997 to 12/1997PGMI, Lady Reading Hospital, Department of Pediatrics, Peshawar",
+        "Junior Registrar 01/1995 to 12/1996PGMI, Lady Reading Hospital, Department of Pediatrics, Peshawar Trainee",
+        "Medical Officer – DCH 01/1994 to 12/1994PGMI, Lady Reading Hospital, Cardiovascular Surgery, Peshawar",
+        "Medical Officer03/1991 to 12/1993"
+      ],
+      "skills": [],
+      "publications": [
+        "Serum Anticardiolipin antibodies in recurrent abortion; annals vol.10no.4 oct-dec 2004",
+        "Obstruction due to Intestinal Tuberculosis Strictureplasty Versus Resection Anastomosis; Pakistan Journal of Surgery/Vol:24, Issue 3,2003",
+        "Estimating the burden of Intestinal Helminthes among pregnant women in KP; K.JMS January June,2014, Vol, No.1",
+        "Serial Serum Ferritin Levels of Monitoring response to iron chelation therapy in patients of Beta Thalassemia major; Medical Forum Vol.29, No.06 June,2018",
+        "Frequency of Iron deficiency anemia in Chronic Kidney disease patients on hemodialysis; Medical Forum Vol29, No. 11 November,2018",
+        "Frequency of Hyponatremia and Hypokalemia in Children with protein energy; Medical Forum, Vol.29, NO.06 June,2018",
+        "Frequency of Hepatitis B and C in chronic patients of chronic renal failure; Journal of Saidu Medical College 2019, Vol 9 (1)"
+      ]
+    },
+    "mohsina-haq": {
+      "slug": "mohsina-haq",
+      "aliases": [
+        "mohsina",
+        "mohsina-haq"
+      ],
+      "name": "Mohsina Haq",
+      "department": "Pathology",
+      "designation": "Professor (Microbiology)",
+      "hod": false,
+      "photo": "assets/images/faculty/mohsina-haq.jpg",
+      "qualifications": [
+        "MBBS",
+        "M. Phil (Microbiology)",
+        "Ph. D (Microbiology)",
+        "CHPE"
+      ],
+      "experience": [
+        "Teaching Experience:",
+        "Professor Microbiology, Peshawar Medical College, June 2024 - Till Date",
+        "Director Advance Basic Medical & Dental Science, Oct 2025 - Till Date Peshawar Medical College Peshawar Medical College",
+        "Associate",
+        "Professor Microbiology, Oct 2020 - June 2024 Peshawar Medical College",
+        "Assistant",
+        "Professor Microbiology, Oct 2015 - Oct 2020 Peshawar Medical College",
+        "Lecturer/ Postgraduate Student in Microbiology, May 2013 - Sep 2015 Peshawar Medical College",
+        "Clinical Experience:",
+        "House Job Officer - General Medicine, June 2012 - Aug 2012 Kuwait Teaching Hospital",
+        "House Job Officer – Radiology, March 2012 - May 2012 Mercy Teaching Hospital",
+        "House Job Officer - Surgery & Allied, Dec 2011 - Feb 2012 Kuwait Teaching Hospital, Peshawar"
+      ],
+      "skills": [],
+      "publications": [
+        "Comparative Efficacy of Intramuscular Meglumine Antimoniate and Miltefosine in the Management of Cutaneous Leishmaniasis; Majid Khan, Zarka Sarwar, Samia Nawaz, Bubrak Amin, Mohsina Haq, and Mehran Khan; Genetics and Molecular Research (GMR), E-ISSN: 1676-5680.",
+        "Barriers To Immunization Coverage in Under-Five Children in Rural Communities: A Cross-Sectional Study from Rural Punjab, Pakistan. Abdulhamid Shaban1, Nishat Waqas2, Abdur Rehman Jalali3, Hussain Ramzan4, Sultan Mohammed Alanazi5, Mohsina Haq5; Genetics and Molecular Research 25(12s):2026",
+        "Vol. 32 No. 3 (2025) | JPTCP Journal of population therapeutics and clinical pharmacology Antimicrobial resistance patterns in pathogens isolated from peritoneal drain fluids in abdominal surgeries Dr. Muhammad Kalim, Dr. Zainab, Dr. Zubeda Irshad, Dr. Naseer Ahmed, Dr. Mohsina Haq",
+        "Frequency of Raised Total Serum Ig E, Sputum Eosinophilia and Blood Eosinophil Count in Patients with Severe Persistent Asthma; Dr Mian Mufarih Shah1, Dr Muhammad Abbas2, Dr Momina Haq3, Dr Sumira Abbas4*, Dr Munaza Khattak5, Dr Farhan Abbas Baloch6; Vol.31 No.6 (2024): JPTCP (2101-2117); DOI: 10.53555/jptcp.v31i6.6828",
+        "Vol. 12 No. 3 (2024) | Kurdish Studies Kurdish Sciences Association of IL28B rs12979860 and rs8099917 Gene Polymorphisms with Response to Combination Therapy of Sofosbuvir and Daclatasvir in HCV- Infected Patients from the Khyber Pakhtunkhwa Population Dr. Mohsina Haq, Dr. Jawad Ahmed, Dr. Ihsan Ullah, Dr. Najeeb ul Haq, Dr. Arbab Muhammad Kashif Khan, Dr. Abbas Saleem Khan",
+        "Vol. 31 No. 6 (2024) | JPTCP Journal of population therapeutics and clinical pharmacology The predictive power between il28b gene variants (rs12979860 and rs8099917) and the response of hepatitis c virus in patients on sofosbuvir and daclatasvir. Dr. Mohsina Haq, Dr. Jawad Ahmed, Dr. Ihsan Ullah, Dr. Hala Rajab, Dr. Sami Siraj, Dr. Najeeb ul Haq, Dr. Abbas Saleem Khan",
+        "(2023) 192: 915–918 Irish Journal of Medical Science (1971) Incidence of SARS coV-2 re-infection in Anti-nucleocapsid IgG positive Healthcare Workers. A Prospective Cohort Study Saima Mehboob Asif rehman, Mohsina Haq, Hala rajab, Momina Haq, Momina haq, Jawad Ahmedm Sajjad Ahmad, Saeed Anwar, Mohammad Abbas, Najib ul haq",
+        "Volume 37: 1 – 6 | January-December 2023 | Impact factor 3.5 International Journal of Immunopathology and Pharmacology Anti-nucleocapsid IgG antibodies in SARS-CoV-2 recovered health care workers: One year follow-up study Ashfaq Ahmad, Mohsina Haq, Asif Rehman, Najibul Haq",
+        "Volume 20 | Issue 20 | April 29, 2023 | Impact factor 1.3 Journal of Cancer Research and Therapeutics Description of clinicopathological characteristics of oral potentially malignant disorders with special focus on two histopathologic grading systems and subepithelial inflammatory infiltrate Abbas Saleem Khan, Zafar Ali Khan, Muhammad Nisar, Saleha Saeed, Hoor Maryam, Mohsina Haq, Tehmina Naushin, Rakhi Issrani",
+        "Vol. 36 | No. 4 (Special) | July 2023 | pp.1305-1312 Pakistan Journal of Pharmaceutical Sciences Evaluation of therapeutic potential and anti-hyperchlostrolemic effects of prunes in albino rats: An experimental study Ihteshamul Haq, Mohsina Haq, Owais Ali, Muhammad Jaseem Khan, Noor Ullah, Aamir Ali Khan, Faheem Usman, Ayesha Asif, Farid S. Ataya, Dalia Fouad, Anwaar Iftikhar and Ahad Mehmood",
+        "DOI 10.7759/cureus.36040 | 2023 | Impact factor 1.2 Cureus 15(3): e36040 Predictors of Mortality in Patients With Dengue Fever: Insights From a Comparative Analysis Afsheen Mahmood, Anwar ul Haq, Said Amin, Fawad Rahim, Mohammad Noor, Huma Gul, Sheraz Zafar, Sobia Ahmed Qureshi, Khaula Batul, Mohsina Haq",
+        "Vol.36 | No.3(Special) | May 2023 Pakistan Journal of Pharmaceutical Sciences Sustained virological response to antiviral drugs in treatment of different genotypes of HCV cirrhotic patients Amin Ullah, Aqsa Maryam, Ghaffarul Malik, Hira Hameed, Kifayat Hussain, Junaid Ahmad, Ihteshamul Haq, Mohsina Haq, Reem M Aljowaie, Elsayed Mohsen Abougazia, Tse-Wei Chen, Jamshaid Ahmad, Kashif Bashir, Laiba Ahmad, Bashir Ahmad",
+        "International Journal of Health Sciences Study of bacterial and hospital acquired factors of urinary tract infections in patients in district Chakwal Maria Abdul Salam, Mohsina Haq, Miss Ambreena, Iram Yousaf Malik, Ashfaq Ahmad, Muhammad Hamza Khan, Sarma Shahid, Muhammad Sadiq Khan, Arsala Zaman, Hameed Ullah, Amir Ullah Khan, Hikmat Ullah Khan",
+        "TAVI 2022, vol. 10: 1-7 | Impact factor 7.4 Therapeutic Advances in Vaccines and Immunotherapy Identifying Higher risk subgroups of healthcare workers for priority vaccination against COVID-19 Mohsina Haq, Asif Rehman, Momina Haq, Hala Haq, Hala Rajab, Junaid Ahmed, Jawad Ahmed, Saeed Anwar, Sajjad Ahmed, Najib ul Haq",
+        "Ref: BJB-248913 | Volume 84 | Impact Factor: 1.651 | Cat X Brazilian Journal of Biology Frequency, distribution and determinants of Helicobacter pylori infection in adults and adolescents with gastric symptoms: cross sectional epidemiological injury in district Haripur, Pakistan Usman Ayub Awan, Aamer Ali Khattak, Mohsina Haq, Zaheera Saadia, Muhammad Marat, Salma Khalid, Abdul Haseeb, Bilal Ahmed, Musa Ali Irfani, Muhammad Faisal Nadeem, Farakh Javed",
+        "Annals of RSCB Vol 26 | issue 1 | 2022 Page 281-289 | Impact factor 0.9 Annals of Romanian Society of Cell Biology Identification of intestinal Parasites in children having diarrhea of district Mardan in KP Pakistan Arif khan, Ihteshamul Haq, Mohsina Haq, Ashfaq Ahmed, Muhammad Farooq, haroon ur Rashid, Wasifa Naushad, Arbab Muhammad Kashif Khan et all",
+        "Annals of R.S.C.B. | ISSN: 1583-6258 | vol. 26, issue 1 | 2022, page. 152-163 | Impact factor 0.9 Annals of Romanian Society of Cell Biology Molecular and epidemiological assessment of hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner KP Pakistan Mohsina Haq, Momina Haq, Arbab Muhammad Kashif Khan, Ihteshamul Haq, Sidra Saleh Shah, salman Hussain, Eiman Ismail, Mian Sami Ullah, Tanveer Tara, Kamran Shah, Zeeshan Ahmed, Mohammad Iqbal khan Rahman",
+        "Nat. Volatiles and essential oils | 2022 9(1): 745-765 | Impact factor 0.6 Natural volatiles and essential oils Pharmaceutical and medicinal applications of Panax Ginseng and ginsenosides and their therapeutic role in different diseases IhteshamUl Haq, Seher Obaid, Rubina Salma Yasmeenm Munaza Khattak, Amber Javaid, Muhammad Abbas, Mohsina Haq, Faheem Anwar",
+        "Nat. Volatiles and essential oils | 2022 9(1): 766-775 | Impact factor 0.6 Natural volatiles and essential oils Clinical features and associated comorbidities in 200 cases of COVID-19 In Peshawar, Pakistan Ihtesham ul Haq, Mohsina Haq, Momina Haq, Seher Obaid, Muhammad Abbas, Abbas Saleem khan et all",
+        "Nat. volatiles & essent. Oils | 2022 | 9(1): 1168-1175 Natural volatiles and essential oils Molecular identification and Prevalence rate of Hepatitis C virus among hemodialysis patients in Peshawar KP, Pakistan Muhammad Asghar, Mohsina Haq, Nazma Saleem, Muhammad Ilyas Khan, Bakht Biland Khan, et al",
+        "Published march 5 th 2022 | Impact factor 6.0 Journal of Infection Wild poliovirus outbreak in Afghanistan: A wakeup call for global health experts Usman Ayub Awan, Muhammad Wasif Malik, Sehrish Kamran, Haroon Ahmed, Mohsina Haq, Muhammad Sohail Afzal",
+        "Nat. volatiles & essent. Oils | 2022 | 9(1): 1159-1167 Natural volatiles and essential oils Molecular Identification of different Gram positive and gram negative bacteria from diabetic foot patients in Khyber teaching hospital Peshawar KP, Pakistan Muhammad Asghar, Mohsina Haq, Ashfaq Ahmad, Bakht Biland Khan, Sunya Sardar, Zia Ullah, Adnan munir et al",
+        "Annals of R.S.C.B | vol 26 | issue 1 | 2022 | page 444-463 Annals of Romanian Society of Cell Biology Association of SARS-CoV-2 and ABO blood group types: a systemic review Anees Muhammad, Mohsina Haq, Munaza Khattak, Bakht Biland Khan, Ashfaq Ahmed, Momina Haq, Hala Haq, Anam Haq, Ihsan Ullah, IhteshamUl Haq",
+        "Vol. 26 | Issue 1 | 2022 | 867-874 Annals of the Romanian Society for Cell Biology Determine the frequency of bacterial pathogens in neonatal sepsis and their sensitivity to different antibiotics Muhammad Sohail, Mohsina Haq, Bakht Biland Khan, Shah Zaman, Amir Zaman Khan, Saima mehboob, Ihteshamul Haq, Jauhar Nafees, Alia Gul, Muhammad Umair Khan, ObaidUllah Shah",
+        "2022 | 9(1) | 1645-1653 Hepatitis C. Nat. Volatiles & Essent. Oils Identification of frequency rate of depression in untreated patients of chronic Hepatitis C Ihteshamul Haq, Mohsina Haq, Bakht Biland, Muhammad Salman Munir Malik, Samavisa Irum, Mian Sami Ullah, Faiza Rashid, Nazif Ullah Qazi, Walid Khan, Muhammad Jawad Ullah, Aroma Mustafa",
+        "Vol. 26 | Issue 1 | 2022 | Pages. 1184-1188 Annals of Romanian Society of Cell Biology Detection of Malaria through light microscopy with Florescent microscopy and interference filter Muhammad Israr, Mohsina Haq, Fayaz Ahmed Memon, Hafiz Fahad Ullah saeed, Hefsa Qamar, Mujeeb alam Khan, IhteshamUl Haq",
+        "Vol 22 Issue 1 | March, 2022 African Health Sciences Incidence of Dengue fever, serotypes, clinical features and laboratory markers: A case study of 2019 outbreak at district Shangla, KP, Pakistan Abid Ur Rehman, Faheem Anwar, Muhammad Tayyab, Ihteshamul Haq, Mohsina Haq, Ashfaq Ahmed, Hala Haq, Abbas Saleem Khan",
+        "Vol. 16 | No.02 | FEB 2022 | 1132-1136 Pakistan Journal of Medical & Health Sciences Epidemiological Features of Cutaneous Leishmaniasis in Hilly and Plot Areas of Tribal Districts, Khyber-Pakhtunkhwa Province Pakistan Waseem Sajjjad, Mohsina Haq, Ihteshamul Haq, Hamid Ali Khan, Noor Ul Basir, Rabia Mazhar, Muhammad Jawad Ullah, Faiza Rashid, Mian Sami Ullah, Jauhar Nafees, Zeeshan Ahmad",
+        "Vol. 16 | No.01 | JAN 2022 Pakistan Journal of Medical & Health Sciences Multi-Drug Resistance of Escherichia coli (E.coli) Isolated from Clinical Isolates in District Peshawar Kp Pakistan Ihteshamul Haq, Mohsina Haq, Muhammad Farooq, Amber Javaid, Shafaq Zafar, Ashfaq Ahmad, Arbab Muhammad Kashif Khan, Mohammad Abbas, Bakht Biland Khan, Momina Haq",
+        "Vol. 16 | No. 06 | Jun 2022 | 1043-1045 Pakistan Journal of Medical & Health Science Evaluation of Remdesivir Treatment of non-hospitalized patients with Covid 19 Fazal Hanan, Mohsina Haq, Ashfaq Ahmed, Bakht Biland, Ihteshamul Haq, Said Munir, Habib Ullah",
+        "Vol. 16 | No. 04 | APR 2022 | 875-877 Pakistan Journal of Medical & Health Sciences Molecular Identification of tdifferent bacteria isolated from infected wounds at Hayatabad Medical Complex Peshawar Pakistan Syed Luqman Shuaib, Mohsina Haq, Bakht Biland Khan, Farishta Haq, Ihteshamul Haq, Ibrar Ahmad, Wahid Ullah, Azhar Nazir, Muhammad Farooq, Hasnain Israr, Shahid Hussain, Kamran Khan",
+        "Vol. 16 | No. 03 | 2022 | https://doi.org/10.53350/pjmhs22163827 Pakistan journal of Medical and Health Sciences Molecular and Epidemiological evaluation of Liver functions and its diagnosis between different genotypes of HBV and HCV in Non-Responders of HBV-HCV co infected patients with healthy controls. Ihtesham Ul Haq, Fazli Zahir, Mohsina Haq, Ronaq Zaman, Arbab Muhammad Kashif Khan, Maumana Rehman, Ibrar Ahmad, Hakeem Jan, Zeeshan Nasar, Hassan Arif, Zeeshan Ahmed",
+        "DOI: https://doi.org/10.1007/978-3-030-96523-5_3 | June 2022 Hazardous Environmental Micro-pollutants, Health Impacts and Allied Treatment Technologies Marble Dust as an Environmental and Occupational Hazard Salma Khalid, Mohsina Haq, Zia ul Ain Sabiha",
+        "Vol:55 | Issue: 08:2022 Journal of Tianjin University Science and Technology Identification the Rate of Anemia During Pregnancy at Ayub Medical Complex Abbottabad Ayesha Imtiaz Malik, Momina Haq, Mohsina Haq, Bushra Rehman, Fazli Hamid, Fayaz Ahmad Memon, Tnveer Tara, Hamid Ali Khan, Sudhair Abbas Bangash and Khalid Khan",
+        "Volume 17 | Issue 3 | June 2022 | Pages 415-423 | Impact factor 0.392 Journal of Taibah University Medical Sciences Predictive value of tissue p53 protein expression and serum p53 antibodies in oral potentially malignant disorders: Relative to oral squamous cell carcinoma Abbas S. Khan, Sajjad Ahmad, Zahoor Ullah, Naveed Sadiq, Mohsina Haq, and Ahmareen K. Sheikh",
+        "Vol. 16 | No. 08 | August 2022 | 335-337 Pakistan Journal of Medical & Health Sciences Prevalence of SARS-COV-2 Antibodies in Dental Healthcare Providers Shawana Iqbal, Shahab Adil, Najeeb-Ul-Haq, Mohsina Haq, Kawish Syed, Naila Sumbal, Madiha Ishfaq",
+        "Vol. 28 | No. 1 | 2022 Pakistan Journal of Chest Medicine Evidence of Mycobacterial Disease in Chronic Obstructive Pulmonary Disease Patients, the importance of Histological Assessme Ara, N. ., Khan, Z. S. ., Alam, S. ., Haq, M. ., Abbas, M. ., & Khan, S. . (2022). Evidence of Mycobacterial Disease in Chronic Obstructive Pulmonary Disease Patients, the importance of Histological Assessment. Pakistan Journal of Chest Medicine, 28(1), 95–102. Retrieved from https://www.pjcm.net/index.php/pjcm/article/view/856",
+        "Volume 18 No 1 (2021) | Volume 19 Issue 1 | Jan-March 2021 Pakistan journInternational Journal of Pathologyal of Medical and Health Sciences Predictive Value of serum p53 antibodies in Oral squamous cell carcinoma Abbas Saleem Khan, Sajjad Ahmad, Zahoor Ullah, Mohsina Haq, Muhammad Khalid Usmanm Atta ur Rehman",
+        "2021 October | 29(4):2 55-260 | Impact factor: 0.13 Journal Medical Sciences Immunohistochemical expression of p53 in oral squamous cell carcinoma, oral epithelial precursor lesions and normal oral mucosa Abbas Saleem khan, Sajjad Ahmed, Fatima Iqbal, Abdus Saboor, Muhammad Nisar, tehmina Naushin, Ahmareen Khalid Sheikh, Mohsina Haq, Tariq Ahmad, Basheer Rehman",
+        "Volume 25 | issue 7 | 2021 page 1846-1855 | Impact factor 0.9 Annals of Romanian Society of Cell Biology Molecular Identification and seroprevalence of SARS-CoV2 IgG antibody among Health Care workers in Peshawar Pakistan Mohsina Haq, Ihteshamul haq, Fazli Zahir, Abbas Saleem khan, Shabir Ahmed, Tanveer Tara, Muhammad Naveed et al",
+        "Volume 71 | No 10 page 2364-2368 | 2021 | Impact factor 0.781 Journal of the Pakistan Medical Association Serum p53 antibodies detection in oral squamous cell carcinoma, oral potentially malignant disorders and healthy individuals- a multicentric study Abbas Saleem Khan, Sajjad Ahmed, Zahoor ullah, Mohsina Haq, Muhammad Umar Farooq, Muslim Khan",
+        "Volume 34 | No 4 | July 2021 | pp 1305-1313 | Impact Factor 0.7 Pakistan journal of Pharmaceutical Sciences Genome wide association study and phylogenetic analysis of Novel SARS-COV-2 virus among different Countries Syed Umair Ahmad, Muhammad Shehzad Khan, Zainab Jan, Nayab Khan, Asif Ali, Nauman Rehman, Mohsina Haq, Umama Khan, Zohaib Bashir, Muhammad Tayyab, Ihteshamul Haq, Shumaila Bakht, Fazli Zahir",
+        "Volume 12 | October–December 2021 | 100863 Clinical Epidemiology and Global Health Epidemiological characteristics and genetic diversity of clinically isolated dengue vector in Khyber Pakhtunkhwa, Pakistan Fazli Zahir, Ihteshamul Haq, Mohsina Haq, Mahrukh, Abbas Saleem Khan, Wasifa Naushad, Hala Rajab, Muhammad Fahim, Sohail Ahmad, Iqbal Munir",
+        "Available online 31st December 2021 | Impact factor 1.20 Journal of Taiba University Medical Sciences Predictive value of tissue p53 protein expression and serum p53 antibodies in oral potentially malignant disorders: relative oral squamous cell carcinoma Abbas Saleem Khan, Sajjad Ahmad, Zahoor Ullah, Naveed Sadiq, Mohsina Haq, Ahmareen Khalid Sheikh",
+        "EMJ Hepatolo.2021 | 9[1]:83-88 European Medical Journal Frequency distribution of hepatitis C Virus genotypes with reference to age and gender in various districts of Khyber Pakhtoonkhwa, Pakistan Bakht Biland, Mohsina Haq, Sardar Muhammad, Mohsan Subhani, Syed Gardezi, Najibul Haq, Nadeem Tehami",
+        "29 June, 2021 | Impact factor 0.3 Clinical Epidemiology and Global Health Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan Zeeshan Qamar, Faheem Anwar, Raiz Ahmad, Ihteshamul Haq, Mohsina Haq, Arbab Muhammad Kashif Khan, Rafiq Hussain, Abdullah, Zeeshan Shahzad, Ibrar Ahmad, Muhammad Salman Munir Malik, Muhammad Kamran Khan, Jawad Khan",
+        "Vol 30 | No 1 (2021) | 1-8 Impact factor 1.4 Polish journal of environmental studies Air Pollution and respiratory Health among men exposed to two different environs as occupational exposure Adnan shahzad, zia ul ain Sabiha, Mohsina Haq, Hammad Ullah, Muhammad Hamza Zafar, Salma Khalid",
+        "2021 | 11(1) : 50-55 Journal of Saidu Medical College Swat Synergistic effect of Ceftriaxone and diclofenac against Escherichia Coli Amir Zaman Khan, Shah Zaman, Sardar Muhammad, Riaz Nasim, Mohsina Haq, Muhammad Luqman",
+        "25 May 2021 | Impact factor 3.04 Infection- Journal of Infectious Diseases SARS-CoV-2: big seroprevalence data from Pakistan—is herd immunity at hand? Mohsina Haq, Asif Rehman, Junaid Ahmad, et al & Najib Ul Haq",
+        "September 12, 2020 | http://dx.doi.org/10.2139/ssrn.3922674 Preprints with the LANCET Vertical Transmission of Hepatitis-B Decades After The International Recommendation Of Administering Hepatitis-B Immunoglobulins Along Hepatitis-B Vaccination To Newborn Babies Mohsina Haq, Saadia Zahid, Bushra Khan, Asif Rehman, Shahnaz Parveen, Tahniat Ishaq, Arbab Muhammad Kashif Khan, Umair Qazi, Naveed Sadiq, Saeed Farooq, Sajjad Ahmad, Saeed Anwar, Waqas Hassan, Najibul Haq",
+        "January 2020 | 27(1): 35-39 The Professional Medical Journal Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C Najib Ul Haq, Momina Haq, Farzana Salman, Mohsina Haq, Munaza Khattak, Robina Usman, Arbab Muhammad Kashif Khan",
+        "2020 | 28(1) | 76-80 | Impact factor: 0.13 Journal of Medical Sciences Effect of Pregnancy and demography on Susceptibility pattern of Azole antifungal agents against clinical isolates of Candida species recovered from Vulvovaginal candidiasis patients Shafaq Zafar, Amber Javed, Farzana Salman, Amir Zaman, Mohsina Haq, Muhammad Khurram",
+        "November 09 2020 | Impact factor 1.15 Cureus Does working in a COVID-19 receiving Health Facility influence seroprevalence to SARS-COV-2? Mohammad Noor, Mohsina Haq, Najib ul Haq, Said Amin Fawad Rahim, Sher Bahadur, Raza Ullah, Muhammad Asif Khan et al.",
+        "August 2019 | 26(8): 1203-1207 The Professional Medical Journal Comparative study of HBV DNA levels in HBeAg positive and HBeAg negative female patients suffering from Chronic Hepatitis B in Child bearing age Mohsina Haq, Mahmud ur Rehman, Najib Ul Haq, Momina Haq",
+        "October 2019 | 26(10): 1651-1654 The Professional Medical Journal Correlation of serum vitamin D levels with serum levels of alkaline phosphatase on patients with detectable HCV RNA Momina Haq, Farzana Salman, Mohsina Haq, Seher obaid, Ambreen Gul, Arbab Muhammad, Kashif Khan",
+        "December 2019 | 9(2): 186-90 Journal of Saidu Medical College Swat Bacteriological Profile and Antibiogram of Urinary tract infections at Microbiology Laboratory of a Private Teaching Hospital Mohsina Haq, Sardar Muhammad, Momina Haq, Mohammad Kashif Khan, Mohammad Abbas, Shahzaman Khan",
+        "April 2017 | Vol 25, No 2 | Impact factor 0.13 Journal of Medical Sciences Microbiological profile and commonly used antibiotics susceptibility pattern of isolates among burn patients at a tertiary care hospital Aamer Ali Khattak, Usman Ayub Awan, Mohsina Haq, Salma Khalid, Fouzia Ashraf, Muhammad Faisal Nadeem",
+        "September-December, 2016 | Vol. 9. No. 3 Khyber Journal of Medical Sciences Awareness Level of Hepatitis B in rural areas of Charsadda Mohsina Haq, Farzeen Khan, Momina Haq"
+      ]
+    },
+    "ambreen-gul": {
+      "slug": "ambreen-gul",
+      "aliases": [
+        "ambreen-gul"
+      ],
+      "name": "Ambreen Gul",
+      "department": "Pathology",
+      "designation": "Professor (Chemical Pathology)",
+      "hod": false,
+      "photo": "assets/images/faculty/ambreen-gul.png",
+      "qualifications": [
+        "MBBS",
+        "M. Phil (Chemical Pathology)",
+        "CHPE"
+      ],
+      "experience": [
+        "CLINICAL EXPERIENCE",
+        "Consultant Pathology, Mercy Teaching Hospital Peshawar, Jan 2015 – till date",
+        "House Officer Medicine, Hayatabad Medical Complex, Peshawar, Jan 2005 – June 2005",
+        "House Officer Surgery, Hayatabad Medical Complex, Peshawar, July 2005 – Jan 2006",
+        "TEACHING EXPERIENCE:",
+        "Professor Pathology, Peshawar Medical College, Peshawar, Feb 2025 – till date",
+        "Associate",
+        "Professor Pathology, Peshawar Medical College, Peshawar, Oct 2020 -- Feb 2025",
+        "Assistant",
+        "Professor Pathology, Peshawar Medical College, Peshawar, May 2014 – Sep 2020Theme Facilitator Medical Education, Peshawar Medical College, Peshawar, Sept 2009 – Apr 2014",
+        "Lecturer Pathology, Peshawar Medical College, Peshawar, April 2006 – Apr 2014"
+      ],
+      "skills": [
+        "Administrative Work:Incharge Infection Prevention and Control Committee Mercy Teaching Hospital",
+        "Peshawar Medical CollegeMember of Infection and Control Committee Peshawar Medical CollegeMember of Hospital Management Committee Peshawar Medical CollegeMember of Continuous Quality Improvement Committee Member Hospital Waste Management Committee"
+      ],
+      "publications": [
+        "Comparison of HbA1c and Serum Glycated albumin levels as monitoring tool; Professional Medical Journal; January 2018",
+        "Frequency of hyperglycemia in patients with acute stroke; Journal of Saidu Medical College; 2019",
+        "C-peptide levels as a screening marker for initiating insulin therapy in type 2 diabetics; Professional Medical Journal; November 2019",
+        "Correlation of serum vitamin D levels with serum levels of alkaline phosphatase in patients with detectable HCV RNA; Professional Medical Journal; October 2019",
+        "Vitamin B12 deficiency among patients with megaloblastic anemia; Journal of Medical Sciences; April 2019",
+        "Frequency of hyperlipidemia in the diagnosed type 2 diabetic patients; Journal of Gandhara Medical and Dental Sciences; Jan-March 2021",
+        "Pattern of Anemia in Diabetic Patients Presenting to Private Sector’s Tertiary Care Hospitals in Peshawar; Journal of Medical Sciences; October 2022",
+        "Correlation of serum CA 15-3 with histological types of breast cancer; International Journal of Health Sciences 7(S1), 2121–2129; January 2023",
+        "Association of anxiety and depressive symptoms with hypothyroidism; Journal of Population Therapeutics & Clinical Pharmacology; Vol.31 No.4 (2024): JPTCP (368-374); March 2024",
+        "Hypertriglyceridemia in Patients with Ischaemic Heart Disease; Pakistan Journal of Health Sciences Volume 5, Issue 7; July 2024",
+        "Comparisons of Biochemical Parameters and Diabetic Ketoacidosis Severity in Adult Patients with Type 1 and Type 2 Diabetes; African Journal of Biological Sciences; August 2024",
+        "Association between male erectile dysfunction (med) and levels of vitamin D in individuals with diabetes mellitus (Type II); Journal of Population Therapeutics & Clinical Pharmacology; September 2024",
+        "Association of Fibroblast Growth Factor-23 with C-Reactive Protein, Serum Phosphate, and Bone Mineral Density in Chronic Kidney Disease; African Journal of Biological Sciences; September 2024",
+        "The new spectrum of Plasmodium vivax malaria severity: A single-center experience; Pakistan Journal of Health Sciences; September 2024",
+        "Effects of Zinc, Vitamin A, and Magnesium Co-supplementation on Thyroid Function, Oxidative Stress, and hs-CRP in Patients with Hypothyroidism; African Journal of Biological Sciences; September 2024",
+        "Analyzing the correlation of biochemical and perceived hypogonadism in diabetic men: A pilot survey at lady reading hospital; Journal of Population Therapeutics & Clinical Pharmacology; October 2024",
+        "Impact of subclinical hypothyroidism on metabolic parameters in polycystic ovarian syndrome; KJMS; Vol. 18 No. 2 (2025)",
+        "Determination of the role of serum alpha 1 anti-trypsin protein levels in oral squamous cell carcinoma Patients and in healthy snuff users and non-users; International Journal of Pathology; Vol. 23 No. 4 (2025)"
+      ]
+    },
+    "sadaf-alam": {
+      "slug": "sadaf-alam",
+      "aliases": [
+        "sadaf-alam"
+      ],
+      "name": "Sadaf Alam",
+      "department": "Pathology",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "M. Phil Histopathology",
+        "FCPS Histopathology"
+      ],
+      "experience": [
+        "Clinical Experience",
+        "Consultant Histopathology, Peshawar Medical College, Peshawar, 26th June 2014 – till date",
+        "Medical Officer Pathology, Peshawar Medical College, Peshawar, Oct 2009 –25TH Jun2014",
+        "House Officer Medicine, Lady Reading Hospital, Peshawar, Sept 2005– Mar2006",
+        "House Officer, Surgery& Allied, Lady Reading Hospital, Peshawar, Mar 2006– Sept2006",
+        "Teaching Experience",
+        "Professor, Pathology, Peshawar Medical College, Peshawar, 6-june2024",
+        "Associate",
+        "Professor, Pathology, Peshawar Medical College, Peshawar, 29Feb 2020-5th june2024",
+        "Assistant",
+        "Professor, Pathology, Peshawar Medical College, Peshawar, 26 Jun 2014 – (28Feb2020 2020)Theme Facilitator, Medical Education, Peshawar Medical College, Peshawar, Oct 2009 – (30-7-2021)",
+        "Lecturer, Pathology, Peshawar Medical College, Peshawar, Oct 2009 – May2014"
+      ],
+      "skills": [],
+      "publications": [
+        "Role of benign ovarian cysts in the development of adenomyosis; Saudi Medical Journal; 2016; Sadaf Alam1, Sajjad Ahmad, Muhammad M. Khan, Sabeen Nasir, Naveed Sharif, Sara Ziaullah, Ahmareen Khalid, Fozia Rauf",
+        "Detection of H. Pylori in gastric biopsies: a cost-effective method for developing countries; The Professional Medical Journal; 2019; Hina Khan, Sadaf Alam2, Shahnawaz Khan, Mumtaz Khan, Fozia Rauf",
+        "Comparison Of Glut1 Expression in Oral Squamous Cell Carcinoma with Normal Mucosa; Pakistan Journal of Pathology; 2019; Khalid Usman, Sadaf Alam2, Farzana Salman, Muhammad Mumtaz Khan, Munazza Khattak, Abbas Saleem, Zafar Ali Khan",
+        "Comparison of image findings with histopathological diagnosis on ultrasound guided percutaneous liver biopsy in relation to hepatocellular carcinoma; Khyber Medical University Journal; 2018; Abdul Majid, Muhammad Mumtaz Khan, Abdul Aziz Zia, Sadaf Alam4",
+        "Role of Thyroid Dysfunction in Infertile Women with Menstrual Disturbances; Gomal Journal of Medical Sciences; 2016; Sabeen Nasir, Muhammad Mumtaz Khan, Sajjad Ahmed, Sadaf Alam4, Sara Ziaullah,",
+        "Inter observer variability in interpretation of endometrial biopsies in infertile women; The Professional Medical Journal; 2018; Sabeen Nasir, Muhammad Mumtaz Khan, Naveed Sharif, Sadaf Alam4, Sara Ziaullah, Sajjad Ahmad",
+        "Epstein Barr virus LMP-1 positivity in Hodgkin lymphoma subtypes in Khyber Pakhtunkhwa Province of Pakistan; Gomal Journal of Medical Sciences; 2017; Sara Ziaullah, Sajjad Ahmad, Muhammad Mumtaz Khan, Sadaf Alam4, Sabeen Nasir, Naveed Sharif",
+        "Effect of age on prognosis in different molecular subtypes of female breast carcinoma; Gomal Journal of Medical Sciences; 2015; Naveed Sharif, Sajjad Ahmed, Muhammad Mumtaz Khan, Ahmareen Khalid, SadafAlam5, Sara Ziaullah, Sabeen Nasir, Fouzia Rauf",
+        "Morphological Spectrum of Endometrial Biopsies In Infertile Women; Gomal Journal of Medical Sciences; 2016; Sabeen Nasir, Muhammad Mumtaz Khan, Sajjad Ahmed, Sara Ziaullah, Sadaf Alam5",
+        "Cytomorphological spectrum of pleomorphic adenoma in association with clinical parameters.; The Professional Medical Journal; 2019; Fatima Iqbal, Nasiha Bashir, Abbas Saleem, Muhammad Mumtaz Khan, Tehmina Naushin, Sadaf Alam6",
+        "Morphological spectrum of endometrium with thyroid hormone profile in infertile female population of Khyber Pakhtunkhwa province of Pakistan; Pakistan Journal of Medical sciences (PJMS); 2020; Sabeen Nasir, Sara Ziaullah, Sadaf Alam3, Muhammad Mumtaz Khan",
+        "Comparison of special stains (Giemsa stain and Modified Toluidine Blue stain) with immunohistochemistry as gold standard for the detection of H. pylori in gastric biopsies; Arab Journal of Gastroenterology; 2021; Hina khan, Fozia Rauf, Noor Muhammad, Mehwish Javed, Sadaf Alam5, Sabeen Nasir",
+        "Immunohistochemical expression levels of Cyclin E1 in three histologic grades of oral squamous cell carcinoma; Pakistan Journal of Pathology; 2022; Arooj khurshid, Sabeen Nasir, Sadaf Alam3, Madiha Insha, Rabia Alamgir, Natasha Kamran",
+        "Expression of P16 in Various Grades of Oral Squamous Cell Carcinoma of Tertiary Care Hospitals of Peshawar; Pakistan Journal of Medical and health Sciences; 2022; Karishma Ali, Sadaf Alam2, Muhammad Mumtaz Khan, Natasha kamran, Sara Zia, Shabana Bkhtiar, Sikandar, Ali, Fatima Ali, Iirfan Ullah",
+        "Expression of CD3 Levels of Tumor Infiltrating Lymphocytes (TILs) in Various Grades of Oral Squamous Cell Carcinoma of Tertiary Care Hospitals of Peshawar; Pakistan Journal of Medical and health Sciences; 2022; Natasha Kamran, Sadaf Alam2, Sabeen Nasir, Karishma Ali, Shabana Bakhtiar, Arooj Khurshid, Irfan Ullah",
+        "Evaluation of Carica Papaya leaf extract on Megakaryocytes count: An Animal Model; Khyber Journal of Medical Sciences; 2022; Shahida Batool, Shafaq Zafar, Sadaf Alam3, Shahid Farid, Ayesha Iftikhar, Mohsin Ali",
+        "Association of Vascular Endothelial Growth Factor (VEGF) in Salivary Gland Tumors; Pakistan journal of medical and health sciences (P J M H S); 2023; Muhammad Zubair Jabbar1, Muhammad Mumtaz Khan2, Sahibzadi Fatima Tariq3, Sadaf Alam4, Kanwal Nazir Arbab5, Abdullah Ahmad Khan6, Nauman Khalid7, Laima Abdullah8, Rabia Jabbar",
+        "Comparison Of Immunohistochemical Expression of Epidermal Growth Factor Receptor in Benign and Malignant Salivary Gland Tumors; Advances in basic medical sciences (ABMS); 2022; Aysha Khitab 1, Sadaf Alam1, Sabeen Nasir1, Imad Ali1, Maria Hanif 1, Mehreen Malik1",
+        "Clinicopathological Features of Oral Leukoplakia Among Snuff Users and Non-Users: An Analytical Study; Pakistan journal of Health sciences; 2023; Tehmina Naushin, Abbas Saleem Khan, Sadaf Alam, Nasiha Motahir, Fatima Iqbal, Hoor Maryam Younas, Sidra Mehmood, Uzma Mehmood",
+        "Mucin-2 Expression in Primary and Recurrent Cases of Pleomorphic Adenoma in Tertiary Care Hospitals of Peshawar; Pakistan journal of medicine and dentistry (PJMD); 2024; Samar Ashfaq1, Sadaf Alam1, Mumtaz Muhammad Khan1, Sabeen Nasir1",
+        "Immunohistochemical (IHC) expression of P16 in various grades of oral squamous cell carcinoma (OSCC)with snuff use in tertiary care hospitals of Peshawar; Pakistan journal of Health sciences; 2024; Karishma Ali, Sadaf Alam, Natasha Kamran, Sabeen Nasir, Razia Aamir, Sarah Yousuf",
+        "Comparison of immunohistochemical expression of insulin like growth factor 1 receptor (igf-1r) in benign and malignant salivary gland tumors; Journal of Khyber college of Dentistry; 2024; Mehreen Malik1, Sadaf Alam2, Sara Ziaullah2, Maria Hanif3, Noor Jahanzeb3, Ayesha Khitab3"
+      ]
+    },
+    "sardar-muhammad": {
+      "slug": "sardar-muhammad",
+      "aliases": [
+        "sardar-muhammad"
+      ],
+      "name": "Sardar Muhammad",
+      "department": "Pathology",
+      "designation": "Professor Microbiology",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "DOMS",
+        "M. Phil Microbiology"
+      ],
+      "experience": [
+        "Work ExperienceMS Prime Teaching Hospital Section Head Microbiology, Peshawar Medical College",
+        "Professor Microbiology, Peshawar Medical College",
+        "Associate",
+        "Professor, Peshawar Medical College, 23-12-2018",
+        "Assistant",
+        "Professor, Peshawar Medical College, 26-06-2014 to 22-12-2018",
+        "Lecturer Microbiology, Peshawar Medical College 01-01-2014 to 25-06-2014M. Phil Trainee Microbiology, Peshawar Medical College, 2011-2013",
+        "Lecturer Microbiology, Peshawar Medical College 01-12-2010-31-12-2010S.M.O/Registrar Eye A. Unit Ophthalmology Department, Ayub Teaching Hospital. Abbottabad from 20-06-95 to date. 13-04-2000S.M.O Ophthalmology DHQ Hospital Abbottabad from 01-01-95 to 19-06-1995Attended D.O.M.S Course from 11.1.93 to 31-12-94, in PGMI, L.R.H Peshawar",
+        "Medical Officer Eye Department from 26-4-92 to 10-01-93",
+        "Medical Officer School Health services Abbottabad from 3-2-92 to 25-4-92Deputation to Ministry of Health Iran from 8-1-86 to 2-2-92",
+        "Medical Officer Provincial Health Services N.W.F.P. 14-6-84 to 7-1-86",
+        "Lecturer in Physiology, Ayub Medical College, Abbottabad from 1\" March 1981 to 13th June 1984G.D.M.O Army Medical Corps, Pakistan Army from 15-7-78 to 16-01-81House Surgeon, Orthopaedic Unit, Khyber Hospital Peshawar from 5-5-78 to 14-7-78"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "shabina-saifullah": {
+      "slug": "shabina-saifullah",
+      "aliases": [
+        "shabina-saifullah"
+      ],
+      "name": "Shabina Saifullah",
+      "department": "Pathology",
+      "designation": "Assistant Professor (Chemical Pathology)",
+      "hod": false,
+      "photo": "assets/images/faculty/shabina-saifullah.jpeg",
+      "qualifications": [
+        "MBBS",
+        "M. Phil (Chemical Pathology)"
+      ],
+      "experience": [
+        "Assistant",
+        "Professor (Chemical Pathology&",
+        "In charge Chemical Section, Lab of Kuwait Teaching Hospital, Peshawar Medical College May 2021- Till Date",
+        "In charge & Head of Lab Kuwait Teaching Hospital Dec 2022 till Date",
+        "Lecturer (Chemical Pathology) Peshawar Medical College 1.2 2017- April 2021"
+      ],
+      "skills": [],
+      "publications": [
+        "Direct Comparison of High-Sensitivity Cardiac Troponin I versus Conventional Troponin I For the Early Diagnosis of Non-ST Elevation Myocardial Infarction;",
+        "Pakistan Heart Journal Vol.52 No 01 (as a principal author); March 2019",
+        "Glycemic Control among Type-2 Diabetes Mellitus Patients: A Large Sample Hospital Based Study; Med. Forum, Vol.31, No.11(As a principal author); November,2020",
+        "Hyperuricemia in Acute Coronary Syndrome Patients at Tertiary Care Hospital Peshawar; Advances in basic medical sciences vol.8 No 1 (as a principal author); 21st June 2024",
+        "Association between Male Erectile Dysfunction (Med) and Levels of Vitamin D in Individuals with Diabetes Mellitus (Type II); Journal of Population Therapeutics & Clinical Pharmacology Vol.31 No 06 (as a 4th author); Sept 2024",
+        "Association of Fibroblast Growth Factor-23 with C-Reactive Protein, Serum Phosphate, and Bone Mineral Density in Chronic Kidney Disease; African journal of biological sciences 6(14) (2024) (as a 2nd Author); 14th Sept 2024",
+        "Association of Oxidative Stress Biomarkers with Polycystic Ovary Syndrome; Pakistan Journal of Health Sciences (Lahore); vol 6 issue 11; Nov, 2025",
+        "(PCOS) and Its Metabolic Outcomes, Including Insulin Resistance and; vol 6 issue 11; Nov, 2025"
+      ]
+    },
+    "sumira-abbas": {
+      "slug": "sumira-abbas",
+      "aliases": [
+        "sumira-abbas"
+      ],
+      "name": "Sumira Abbas",
+      "department": "Pathology",
+      "designation": "Assistant Professor (Hematology)",
+      "hod": false,
+      "photo": "assets/images/faculty/sumira-abbas.jpeg",
+      "qualifications": [
+        "MBBS",
+        "FCPS (Hematology)",
+        "CHPE",
+        "CHR CQMCL (in process)CGC (in process)"
+      ],
+      "experience": [
+        "Assistant",
+        "Professor of Hematology with over 4.5 years of experience in diagnostic laboratory services, and undergraduate medical education"
+      ],
+      "skills": [
+        "Professional Expertise Includes Peripheral Blood Smear Interpretation",
+        "Bone Marrow Aspiration and Trephine Biopsy Reporting",
+        "Hemoglobin Electrophoresis (HPLC)",
+        "Coagulation Testing",
+        "and The Diagnosis of Benign and Malignant Hematological Disorders. She also has Experience in Transfusion Medicine",
+        "Blood Bank Services",
+        "And Laboratory Quality Management"
+      ],
+      "publications": [
+        "Frequency of common hematological diseases in paediatric patients presenting with clinical features indicative of Bone Marrow Examination. S. Abbas, S. Khan, M. M. Shah et al. P J M H S Vol. 16, No.02, FEB 2022 111. (First Author)",
+        "Frequency of Megaloblastic Anemia in pediatric patients presenting with peripheral cytopenia. S. Khan, S. Abbas, A. S. Roghani et al. P J M H S Vol. 16, No.01, JAN 2022 (Corresponding Author)",
+        "Psychological and Clinical Predictors of COVID-19 Severity and Outcomes. (Cureus); Shah M, Abbas S, Khan J Z, et al. (November 10, 2021) 13(11): e19458. DOI 10.7759/cureus.19458 (Co-Author)",
+        "Frequency of leukocytosis in acute ischemic stroke. Mian Mufarih Shah, Nazir Shah, Sumira Abbas, Sheraz Jamal khan, Saiqa Zahoor, Afsheen Mehmood. KJMS May-Aug 2019, Number 2 Vol 12. P-312 (Co-Author)",
+        "Frequency of pruritic rash in dengue fever presenting to tertiary care hospital. Mian Mufarih Shah, Nazir Shah, Mehwash Iftikhar, Sumira Abbas, Fawad Rahim, Ayesha Jamal. KJMS January – March, Volume 14, No. 1 (Co-Author)",
+        "Frequency of Raised Total Serum Ig E, Sputum Eosinophilia and Blood Eosinophil Count in Patients with Severe Persistent Asthma DOI: 10.53555/jptcp. v31i6.6828 (Corresponding Author)",
+        "Frequency of Blood Eosinophilia in Newly Diagnosed Chronic Obstructive Pulmonary Disease Patients DOI: 10.53555/jptcp. v31i6.6595 (First Author)",
+        "Cardiovascular Effects of Splenomegaly and Splenectomy in Beta-Thalassemia Major. Abbas S, Khan HA, Rehman W, Shah MM, Mustafa M, Abbas M. Cureus. 2024 Nov 21;16(11):e74186-. (First Author)",
+        "The Correlation of Red Cell Distribution Width with Peripheral Blood Smear: A Study From a Tertiary Care Hospital in Peshawar. Abbas S, Shah MM, Iftikhar M. Cureus. 2024 Nov 22;16(11). (First Author)",
+        "Chatgpt-Assisted Machine Learning for Chronic Disease Classification and Prediction: A Developmental and Validation Study. Abbas S, Iftikhar M, Shah MM, Khan SJ, Iftikhar M. Cureus. 2024 Dec 17;16(12). (First Author)",
+        "Establishing Normal Reference Ranges for White Blood Cell and Platelet Counts in Adult Males: A Regional Study in Muzaffarabad District.: Kayani JA, Siddiq A, Khan MA, Khalid M, Iqbal S, Abbas S. JPUMHS; 2024: 14: 04, 4-14. http://doi. org/10.46536/jpumhs/2024/14.04. 555. Journal of Peoples University of Medical & Health Sciences Nawabshah. (JPUMHS). 2024 Dec 31;14(4):4-12. (Corresponding Author)"
+      ]
+    },
+    "sarah-yousuf": {
+      "slug": "sarah-yousuf",
+      "aliases": [
+        "sara-yousaf",
+        "sarah-yousaf",
+        "sarah-yousuf"
+      ],
+      "name": "Sarah Yousuf",
+      "department": "Pathology",
+      "designation": "Assistant Professor (Histopathology)",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "FCPS (Histopathology)",
+        "M. Phil (Histopathology)",
+        "MBBS"
+      ],
+      "experience": [
+        "Teaching experiencePeshawar Medical College Peshawar",
+        "Assistant",
+        "Professor Pathology Department 2024 – PresentPeshawar Medical College Peshawar",
+        "Lecturer Pathology Department 2022- 2024Peshawar Medical College Peshawar",
+        "Lecturer Pathology Department 2019-2022Islamic International Medical College, Rawalpindi",
+        "Lecturer, Anatomy Department 2018-2019Islamic International Medical College, Rawalpindi",
+        "Lecturer, Community medicine 2018-2019"
+      ],
+      "skills": [],
+      "publications": [
+        "Yousuf S, Rauf F, Danyal, Ahmareen Khalid Sheikh. Comparison Of Human Papillomavirus 16 Expression by Immunohistochemistry in Cervical Carcinomas and Non-Neoplastic Cervical Mucosa, Journal of Postgraduate medical institute, vol 36, no. 4, pp. 244-52",
+        "Danyal, Saeed S, Yousuf S, Histomorphological Differences Between Right and Left Sided Colon Cancers, international journal of Pathology, vol 20, no. 1, pp. 30-37",
+        "Aamir, R., Rauf, F., Iqbal, F., Yousuf, S., Rehman, A., Sheikh, A. K., & Muhammad, S. (2024). Immunohistochemical Expression of Epidermal Growth Factor Receptor (EGFR) in Oral Squamous Cell Carcinoma and Oral Potentially Malignant Disorders. Applied immunohistochemistry & molecular morphology: AIMM, 32(3), 157–162.",
+        "Ali K, Alam S, Kamran N, Nasir S, Aamir R, Yousuf S. Immunohistochemical (IHC) Expression of p16 in Various Grades of Oral Squamous Cell Carcinoma (OSCC) with Snuff Use in Tertiary Care Hospitals of Peshawar: Expression of p16 in Oral Squamous Cell Carcinoma. Pakistan Journal of Health Sciences. 2024 Apr 30:109-15."
+      ]
+    },
+    "haseeba-arif": {
+      "slug": "haseeba-arif",
+      "aliases": [
+        "haseeba-arif"
+      ],
+      "name": "Haseeba Arif",
+      "department": "Pathology",
+      "designation": "Assistant Professor (Microbiology)",
+      "hod": false,
+      "photo": "assets/images/faculty/haseeba-arif.jpeg",
+      "qualifications": [
+        "BDS",
+        "CHPE",
+        "CHR",
+        "M. Phil (Microbiology)"
+      ],
+      "experience": [
+        "Clinical ExperienceAssistant Dental Surgeon ACE Dental and Implant Center, Peshawar November 2020 – February 2022Assistant Dental Surgeon Dent-O-Care Center, Peshawar December 2018 – November 2020",
+        "House Officer Sardar Begum Dental Hospital, Peshawar February 2017 – February 2018",
+        "Teaching Experience:",
+        "Assistant",
+        "Professor, Microbiology Peshawar Medical College, Peshawar July 2024 – Present",
+        "Lecturer, Department of Pathology Rehman College of Dentistry (RCD), Peshawar March 2021 – June 2024"
+      ],
+      "skills": [],
+      "publications": [
+        "Most Common Pathogenic Organisms Causing Urinary Tract Infection in Diabetic versus Non-Diabetic Patients and Their Antibiotic Sensitivity Pattern. Infectious Diseases Journal of Pakistan. 2023;32(2):35–39.",
+        "Antimicrobial Efficacy of Cefoperazone-Sulbactam Plus Tigecycline versus Cefoperazone-Sulbactam Against Respiratory Pathogens and Their Effect on Laboratory Indices. Pakistan Armed Forces Medical Journal. 2023;73(3):931.",
+        "Procalcitonin versus C-Reactive Protein: A Comparative Study for the Diagnosis of Neonatal Sepsis. Journal of Saidu Medical College. Vol. 15(3).",
+        "Antibiogram Profile of Patients Having Urinary Tract Infection Treated with Commonly Used Antibiotics. Pakistan Journal of Medicine and Dentistry. 2025;14(01)."
+      ]
+    },
+    "shehla-akbar": {
+      "slug": "shehla-akbar",
+      "aliases": [
+        "shehla-akbar"
+      ],
+      "name": "Shehla Akbar",
+      "department": "Pathology",
+      "designation": "Senior Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
+    "aiman-ajmeer": {
+      "slug": "aiman-ajmeer",
+      "aliases": [
+        "aiman-ajmeer"
+      ],
+      "name": "Aiman Ajmeer",
+      "department": "Pathology",
+      "designation": "Senior Lecturer",
+      "hod": false,
+      "photo": "assets/images/faculty/aiman-ajmeer.jpeg",
+      "qualifications": [
+        "M. Phil (Histopathology)",
+        "MBBS"
+      ],
+      "experience": [
+        "Lecturer, Peshawar Medical College",
+        "Demonstrator, Peshawar Medical College"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "razia-aamir": {
+      "slug": "razia-aamir",
+      "aliases": [
+        "razia-aamir"
+      ],
+      "name": "Razia Aamir",
+      "department": "Pathology",
+      "designation": "Senior Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "M.Phil. Oral Pathology",
+        "BDS"
+      ],
+      "experience": [
+        "Lecturer, Peshawar Dental College, Peshawar June 2023 – Present",
+        "Lecturer, Peshawar Dental College, Peshawar Jan 2021 – May 2023M.Phil. Trainee, Peshawar Dental College, Peshawar Jan 2019 – Jan 2021Dental Surgeon Dr. Anees & Associates March 2014 – Dec 2017Internship – Associate to Dr. Mushtaq Khattak, Hayatabad Medical Complex, Nov 2012 – Feb 2013Dental Assistant, Towncare Dental, Naples, Florida, USA 2006 – 2008Dental Assistant, Maria Dental Care, Miami, Florida, USA",
+        "House Officer, Khyber College of Dentistry, Peshawar 2000 – 2001"
+      ],
+      "skills": [],
+      "publications": [
+        "Immunohistochemical Expression of Epidermal Growth Factor Receptor (EGFR) in Oral Squamous Cell Carcinoma and Oral Potentially Malignant Disorders. Applied Immunohistochemistry & Molecular Morphology, 2024;32:157–162.",
+        "Immunohistochemical Expression of p16 in Various Grades of Oral Squamous Cell Carcinoma (OSCC) with Snuff Use in Tertiary Care Hospitals of Peshawar. Pakistan Journal of Health Sciences, 2024;5(4)."
+      ]
+    },
+    "aminah-saqib": {
+      "slug": "aminah-saqib",
+      "aliases": [
+        "aminah-saqib"
+      ],
+      "name": "Aminah Saqib",
+      "department": "Pathology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "assets/images/faculty/aminah-saqib.png",
+      "qualifications": [
+        "MBBS",
+        "CHPE"
+      ],
+      "experience": [
+        "house job in PMC affiliated hospitals1 year",
+        "teaching experience as",
+        "lecturer in PMC"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "mishgan-dayem": {
+      "slug": "mishgan-dayem",
+      "aliases": [
+        "mishgan-dayem"
+      ],
+      "name": "Mishgan Dayem",
+      "department": "Pathology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "assets/images/faculty/mishgan-dayem.jpeg",
+      "qualifications": [
+        "M. Phil Scholar (Histopathology)",
+        "MBBS"
+      ],
+      "experience": [
+        "Demonstrator, Pathology Department, Peshawar Medical College, 2026",
+        "House Officer (Gynaecology), KTH Peshawar",
+        "House Officer (Plastic Surgery)",
+        "House Officer (Endocrinology)",
+        "House Officer (Paediatrics)"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "shafaq-zafar": {
+      "slug": "shafaq-zafar",
+      "aliases": [
+        "shafaq-zafar"
+      ],
+      "name": "Shafaq Zafar",
+      "department": "Pharmacology",
+      "designation": "HoD & Professor",
+      "hod": true,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "M.PHIL",
+        "CHPE",
+        "PhD"
+      ],
+      "experience": [
+        "16TH Oct 2009 till date"
+      ],
+      "skills": [
+        "In silico Analysis related to cancer genomics",
+        "Real time PCR",
+        "Primer Designing",
+        "Methylation Specific PCR cell line generation Research Writing."
+      ],
+      "publications": []
+    },
+    "riaz-nasim": {
+      "slug": "riaz-nasim",
+      "aliases": [
+        "riaz-nasim"
+      ],
+      "name": "Riaz Nasim",
+      "department": "Pharmacology",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/riaz-nasim.jpeg",
+      "qualifications": [
+        "MBBS",
+        "M.PHIL"
+      ],
+      "experience": [
+        "14TH JULY 1983",
+        "Till date"
+      ],
+      "skills": [
+        "Research supervisionAdministrative Experience"
+      ],
+      "publications": []
+    },
+    "amber-javaid": {
+      "slug": "amber-javaid",
+      "aliases": [
+        "amber-javaid",
+        "amber-javed"
+      ],
+      "name": "Amber Javaid",
+      "department": "Pharmacology",
+      "designation": "Assit. Prof",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "M.PHIL",
+        "CHPE"
+      ],
+      "experience": [
+        "14TH May 2012Till date"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "erum-rehman": {
+      "slug": "erum-rehman",
+      "aliases": [
+        "erum-rehman"
+      ],
+      "name": "Erum Rehman",
+      "department": "Pharmacology",
+      "designation": "Assit. Prof",
+      "hod": false,
+      "photo": "assets/images/faculty/erum-rehman.png",
+      "qualifications": [
+        "BDS",
+        "M.PHIL",
+        "CHPE",
+        "CHR"
+      ],
+      "experience": [
+        "10TH FEB 2018",
+        "Till date"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "muhammad-shahid": {
+      "slug": "muhammad-shahid",
+      "aliases": [
+        "muhammad-shahid"
+      ],
+      "name": "Muhammad Shahid",
+      "department": "Pharmacology",
+      "designation": "Assit. Prof",
+      "hod": false,
+      "photo": "assets/images/faculty/muhammad-shahid.jpeg",
+      "qualifications": [
+        "MBBS",
+        "M.PHIL",
+        "CHPE"
+      ],
+      "experience": [
+        "1 OCT 2019Till date"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "khadija-maryam": {
+      "slug": "khadija-maryam",
+      "aliases": [
+        "khadija-maryam"
+      ],
+      "name": "Khadija Maryam",
+      "department": "Pharmacology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "CHPE, PGT Pharmacy"
+      ],
+      "experience": [
+        "2nd NOV 2020",
+        "Till date"
+      ],
+      "skills": [
+        "BLS workshop computer related skill"
+      ],
+      "publications": []
+    },
+    "fahad-jan": {
+      "slug": "fahad-jan",
+      "aliases": [
+        "fahad-jan"
+      ],
+      "name": "Fahad Jan",
+      "department": "Pharmacology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "assets/images/faculty/fahad-jan.jpeg",
+      "qualifications": [
+        "MBBS",
+        "CHPE"
+      ],
+      "experience": [
+        "1st Jan 2022 till date"
+      ],
+      "skills": [
+        "BLS Workshop",
+        "Computer-related Skill"
+      ],
+      "publications": []
+    },
+    "robina-riaz": {
+      "slug": "robina-riaz",
+      "aliases": [
+        "robina-riaz",
+        "robina-usman"
+      ],
+      "name": "Robina Riaz",
+      "department": "Physiology",
+      "designation": "HOD, Professor",
+      "hod": true,
+      "photo": "",
+      "qualifications": [
+        "MBBS, Khyber Medical College (1986)",
+        "Diploma in Gynae and Obs (1998, Punjab University)",
+        "M. Phil (Physiology), Riphah International University, Islamabad (2014)Master’s in Health Professions Education (",
+        "MHPE), KMU (2016)Post Graduate",
+        "Diploma in",
+        "PGD in Professional Ethics and Teaching Methodology, Riphah International University, Islamabad (January 2020)",
+        "PhD Physiology (Khyber Medical University, Peshawar), 2024, PCD No. 35103"
+      ],
+      "experience": [
+        "Cantonment General Hospital, Peshawar:",
+        "Medical Officer for Gynae and Obstetrics (1990-1994)Child Advocacy Intl. (CAI)- England Based NGO in Pakistan: Obstetrician for Child Advocacy Intl. (2001-2004)",
+        "Lecturer, Department of Physiology, Peshawar Medical College(Nov 2005 – Apr 2014)",
+        "Assistant",
+        "Professor, Department of Physiology Peshawar Medical College (May 2014 – Oct 2017)",
+        "Associate",
+        "Professor, Department of Physiology Peshawar Medical College, Pakistan(Nov 2017 – Dec 2020)",
+        "Professor, Department of Physiology, Peshawar Medical College(Dec. 2020- Till date)",
+        "Supervisor to MPhil Physiology ScholarsReviewer of articles of Journal Advances in Basic Medical Sciences (ABMS) of Khyber Medical University",
+        "Member of ERC for UMR",
+        "Supervisor of research for UMR"
+      ],
+      "skills": [],
+      "publications": [
+        "Khattak M, Usman R, Malik MO, Luqman M, Shaid F, Khattak A. COMPARISON OF ESTRADIOL LEVELS IN RAT MODEL OF CHRONIC ALTERNATING STRESS. Pakistan Journal of Physiology. 2025 Sep 30;21(3):41-5.Madiha Khattak, Muhammad Omar Malik, Robina Usman, Muhammad Luqman, Ammara Khattak, Dur E ShehwarAli (2025). Effect of Chronic Alternating Stress on Corticosterone, Testosterone and Johnsen Testicular Histology Score in Two Generations of Male Rats. Journal of Population Therapeutics and Clinical Pharmacology, 32 (11), 2167 -2184.DOI: 10.53555/72ha2471",
+        "Usman R, Malik MO, Khattak M, Habib SH, Khan RU. Adiponectin Level In Transgenerational Chronic Stress Rat Model: Comparison Between Offspring of Stressed Versus Non-Stressed Parents. Kurdish Studies. 2024 May 22;12(4):989-96.Dr. Madiha Khattak, Dr. Robina Usman, Dr. Muhammad Omar Malik, Mr. Muhammad Luqman, & Dr. Ammara Khattak. (2024). COMPARISON OF FOLLICLE STIMULATING HORMONE LEVELS IN CHRONIC STRESS RAT MODEL AND THEIR OFFSPRING. Journal of Population Therapeutics and Clinical Pharmacology, 31(11), 2474-2482. https://doi.org/10.53555/w8pa1f34Khattak M, Malik MO, Usman R, Habib SH, Khattak US. Comparison Of Testosterone Levels in Chronic Alternating Stress Model of Wistar Albino Rats and Their Offspring. Kurdish Studies. 2024 May 24;12(4):1009-17.Usman R, Malik MO, Khattak M, Habib SH, Khan RU. DEVELOPMENT OF PROTOCOL FOR TRANSGENERATIONAL STRESS IN WISTAR RATS. Journal of Population Therapeutics and Clinical Pharmacology. 2023 Dec 6;30(19):151-70.Khattak M, Malik MO, Usman R, Habib SH, Saddique U. DEVELOPING CHRONIC UNPREDICTABLE/ALTERNATING STRESS MODEL IN WISTAR ALBINO RATS. Journal of Population Therapeutics and Clinical Pharmacology. 2023 Dec 7;30(19):223-32.Khattak M, Usman R, Sultana N, Khattak A. Comparison of Free Androgen Index in Polycystic Ovary Syndrome and Non-Polycystic Ovary Syndrome Infertile Patients. Journal of Ayub Medical College Abbottabad-Pakistan. 2021 Oct 1;33(4).Usman R, Khattak M, Haq M, Khattak M, Parveen T, Basharat T. Correlation of Vitamin D with Obesity Parameters in Patients of Cardiometabolic Syndrome. Advances in Basic Medical Sciences. 2020 Jul 24;4(1).Anwar Z, Abid Z, Ghazanfer T, Usman R, Naheed R, Kamal A, Lashari M, Lashari J. Biochemical and hematological profile of anemic and non-anemic pregnant women. Journal of the Dow University of Health Sciences (JDUHS). 2020 Aug 30;14(2):54-9.Khattak M, Sultana N, Usman R, Khattak U, Zafar U, Salman H. Luteinizing hormone to follicle stimulating hormone ratio in patients with polycystic ovary syndrome. J Ayub Med Coll Abbottabad 2020;32(2):255–8.Haq NU, Haq M, Salman F, Haq M, Khattak M, Usman R, Khan AM. Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C. The Professional Medical Journal. 2020 Jan 10;27(01):35-9.Bibi Y, Usman R, Waheed N, Malik O, Shahzad A, Naheed R. Analysis of effect of Levocarnitine on Muscle Glycogen Content in Type 2 Diabetes in Pakistan. International Journal of Advanced Biotechnology and Research. 2019;10(1):630-4.Usman R, Bibi Y, Naheed R, Haq M, Obaid S, Khattak M. Correlation of vitamin D with lipid profile in patients with cardio metabolic syndrome. J Postgrad Med Inst 2019; 33(4): 279-85Usman R, Jamil B, Waheed N. Comparison between facilitator and peer assisted learning: an interventional study at Peshawar Medical College. JPMA. 2019 Nov;69(11):1588-90.Usman R, Jamil B. Perceptions of undergraduate medical students about peer assisted learning. The Professional Medical Journal. 2019 Aug 10;26(08):1283-8.Usman R, Khan F, Khattak M, ul Abideen Z. Correlation of Vitamin D with Hypertension in patients with Cardiometabolic Syndrome. Journal of Postgraduate Medical Institute (Peshawar-Pakistan). 2017 Aug 10;31(3).Khan F, Usman R, Zafar S, Wadud S. Vitamin D deficiency in patients with Diabetic Retinopathy. Journal of Postgraduate Medical Institute (Peshawar-Pakistan). 2017 May 12;31(2).Abideen Z, Salman F, Usman R, Shakireen N, Gul AM. Platelet Indices in newly diagnosed patients of Myocardial Infarction. Khyber Medical University Journal. 2017 Apr 1;9(2).Usman R, KhanF, WadudS, Zafar S, Abideen Z. Vitamin D status in patients with Cardiometabolic syndrome. J. Med. Sci. 2015 July; 23(3): 170-173Khan F, Usman R, Wadud S, Zafar S, Abideen Z. Association of vitamin D with retinopathy in patients with type 2 diabetes mellitus. J. Med. Sci. 2015 April; 23(2): 58-61Zafar S, Khurram M, Usman R, Khan F, Nasim R. Clotrimazole, fluconazole, ketoconazole and itraconazole susceptibilities of candida species in vulvovaginitis J. Med. Sci. 2015 July ; 23(3): 130-133Yusuf N, Rehman J, Khan MA, Riaz R, Nawab G, Tariq SA. Serum testosterone levels in heroin addicts. Journal of Medical Sciences. 2006 June; 14(2):92-95Hafeez A1, Riaz R, Shah SU, Pervaiz J, Southall D. Integrating health care for mothers and children in refugee camps and at district level. BMJ. 2004 Apr 3;328(7443):834-6."
+      ]
+    },
+    "farzana-salman": {
+      "slug": "farzana-salman",
+      "aliases": [
+        "farzana-khan",
+        "farzana-salman"
+      ],
+      "name": "Farzana Salman",
+      "department": "Physiology",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelors of Medicine and Bachelors of Surgery (",
+        "MBBS) Khyber Medical College 1988",
+        "M.Phil. Physiology Riphah International University 2014Postgraduate",
+        "Diploma in Professional Ethics and Teaching Methodology (",
+        "PGD) Riphah International University, Islamabad, Pakistan.2018 – 2019",
+        "Certificate Course in Health Profession and Education. (",
+        "CHPE) Riphah international University, Islamabad, 2018",
+        "PhD (Physiology) Khyber Medical University Peshawar, Khyber Pakhtunkhwa, Pakistan. July 2025"
+      ],
+      "experience": [
+        "Lecturer Department of Physiology Nov 2005 – Apr 2014 Peshawar Medical College, Pakistan",
+        "Assistant",
+        "Professor Department of Physiology May 2014 – Apr 2019 Peshawar Medical College, Pakistan",
+        "Associate",
+        "Professor Department of Physiology May 2019 – Nov 2022 Peshawar Medical College, Pakistan",
+        "Professor Department of Physiology Nov. 2022- Till date Peshawar Medical College, Pakistan"
+      ],
+      "skills": [],
+      "publications": [
+        "Alpha lipoic acid alone and in combination with Resveratrol and Super Oxide Dismutase ameliorates Peripheral Diabetic Neuropathy. A double blind Randomized Clinical Trial.",
+        "Impact of Triple regime Antioxidant Therapy and Monotherapy on Oxidative Stress Biomarkers in Patients with Type 2 Diabetes Mellitus and Neuropathy: A double blind Randomized Controlled Trial. • Abdallah B, Chaudhary AJ, Javed MW, Khan MN , Bibi A, Zafar MF, Noor M, Tariq U, Salman F.",
+        "Association between body mass index and the efficacy of calcium channel blockers for hypertension in cardiovascular disease patients.",
+        "DOI :10.7759/cureus.81985. • Wazir Ullah N, Salman F, Wadud S, Humayun A, Amir A, Haq M.",
+        "Influence of Vitamin E on pancreatic acinar cell morphology and serum amylase concentrations in alcohol-induced pancreatic toxicity. J Ayub Medical College 2024;36(3):625-9 • Wazir Ullah N, Hussain S, Salman F, Haq M, Khattak M, Wadud S.",
+        "Vitamin E shields against Alcoholic toxicity by safeguarding hepatic parenchymal morphology and lowering blood ALT levels. J Ayub Medical College Abbottabad 2024;36(2):331-5. • Farogh A, Wazir NU, Mumtaz S.",
+        "Venous thrombosis risk assessment in hospitalized patients in a tertiary care hospital in Pakistan. J Ayub Medical College Abbottabad 2024;36(2):383-7. • Hassan M, Ansari SA, Salman F, Khan RR, Shahzad W.",
+        "Obstructive sleep apnea in middle-aged smokers.",
+        "Pakistan Journal of Neurological Science.",
+        "June 2020;15(2):05-08. • Abedeen zu, Shakireen N, Ihtesham R,Ihtesham A, Salman F.",
+        "Lipid profile in newly diagnosed patients of acute myocardial infarction with no other concomitant disease in tertiary care hospital Peshawar.",
+        "The Professional Medical Journal. 2020;29(03):351-54. • Zafar S, Javaid A, Salman F, Zamman A, Haq M, Khurram M.",
+        "Effect of pregnancy and demography on susceptibility pattern of Azole antifungal agents against clinical isolates of candida species recovered from vulvovaginal Candidiasis patients.",
+        "Journal of Medical Sciences. 2020 January ;28(1):76-80. • Najib ul Haq, Haq M, Salman F, Haq M, Khattak M, Usman R, Khan AMK.",
+        "Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C.",
+        "Professional Medical Journal 2020; 27 (1): 35 – 39 • Usman K, Alam S, Salman F, Khan M, et al.",
+        "Comparison of GLUT 1 expression in oral squamous cell carcinoma with normal mucosa.",
+        "Pakistan Journal of Pathology. 2019; 30 (2): 52 – 56 • Haq M, Salman F, Haq M, Obaid S, Gul A, Khan AMK.",
+        "Correlation of serum Vitamin D levels with serum levels of alkaline phosphatase in patients with detectable HCV RNA.",
+        "Professional Medical Journal 2019; 26 (10): 1651 – 1654 • Jan Z, Hasan M, Salman F, Shahzad W, Zarminahil R, Badshah M.",
+        "An analysis of pattern and burden of patients referred for nerve conduction study in a tertiary care hospital in Pakistan.",
+        "Pakistan Journal of Neurological Sciences 2019; 14 (3): 31",
+        "Javaid A, Zafar S, Khattak M, Khan F, Wadud S.",
+        "Effects of administration of Taraxacum Officials extract on renal parameters in Cisplatin induced Nephrotoxicity in Albino Mice.",
+        "Khyber Medical University Journal. 2019 September;11(3):156-163. • Khan F, Usman R, Zafar S, Wadud S.",
+        "Vitamin D deficiency in patients with diabetic retinopathy.",
+        "Journal of Postgraduate Medical Institute 2017; 31 (2): 196 – 198 • Abideen ZU, Salman F, Usman R, Shakireen N, Gul AM.",
+        "Platelet indices in newly diagnosed patients of myocardial infarction.",
+        "Khyber Medical University Journal 2017; 9 (2): 78",
+        "Relationship of glycemic control with thyroid hormone levels in patients with Type 2 Diabetes Mellitus.",
+        "Journal of Post graduate Medical Institute. 2017 OctoberDecembe;31(4):353356. • Usma R, Khan F, Khattak Munaza, Abedeen ZU.",
+        "Correlation of Vitamin D with hypertension in patients with cardiometabolic syndrome.",
+        "Journal of Postgraduate Medical Institute. 2017;31(3):299-303. • Khan F, Usman R, Wadud S, etc.",
+        "Association of Vitamin D with Retinopathy in patients with TYPE II diabetes mellitus.",
+        "Journal Of Medical Sciences. 2015 April; 23 (2): 58 – 61 • Usman R, Khan F, Wadud S, Zafar S, Abideen ZU.",
+        "Vitamin D status in patients with cardio metabolic syndrome.",
+        "July 2015; 23 (3): 172 – 174 • Zafar S, Khurram M, Usman R, Khan F, Nasim R.",
+        "Clotrimazole, fluconazole, ketoconazole & intraconazole susceptibilities of candida species in vulvovaginitis.",
+        "Journal Of Medical Sciences. 2015 July; 23 (3): 130 – 133"
+      ]
+    },
+    "munaza-khattak": {
+      "slug": "munaza-khattak",
+      "aliases": [
+        "munaza-khattak"
+      ],
+      "name": "Munaza Khattak",
+      "department": "Physiology",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "BDS ( Mar-1988 - Sep-1992)Khyber College of Dentistry, PeshawarMaster of Public Health ( Aug-2008 - Jul-2010)Peshawar University",
+        "M.Phil Physiology 2012- 2014KMU",
+        "PhD (Physiology) 2026 KMU"
+      ],
+      "experience": [
+        "Dental surgeon Health Department KPK Peshawar & Karak 1992 to 1995",
+        "Lecturer Physiology Department Jinnah Medical College Warsak Road Peshawar 2011 - 2012",
+        "Lecturer Physiology Department Frontier Medical College, Abbotabad June 2013 – November 2013",
+        "Lecturer Physiology Department Kohat Institute of Medical sciences March 2014 -August 2014",
+        "Assistant",
+        "Professor Physiology Department Peshawar Medical College, Warsak Road Peshawar 2014 – 2020",
+        "Associate",
+        "Professor Physiology Department Peshawar Medical College, Warsak Road 2020 – 2024",
+        "Professor Physiology Department Peshawar Medical College, Warsak Road 2024 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "1.Correlation of vitamin D with hypertension in patients with cardiometabolic syndromeR Usman, F Khan, M Khattak, Z ul Abideen - Journal of Postgraduate Medical Institute, 2017",
+        "Aug 10;31(3).2.Effects of administration of Taraxacum official’s extract on renal parameters in cisplatin induced nephrotoxicity in albino mice. A Javaid, S Zafar, M Khattak, F Khan, S Wadud - Khyber Medical University Journal, 2019 Sep 30;11(3):156-9.3. Comparative Sero-Analysis between Copper Levels and the Risk of Acute Myocardial Infarction in District Nowshera: Copper Levels in Acute Myocardial Infarction Patients.SA Orakzai, M Khattak, P Muhammad, A Khan… - Pakistan Journal of Health Sciences, 20244.Glycated Hemoglobin Level and Clinical Parameters of Periodontal Disease in Type 2 Diabetes Mellitus. S Mariyum, A Iqbal, S Obaid, M Khattak, K Mariyum… - Advances in Basic Medical Sciences, 20215",
+        "Evaluation of Altered Oral Changes in Covid-19 PCR Positive Cases-A Cross Sectional StudyT Shahid, S Mariyum, M Khattak, S Wadud, F Khan… - Journal of Saidu Medical College, 20246",
+        "Osteoporosis in adult thalassemia major patients presenting at a tertiary care hospital. M Khalid, M Khattak, M Tariq, M Haq, MZ Mufti, Malik SN- Journal of Rehman Medical Institute, 2024 Oct 7;10(3):16-20.7.",
+        "Vitamin E shields against alcoholic toxicity by safeguarding hepatic parenchymal morphology and lowering blood ALT levelsNU Wazir, S Hussain, F Salman, M Haq, M Khattak… - Journal of Ayub Medical College Abbottabad, 2024.Jun 30;36(2):331-5.Wazir NU, Hussain S, Salman F, Haq M, Khattak M, Wadud S.",
+        "Journal of Ayub Medical College Abbottabad. 2024 Jun 30;36(2):331-5.8.",
+        "BLOOD TRACE ELEMENT (ZINC) ESTIMATION IN PATIENTS OF VIRAL HEPATITIS C, LIVER CIRRHOSIS AND HEPATOCELLULAR CARCINOMA IN TERTIARY CARE HOSPITALS OF PESHAWAR: JPUMHS; 2024: 14: 01, 70-76. http://doi. org/10.46536/jpumhs/2024/14.01. 497. M Khan, SA Orakzai, A Khan, M Khattak, Y Khan… - Journal of Peoples University of Medical & Health …, 20249",
+        "A LONGITUDINAL STUDY OF BIOCHEMICAL VARIABLES IN WOMEN AT RISK OF PRE-ECLAMPSIA AND ROLE OF SEROTONIN.",
+        "Dr Nazish Sadiq, Dr Chaman Ara, Dr Shamaila Wadud, Dr Munaza Khattak, Dr ...Journal of Population Therapeutics and Clinical Pharmacology 31 (6), 2123-212910",
+        "Correlation Between Chest Radiographic Findings, Sputum Bacterial Load, and Treatment Outcomes in Extensively Drug-resistant Tuberculosis Patients. M Khattak, M Farooq, SKS Kazmi, M Saeed, MU Sheikh, M Shuaib Pakistan Journal of Chest Medicine 28 (3), 371-37711",
+        "Pharmaceutical and medicinal applications of Panax ginseng and ginsenosides and their theraputic role in different disease.I Haq, S Obaid, RS Yasmin, M Khattak, A Javaid… - 202212",
+        "A Comparison between Type-2 Diabetics and Non-Diabetics in Terms of Papillary Bleeding Index (PBI).",
+        "Mariyum, S., saleem, N., Iqbal, A., Iqbal, S., khattak, M., & Obaid, S. (2022).",
+        "Journal of Gandhara Medical and Dental Science, 9(1), 28–32. https://doi.org/10.37762/jgmds.9-1.19813",
+        "Association of SARS-CoV-2 and ABO Blood Types: A Systematic ReviewA Muhammad, M Haq, M Khattak, BB Khan, A Ahmed, M Haq, H Haq, ...Annals of RSCB 26 (1), 444-46314",
+        "Frequency of H. Pylori in Liver Cirrhosis Patients with Overt Hepatic Encephalopathy: A Cross-Sectional Study DesignSA Zabihullah, A Khan, M Khattak, SAO Zabihullah, S Ahmed.Pakistan Journal of Medical & Health Sciences 16 (11), 745-74515",
+        "Impact of Asthma on Perinatal Outcomes: Risks and Management Strategies in Pregnant Women. F Rehman, H Gul, M Khattak, S Arif, U Idrees, SJ Khan.Pakistan Journal of Chest Medicine 27 (3), 203-20816",
+        "Prevalence of different diseases based on histopathological features in biopsies from diseased patients in malakand division, Khyber Pakhtunkhwa. A Khan, M Khattak, K Saleem, SA Khan, MA Khan. (2021) Journal of Medical Sciences 29 (01).17.",
+        "Correlation of Vitamin D with Obesity Parameters in Patients of Cardiometabolic Syndrome, R Usman, M Khattak, M Haq, M Khattak, T Parveen, T Basharat.",
+        "Advances in Basic Medical Sciences 2020 Jul 24;4(1).18.",
+        "Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C.NU Haq, M Haq, F Salman, M Haq, M Khattak, R Usman, AMK Khan.",
+        "The Professional Medical Journal. 2020. 27 (01), 35-3919",
+        "Significance of endoscopy/colonoscopy versus microscopy in patients with chronic diarrhea.SA Khan, A., Shah, W., Khan, M. A., Khan, M. J., & Ali Shah.",
+        "Journal of Medical Sciences. 2014. 22 (3), 132-13620",
+        "Khattak M, Habib SH, Irfan M. Effect of a non-energy restricted ketogenic diet on cognition in sedentary healthy young adults. Physiology International. 2026 Jan 20:2060-25"
+      ]
+    },
+    "momina-haq": {
+      "slug": "momina-haq",
+      "aliases": [
+        "momina-haq"
+      ],
+      "name": "Momina Haq",
+      "department": "Physiology",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelors of Medicine and Bachelors of Surgery (",
+        "MBBS)2008-2013Peshawar Medical College, PeshawarRiphah International University",
+        "M. Phil (Physiology) Session 2015-2016 Peshawar Medical College, Riphah International University",
+        "Certificate Course in Health Profession and Education July –December 2018 Riphah International University"
+      ],
+      "experience": [
+        "Lecturer Physiology Department Peshawar Medical College Riphah International University 2014-2015Postgraduate Trainee in Physiology 2015-2017",
+        "Lecturer Physiology 01/02/2017 05/07/2017",
+        "Assistant",
+        "Professor Physiology 6/07/2017 to 31-7-2022",
+        "Associate",
+        "Professor1-8-2022 to 2-10-2025",
+        "Professor3-10-2025 to till date"
+      ],
+      "skills": [],
+      "publications": [
+        "Incidence of SARS‐CoV‐2 re‐infection in anti‐nucleocapsid IgG‐positivehealthcare workers: a prospective cohort study; Irish Journal of MedicalSciences; (2023) 192:915–9182",
+        "Association of Vitamin D Level with Diabetic Peripheral Neuropathy; LiaquatNational Journal of Primary Care 2023; Volume 5 No.1: 26-303. Incidence of SARS CoV – 2 Re-Infection in Anti-nucleocapsid IgG PositiveHealthcare Workers. A prospective Cohort Study; Irish Journal of MedicalScience (1971); 2023; 192:915–9184",
+        "Association of SARS-CoV-2 and ABO Blood Types: A Systematic Review;Annals of Romanian Society of Cell Biology; Vol. 26, Issue 1, 2022, Pages.444-4635",
+        "Multi-Drug Resistance of Escherichia coli (E.coli) Isolated from ClinicalIsolates in District Peshawar KP Pakistan; Pakistan Journal of Medical andHealth Sciences; Vol. 16, No.01, JAN 20226",
+        "Identifying higher risk subgroups of health care workers for priorityvaccination against COVID-19; Therapeutic Advances in Vaccines andImmunotherapy; 2022, Vol. 10: 1–77. Clinical Features and Associated Comorbidities in 200 Cases of COVID-19 InPeshawar, Pakistan; Natural Volatiles and Essential Oils; 2022; 9(1): 766-7758",
+        "Effect of sleep quality on CVS anxiety and academic performance in medical&amp; dental students; Pakistan Journal of Medical &amp; Health Sciences; Vol. 16,No. 07, July 20229",
+        "Identification the Rate of Anemia During Pregnancy at Ayub MedicalComplex Abbottabad; Journal of Tianjin University Science and Technology;Vol:55, Issue:08: 202210",
+        "Clinical features and associated comorbidities in 200 cases of COVID – 19 inPeshawar Pakistan; Natural Volatiles and Essential Oils; 2022; 9(1): 766-77511",
+        "Frequency of Hyperlipidemia in the diagnosed Type 2 diabetic patients;Journal of Gandhra Medical &amp; Dental Science; Vol. 8 No. 1: (January-March2021)12. Prevalence of Vitamin D Deficiency in Patients of Chronic Hepatitis C; TheProfessional Medical Journal; 2020; 27(1):35-3913",
+        "Correlation of Vitamin D with Obesity Parameters in Patients ofCardiometabolic syndrome; Advances in Basic Medical Science; 2020 VOL. 4NO. 114.",
+        "Bacteriological Profile and Antibiogram of Urinary Tract Infections atMicrobiology Laboratory of a Private Teaching Hospital; Journal of SaiduMedical College; 2019, Vol 9 (2)15.",
+        "Correlation of Serum Vitamin D Levels with Serum Levels of AlkalinePhosphatase in Patients with Detectable HCV RNA; The Professional MedicalJournal; 2019; 26(10):1651-1654.16.",
+        "Correlation of Vitamin D with Lipid Profile in Patients with Cardio MetabolicSyndrome; Journal of Postgraduate Medical Institute; Vol. 33 No. 4 (2019)17.",
+        "Comparative study of HBV DNA levels in HBeAg positive and HBeAgnegative female patients suffering from Chronic Hepatitis B in Child bearingage; The Professional Medical Journal; 2019;26(8):1203-120718",
+        "Awareness Level of Hepatitis B in Rular Areas of Charsadda; Khyber Journalof Medical Sciences; 2016, Vol. 9, No. 319.",
+        "Wazir NU, Salaman F, Wadud S, Humayun A, Amir A, Haq M.",
+        "Influence ofvitamin E on pancreatic acinar cell morphology and serum amylaseconcentrations in alcohol-induced pancreatic toxicity.",
+        "Journal of AyubMedical College Abbottabad. 2024 Sep 8;36(3):625-9.20.",
+        "Wazir NU, Hussain S, Salman F, Haq M, Khattak M, Wadud S.",
+        "Vitamin Eshields against alcoholic toxicity by safeguarding hepatic parenchymalMorphology and lowering blood ALT levels.",
+        "Journal of Ayub MedicalCollege Abbottabad. 2024 Jun 30;36(2):331-521.",
+        "Iqbal N, Al Ibad A, Haq M, Shahzad F, Gul A, Malik SN.",
+        "The New Spectrumof Plasmodium Vivax Malaria Severity: A Single-Center Experience: NewSpectrum of Plasmodium Vivax Malaria Severity.",
+        "Pakistan Journal of HealthSciences. 2024 Sep 30:60-4.22.",
+        "Khan MK, Zubair M, Gul A, Tariq M, Haq M, Faiz M.",
+        "Hypertriglyceridemiain Patients with Ischaemic Heart Disease: Hypertriglyceridemia in IschemicHeart Disease.",
+        "Pakistan Journal of Health Sciences. 2024 Jul 31:02-5.23.",
+        "Gul N, Rizwan M, Haq M, Haq A, Ahmed I. A Study on OcularManifestations Seen in Patients with Cerebral Palsy.",
+        "Pakistan Journal OfNeurological Surgery. 2024 Jun 1;28(2):170-624.",
+        "Khalid M, Khattak M, Tariq M, Haq M, Mufti MZ, Malik SN.",
+        "Osteoporosisin adult thalassemia major patients presenting at a tertiary care hospital.Journal of Rehman Medical Institute. 2024 Oct 7;10(3):16-20.25.",
+        "Naz H, Bakth Ranra, Siraj S, Tariq M, Haq M, Muhammad A.",
+        "Assessment ofHematological Profile and Blood Group Patterns in Pregnant Women.",
+        "Annalsof Punjab Medical College [Internet]. 2025 Mar 31 [cited 2025 May2];19(1):5–9.",
+        "Available from:https://www.apmcfmu.com/index.php/apmc/article/view/1684"
+      ]
+    },
+    "marina-hidayat": {
+      "slug": "marina-hidayat",
+      "aliases": [
+        "marina-hidayat"
+      ],
+      "name": "Marina Hidayat",
+      "department": "Physiology",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelor of Dental Surgery Peshawar Dental College, 2015",
+        "M.Phil Physiology Riphah International University Islamabad, 2022"
+      ],
+      "experience": [
+        "Lecturer Department of Physiology Peshawar Medical College, 7-9-2017 to 31-7-2022",
+        "Lecturer Department of Physiology Peshawar Medical College, 1-8-2022 to 13-1-2024",
+        "Assistant",
+        "Professor Department of Physiology Peshawar Medical College, 1-11-2024 to till date"
+      ],
+      "skills": [],
+      "publications": [
+        "1.Association of Vitamin D Level with Diabetic Peripheral NeuropathyMarina Hidayat 1 KishwarJehandad 2 Asia Muhammad 1 Zain ulAbideen 3 Umar Sabir4MominaHaqhttps://journals.indexcopernicus.com/search/article?articleId=35363202.Right Heart Adaptation to Pulmonary Arterial Hypertension:Physiology and Pathobiology: A Systematic ReviewPak. J.",
+        "Chest Med. 2021;27(03)3.Effects of Zinc, Vitamin A, and Magnesium Co-Supplementation on ThyroidFunction, Oxidative Stress, and hs-CRP in Patients with Hypothyroidismhttps://doi.org/10.48047/AFJBS.6.4.2024.6660-66894.Effects of Sleep Quality on Cardiovascular System, Anxiety, AndAcademic Performance in Medical and Dental Students in Peshawar,Pakistanhttps://doi.org/10.53350/pjmhs221677245.Treatment and Prevention of Anti-Glomerular Basement Membrane Disease aTertiary Care Hospital StudyDOI: 10.36347/sjams.2022.v10i09.0036.Physiological and Biochemical Effects of Intermittent Fasting on Insulin Sensitivity and Glucose Met"
+      ]
+    },
+    "fatima-saadat": {
+      "slug": "fatima-saadat",
+      "aliases": [
+        "fatima-saadat"
+      ],
+      "name": "Fatima Saadat",
+      "department": "Physiology",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelor of Dental SurgeryPeshawar Dental College- 2017",
+        "M.Phil. physiologyRiphah International University, Islamabad- 2021"
+      ],
+      "experience": [
+        "lecturer Department of physiology, Peshawar Medical College Peshawar (22.01.2022 till 31-07.2022)",
+        "Assistant",
+        "professor Physiology department Peshawar Medical College 01.08.2022 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "1.Association of Vitamin D an & serum ferritin in anemic female of child bearing age at Malakand kpk2.the impact of Anxiety and Depression on Astma Control: Exploring the connection between mental health and respiratory health3. Chronic obstructive pulmonary disease is an independent risk factor for postoperative complications following operative treatment of distal radius fracture",
+        "lipid profile in PTS of type 02 Diabetes Mellitus with & without Hypertension",
+        "Treatment and Prevention of Anti-glomerular basement membrane disuse a tertiary care hospital study6. Diagnosis of malaria Gametocytes using MP ICT vs PCR in infected patients: A cross-sectional study of Asymptomatic Relatives"
+      ]
+    },
+    "muhammad-ishraq": {
+      "slug": "muhammad-ishraq",
+      "aliases": [
+        "muhammad-ishraq"
+      ],
+      "name": "Muhammad Ishraq",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "assets/images/faculty/muhammad-ishraq.jpeg",
+      "qualifications": [
+        "Bachelor of Medicine & Bachelor of Surgery",
+        "MBBS 2010. KMC",
+        "CHPE Riphah International University Islamabad. 2023-2024",
+        "M.Phil Physiology KMU 2026"
+      ],
+      "experience": [
+        "Lecturer Physiology Department Peshawar Medical College. 2011 to 2014",
+        "Lecturer Physiology Department 2022 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "Iodine Levels and Thyroid Hormones in Pregnant Women and Neonatal Outcomes: A Systematic ReviewAshraf, S., Ishraq, M., Khan, M. I., Kalsoom, O., Ijaz, A., & Farukh, U.Pakistan Journal of Health Sciences (Lahore) 6 (4), 311-317Oxidative Stress And Its Role In The Pathophysiology Of Cardivascular Diseases A Muhammad Ishraq, seher Obaid, jaleel Kamran, Susan Kakakhel, Anwar wazir Journal of Pharmaceutical Negative Results 13 (Special issue 10 (2022 …The Interplay Between Hormonal Regulation And Obesity In Type 2 Diabetes Mellitus JK Susan Kakakhel, Muhammad Ishraq, Seher Obaid, Aneela Siddique, Arbab ...",
+        "Journal of Pharmaceutical Negative Results 13 (Special issue 07 (2022 …Application of Staple Gun versus Proline Suture during Inguinal Hernia Mesh Hernioplasty in Terms of Post-operative Complications I Khan, Z Khan, SKS Bukhari, SMS Bukhari, M Ishraq"
+      ]
+    },
+    "nabhan-rashad": {
+      "slug": "nabhan-rashad",
+      "aliases": [
+        "nabhan-rashad"
+      ],
+      "name": "Nabhan Rashad",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "assets/images/faculty/nabhan-rashad.jpeg",
+      "qualifications": [
+        "Bachelor of Medicine & Bachelor of Surgery",
+        "MBBS – 2016Peshawar Medical College",
+        "FCPS-l (Surgery and Allied) -- 2018 College of Physicians and Surgeons PakistanIntermediate Module",
+        "IMM (Surgery and Allied) -- 2020 College of Physicians and Surgeons Pakistan"
+      ],
+      "experience": [
+        "Demonstrator Physiology Department Peshawar Medical College, Peshawar February 2024 – Till Date",
+        "Medical Officer (Evening) Orthopedics Clinic, Peshawar June 2024 –Till Date"
+      ],
+      "skills": [],
+      "publications": [
+        "Availability and Use of in-patient electronic health records in low resource setting, published in Computer methods and programs in Biomedicine.Diagnostic accuracy of clinical tests in knee joint injuries: a single centered experience.Impact of staffing levels and resources of intensive care units on compliance to standard mechanical ventilator guidelines: A city-wide study in times of COVID-19 pandemic.Synopsis & Dissertation approved by College of Physicians & Surgeons Pakistan on the topic “Frequency of Dislocation & Subluxation after 6 Weeks Spica Cast in Children having Developmental Dysplasia of Hip”.",
+        "Currently working on article.Paper Presentation“Frequency of Dislocation & Subluxation after 6 Weeks Spica Cast Application in Children having Developmental Dysplasia of Hip” at 1st Northwest Annual Research Conference, 14th -15th October 2022"
+      ]
+    },
+    "muhammad-haroon": {
+      "slug": "muhammad-haroon",
+      "aliases": [
+        "muhammad-haroon"
+      ],
+      "name": "Muhammad Haroon",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "assets/images/faculty/muhammad-haroon.jpeg",
+      "qualifications": [
+        "Bachelor of Medicine and Bachelor of Surgery (",
+        "MBBS) Peshawar Medical College, Peshawar. Riphah International University, Islamabad. 2017",
+        "F.C.P.S. – I College of Physicians and Surgeons, Pakistan. 2019Intermediate Module (",
+        "IMM) College of Physicians and Surgeons, Pakistan. 2021",
+        "Certificate in Health Professional Education Riphah International University, Pakistan. 2025M.R.C.S Royal College of Surgeons of England, United Kingdom. 2025"
+      ],
+      "experience": [
+        "Lecturer in Department of Physiology Peshawar, Pakistan Peshawar Medical College. 2019Postgraduate",
+        "Resident General Surgery Peshawar, Pakistan Khyber Teaching Hospital, MTI.2019-21Postgraduate",
+        "Resident Orthopedic Surgery Peshawar, Pakistan Lady Reading Hospital, MTI. 2021-24",
+        "Lecturer in Department of Physiology Peshawar, Pakistan Peshawar Medical College. 2024 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "Khan, Muhammad Haroon. \"Level Of Depression And Anxiety In Maintenance Dialysis Patients Undergoing Treatment In Public Sector Hospitals Of Peshawar.\" Northwest Journal of Medical Sciences (2017). Pub status : Published.",
+        "The effect of glove changing prior to abdominal wall closure on post-surgical wound infection during laprotomies : a randomized controlled trial. Pub status : Submitted.",
+        "Dissertation on Comparison of Kochers Manuver versus Farus Techniquew in the management of Anterior shoulder joint dislocation Pub status : Submitted."
+      ]
+    },
+    "ammara-habib": {
+      "slug": "ammara-habib",
+      "aliases": [
+        "ammara-habib"
+      ],
+      "name": "Ammara Habib",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelor of Medicine and Bachelor of Surgery 2021Peshawar Medical College",
+        "Certificate in Health Professional Education in Health Research 2026"
+      ],
+      "experience": [
+        "Lecturer CHS department Peshawar Medical College 2023 to 2024",
+        "Lecturer Physiology Department Peshawar Medical College 2024 to till date"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "huma-mir": {
+      "slug": "huma-mir",
+      "aliases": [
+        "huma-mir"
+      ],
+      "name": "Huma Mir",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelor of Medicine and Bachelor of Surgery 2018Peshawar Medical College",
+        "FCPS Pediatrics Northwest Geneal Hospital and Khyber Teaching Hospital 2021 to 2025"
+      ],
+      "experience": [
+        "Lecturer Department of Physiology Peshawar Medical College2020 to 2021",
+        "Lecturer Department of Physiology Peshawar Medical College2025 to till date"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "farzeen-pervez": {
+      "slug": "farzeen-pervez",
+      "aliases": [
+        "farzeen-pervez"
+      ],
+      "name": "Farzeen Pervez",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Doctor of Medicine (",
+        "MD) (Gold Medalist)ELAM (Latin American School of Medicine) Cuba 2015"
+      ],
+      "experience": [
+        "Medical Officer: Al-Hamza Hospital, Ghazi-Pakistan (June, 2015 – March, 2017)",
+        "Medical Officer: Adeena Diagnostic Center, Peshawar-Pakistan (February, 2021 – March, 2022)",
+        "LecturerPhysiology Department Peshawar Medical College"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "gulalay-ihsan": {
+      "slug": "gulalay-ihsan",
+      "aliases": [
+        "gulalay-ihsan"
+      ],
+      "name": "Gulalay Ihsan",
+      "department": "Physiology",
+      "designation": "",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelor of Medicine and Bachelor of Surgery 2016Peshawar Medical College"
+      ],
+      "experience": [
+        "Lecturer Department of Physiology Peshawar Medical College 2018 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "Effects of Mothers Education on Childhood Vaccination (March, 2016)Comparative Study of Anxiety and Depression Among Undergraduate Medical Students of Public and Private Sector Medical Colleges of Peshawar (March, 2016)Role of Family System Education Level and Financial Dependency on the Mental State of Elderly Individuals of Peshawar (March, 2015)"
+      ]
+    },
+    "hafsa-humayon": {
+      "slug": "hafsa-humayon",
+      "aliases": [
+        "hafsa-humayon"
+      ],
+      "name": "Hafsa Humayon",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "Bachelor of Dental Surgery 2022 Peshawar Dental College",
+        "M.Phil. Physiology (In Progress) Riphah International University"
+      ],
+      "experience": [
+        "DemonstratorPeshawar Dental College 19th March 2024 till date (Department of Physiology)"
+      ],
+      "skills": [],
+      "publications": []
+    },
+    "palwasha-zahid": {
+      "slug": "palwasha-zahid",
+      "aliases": [
+        "palwasha-zahid"
+      ],
+      "name": "Palwasha Zahid",
+      "department": "Physiology",
+      "designation": "Lecturer",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "BDS Peshawar Dental College 2018",
+        "CHPE Khyber Medical University 2024",
+        "MHPE Khyber Medical University 2026"
+      ],
+      "experience": [
+        "Lecturer Physiology Peshawar Medical and Dental College Jan 2025 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "Comparison of Open-Book versus Closed-Book Assessments in Medical Students Journal : International Journal of Pharmacy Research & Technology (IJPRT) Role : Principal Investigator & First Author Year : 2026 Link : https://ijprt.org/index.php/pub/article/view/2218",
+        "Impact of Artificial Intelligence-Assisted Feedback on Clinical Reasoning Skills among Postgraduate Medical Trainees Journal : International Journal of Pharmacy Research and Technology (IJPRT) Role : First Author Year : 2026 Link : https://ijprt.org/index.php/pub/article/view/2600",
+        "Understanding the Goals of Service Learning and CommunityBased Medical Education: A Systematic Review Journal : Pakistan Journal of Health Sciences (PJHS) Role : Fourth Author Year : 2025 Link : https://share.google/PSy1O4PsIjOQtnhlNE-Learning Platforms in Medical Education: A Quantitative Comparison of Online and Traditional Learning in Peshawar Journal : Journal of Population Therapeutics and Clinical Pharmacology (JPTCP) Role : Fifth Author Year : 2025 Link : https://www.jptcp.com/index.php/jptcp/article/view/11985"
+      ]
+    },
+    "muhammad-irfan": {
+      "slug": "muhammad-irfan",
+      "aliases": [
+        "mohammad-irfan",
+        "muhammad-irfan"
+      ],
+      "name": "Muhammad Irfan",
+      "department": "Psychiatry",
+      "designation": "HoD",
+      "hod": true,
+      "photo": "assets/images/faculty/muhammad-irfan.jpeg",
+      "qualifications": [
+        "M.B.B.S.M.C.P.S (Psychiatry)",
+        "F.C.P.S (Psychiatry)",
+        "Dip CBT, MS - Mental Health Policy & Services",
+        "Ph.D (Summa Cum Laude) Developing and testing of Culturally Adapted CBTC.H.P.E"
+      ],
+      "experience": [
+        "Professor in Psychiatry and Behavioural Sciences at Peshawar Medical College, Peshawar from 02-02-2022 to Till now",
+        "Associate",
+        "Professor in Psychiatry and Behavioural Sciences at Peshawar Medical College, Peshawar from 30-05-2016 to 01-02-2022",
+        "Assistant",
+        "Professor in Psychiatry & Behavioural Sciences at Peshawar Medical College, Peshawar from 18-04-2013 to 29-05-2016",
+        "Lecturer in Psychiatry & Behavioural Sciences at Peshawar Medical College. Peshawar from 01-10-2005 to 17-04-2013"
+      ],
+      "skills": [],
+      "publications": [
+        "Tweneboah-Koduah F, Mintah-Afful N, Narh IL, Eba-Polley K, Menka CN, Osei P, Osei N, Lartey L, Bortieh B, Kumi C, Boafo E, Anyetei JA, Arthur EI, Glover HK, Amoah F, Boye EL, Lamptey Z, Gyan L, Sun J, Taylor J, Briggs P, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Panay N, Atkinson C, Talaulikar V, Eleje GU, Kurmi O, Rathnayake N, Mudalige T, Pathiraja V, Dhanarisi J, Al-Kharusi L, Al-Riyami N, Mbwele B, Madan-Aggarwal I, Toh TH, Ikwuka DC, Mitra PK, Irfan M, Kareem R, Benetti-Pinto C, Kemp HF, Palanisamy R, Shi J, Elneil S, Phiri P, Delanerolle G. Menopause as an Embodied and Occupational Disruption: A Qualitative Study of Women's Experiences in Ghana (MARIE‐WP2a). BJOG: An International Journal of Obstetrics & Gynaecology. 2026 Jun;133(7):1453-64. https://obgyn.onlinelibrary.wiley.com/doi/full/10.1111/1471-0528.70189",
+        "Delanerolle G, Ghosh S, Briggs P, Phiri P, Taylor J, Pathiraja V, Mudalige T, Bouchareb Y, Cavalini H, Hinchliff S, Atkinson C, Potocnik K, Saraswat L, Tweneboah-Koduah F, Afful-Mintah N, Kemp HF, Eleje GU, Malachy DE, Mbwele B, Toh TH, Yip-King JS, Yela DA, Rezende GP, Nakamura RM, Benetti-Pinto CL, Irfan M, Kareem R, van Vlymen J, Shetty A, Dangal G, Pant S, Riach K, Rathnayake N, Dasanayake L, Shi JQ, Kurmi O, Khanal S, Elneil S. A perspective on economic barriers and disparities in access to hormone replacement therapy in LMICs (MARIE-WP2b). Scientific Reports. 2026 Apr 26.https://www.nature.com/articles/s41598-026-49559-z",
+        "Toh TH, Lee KY, Ngu LH, Jaafar J, Mohd Nasir NF, Azmi AH, Rao V, Jaafar NA, Aiman SN, Eleje GU, Sun J, Taylor J, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Atkinson C, Talaulikar V, Rathnayake N, Mudalige T, Pathiraja V, Dhanarisi J, Fontana D, Al-Kharusi L, Al-Riyami N, Madan-Aggarwal I, Kemp HF, Corkhill V, Majumder K, Palanisamy R, Irfan M, Kareem R, Panay N, Shi J, Elneil S, Phiri P, Delanerolle G; MARIE Collaborative. Bridging the Gap between Evidence and Women’s Menopausal Experience: Aligning Malaysia’s Menopause Guidelines with Cultural, Religious, and Equity Realities (MARIE-Malaysia WP2a). https://onlinelibrary.wiley.com/doi/full/10.1002/rfc2.70064",
+        "Delanerolle G, Pathiraja V, Eleje GU, Toh TH, Rathnayake N, Tweneboah-Koduah F, Afful-Mintah N, Mudalige T, Sun J, Dhanarisi J, Al-Kharusi L, Al-Riyami N, Mbwele B, Madan-Aggarwal I, Ikwuka DC, Wang X, Mitra PK, Irfan M, Kareem R, Benetti-Pinto C, Dangal G, Taylor J, Briggs P, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Panay N, Atkinson C, Talaulikar V, Umeoranefo IC, Fontana D, Kemp HF, Corkhill V, Majumder K, Egwuatu EC, Njoku CC, Rabiu A, Chimbo C, Ezenkwele EP, Malachy DE, Eleje LI, Ndukwe CO, Oriji SO, Chikezie RU, Enweani-Nwokelo IB, Ezeora NC, Ikpeze OZ, Nweze SO, Osunkwo AC, Edeh GC, John EO, Obi KE, Ekwuazi KE, Egbonna NJ, Ogbonna US, Muhammad HB, Agu KC, Chidozie CP, Okoye OA, Okoro CC, Mbachu II, Ikechebelu JI, Onubogu CU, Nwaogu KC, Obiegbu NP, Nnabuchi OK, Nweje S, Adedayo OO, Kumuyi BR, Akanni OA, Enyinna PK, Alfa Y, Otis TN, Otis MN, Agbo C, Anigwe FC, Anyaeche CJ, Okonkwo ON, Okemeziem BC, Uwakwe BN, Igboabuchi GO, Ndubuisi IF, Nkemdirim AP, Sundarapperuma T, Herath P, Dassanayake D, Herath C, Wijamuni N, Palihawattha T, Illesinghe P, Ambepitiya D, Peris K, Sitheja V, Kannangara W, Thavalingum P, Dulanjala A, Gayani P, Madushika H, Sivakumar A, Madhushani CK, Keerthisinghe C, Hathurusinghe HN, Mudalige U, Lee KY, Aiman Ali Madinah SN, Jaafar NA, Wong XS, Lee JY, Laub YT, Mohamad Mohsin A, Mohd Nasir NF, Law DS, Zamri F, Abidin A, Azmi AH, Abd Kahar R, Adnan FI, Wong XS, Lim GS, Sim EY, Cristelle K, Mohd Haslan A, Abdul Patah N, Rao Nalathambi V, Jaafar J, Wong LL, Ibrahim N, Ting SY, Lo SC, Hamdan N, Ngu MH, Dahian S, Ngu DL, Khoo SY, Mathur M, Puvanendran R, Safdar F, Kathirvel R, Aiyappan R, Yela DA, Rezende GP, Nakamura RM, Prasad B, Noor S, Shilpa K, Singh P, Chatterjee M, Mahinyila O, Shemdoe A, Mpangala K, Mwahi BG, Pembe Z, Kaminyoge M, Alon T, Mwabenga C, Jean Pierre G, Clementine K, Chinwe NH, Olubiyi BF, Sani N, Amalimeh BE, Nwanna UK, Usman IM, Isingizwe SM, Hanyurwimfura JD, Kabutare JMV, Uwimpuhwe D, Melanie M, Kantarama A, Tuyisenge E, Habimana E, Vaidyanathan G, Al Maqrashi M, Bouchareb Y, Shi JQ, Elneil S, Phiri P. Physical and mental health impact of perimenopause, menopause and post menopause in a diverse global population (MARIE Project-Global Chapter WP 2a): cross-sectional quantitative data from a mixed-methods study. EClinicalMedicine. 2026 Jun 23;97:104032.https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(26)00285-3/fulltext",
+        "Madan-Aggarwal I, Pathiraja V, Husain FS, Aiyappan R, Mathur M, Kathirvel R, Puvanendran R, Sun J, Taylor J, Saraswat L, Hinchliff S, Potocnik K, Panay N, Atkinson C, Talaulikar V, Dhanarisi J, Eleje GU, Al-Kharusi L, Al-Riyami N, Toh TH, Irfan M, Kareem R, Benetti-Pinto CL, Mbwele B, Ikwuka DC, Kemp HF, Shi J, Elneil S, Phiri P, Delanerolle G. Multidimensional menopausal symptom burden in Singapore–MARIE work package 2a population analysis. Climacteric. 2026 Jul 8:1-3. https://www.tandfonline.com/doi/abs/10.1080/13697137.2026.2685623",
+        "Benetti-Pinto C, Rezende GP, Nakamura RM, Yela DA, Sun J, Taylor J, Kurmi O, Hinchliff S, Atkinson C, Potocnik K, Talaulikar V, Shetty A, Saraswat L, Riach K, Shi JQ, Elneil S, Rathnayake N, Pathiraja V, Dhanarisi J, Mudalige T, Toh TH, Al-Riyami N, Al-Kharusi L, Bouchareb Y, Eleje GU, Mintah-Afful N, Aggarwal I, Irfan M, Kareem R, Mbwele B, Ikwuka DC, Kemp HF, Phiri P, Delanerolle G. Menopause in Brazil: lived experiences, inequities, and opportunities for inclusive care (MARIE-Brazil WP2a). Women & Health. 2026 Mar 16;66(3):178-94. https://www.tandfonline.com/doi/full/10.1080/03630242.2026.2659044",
+        "Delanerolle G, Pathiraja V, Elneil S, Kurmi O, Talaulikar V, Briggs P, Saraswat L, Kemp HF, Bouchareb Y, Benetti-Pinto CL, Mudalige T, Rathnayake N, Sivakumar A, Tweneboah-Koduah F, Afful-Mintah N, Al-Riyami N, Al-Kharusi L, Shi JQ, Eleje GU, Ikwuka D, Mitra P, Mbwele B, Kareem R, Irfan M, Phiri P. Breaking the silence and building strength; rethinking menopause care through exercise and cultural insight. Frontiers in Global Women's Health. 2026 Feb 16;7:1683735. https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1683735/full",
+        "Al Kharusi L, Al Riyami N, Gowri V, Al Maqrashi M, Bouchareb Y, Pathiraja V, Sun J, Taylor J, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Panay N, Atkinson C, Talaulikar V, Rathnayake N, Mudalige T, Dhanarisi J, Mbwele B, Ikwuka DC, Mitra PK, Irfan M, Kareem R, Tweneboah-Koduah F, Afful-Mintah N, Benetti-Pinto CL, Kurmi O, Toh TH, Madan-Aggarwal I, Kemp HF, Palanisamy R, Shi JQ, Eleje GU, Elneil S, Phiri P, Delanerolle G; MARIE Consortium. Navigating menopausal health in Oman (Marie Oman WP2a). Scientific Reports. 2026 Mar 5;16(1):8652-. https://www.nature.com/articles/s41598-026-41071-8",
+        "Shaheen N, Mahboob U, Sethi A, Irfan M. Equity in basic medical education accreditation: A scoping review. Journal of Taibah University Medical Sciences. 2026 Apr 29;21(3):439-51. https://www.sciencedirect.com/science/article/pii/S1658361226000417",
+        "Shaheen N, Mahboob U, Sethi A, Irfan M. Conceptualising equity in basic medical education accreditation standards: A qualitative study of expert perspectives. Pakistan Journal of Medical Sciences. 2026 Apr 1;42(4):829-40. https://www.pjms.org.pk/index.php/pjms/article/view/14422",
+        "Kabir S, Ahmad B, Zahid M, Aleem S, Nooreen S, Waheed Z, Rasool S, Irfan M, Khan Z. Non-pharmacological interventions for tobacco cessation delivered in dental settings in South Asia: a scoping review. Discover Public Health. 2026 Dec;23(1):872. https://doi.org/10.1186/s12982-026-02281-7 https://link.springer.com/article/10.1186/s12982-026-02281-7#citeas",
+        "Khattak M, Habib SH, Irfan M. Effect of a non-energy restricted ketogenic diet on cognition in sedentary healthy young adults. Physiology International. 2026 Jan 20:2060-25. https://pubmed.ncbi.nlm.nih.gov/41556984/",
+        "Khan N, Butt MG, Awan F, … Irfan M. Global mental health commentary: using innovation to create a workforce to deliver and implement culturally adapted CBT in Pakistan. BMJ Mental Health. 2025: ;28:e301389.",
+        "Ahmad B, Rehman K, Bangash S, Zarkaish R, Babak M, Rehman S, Ihsan S, Khattak FA, Irfan M, Rehman A, Khan AJ, Khan Z. Coping strategies and resilient behavior among frontline healthcare workers: a scoping review. Dialogues in Health. 2025 Oct 23:100252. https://pubmed.ncbi.nlm.nih.gov/41324024/",
+        "Shaheen N, Mahboob U, Sethi A, Irfan M. Equity in basic medical education accreditation standards: a scoping review protocol. BMJ Open. 2025 Jan 7;15(1):e086661.",
+        "Rehman A, Khattak FA, Rehman K, Ashfaq U, Haq IU, Khan Z, Irfan M, Khan J, Kibria Z. Emergency Related Mental Health Challenges Among Frontline Health Workers in Khyber Pakhtunkhwa, Pakistan: A Cross-Sectional Study. Disaster Medicine and Public Health Preparedness. 2025 Jan;19:e286. https://doi.org/10.1017/dmp.2025.10210 https://pubmed.ncbi.nlm.nih.gov/41041902/",
+        "Delanerolle G, Phiri P, Elneil S, Talaulikar V, Eleje GU, Kareem R, Shetty A, Saraswat L, Kurmi O, Benetti-Pinto CL, Muhammad I, Rathnayake N, Toh TH, Madan-Aggarwal I, Shi JQ, Taylor J, Riach K, Potocnik K, Litchfield I, Kemp HF, Briggs P; MARIE Collaborative. Menopause: A Global Health and Wellbeing Issue Needing Urgent Attention. The Lancet Global Health. 2024 Dec 18. https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(24)00528-X/fulltext",
+        "Mudalige T, Pathiraja V, Delanerolle G, Cavalini H, Wu S, Taylor J, Kurmi O, Elliot K, Hinchliff S, Atkinson C, Potocnik K, ... Muhammad I. Systematic review and meta-analysis of the pelvic organ prolapse and vaginal prolapse among the global population. BJUI Compass. 2024 Dec 10;6(1):e464.",
+        "Wadud S, Fatima S, Nazli R, Ali R, Irfan M. Bioinformatic interpretation of tracking genes of miRNA-let 7b and miRNA-let 7c in depression. J Popul Ther Clin Pharmacol. 2024 Jun 28;31(6):1990-2000.",
+        "Delanerolle G, Forbes AK, Cavalini H, Taylor J, Riach K, Hinchcliff S, Atkinson C, Potočnik K, Briggs P, Kurmi O, Talaulikar V, ... Irfan M. An exploration of the mental health impact among menopausal women: The MARIE Project protocol (UK arm). Am J Biomed Sci Res. 2024 May 23;22(5).",
+        "Delanerolle G, Cavalini H, Taylor J, Hinchliffe S, Talaulikar V, Zingela Z, Toh TH, Pati S, Rathnayake N, Kurmi O, Shetty A, Irfan M, Kareem R, Eleje GU, Kemp HF, Mintah Afful N, Tweneboah Koduah FK, Benetti Pinto CL, Mamatha S, Aggarwal I, Palo SK, Shi JQ, Phiri P. An Exploration of the Mental Health impact among Menopausal Women: The MARIE Project Protocol (International Arm). American Journal of Biomedical Science & Research. 2024 May 23;22(5):AJBSR-MS. https://doi.org/10.34297/AJBSR.2024.22.002991 https://research.birmingham.ac.uk/en/publications/an-exploration-of-the-mental-health-impact-among-menopausal-women-2/",
+        "Wadud S, Fatima S, Nazli R, Ali R, Irfan M. Expression analysis of miR-132, miR-182, miR-124, miR-let7b, and miR-let7c in patients with depression. Kurd Stud. 2024 May 20;12(5):253-7.",
+        "Wadud S, Fatima S, Irfan M. Role of ascorbic acid in improving mood in patients with depression: a randomized controlled trial. J Postgrad Med Inst. 2024 May 8;38(2):97-101.",
+        "Wadud S, Fatima S, Ali R, Nazli R, Khan Z, Irfan M. Identification of target genes and pathways regulated by miRNA-132, miRNA-182, and miRNA-124 in depression: a bioinformatics analysis. Khyber Med Univ J. 2024 Mar 31;16(1):30-7.",
+        "Kareem R, Karim R, Sethi MR, Inayat S, Wahab S, Ghayur MS, Malik NN, Irfan M. Translation, cross-cultural adaptation, and validation of ENRICH scale for marital satisfaction in Pashto. Sex Relat Ther. 2023 Aug 22:1-2.",
+        "Husain N, Kiran T, Chaudhry IB, Williams C, Emsley R, Arshad U, Ansari MA, Bassett P, Bee P, Bhatia MR, Chew-Graham C, ... Irfan M. A culturally adapted manual-assisted problem-solving intervention (CMAP) for adults with a history of self-harm: a multi-centre randomized controlled trial. BMC Med. 2023 Dec;21(1):1-6.",
+        "Rathod S, Pallikadavath S, Graves E, Rahman MM, Brooks A, Rathod P, Bhargava R, Irfan M, Aly R, Al Gahtani HM, Salam Z. Effects of cumulative COVID-19 cases on mental health: Evidence from multi-country survey. World J Psychiatry. 2023 Jul 7;13(7):461.",
+        "Khan SI, Irfan M. Stigmatization and self-perception regarding issues related to mental health: A qualitative survey from a lower and middle-income country. Pak J Med Sci. 2023;39(5):1411-1415. doi: 10.12669/pjms.39.5.7487.",
+        "Farooq S, Sheikh S, Dikomitis L, Haq MM, Khan AJ, Sanauddin N, Ali MW, Ali J, Khan MF, Chaudhry I, Husain N, … Irfan M. Traditional healers working with primary care and mental health for early intervention in psychosis in young persons: protocol for the feasibility cluster randomised controlled trial. BMJ Open. 2023 Jul 1;13(7):e072471.",
+        "Tahir A, Abdullah M, Abdullah KN, Aliya B, Irfan M. The perceptions of mental health professionals regarding application of animal assisted therapy in Pakistan: A qualitative study. Khyber J Med Sci. 2023 Jan;16(1):15-8.",
+        "Sethi MR, Jahangir F, Irshad E, Irfan M. A bumpy road to youth: A cross sectional survey to assess emotional and behavioral issues of children of Peshawar. J Postgrad Med Inst. 2023;37(2):97-102.",
+        "Irfan M, Sethi MR. Factor analysis, reliability and validity of a Pashto version of Hamilton rating scale for depression. J Pak Med Assoc. 2023;73(5):1024-8. doi: 10.47391/JPMA.6978.",
+        "Khan L, Hidayat H, Hussain I, Khan J, Ali H, Sethi MR, Irfan M. Assessment Of Patients Satisfaction Attending Outpatient Departments Of Teaching Hospitals Of Peshawar. J Ayub Med Coll Abbottabad. 2023;35(1):64-67. doi: 10.55519/JAMC-01-10914.",
+        "Kareem R, Sethi MR, Inayat S, Irfan M. The effect of COVID-19 vaccination on the menstrual pattern and mental health of the medical students: A mixed-methods study from a low and middle-income country. PLoS One. 2022;17(11):e0277288. doi: 10.1371/journal.pone.0277288.",
+        "Ghayur MS, Kareem R, Wahab S, Inayat S, Karim R, Sethi MR, Malik NN, Irfan M. Translation, Cross-Cultural Adaptation and Validation Of Polycystic Ovarian Syndrome Quality Of Life Scale In Pashto. J Ayub Med Coll Abbottabad. 2022 Oct-Dec;34(4):823-829. doi: 10.55519/JAMC-04-10920.",
+        "Naseer R, Ullah K, Irfan M, Khattak I, Khan AU, Kiran S, Shahzad S. The Entrepreneurial Motivation Of Underdog Entrepreneurs: A Paradigm Shift. Webology. 2021;18(5):2243-60.",
+        "Muska A, Mariam B, Sethi MR, Irfan M. DI TÓU ZÚ and musculoskeletal discomfort among them: A survey of the medical students of Peshawar. J Postgrad Med Inst. 2021;34(4):221-6.",
+        "Sheikh TI, Vasli N, Pastore S, Kharizi K, Harripaul R, Fattahi Z, Pande S, Naeem F, Hussain A, Mir A, Islam O, Girisha KM, Irfan M, Ayub M, Schwarzer C, Najmabadi H, Shukla A, Sladky VC, Braun VZ, Garcia-Carpio I, Villunger A, Vincent JB. Biallelic mutations in the death domain of PIDD1 impair caspase-2 activation and are associated with intellectual disability. Transl Psychiatry. 2021; 11(1):1-13. doi: 10.1038/s41398-020-01158-w.",
+        "Abdullah M, Sethi MR, Irfan M. Gender Differences Regarding Stigma Towards Mental Illness Among Medical Students of Peshawar. J Ayub Med Coll Abbottabad. 2021;33(1):120-4.",
+        "Khan HM, Zeeshan MF, Shah MA, Ali OM, Afridi SK, Ahmad HS, Irfan M. The Urdu Version of the Safety Attitude Questionnaire (SAQ) for Inpatient Settings in Pakistan: Psychometric Properties and Baseline Data. J Ayub Med Coll Abbottabad. 2021;33(1):109-15.",
+        "Haq M, Rehman A, Noor M, Ahmad J, Ahmad J, Irfan M, Anwar S, Ahmad S, Amin S, Rahim F, Haq NU. Seroprevalence and Risk Factors of SARS CoV-2 in Health Care Workers of Tertiary-Care Hospitals in the Province of Khyber Pakhtunkhwa, Pakistan (medrxiv.org)۔ doi: 10.1101/2020.09.29.20203125.",
+        "Latif M, Husain MI, Gul M, Naz S, Irfan M, Aslam M, Awan F, Sharif A, Rathod S, Farooq S, Ayub M, Naeem F. Culturally adapted trauma-focused CBT-based guided self-help (CatCBT GSH) for female victims of domestic violence in Pakistan: feasibility randomized controlled trial. Behav Cogn Psychother. 2021;49(1):50-61. doi: 10.1017/S1352465820000685.",
+        "Ain NU, Ahmad H, Rehman S, Emman S, Sethi MR, Irfan M. Dysfunctional beliefs and attitudes about sleep in undergraduate medical and dental students. J Postgrad Med Inst. 2020;34(1):49-53.",
+        "Irfan M, Naeem F, Afridi MI, Javed A. Prevention of occupational stress in health-care workers during COVID-19 pandemic. Indian J Psychiatry. 2020; 62 (Suppl 3): S495-7. doi: 10.4103/psychiatry.IndianJPsychiatry.",
+        "Naeem F, Irfan M, Javed A. Coping with COVID-19: Urgent need for building resilience through Cognitive Behaviour Therapy. Khyber Med Univ J. 2020;12(1):1-3. doi: 10.35845/kmuj.2020.20194.",
+        "Naeem F, Munshi T, Gratzer D, Rodie D, Irfan M, Rao S, et al. Video intervention for the psychiatric waiting room: proof-of-concept randomised controlled trial of RESOLVE (Relaxation Exercise, SOLVing problem and cognitive Errors). Br J Psych Open. 2019;5(5):e77-82. doi:10.1192/bjo.2019.59.",
+        "Algahtani HMS, Almulhim A, AlNajjar FA, Ali MK, Irfan M, Ayub M, et al. Cultural adaptation of cognitive behavioural therapy (CBT) for patients with depression and anxiety in Saudi Arabia and Bahrain: a qualitative study exploring views of patients, carers, and mental health professionals. Cogn Behav Tharp. 2019;12:e44-60. doi:10.1017/S1754470X1900028X.",
+        "Rathod S, Persaud A, Naeem F, Pinninti N, Tribe R, Eylem O, … Irfan M. Culturally Adapted Interventions in Mental Health: Global Position Statement. World Cultural Psychiatry Res Rev. 2019;14(1-2):21-29.",
+        "Salam Z, Sadiq Z, Tajamul U, Sethi MR, Irfan M. Internet gaming disorder in students of Peshawar: A cross-sectional survey. J Ayub Med Coll Abbottabad. 2019;31(4):548–52.",
+        "Niazi A, Qayyum M, Ikram Z, Sher S, Sethi MR, Irfan M. Emotional intelligence and self-perception of medical and dental students of Peshawar–Pakistan. J Postgrad Med Inst. 2019;33(4):324-30.",
+        "Ali M, Sethi MR, Irfan M. Effect of social support on mindfulness of medical and dental students. J Postgrad Med Inst. 2019;33(3):222-6.",
+        "Irfan M, Saleem U, Sethi MR, Abdullah AS. Do we need to care: emotional intelligence and empathy of medical and dental students. J Ayub Med Coll Abbottabad. 2019;31(1):76–81.",
+        "Awan NR, Irfan M, Azeemi MMUH, Firaz M, Farooq S. Knowledge and awareness about schizophrenia using a vignette. J Postgrad Med Inst. 2019;33(1):52-6.",
+        "Irfan M, Abdullah AS, Sethi MR, Saleem U, Zeeshan MF, Haq NU. Assessment of personality disorders in students appearing for medical school entrance examination. J Pak Med Assoc. 2018;68(12):1763-8.",
+        "Irfan M, Abdullah AS, Sethi MR, Saleem U, Khan U, Haq NU. Psychological distress in students appearing for the medical school entrance examination in Peshawar. J Pak Med Assoc. 2018;68(11):1603-7.",
+        "Ali M, Liaqat A, Sethi MR, Irfan M. Effect of social support on burnout in medical students. J Postgrad Med Inst. 2018;32(3):266-70.",
+        "Khan SA, Khan MA, Khan M, Sethi MR, Irfan M. Frequency of body-focused repetitive behaviours in medical students of Peshawar. J Postgrad Med Inst. 2018;32(3):283-7.",
+        "Rathod S, Irfan M, Bhargava R, Pinninti N, Scott J, Algahtani HM, Guo Z, Gupta R, Nadkarni P, Naeem F, Howells F, Sorsdahi K, Thorne K, Osman-Hicks V, Pallikadavath S, Phiri P, Carr H, Graves L, Kingdon D. Multinational comparative cross-sectional survey of views of medical students about acceptable terminology and subgroups in schizophrenia. BMJ Open. 2018;8:e021461. doi:10.1136/bmjopen-2017-021461.",
+        "Aslam M, Khan N, Khan MA, Bhatti SA, Javed K, Noreen A, Saleem R, Manzoor S, Khan MY, Irfan M, Naeem F. Psychiatric morbidity in primary care in Pakistan: A cross-sectional study. J Postgrad Med Inst. 2018;32(2):179-83.",
+        "Ali O, Salam Z, Saeed T, Sethi MR, Irfan M. Quality of life of medical and dental students of Peshawar. J Postgrad Med Inst. 2018;32(2):188-93.",
+        "Ali M, Sethi MR, Irfan M. Psychological distress among undergraduate medical students of Peshawar, Pakistan. J Postgrad Med Inst. 2018;32(2):194-7.",
+        "Irfan M, Sethi MR, Khan I, Awan NR, Naz F, Saleem U, Naeem F. Translation and validation in Pashto (1): Hospital Anxiety and Depression Scale. J Postgrad Med Inst. 2017;31(4):387-93.",
+        "Irfan M, Sethi MR, Khan I, Awan NR, Naz F, Saleem U, Naeem F. Translation and validation in Pashto (2): Bradford Somatic Inventory. J Postgrad Med Inst. 2017;31(4):394-9.",
+        "Irfan M, Sethi MR, Khan I, Awan NR, Naz F, Saleem U, Naeem F. Translation and validation in Pashto (3): World Health Organization Disability Assessment Schedule 2.0. J Postgrad Med Inst. 2017;31(4):400-4.",
+        "Abid M, Irfan M, Naeem F. Relationship between mindfulness and bullying behavior among school children: An exploratory study from Pakistan. J Postgrad Med Inst. 2017;31(3):256-9.",
+        "Tahir M, Irfan M. National essential medicines list of Pakistan: Use in prescriptions and awareness in medical practitioners. J Postgrad Med Inst. 2017;31(3):292-4.",
+        "Afridi H, Ahmad R, Sethi MR, Irfan M. Is there a relationship between irritable bowel syndrome and generalized anxiety disorder? J Postgrad Med Inst. 2017;31(3):271-5.",
+        "Awan NR, Jehangir SF, Irfan M, Naeem F, Farooq S. Explanatory model of illness of the patients with schizophrenia and the role of educational intervention. Schizoph Res. 2017;10:pii: S0920-9964(17)30125-1. doi:10.1016/j.schres.2017.03.006.",
+        "Rathod S, Pinninti N, Irfan M, Gorczynski P, Rathod P, Gega L, et al. Mental Health Service Provision in Low- and Middle-Income Countries. Health Services Insights. 2017;10:1-7. doi:10.1177/1178632917694350.",
+        "Irfan M, Saeed S, Awan NR, Gul M, Aslam M, Naeem F. Psychological healing in Pakistan: From Sufism to culturally adapted cognitive behavior therapy. J Contemp Psychother. 2017;47(1):1-6. doi:10.1007/s10879-016-9354-3.",
+        "Sabiha ZA, Adnan S, Khaliq H, Irfan M. A cross-sectional study on the choice of female medical students in selection of their future specialties. J Postgrad Med Inst. 2016;30(3):230-4.",
+        "Barbour V, Irfan M, Poff D, Wise M. Discussion document on best practice for issues around theses publishing. Committee On Publication Ethics; 2017.",
+        "Barbour V, Astaneh B, Irfan M. Challenges in publication ethics. Ann R Coll Surg Engl. 2016;98(4):241-3.",
+        "Irfan M, Almeida JMC, Irfan UM, Raza UA, Farooq S. Schizophrenia diagnosis and treatment by general practitioners: A cross-sectional study in district Peshawar, Pakistan. J Pak Med Assoc. 2015;65(9):937-42.",
+        "Farooq S, Nazar Z, Akhter J, Irfan M, Subhan F, Ahmed Z, Khatak IH, Naeem F. Effect of fasting during Ramadan on serum lithium level and mental state in bipolar affective disorder. Int Clin Psychopharmacol. 2010;25(6):323-7.",
+        "Irfan M. Implementation of mental health policy in Pakistan: A dream in search of reality? J Postgrad Med Inst. 2010;24(2):83-4.",
+        "Idrees M, Khan I, Sarwar R, Irfan M. Frequency of first rank symptoms in patients of schizophrenia: A hospital-based study. Gomal J Med Sci. 2010;8(1):50-3.",
+        "Nazar Z, Akhtar J, Farooq S, Irfan M, Shaheen R, Ahmed M, et al. Adverse side effects of Lithium and fasting (Ramadan). J Postgrad Med Inst. 2009;23(1):7-13.",
+        "Farooq S, Nazar Z, Akhtar J, Irfan M, Naeem S. From DOTS to STOPS - Public health intervention for schizophrenia in low and middle-income countries. J Pak Psych Soc. 2008;5(2):68-7.",
+        "Farooq S, Irfan UM, Irfan M. Recognition of systematic reviews is vital for scientific research and clinical practice. J Coll Phys Surg Pak. 2008;18(7):460-2.",
+        "Nazar Z, Shaheen R, Akhtar J, Ahmed M, Irfan M, Sajjad R, Farooq S. Presence and severity of Depressive symptoms in Schizophrenia. J Postgrad Med Inst. 2008;22(2):124-9.",
+        "Khan A, Chiragh S, Irfan M, Sherin A. Frequency of seizures and epilepsy after ischaemic stroke. J Postgrad Med Inst. 2008;22(2):130-5.",
+        "Farooq S, Nazar Z, Akhtar J, Irfan M, Irfan UM. Cochrane corner in Journal of Pakistan Psychiatric Society – A popular tool for disseminating Cochrane systematic reviews. J Pak Psych Soc. 2008;5(1):46-7.",
+        "Nazar Z, Irfan M, Shafique M. Curriculum of Behavioral Sciences and Psychiatry for Medical Students of Pakistan: An Outline. J Pak Psych Soc. 2007;4(2):76-7.",
+        "Ghani F, Irfan M. Providing Evidence for Medical and Mental Health Practice through Systematic Reviews. J Pak Psych Soc. 2006;3(2):70-3.",
+        "Irfan M. 2nd International Conference on Schizophrenia (IConS II). J Pak Psych Soc. 2006;3(2):113-4.",
+        "Shoaib RM, Irfan M. Gender Identity Disorder: A Case Report. J Postgrad Med Inst. 2005;19(2):234-7.",
+        "Shah F, Irfan M, Khan H, Zareef M. Helicobacter Pylori infection in Type II Diabetic patients with non-ulcer dyspepsia. J Med Sci. 2004;12(1):29-32."
+      ]
+    },
+    "mohammad-idrees": {
+      "slug": "mohammad-idrees",
+      "aliases": [
+        "mohammad-idrees",
+        "muhammad-idrees"
+      ],
+      "name": "Mohammad Idrees",
+      "department": "Psychiatry",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "M.B.B.SM.C.P.S",
+        "F.C.P.S (Psychiatry)",
+        "CHPE"
+      ],
+      "experience": [
+        "Professor — Psychiatry Department Peshawar medical college, Peshawar 18th September 2018 – Till now",
+        "Professor — Psychiatry Department Khyber Teaching Hospital / Khyber Medical College, Peshawar 13 January 2017 – Retirement",
+        "Associate",
+        "Professor — Psychiatry Department Khyber Teaching Hospital / Khyber Medical College, Peshawar21 February 2012 – 12 January 2017",
+        "Assistant",
+        "Professor — Psychiatry Department Khyber Teaching Hospital / Khyber Medical College, Peshawar 27 November 2008 – 20 February 2012",
+        "Senior Registrar — Psychiatry Department Khyber Teaching Hospital / Khyber Medical College, Peshawar 14 October 2004 – 26 November 2008",
+        "Consultant Psychiatrist / District Specialist — Psychiatry Department Hayatabad Medical Complex, Peshawar 2 July 1998 – 13 October 2003",
+        "Junior Registrar /",
+        "Medical Officer /",
+        "Medical Officer — Psychiatry Department Khyber Teaching Hospital, Peshawar. November 1985 – 1 July 1998"
+      ],
+      "skills": [],
+      "publications": [
+        "FREQUENCY OF ANXIETY AND DEPRESSION IN PATIENTS WITH MIGRAINE.",
+        "Journal of Medical Sciences. 2010 Dec 6;18(4):172-4.Idrees M, Khan I, Sarwar R, Irfan M.",
+        "Frequency of first rank symptoms in patients of schizophrenia: a hospital based study.",
+        "Gomal Journal of Medical Sciences. 2010;8(1).Akhtar J, Haque MM, Idrees M, Awan NR, Irfan M.",
+        "Knowledge and practice of general practitioners of Bannu about schizophrenia.",
+        "Journal of Postgraduate Medical Institute. 2010;24(4).Idrees M, Khan I, Irfan M, Sarwar R.",
+        "First rank symptoms in the diagnosis of schizophrenia.",
+        "Journal of Postgraduate Medical Institute. 2010;24(4)."
+      ]
+    },
+    "asiya-munir": {
+      "slug": "asiya-munir",
+      "aliases": [
+        "asiya-munir"
+      ],
+      "name": "Asiya Munir",
+      "department": "Psychiatry",
+      "designation": "Senior Registrar",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "M.B.B.S",
+        "F.C.P.S (Psychiatry)"
+      ],
+      "experience": [
+        "Have been working as",
+        "senior registrar from 2025 – Present"
+      ],
+      "skills": [],
+      "publications": []
+    }
+  },
+  "index": {
+    "fouzia-rauf": "fozia-rauf",
+    "fozia-rauf": "fozia-rauf",
+    "ihsan-ullah": "mian-ihsan",
+    "mian-ihsan": "mian-ihsan",
+    "ashraf-khan": "ashraf-khan",
+    "mohsina-haq": "mohsina-haq",
+    "ambreen-gul": "ambreen-gul",
+    "sadaf-alam": "sadaf-alam",
+    "sardar-muhammad": "sardar-muhammad",
+    "shabina-saifullah": "shabina-saifullah",
+    "sumira-abbas": "sumira-abbas",
+    "sarah-yousuf": "sarah-yousuf",
+    "haseeba-arif": "haseeba-arif",
+    "shehla-akbar": "shehla-akbar",
+    "aiman-ajmeer": "aiman-ajmeer",
+    "razia-aamir": "razia-aamir",
+    "aminah-saqib": "aminah-saqib",
+    "mishgan-dayem": "mishgan-dayem",
+    "shafaq-zafar": "shafaq-zafar",
+    "riaz-nasim": "riaz-nasim",
+    "amber-javaid": "amber-javaid",
+    "erum-rehman": "erum-rehman",
+    "muhammad-shahid": "muhammad-shahid",
+    "khadija-maryam": "khadija-maryam",
+    "fahad-jan": "fahad-jan",
+    "robina-riaz": "robina-riaz",
+    "robina-usman": "robina-riaz",
+    "farzana-salman": "farzana-salman",
+    "munaza-khattak": "munaza-khattak",
+    "momina-haq": "momina-haq",
+    "marina-hidayat": "marina-hidayat",
+    "fatima-saadat": "fatima-saadat",
+    "muhammad-ishraq": "muhammad-ishraq",
+    "nabhan-rashad": "nabhan-rashad",
+    "muhammad-haroon": "muhammad-haroon",
+    "ammara-habib": "ammara-habib",
+    "huma-mir": "huma-mir",
+    "farzeen-pervez": "farzeen-pervez",
+    "gulalay-ihsan": "gulalay-ihsan",
+    "hafsa-humayon": "hafsa-humayon",
+    "palwasha-zahid": "palwasha-zahid",
+    "mohammad-irfan": "muhammad-irfan",
+    "muhammad-irfan": "muhammad-irfan",
+    "mohammad-idrees": "mohammad-idrees",
+    "muhammad-idrees": "mohammad-idrees",
+    "asiya-munir": "asiya-munir",
+    "ihsanullah": "mian-ihsan",
+    "mian-ihsanullah": "mian-ihsan",
+    "amber-javed": "amber-javaid",
+    "sara-yousaf": "sarah-yousuf",
+    "sarah-yousaf": "sarah-yousuf",
+    "farzana-khan": "farzana-salman",
+    "mohsina": "mohsina-haq"
+  }
+}
