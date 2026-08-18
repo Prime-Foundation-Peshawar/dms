@@ -15,6 +15,8 @@ $activities = $dept['activities'] ?? [];
 $intro = $dept['intro'] ?? [];
 $facultyCount = count($faculty);
 $activityCount = count($activities);
+$pubsUrl = department_oric_publications_url($slug);
+$hasOricDept = department_oric_id($slug) !== null;
 
 include('includes/header.php');
 ?>
@@ -139,6 +141,25 @@ include('includes/header.php');
           </div>
         </section>
 
+        <!-- Publications -->
+        <section class="dept-panel fu" id="publications">
+          <div class="dept-panel-head">
+            <span class="dept-panel-ico"><i class="bi bi-journal-richtext"></i></span>
+            <div>
+              <h2>Publications</h2>
+              <p>Research papers from <?= htmlspecialchars($dept['name']) ?> on the Prime Foundation ORIC portal</p>
+            </div>
+          </div>
+          <div class="dept-panel-body">
+            <p class="dept-pubs-copy"><?= $hasOricDept
+              ? 'Open the department publication list on the Office of Research, Innovation &amp; Commercialization (ORIC) website.'
+              : 'This department is not listed separately on ORIC yet. Browse all Prime Foundation research departments instead.' ?></p>
+            <a class="btn-pmc btn-pmc-primary" href="<?= htmlspecialchars($pubsUrl) ?>" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right"></i> Publications
+            </a>
+          </div>
+        </section>
+
         <!-- Activities -->
         <section class="dept-panel fu" id="activities">
           <div class="dept-panel-head">
@@ -205,11 +226,13 @@ include('includes/header.php');
             <nav class="dept-aside-nav" aria-label="On this page">
               <a href="#intro"><i class="bi bi-info-circle"></i> Introduction</a>
               <a href="#faculty"><i class="bi bi-people"></i> Faculty <em><?= (int)$facultyCount ?></em></a>
+              <a href="#publications"><i class="bi bi-journal-richtext"></i> Publications</a>
               <a href="#activities"><i class="bi bi-calendar-event"></i> Activities <em><?= (int)$activityCount ?></em></a>
             </nav>
             <div class="dept-aside-links">
+              <a href="<?= htmlspecialchars($pubsUrl) ?>" class="btn-pmc btn-pmc-primary w-100 justify-content-center mb-2" target="_blank" rel="noopener"><i class="bi bi-journal-richtext"></i> Publications</a>
               <a href="departments.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center mb-2"><i class="bi bi-grid"></i> All Departments</a>
-              <a href="faculty.php" class="btn-pmc btn-pmc-primary w-100 justify-content-center"><i class="bi bi-person-vcard"></i> All faculty</a>
+              <a href="faculty.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center"><i class="bi bi-person-vcard"></i> All faculty</a>
             </div>
           </div>
         </aside>

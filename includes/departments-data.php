@@ -1729,3 +1729,36 @@ function department_updated_label(array $dept): string {
   $ts = strtotime($raw);
   return $ts ? date('j M Y', $ts) : (string) $raw;
 }
+
+/** ORIC department IDs from https://oric.prime.edu.pk/publications.php */
+function department_oric_id(string $slug): ?int {
+  $map = [
+    'anatomy' => 4,
+    'physiology' => 5,
+    'biochemistry' => 3,
+    'pathology' => 8,
+    'pharmacology' => 5010,
+    'forensic-medicine' => 5011,
+    'chs' => 5007,
+    'dhpe' => 11,
+    'medicine' => 1,
+    'surgery' => 5001,
+    'gynaecology' => 5003,
+    'paediatrics' => 5002,
+    'ent' => 5020,
+    'ophthalmology' => 5030,
+    'orthopaedics' => 5027,
+    'radiology' => 5004,
+    'psychiatry' => 9,
+    'cardiology' => 5035,
+  ];
+  return $map[$slug] ?? null;
+}
+
+function department_oric_publications_url(string $slug): string {
+  $id = department_oric_id($slug);
+  if ($id === null) {
+    return 'https://oric.prime.edu.pk/publications.php';
+  }
+  return 'https://oric.prime.edu.pk/dep_research.php?id=' . $id;
+}

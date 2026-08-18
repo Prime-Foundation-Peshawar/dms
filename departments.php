@@ -22,7 +22,7 @@ include('includes/header.php');
     <div class="home-sec-head text-center fu mb-5">
       <span class="sec-eyebrow">PMC</span>
       <h2 class="sec-title">Explore Our Departments</h2>
-      <p class="sec-desc">Browse academic departments. Each page covers introduction, faculty, and departmental activities.</p>
+      <p class="sec-desc">Browse academic departments. Each page covers introduction, faculty, publications, and departmental activities.</p>
     </div>
 
     <?php foreach ($groups as $groupName => $depts): ?>

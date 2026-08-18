@@ -2171,6 +2171,11 @@
     .dept-aside-links {
       padding: 8px 16px 18px;
     }
+    .dept-pubs-copy {
+      margin: 0 0 16px;
+      color: var(--gray-mid, #64748b);
+      line-height: 1.6;
+    }
     @media (max-width: 991.98px) {
       .dept-stats { grid-template-columns: 1fr 1fr; }
       .dept-aside { position: static; }
