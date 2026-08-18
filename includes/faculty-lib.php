@@ -3,6 +3,32 @@
  * Faculty profile helpers — slug matching against departmental CVs.
  */
 
+if (!function_exists('str_starts_with')) {
+  function str_starts_with($haystack, $needle): bool {
+    $haystack = (string) $haystack;
+    $needle = (string) $needle;
+    return $needle === '' || strncmp($haystack, $needle, strlen($needle)) === 0;
+  }
+}
+if (!function_exists('str_ends_with')) {
+  function str_ends_with($haystack, $needle): bool {
+    $haystack = (string) $haystack;
+    $needle = (string) $needle;
+    if ($needle === '') {
+      return true;
+    }
+    $len = strlen($needle);
+    return $len <= strlen($haystack) && substr($haystack, -$len) === $needle;
+  }
+}
+if (!function_exists('str_contains')) {
+  function str_contains($haystack, $needle): bool {
+    $haystack = (string) $haystack;
+    $needle = (string) $needle;
+    return $needle === '' || strpos($haystack, $needle) !== false;
+  }
+}
+
 function faculty_slug(string $name): string {
   $n = trim($name);
   $titles = '/^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i';
@@ -93,8 +119,12 @@ function faculty_profile_has_cv(?array $rec): bool {
 }
 
 function faculty_profile_lookup_cv(string $nameOrSlug): ?array {
-  $rec = faculty_profile_lookup(faculty_slug($nameOrSlug));
-  return faculty_profile_has_cv($rec) ? $rec : null;
+  try {
+    $rec = faculty_profile_lookup(faculty_slug($nameOrSlug));
+    return faculty_profile_has_cv($rec) ? $rec : null;
+  } catch (Throwable $e) {
+    return null;
+  }
 }
 
 function faculty_profile_link_html(string $label, string $qual = ''): string {
