@@ -22,23 +22,52 @@
           <div class="about-intro fu">
             <span class="sec-eyebrow">Programmes</span>
             <h2 class="sec-title" style="font-size:1.75rem;">Postgraduate Medical Education</h2>
-           
             <p>
               University M.Phil programmes in basic medical sciences sit alongside CPSP-recognised FCPS and MCPS training in clinical specialties. Postgraduate training has been offered since <strong>2011</strong>.
             </p>
           </div>
 
+          <div class="pg-director fu">
+            <div class="pg-director-ico"><i class="bi bi-person-badge"></i></div>
+            <div>
+              <span>Director, Basic Medical and Dental Sciences</span>
+              <strong>Prof. Dr. Mohsina Haq</strong>
+            </div>
+          </div>
+
+          <div class="adm-help is-adm-notice fu">
+            <div class="adm-help-ico"><i class="bi bi-mortarboard-fill"></i></div>
+            <div>
+              <h3>Fall 2026 admissions — extended schedule</h3>
+              <p>Apply by <strong>03 Sep 2026</strong>. Entry test: 04 Sep 2026. Interview: 05 Sep 2026. Diploma in Medical Jurisprudence (DMJ) is also open.</p>
+              <a href="assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" class="btn-pmc btn-pmc-primary"><i class="bi bi-file-earmark-pdf"></i> Admission Form</a>
+              <a href="assets/images/news/pg-medical-dental-ad-fall-2026.png" target="_blank" class="btn-pmc btn-pmc-outline"><i class="bi bi-image"></i> Advertisement</a>
+            </div>
+          </div>
+
           <div class="row g-4 mb-4 fu fu-delay-1">
-            <div class="col-md-6">
+            <div class="col-md-3">
               <a class="pg-stream-card" href="#basic-sciences">
                 <strong>Basic Sciences</strong>
                 <p>M.Phil programmes in anatomy, physiology, biochemistry, pharmacology, and pathology.</p>
               </a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
+              <a class="pg-stream-card" href="#diploma">
+                <strong>Diploma</strong>
+                <p>Diploma in Medical Jurisprudence (DMJ).</p>
+              </a>
+            </div>
+            <div class="col-md-3">
               <a class="pg-stream-card" href="#clinical-sciences">
                 <strong>Clinical Sciences</strong>
-                <p>FCPS and MCPS training recognised by CPSP, delivered with affiliated teaching hospitals.</p>
+                <p>FCPS and MCPS training recognised by CPSP.</p>
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a class="pg-stream-card" href="#faculty">
+                <strong>Faculty</strong>
+                <p>Basic medical sciences teaching staff.</p>
               </a>
             </div>
           </div>
@@ -55,8 +84,8 @@
               <span class="pg-panel-label">M.Phil programmes</span>
               <div class="pg-chips">
                 <span class="pg-chip">M.Phil Anatomy</span>
-                <span class="pg-chip">M.Phil Physiology</span>
                 <span class="pg-chip">M.Phil Biochemistry</span>
+                <span class="pg-chip">M.Phil Physiology</span>
                 <span class="pg-chip">M.Phil Pharmacology</span>
                 <span class="pg-chip">M.Phil Pathology</span>
               </div>
@@ -67,7 +96,19 @@
                 <span class="pg-chip">Microbiology</span>
               </div>
             </div>
-            
+          </div>
+
+          <div class="about-block fu" id="diploma">
+            <div class="about-block-head">
+              <h3>Diploma</h3>
+              <p>Diploma in Medical Jurisprudence is open for Fall 2026 applications.</p>
+            </div>
+            <div class="pg-panel">
+              <span class="pg-panel-label">Diploma programmes</span>
+              <div class="pg-chips">
+                <span class="pg-chip">Diploma in Medical Jurisprudence (DMJ)</span>
+              </div>
+            </div>
           </div>
 
           <div class="about-block fu" id="clinical-sciences">
@@ -76,7 +117,7 @@
               <p>CPSP-recognised FCPS and MCPS programmes, with clinical training at affiliated teaching hospitals.</p>
             </div>
             <p>
-              Clinical postgraduate training centres on FCPS and MCPS pathways. Specialty-specific curricula follow CPSP regulations. Further MS and diploma programmes in selected specialties are planned.
+              Clinical postgraduate training centres on FCPS and MCPS pathways. Specialty-specific curricula follow CPSP regulations.
             </p>
             <div class="row g-4">
               <div class="col-md-7">
@@ -118,7 +159,51 @@
                 </div>
               </div>
             </div>
-           
+          </div>
+
+          <div class="about-block fu" id="faculty">
+            <div class="about-block-head">
+              <h3>Faculty</h3>
+              <p>Teaching staff of Basic Medical Sciences, under Prof. Dr. Mohsina Haq.</p>
+            </div>
+            <div class="pg-staff-grid">
+              <div class="pg-staff-card">
+                <h4>Anatomy</h4>
+                <ul class="pg-staff-list">
+                  <li><span>Dr. Nouman Wazir</span></li>
+                  <li><span>Dr. Farooq Khan</span></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Physiology</h4>
+                <ul class="pg-staff-list">
+                  <li><span>Dr. Robina Riaz</span></li>
+                  <li><span>Dr. Farzana Khan</span></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Pharmacology</h4>
+                <ul class="pg-staff-list">
+                  <li><span>Dr. Shafaq Zafar</span><span class="pg-qual">PhD</span></li>
+                  <li><span>Dr. Amber Javaid</span><span class="pg-qual">MPhil</span></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Pathology</h4>
+                <ul class="pg-staff-list">
+                  <li><span>Dr. Mohsina Haq</span><span class="pg-qual">PhD</span></li>
+                  <li><span>Dr. Wasifa Noshad</span><span class="pg-qual">PhD</span></li>
+                  <li><span>Dr. Hala Rajab</span><span class="pg-qual">PhD</span></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Biochemistry</h4>
+                <ul class="pg-staff-list">
+                  <li><span>Dr. Shumaila Asim</span><span class="pg-qual">PhD</span></li>
+                  <li><span>Dr. Zahoor Ullah</span><span class="pg-qual">PhD</span></li>
+                </ul>
+              </div>
+            </div>
           </div>
 
         </div>
