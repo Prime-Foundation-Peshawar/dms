@@ -13,10 +13,10 @@ if (!$extra) {
   exit;
 }
 $display_name = $extra['name'] ?? '';
-$page_title = ($display_name !== '' ? $display_name . ' — Faculty Profile' : 'Faculty Profile') . ' | Department of Medical Sciences';
+$page_title = ($display_name !== '' ? $display_name . ' — Faculty' : 'Faculty') . ' | Department of Medical Sciences';
 $page_description = $display_name !== ''
-  ? $display_name . ' — faculty profile at Peshawar Medical College, Riphah Peshawar Campus.'
-  : 'Faculty profile — Department of Medical Sciences, Peshawar Medical College.';
+  ? $display_name . ' teaches at Peshawar Medical College, Riphah Peshawar Campus.'
+  : 'Faculty at the Department of Medical Sciences, Peshawar Medical College.';
 
 include __DIR__ . '/includes/header.php';
 
@@ -55,8 +55,6 @@ if ($display_name !== '') {
 <div class="page-hero fp-page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
-    <span class="page-hero-eyebrow">Faculty Profile</span>
-    <h1 id="fpHeroName"><?= $display_name !== '' ? htmlspecialchars($display_name) : 'Faculty Profile' ?></h1>
     <div class="breadcrumb-pmc">
       <a href="index.php">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
@@ -77,8 +75,8 @@ if ($display_name !== '') {
     <div id="fpMissing" class="fac-error" style="display:none">
       <div class="fac-error-icon"><i class="bi bi-person-x"></i></div>
       <h5>Profile not found</h5>
-      <p>This faculty member could not be matched in the directory.</p>
-      <a href="faculty.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-people"></i> Back to Faculty</a>
+      <p>This person could not be found in the faculty list.</p>
+      <a href="faculty.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-people"></i> All faculty</a>
     </div>
 
     <article id="fpCard" class="fp-layout"<?= $extra ? '' : ' hidden' ?>>
@@ -101,7 +99,7 @@ if ($display_name !== '') {
           <div class="fp-chips" id="fpRegChips"></div>
         </div>
         <div class="fp-side-block" id="fpQualBlock"<?= $quals ? '' : ' hidden' ?>>
-          <h2>Qualifications</h2>
+          <h2>Education</h2>
           <ul class="fp-qual-list" id="fpQuals">
             <?php foreach ($quals as $q): ?>
               <li><i class="bi bi-mortarboard-fill"></i><span><?= htmlspecialchars(faculty_soft_space((string) $q)) ?></span></li>
@@ -109,25 +107,26 @@ if ($display_name !== '') {
           </ul>
         </div>
         <div class="fp-side-block" id="fpSkillBlock"<?= $skills ? '' : ' hidden' ?>>
-          <h2>Expertise</h2>
-          <div class="fp-skill-wrap" id="fpSkills">
+          <h2>College duties</h2>
+          <ul class="fp-duty-list" id="fpSkills">
             <?php foreach ($skills as $s): ?>
-              <span class="fp-skill"><?= htmlspecialchars(faculty_soft_space((string) $s)) ?></span>
+              <li><?= htmlspecialchars(faculty_soft_space((string) $s)) ?></li>
             <?php endforeach; ?>
-          </div>
+          </ul>
         </div>
-        <a href="faculty.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center fp-back"><i class="bi bi-arrow-left"></i> Faculty Directory</a>
+        <a href="faculty.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center fp-back"><i class="bi bi-arrow-left"></i> All faculty</a>
       </aside>
 
       <div class="fp-main">
         <header class="fp-identity">
+          <p class="fp-desig-label">Current post</p>
           <p class="fp-desig" id="fpDesig"><?= htmlspecialchars($desig) ?></p>
-          <h2 class="fp-name" id="fpName"><?= htmlspecialchars($display_name !== '' ? $display_name : 'Faculty Member') ?></h2>
-          <p class="fp-college">Peshawar Medical College · Riphah International University — Peshawar Campus</p>
+          <h1 class="fp-name" id="fpName"><?= htmlspecialchars($display_name !== '' ? $display_name : 'Faculty member') ?></h1>
+          <p class="fp-college">Peshawar Medical College · Riphah International University, Peshawar Campus</p>
           <div class="fp-stats" id="fpStats">
-            <div class="fp-stat"><strong id="fpStatExp"><?= $expRoles ?: '—' ?></strong><span>Roles</span></div>
-            <div class="fp-stat"><strong id="fpStatPub"><?= count($pubs) ?: '—' ?></strong><span>Publications</span></div>
-            <div class="fp-stat"><strong id="fpStatQual"><?= count($quals) ?: '—' ?></strong><span>Qualifications</span></div>
+            <div class="fp-stat"><strong id="fpStatExp"><?= $expRoles ?: '—' ?></strong><span>Posts</span></div>
+            <div class="fp-stat"><strong id="fpStatPub"><?= count($pubs) ?: '—' ?></strong><span>Papers</span></div>
+            <div class="fp-stat"><strong id="fpStatQual"><?= count($quals) ?: '—' ?></strong><span>Degrees</span></div>
           </div>
         </header>
 
@@ -135,8 +134,8 @@ if ($display_name !== '') {
           <div class="fp-panel-head">
             <span class="fp-panel-ico"><i class="bi bi-briefcase"></i></span>
             <div>
-              <h3>Professional experience</h3>
-              <p>Teaching, clinical, and academic posts</p>
+              <h3>Work history</h3>
+              <p>Teaching and hospital posts</p>
             </div>
           </div>
           <ol class="fp-timeline" id="fpExp">
@@ -153,7 +152,7 @@ if ($display_name !== '') {
                     <?php endif; ?>
                   </div>
                   <?php if (!empty($item['detail'])): ?>
-                    <p><?= htmlspecialchars($item['detail']) ?></p>
+                    <p class="fp-exp-place"><?= htmlspecialchars($item['detail']) ?></p>
                   <?php endif; ?>
                 </div>
               </li>
@@ -165,8 +164,8 @@ if ($display_name !== '') {
           <div class="fp-panel-head">
             <span class="fp-panel-ico"><i class="bi bi-journal-richtext"></i></span>
             <div>
-              <h3>Selected publications</h3>
-              <p id="fpPubCount"><?= count($pubs) ?> listed from departmental records</p>
+              <h3>Research papers</h3>
+              <p id="fpPubCount"><?= count($pubs) ?> listed from college records</p>
             </div>
           </div>
           <ol class="fp-pubs<?= count($pubs) > 8 ? ' is-collapsed' : '' ?>" id="fpPubs">
@@ -183,7 +182,7 @@ if ($display_name !== '') {
                       <span class="fp-pub-year"><?= htmlspecialchars($year) ?></span>
                     <?php endif; ?>
                     <?php if ($url !== ''): ?>
-                      <a class="fp-pub-link" href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener">View <i class="bi bi-box-arrow-up-right"></i></a>
+                      <a class="fp-pub-link" href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener">Open paper <i class="bi bi-box-arrow-up-right"></i></a>
                     <?php endif; ?>
                   </div>
                 </div>
@@ -191,7 +190,7 @@ if ($display_name !== '') {
             <?php endforeach; ?>
           </ol>
           <?php if (count($pubs) > 8): ?>
-            <button type="button" class="fp-pubs-more" id="fpPubsMore" data-total="<?= count($pubs) ?>">Show all <?= count($pubs) ?> publications</button>
+            <button type="button" class="fp-pubs-more" id="fpPubsMore" data-total="<?= count($pubs) ?>">Show all <?= count($pubs) ?> papers</button>
           <?php endif; ?>
         </section>
 
@@ -199,11 +198,11 @@ if ($display_name !== '') {
           <div class="fp-panel-head">
             <span class="fp-panel-ico"><i class="bi bi-hourglass-split"></i></span>
             <div>
-              <h3>Biography</h3>
-              <p>Extended CV will appear here as departments submit profile data.</p>
+              <h3>More details coming</h3>
+              <p>The department is still adding this CV.</p>
             </div>
           </div>
-          <p class="fp-pending-copy">Directory details (designation, department, and PM&amp;DC registration) are shown from the live faculty record. Full experience, expertise, and publication lists are being added from departmental templates.</p>
+          <p class="fp-pending-copy">Name, post, subject, and PM&amp;DC numbers come from the college staff record. Work history, college duties, and papers will appear when the department sends the full CV.</p>
         </section>
       </div>
     </article>
@@ -270,15 +269,14 @@ function avatarClass(desTitle) {
     const name = hrms.empName || (EXTRA && EXTRA.name) || '';
     const desig = hrms.desTitle || (EXTRA && EXTRA.designation) || '';
     const dept = hrms.depName || (EXTRA && EXTRA.department) || '';
-    document.getElementById('fpHeroName').textContent = name;
     document.getElementById('fpCrumb').textContent = name;
     document.getElementById('fpName').textContent = name;
-    document.title = name + ' — Faculty Profile | Department of Medical Sciences';
+    document.title = name + ' — Faculty | Department of Medical Sciences';
     if (desig) document.getElementById('fpDesig').textContent = desig;
     if (dept) document.getElementById('fpDept').textContent = dept;
     const chips = [];
-    if (hrms.facPMDCNo) chips.push('<span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC ' + escapeHtml(hrms.facPMDCNo) + '</span>');
-    if (hrms.facFacRegNo) chips.push('<span class="reg-chip"><i class="bi bi-card-text"></i> Faculty ' + escapeHtml(hrms.facFacRegNo) + '</span>');
+    if (hrms.facPMDCNo) chips.push('<span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC No. ' + escapeHtml(hrms.facPMDCNo) + '</span>');
+    if (hrms.facFacRegNo) chips.push('<span class="reg-chip"><i class="bi bi-card-text"></i> Faculty No. ' + escapeHtml(hrms.facFacRegNo) + '</span>');
     document.getElementById('fpRegChips').innerHTML = chips.join('');
     const av = document.getElementById('fpAvatar');
     if (av) av.className = 'fp-avatar ' + avatarClass(hrms.desTitle);

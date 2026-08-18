@@ -127,13 +127,13 @@ include('includes/header.php');
                 <?php endforeach; ?>
               </div>
               <div class="dept-panel-actions">
-                <a href="faculty.php" class="btn-pmc btn-pmc-outline">Full Faculty Directory <i class="bi bi-arrow-right"></i></a>
+                <a href="faculty.php" class="btn-pmc btn-pmc-outline">All faculty <i class="bi bi-arrow-right"></i></a>
               </div>
             <?php else: ?>
               <div class="dept-empty">
                 <i class="bi bi-people"></i>
                 <p>Faculty details for this department will be published here. Meanwhile, see the full directory.</p>
-                <a href="faculty.php" class="btn-pmc btn-pmc-primary">View Faculty Directory</a>
+                <a href="faculty.php" class="btn-pmc btn-pmc-primary">View faculty</a>
               </div>
             <?php endif; ?>
           </div>
@@ -209,7 +209,7 @@ include('includes/header.php');
             </nav>
             <div class="dept-aside-links">
               <a href="departments.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center mb-2"><i class="bi bi-grid"></i> All Departments</a>
-              <a href="faculty.php" class="btn-pmc btn-pmc-primary w-100 justify-content-center"><i class="bi bi-person-vcard"></i> Faculty Directory</a>
+              <a href="faculty.php" class="btn-pmc btn-pmc-primary w-100 justify-content-center"><i class="bi bi-person-vcard"></i> All faculty</a>
             </div>
           </div>
         </aside>

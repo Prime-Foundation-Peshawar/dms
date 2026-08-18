@@ -252,7 +252,7 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Shafaq Zafar',
-        'qualification' => 'MBBS, M.Phil, PhD',
+        'qualification' => 'MBBS, M.Phil, CHPE, PhD',
         'reg' => '14188-N',
       ],
       [
@@ -262,18 +262,38 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Amber Javed',
-        'qualification' => 'MBBS, M.Phil',
+        'qualification' => 'MBBS, M.Phil, CHPE',
         'reg' => '10512-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Erum Rehman',
-        'qualification' => 'BDS, M.Phil',
+        'qualification' => 'BDS, M.Phil, CHPE, CHR',
         'reg' => '18609-D',
       ],
       [
         'name' => 'Assistant Professor Dr. Muhammad Shahid',
-        'qualification' => 'MBBS, M.Phil',
+        'qualification' => 'MBBS, M.Phil, CHPE',
         'reg' => '28805-N',
+      ],
+      [
+        'name' => 'Lecturer Dr. Khadija Maryam',
+        'qualification' => 'MBBS, CHPE, PGT Pharmacy',
+        'reg' => '',
+      ],
+      [
+        'name' => 'Lecturer Dr. Fahad Jan',
+        'qualification' => 'MBBS, CHPE',
+        'reg' => '',
+      ],
+      [
+        'name' => 'Lecturer Dr. Rabiya',
+        'qualification' => 'MBBS, CHPE',
+        'reg' => '',
+      ],
+      [
+        'name' => 'Lecturer Dr. Ameer Hamza',
+        'qualification' => 'On leave',
+        'reg' => '',
       ],
     ],
     'activities' => [
@@ -1118,17 +1138,17 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Muhammad Irfan',
-        'qualification' => 'MBBS, MCPS, FCPS, MS, PhD',
+        'qualification' => 'MBBS, MCPS, FCPS, Dip CBT, MS, PhD, CHPE',
         'reg' => '10719-N',
       ],
       [
         'name' => 'Professor Dr. Mohammad Idrees',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, MCPS, FCPS, CHPE',
         'reg' => '875-N',
       ],
       [
         'name' => 'Senior Registrar Dr. Asiya Munir',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Psychiatry)',
         'reg' => '29963-N',
       ],
     ],

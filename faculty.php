@@ -25,7 +25,7 @@
       <div class="col-6 col-md-3">
         <div class="fac-stat-cell">
           <span class="fac-stat-num" id="statTotal">—</span>
-          <span class="fac-stat-lbl">Total Faculty</span>
+          <span class="fac-stat-lbl">Teachers</span>
         </div>
       </div>
       <div class="col-6 col-md-3">
@@ -56,9 +56,9 @@
 
     <div class="row mb-4 align-items-end fu">
       <div class="col-lg-8">
-        <span class="sec-eyebrow">Faculty Directory</span>
-        <h2 class="sec-title">Expert Doctors &amp; Academic Professionals</h2>
-        <p class="sec-desc mb-0">A PM&amp;DC-registered team of professors, associate professors, assistant professors, senior lecturers, and lecturers across every department of the MBBS curriculum.</p>
+        <span class="sec-eyebrow">Meet the faculty</span>
+        <h2 class="sec-title">Teachers and doctors</h2>
+        <p class="sec-desc mb-0">PM&amp;DC-registered professors, lecturers, and clinicians who teach the MBBS programme.</p>
       </div>
       <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
         <a href="departments.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-diagram-3"></i> Academic Departments</a>
@@ -81,15 +81,15 @@
           </select>
         </div>
         <div class="col-lg-2 col-md-6">
-          <label class="filter-label" for="desigFilter">Designation</label>
+          <label class="filter-label" for="desigFilter">Post</label>
           <select id="desigFilter" class="filter-select">
-            <option value="">All Designations</option>
+            <option value="">All posts</option>
           </select>
         </div>
         <div class="col-lg-3 col-md-6">
-          <label class="filter-label" for="qualFilter">Qualification</label>
+          <label class="filter-label" for="qualFilter">Degree</label>
           <select id="qualFilter" class="filter-select">
-            <option value="">All Qualifications</option>
+            <option value="">All degrees</option>
           </select>
         </div>
         <div class="col-lg-2 col-md-6">
@@ -99,20 +99,20 @@
         </div>
       </div>
       <div class="filter-meta">
-        <span class="results-info">Showing <span id="resultCount">—</span> of <span id="totalCount">—</span> faculty members</span>
+        <span class="results-info">Showing <span id="resultCount">—</span> of <span id="totalCount">—</span> teachers</span>
       </div>
     </div>
 
     <div id="loadingState">
       <div class="spinner-pmc"></div>
-      <p>Loading faculty data…</p>
+      <p>Loading faculty…</p>
     </div>
 
     <div id="emptyState">
       <div class="empty-icon"><i class="bi bi-search"></i></div>
-      <h5>No Results Found</h5>
-      <p>Try adjusting your search or filter criteria.</p>
-      <button type="button" onclick="clearAllFilters()" class="btn-pmc btn-pmc-outline"><i class="bi bi-x-circle"></i> Clear All Filters</button>
+      <h5>No matching teachers</h5>
+      <p>Try another name, post, or degree.</p>
+      <button type="button" onclick="clearAllFilters()" class="btn-pmc btn-pmc-outline"><i class="bi bi-x-circle"></i> Clear filters</button>
 </div>
 
     <div id="facultyContent"></div>
@@ -379,8 +379,8 @@ function renderMemberRow(m) {
         <div class="fac-list-desig">${desig}</div>
         <div class="fac-list-qual">${qual}</div>
         <div class="fac-list-regs">
-          <span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC ${pmdc}</span>
-          <span class="reg-chip"><i class="bi bi-card-text"></i> Faculty ${facReg}</span>
+          <span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC No. ${pmdc}</span>
+          <span class="reg-chip"><i class="bi bi-card-text"></i> Faculty No. ${facReg}</span>
         </div>
       </div>
       ${linked ? '<i class="bi bi-chevron-right fac-list-go" aria-hidden="true"></i>' : ''}`;
@@ -473,8 +473,8 @@ function clearAllFilters() {
     document.getElementById('facultyContent').innerHTML = `
       <div class="fac-error">
         <div class="fac-error-icon"><i class="bi bi-wifi-off"></i></div>
-        <h5>Unable to Load Faculty Data</h5>
-        <p>Please check your connection or try refreshing the page.</p>
+        <h5>Could not load the faculty list</h5>
+        <p>Check your connection, then try again.</p>
         <button type="button" onclick="location.reload()" class="btn-pmc btn-pmc-primary">
           <i class="bi bi-arrow-clockwise"></i> Retry
         </button>
