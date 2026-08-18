@@ -130,7 +130,7 @@
 <?php include('includes/footer.php'); ?>
 
 <script>
-const API_URL = 'faculty-proxy.php';
+const API_URL = 'faculty-proxy';
 const DEBUG = new URLSearchParams(window.location.search).has('debug');
 
 const DEPT_CONFIG = {
