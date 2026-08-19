@@ -134,7 +134,7 @@ if ($display_name !== '') {
           <div class="fp-panel-head">
             <span class="fp-panel-ico"><i class="bi bi-briefcase"></i></span>
             <div>
-              <h3>Work history</h3>
+              <h3>Professional experience</h3>
               <p>Teaching and hospital posts</p>
             </div>
           </div>
@@ -202,7 +202,7 @@ if ($display_name !== '') {
               <p>The department is still adding this CV.</p>
             </div>
           </div>
-          <p class="fp-pending-copy">Name, post, subject, and PM&amp;DC numbers come from the college staff record. Work history, college duties, and papers will appear when the department sends the full CV.</p>
+          <p class="fp-pending-copy">Name, post, subject, and PM&amp;DC numbers come from the college staff record. Professional experience, college duties, and papers will appear when the department sends the full CV.</p>
         </section>
       </div>
     </article>
