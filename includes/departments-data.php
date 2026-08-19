@@ -1535,12 +1535,12 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Assistant Professor Dr. Kifayat Ali',
-        'qualification' => 'MBBS, FCPS (Med), MRCP (Med), FCPS (Endo)',
+        'qualification' => 'MBBS, FCPS (Med), FCPS (Endo), MRCP (UK), CHPE, CHR',
         'reg' => '23931-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Sana',
-        'qualification' => 'MBBS, FCPS (Med), MRCP (Med), FCPS (Endo)',
+        'qualification' => 'MBBS, FCPS (Med), FCPS (Endo), MRCP (UK), CHPE, CHR',
         'reg' => '23110-N',
       ],
     ],

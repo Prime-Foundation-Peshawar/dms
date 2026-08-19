@@ -1,5 +1,5 @@
 {
-  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, and Psychiatry HoD sheets).",
+  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry, and Endocrinology).",
   "profiles": {
     "fozia-rauf": {
       "slug": "fozia-rauf",
@@ -1473,6 +1473,84 @@
       ],
       "skills": [],
       "publications": []
+    },
+    "kifayat-ali": {
+      "slug": "kifayat-ali",
+      "aliases": [
+        "kifayat-ali"
+      ],
+      "name": "Kifayat Ali",
+      "department": "Endocrinology",
+      "designation": "Assistant Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/kifayat-ali.jpg",
+      "qualifications": [
+        "MBBS",
+        "FCPS (Medicine)",
+        "FCPS (Endocrinology)",
+        "MRCP (UK)",
+        "CHPE (KMU)",
+        "CHR (AKU)",
+        "Fellowship in Endocrinology (HMC)"
+      ],
+      "experience": [
+        "Assistant Professor, Endocrinology, Peshawar Medical College (14 May 2026 – Present)",
+        "Senior Registrar, Endocrinology (20 Apr 2025 – 13 May 2026)",
+        "Fellowship in Endocrinology, Hayatabad Medical Complex (4 Jan 2023 – 4 Jan 2025)"
+      ],
+      "skills": [
+        "Diabetes",
+        "Thyroid",
+        "PCOS",
+        "Infertility",
+        "Short stature",
+        "Obesity and weight loss",
+        "Hormonal imbalance",
+        "Metabolic disorders"
+      ],
+      "publications": [
+        "Frequency of hypocalcemia in patients with CKD",
+        "Frequency of undiagnosed heart failure in diabetic patients with DFU",
+        "Frequency of MRSA in diabetic foot patients",
+        "Impact of levothyroxine therapy on pregnancy outcomes with Anti TPO positive women",
+        "The prevalence of Vit B12 deficiency in Type 2 DM with neuropathy"
+      ]
+    },
+    "sana": {
+      "slug": "sana",
+      "aliases": [
+        "sana"
+      ],
+      "name": "Sana",
+      "department": "Endocrinology",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/sana.jpg",
+      "qualifications": [
+        "MBBS (KMC)",
+        "FCPS (Medicine)",
+        "FCPS (Endocrinology)",
+        "MRCP (UK)",
+        "CHPE",
+        "CHR"
+      ],
+      "experience": [
+        "Assistant Professor, Endocrinology, Peshawar Medical College (1 Jun 2026 – Present)",
+        "Senior Registrar, Endocrinology (14 Jan 2024 – 31 May 2026)"
+      ],
+      "skills": [
+        "Diabetes and its complication management",
+        "Thyroid disorders (hypothyroid and hyperthyroid)",
+        "Advanced obesity management",
+        "PCOS and menstrual irregularities",
+        "Infertility",
+        "Short stature"
+      ],
+      "publications": [
+        "Prevalence of Sexual Dysfunction in Patient with Subclinical Hypothyroidism and Subclinical Hyperthyroidism",
+        "Clinicopathological Profile of Patient with Solitary Thyroid Nodule Presented to OPD at a Tertiary Care Hospital Pakistan",
+        "Frequency of Osteomalacia and Vitamin D Deficiency in Elderly Patient Presenting at a Tertiary Care Hospital"
+      ]
     }
   },
   "index": {
@@ -1530,6 +1608,8 @@
     "farzana-khan": "farzana-salman",
     "mohsina": "mohsina-haq",
     "rabiya": "rabiya",
-    "ameer-hamza": "ameer-hamza"
+    "ameer-hamza": "ameer-hamza",
+    "kifayat-ali": "kifayat-ali",
+    "sana": "sana"
   }
 }
