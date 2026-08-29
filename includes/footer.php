@@ -61,7 +61,7 @@
           <div class="mt-3">
             <a href="https://pmc.prime.edu.pk/portal_login.php" class="btn-pmc btn-pmc-teal"
               style="background:var(--teal);color:white;font-size:.82rem;padding:10px 20px;">
-              <i class="bi bi-person-circle"></i> Student Portal
+              <i class="bi bi-person-circle"></i> Portal
             </a>
           </div>
         </div>
