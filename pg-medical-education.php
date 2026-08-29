@@ -167,20 +167,22 @@ include('includes/header.php');
           <div class="about-block fu" id="faculty">
             <div class="about-block-head">
               <h3>Faculty</h3>
-              <p>Teaching staff of Basic Medical Sciences, under <?= faculty_profile_link_html('Prof. Dr. Mohsina Haq') ?>.</p>
+              <p>HEC recognised teaching faculty for basic medical sciences<br/>
+                Teaching staff of Basic Medical Sciences, under <?= faculty_profile_link_html('Prof. Dr. Mohsina Haq') ?>.</p>
             </div>
             <div class="pg-staff-grid">
               <div class="pg-staff-card">
                 <h4>Anatomy</h4>
                 <ul class="pg-staff-list">
-                  <li><?= faculty_profile_link_html('Dr. Nouman Wazir') ?></li>
-                  <li><?= faculty_profile_link_html('Dr. Farooq Khan') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Nouman Wazir', 'PhD') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Farooq Khan', 'PhD') ?></li>
                 </ul>
               </div>
               <div class="pg-staff-card">
                 <h4>Physiology</h4>
                 <ul class="pg-staff-list">
                   <li><?= faculty_profile_link_html('Dr. Robina Riaz') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Munaza Khattak') ?></li>
                   <li><?= faculty_profile_link_html('Dr. Farzana Khan') ?></li>
                 </ul>
               </div>
