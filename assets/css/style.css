@@ -1558,62 +1558,111 @@
       margin-top: 8px;
       line-height: 1.35;
     }
-    .home-prog-card {
+    .home-prog-grid { align-items: stretch; }
+    a.home-prog-card {
+      text-decoration: none;
+      color: inherit;
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding: 30px 26px 28px;
-      border-radius: var(--r-lg);
+      padding: 32px 32px 28px;
+      border-radius: 18px;
+      border: 1px solid rgba(21, 95, 122, .12);
       background:
-        linear-gradient(180deg, rgba(0, 168, 150, .04) 0%, transparent 42%),
+        linear-gradient(180deg, #eef6f9 0%, #fff 46%),
         #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(11, 31, 51, .04);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
-    .home-prog-card::before { opacity: 1; }
-    .home-prog-logo {
-      width: 72px;
-      height: 72px;
-      margin-bottom: 16px;
-      flex-shrink: 0;
+    a.home-prog-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
     }
-    .home-prog-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
+    a.home-prog-card--pg {
+      background:
+        linear-gradient(180deg, #f4f1ea 0%, #fff 46%),
+        #fff;
+      border-color: rgba(11, 31, 51, .08);
+    }
+    a.home-prog-card:hover,
+    a.home-prog-card:focus-visible {
+      transform: translateY(-5px);
+      border-color: rgba(21, 95, 122, .28);
+      box-shadow: 0 16px 36px rgba(11, 31, 51, .08);
+      outline: none;
     }
     .home-prog-code {
       display: inline-block;
       font-family: var(--font-head);
       font-size: .68rem;
       font-weight: 800;
-      letter-spacing: .14em;
+      letter-spacing: .16em;
       text-transform: uppercase;
       color: var(--teal);
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid rgba(0, 168, 150, .28);
-      align-self: flex-start;
-    }
-    .home-prog-card h4 {
-      font-size: 1.22rem;
-      line-height: 1.28;
-      letter-spacing: -.01em;
       margin-bottom: 14px;
-    }
-    .home-prog-card p {
-      flex: 1;
-      margin-bottom: 22px;
-      font-size: .9rem;
-      line-height: 1.75;
-    }
-    .home-prog-btn {
-      font-size: .8rem;
-      padding: 10px 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(21, 95, 122, .22);
       align-self: flex-start;
-      margin-top: auto;
     }
-    .home-prog-card:hover {
-      border-color: rgba(0, 168, 150, .35);
+    a.home-prog-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.42rem;
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -.025em;
+      color: var(--navy);
+      margin: 0 0 14px;
+    }
+    a.home-prog-card p {
+      flex: 1;
+      margin: 0 0 20px;
+      font-size: .92rem;
+      line-height: 1.72;
+      color: var(--gray-mid);
+    }
+    .home-prog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 26px;
+    }
+    .home-prog-meta li {
+      font-family: var(--font-head);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      color: var(--navy);
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(11, 31, 51, .08);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+    .home-prog-cta {
+      margin-top: auto;
+      align-self: flex-start;
+      font-family: var(--font-head);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--teal);
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color .2s ease;
+    }
+    a.home-prog-card:hover .home-prog-cta,
+    a.home-prog-card:focus-visible .home-prog-cta {
+      border-bottom-color: var(--teal);
+    }
+    @media (max-width: 575.98px) {
+      a.home-prog-card { padding: 24px 22px 22px; }
+      a.home-prog-card h3 { font-size: 1.22rem; }
     }
     .home-about-visual {
       min-height: 440px;

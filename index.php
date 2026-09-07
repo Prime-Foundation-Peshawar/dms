@@ -117,28 +117,32 @@ include('includes/header.php');
       <h2 class="sec-title">Medical Education at International Standards</h2>
       <p class="sec-desc">A curriculum built to produce graduates with clinical acumen, research ability, ethical values, and community leadership.</p>
     </div>
-    <div class="row g-4">
+    <div class="row g-4 home-prog-grid">
       <div class="col-lg-6 fu fu-delay-1">
-        <div class="pmc-card home-prog-card">
-          <div class="home-prog-logo">
-            <img src="assets/images/logo/pmc-crest.png" alt="Peshawar Medical College logo" width="72" height="72" loading="lazy" />
-          </div>
+        <a class="home-prog-card home-prog-card--ug" href="pmc.php">
           <span class="home-prog-code">Undergraduate</span>
-          <h4>Peshawar Medical College</h4>
+          <h3>Peshawar Medical College</h3>
           <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at three affiliated teaching hospitals.</p>
-          <a href="pmc.php" class="btn-pmc btn-pmc-outline home-prog-btn">Learn More <i class="bi bi-arrow-right"></i></a>
-        </div>
+          <ul class="home-prog-meta">
+            <li>MBBS · 5 years</li>
+            <li>3 teaching hospitals</li>
+            <li>PM&amp;DC recognised</li>
+          </ul>
+          <span class="home-prog-cta">Learn more</span>
+        </a>
       </div>
       <div class="col-lg-6 fu fu-delay-2">
-        <div class="pmc-card home-prog-card">
-          <div class="home-prog-logo">
-            <img src="assets/images/logo/pmc-crest.png" alt="Peshawar Medical College logo" width="72" height="72" loading="lazy" />
-          </div>
+        <a class="home-prog-card home-prog-card--pg" href="pg-medical-education.php">
           <span class="home-prog-code">Postgraduate</span>
-          <h4>Postgraduate Medical Education</h4>
+          <h3>Postgraduate Medical Education</h3>
           <p>FCPS and MCPS programmes recognized by CPSP since 2011, with plans to introduce MS and diploma pathways.</p>
-          <a href="pg-medical-education.php" class="btn-pmc btn-pmc-outline home-prog-btn">Explore <i class="bi bi-arrow-right"></i></a>
-        </div>
+          <ul class="home-prog-meta">
+            <li>FCPS</li>
+            <li>MCPS</li>
+            <li>CPSP since 2011</li>
+          </ul>
+          <span class="home-prog-cta">Explore programmes</span>
+        </a>
       </div>
     </div>
   </div>
