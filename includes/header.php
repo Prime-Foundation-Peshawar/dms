@@ -19,8 +19,87 @@ if (!function_exists('dms_asset')) {
     return htmlspecialchars($path, ENT_QUOTES, 'UTF-8') . '?v=' . rawurlencode($v);
   }
 }
-$page_title = $page_title ?? 'Department of Medical Sciences | Peshawar Medical College — Riphah Peshawar Campus';
-$page_description = $page_description ?? 'Department of Medical Sciences, Riphah International University – Peshawar Campus. Peshawar Medical College — PM&DC recognized MBBS and postgraduate programmes. Warsak Road, Peshawar.';
+require_once __DIR__ . '/seo.php';
+$seo = seo_apply();
+$page_title = $page_title ?? $seo['title'];
+$page_description = $page_description ?? $seo['description'];
+$canonical_url = $canonical_url ?? $seo['canonical'];
+$og_type = $og_type ?? $seo['og_type'];
+$default_share_image = base_url . 'assets/images/logo/favicon-logo.jpg';
+$page_image = $page_image ?? $default_share_image;
+if (!preg_match('#^https?://#i', $page_image)) {
+  $page_image = rtrim(base_url, '/') . '/' . ltrim($page_image, '/');
+}
+if (!isset($page_breadcrumbs) && $seo['slug'] !== '') {
+  $page_breadcrumbs = [
+    ['name' => 'Home', 'url' => base_url],
+    ['name' => ($seo['label'] !== '' ? $seo['label'] : $page_title), 'url' => $canonical_url],
+  ];
+}
+$robots_content = $is_staging ? 'noindex, nofollow' : ($robots ?? '');
+$org_address = [
+  '@type' => 'PostalAddress',
+  'streetAddress' => 'Warsak Road, Sher Ali Town',
+  'addressLocality' => 'Peshawar',
+  'addressRegion' => 'Khyber Pakhtunkhwa',
+  'postalCode' => '25000',
+  'addressCountry' => 'PK',
+];
+$ld_graph = [
+  [
+    '@type' => ['CollegeOrUniversity', 'MedicalOrganization'],
+    '@id' => rtrim(base_url, '/') . '/#organization',
+    'name' => 'Peshawar Medical College',
+    'alternateName' => 'Department of Medical Sciences, Riphah Peshawar Campus',
+    'url' => base_url,
+    'logo' => $default_share_image,
+    'telephone' => '+92-91-5202191',
+    'email' => 'info@riphahpsh.edu.pk',
+    'address' => $org_address,
+    'parentOrganization' => [
+      '@type' => 'CollegeOrUniversity',
+      'name' => 'Riphah International University – Peshawar Campus',
+      'url' => defined('hub_base') ? hub_base : 'https://riphahpsh.edu.pk/',
+    ],
+    'sameAs' => ['https://www.facebook.com/share/17Mw2CuEkD/'],
+  ],
+  [
+    '@type' => 'WebSite',
+    '@id' => rtrim(base_url, '/') . '/#website',
+    'name' => 'Peshawar Medical College',
+    'url' => base_url,
+    'publisher' => ['@id' => rtrim(base_url, '/') . '/#organization'],
+  ],
+];
+if (!empty($page_breadcrumbs) && is_array($page_breadcrumbs)) {
+  $crumb_items = [];
+  foreach ($page_breadcrumbs as $i => $crumb) {
+    $crumb_items[] = [
+      '@type' => 'ListItem',
+      'position' => $i + 1,
+      'name' => $crumb['name'],
+      'item' => $crumb['url'],
+    ];
+  }
+  $ld_graph[] = ['@type' => 'BreadcrumbList', 'itemListElement' => $crumb_items];
+}
+if (($seo['schema'] ?? null) === 'Course') {
+  $ld_graph[] = [
+    '@type' => 'Course',
+    'name' => $seo['course_name'] ?? 'MBBS',
+    'description' => $page_description,
+    'provider' => ['@id' => rtrim(base_url, '/') . '/#organization'],
+    'hasCourseInstance' => [
+      '@type' => 'CourseInstance',
+      'courseMode' => 'Onsite',
+      'location' => [
+        '@type' => 'Place',
+        'name' => 'Peshawar Medical College',
+        'address' => $org_address,
+      ],
+    ],
+  ];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,15 +109,40 @@ $page_description = $page_description ?? 'Department of Medical Sciences, Riphah
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?= htmlspecialchars($page_title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($page_description) ?>" />
+  <link rel="canonical" href="<?= htmlspecialchars($canonical_url) ?>" />
+  <?php if ($robots_content !== ''): ?>
+  <meta name="robots" content="<?= htmlspecialchars($robots_content) ?>" />
+  <?php endif; ?>
+  <?php if (GOOGLE_SITE_VERIFICATION !== ''): ?>
+  <meta name="google-site-verification" content="<?= htmlspecialchars(GOOGLE_SITE_VERIFICATION) ?>" />
+  <?php endif; ?>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo/favicon-logo.jpg" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/images/logo/favicon-logo.jpg">
-  
+
+  <meta property="og:type" content="<?= htmlspecialchars($og_type) ?>">
+  <meta property="og:site_name" content="Peshawar Medical College">
+  <meta property="og:locale" content="en_PK">
   <meta property="og:title" content="<?= htmlspecialchars($page_title) ?>">
   <meta property="og:description" content="<?= htmlspecialchars($page_description) ?>">
-  <meta property="og:image" content="<?= htmlspecialchars(base_url) ?>assets/images/logo/favicon-logo.jpg">
-  <meta property="og:url" content="<?= htmlspecialchars(base_url) ?>">
+  <meta property="og:image" content="<?= htmlspecialchars($page_image) ?>">
+  <meta property="og:url" content="<?= htmlspecialchars($canonical_url) ?>">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<?= htmlspecialchars($page_title) ?>">
+  <meta name="twitter:description" content="<?= htmlspecialchars($page_description) ?>">
+  <meta name="twitter:image" content="<?= htmlspecialchars($page_image) ?>">
+
+  <script type="application/ld+json"><?= seo_json_ld($ld_graph) ?></script>
+
+  <?php if (!$is_staging): ?>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E9LT8GJ4Y9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E9LT8GJ4Y9');
+  </script>
+  <?php endif; ?>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

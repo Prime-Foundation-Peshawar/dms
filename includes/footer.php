@@ -70,9 +70,10 @@
   </div>
   <div class="container">
     <div class="footer-bot">
-      <span>&copy; 2026 Riphah International University - Peshawar Campus &middot; All Rights Reserved.</span>
-      <!-- <div class="d-flex gap-3 flex-wrap justify-content-center">
-      </div> -->
+      <span>&copy; <?= date('Y') ?> Riphah International University - Peshawar Campus &middot; All Rights Reserved.</span>
+      <div class="d-flex gap-3 flex-wrap justify-content-center">
+        <a href="sitemap-page">Sitemap</a>
+      </div>
     </div>
   </div>
 </footer>

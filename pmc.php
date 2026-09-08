@@ -37,7 +37,7 @@
             <span class="sec-eyebrow">College Profile</span>
             <h2 class="sec-title" style="font-size:1.75rem;">Peshawar Medical College</h2>
             <p class="about-lead">
-              The undergraduate medical college of the <strong>Department of Medical Sciences</strong> — delivering the MBBS programme with ethics-centred teaching and hospital-based clinical training.
+              The undergraduate medical college of the <strong>Department of Medical Sciences</strong> — delivering the MBBS programme with ethics-centred teaching and hospital-based clinical training. Peshawar Medical College is a leading medical college in Peshawar and among the top private medical colleges in Khyber Pakhtunkhwa and Pakistan — PM&amp;DC recognized, first among private medical colleges of KP in the 2024 inspection.
             </p>
             <p>
               PMC prepares graduates for professional practice, ethical leadership, and research-minded care, with learning that stays close to the community health needs of KP and Pakistan.
