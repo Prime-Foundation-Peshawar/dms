@@ -58,6 +58,10 @@ cgi-bin/
 .softaculous/
 .cagefs/
 
+# 4K source + extract frames (web uses compressed pmc-hero-720/480)
+/assets/videos/pmc-hero-source.mp4
+/assets/videos/frames/
+
 # Local tooling
 .cursor/
 .claude/
