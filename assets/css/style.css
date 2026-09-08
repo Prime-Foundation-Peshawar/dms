@@ -458,11 +458,11 @@
     }
     .ct-bg-1 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/pmc-building.jpg'); background-size: cover; background-position: center; }
     .ct-bg-2 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/library.jpg'); background-size: cover; background-position: center; }
-    .ct-bg-3 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/gym.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-3 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/gym-pmc.png'); background-size: cover; background-position: center; }
     .ct-bg-4 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/cafe.jpg'); background-size: cover; background-position: center; }
-    .ct-bg-5 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/hostel.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-5 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/girls-hostel.png'); background-size: cover; background-position: center; }
     .ct-bg-6 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/masjid.jpg'); background-size: cover; background-position: center; }
-    .ct-bg-7 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/transport.jpg'); background-size: cover; background-position: center; }
+    .ct-bg-7 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/pmc-transport.jpg'); background-size: cover; background-position: center; }
     .ct-bg-8 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/daycare.jpg'); background-size: cover; background-position: center; }
     .ct-bg-9 { background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../images/campus/first-aid.webp'); background-size: cover; background-position: center; }
     .ct-ico { font-size: 1.7rem; color: rgba(255,255,255,.85); }

@@ -174,7 +174,7 @@ include('includes/header.php');
               <div class="pg-staff-card">
                 <h4>Anatomy</h4>
                 <ul class="pg-staff-list">
-                  <li><?= faculty_profile_link_html('Dr. Nouman Wazir', 'PhD') ?></li>
+                  <li><?= faculty_profile_link_html('Dr. Nouman Ullah Wazir', 'PhD') ?></li>
                   <li><?= faculty_profile_link_html('Dr. Farooq Khan', 'PhD') ?></li>
                 </ul>
               </div>
