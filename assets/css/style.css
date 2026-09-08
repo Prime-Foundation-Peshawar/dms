@@ -127,6 +127,69 @@
       pointer-events: none;
     }
 
+    /* ── Cinematic hero video ── */
+    .slide-bg-hero { background-color: #0B1F33; }
+    .slide-media.has-video,
+    .hero-cinematic .hero-slide.active .slide-media.has-video {
+      transform: none !important;
+      transition: none;
+    }
+    .hero-poster,
+    .hero-poster img,
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+    }
+    .hero-poster { z-index: 0; display: block; }
+    .hero-video {
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .hero-cinematic.is-video-ready .hero-video { opacity: 1; }
+    .slide-overlay-film {
+      background:
+        linear-gradient(108deg, rgba(11,31,51,.92) 0%, rgba(11,31,51,.72) 34%, rgba(11,31,51,.34) 64%, rgba(11,31,51,.5) 100%),
+        linear-gradient(to top, rgba(11,31,51,.68) 0%, transparent 48%);
+    }
+    .hero-video-toggle {
+      position: absolute;
+      right: clamp(72px, 8vw, 104px);
+      bottom: 28px;
+      z-index: 12;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(11,31,51,.42);
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .hero-cinematic.is-video-ready .hero-video-toggle { display: flex; }
+    .hero-video-toggle:hover {
+      background: rgba(21,95,122,.55);
+      border-color: rgba(21,95,122,.7);
+      transform: scale(1.05);
+    }
+    .hero-video-toggle:active { transform: scale(.97); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video { display: none !important; }
+      .hero-video-toggle { display: none !important; }
+    }
+    @media (max-width: 575.98px) {
+      .hero-video-toggle { bottom: 16px; right: 16px; }
+    }
+
     .slide-inner {
       position: relative;
       z-index: 2;

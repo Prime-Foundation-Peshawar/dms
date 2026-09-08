@@ -1,15 +1,29 @@
 <?php
-$preload_images = ['assets/images/slider/hero-slide-1.webp'];
+$preload_images = ['assets/images/slider/pmc-hero-poster.webp'];
 include('includes/header.php');
 ?>
 
-<!-- ═══ HERO SLIDER ═══ -->
-<div id="heroSlider" aria-roledescription="carousel" aria-label="Department of Medical Sciences highlights">
-
-  <!-- SLIDE 1 — MBBS / Peshawar Medical College -->
-  <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 2">
-    <div class="slide-media slide-bg-3"></div>
-    <div class="slide-overlay"></div>
+<!-- ═══ HERO — cinematic campus film ═══ -->
+<div id="heroSlider" class="hero-cinematic" aria-label="Peshawar Medical College campus film">
+  <div class="hero-slide active">
+    <div class="slide-media slide-bg-hero has-video">
+      <picture class="hero-poster">
+        <source srcset="assets/images/slider/pmc-hero-poster.webp" type="image/webp">
+        <img src="assets/images/slider/pmc-hero-poster.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+      </picture>
+      <video
+        class="hero-video"
+        muted
+        playsinline
+        loop
+        preload="none"
+        disablepictureinpicture
+        aria-hidden="true"
+        data-src-720="assets/videos/pmc-hero-720.mp4"
+        data-src-480="assets/videos/pmc-hero-480.mp4"
+      ></video>
+    </div>
+    <div class="slide-overlay slide-overlay-film"></div>
     <div class="container slide-inner">
       <div class="slide-content">
         <p class="slide-brand">Department of Medical Sciences</p>
@@ -22,58 +36,9 @@ include('includes/header.php');
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- SLIDE 2 — Clinical training & departments -->
-  <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 2" data-lazy-bg>
-    <div class="slide-media slide-bg-4"></div>
-    <div class="slide-overlay"></div>
-    <div class="container slide-inner">
-      <div class="row align-items-center g-4 g-xl-5">
-        <div class="col-lg-6">
-          <div class="slide-content">
-            <p class="slide-brand">Clinical Training</p>
-            <h1 class="slide-title">Learn Where <span class="hl">Care</span> Happens</h1>
-            <p class="slide-body">From basic sciences to clinical specialties — train across affiliated teaching hospitals and academic departments with real patients, supervised practice, and research-minded mentors.</p>
-            <div class="slide-actions">
-              <a href="departments.php" class="btn-pmc btn-pmc-primary">Academic Departments</a>
-              <a href="#hospitals" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-hospital"></i> Teaching Hospitals</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 d-none d-lg-block">
-          <div class="slide-facilities" aria-label="Clinical training strengths">
-            <div class="sf-title">Where You Train</div>
-            <div class="sf-grid">
-              <div class="sf-item"><i class="bi bi-hospital"></i><span>Kuwait Teaching Hospital</span></div>
-              <div class="sf-item"><i class="bi bi-heart-pulse"></i><span>Mercy Teaching Hospital</span></div>
-              <div class="sf-item"><i class="bi bi-building"></i><span>Prime Teaching Hospital</span></div>
-              <div class="sf-item"><i class="bi bi-diagram-3"></i><span>Academic Departments</span></div>
-              <div class="sf-item"><i class="bi bi-clipboard2-pulse"></i><span>Skills Laboratories</span></div>
-              <div class="sf-item"><i class="bi bi-people"></i><span>Expert Faculty</span></div>
-              <div class="sf-item"><i class="bi bi-journal-medical"></i><span>PG Medical Education</span></div>
-              <div class="sf-item"><i class="bi bi-search"></i><span>Research Culture</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <div class="slider-chrome">
-    <button class="slider-prev" type="button" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
-    <div class="slider-indicators" role="tablist" aria-label="Slides">
-      <button class="slider-dot active" type="button" data-slide="0" role="tab" aria-label="Peshawar Medical College" aria-selected="true">
-        <span class="slider-dot-track"><span class="slider-dot-bar"></span></span>
-        <span class="slider-dot-label">MBBS</span>
-      </button>
-      <button class="slider-dot" type="button" data-slide="1" role="tab" aria-label="Clinical Training" aria-selected="false">
-        <span class="slider-dot-track"><span class="slider-dot-bar"></span></span>
-        <span class="slider-dot-label">Clinical</span>
-      </button>
-    </div>
-    <button class="slider-next" type="button" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
+    <button type="button" class="hero-video-toggle" aria-label="Pause campus film" hidden>
+      <i class="bi bi-pause-fill"></i>
+    </button>
   </div>
 </div>
 

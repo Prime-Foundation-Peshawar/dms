@@ -161,17 +161,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+/* ══ HERO VIDEO — poster first, then adaptive MP4 ══ */
+function initHeroVideo(root) {
+  const video = root.querySelector('.hero-video');
+  if (!video) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = !!(conn && conn.saveData);
+  const slow = !!(conn && /^(slow-2g|2g)$/i.test(conn.effectiveType || ''));
+  if (reduced || saveData || slow) return;
+
+  const useLight = window.matchMedia('(max-width: 767.98px)').matches
+    || !!(conn && conn.effectiveType === '3g');
+  const src = useLight
+    ? video.getAttribute('data-src-480')
+    : video.getAttribute('data-src-720');
+  if (!src) return;
+
+  const toggle = root.querySelector('.hero-video-toggle');
+  let userPaused = false;
+  const setToggle = (playing) => {
+    if (!toggle) return;
+    toggle.hidden = false;
+    toggle.setAttribute('aria-label', playing ? 'Pause campus film' : 'Play campus film');
+    toggle.innerHTML = playing
+      ? '<i class="bi bi-pause-fill"></i>'
+      : '<i class="bi bi-play-fill"></i>';
+  };
+  const bindToggle = () => {
+    if (!toggle || toggle.dataset.bound === '1') return;
+    toggle.dataset.bound = '1';
+    toggle.addEventListener('click', () => {
+      if (video.paused) {
+        userPaused = false;
+        video.play().catch(() => {});
+      } else {
+        userPaused = true;
+        video.pause();
+      }
+    });
+    video.addEventListener('play', () => setToggle(true));
+    video.addEventListener('pause', () => setToggle(false));
+    setToggle(!video.paused);
+  };
+
+  const start = () => {
+    if (video.dataset.bound === '1') return;
+    video.dataset.bound = '1';
+    video.src = src;
+    video.addEventListener('canplay', () => {
+      root.classList.add('is-video-ready');
+      if (!userPaused) video.play().catch(() => {});
+      bindToggle();
+    }, { once: true });
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!video.getAttribute('src')) return;
+          if (entry.isIntersecting && !userPaused) video.play().catch(() => {});
+          else video.pause();
+        });
+      }, { threshold: 0.15 });
+      io.observe(root);
+    }
+  };
+
+  const kickoff = () => start();
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(kickoff, { timeout: 900 });
+  }
+  setTimeout(kickoff, 450);
+}
+
 /* ══ SLIDER ENGINE ══ */
 function initSlider() {
   const slider = document.getElementById('heroSlider');
   if (!slider) return;
+
+  initHeroVideo(slider);
 
   const slides = slider.querySelectorAll('.hero-slide');
   const dots   = slider.querySelectorAll('.slider-dot');
   const prevBtn = slider.querySelector('.slider-prev');
   const nextBtn = slider.querySelector('.slider-next');
 
-  if (!slides.length) return;
+  if (slides.length < 2) return;
 
   let current = 0;
   let autoTimer = null;
