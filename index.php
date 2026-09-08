@@ -173,7 +173,7 @@ include('includes/header.php');
     <div class="home-sec-head text-center fu">
       <span class="sec-eyebrow">Why PMC</span>
       <h2 class="sec-title">Why Choose Peshawar Medical College</h2>
-      <p class="sec-desc">Clinical depth, ethical formation, and recognised standards — built around the health needs of KP and Pakistan.</p>
+      <p class="sec-desc">Looking for the best medical college in Peshawar or a top private medical college in Pakistan? Peshawar Medical College is PM&amp;DC recognized, ranked first among private medical colleges of KP in the 2024 inspection, and trains MBBS doctors for KP and Pakistan.</p>
     </div>
     <div class="row g-4">
       <div class="col-md-6 col-lg-3 fu fu-delay-1">
