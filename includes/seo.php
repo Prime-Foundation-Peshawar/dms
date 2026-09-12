@@ -6,7 +6,7 @@ if (!defined('SEO_ORG_NAME')) {
   define('SEO_ORG_NAME', 'Peshawar Medical College');
 }
 if (!defined('SEO_DEFAULT_TITLE')) {
-  define('SEO_DEFAULT_TITLE', 'Best Medical College in Peshawar | Peshawar Medical College');
+  define('SEO_DEFAULT_TITLE', 'Peshawar Medical College | MBBS in Peshawar');
 }
 if (!defined('SEO_DEFAULT_DESCRIPTION')) {
   define('SEO_DEFAULT_DESCRIPTION', 'Peshawar Medical College — a top PM&DC recognized medical college in Peshawar and KP. MBBS and postgraduate programmes at Riphah Peshawar Campus, Warsak Road.');

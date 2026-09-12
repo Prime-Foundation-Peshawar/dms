@@ -3,7 +3,7 @@ return [
   '' => [
     'label' => 'Home',
     'section' => 'College',
-    'title' => 'Best Medical College in Peshawar | PMC — MBBS',
+    'title' => 'Peshawar Medical College | PMC — MBBS in Peshawar',
     'description' => 'PMC Peshawar: a top private medical college in Peshawar and KP. PM&DC recognized MBBS, #1 private in KP (2024). Teaching hospitals, KMU admissions, Warsak Road.',
     'priority' => '1.0',
     'changefreq' => 'weekly',
@@ -63,7 +63,7 @@ return [
   'faculty' => [
     'label' => 'Faculty',
     'section' => 'College',
-    'title' => 'Faculty | Best Medical Teachers in Peshawar — PMC',
+    'title' => 'Faculty | Peshawar Medical College',
     'description' => 'Meet PM&DC registered faculty at Peshawar Medical College, a leading medical college in Peshawar for MBBS and postgraduate teaching.',
     'priority' => '0.7',
     'changefreq' => 'monthly',
