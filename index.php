@@ -359,9 +359,9 @@ include('includes/header.php');
               <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Aug 2026</span>
             </div>
             <h3 class="nc-title">Positions Vacant</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>17 Aug 2026</strong></p>
+            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>30 Sep 2026</strong></p>
             <div class="nc-actions">
-              <a target="_blank" href="assets/images/news/career-ad.jpg" class="nc-btn nc-btn-primary">View advertisement <i class="bi bi-arrow-right"></i></a>
+              <a target="_blank" href="https://careers.prime.edu.pk/public/uploads/jobs/1789971570_2dbc46f772d7adefd3f6.jpeg" class="nc-btn nc-btn-primary">View advertisement <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
