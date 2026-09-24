@@ -393,12 +393,12 @@ include('includes/header.php');
         <h2 class="sec-title">Latest from Campus</h2>
         <p class="sec-desc mb-0">Campus notices, research activity, and student life highlights.</p>
       </div>
-      <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
+      <!-- <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
         <a href="events.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
-      </div>
+      </div> -->
     </div>
     <div class="row g-4">
-      <div class="col-lg-4 col-md-6 fu fu-delay-1">
+      <!-- <div class="col-lg-4 col-md-6 fu fu-delay-1">
         <article class="news-card news-card-text news-card--campus">
           <div class="nc-body">
             <div class="nc-meta">
@@ -412,18 +412,18 @@ include('includes/header.php');
             </div>
           </div>
         </article>
-      </div>
+      </div> -->
       <div class="col-lg-4 col-md-6 fu fu-delay-2">
         <article class="news-card news-card-text news-card--campus">
           <div class="nc-body">
             <div class="nc-meta">
               <span class="nc-cat nc-cat-news">Research</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Apr 2025</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Apr 2026</span>
             </div>
-            <h3 class="nc-title">UMR Society Annual Research Conference</h3>
-            <p class="nc-excerpt">Undergraduate research presentations and scholarly activity from across campus programmes.</p>
+            <h3 class="nc-title">19th UMR Research Conference</h3>
+            <p class="nc-excerpt">Charting the Cosmos of Knowledge: from Research to Reality</p>
             <div class="nc-actions">
-              <a href="events.php" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="https://umr.prime.edu.pk/conference/19th-umr/" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
@@ -433,12 +433,12 @@ include('includes/header.php');
           <div class="nc-body">
             <div class="nc-meta">
               <span class="nc-cat nc-cat-news">Campus Life</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> 2026</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i>Nov 2025</span>
             </div>
-            <h3 class="nc-title">Student Societies &amp; Campus Activities</h3>
-            <p class="nc-excerpt">Societies, sports, literature, and community service initiatives on Warsak Road campus.</p>
+            <h3 class="nc-title">Sports Society</h3>
+            <p class="nc-excerpt">It provides opportunities to participate in various indoor and outdoor sports.</p>
             <div class="nc-actions">
-              <a href="events.php" class="nc-btn nc-btn-primary">View notices <i class="bi bi-arrow-right"></i></a>
+              <a href="https://riphahpsh.edu.pk/sports-society" class="nc-btn nc-btn-primary">Read More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
