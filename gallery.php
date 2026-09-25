@@ -298,7 +298,7 @@
     <div class="row mb-5">
       <div class="col-lg-7">
         <span class="sec-eyebrow">Visual Journey</span>
-        <h2 class="sec-title">Life at Peshawar Medical College</h2>
+        <h2 class="sec-title">Life at Campus</h2>
         <p class="sec-desc">Explore our campus, events, clinical training, research activities, student societies, and memorable moments captured across our 20+ year journey.</p>
       </div>
     </div>
@@ -311,13 +311,16 @@
       <button class="gf-btn" data-filter="campus">
         <i class="bi bi-buildings me-1"></i> Campus
       </button>
-      <button class="gf-btn" data-filter="events">
+      <button class="gf-btn" data-filter="facilities">
+        <i class="bi bi-buildings me-1"></i> Facilities
+      </button>
+      <!-- <button class="gf-btn" data-filter="events">
         <i class="bi bi-calendar-event me-1"></i> Events
       </button>
       <button class="gf-btn" data-filter="clinical">
         <i class="bi bi-hospital me-1"></i> Clinical Training
-      </button>
-      <button class="gf-btn" data-filter="research">
+      </button> -->
+      <!-- <button class="gf-btn" data-filter="research">
         <i class="bi bi-flask me-1"></i> Research
       </button>
       <button class="gf-btn" data-filter="societies">
@@ -325,7 +328,7 @@
       </button>
       <button class="gf-btn" data-filter="convocation">
         <i class="bi bi-mortarboard me-1"></i> Convocation
-      </button>
+      </button> -->
     </div>
 
     <!--
@@ -338,8 +341,8 @@
       <div class="album-heading">
         <div class="album-heading-icon"><i class="bi bi-buildings"></i></div>
         <div>
-          <div class="album-title">PMC Campus &amp; Facilities</div>
-          <span class="album-count">9 Photos</span>
+          <div class="album-title">PMC Campus</div>
+          <span class="album-count">3 Photos</span>
         </div>
         <div class="ms-auto">
           <button class="gf-btn" style="font-size:.72rem;padding:6px 14px;"
@@ -371,36 +374,36 @@
 
         <!-- Item 2 -->
         <div class="gallery-item fu" data-category="campus"
-             data-title="Library & Learning Resource Centre"
-             data-caption="Modern library with thousands of medical books and journals"
-             data-img="assets/images/campus/library.jpg"
+             data-title="Department of Medical Sciences (DMS)"
+             data-caption="Modern Architecture"
+             data-img="assets/images/campus/pmc-building.jpg"
              onclick="openLightbox(this)">
-          <img src="assets/images/campus/library.jpg"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Library','bi-book-half')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Library"/>
+          <img src="assets/images/campus/pmc-building.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Campus','bi-book-half')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Campus"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Library &amp; LRC</div></div>
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Campus</div></div>
           </div>
         </div>
 
         <!-- Item 3 -->
         <div class="gallery-item fu" data-category="campus"
-             data-title="Sports & Gymnasium"
-             data-caption="State-of-the-art sports and gym facilities"
-             data-img="assets/images/campus/gym.jpg"
+             data-title="Department of Medical Sciences (DMS)"
+             data-caption="Department of Medical Sciences (DMS)"
+             data-img="assets/images/campus/pmc-building2.jpg"
              onclick="openLightbox(this)">
-          <img src="assets/images/campus/gym.jpg"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Sports & Gym','bi-trophy')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Sports Gym"/>
+          <img src="assets/images/campus/pmc-building2.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Department of Medical Sciences (DMS)','bi-trophy')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Department of Medical Sciences (DMS)"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Sports &amp; Gymnasium</div></div>
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Administrative Block</div></div>
           </div>
         </div>
 
         <!-- Item 4 -->
-        <div class="gallery-item fu" data-category="campus"
+        <!-- <div class="gallery-item fu" data-category="campus"
              data-title="Cafeteria"
              data-caption="Well-equipped cafeteria serving students and staff"
              data-img="assets/images/campus/cafe.jpg"
@@ -412,10 +415,10 @@
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Cafeteria</div></div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Item 5 -->
-        <div class="gallery-item fu" data-category="campus"
+        <!-- <div class="gallery-item fu" data-category="campus"
              data-title="Girls Hostel"
              data-caption="On-campus accommodation for female students"
              data-img="assets/images/campus/hostel.jpg"
@@ -427,10 +430,10 @@
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Girls Hostel</div></div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Item 6 -->
-        <div class="gallery-item fu" data-category="campus"
+        <!-- <div class="gallery-item fu" data-category="campus"
              data-title="College Masjid"
              data-caption="The beautiful mosque at the heart of our campus"
              data-img="assets/images/campus/mosque.jpg"
@@ -442,10 +445,10 @@
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">College Masjid</div></div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Item 7 -->
-        <div class="gallery-item fu" data-category="campus"
+        <!-- <div class="gallery-item fu" data-category="campus"
              data-title="Faculty Block"
              data-caption="Administrative and faculty offices"
              data-img="assets/images/campus/pmc-faculty.jpg"
@@ -457,85 +460,113 @@
           <div class="gallery-overlay">
             <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Faculty Block</div></div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <!--
-    ALBUM 2 — EVENTS
+    ALBUM 2 — Facilities
     -->
-    <div class="album-section mb-5" data-category="events">
+    <div class="album-section mb-5" data-category="facilities">
       <div class="album-heading">
         <div class="album-heading-icon"><i class="bi bi-calendar-event"></i></div>
         <div>
-          <div class="album-title">Events &amp; Ceremonies</div>
-          <span class="album-count">6 Photos</span>
+          <div class="album-title">Facilities</div>
+          <span class="album-count">8 Photos</span>
         </div>
-        <div class="ms-auto">
+        <!-- <div class="ms-auto">
           <a href="events.php" class="gf-btn" style="font-size:.72rem;padding:6px 14px;text-decoration:none;">
             <i class="bi bi-calendar3 me-1"></i> View All Events
           </a>
-        </div>
+        </div> -->
       </div>
 
-      <div class="gallery-grid" id="grid-events">
-        <div class="gallery-item span-2 fu" data-category="events"
-             data-title="Annual Convocation 2024"
-             data-caption="Graduating class of 2024 receiving their degrees"
-             data-img="assets/images/news/news1.jpg"
+      <div class="gallery-grid" id="grid-facilities">
+        <div class="gallery-item span-2 fu" data-category="facilities"
+             data-title="Girls Hostel"
+             data-caption="Girls Hostel"
+             data-img="assets/images/campus/girls-hostel.png"
              onclick="openLightbox(this)">
-          <img src="assets/images/news/news1.jpg"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Convocation 2024','bi-mortarboard')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Convocation"/>
+          <img src="assets/images/campus/girls-hostel.png"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Hostel','bi-mortarboard')"
+               class="gallery-img" loading="lazy" decoding="async" alt="hostel"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">Annual Convocation 2024</div></div>
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Girls Hostel</div></div>
           </div>
         </div>
 
-        <div class="gallery-item fu" data-category="events"
-             data-title="UMR Annual Research Conference 2025"
-             data-caption="Students presenting research papers at the annual UMR conference"
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Sports & Gym"
+             data-caption="Sports & Gym"
              data-img="assets/images/news/news3.jpg"
              onclick="openLightbox(this)">
           <img src="assets/images/news/news3.jpg"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('UMR Conference','bi-flask')"
-               class="gallery-img" loading="lazy" decoding="async" alt="UMR Conference"/>
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Sports & Gym','bi-flask')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Sports & Gym"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">UMR Conference 2025</div></div>
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Sports & Gym</div></div>
           </div>
         </div>
 
-        <div class="gallery-item fu" data-category="events"
-             data-title="White Coat Ceremony"
-             data-caption="1st year students receiving their white coats"
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Library & LRC"
+             data-caption="Library & LRC"
              data-img="assets/images/news/pmc.jpg"
              onclick="openLightbox(this)">
           <img src="assets/images/news/pmc.jpg"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('White Coat Ceremony','bi-heart-pulse')"
-               class="gallery-img" loading="lazy" decoding="async" alt="White Coat Ceremony"/>
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Library & LRC','bi-heart-pulse')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Library & LRC"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">White Coat Ceremony</div></div>
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Library & LRC</div></div>
           </div>
         </div>
 
-        <div class="gallery-item fu" data-category="events"
-             data-title="Annual Sports Gala 2025"
-             data-caption="Students competing in the annual sports festival"
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Cafeteria"
+             data-caption="Cafeteria"
              data-img="assets/images/campus/pmc.jpg"
              onclick="openLightbox(this)">
           <img src="assets/images/campus/pmc.jpg"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Sports Gala','bi-trophy')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Sports Gala"/>
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Cafeteria','bi-trophy')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Cafeteriaa"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">Annual Sports Gala 2025</div></div>
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Cafeteria</div></div>
           </div>
         </div>
 
-        <div class="gallery-item span-2 fu" data-category="events"
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Masjid"
+             data-caption="Masjid"
+             data-img="assets/images/campus/library.jpg"
+             onclick="openLightbox(this)">
+          <img src="assets/images/campus/library.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Masjid','bi-droplet-half')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Masjid"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Masjid</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item span-2 fu" data-category="facilities"
+             data-title="Transportation"
+             data-caption="Social Welfare Society blood donation campaign"
+             data-img="assets/images/campus/library.jpg"
+             onclick="openLightbox(this)">
+          <img src="assets/images/campus/library.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Blood Donation Drive','bi-droplet-half')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Blood Donation"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Transportation</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="facilities"
              data-title="Blood Donation Drive — SWS"
              data-caption="Social Welfare Society blood donation campaign"
              data-img="assets/images/campus/library.jpg"
@@ -545,16 +576,31 @@
                class="gallery-img" loading="lazy" decoding="async" alt="Blood Donation"/>
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Events</div><div class="gallery-overlay-text">Blood Donation Drive — SWS</div></div>
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Day Care Center</div></div>
           </div>
         </div>
+
+        <div class="gallery-item span-2 fu" data-category="facilities"
+             data-title="Counseling & Aid"
+             data-caption="Counseling & Aid"
+             data-img="assets/images/campus/library.jpg"
+             onclick="openLightbox(this)">
+          <img src="assets/images/campus/library.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder('Counseling & Aid','bi-droplet-half')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Counseling & Aid"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Counseling & Aid</div></div>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <!--
     ALBUM 3 — CLINICAL TRAINING
     -->
-    <div class="album-section mb-5" data-category="clinical">
+    <!-- <div class="album-section mb-5" data-category="clinical">
       <div class="album-heading">
         <div class="album-heading-icon"><i class="bi bi-hospital"></i></div>
         <div>
@@ -620,14 +666,14 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Load More -->
-    <div class="text-center mt-4" id="loadMoreWrap">
+    <!-- <div class="text-center mt-4" id="loadMoreWrap">
       <button class="btn-pmc btn-pmc-outline" id="loadMoreBtn" onclick="loadMore()">
         <i class="bi bi-arrow-down-circle"></i> Load More Photos
       </button>
-    </div>
+    </div> -->
 
   </div>
 </section>
