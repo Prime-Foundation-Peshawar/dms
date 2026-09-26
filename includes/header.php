@@ -326,12 +326,12 @@ if (($seo['schema'] ?? null) === 'Course') {
                   </div>
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-flask"></i> Research</div>
-                    <a class="mega-link" href="https://umr.prime.edu.pk/" target="_blank"><i
+                    <a class="mega-link" href="https://umr.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-search"></i>Undergraduate Medical Research (UMR)</a>
                     <a class="mega-link" href="https://sws.prime.edu.pk/"><i class="bi bi-file-earmark-text"></i>Students
                       Research</a>
                     <a class="mega-link" href="faculty-research.php"><i class="bi bi-people"></i>Faculty Research</a>
-                    <a class="mega-link" href="https://oric.prime.edu.pk/" target="_blank"><i
+                    <a class="mega-link" href="https://oric.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-lightbulb"></i>ORIC</a>
                     <a class="mega-link" href="https://riphahpsh.edu.pk/pubedu"><i
                         class="bi bi-journal-bookmark"></i>Educational Literature</a>
@@ -348,7 +348,7 @@ if (($seo['schema'] ?? null) === 'Course') {
                       <p>Department of Medical Sciences - Riphah International University (Peshawar Campus) students
                         publish research papers and present at national & international conferences —
                         supported by the college.</p>
-                      <a class="mf-link" href="https://umr.prime.edu.pk/" target="_blank">Explore UMR <i
+                      <a class="mf-link" href="https://umr.riphahpsh.edu.pk/" target="_blank">Explore UMR <i
                           class="bi bi-arrow-right"></i></a>
                     </div>
                   </div> -->

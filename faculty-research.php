@@ -11,7 +11,7 @@ $active_nav       = 'faculty-research.php';
 $debug_mode = isset($_GET['debug']) && $_GET['debug'] === '1';
 
 // ── Fetch publication data from ORIC API ─────────────────
-$api_url = 'http://oric.prime.edu.pk/apis/getPublicationsInfo.php';
+$api_url = 'https://oric.riphahpsh.edu.pk/apis/getPublicationsInfo.php';
 
 $publications_by_dept = [];
 $fetch_error   = false;

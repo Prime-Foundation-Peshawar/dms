@@ -70,7 +70,7 @@
 </div>
 
 <!-- CTA -->
-<a href="https://umr.prime.edu.pk/" target="_blank" class="btn-pmc btn-pmc-primary mt-2">
+<a href="https://umr.riphahpsh.edu.pk/" target="_blank" class="btn-pmc btn-pmc-primary mt-2">
   <i class="bi bi-arrow-up-right-square"></i> Visit Official UMR Page
 </a>
 
