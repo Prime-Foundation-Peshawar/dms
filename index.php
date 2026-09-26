@@ -347,7 +347,7 @@ include('includes/header.php');
         <p class="sec-desc mb-0">Faculty and staff opportunities at Riphah International University – Peshawar Campus.</p>
       </div>
       <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
-        <a href="http://careers.prime.edu.pk" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-briefcase"></i> Career Portal</a>
+        <a href="https://careers.riphahpsh.edu.pk" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-briefcase"></i> Career Portal</a>
       </div>
     </div>
     <div class="row g-4">
@@ -361,7 +361,7 @@ include('includes/header.php');
             <h3 class="nc-title">Positions Vacant</h3>
             <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>30 Sep 2026</strong></p>
             <div class="nc-actions">
-              <a target="_blank" href="https://careers.prime.edu.pk/public/uploads/jobs/1789971570_2dbc46f772d7adefd3f6.jpeg" class="nc-btn nc-btn-primary">View advertisement <i class="bi bi-arrow-right"></i></a>
+              <a target="_blank" href="https://careers.riphahpsh.edu.pk/public/uploads/jobs/1789971570_2dbc46f772d7adefd3f6.jpeg" class="nc-btn nc-btn-primary">View advertisement <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
@@ -375,7 +375,7 @@ include('includes/header.php');
             <h3 class="nc-title">Explore Open Roles Online</h3>
             <p class="nc-excerpt">Browse current vacancies and submit applications through the official Career Portal.</p>
             <div class="nc-actions">
-              <a href="http://careers.prime.edu.pk" target="_blank" rel="noopener" class="nc-btn nc-btn-primary">Visit Career Portal <i class="bi bi-box-arrow-up-right"></i></a>
+              <a href="https://careers.riphahpsh.edu.pk" target="_blank" rel="noopener" class="nc-btn nc-btn-primary">Visit Career Portal <i class="bi bi-box-arrow-up-right"></i></a>
             </div>
           </div>
         </article>

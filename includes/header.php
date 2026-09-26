@@ -181,7 +181,7 @@ if (($seo['schema'] ?? null) === 'Course') {
           <a href="mailto:info@riphahpsh.edu.pk">info@riphahpsh.edu.pk</a>
         </div>
         <div class="d-flex align-items-center gap-3">
-          <a href="http://careers.prime.edu.pk" target="_blank"><i class="bi bi-briefcase me-1"></i>Career Portal</a>
+          <a href="https://careers.riphahpsh.edu.pk" target="_blank"><i class="bi bi-briefcase me-1"></i>Career Portal</a>
           <a href="https://ses.prime.edu.pk" target="_blank"><i class="bi bi-laptop me-1"></i>LMS</a>
         </div>
       </div>
