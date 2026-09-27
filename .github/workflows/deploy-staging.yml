@@ -72,6 +72,7 @@ jobs:
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             find "$TARGET" -type d -exec chmod 755 {} \;
             find "$TARGET" -type f -exec chmod 644 {} \;
+            php "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             echo "---- recent error_log (if any) ----"
             tail -n 40 "$TARGET/error_log" 2>/dev/null || true

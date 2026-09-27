@@ -94,6 +94,7 @@ jobs:
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             find "$TARGET" -path "$TARGET/$OLD_DIR" -prune -o -type d -exec chmod 755 {} \;
             find "$TARGET" -path "$TARGET/$OLD_DIR" -prune -o -type f -exec chmod 644 {} \;
+            php "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             if [ -d "$TARGET/$OLD_DIR" ]; then
               echo "Archived old site at $TARGET/$OLD_DIR ($(find "$TARGET/$OLD_DIR" -type f | wc -l) files)"

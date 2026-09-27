@@ -42,6 +42,8 @@ Desktop.ini
 * copy.php
 *copy.php
 *.sql
+!db/changes/
+!db/changes/*.sql
 *.sql.gz
 *.zip
 *.tar
