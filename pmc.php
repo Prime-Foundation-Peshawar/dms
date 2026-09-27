@@ -162,17 +162,17 @@
               <p>Students rotate through affiliated teaching hospitals for real-world bedside experience.</p>
             </div>
             <div class="pmc-hosp-grid">
-              <a class="pmc-hosp-card" href="https://kth.prime.edu.pk/" target="_blank" rel="noopener">
+              <a class="pmc-hosp-card" href="https://kth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
                 <i class="bi bi-hospital"></i>
                 <strong>Kuwait Teaching Hospital</strong>
                 <span>Major tertiary care centre</span>
               </a>
-              <a class="pmc-hosp-card" href="https://mth.prime.edu.pk/" target="_blank" rel="noopener">
+              <a class="pmc-hosp-card" href="https://mth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
                 <i class="bi bi-heart-pulse"></i>
                 <strong>Mercy Teaching Hospital</strong>
                 <span>High-volume community care</span>
               </a>
-              <a class="pmc-hosp-card" href="https://pth.prime.edu.pk/" target="_blank" rel="noopener">
+              <a class="pmc-hosp-card" href="https://pth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
                 <i class="bi bi-building"></i>
                 <strong>Prime Teaching Hospital</strong>
                 <span>Modern clinical &amp; surgical training</span>

@@ -227,11 +227,11 @@ if (($seo['schema'] ?? null) === 'Course') {
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-hospital-fill"></i> College &amp; Hospitals</div>
                     <a class="mega-link" href="pmc.php"><i class="bi bi-award"></i>Peshawar Medical College</a>
-                    <a class="mega-link" href="https://kth.prime.edu.pk/" target="_blank"><i
+                    <a class="mega-link" href="https://kth.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-hospital"></i>Kuwait Teaching Hospital</a>
-                    <a class="mega-link" href="https://mth.prime.edu.pk/" target="_blank"><i
+                    <a class="mega-link" href="https://mth.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a>
-                    <a class="mega-link" href="https://pth.prime.edu.pk/" target="_blank"><i
+                    <a class="mega-link" href="https://pth.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-building"></i>Prime Teaching Hospital</a>
                   </div>
                   <div class="col-lg-4">

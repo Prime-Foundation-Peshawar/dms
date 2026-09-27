@@ -183,7 +183,7 @@ include('includes/header.php');
     </div>
     <div class="row g-4">
       <div class="col-lg-4 col-md-6 fu fu-delay-1">
-        <a class="hosp-card" href="https://kth.prime.edu.pk/" target="_blank" rel="noopener">
+        <a class="hosp-card" href="https://kth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
           <span class="hosp-code">KTH</span>
           <h3 class="hosp-name">Kuwait Teaching Hospital</h3>
           <p class="hosp-desc">Major tertiary care centre providing comprehensive clinical rotations across medical and surgical specialties.</p>
@@ -191,7 +191,7 @@ include('includes/header.php');
         </a>
       </div>
       <div class="col-lg-4 col-md-6 fu fu-delay-2">
-        <a class="hosp-card" href="https://mth.prime.edu.pk/" target="_blank" rel="noopener">
+        <a class="hosp-card" href="https://mth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
           <span class="hosp-code">MTH</span>
           <h3 class="hosp-name">Mercy Teaching Hospital</h3>
           <p class="hosp-desc">Focused on community healthcare with high patient volume — ideal for broad clinical experience.</p>
@@ -199,7 +199,7 @@ include('includes/header.php');
         </a>
       </div>
       <div class="col-lg-4 col-md-6 fu fu-delay-3">
-        <a class="hosp-card" href="https://pth.prime.edu.pk/" target="_blank" rel="noopener">
+        <a class="hosp-card" href="https://pth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
           <span class="hosp-code">PTH</span>
           <h3 class="hosp-name">Prime Teaching Hospital</h3>
           <p class="hosp-desc">Modern diagnostic and surgical facilities for intensive clinical and surgical training rotations.</p>
