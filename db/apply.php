@@ -77,7 +77,11 @@ function phpAssign($text, $patterns)
 {
     foreach ((array) $patterns as $pattern) {
         if (preg_match($pattern, $text, $m)) {
-            return $m[1];
+            $val = $m[1];
+            if ($val === '' || $val[0] === '$') {
+                continue;
+            }
+            return $val;
         }
     }
     return '';
@@ -98,16 +102,18 @@ function parsePhpConfig($text)
     $host = phpAssign($text, array(
         '/\$hostname_primeDb\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$hostname_conn\s*=\s*[\'"]([^\'"]*)[\'"]/',
+        '/\$hostname\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$hostname_\w+\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$db\s*\[\s*[\'"]default[\'"]\s*\]\s*\[\s*[\'"]hostname[\'"]\s*\]\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/[\'"]hostname[\'"]\s*=>\s*[\'"]([^\'"]*)[\'"]/',
         '/mysqli_connect\s*\(\s*[\'"]([^\'"]*)[\'"]/',
         '/new\s+mysqli\s*\(\s*[\'"]([^\'"]*)[\'"]/',
-        '/mysql:host=([^;\'"\s]+)/',
         '/\$host\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$servername\s*=\s*[\'"]([^\'"]*)[\'"]/',
+        '/mysql:host=([^;\'"\s]+)/',
     ));
     $user = phpAssign($text, array(
+        '/\$username\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$username_primeDb\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$username_conn\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$username_\w+\s*=\s*[\'"]([^\'"]*)[\'"]/',
@@ -121,6 +127,7 @@ function parsePhpConfig($text)
         '/\$user\s*=\s*[\'"]([^\'"]*)[\'"]/',
     ));
     $pass = phpAssign($text, array(
+        '/\$password\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$password_primeDb\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$password_conn\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$password_\w+\s*=\s*[\'"]([^\'"]*)[\'"]/',
@@ -135,15 +142,15 @@ function parsePhpConfig($text)
     $name = phpAssign($text, array(
         '/\$database_primeDb\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$database_conn\s*=\s*[\'"]([^\'"]*)[\'"]/',
+        '/\$database\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$database_\w+\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$db\s*\[\s*[\'"]default[\'"]\s*\]\s*\[\s*[\'"]database[\'"]\s*\]\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/[\'"]database[\'"]\s*=>\s*[\'"]([^\'"]*)[\'"]/',
         '/mysqli_connect\s*\(\s*[\'"][^\'"]*[\'"]\s*,\s*[\'"][^\'"]*[\'"]\s*,\s*[\'"][^\'"]*[\'"]\s*,\s*[\'"]([^\'"]*)[\'"]/',
         '/new\s+mysqli\s*\(\s*[\'"][^\'"]*[\'"]\s*,\s*[\'"][^\'"]*[\'"]\s*,\s*[\'"][^\'"]*[\'"]\s*,\s*[\'"]([^\'"]*)[\'"]/',
-        '/dbname=([^;\'"\s]+)/',
-        '/\$database\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$dbname\s*=\s*[\'"]([^\'"]*)[\'"]/',
         '/\$db_name\s*=\s*[\'"]([^\'"]*)[\'"]/',
+        '/dbname=([^;\'"\s]+)/',
     ));
     $port = phpAssign($text, array(
         '/\$db\s*\[\s*[\'"]default[\'"]\s*\]\s*\[\s*[\'"]port[\'"]\s*\]\s*=\s*[\'"]?([0-9]+)[\'"]?/',
@@ -215,7 +222,11 @@ foreach ($files as $path) {
 
 foreach ($groups as $target => $items) {
     list($host, $user, $pass, $name, $port) = readCreds($root, $target);
-    $mysqli = @new mysqli($host, $user, $pass, $name, (int) $port);
+    if ($host === 'localhost' || $host === '127.0.0.1' || $port === '' || $port === '0') {
+        $mysqli = @new mysqli($host, $user, $pass, $name);
+    } else {
+        $mysqli = @new mysqli($host, $user, $pass, $name, (int) $port);
+    }
     if ($mysqli->connect_error) {
         fail("could not connect to database for target '$target'");
     }
