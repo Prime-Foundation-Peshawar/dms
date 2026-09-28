@@ -80,20 +80,18 @@ jobs:
               cd "$TARGET"
               git init
               git remote add origin "$REPO"
-              git fetch origin "$BRANCH"
+              git fetch --depth=1 --prune origin "$BRANCH"
               git checkout -f -B "$BRANCH" "origin/$BRANCH"
             fi
 
             cd "$TARGET"
             git remote set-url origin "$REPO"
-            git fetch origin "$BRANCH"
+            git fetch --depth=1 --prune origin "$BRANCH"
             git checkout "$BRANCH"
             git reset --hard "origin/$BRANCH"
             # Keep the archived old site; do not delete it
             git clean -fd -e "$OLD_DIR" -e "./$OLD_DIR" -e "./$OLD_DIR/**"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
-            find "$TARGET" -path "$TARGET/$OLD_DIR" -prune -o -type d -exec chmod 755 {} \;
-            find "$TARGET" -path "$TARGET/$OLD_DIR" -prune -o -type f -exec chmod 644 {} \;
             php "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             if [ -d "$TARGET/$OLD_DIR" ]; then

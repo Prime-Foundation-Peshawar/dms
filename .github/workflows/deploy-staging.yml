@@ -61,17 +61,15 @@ jobs:
             if [ ! -d "$TARGET/.git" ]; then
               echo "Bootstrapping git repo at $TARGET"
               rm -rf "$TARGET"
-              git clone -b "$BRANCH" "$REPO" "$TARGET"
+              git clone --depth=1 -b "$BRANCH" "$REPO" "$TARGET"
             fi
 
             cd "$TARGET"
             git remote set-url origin "$REPO"
-            git fetch origin "$BRANCH"
+            git fetch --depth=1 --prune origin "$BRANCH"
             git checkout "$BRANCH"
             git reset --hard "origin/$BRANCH"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
-            find "$TARGET" -type d -exec chmod 755 {} \;
-            find "$TARGET" -type f -exec chmod 644 {} \;
             php "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             echo "---- recent error_log (if any) ----"
