@@ -808,3 +808,224 @@ function faculty_pub_url(string $cite): string {
   }
   return '';
 }
+
+/** HRMS employee directory (PMC / DMS). */
+function faculty_hrms_api_url(): string {
+  return 'https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfo.php';
+}
+
+function faculty_hrms_cache_path(): string {
+  return sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'dms_hrms_faculty_cache.json';
+}
+
+/**
+ * @return array{ok:bool,employees:array<int,array>,error:?string}
+ */
+function faculty_hrms_fetch_all(int $ttlSeconds = 900): array {
+  static $memo = null;
+  if (is_array($memo)) {
+    return $memo;
+  }
+
+  $cache = faculty_hrms_cache_path();
+  if (is_file($cache) && (time() - (int) filemtime($cache)) < $ttlSeconds) {
+    $decoded = json_decode((string) file_get_contents($cache), true);
+    if (is_array($decoded)) {
+      $memo = ['ok' => true, 'employees' => $decoded, 'error' => null];
+      return $memo;
+    }
+  }
+
+  $url = faculty_hrms_api_url();
+  $raw = false;
+  $error = null;
+
+  if (function_exists('curl_init')) {
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+      CURLOPT_URL => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_TIMEOUT => 15,
+      CURLOPT_SSL_VERIFYPEER => false,
+    ]);
+    $raw = curl_exec($ch);
+    $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($raw === false || $code !== 200) {
+      $error = curl_error($ch) ?: ('HTTP ' . $code);
+      $raw = false;
+    }
+    curl_close($ch);
+  } else {
+    $raw = @file_get_contents($url);
+    if ($raw === false) {
+      $error = 'file_get_contents failed';
+    }
+  }
+
+  if ($raw === false) {
+    $memo = ['ok' => false, 'employees' => [], 'error' => $error ?: 'fetch failed'];
+    return $memo;
+  }
+
+  $decoded = json_decode($raw, true);
+  if (!is_array($decoded)) {
+    $memo = ['ok' => false, 'employees' => [], 'error' => 'invalid JSON'];
+    return $memo;
+  }
+
+  @file_put_contents($cache, json_encode($decoded));
+  $memo = ['ok' => true, 'employees' => $decoded, 'error' => null];
+  return $memo;
+}
+
+function faculty_hrms_norm_dept(string $name): string {
+  $n = strtolower(trim($name));
+  $n = str_replace(['&', '/'], ['and', ' '], $n);
+  $n = preg_replace('/\s+/', ' ', $n) ?? $n;
+  return trim($n);
+}
+
+/**
+ * HRMS depName values that map to a site department slug.
+ *
+ * @return list<string>
+ */
+function faculty_hrms_dept_names_for_slug(string $slug, string $deptName = ''): array {
+  $map = [
+    'chs' => ['CHS', 'Community Health Sciences'],
+    'dhpe' => ['DHPE & R', 'DHPE & Research'],
+    'gynaecology' => ['Gynae and Obstetrics', 'Gynaecology & Obstetrics', 'Gynaecology'],
+    'orthopaedics' => ['Orthopedics', 'Orthopaedics'],
+    'pulmonology' => ['Pulmonology'],
+    'accident-emergency' => ['Accident and Emergency'],
+    'paeds-cardiology' => ['Paeds Cardiology'],
+  ];
+  $names = $map[$slug] ?? [];
+  if ($deptName !== '') {
+    $names[] = $deptName;
+  }
+  return array_values(array_unique(array_filter(array_map('trim', $names))));
+}
+
+function faculty_hrms_desig_rank(string $desTitle): int {
+  $rank = [
+    'Professor' => 1,
+    'Associate Professor' => 2,
+    'Assistant Professor' => 3,
+    'Senior Lecturer' => 4,
+    'Lecturer' => 5,
+    'Senior Registrar' => 6,
+    'Registrar' => 7,
+    'CEO' => 8,
+    'Director IT' => 9,
+  ];
+  return $rank[$desTitle] ?? 10;
+}
+
+function faculty_hrms_display_name(array $row): string {
+  $desTitle = trim((string) ($row['desTitle'] ?? ''));
+  $name = trim((string) ($row['empName'] ?? ''));
+  $prefixMap = [
+    'Professor' => 'Prof.',
+    'Associate Professor' => 'Assoc. Prof.',
+    'Assistant Professor' => 'Asst. Prof.',
+    'Senior Lecturer' => 'Sr. Lecturer',
+    'Lecturer' => 'Lecturer',
+    'Senior Registrar' => 'Sr. Registrar',
+    'Registrar' => 'Registrar',
+    'CEO' => 'CEO',
+    'Director IT' => 'Director',
+  ];
+  $prefix = $prefixMap[$desTitle] ?? '';
+  $medical = [
+    'Professor', 'Associate Professor', 'Assistant Professor',
+    'Senior Lecturer', 'Lecturer', 'Senior Registrar', 'Registrar',
+  ];
+  if (in_array($desTitle, $medical, true)) {
+    return $prefix !== '' ? ($prefix . ' Dr. ' . $name) : ('Dr. ' . $name);
+  }
+  return $prefix !== '' ? trim($prefix . ' ' . $name) : $name;
+}
+
+function faculty_is_hod_name(string $memberName, string $hodName): bool {
+  if ($hodName === '' || $memberName === '') {
+    return false;
+  }
+  if (strcasecmp(trim($memberName), trim($hodName)) === 0) {
+    return true;
+  }
+  return faculty_slugs_match(faculty_slug($memberName), faculty_slug($hodName));
+}
+
+/**
+ * Faculty for a department page from HRMS (name / qualification / reg).
+ * Falls back to $staticFaculty only when the HRMS request fails.
+ *
+ * @param list<array{name?:string,qualification?:string,reg?:string}> $staticFaculty
+ * @return list<array{name:string,qualification:string,reg:string}>
+ */
+function faculty_for_department_page(string $slug, string $deptName, array $staticFaculty = []): array {
+  $pack = faculty_hrms_fetch_all();
+  if (!$pack['ok']) {
+    return array_values($staticFaculty);
+  }
+
+  $wanted = [];
+  foreach (faculty_hrms_dept_names_for_slug($slug, $deptName) as $label) {
+    $wanted[faculty_hrms_norm_dept($label)] = true;
+  }
+
+  $matched = [];
+  foreach ($pack['employees'] as $row) {
+    if (!is_array($row)) {
+      continue;
+    }
+    $dep = faculty_hrms_norm_dept((string) ($row['depName'] ?? ''));
+    if ($dep === '' || empty($wanted[$dep])) {
+      continue;
+    }
+    $matched[] = $row;
+  }
+
+  usort($matched, static function ($a, $b) {
+    $ra = faculty_hrms_desig_rank((string) ($a['desTitle'] ?? ''));
+    $rb = faculty_hrms_desig_rank((string) ($b['desTitle'] ?? ''));
+    if ($ra !== $rb) {
+      return $ra <=> $rb;
+    }
+    return strcasecmp((string) ($a['empName'] ?? ''), (string) ($b['empName'] ?? ''));
+  });
+
+  $out = [];
+  foreach ($matched as $row) {
+    $out[] = [
+      'name' => faculty_hrms_display_name($row),
+      'qualification' => trim((string) ($row['qualifications'] ?? '')),
+      'reg' => trim((string) ($row['facPMDCNo'] ?? '')),
+    ];
+  }
+  return $out;
+}
+
+function faculty_hrms_count_for_department(string $slug, string $deptName, ?int $staticCount = null): int {
+  $pack = faculty_hrms_fetch_all();
+  if (!$pack['ok']) {
+    return $staticCount !== null ? $staticCount : 0;
+  }
+  $wanted = [];
+  foreach (faculty_hrms_dept_names_for_slug($slug, $deptName) as $label) {
+    $wanted[faculty_hrms_norm_dept($label)] = true;
+  }
+  $n = 0;
+  foreach ($pack['employees'] as $row) {
+    if (!is_array($row)) {
+      continue;
+    }
+    $dep = faculty_hrms_norm_dept((string) ($row['depName'] ?? ''));
+    if ($dep !== '' && !empty($wanted[$dep])) {
+      $n++;
+    }
+  }
+  return $n;
+}

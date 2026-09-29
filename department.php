@@ -10,7 +10,7 @@ if (!$dept) {
   exit;
 }
 
-$faculty = $dept['faculty'] ?? [];
+$faculty = faculty_for_department_page($slug, (string) ($dept['name'] ?? ''), $dept['faculty'] ?? []);
 $activities = $dept['activities'] ?? [];
 $intro = $dept['intro'] ?? [];
 $facultyCount = count($faculty);
@@ -92,7 +92,7 @@ include('includes/header.php');
             <?php if ($faculty): ?>
               <div class="dept-faculty-list">
                 <?php foreach ($faculty as $member):
-                  $isHod = !empty($dept['hod']) && strcasecmp(trim($member['name']), trim($dept['hod'])) === 0;
+                  $isHod = !empty($dept['hod']) && faculty_is_hod_name((string) ($member['name'] ?? ''), (string) $dept['hod']);
                   $parts = preg_split('/\s+/', trim($member['name']));
                   $initials = '';
                   foreach ($parts as $part) {
@@ -119,8 +119,12 @@ include('includes/header.php');
                           <span class="dept-hod-badge"><i class="bi bi-award-fill"></i> Head of Department</span>
                         <?php endif; ?>
                       </div>
+                      <?php if (!empty($member['qualification'])): ?>
                       <p><?= htmlspecialchars($member['qualification']) ?></p>
+                      <?php endif; ?>
+                      <?php if (!empty($member['reg'])): ?>
                       <span class="reg-number">PM&amp;DC <?= htmlspecialchars($member['reg']) ?></span>
+                      <?php endif; ?>
                     </div>
                     <?php if ($profile): ?>
                     </a>
