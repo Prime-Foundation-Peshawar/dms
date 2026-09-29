@@ -173,7 +173,7 @@ include __DIR__ . '/includes/header.php';
 <script>
 (function () {
   const API_URL = 'faculty-proxy';
-  const PROFILES_URL = 'assets/data/faculty-profiles.json';
+  const PROFILES_URL = 'faculty-profiles-api';
   const MAX_TAGS = 8;
 
   const search = document.getElementById('nameSearch');

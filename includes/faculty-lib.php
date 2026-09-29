@@ -70,15 +70,73 @@ function faculty_profiles_pack(): array {
   if ($pack !== null) {
     return $pack;
   }
-  $path = dirname(__DIR__) . '/assets/data/faculty-profiles.json';
-  if (!is_file($path)) {
-    $pack = ['profiles' => [], 'index' => [], 'source' => ''];
+
+  $pack = ['profiles' => [], 'index' => [], 'source' => 'db'];
+  try {
+    require_once __DIR__ . '/db.php';
+    $pdo = dms_db();
+    $rows = $pdo->query(
+      'SELECT slug, aliases, name, department, designation, hod, photo,
+              qualifications, experience, skills, publications, research_preferences,
+              publications_url, contact_phone, source, updated_at
+       FROM faculty_profiles'
+    )->fetchAll();
+  } catch (Throwable $e) {
+    error_log('[faculty_profiles_pack] ' . $e->getMessage());
     return $pack;
   }
-  $decoded = json_decode((string) file_get_contents($path), true);
-  $pack = is_array($decoded) ? $decoded : ['profiles' => [], 'index' => [], 'source' => ''];
-  $pack['profiles'] = $pack['profiles'] ?? [];
-  $pack['index'] = $pack['index'] ?? [];
+
+  foreach ($rows as $row) {
+    $slug = (string) ($row['slug'] ?? '');
+    if ($slug === '') {
+      continue;
+    }
+    $decode = static function ($v) {
+      if (is_array($v)) {
+        return $v;
+      }
+      if (!is_string($v) || $v === '') {
+        return [];
+      }
+      $d = json_decode($v, true);
+      return is_array($d) ? $d : [];
+    };
+    $aliases = $decode($row['aliases'] ?? '[]');
+    $rec = [
+      'slug' => $slug,
+      'aliases' => $aliases,
+      'name' => (string) ($row['name'] ?? ''),
+      'department' => (string) ($row['department'] ?? ''),
+      'designation' => (string) ($row['designation'] ?? ''),
+      'hod' => !empty($row['hod']),
+      'photo' => (string) ($row['photo'] ?? ''),
+      'qualifications' => $decode($row['qualifications'] ?? '[]'),
+      'experience' => $decode($row['experience'] ?? '[]'),
+      'skills' => $decode($row['skills'] ?? '[]'),
+      'publications' => $decode($row['publications'] ?? '[]'),
+      'research_preferences' => $decode($row['research_preferences'] ?? '[]'),
+      'publications_url' => (string) ($row['publications_url'] ?? ''),
+      'contact_phone' => (string) ($row['contact_phone'] ?? ''),
+      'source' => (string) ($row['source'] ?? 'db'),
+    ];
+    if ($rec['photo'] === '') {
+      unset($rec['photo']);
+    }
+    if ($rec['publications_url'] === '') {
+      unset($rec['publications_url']);
+    }
+    if ($rec['contact_phone'] === '') {
+      unset($rec['contact_phone']);
+    }
+    $pack['profiles'][$slug] = $rec;
+    $pack['index'][$slug] = $slug;
+    foreach ($aliases as $alias) {
+      $a = faculty_slug((string) $alias);
+      if ($a !== '') {
+        $pack['index'][$a] = $slug;
+      }
+    }
+  }
   return $pack;
 }
 

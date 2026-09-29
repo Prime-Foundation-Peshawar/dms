@@ -16,5 +16,6 @@ echo "Allow: /\n";
 echo "Disallow: /faculty-proxy\n";
 echo "Disallow: /faculty-update\n";
 echo "Disallow: /faculty-update-submit\n";
+echo "Disallow: /faculty-profiles-api\n";
 echo "\n";
 echo "Sitemap: https://dms.riphahpsh.edu.pk/sitemap.xml\n";
