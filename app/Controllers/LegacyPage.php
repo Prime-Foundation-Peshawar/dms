@@ -18,6 +18,31 @@ class LegacyPage extends BaseController
             $page = 'index';
         }
 
+        // Some CGI/FPM + rewrite setups leave $_GET empty; restore from QUERY_STRING.
+        if (!empty($_SERVER['QUERY_STRING'])) {
+            $fromQs = [];
+            parse_str((string) $_SERVER['QUERY_STRING'], $fromQs);
+            foreach ($fromQs as $key => $value) {
+                if (!array_key_exists($key, $_GET)) {
+                    $_GET[$key] = $value;
+                }
+                if (!array_key_exists($key, $_REQUEST)) {
+                    $_REQUEST[$key] = $value;
+                }
+            }
+        }
+
+        // Prefer CI request query values when present.
+        try {
+            $req = service('request');
+            foreach ($req->getGet() ?? [] as $key => $value) {
+                $_GET[$key] = $value;
+                $_REQUEST[$key] = $value;
+            }
+        } catch (\Throwable $e) {
+            // ignore
+        }
+
         // Map clean URLs to legacy PHP scripts
         $map = [
             'index' => 'index.php',
