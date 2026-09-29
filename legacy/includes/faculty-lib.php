@@ -119,8 +119,11 @@ function faculty_profiles_pack(): array {
       'contact_phone' => (string) ($row['contact_phone'] ?? ''),
       'source' => (string) ($row['source'] ?? 'db'),
     ];
-    if ($rec['photo'] === '') {
+    $photoUrl = faculty_photo_url($rec['photo']);
+    if ($photoUrl === '') {
       unset($rec['photo']);
+    } else {
+      $rec['photo'] = $photoUrl;
     }
     if ($rec['publications_url'] === '') {
       unset($rec['publications_url']);
@@ -159,6 +162,62 @@ function faculty_profile_lookup(string $slug): ?array {
     }
   }
   return null;
+}
+
+/**
+ * Resolve a stored photo path (e.g. assets/images/faculty/foo.jpg) to a real file under public/.
+ * CI4 serves from public/; legacy scripts live in legacy/ — never check __DIR__ alone.
+ */
+function faculty_photo_fs(?string $rel): string {
+  $rel = ltrim(str_replace('\\', '/', (string) $rel), '/');
+  if ($rel === '' || preg_match('#^(?:https?:)?//#i', $rel)) {
+    return '';
+  }
+
+  $candidates = [];
+  if (defined('FCPATH')) {
+    $candidates[] = FCPATH . $rel;
+  }
+  if (defined('ROOTPATH')) {
+    $candidates[] = ROOTPATH . 'public/' . $rel;
+    $candidates[] = ROOTPATH . 'legacy/' . $rel;
+  }
+  // faculty-lib.php lives in legacy/includes/
+  $legacyRoot = dirname(__DIR__);
+  $candidates[] = dirname($legacyRoot) . '/public/' . $rel;
+  $candidates[] = $legacyRoot . '/' . $rel;
+
+  foreach ($candidates as $path) {
+    if ($path !== '' && is_file($path)) {
+      return $path;
+    }
+  }
+
+  return '';
+}
+
+/**
+ * Public URL for a faculty photo, or '' if the file is missing.
+ */
+function faculty_photo_url(?string $rel): string {
+  $rel = ltrim(str_replace('\\', '/', (string) $rel), '/');
+  if ($rel === '') {
+    return '';
+  }
+  if (preg_match('#^(?:https?:)?//#i', $rel)) {
+    return $rel;
+  }
+  if (faculty_photo_fs($rel) === '') {
+    return '';
+  }
+  if (function_exists('base_url')) {
+    return base_url($rel);
+  }
+  if (defined('base_url')) {
+    return rtrim((string) constant('base_url'), '/') . '/' . $rel;
+  }
+
+  return $rel;
 }
 
 function faculty_profile_has_cv(?array $rec): bool {

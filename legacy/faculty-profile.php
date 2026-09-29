@@ -20,13 +20,7 @@ $page_description = $display_name !== ''
 
 include __DIR__ . '/includes/header.php';
 
-$photo = '';
-if (!empty($extra['photo'])) {
-  $photo_fs = __DIR__ . '/' . ltrim($extra['photo'], '/');
-  if (is_file($photo_fs)) {
-    $photo = $extra['photo'];
-  }
-}
+$photo = faculty_photo_url($extra['photo'] ?? '');
 $desig = faculty_normalize_designation((string) ($extra['designation'] ?? ''));
 $dept = (string) ($extra['department'] ?? '');
 $is_hod = !empty($extra['hod']);

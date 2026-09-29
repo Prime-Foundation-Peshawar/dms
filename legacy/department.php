@@ -111,12 +111,19 @@ include('includes/header.php');
                 ?>
                 <?php
                   $profile = faculty_profile_lookup_cv($member['name']);
+                  $photoUrl = $profile ? faculty_photo_url($profile['photo'] ?? '') : '';
                 ?>
                   <article class="dept-faculty-card<?= $isHod ? ' is-hod' : '' ?><?= $profile ? '' : ' is-static' ?>">
                     <?php if ($profile): ?>
                     <a class="dept-faculty-link" href="faculty-profile?n=<?= htmlspecialchars($profile['slug'] ?? faculty_slug($member['name'])) ?>">
                     <?php endif; ?>
-                    <div class="dept-faculty-avatar"><?= htmlspecialchars($initials) ?></div>
+                    <div class="dept-faculty-avatar">
+                      <?php if ($photoUrl !== ''): ?>
+                        <img src="<?= htmlspecialchars($photoUrl) ?>" alt="">
+                      <?php else: ?>
+                        <?= htmlspecialchars($initials) ?>
+                      <?php endif; ?>
+                    </div>
                     <div class="dept-faculty-info">
                       <div class="dept-faculty-name-row">
                         <h3><?= htmlspecialchars($member['name']) ?></h3>

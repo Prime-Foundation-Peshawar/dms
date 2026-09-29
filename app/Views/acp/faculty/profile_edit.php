@@ -5,6 +5,14 @@
 <?php if (!empty($flashError)): ?><div class="acp-alert acp-alert-err"><?= esc($flashError) ?></div><?php endif; ?>
 
 <div class="acp-card">
+  <?php
+    $photoRel = trim((string) ($row['photo'] ?? ''));
+    $photoUrl = $photoRel !== '' ? base_url(ltrim($photoRel, '/')) : '';
+  ?>
+  <?php if ($photoUrl !== ''): ?>
+    <p class="acp-muted">Current photo</p>
+    <p><img src="<?= esc($photoUrl) ?>" alt="" style="width:96px;height:96px;object-fit:cover;border-radius:50%;border:1px solid #d7e0ea"></p>
+  <?php endif; ?>
   <form class="acp-form" method="post" action="<?= site_url('acp/faculty/profiles/' . (int) $row['id']) ?>">
     <?= csrf_field() ?>
     <label>Name

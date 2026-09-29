@@ -2020,6 +2020,7 @@
     .dept-faculty-avatar {
       width: 44px; height: 44px;
       border-radius: 50%;
+      overflow: hidden;
       background: var(--teal-pale, rgba(21,95,122,.12));
       color: var(--teal);
       font-family: var(--font-head);
@@ -2027,6 +2028,13 @@
       font-weight: 800;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
+    }
+    .dept-faculty-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 18%;
+      display: block;
     }
     .dept-faculty-name-row {
       display: flex;
