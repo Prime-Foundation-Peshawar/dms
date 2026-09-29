@@ -3,6 +3,7 @@
  * Academic departments under PMC.
  * Faculty sourced from faculty.php; intros/activities can be refined by each department.
  */
+global $academic_departments;
 $academic_departments = [
   'anatomy' => [
     'name' => 'Anatomy',
