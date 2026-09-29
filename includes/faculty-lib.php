@@ -110,12 +110,50 @@ function faculty_profile_has_cv(?array $rec): bool {
   if (!empty($rec['photo'])) {
     return true;
   }
-  foreach (['qualifications', 'experience', 'publications', 'skills'] as $key) {
+  foreach (['qualifications', 'experience', 'publications', 'skills', 'research_preferences', 'research_interests', 'research'] as $key) {
     if (!empty($rec[$key]) && is_array($rec[$key])) {
       return true;
     }
   }
   return false;
+}
+
+/**
+ * Research preferences / interests for public faculty profiles.
+ *
+ * @return list<string>
+ */
+function faculty_research_preferences(array $rec): array {
+  foreach (['research_preferences', 'research_interests', 'research', 'preferences'] as $key) {
+    if (empty($rec[$key])) {
+      continue;
+    }
+    $raw = $rec[$key];
+    if (is_string($raw)) {
+      $raw = preg_split('/[\n;|]+/', $raw) ?: [];
+    }
+    if (!is_array($raw)) {
+      continue;
+    }
+    $out = [];
+    $seen = [];
+    foreach ($raw as $item) {
+      $text = trim(faculty_soft_space((string) $item));
+      if ($text === '') {
+        continue;
+      }
+      $keyNorm = strtolower($text);
+      if (isset($seen[$keyNorm])) {
+        continue;
+      }
+      $seen[$keyNorm] = true;
+      $out[] = $text;
+    }
+    if ($out) {
+      return $out;
+    }
+  }
+  return [];
 }
 
 function faculty_profile_lookup_cv(string $nameOrSlug): ?array {

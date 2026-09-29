@@ -555,6 +555,24 @@ a.fac-list-row:hover .fac-list-go {
   border-radius: 10px;
   border-left: 3px solid var(--teal);
 }
+.fp-research-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.fp-research-list li {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+  padding: 10px 14px;
+  background: rgba(13, 148, 136, 0.08);
+  border: 1px solid rgba(13, 148, 136, 0.22);
+  border-radius: 999px;
+}
 .fp-back { margin-top: 18px; }
 .fp-identity {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
