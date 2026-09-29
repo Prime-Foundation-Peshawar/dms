@@ -58,13 +58,13 @@ include __DIR__ . '/includes/header.php';
 
           <div class="fu-card">
             <h3>1. Who are you?</h3>
-            <p class="fu-help">Start typing your name, then tap your name in the list.</p>
+            <p class="fu-help">Start typing your name or faculty ID, then tap your name in the list.</p>
 
             <div class="fu-row">
               <div>
                 <label class="fu-label" for="nameSearch">Your name <span class="req">*</span></label>
                 <div class="fu-search-wrap">
-                  <input class="fu-input" type="search" id="nameSearch" name="name_search" placeholder="Type your name…" autocomplete="off" required>
+                  <input class="fu-input" type="search" id="nameSearch" name="name_search" placeholder="Type your name or faculty ID…" autocomplete="off" required>
                   <div class="fu-suggest" id="nameSuggest" role="listbox" aria-label="Matching faculty"></div>
                 </div>
                 <p class="fu-status" id="loadStatus">Loading faculty list…</p>
@@ -324,7 +324,9 @@ include __DIR__ . '/includes/header.php';
     const hits = faculty.filter(f => {
       const name = String(f.empName || '').toLowerCase();
       const dept = String(f.depName || '').toLowerCase();
-      return name.includes(query) || dept.includes(query);
+      const facId = String(f.facFacRegNo || '').toLowerCase();
+      const pmdc = String(f.facPMDCNo || '').toLowerCase();
+      return name.includes(query) || dept.includes(query) || facId.includes(query) || pmdc.includes(query);
     }).slice(0, 12);
 
     if (!hits.length) {
@@ -333,12 +335,18 @@ include __DIR__ . '/includes/header.php';
       return;
     }
 
-    suggest.innerHTML = hits.map((f, i) => (
-      '<button type="button" role="option" data-i="' + i + '">' +
-        '<strong>' + escapeHtml(f.empName || '') + '</strong>' +
-        '<span>' + escapeHtml((f.desTitle || '') + (f.depName ? ' · ' + f.depName : '')) + '</span>' +
-      '</button>'
-    )).join('');
+    suggest.innerHTML = hits.map((f, i) => {
+      const idBits = [];
+      if (f.facFacRegNo) idBits.push('ID: ' + f.facFacRegNo);
+      if (f.desTitle) idBits.push(f.desTitle);
+      if (f.depName) idBits.push(f.depName);
+      return (
+        '<button type="button" role="option" data-i="' + i + '">' +
+          '<strong>' + escapeHtml(f.empName || '') + '</strong>' +
+          '<span>' + escapeHtml(idBits.join(' · ')) + '</span>' +
+        '</button>'
+      );
+    }).join('');
     suggest.classList.add('is-open');
     suggest.querySelectorAll('button[data-i]').forEach((btn, idx) => {
       btn.addEventListener('click', () => selectFaculty(hits[idx]));
