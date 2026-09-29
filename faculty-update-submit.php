@@ -10,6 +10,65 @@ function faculty_update_redirect(string $query): void {
   exit;
 }
 
+function faculty_clean_url(string $url): string {
+  $url = trim($url);
+  if ($url === '') {
+    return '';
+  }
+  if (!preg_match('#^https?://#i', $url)) {
+    $url = 'https://' . $url;
+  }
+  if (filter_var($url, FILTER_VALIDATE_URL) === false) {
+    return '';
+  }
+  if (strlen($url) > 400) {
+    $url = substr($url, 0, 400);
+  }
+  return $url;
+}
+
+/**
+ * @return list<array{title:string,year:string,journal:string,url:string}>
+ */
+function faculty_parse_paper_cards(array $post): array {
+  $titles = $post['paper_title'] ?? [];
+  $years = $post['paper_year'] ?? [];
+  $journals = $post['paper_journal'] ?? [];
+  $urls = $post['paper_url'] ?? [];
+  if (!is_array($titles)) {
+    return [];
+  }
+  $out = [];
+  foreach ($titles as $i => $titleRaw) {
+    $title = trim((string) $titleRaw);
+    if ($title === '') {
+      continue;
+    }
+    if (strlen($title) > 240) {
+      $title = substr($title, 0, 240);
+    }
+    $year = preg_replace('/\D+/', '', (string) ($years[$i] ?? '')) ?? '';
+    if (strlen($year) > 4) {
+      $year = substr($year, 0, 4);
+    }
+    $journal = trim((string) ($journals[$i] ?? ''));
+    if (strlen($journal) > 160) {
+      $journal = substr($journal, 0, 160);
+    }
+    $url = faculty_clean_url((string) ($urls[$i] ?? ''));
+    $out[] = [
+      'title' => $title,
+      'year' => $year,
+      'journal' => $journal,
+      'url' => $url,
+    ];
+    if (count($out) >= 5) {
+      break;
+    }
+  }
+  return $out;
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
   faculty_update_redirect('');
 }
@@ -32,12 +91,14 @@ $phone = trim((string) ($_POST['contact_phone'] ?? ''));
 $research = faculty_parse_lines_field($_POST['research_preferences'] ?? '', 8);
 $quals = faculty_parse_lines_field($_POST['qualifications'] ?? '', 12);
 $skills = faculty_parse_lines_field($_POST['skills'] ?? '', 12);
+$publicationsUrl = faculty_clean_url((string) ($_POST['publications_url'] ?? ''));
+$papers = faculty_parse_paper_cards($_POST);
 
 if ($empName === '' || $slug === '') {
   faculty_update_redirect('error=' . rawurlencode('Please select your name from the list.'));
 }
 if (count($research) < 1) {
-  faculty_update_redirect('error=' . rawurlencode('Please add at least one research preference (one topic per line).'));
+  faculty_update_redirect('error=' . rawurlencode('Please add at least one research topic tag.'));
 }
 if (strlen($phone) > 40) {
   $phone = substr($phone, 0, 40);
@@ -52,6 +113,8 @@ $result = faculty_save_submission([
   'des_title' => $desTitle,
   'dep_name' => $depName,
   'research_preferences' => $research,
+  'publications_url' => $publicationsUrl,
+  'publications' => $papers,
   'qualifications' => $quals,
   'skills' => $skills,
   'contact_phone' => $phone,

@@ -46,7 +46,7 @@ include __DIR__ . '/includes/header.php';
 
         <div class="fu-intro">
           <h2>Easy profile form for PMC faculty</h2>
-          <p>Find your name, add research preferences, and optionally update education, college duties, or photo. No login needed. Changes are reviewed before going live.</p>
+          <p>Find your name, add research topic tags, share a publications link, and optionally update education, duties, or photo. No login needed. Changes are reviewed before going live.</p>
         </div>
 
         <?php if ($errorMsg !== ''): ?>
@@ -88,13 +88,40 @@ include __DIR__ . '/includes/header.php';
 
           <div class="fu-card">
             <h3>2. Research preferences <span class="req">*</span></h3>
-            <p class="fu-help">Write 3–8 short topics students or visitors should know. One topic per line.</p>
-            <label class="fu-label" for="research">What do you research?</label>
-            <textarea class="fu-textarea" id="research" name="research_preferences" required placeholder="Example:&#10;Culturally adapted CBT&#10;Mental health policy&#10;Medical education equity"></textarea>
+            <p class="fu-help">Add short topic tags (about 3–8). Type a topic and press Enter or Add.</p>
+            <label class="fu-label" for="researchInput">What do you research?</label>
+            <div class="fu-tag-box" id="researchBox">
+              <div class="fu-tags" id="researchTags" aria-live="polite"></div>
+              <div class="fu-tag-add">
+                <input class="fu-input" type="text" id="researchInput" maxlength="80" placeholder="e.g. Culturally adapted CBT" autocomplete="off">
+                <button type="button" class="btn-pmc btn-pmc-outline" id="researchAddBtn">Add</button>
+              </div>
+            </div>
+            <input type="hidden" name="research_preferences" id="researchHidden" value="">
+            <p class="fu-note" id="researchCount">0 topics added</p>
           </div>
 
           <div class="fu-card">
-            <h3>3. Optional details</h3>
+            <h3>3. Publications</h3>
+            <p class="fu-help">Easiest: paste your ORCID or Google Scholar link. Optionally add up to 5 recent papers with short details (not full citations).</p>
+
+            <div class="fu-row">
+              <div>
+                <label class="fu-label" for="publicationsUrl">ORCID / Google Scholar / ResearchGate link</label>
+                <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="https://orcid.org/… or https://scholar.google.com/…">
+              </div>
+            </div>
+
+            <div class="fu-papers-head">
+              <strong>Recent papers on this website (optional)</strong>
+              <button type="button" class="btn-pmc btn-pmc-outline" id="addPaperBtn"><i class="bi bi-plus-lg"></i> Add paper</button>
+            </div>
+            <div id="papersList" class="fu-papers"></div>
+            <p class="fu-note">Title is enough. Year and link help students open the paper.</p>
+          </div>
+
+          <div class="fu-card">
+            <h3>4. Optional details</h3>
             <p class="fu-help">Fill only if you want to update these. Leave blank to keep existing website info.</p>
 
             <div class="fu-row">
@@ -145,6 +172,9 @@ include __DIR__ . '/includes/header.php';
 (function () {
   const API_URL = 'faculty-proxy';
   const PROFILES_URL = 'assets/data/faculty-profiles.json';
+  const MAX_TAGS = 8;
+  const MAX_PAPERS = 5;
+
   const search = document.getElementById('nameSearch');
   const suggest = document.getElementById('nameSuggest');
   const statusEl = document.getElementById('loadStatus');
@@ -152,7 +182,14 @@ include __DIR__ . '/includes/header.php';
   const slugEl = document.getElementById('slug');
   const desTitle = document.getElementById('desTitle');
   const depName = document.getElementById('depName');
-  const research = document.getElementById('research');
+  const researchInput = document.getElementById('researchInput');
+  const researchTagsEl = document.getElementById('researchTags');
+  const researchHidden = document.getElementById('researchHidden');
+  const researchCount = document.getElementById('researchCount');
+  const researchAddBtn = document.getElementById('researchAddBtn');
+  const publicationsUrl = document.getElementById('publicationsUrl');
+  const papersList = document.getElementById('papersList');
+  const addPaperBtn = document.getElementById('addPaperBtn');
   const qualifications = document.getElementById('qualifications');
   const skills = document.getElementById('skills');
   const form = document.getElementById('facultyUpdateForm');
@@ -160,7 +197,8 @@ include __DIR__ . '/includes/header.php';
 
   let faculty = [];
   let profiles = {};
-  let selected = null;
+  let researchTags = [];
+  let paperCount = 0;
 
   function facultySlug(name) {
     let n = String(name || '').trim();
@@ -177,6 +215,92 @@ include __DIR__ . '/includes/header.php';
   function linesFromList(list) {
     if (!Array.isArray(list) || !list.length) return '';
     return list.map(x => String(x || '').trim()).filter(Boolean).join('\n');
+  }
+
+  function syncResearchHidden() {
+    researchHidden.value = researchTags.join('\n');
+    researchCount.textContent = researchTags.length
+      ? (researchTags.length + ' topic' + (researchTags.length === 1 ? '' : 's') + ' added')
+      : '0 topics added';
+  }
+
+  function renderResearchTags() {
+    researchTagsEl.innerHTML = researchTags.map((tag, i) => (
+      '<span class="fu-tag">' + escapeHtml(tag) +
+        '<button type="button" aria-label="Remove ' + escapeHtml(tag) + '" data-i="' + i + '">&times;</button>' +
+      '</span>'
+    )).join('');
+    researchTagsEl.querySelectorAll('button[data-i]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        researchTags.splice(Number(btn.getAttribute('data-i')), 1);
+        renderResearchTags();
+      });
+    });
+    syncResearchHidden();
+  }
+
+  function addResearchTag(raw) {
+    const tag = String(raw || '').trim().replace(/\s+/g, ' ');
+    if (!tag) return;
+    if (researchTags.length >= MAX_TAGS) {
+      researchCount.textContent = 'Maximum ' + MAX_TAGS + ' topics.';
+      return;
+    }
+    const exists = researchTags.some(t => t.toLowerCase() === tag.toLowerCase());
+    if (exists) return;
+    researchTags.push(tag.slice(0, 80));
+    researchInput.value = '';
+    renderResearchTags();
+  }
+
+  function setResearchTags(list) {
+    researchTags = [];
+    (list || []).forEach(item => {
+      const tag = String(item || '').trim();
+      if (tag && researchTags.length < MAX_TAGS) researchTags.push(tag.slice(0, 80));
+    });
+    renderResearchTags();
+  }
+
+  function addPaperCard(prefill) {
+    if (paperCount >= MAX_PAPERS) return;
+    const i = paperCount++;
+    const data = prefill || {};
+    const card = document.createElement('div');
+    card.className = 'fu-paper';
+    card.innerHTML =
+      '<div class="fu-paper-top"><strong>Paper ' + (i + 1) + '</strong>' +
+        '<button type="button" class="fu-paper-remove" data-remove>Remove</button></div>' +
+      '<div class="fu-row">' +
+        '<div><label class="fu-label">Title</label>' +
+          '<input class="fu-input" name="paper_title[]" value="' + escapeHtml(data.title || '') + '" placeholder="Short paper title"></div>' +
+      '</div>' +
+      '<div class="fu-row fu-row-2">' +
+        '<div><label class="fu-label">Year</label>' +
+          '<input class="fu-input" name="paper_year[]" value="' + escapeHtml(data.year || '') + '" placeholder="2025" inputmode="numeric" maxlength="4"></div>' +
+        '<div><label class="fu-label">Journal (optional)</label>' +
+          '<input class="fu-input" name="paper_journal[]" value="' + escapeHtml(data.journal || '') + '" placeholder="Journal name"></div>' +
+      '</div>' +
+      '<div class="fu-row">' +
+        '<div><label class="fu-label">Link / DOI (optional)</label>' +
+          '<input class="fu-input" name="paper_url[]" value="' + escapeHtml(data.url || '') + '" placeholder="https://…"></div>' +
+      '</div>';
+    card.querySelector('[data-remove]').addEventListener('click', () => {
+      card.remove();
+      renumberPapers();
+    });
+    papersList.appendChild(card);
+    renumberPapers();
+  }
+
+  function renumberPapers() {
+    const cards = papersList.querySelectorAll('.fu-paper');
+    paperCount = cards.length;
+    cards.forEach((card, idx) => {
+      const strong = card.querySelector('.fu-paper-top strong');
+      if (strong) strong.textContent = 'Paper ' + (idx + 1);
+    });
+    addPaperBtn.disabled = paperCount >= MAX_PAPERS;
   }
 
   function closeSuggest() {
@@ -204,10 +328,15 @@ include __DIR__ . '/includes/header.php';
       }
     }
     if (!rec) return;
-    if (!research.value.trim() && Array.isArray(rec.research_preferences) && rec.research_preferences.length) {
-      research.value = linesFromList(rec.research_preferences);
-    } else if (!research.value.trim() && Array.isArray(rec.research_interests) && rec.research_interests.length) {
-      research.value = linesFromList(rec.research_interests);
+    if (!researchTags.length) {
+      if (Array.isArray(rec.research_preferences) && rec.research_preferences.length) {
+        setResearchTags(rec.research_preferences);
+      } else if (Array.isArray(rec.research_interests) && rec.research_interests.length) {
+        setResearchTags(rec.research_interests);
+      }
+    }
+    if (!publicationsUrl.value.trim() && rec.publications_url) {
+      publicationsUrl.value = rec.publications_url;
     }
     if (!qualifications.value.trim() && Array.isArray(rec.qualifications)) {
       qualifications.value = linesFromList(rec.qualifications);
@@ -218,7 +347,6 @@ include __DIR__ . '/includes/header.php';
   }
 
   function selectFaculty(row) {
-    selected = row;
     empName.value = row.empName || '';
     slugEl.value = facultySlug(row.empName || '');
     desTitle.value = row.desTitle || '';
@@ -259,33 +387,41 @@ include __DIR__ . '/includes/header.php';
     });
   }
 
+  researchAddBtn.addEventListener('click', () => addResearchTag(researchInput.value));
+  researchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      addResearchTag(researchInput.value.replace(/,/g, ''));
+    }
+  });
+  addPaperBtn.addEventListener('click', () => addPaperCard());
+
   search.addEventListener('input', () => {
-    selected = null;
     empName.value = '';
     slugEl.value = '';
     desTitle.value = '';
     depName.value = '';
     renderSuggest(search.value);
   });
-
   search.addEventListener('focus', () => {
     if (search.value.trim().length >= 2) renderSuggest(search.value);
   });
-
   document.addEventListener('click', (e) => {
     if (!suggest.contains(e.target) && e.target !== search) closeSuggest();
   });
 
   form.addEventListener('submit', (e) => {
+    syncResearchHidden();
     if (!empName.value.trim() || !slugEl.value.trim()) {
       e.preventDefault();
       statusEl.textContent = 'Please select your name from the list.';
       search.focus();
       return;
     }
-    if (!research.value.trim()) {
+    if (!researchTags.length) {
       e.preventDefault();
-      research.focus();
+      researchCount.textContent = 'Please add at least one research topic tag.';
+      researchInput.focus();
       return;
     }
     submitBtn.disabled = true;

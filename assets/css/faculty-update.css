@@ -190,3 +190,73 @@
   color: #6b7280;
   margin-top: 8px;
 }
+.fu-tag-box {
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  padding: 12px;
+  background: #fff;
+}
+.fu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  min-height: 8px;
+}
+.fu-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(13, 148, 136, 0.1);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  color: var(--navy, #0b1f3a);
+  font-weight: 700;
+  font-size: .92rem;
+}
+.fu-tag button {
+  border: 0;
+  background: transparent;
+  color: #6b7280;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.fu-tag-add {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+.fu-papers-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 12px;
+}
+.fu-papers-head strong {
+  color: var(--navy, #0b1f3a);
+}
+.fu-paper {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  background: #f9fafb;
+}
+.fu-paper-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.fu-paper-remove {
+  border: 0;
+  background: transparent;
+  color: #b91c1c;
+  font-weight: 700;
+  cursor: pointer;
+}
