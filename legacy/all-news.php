@@ -1,5 +1,27 @@
+﻿<?php
+require_once __DIR__ . "/includes/cms-content.php";
+$posts = dms_news_published();
+// Listing excludes homepage-only external notice cards that are not meant for all-news
+$posts = array_values(array_filter($posts, static function ($p) {
+  $slug = (string) ($p["slug"] ?? "");
+  $homeOnly = ["mphil-basic-medical-sciences-fall-2026", "positions-vacant-sep-2026", "explore-open-roles-online", "19th-umr-research-conference", "sports-society-highlight"];
+  return !in_array($slug, $homeOnly, true);
+}));
+$featured = null;
+foreach ($posts as $p) {
+  if (!empty($p["is_featured"])) { $featured = $p; break; }
+}
+if (!$featured && $posts) { $featured = $posts[0]; }
+$cats = [];
+foreach ($posts as $p) {
+  $c = (string) ($p["category"] ?? "general");
+  $cats[$c] = ($cats[$c] ?? 0) + 1;
+}
+$total = count($posts);
+include __DIR__ . "/includes/header.php";
+?>
 <style>
-  /* ══ FILTER BAR ══ */
+  /* â•â• FILTER BAR â•â• */
   .news-filter-bar {
     background: white;
     border: 1px solid var(--border);
@@ -118,7 +140,7 @@
     color: var(--teal);
   }
 
-  /* ══ CAT PILLS ══ */
+  /* â•â• CAT PILLS â•â• */
   .cat-pills {
     display: flex;
     gap: 8px;
@@ -151,7 +173,7 @@
     color: white;
   }
 
-  /* ══ FEATURED CARD ══ */
+  /* â•â• FEATURED CARD â•â• */
   .featured-news-card {
     background: linear-gradient(135deg, var(--navy) 0%, #0d3060 100%);
     border-radius: var(--r-lg);
@@ -254,7 +276,7 @@
     margin-right: 4px;
   }
 
-  /* ══ NEWS CARD ══ */
+  /* â•â• NEWS CARD â•â• */
   .news-card {
     background: white;
     border: 1px solid var(--border);
@@ -443,7 +465,7 @@
     color: var(--navy);
   }
 
-  /* ══ CATEGORY BADGE COLORS ══ */
+  /* â•â• CATEGORY BADGE COLORS â•â• */
   .cat-admissions {
     background: rgba(21,95,122, .85);
   }
@@ -468,7 +490,7 @@
     background: rgba(55, 71, 79, .85);
   }
 
-  /* ══ SIDEBAR ══ */
+  /* â•â• SIDEBAR â•â• */
   .news-sidebar-widget {
     background: white;
     border: 1px solid var(--border);
@@ -587,7 +609,7 @@
     font-size: .78rem;
   }
 
-  /* ══ EMPTY ══ */
+  /* â•â• EMPTY â•â• */
   .news-empty {
     text-align: center;
     padding: 60px 0;
@@ -600,7 +622,7 @@
     margin-bottom: 14px;
   }
 
-  /* ══ PAGINATION ══ */
+  /* â•â• PAGINATION â•â• */
   .news-pagination {
     display: flex;
     gap: 6px;
@@ -668,9 +690,6 @@
 
 
 
-<?php include("includes/header.php"); ?>
-
-<!-- ═══ PAGE HERO ═══ -->
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
@@ -678,420 +697,95 @@
     <div class="breadcrumb-pmc">
       <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <span class="current">News &amp; Events</span>
+      <span class="current">News</span>
     </div>
   </div>
 </div>
 
-<!-- ═══ MAIN CONTENT ═══ -->
-<section class="pmc-section bg-off">
+<section class="pmc-section">
   <div class="container">
-    <div class="row g-5">
-
-      <!-- LEFT: News Listing -->
+    <div class="row g-4">
       <div class="col-lg-8">
-
-        <!-- Filter Bar (static, non‑functional but keeps the look) -->
-        <div class="news-filter-bar fu">
-          <div class="nfb-group" style="flex:2;">
-            <label class="nfb-label">Search</label>
-            <div class="nfb-search-wrap">
-              <i class="bi bi-search"></i>
-              <input type="text" class="nfb-input" placeholder="Search news…" readonly>
-            </div>
-          </div>
-          <div class="nfb-group">
-            <label class="nfb-label">Category</label>
-            <select class="nfb-select" disabled>
-              <option>All Categories</option>
-            </select>
-          </div>
-          <div class="nfb-group">
-            <label class="nfb-label">Year</label>
-            <select class="nfb-select" disabled>
-              <option>All Years</option>
-            </select>
-          </div>
-          <button class="nfb-btn" disabled><i class="bi bi-x-circle me-1"></i> Clear</button>
-        </div>
-
-        <!-- Category Pills (static) -->
-        <div class="cat-pills fu">
-          <span class="cat-pill active">All</span>
-          <span class="cat-pill">Admissions</span>
-          <span class="cat-pill">Achievement</span>
-          <span class="cat-pill">Research</span>
-          <span class="cat-pill">Conference</span>
-          <span class="cat-pill">Society</span>
-          <span class="cat-pill">General</span>
-        </div>
-
-        <!-- Results count -->
         <div class="results-bar fu">
           <i class="bi bi-newspaper" style="color:var(--teal);"></i>
-          Showing <strong>9</strong> of <strong>9</strong> items
+          Showing <strong><?= (int) $total ?></strong> of <strong><?= (int) $total ?></strong> items
         </div>
 
-        <!-- Featured Card -->
+        <?php if ($featured):
+          $fHref = dms_cms_public_href($featured, "single-news");
+          $parts = dms_cms_date_parts($featured["published_at"] ?? null);
+        ?>
         <div class="featured-news-card fu" style="margin-bottom:36px;">
-          <div class="fnc-placeholder" style="background:linear-gradient(135deg,#0A1628,#1a3a6b);">
-            <i class="bi bi-mortarboard-fill" style="font-size:5rem;color:rgba(255,255,255,.15);"></i>
+          <div class="fnc-placeholder" style="background:<?= htmlspecialchars($featured["card_gradient"] ?? "linear-gradient(135deg,#0A1628,#1a3a6b)") ?>;">
+            <i class="bi <?= htmlspecialchars($featured["card_icon"] ?? "bi-newspaper") ?>" style="font-size:5rem;color:rgba(255,255,255,.15);"></i>
           </div>
           <div class="fnc-body">
-            <div class="fnc-eyebrow"><i class="bi bi-star-fill"></i> Featured · Admissions</div>
-            <h2 class="fnc-title">MBBS Admissions — Applications Closed</h2>
-            <p class="fnc-excerpt">Applications for MBBS Session 2025–26 are closed. Review eligibility, merit criteria, and guidance for the next admissions cycle on the Admissions page.</p>
+            <div class="fnc-eyebrow"><i class="bi bi-star-fill"></i> Featured · <?= htmlspecialchars(dms_cms_category_label((string) ($featured["category"] ?? ""))) ?></div>
+            <h2 class="fnc-title"><?= htmlspecialchars($featured["title"] ?? "") ?></h2>
+            <p class="fnc-excerpt"><?= htmlspecialchars($featured["excerpt"] ?? "") ?></p>
             <div class="fnc-meta">
-              <span><i class="bi bi-calendar3"></i> June 15, 2025</span>
-              <span><i class="bi bi-person"></i> PMC Admin</span>
-              <span><i class="bi bi-clock"></i> 2 min read</span>
+              <?php if ($d = dms_cms_format_date($featured["published_at"] ?? null)): ?><span><i class="bi bi-calendar3"></i> <?= htmlspecialchars($d) ?></span><?php endif; ?>
+              <?php if (!empty($featured["author"])): ?><span><i class="bi bi-person"></i> <?= htmlspecialchars($featured["author"]) ?></span><?php endif; ?>
+              <?php if (!empty($featured["read_minutes"])): ?><span><i class="bi bi-clock"></i> <?= (int) $featured["read_minutes"] ?> min read</span><?php endif; ?>
             </div>
-            <a href="single-news" class="btn-pmc btn-pmc-gold" style="align-self:flex-start;">
+            <a href="<?= htmlspecialchars($fHref) ?>" class="btn-pmc btn-pmc-gold" style="align-self:flex-start;">
               <i class="bi bi-arrow-right-circle"></i> Read Full Article
             </a>
           </div>
         </div>
+        <?php endif; ?>
 
-        <!-- News Grid (9 hard‑coded cards) -->
         <div class="row g-4" id="newsGrid">
-
-          <!-- 1. Admissions -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#0A1628,#1a3a6b);">
-                <i class="bi bi-mortarboard-fill"></i><span>Admissions</span>
-                <div class="nc-date-pill"><span class="day">15</span><span class="month">Jun</span></div>
+          <?php foreach ($posts as $item):
+            $href = dms_cms_public_href($item, "single-news");
+            $parts = dms_cms_date_parts($item["published_at"] ?? null);
+            $ext = preg_match("#^https?://#i", $href);
+          ?>
+          <div class="col-md-6 news-item" data-cat="<?= htmlspecialchars($item["category"] ?? "") ?>">
+            <a class="news-card" href="<?= htmlspecialchars($href) ?>" <?= $ext ? "target=\"_blank\" rel=\"noopener\"" : "" ?>>
+              <div class="nc-img-placeholder" style="background:<?= htmlspecialchars($item["card_gradient"] ?? "linear-gradient(135deg,#0A1628,#1a3a6b)") ?>;">
+                <i class="bi <?= htmlspecialchars($item["card_icon"] ?? "bi-newspaper") ?>"></i><span><?= htmlspecialchars(dms_cms_category_label((string) ($item["category"] ?? ""))) ?></span>
+                <?php if ($parts["day"] !== ""): ?>
+                <div class="nc-date-pill"><span class="day"><?= htmlspecialchars($parts["day"]) ?></span><span class="month"><?= htmlspecialchars($parts["month"]) ?></span></div>
+                <?php endif; ?>
               </div>
               <div class="nc-body">
-                <div class="nc-title">MBBS Admissions — Applications Closed</div>
-                <div class="nc-excerpt">Applications for MBBS Session 2025–26 are closed. See Admissions for next-cycle guidance.</div>
+                <div class="nc-title"><?= htmlspecialchars($item["title"] ?? "") ?></div>
+                <div class="nc-excerpt"><?= htmlspecialchars($item["excerpt"] ?? "") ?></div>
                 <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>PMC Admin</span>
-                  <span class="nc-read">2 min read <i class="bi bi-arrow-right"></i></span>
+                  <span class="nc-author"><i class="bi bi-person-circle"></i><?= htmlspecialchars($item["author"] ?? "PMC") ?></span>
+                  <span class="nc-read"><?= !empty($item["read_minutes"]) ? ((int) $item["read_minutes"] . " min read") : "Read" ?> <i class="bi bi-arrow-right"></i></span>
                 </div>
               </div>
             </a>
           </div>
-
-          <!-- 2. Achievement -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#C9A84C,#e0c068);">
-                <i class="bi bi-award-fill"></i><span>Achievement</span>
-                <div class="nc-date-pill"><span class="day">15</span><span class="month">May</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">PMC Retains #1 Ranking Among Private Medical Colleges in KP</div>
-                <div class="nc-excerpt">Following the latest PM&DC inspection, PMC secured the highest score among all
-                  private medical colleges in KP with over 80%.</div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>PMC Communications</span>
-                  <span class="nc-read">3 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- 3. Research -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#00695C,#00897B);">
-                <i class="bi bi-flask-fill"></i><span>Research</span>
-                <div class="nc-date-pill"><span class="day">22</span><span class="month">Apr</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">UMR Society Annual Medical Research Conference 2025</div>
-                <div class="nc-excerpt">The PMC Undergraduate Medical Research Society organised its annual conference
-                  showcasing student projects.</div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>UMR Society</span>
-                  <span class="nc-read">5 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- 4. Conference -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#1565C0,#1976D2);">
-                <i class="bi bi-mic-fill"></i><span>Conference</span>
-                <div class="nc-date-pill"><span class="day">18</span><span class="month">Feb</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">International Medical Education Symposium 2025 — PMC Hosts Delegates</div>
-                <div class="nc-excerpt">PMC hosted an international symposium on modern medical education, attended by
-                  200+ delegates.</div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>PMC Admin</span>
-                  <span class="nc-read">4 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- 5. Sports Society -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#6A1B9A,#7B1FA2);">
-                <i class="bi bi-trophy-fill"></i><span>Society</span>
-                <div class="nc-date-pill"><span class="day">10</span><span class="month">Mar</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">Annual Sports Gala 2025 — PMC Sports Society</div>
-                <div class="nc-excerpt">A week-long celebration of sportsmanship and team spirit featuring cricket,
-                  football, and more.</div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>Sports Society</span>
-                  <span class="nc-read">3 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- 6. Blood Donation -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#C62828,#E53935);">
-                <i class="bi bi-heart-fill"></i><span>Society</span>
-                <div class="nc-date-pill"><span class="day">28</span><span class="month">Jan</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">SWS Blood Donation Drive — Winter 2025 Exceeds Target</div>
-                <div class="nc-excerpt">The Social Welfare Society conducted a successful blood donation drive with over
-                  150 units collected.</div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>Social Welfare Society</span>
-                  <span class="nc-read">2 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- 7. Convocation -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#37474F,#546E7A);">
-                <i class="bi bi-mortarboard-fill"></i><span>General</span>
-                <div class="nc-date-pill"><span class="day">05</span><span class="month">Dec</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">Annual Convocation 2024 — 90+ Doctors Graduate from PMC</div>
-                <div class="nc-excerpt">PMC celebrated another cohort at the Annual Convocation 2024 with degrees
-                  conferred to over 90 new MBBS graduates.</div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>PMC Admin</span>
-                  <span class="nc-read">3 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- 8. Scholarship -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#00695C,#2E7D32);">
-                <i class="bi bi-award"></i><span>Admissions</span>
-                <div class="nc-date-pill"><span class="day">01</span><span class="month">Oct</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">PMC Scholarship Policy Updated for Session 2024–25</div>
-                <div class="nc-excerpt">The updated scholarship policy for MBBS Session 2024–25 has been announced.
-                </div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>Admissions Office</span>
-                  <span class="nc-read">3 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- 9. Faculty Research -->
-          <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news">
-              <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#0A1628,#00695C);">
-                <i class="bi bi-journal-richtext"></i><span>Research</span>
-                <div class="nc-date-pill"><span class="day">14</span><span class="month">Aug</span></div>
-              </div>
-              <div class="nc-body">
-                <div class="nc-title">PMC Faculty Research Published in International Peer-Reviewed Journals</div>
-                <div class="nc-excerpt">Multiple PMC faculty members have had research papers published in
-                  internationally peer-reviewed medical journals.</div>
-                <div class="nc-footer">
-                  <span class="nc-author"><i class="bi bi-person-circle"></i>PMC Communications</span>
-                  <span class="nc-read">4 min read <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-        </div> <!-- /newsGrid -->
-
-        <!-- Pagination (static, non‑functional) -->
-        <div class="news-pagination fu">
-          <a class="pg-btn disabled" href="#"><i class="bi bi-chevron-left"></i></a>
-          <a class="pg-btn active" href="#">1</a>
-          <a class="pg-btn" href="#">2</a>
-          <a class="pg-btn" href="#">3</a>
-          <a class="pg-btn" href="#"><i class="bi bi-chevron-right"></i></a>
+          <?php endforeach; ?>
         </div>
+      </div>
 
-      </div> <!-- /col-lg-8 -->
-
-      <!-- RIGHT: Sidebar -->
       <div class="col-lg-4">
-
-        <!-- Recent News -->
-        <div class="news-sidebar-widget fu">
-          <div class="nsw-head"><i class="bi bi-clock-history"></i> Recent News</div>
-          <div class="nsw-body" style="padding:0;">
-            <a class="recent-item" href="single-news">
-              <div class="ri-thumb"><i class="bi bi-mortarboard-fill"></i></div>
-              <div style="flex:1;min-width:0;">
-                <div class="ri-title">MBBS Admissions — Applications Closed</div>
-                <div class="ri-date"><i class="bi bi-calendar3"></i> June 15, 2025</div>
-              </div>
-            </a>
-            <a class="recent-item" href="single-news">
-              <div class="ri-thumb"><i class="bi bi-award-fill"></i></div>
-              <div style="flex:1;min-width:0;">
-                <div class="ri-title">PMC Retains #1 Ranking Among Private Medical Colleges in KP</div>
-                <div class="ri-date"><i class="bi bi-calendar3"></i> May 15, 2025</div>
-              </div>
-            </a>
-            <a class="recent-item" href="single-news">
-              <div class="ri-thumb"><i class="bi bi-flask-fill"></i></div>
-              <div style="flex:1;min-width:0;">
-                <div class="ri-title">UMR Society Annual Medical Research Conference 2025</div>
-                <div class="ri-date"><i class="bi bi-calendar3"></i> April 22, 2025</div>
-              </div>
-            </a>
+        <aside class="news-sidebar fu">
+          <div class="nsw-card">
+            <h4 class="nsw-title">Categories</h4>
+            <a class="nsw-link" href="all-news"><i class="bi bi-grid"></i>All News <span class="ms-auto pmc-tag"><?= (int) $total ?></span></a>
+            <?php foreach ($cats as $cat => $count): ?>
+              <a class="nsw-link" href="all-news"><i class="bi bi-chevron-right"></i><?= htmlspecialchars(dms_cms_category_label($cat)) ?> <span class="ms-auto pmc-tag"><?= (int) $count ?></span></a>
+            <?php endforeach; ?>
           </div>
-        </div>
-
-        <!-- Categories (static) -->
-        <div class="news-sidebar-widget fu">
-          <div class="nsw-head"><i class="bi bi-tags-fill"></i> Categories</div>
-          <div class="nsw-body">
-            <a class="nsw-link" href="#"><i class="bi bi-grid"></i>All News <span class="ms-auto pmc-tag">9</span></a>
-            <a class="nsw-link" href="#"><i class="bi bi-chevron-right"></i>Admissions <span
-                class="ms-auto pmc-tag">2</span></a>
-            <a class="nsw-link" href="#"><i class="bi bi-chevron-right"></i>Achievement <span
-                class="ms-auto pmc-tag">1</span></a>
-            <a class="nsw-link" href="#"><i class="bi bi-chevron-right"></i>Research <span
-                class="ms-auto pmc-tag">2</span></a>
-            <a class="nsw-link" href="#"><i class="bi bi-chevron-right"></i>Conference <span
-                class="ms-auto pmc-tag">1</span></a>
-            <a class="nsw-link" href="#"><i class="bi bi-chevron-right"></i>Society <span
-                class="ms-auto pmc-tag">2</span></a>
-            <a class="nsw-link" href="#"><i class="bi bi-chevron-right"></i>General <span
-                class="ms-auto pmc-tag">1</span></a>
+          <div class="nsw-card">
+            <h4 class="nsw-title">Recent</h4>
+            <?php foreach (array_slice($posts, 0, 5) as $r): ?>
+              <a class="recent-item" href="<?= htmlspecialchars(dms_cms_public_href($r, "single-news")) ?>">
+                <div class="ri-title"><?= htmlspecialchars($r["title"] ?? "") ?></div>
+                <div class="ri-date"><?= htmlspecialchars(dms_cms_format_date($r["published_at"] ?? null)) ?></div>
+              </a>
+            <?php endforeach; ?>
           </div>
-        </div>
-
-      </div> <!-- /sidebar -->
-
-    </div> <!-- /row -->
-  </div> <!-- /container -->
+        </aside>
+      </div>
+    </div>
+  </div>
 </section>
 
-<?php include("includes/footer.php"); ?>
+<?php include __DIR__ . "/includes/footer.php"; ?>
 
-
-
-
-
-
-<script>
-  /* ═══════════════════════════════════════════════
-     ALL-NEWS PAGE SCRIPTS
-  ═══════════════════════════════════════════════ */
-  let activeCat = 'all';
-
-  // ── Category pills ────────────────────────────────────────────────
-  document.querySelectorAll('.cat-pill').forEach(p => {
-    p.addEventListener('click', () => {
-      document.querySelectorAll('.cat-pill').forEach(x => x.classList.remove('active'));
-      p.classList.add('active');
-      activeCat = p.dataset.cat;
-      applyNewsFilters();
-    });
-  });
-
-  function filterNewsCat(cat) {
-    activeCat = cat;
-    document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
-    document.getElementById('newsCat').value = cat === 'all' ? '' : cat;
-    applyNewsFilters();
-    document.getElementById('newsGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  // ── Search / selects ──────────────────────────────────────────────
-  document.getElementById('newsSearch').addEventListener('input', applyNewsFilters);
-  document.getElementById('newsCat').addEventListener('change', function () {
-    activeCat = this.value || 'all';
-    document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === activeCat));
-    applyNewsFilters();
-  });
-  document.getElementById('newsYear').addEventListener('change', applyNewsFilters);
-
-  function applyNewsFilters() {
-    const q = document.getElementById('newsSearch').value.trim().toLowerCase();
-    const year = document.getElementById('newsYear').value;
-    const items = [...document.querySelectorAll('.news-item')];
-    const fc = document.getElementById('featuredCard');
-    let visible = 0;
-
-    // Featured card
-    if (fc) {
-      const fcCat = fc.dataset.cat;
-      const fcYear = fc.dataset.year;
-      const show = (activeCat === 'all' || fcCat === activeCat) && (!year || fcYear === year);
-      fc.style.display = show ? '' : 'none';
-    }
-
-    items.forEach(item => {
-      const matchCat = activeCat === 'all' || item.dataset.cat === activeCat;
-      const matchYear = !year || item.dataset.year === year;
-      const matchQ = !q || item.dataset.title.includes(q) || item.dataset.excerpt.includes(q);
-      const show = matchCat && matchYear && matchQ;
-      item.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-
-    document.getElementById('visibleCount').textContent = visible;
-    document.getElementById('newsEmpty').style.display = visible === 0 ? 'block' : 'none';
-  }
-
-  function resetNewsFilters() {
-    document.getElementById('newsSearch').value = '';
-    document.getElementById('newsCat').value = '';
-    document.getElementById('newsYear').value = '';
-    activeCat = 'all';
-    document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === 'all'));
-    applyNewsFilters();
-  }
-
-  // ── Newsletter subscribe ──────────────────────────────────────────
-  function handleNLSub(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Subscribed!';
-    btn.disabled = true;
-    btn.style.background = '#2E7D32';
-    setTimeout(() => { btn.innerHTML = '<i class="bi bi-envelope-check"></i> Subscribe'; btn.disabled = false; btn.style.background = ''; e.target.reset(); }, 3000);
-  }
-
-  // ── Fade-up ───────────────────────────────────────────────────────
-  const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } }), { threshold: .08 });
-  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
-
-  // ── Navbar scroll ─────────────────────────────────────────────────
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
-
-  // ── Back to top ───────────────────────────────────────────────────
-  const btt = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => btt.classList.toggle('visible', scrollY > 500), { passive: true });
-  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-</script>

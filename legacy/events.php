@@ -1,5 +1,5 @@
-<style>
-  /* ══ FILTER BAR ══ */
+﻿<style>
+  /* â•â• FILTER BAR â•â• */
   .events-filter-bar {
     background: white;
     border: 1px solid var(--border);
@@ -68,7 +68,7 @@
     border-color: var(--teal);
   }
 
-  /* ══ CATEGORY PILLS ══ */
+  /* â•â• CATEGORY PILLS â•â• */
   .cat-pills {
     display: flex;
     gap: 8px;
@@ -101,7 +101,7 @@
     color: white;
   }
 
-  /* ══ FEATURED EVENT ══ */
+  /* â•â• FEATURED EVENT â•â• */
   .featured-event {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
     border-radius: var(--r-lg);
@@ -209,7 +209,7 @@
     font-size: .9rem;
   }
 
-  /* ══ EVENT CARDS ══ */
+  /* â•â• EVENT CARDS â•â• */
   .event-card {
     background: white;
     border: 1px solid var(--border);
@@ -422,7 +422,7 @@
     color: var(--navy);
   }
 
-  /* ══ UPCOMING EVENTS SIDEBAR ══ */
+  /* â•â• UPCOMING EVENTS SIDEBAR â•â• */
   .upcoming-card {
     background: white;
     border: 1px solid var(--border);
@@ -499,7 +499,7 @@
     font-size: .78rem;
   }
 
-  /* ══ NEWSLETTER WIDGET ══ */
+  /* â•â• NEWSLETTER WIDGET â•â• */
   .nl-widget {
     background: linear-gradient(135deg, var(--navy), var(--navy-mid));
     border-radius: var(--r-md);
@@ -545,7 +545,7 @@
     background: rgba(255, 255, 255, .1);
   }
 
-  /* ══ PAGINATION ══ */
+  /* â•â• PAGINATION â•â• */
   .events-pagination {
     display: flex;
     gap: 6px;
@@ -588,7 +588,7 @@
     pointer-events: none;
   }
 
-  /* ══ BACK TO TOP ══ */
+  /* â•â• BACK TO TOP â•â• */
   #backToTop {
     position: fixed;
     bottom: 28px;
@@ -620,7 +620,7 @@
     background: var(--navy);
   }
 
-  /* ══ RESPONSIVE ══ */
+  /* â•â• RESPONSIVE â•â• */
   @media (max-width: 767.98px) {
     .featured-event {
       flex-direction: column;
@@ -641,13 +641,27 @@
     }
   }
 </style>
-<?php include("includes/header.php"); ?>
 
-<!-- ═══ PAGE HERO ═══ -->
+<?php
+require_once __DIR__ . "/includes/cms-content.php";
+$events = dms_events_published();
+$featured = null;
+foreach ($events as $e) {
+  if (!empty($e["is_featured"])) { $featured = $e; break; }
+}
+if (!$featured && $events) { $featured = $events[0]; }
+$cats = [];
+foreach ($events as $e) {
+  $c = (string) ($e["category"] ?? "general");
+  $cats[$c] = ($cats[$c] ?? 0) + 1;
+}
+include __DIR__ . "/includes/header.php";
+?>
+
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
-    <h1>News &amp; Events</h1>
+    <h1>Events</h1>
     <div class="breadcrumb-pmc">
       <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
@@ -656,451 +670,76 @@
   </div>
 </div>
 
-<!-- ═══ MAIN CONTENT ═══ -->
-<section class="pmc-section bg-off">
+<section class="pmc-section">
   <div class="container">
-    <div class="row g-5">
-
-      <!-- ── LEFT: Events listing ─────────────────────────────── -->
+    <div class="row g-4">
       <div class="col-lg-8">
-
-        <!-- Filter bar -->
-        <div class="events-filter-bar fu">
-          <div class="ef-search-wrap">
-            <i class="bi bi-search"></i>
-            <input type="text" class="ef-search" id="evSearch" placeholder="Search events, news, announcements…" />
+        <?php if ($featured): ?>
+        <div class="featured-event-card fu" style="margin-bottom:36px;display:flex;gap:0;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:#fff">
+          <div class="featured-event-img" style="min-width:240px;background:<?= htmlspecialchars($featured["card_gradient"] ?? "linear-gradient(135deg,#0A1628,#1a3a6b)") ?>;display:flex;align-items:center;justify-content:center;color:#fff">
+            <i class="bi <?= htmlspecialchars($featured["card_icon"] ?? "bi-award-fill") ?>" style="font-size:3.5rem;opacity:.35"></i>
           </div>
-          <select class="ef-select" id="evYear">
-            <option value="">All Years</option>
-            <option value="2025" selected>2025</option>
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-          </select>
-          <select class="ef-select" id="evSort">
-            <option value="newest">Newest First</option>
-            <option value="oldest">Oldest First</option>
-          </select>
-        </div>
-
-        <!-- Category pills -->
-        <div class="cat-pills fu">
-          <a class="cat-pill active" data-cat="all" href="#">All</a>
-          <a class="cat-pill" data-cat="admissions" href="#">Admissions</a>
-          <a class="cat-pill" data-cat="research" href="#">Research</a>
-          <a class="cat-pill" data-cat="achievement" href="#">Achievement</a>
-          <a class="cat-pill" data-cat="conference" href="#">Conference</a>
-          <a class="cat-pill" data-cat="society" href="#">Societies</a>
-          <a class="cat-pill" data-cat="general" href="#">General</a>
-        </div>
-
-        <!-- Featured Event -->
-        <div class="featured-event fu" id="featuredEvent">
-          <div class="featured-event-img-placeholder">
-            <i class="bi bi-award-fill"></i>
-          </div>
-          <div class="featured-event-body">
-            <div class="featured-badge"><i class="bi bi-star-fill"></i> Featured</div>
-            <h2 class="featured-event-title">PMC Retains #1 Ranking Among Private Medical Colleges in KP</h2>
-            <p class="featured-event-excerpt">Following the latest PM&DC inspection visit, Peshawar Medical College has
-              once again secured the highest score among all private medical colleges in Khyber Pakhtunkhwa with over
-              80% — reinforcing our commitment to academic and clinical excellence.</p>
-            <div class="featured-event-meta">
-              <div class="fem-item"><i class="bi bi-calendar3"></i> May 15, 2025</div>
-              <div class="fem-item"><i class="bi bi-tag"></i> Achievement</div>
-              <div class="fem-item"><i class="bi bi-clock"></i> 3 min read</div>
+          <div class="featured-event-body" style="padding:24px">
+            <div class="featured-badge" style="color:var(--gold);font-weight:700;font-size:.75rem;margin-bottom:8px"><i class="bi bi-star-fill"></i> Featured</div>
+            <h2 class="featured-event-title" style="font-family:var(--font-head);font-size:1.35rem;font-weight:800;color:var(--navy)"><?= htmlspecialchars($featured["title"] ?? "") ?></h2>
+            <p class="featured-event-excerpt" style="color:var(--gray-mid)"><?= htmlspecialchars($featured["excerpt"] ?? "") ?></p>
+            <div class="featured-event-meta" style="display:flex;flex-wrap:wrap;gap:12px;margin:12px 0;font-size:.85rem;color:var(--gray-mid)">
+              <?php if ($d = dms_cms_format_date($featured["event_date"] ?? ($featured["published_at"] ?? null))): ?><div class="fem-item"><i class="bi bi-calendar3"></i> <?= htmlspecialchars($d) ?></div><?php endif; ?>
+              <div class="fem-item"><i class="bi bi-tag"></i> <?= htmlspecialchars(dms_cms_category_label((string) ($featured["category"] ?? ""))) ?></div>
             </div>
-            <a href="event-single" class="btn-pmc btn-pmc-gold"
-              style="font-size:.85rem;padding:11px 22px;align-self:flex-start;">
+            <a href="<?= htmlspecialchars(dms_cms_public_href($featured, "event-single")) ?>" class="btn-pmc btn-pmc-gold" style="font-size:.85rem;padding:11px 22px;align-self:flex-start;">
               <i class="bi bi-arrow-right-circle"></i> Read Full Story
             </a>
           </div>
         </div>
+        <?php endif; ?>
 
-        <!-- Events Grid -->
         <div class="row g-4" id="eventsGrid">
-
-          <!-- Event 1 -->
-          <div class="col-md-6 ev-item fu" data-cat="admissions" data-year="2025" data-date="2025-06-15">
-            <a class="event-card" href="event-single">
-              <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#0A1628,#122040);">
-                <i class="bi bi-mortarboard-fill"></i>
-                <span>Admissions</span>
-              </div>
-              <div style="position:relative;"><!-- badges need relative parent -->
-                <div class="ec-badges"
-                  style="position:relative;padding:8px 12px;background:transparent;bottom:auto;left:auto;right:auto;">
-                  <span class="ec-cat-badge cat-admissions">Admissions</span>
-                  <div class="ec-date-badge"><span class="ec-date-day">15</span><span class="ec-date-month">Jun</span>
-                  </div>
-                </div>
-              </div>
-              <div class="ec-body">
-                <div class="ec-title">MBBS Admissions Open for Session 2026-27</div>
-                <div class="ec-excerpt">Peshawar Medical College invites applications from eligible students — local,
-                  overseas Pakistani, and international — for the upcoming MBBS session starting 2025.</div>
-                <div class="ec-footer">
-                  <span class="ec-meta-item"><i class="bi bi-person"></i> PMC Admin</span>
-                  <span class="ec-read-link">Read More <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Event 2 -->
-          <div class="col-md-6 ev-item fu" data-cat="research" data-year="2025" data-date="2025-04-22">
-            <a class="event-card" href="event-single">
-              <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#00695C,#00897B);">
-                <i class="bi bi-flask-fill"></i>
-                <span>Research</span>
+          <?php foreach ($events as $item):
+            $parts = dms_cms_date_parts($item["event_date"] ?? ($item["published_at"] ?? null));
+            $href = dms_cms_public_href($item, "event-single");
+            $year = !empty($item["event_date"]) ? substr((string)$item["event_date"], 0, 4) : "";
+          ?>
+          <div class="col-md-6 ev-item fu" data-cat="<?= htmlspecialchars($item["category"] ?? "") ?>" data-year="<?= htmlspecialchars($year) ?>" data-date="<?= htmlspecialchars($item["event_date"] ?? "") ?>">
+            <a class="event-card" href="<?= htmlspecialchars($href) ?>">
+              <div class="ec-img-placeholder" style="background:<?= htmlspecialchars($item["card_gradient"] ?? "linear-gradient(135deg,#0A1628,#122040)") ?>;">
+                <i class="bi <?= htmlspecialchars($item["card_icon"] ?? "bi-calendar-event") ?>"></i>
+                <span><?= htmlspecialchars(dms_cms_category_label((string) ($item["category"] ?? ""))) ?></span>
               </div>
               <div style="position:relative;">
-                <div class="ec-badges"
-                  style="position:relative;padding:8px 12px;background:transparent;bottom:auto;left:auto;right:auto;">
-                  <span class="ec-cat-badge cat-research">Research</span>
-                  <div class="ec-date-badge"><span class="ec-date-day">22</span><span class="ec-date-month">Apr</span>
-                  </div>
+                <div class="ec-badges" style="position:relative;padding:8px 12px;background:transparent;bottom:auto;left:auto;right:auto;">
+                  <span class="ec-cat-badge cat-<?= htmlspecialchars($item["category"] ?? "general") ?>"><?= htmlspecialchars(dms_cms_category_label((string) ($item["category"] ?? ""))) ?></span>
+                  <?php if ($parts["day"] !== ""): ?>
+                  <div class="ec-date-badge"><span class="ec-date-day"><?= htmlspecialchars($parts["day"]) ?></span><span class="ec-date-month"><?= htmlspecialchars($parts["month"]) ?></span></div>
+                  <?php endif; ?>
                 </div>
               </div>
               <div class="ec-body">
-                <div class="ec-title">UMR Society Annual Medical Research Conference 2025</div>
-                <div class="ec-excerpt">The PMC Undergraduate Medical Research Society organised its annual conference
-                  showcasing research projects across all five years of the MBBS program at PMC Main Campus.</div>
+                <div class="ec-title"><?= htmlspecialchars($item["title"] ?? "") ?></div>
+                <div class="ec-excerpt"><?= htmlspecialchars($item["excerpt"] ?? "") ?></div>
                 <div class="ec-footer">
-                  <span class="ec-meta-item"><i class="bi bi-geo-alt"></i> PMC Auditorium</span>
+                  <span class="ec-meta-item"><i class="bi bi-person"></i> <?= htmlspecialchars($item["author"] ?? "PMC") ?></span>
                   <span class="ec-read-link">Read More <i class="bi bi-arrow-right"></i></span>
                 </div>
               </div>
             </a>
           </div>
-
-          <!-- Event 3 -->
-          <div class="col-md-6 ev-item fu" data-cat="society" data-year="2025" data-date="2025-03-10">
-            <a class="event-card" href="event-single">
-              <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#6A1B9A,#7B1FA2);">
-                <i class="bi bi-trophy-fill"></i>
-                <span>Sports</span>
-              </div>
-              <div style="position:relative;">
-                <div class="ec-badges"
-                  style="position:relative;padding:8px 12px;background:transparent;bottom:auto;left:auto;right:auto;">
-                  <span class="ec-cat-badge cat-society">Society</span>
-                  <div class="ec-date-badge"><span class="ec-date-day">10</span><span class="ec-date-month">Mar</span>
-                  </div>
-                </div>
-              </div>
-              <div class="ec-body">
-                <div class="ec-title">Annual Sports Gala 2025 — PMC Sports Society</div>
-                <div class="ec-excerpt">A week-long celebration of sportsmanship, team spirit, and healthy competition
-                  featuring cricket, football, basketball, badminton and athletics across all years.</div>
-                <div class="ec-footer">
-                  <span class="ec-meta-item"><i class="bi bi-geo-alt"></i> PMC Sports Ground</span>
-                  <span class="ec-read-link">Read More <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Event 4 -->
-          <div class="col-md-6 ev-item fu" data-cat="conference" data-year="2025" data-date="2025-02-18">
-            <a class="event-card" href="event-single">
-              <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#1565C0,#1976D2);">
-                <i class="bi bi-mic-fill"></i>
-                <span>Conference</span>
-              </div>
-              <div style="position:relative;">
-                <div class="ec-badges"
-                  style="position:relative;padding:8px 12px;background:transparent;bottom:auto;left:auto;right:auto;">
-                  <span class="ec-cat-badge cat-conference">Conference</span>
-                  <div class="ec-date-badge"><span class="ec-date-day">18</span><span class="ec-date-month">Feb</span>
-                  </div>
-                </div>
-              </div>
-              <div class="ec-body">
-                <div class="ec-title">International Medical Education Symposium — PMC 2025</div>
-                <div class="ec-excerpt">PMC hosted an international symposium on modern medical education practices,
-                  attended by faculty, students, and delegates from medical institutions across Pakistan and abroad.
-                </div>
-                <div class="ec-footer">
-                  <span class="ec-meta-item"><i class="bi bi-people"></i> 200+ Attendees</span>
-                  <span class="ec-read-link">Read More <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Event 5 -->
-          <div class="col-md-6 ev-item fu" data-cat="society" data-year="2025" data-date="2025-01-28">
-            <a class="event-card" href="event-single">
-              <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#E65100,#F57C00);">
-                <i class="bi bi-heart-fill"></i>
-                <span>Social Welfare</span>
-              </div>
-              <div style="position:relative;">
-                <div class="ec-badges"
-                  style="position:relative;padding:8px 12px;background:transparent;bottom:auto;left:auto;right:auto;">
-                  <span class="ec-cat-badge cat-society">Society</span>
-                  <div class="ec-date-badge"><span class="ec-date-day">28</span><span class="ec-date-month">Jan</span>
-                  </div>
-                </div>
-              </div>
-              <div class="ec-body">
-                <div class="ec-title">SWS Blood Donation Drive — Winter 2025</div>
-                <div class="ec-excerpt">The Social Welfare Society conducted a successful blood donation drive with over
-                  150 units collected, directly contributing to blood banks at PMC's affiliated teaching hospitals.
-                </div>
-                <div class="ec-footer">
-                  <span class="ec-meta-item"><i class="bi bi-droplet-half"></i> 150+ Units</span>
-                  <span class="ec-read-link">Read More <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Event 6 -->
-          <div class="col-md-6 ev-item fu" data-cat="general" data-year="2024" data-date="2024-12-05">
-            <a class="event-card" href="event-single">
-              <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#37474F,#546E7A);">
-                <i class="bi bi-mortarboard-fill"></i>
-                <span>Convocation</span>
-              </div>
-              <div style="position:relative;">
-                <div class="ec-badges"
-                  style="position:relative;padding:8px 12px;background:transparent;bottom:auto;left:auto;right:auto;">
-                  <span class="ec-cat-badge cat-general">General</span>
-                  <div class="ec-date-badge"><span class="ec-date-day">05</span><span class="ec-date-month">Dec</span>
-                  </div>
-                </div>
-              </div>
-              <div class="ec-body">
-                <div class="ec-title">Annual Convocation 2024 — Graduation Ceremony</div>
-                <div class="ec-excerpt">PMC celebrated another cohort of graduating doctors at the Annual Convocation
-                  2024, with degrees conferred to over 90 newly qualified MBBS graduates ready to serve Pakistan.</div>
-                <div class="ec-footer">
-                  <span class="ec-meta-item"><i class="bi bi-people"></i> 90+ Graduates</span>
-                  <span class="ec-read-link">Read More <i class="bi bi-arrow-right"></i></span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-        </div><!-- /#eventsGrid -->
-
-        <!-- No results -->
-        <div id="evNoResults" style="display:none;text-align:center;padding:60px 0;">
-          <i class="bi bi-search" style="font-size:3rem;color:var(--gray-light);display:block;margin-bottom:14px;"></i>
-          <h5 style="font-family:var(--font-head);color:var(--navy);">No events found</h5>
-          <p style="font-family:var(--font-body);color:var(--gray-mid);font-size:.9rem;">Try different filters or search
-            terms.</p>
-          <button onclick="resetFilters()" class="btn-pmc btn-pmc-outline mt-3"
-            style="font-size:.85rem;padding:9px 20px;">
-            <i class="bi bi-x-circle"></i> Clear Filters
-          </button>
+          <?php endforeach; ?>
         </div>
-
-        <!-- Pagination -->
-        <div class="events-pagination fu">
-          <a class="pg-btn disabled" href="#"><i class="bi bi-chevron-left"></i></a>
-          <a class="pg-btn active" href="#">1</a>
-          <a class="pg-btn" href="#">2</a>
-          <a class="pg-btn" href="#">3</a>
-          <span class="pg-btn" style="border:none;background:none;color:var(--gray-mid);">…</span>
-          <a class="pg-btn" href="#">8</a>
-          <a class="pg-btn" href="#"><i class="bi bi-chevron-right"></i></a>
-        </div>
-
-      </div><!-- /.col-lg-8 -->
-
-      <!-- ── RIGHT: Sidebar ────────────────────────────────────── -->
+      </div>
       <div class="col-lg-4">
-
-        <!-- Upcoming Events -->
-        <div class="sidebar-widget mb-4 fu">
-          <div class="sw-head"><i class="bi bi-calendar-event"></i> Upcoming Events</div>
-          <div class="sw-body" style="padding:16px;">
-
-            <a class="upcoming-card" href="event-single">
-              <div class="upcoming-date-block">
-                <span class="udb-day">25</span>
-                <span class="udb-month">Jul</span>
+        <aside>
+          <div class="nsw-card" style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:18px;margin-bottom:16px">
+            <h4 style="font-family:var(--font-head);font-weight:800;color:var(--navy)">Categories</h4>
+            <?php foreach ($cats as $cat => $count): ?>
+              <div style="display:flex;justify-content:space-between;padding:6px 0;color:var(--gray-mid);font-size:.9rem">
+                <span><?= htmlspecialchars(dms_cms_category_label($cat)) ?></span><span><?= (int)$count ?></span>
               </div>
-              <div class="upcoming-body">
-                <div class="ub-title">MDCAT Registration Deadline 2025</div>
-                <div class="ub-venue"><i class="bi bi-geo-alt-fill"></i> PMC Admissions Office</div>
-              </div>
-            </a>
-
-            <a class="upcoming-card" href="event-single">
-              <div class="upcoming-date-block">
-                <span class="udb-day">10</span>
-                <span class="udb-month">Aug</span>
-              </div>
-              <div class="upcoming-body">
-                <div class="ub-title">Orientation for New MBBS Students 2026-27</div>
-                <div class="ub-venue"><i class="bi bi-geo-alt-fill"></i> PMC Main Auditorium</div>
-              </div>
-            </a>
-
-            <a class="upcoming-card" href="event-single">
-              <div class="upcoming-date-block">
-                <span class="udb-day">02</span>
-                <span class="udb-month">Sep</span>
-              </div>
-              <div class="upcoming-body">
-                <div class="ub-title">Free Medical Camp — SWS Community Outreach</div>
-                <div class="ub-venue"><i class="bi bi-geo-alt-fill"></i> Warsak Colony</div>
-              </div>
-            </a>
-
-            <a class="upcoming-card" href="event-single">
-              <div class="upcoming-date-block">
-                <span class="udb-day">20</span>
-                <span class="udb-month">Sep</span>
-              </div>
-              <div class="upcoming-body">
-                <div class="ub-title">UMR Society Research Methodology Workshop</div>
-                <div class="ub-venue"><i class="bi bi-geo-alt-fill"></i> PMC Seminar Room</div>
-              </div>
-            </a>
-
-            <a class="upcoming-card" href="event-single">
-              <div class="upcoming-date-block">
-                <span class="udb-day">15</span>
-                <span class="udb-month">Oct</span>
-              </div>
-              <div class="upcoming-body">
-                <div class="ub-title">Literary Society Debating Competition 2025</div>
-                <div class="ub-venue"><i class="bi bi-geo-alt-fill"></i> PMC Auditorium</div>
-              </div>
-            </a>
-
+            <?php endforeach; ?>
           </div>
-        </div>
-
-        <!-- Categories Widget -->
-        <div class="sidebar-widget mb-4 fu">
-          <div class="sw-head"><i class="bi bi-tags-fill"></i> Browse by Category</div>
-          <div class="sw-body">
-            <a class="sw-link" href="#" onclick="filterCat('admissions')"><i class="bi bi-mortarboard"></i>Admissions
-              <span class="ms-auto pmc-tag" style="font-size:.68rem;">4</span></a>
-            <a class="sw-link" href="#" onclick="filterCat('research')"><i class="bi bi-building"></i>Research <span
-                class="ms-auto pmc-tag" style="font-size:.68rem;">8</span></a>
-            <a class="sw-link" href="#" onclick="filterCat('achievement')"><i class="bi bi-award"></i>Achievements <span
-                class="ms-auto pmc-tag" style="font-size:.68rem;">3</span></a>
-            <a class="sw-link" href="#" onclick="filterCat('conference')"><i class="bi bi-mic"></i>Conferences <span
-                class="ms-auto pmc-tag" style="font-size:.68rem;">5</span></a>
-            <a class="sw-link" href="#" onclick="filterCat('society')"><i class="bi bi-people"></i>Societies <span
-                class="ms-auto pmc-tag" style="font-size:.68rem;">6</span></a>
-            <a class="sw-link" href="#" onclick="filterCat('general')"><i class="bi bi-newspaper"></i>General <span
-                class="ms-auto pmc-tag" style="font-size:.68rem;">10</span></a>
-          </div>
-        </div>
-
-      </div><!-- /.col-lg-4 sidebar -->
-
-    </div><!-- /.row -->
+        </aside>
+      </div>
+    </div>
   </div>
 </section>
-
-
-<!-- ═══ FOOTER ═══ -->
-<?php include("includes/footer.php"); ?>
-
-<button id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/pmc-global.js"></script>
-<script>
-  /* ══════════════════════════════════════════════
-     EVENTS PAGE SCRIPTS
-  ══════════════════════════════════════════════ */
-
-  // ── Category filter via pills ────────────────────────────────────
-  const catPills = document.querySelectorAll('.cat-pill[data-cat]');
-  let activeCat = 'all';
-
-  catPills.forEach(pill => {
-    pill.addEventListener('click', e => {
-      e.preventDefault();
-      activeCat = pill.dataset.cat;
-      catPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      applyFilters();
-    });
-  });
-
-  function filterCat(cat) {
-    activeCat = cat;
-    catPills.forEach(p => {
-      p.classList.toggle('active', p.dataset.cat === cat);
-    });
-    applyFilters();
-    document.getElementById('eventsGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  // ── Search + Year filter ─────────────────────────────────────────
-  document.getElementById('evSearch').addEventListener('input', applyFilters);
-  document.getElementById('evYear').addEventListener('change', applyFilters);
-  document.getElementById('evSort').addEventListener('change', applyFilters);
-
-  function applyFilters() {
-    const query = document.getElementById('evSearch').value.trim().toLowerCase();
-    const year = document.getElementById('evYear').value;
-    const items = [...document.querySelectorAll('.ev-item')];
-    let visible = 0;
-
-    items.forEach(item => {
-      const cat = item.dataset.cat;
-      const itemYear = item.dataset.year;
-      const text = item.innerText.toLowerCase();
-
-      const matchCat = activeCat === 'all' || cat === activeCat;
-      const matchYear = !year || itemYear === year;
-      const matchQ = !query || text.includes(query);
-
-      const show = matchCat && matchYear && matchQ;
-      item.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-
-    document.getElementById('evNoResults').style.display = visible === 0 ? 'block' : 'none';
-  }
-
-  function resetFilters() {
-    document.getElementById('evSearch').value = '';
-    document.getElementById('evYear').value = '';
-    activeCat = 'all';
-    catPills.forEach(p => p.classList.toggle('active', p.dataset.cat === 'all'));
-    applyFilters();
-  }
-
-  // ── Newsletter subscribe ─────────────────────────────────────────
-  function handleSubscribe(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Subscribed!';
-    btn.disabled = true;
-    btn.style.background = '#2E7D32';
-    setTimeout(() => {
-      btn.innerHTML = '<i class="bi bi-envelope-check"></i> Subscribe';
-      btn.disabled = false;
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
-  }
-
-  // ── Fade-up observer ─────────────────────────────────────────────
-  const fuEls = document.querySelectorAll('.fu');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  fuEls.forEach(el => obs.observe(el));
-
-  // ── Back to top + navbar scroll ──────────────────────────────────
-  const btt = document.getElementById('backToTop');
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    btt.classList.toggle('visible', scrollY > 500);
-    nav.classList.toggle('scrolled', scrollY > 40);
-  });
-  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-</script>
+<?php include __DIR__ . "/includes/footer.php"; ?>

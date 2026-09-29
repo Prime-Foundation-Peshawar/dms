@@ -11,6 +11,15 @@ class Modules extends BaseController
         if ($key === 'departments') {
             return redirect()->to(site_url('acp/departments'));
         }
+        if ($key === 'news') {
+            return redirect()->to(site_url('acp/news'));
+        }
+        if ($key === 'events') {
+            return redirect()->to(site_url('acp/events'));
+        }
+        if ($key === 'slider') {
+            return redirect()->to(site_url('acp/slider'));
+        }
         $labels = [
             'news'         => 'News',
             'events'       => 'Events',

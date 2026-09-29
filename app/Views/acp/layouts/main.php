@@ -25,8 +25,9 @@
       <a href="<?= site_url('acp/faculty/submissions') ?>" class="<?= ($nav ?? '') === 'submissions' ? 'is-active' : '' ?>">Submissions</a>
       <a href="<?= site_url('acp/faculty/profiles') ?>" class="<?= ($nav ?? '') === 'profiles' ? 'is-active' : '' ?>">Live profiles</a>
       <p class="acp-nav-label">Content</p>
-      <a href="<?= site_url('acp/modules/news') ?>">News</a>
-      <a href="<?= site_url('acp/modules/events') ?>">Events</a>
+      <a href="<?= site_url('acp/news') ?>" class="<?= ($nav ?? '') === 'news' ? 'is-active' : '' ?>">News</a>
+      <a href="<?= site_url('acp/events') ?>" class="<?= ($nav ?? '') === 'events' ? 'is-active' : '' ?>">Events</a>
+      <a href="<?= site_url('acp/slider') ?>" class="<?= ($nav ?? '') === 'slider' ? 'is-active' : '' ?>">Slider</a>
       <a href="<?= site_url('acp/modules/gallery') ?>">Gallery</a>
       <a href="<?= site_url('acp/departments') ?>" class="<?= ($nav ?? '') === 'departments' ? 'is-active' : '' ?>">Departments</a>
       <a href="<?= site_url('acp/modules/vacant-seats') ?>">Vacant seats</a>

@@ -30,8 +30,9 @@ class Dashboard extends BaseController
             'modules' => [
                 ['key' => 'faculty', 'label' => 'Faculty profiles', 'status' => 'live', 'href' => site_url('acp/faculty/profiles')],
                 ['key' => 'submissions', 'label' => 'Profile submissions', 'status' => 'live', 'href' => site_url('acp/faculty/submissions')],
-                ['key' => 'news', 'label' => 'News', 'status' => 'soon', 'href' => site_url('acp/modules/news')],
-                ['key' => 'events', 'label' => 'Events', 'status' => 'soon', 'href' => site_url('acp/modules/events')],
+                ['key' => 'news', 'label' => 'News', 'status' => 'live', 'href' => site_url('acp/news')],
+                ['key' => 'events', 'label' => 'Events', 'status' => 'live', 'href' => site_url('acp/events')],
+                ['key' => 'slider', 'label' => 'Homepage slider', 'status' => 'live', 'href' => site_url('acp/slider')],
                 ['key' => 'gallery', 'label' => 'Gallery', 'status' => 'soon', 'href' => site_url('acp/modules/gallery')],
                 ['key' => 'departments', 'label' => 'Departments', 'status' => 'live', 'href' => site_url('acp/departments')],
                 ['key' => 'vacant', 'label' => 'Vacant seats', 'status' => 'soon', 'href' => site_url('acp/modules/vacant-seats')],

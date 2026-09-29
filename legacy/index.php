@@ -1,46 +1,108 @@
 <?php
-$preload_images = ['assets/images/slider/pmc-hero-poster.webp'];
+require_once __DIR__ . '/includes/cms-content.php';
+$heroSlides = dms_homepage_slides();
+$homeNotices = dms_news_home('notices');
+$homeCampus = dms_news_home('campus');
+$homeAdmissions = array_values(array_filter($homeNotices, static fn($r) => ($r['category'] ?? '') === 'admissions'));
+$homeCareers = array_values(array_filter($homeNotices, static fn($r) => ($r['category'] ?? '') === 'career'));
+if ($heroSlides === []) {
+  $preload_images = ['assets/images/slider/pmc-hero-poster.webp'];
+} else {
+  $first = $heroSlides[0];
+  $preload_images = [];
+  foreach (['poster_webp_path', 'poster_path', 'image_webp_path', 'image_path'] as $k) {
+    if (!empty($first[$k])) {
+      $preload_images[] = $first[$k];
+      break;
+    }
+  }
+}
 include('includes/header.php');
+
+$slideCount = count($heroSlides);
+$ctaClass = static function (string $style): string {
+  return $style === 'outline-white' ? 'btn-pmc btn-pmc-outline-white' : 'btn-pmc btn-pmc-primary';
+};
 ?>
 
-<!-- ═══ HERO — cinematic campus film ═══ -->
-<div id="heroSlider" class="hero-cinematic" aria-label="Peshawar Medical College campus film">
+<!-- ═══ HERO SLIDER ═══ -->
+<?php if ($heroSlides === []): ?>
+<div id="heroSlider" class="hero-cinematic" aria-label="Peshawar Medical College">
   <div class="hero-slide active">
-    <div class="slide-media slide-bg-hero has-video">
-      <picture class="hero-poster">
-        <source srcset="assets/images/slider/pmc-hero-poster.webp" type="image/webp">
-        <img src="assets/images/slider/pmc-hero-poster.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
-      </picture>
-      <video
-        class="hero-video"
-        muted
-        playsinline
-        loop
-        preload="none"
-        disablepictureinpicture
-        aria-hidden="true"
-        data-src-720="assets/videos/pmc-hero-720.mp4"
-        data-src-480="assets/videos/pmc-hero-480.mp4"
-      ></video>
-    </div>
+    <div class="slide-media slide-bg-hero"></div>
     <div class="slide-overlay slide-overlay-film"></div>
     <div class="container slide-inner">
       <div class="slide-content">
         <p class="slide-brand">Department of Medical Sciences</p>
         <h1 class="slide-title">Your <span class="hl-teal">MBBS</span> Journey Starts Here</h1>
-        <p class="slide-body">Peshawar Medical College offers a PM&amp;DC-recognized five-year MBBS — rigorous basic sciences, early clinical exposure, and mentors who teach medicine with integrity.</p>
-        <p class="slide-body slide-body-sub">Study at Riphah International University – Peshawar Campus and build the competence to serve communities across KP and beyond.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<?php else: ?>
+<div id="heroSlider" class="<?= $slideCount === 1 ? 'hero-cinematic' : '' ?>" aria-label="<?= htmlspecialchars((string) ($heroSlides[0]['aria_label'] ?? 'Campus highlights')) ?>">
+  <?php foreach ($heroSlides as $i => $slide):
+    $isVideo = ($slide['media_type'] ?? '') === 'video';
+    $active = $i === 0 ? ' active' : '';
+  ?>
+  <div class="hero-slide<?= $active ?>">
+    <div class="slide-media <?= $isVideo ? 'slide-bg-hero has-video' : 'slide-bg-hero' ?>">
+      <?php if ($isVideo): ?>
+        <picture class="hero-poster">
+          <?php if (!empty($slide['poster_webp_path'])): ?>
+            <source srcset="<?= htmlspecialchars($slide['poster_webp_path']) ?>" type="image/webp">
+          <?php endif; ?>
+          <img src="<?= htmlspecialchars($slide['poster_path'] ?? '') ?>" alt="" width="1600" height="900" <?= $i === 0 ? 'fetchpriority="high"' : 'loading="lazy"' ?> decoding="async">
+        </picture>
+        <video class="hero-video" muted playsinline loop preload="none" disablepictureinpicture aria-hidden="true"
+          data-src-720="<?= htmlspecialchars($slide['video_720_path'] ?? '') ?>"
+          data-src-480="<?= htmlspecialchars($slide['video_480_path'] ?? '') ?>"></video>
+      <?php else: ?>
+        <picture class="hero-poster">
+          <?php if (!empty($slide['image_webp_path'])): ?>
+            <source srcset="<?= htmlspecialchars($slide['image_webp_path']) ?>" type="image/webp">
+          <?php endif; ?>
+          <img src="<?= htmlspecialchars($slide['image_path'] ?? '') ?>" alt="" width="1600" height="900" <?= $i === 0 ? 'fetchpriority="high"' : 'loading="lazy"' ?> decoding="async">
+        </picture>
+      <?php endif; ?>
+    </div>
+    <div class="slide-overlay slide-overlay-film"></div>
+    <div class="container slide-inner">
+      <div class="slide-content">
+        <?php if (!empty($slide['brand'])): ?><p class="slide-brand"><?= htmlspecialchars($slide['brand']) ?></p><?php endif; ?>
+        <?php if (!empty($slide['title_html'])): ?><h1 class="slide-title"><?= $slide['title_html'] ?></h1><?php endif; ?>
+        <?php if (!empty($slide['body'])): ?><p class="slide-body"><?= htmlspecialchars($slide['body']) ?></p><?php endif; ?>
+        <?php if (!empty($slide['body_sub'])): ?><p class="slide-body slide-body-sub"><?= htmlspecialchars($slide['body_sub']) ?></p><?php endif; ?>
         <div class="slide-actions">
-          <a href="admissions" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions Info</a>
-          <a href="pmc" class="btn-pmc btn-pmc-outline-white">About PMC</a>
+          <?php if (!empty($slide['cta1_label']) && !empty($slide['cta1_url'])): ?>
+            <a href="<?= htmlspecialchars($slide['cta1_url']) ?>" class="<?= $ctaClass((string) ($slide['cta1_style'] ?? 'primary')) ?>"><i class="bi bi-mortarboard"></i> <?= htmlspecialchars($slide['cta1_label']) ?></a>
+          <?php endif; ?>
+          <?php if (!empty($slide['cta2_label']) && !empty($slide['cta2_url'])): ?>
+            <a href="<?= htmlspecialchars($slide['cta2_url']) ?>" class="<?= $ctaClass((string) ($slide['cta2_style'] ?? 'outline-white')) ?>"><?= htmlspecialchars($slide['cta2_label']) ?></a>
+          <?php endif; ?>
         </div>
       </div>
     </div>
+    <?php if ($isVideo): ?>
     <button type="button" class="hero-video-toggle" aria-label="Pause campus film" hidden>
       <i class="bi bi-pause-fill"></i>
     </button>
+    <?php endif; ?>
   </div>
+  <?php endforeach; ?>
+  <?php if ($slideCount > 1): ?>
+  <div class="slider-chrome">
+    <button type="button" class="slider-prev" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
+    <div class="slider-dots">
+      <?php for ($d = 0; $d < $slideCount; $d++): ?>
+        <button type="button" class="slider-dot<?= $d === 0 ? ' active' : '' ?>" aria-label="Go to slide <?= $d + 1 ?>"><span class="slider-dot-bar"></span></button>
+      <?php endfor; ?>
+    </div>
+    <button type="button" class="slider-next" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
+  </div>
+  <?php endif; ?>
 </div>
+<?php endif; ?>
 
 <!-- ═══ STATS BAR ═══ -->
 <div class="pmc-stats home-stats">
@@ -316,23 +378,38 @@ include('includes/header.php');
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-lg-4 col-md-6 fu fu-delay-1">
-        <article class="news-card news-card-text news-card--admissions">
+      <?php if ($homeAdmissions === []): ?>
+        <div class="col-12"><p class="acp-muted">No admission notices published yet.</p></div>
+      <?php endif; ?>
+      <?php foreach ($homeAdmissions as $i => $item):
+        $href = dms_cms_public_href($item, 'single-news');
+        $ext = preg_match('#^https?://#i', $href);
+        $mod = class_exists(\App\Libraries\CmsContent::class) ? \App\Libraries\CmsContent::newsCardModifier((string) ($item['category'] ?? '')) : 'news-card--admissions';
+        $catClass = class_exists(\App\Libraries\CmsContent::class) ? \App\Libraries\CmsContent::newsCatClass((string) ($item['category'] ?? '')) : 'nc-cat-admissions';
+      ?>
+      <div class="col-lg-4 col-md-6 fu fu-delay-<?= min($i + 1, 3) ?>">
+        <article class="news-card news-card-text <?= htmlspecialchars($mod) ?>">
           <div class="nc-body">
             <div class="nc-meta">
-              <span class="nc-cat nc-cat-admissions">Admissions</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Aug 2026</span>
+              <span class="nc-cat <?= htmlspecialchars($catClass) ?>"><?= htmlspecialchars(dms_cms_category_label((string) ($item['category'] ?? 'admissions'))) ?></span>
+              <?php if ($d = dms_cms_format_date($item['published_at'] ?? null)): ?>
+                <span class="nc-date"><i class="bi bi-calendar3"></i> Published: <?= htmlspecialchars($d) ?></span>
+              <?php endif; ?>
             </div>
-            <h3 class="nc-title">MPhil Basic Medical Sciences</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>03 Sep 2026</strong></p>
-            <p class="nc-excerpt">Extended schedule: test <strong>04 Sep 2026</strong>, interview <strong>05 Sep 2026</strong>. Includes DMJ.</p>
-            <div class="nc-actions nc-actions-split">
-              <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/pg-medical-dental-ad-fall-2026.png" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-              <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Form</a>
+            <h3 class="nc-title"><?= htmlspecialchars($item['title'] ?? '') ?></h3>
+            <?php if (!empty($item['deadline_label'])): ?>
+              <p class="nc-deadline"><i class="bi bi-clock"></i> <?= htmlspecialchars($item['deadline_label']) ?></p>
+            <?php endif; ?>
+            <?php if (!empty($item['excerpt'])): ?>
+              <p class="nc-excerpt"><?= htmlspecialchars($item['excerpt']) ?></p>
+            <?php endif; ?>
+            <div class="nc-actions">
+              <a <?= $ext ? 'target="_blank" rel="noopener"' : '' ?> href="<?= htmlspecialchars($href) ?>" class="nc-btn nc-btn-primary"><?= htmlspecialchars($item['link_label'] ?? 'Read more') ?> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
       </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -351,35 +428,33 @@ include('includes/header.php');
       </div>
     </div>
     <div class="row g-4">
-      <div class="col-lg-6 col-md-6 fu fu-delay-1">
+      <?php foreach ($homeCareers as $i => $item):
+        $href = dms_cms_public_href($item, 'single-news');
+        $ext = preg_match('#^https?://#i', $href);
+      ?>
+      <div class="col-lg-6 col-md-6 fu fu-delay-<?= min($i + 1, 3) ?>">
         <article class="news-card news-card-text news-card--career">
           <div class="nc-body">
             <div class="nc-meta">
-              <span class="nc-cat nc-cat-career">Career</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Aug 2026</span>
+              <span class="nc-cat nc-cat-career"><?= htmlspecialchars(dms_cms_category_label((string) ($item['category'] ?? 'career'))) ?></span>
+              <?php if ($d = dms_cms_format_date($item['published_at'] ?? null)): ?>
+                <span class="nc-date"><i class="bi bi-calendar3"></i> Published: <?= htmlspecialchars($d) ?></span>
+              <?php endif; ?>
             </div>
-            <h3 class="nc-title">Positions Vacant</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>30 Sep 2026</strong></p>
+            <h3 class="nc-title"><?= htmlspecialchars($item['title'] ?? '') ?></h3>
+            <?php if (!empty($item['deadline_label'])): ?>
+              <p class="nc-deadline"><i class="bi bi-clock"></i> <?= htmlspecialchars($item['deadline_label']) ?></p>
+            <?php endif; ?>
+            <?php if (!empty($item['excerpt'])): ?>
+              <p class="nc-excerpt"><?= htmlspecialchars($item['excerpt']) ?></p>
+            <?php endif; ?>
             <div class="nc-actions">
-              <a target="_blank" href="https://careers.riphahpsh.edu.pk/public/uploads/jobs/1789971570_2dbc46f772d7adefd3f6.jpeg" class="nc-btn nc-btn-primary">View advertisement <i class="bi bi-arrow-right"></i></a>
+              <a <?= $ext ? 'target="_blank" rel="noopener"' : '' ?> href="<?= htmlspecialchars($href) ?>" class="nc-btn nc-btn-primary"><?= htmlspecialchars($item['link_label'] ?? 'Read more') ?> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
       </div>
-      <div class="col-lg-6 col-md-6 fu fu-delay-2">
-        <article class="news-card news-card-text news-card--career hub-career-portal-card">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-career">Career Portal</span>
-            </div>
-            <h3 class="nc-title">Explore Open Roles Online</h3>
-            <p class="nc-excerpt">Browse current vacancies and submit applications through the official Career Portal.</p>
-            <div class="nc-actions">
-              <a href="https://careers.riphahpsh.edu.pk" target="_blank" rel="noopener" class="nc-btn nc-btn-primary">Visit Career Portal <i class="bi bi-box-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -393,56 +468,35 @@ include('includes/header.php');
         <h2 class="sec-title">Latest from Campus</h2>
         <p class="sec-desc mb-0">Campus notices, research activity, and student life highlights.</p>
       </div>
-      <!-- <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
-        <a href="events" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
-      </div> -->
+      <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
+        <a href="all-news" class="btn-pmc btn-pmc-outline"><i class="bi bi-newspaper"></i> All News</a>
+      </div>
     </div>
     <div class="row g-4">
-      <!-- <div class="col-lg-4 col-md-6 fu fu-delay-1">
+      <?php foreach ($homeCampus as $i => $item):
+        $href = dms_cms_public_href($item, 'single-news');
+        $ext = preg_match('#^https?://#i', $href);
+      ?>
+      <div class="col-lg-4 col-md-6 fu fu-delay-<?= min($i + 1, 3) ?>">
         <article class="news-card news-card-text news-card--campus">
           <div class="nc-body">
             <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Update</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: 2024</span>
+              <span class="nc-cat nc-cat-news"><?= htmlspecialchars(dms_cms_category_label((string) ($item['category'] ?? 'campus'))) ?></span>
+              <?php if ($d = dms_cms_format_date($item['published_at'] ?? null)): ?>
+                <span class="nc-date"><i class="bi bi-calendar3"></i> <?= htmlspecialchars($d) ?></span>
+              <?php endif; ?>
             </div>
-            <h3 class="nc-title">PM&amp;DC Inspection — Top Private Medical College in KP</h3>
-            <p class="nc-excerpt">PMC stood first among private medical colleges of KP with more than 80% score in the 2024 inspection.</p>
+            <h3 class="nc-title"><?= htmlspecialchars($item['title'] ?? '') ?></h3>
+            <?php if (!empty($item['excerpt'])): ?>
+              <p class="nc-excerpt"><?= htmlspecialchars($item['excerpt']) ?></p>
+            <?php endif; ?>
             <div class="nc-actions">
-              <a href="pmc" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div> -->
-      <div class="col-lg-4 col-md-6 fu fu-delay-2">
-        <article class="news-card news-card-text news-card--campus">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Research</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Apr 2026</span>
-            </div>
-            <h3 class="nc-title">19th UMR Research Conference</h3>
-            <p class="nc-excerpt">Charting the Cosmos of Knowledge: from Research to Reality</p>
-            <div class="nc-actions">
-              <a href="https://umr.prime.edu.pk/conference/19th-umr/" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+              <a <?= $ext ? 'target="_blank" rel="noopener"' : '' ?> href="<?= htmlspecialchars($href) ?>" class="nc-btn nc-btn-primary"><?= htmlspecialchars($item['link_label'] ?? 'Read more') ?> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
       </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-3">
-        <article class="news-card news-card-text news-card--campus">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Campus Life</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i>Nov 2025</span>
-            </div>
-            <h3 class="nc-title">Sports Society</h3>
-            <p class="nc-excerpt">It provides opportunities to participate in various indoor and outdoor sports.</p>
-            <div class="nc-actions">
-              <a href="https://riphahpsh.edu.pk/sports-society" class="nc-btn nc-btn-primary">Read More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

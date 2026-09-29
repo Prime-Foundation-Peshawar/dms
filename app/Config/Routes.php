@@ -26,6 +26,25 @@ $routes->group('acp', ['filter' => 'acpauth'], static function ($routes) {
     $routes->get('departments', 'Acp\Departments::index');
     $routes->get('departments/(:num)', 'Acp\Departments::edit/$1');
     $routes->post('departments/(:num)', 'Acp\Departments::save/$1');
+
+    $routes->get('news', 'Acp\News::index');
+    $routes->get('news/new', 'Acp\News::create');
+    $routes->post('news', 'Acp\News::save');
+    $routes->get('news/(:num)', 'Acp\News::edit/$1');
+    $routes->post('news/(:num)', 'Acp\News::save/$1');
+
+    $routes->get('events', 'Acp\Events::index');
+    $routes->get('events/new', 'Acp\Events::create');
+    $routes->post('events', 'Acp\Events::save');
+    $routes->get('events/(:num)', 'Acp\Events::edit/$1');
+    $routes->post('events/(:num)', 'Acp\Events::save/$1');
+
+    $routes->get('slider', 'Acp\Slider::index');
+    $routes->get('slider/new', 'Acp\Slider::create');
+    $routes->post('slider', 'Acp\Slider::save');
+    $routes->get('slider/(:num)', 'Acp\Slider::edit/$1');
+    $routes->post('slider/(:num)', 'Acp\Slider::save/$1');
+
     $routes->get('modules/(:segment)', 'Acp\Modules::show/$1');
 });
 
