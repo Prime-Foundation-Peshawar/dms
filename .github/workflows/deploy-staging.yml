@@ -70,6 +70,7 @@ jobs:
             git checkout "$BRANCH"
             git reset --hard "origin/$BRANCH"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
+            chmod -R u+rwX,go-w "$TARGET" || true
             php "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             echo "---- recent error_log (if any) ----"

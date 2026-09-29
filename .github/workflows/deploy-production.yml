@@ -92,6 +92,7 @@ jobs:
             # Keep the archived old site; do not delete it
             git clean -fd -e "$OLD_DIR" -e "./$OLD_DIR" -e "./$OLD_DIR/**"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
+            chmod -R u+rwX,go-w "$TARGET" || true
             php "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             if [ -d "$TARGET/$OLD_DIR" ]; then
