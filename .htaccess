@@ -16,5 +16,9 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.dms\.riphahpsh\.edu\.pk$ [NC]
 RewriteRule ^(.*)$ https://dms.riphahpsh.edu.pk/$1 [R=301,L]
 
+# Prefer clean /dms/ over /dms/index.php
+RewriteRule ^index\.php$ public/index.php [L,QSA]
+RewriteRule ^index\.php/(.*)$ public/index.php/$1 [L,QSA]
+
 # Send everything through CI4 public/ (shared hosting layout)
 RewriteRule ^(.*)$ public/$1 [L]

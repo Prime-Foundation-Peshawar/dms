@@ -13,6 +13,11 @@ class LegacyPage extends BaseController
         $page = strtolower(trim($page));
         $page = preg_replace('/[^a-z0-9\-\_]/', '', $page) ?? 'index';
 
+        // /dms/index.php becomes "indexphp" after sanitizing — treat as home.
+        if ($page === '' || $page === 'indexphp' || $page === 'home') {
+            $page = 'index';
+        }
+
         // Map clean URLs to legacy PHP scripts
         $map = [
             'index' => 'index.php',
