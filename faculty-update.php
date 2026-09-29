@@ -124,6 +124,7 @@ include __DIR__ . '/includes/header.php';
               <div>
                 <label class="fu-label" for="qualifications">Education / degrees</label>
                 <textarea class="fu-textarea" id="qualifications" name="qualifications" placeholder="e.g.&#10;MBBS&#10;FCPS (Psychiatry)"></textarea>
+                <p class="fu-note">One per line</p>
               </div>
             </div>
 
@@ -131,6 +132,7 @@ include __DIR__ . '/includes/header.php';
               <div>
                 <label class="fu-label" for="skills">College duties</label>
                 <textarea class="fu-textarea" id="skills" name="skills" placeholder="e.g.&#10;Research supervision&#10;Curriculum committee"></textarea>
+                <p class="fu-note">One per line</p>
               </div>
             </div>
 
