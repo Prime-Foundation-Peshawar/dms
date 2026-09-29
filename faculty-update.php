@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/includes/faculty-lib.php';
 
-$page_title = 'Create or Update Your Faculty Profile | Department of Medical Sciences';
-$page_description = 'Simple form for PMC faculty to add or update research preferences and profile details for the college website.';
+$page_title = 'Faculty Profile Form | Department of Medical Sciences';
+$page_description = 'Add or update your PMC faculty profile for the college website.';
 $robots = 'noindex, nofollow';
 $thanks = isset($_GET['thanks']);
 $errorMsg = trim((string) ($_GET['error'] ?? ''));
@@ -16,7 +16,7 @@ include __DIR__ . '/includes/header.php';
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <span class="page-hero-eyebrow">Faculty</span>
-    <h1>Create or update your profile</h1>
+    <h1>Faculty profile form</h1>
     <div class="breadcrumb-pmc">
       <a href="index.php">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
@@ -35,8 +35,7 @@ include __DIR__ . '/includes/header.php';
         <div class="fu-card fu-thanks">
           <div class="fu-check" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
           <h2>Thank you</h2>
-          <p>Your details were received. The website team will review them before they appear on your public profile (new or updated).</p>
-          <p class="fu-note" style="margin-top:14px">You can close this page now.</p>
+          <p>Submitted for review. You can close this page.</p>
           <div class="fu-actions" style="justify-content:center;margin-top:18px">
             <a class="btn-pmc btn-pmc-outline" href="faculty-update"><i class="bi bi-arrow-repeat"></i> Submit another</a>
             <a class="btn-pmc btn-pmc-primary" href="faculty.php"><i class="bi bi-people"></i> Faculty list</a>
@@ -45,8 +44,8 @@ include __DIR__ . '/includes/header.php';
       <?php else: ?>
 
         <div class="fu-intro">
-          <h2>For all PMC faculty</h2>
-          <p>Use this whether you already have a website profile or not. Pick your name from the HRMS list, add research topics, upload your publications list, and fill education / duties if you can. No login needed. Submissions are reviewed before going live.</p>
+          <h2>Faculty profile form</h2>
+          <p>Select your name, add research topics, and upload publications. Reviewed before going live.</p>
         </div>
 
         <?php if ($errorMsg !== ''): ?>
@@ -58,7 +57,6 @@ include __DIR__ . '/includes/header.php';
 
           <div class="fu-card">
             <h3>1. Who are you?</h3>
-            <p class="fu-help">Start typing your name (or Emp ID when available), then tap your name in the list.</p>
 
             <div class="fu-row">
               <div>
@@ -67,7 +65,7 @@ include __DIR__ . '/includes/header.php';
                   <input class="fu-input" type="search" id="nameSearch" name="name_search" placeholder="Type your name…" autocomplete="off" required>
                   <div class="fu-suggest" id="nameSuggest" role="listbox" aria-label="Matching faculty"></div>
                 </div>
-                <p class="fu-status" id="loadStatus">Loading faculty list…</p>
+                <p class="fu-status" id="loadStatus">Loading…</p>
               </div>
             </div>
 
@@ -87,56 +85,52 @@ include __DIR__ . '/includes/header.php';
           </div>
 
           <div class="fu-card">
-            <h3>2. Research preferences <span class="req">*</span></h3>
-            <p class="fu-help">Add short topic tags (about 3–8). Type a topic and press Enter or Add.</p>
-            <label class="fu-label" for="researchInput">What do you research?</label>
+            <h3>2. Research topics <span class="req">*</span></h3>
+            <label class="fu-label" for="researchInput">Add 3–8 short topics</label>
             <div class="fu-tag-box" id="researchBox">
               <div class="fu-tags" id="researchTags" aria-live="polite"></div>
               <div class="fu-tag-add">
-                <input class="fu-input" type="text" id="researchInput" maxlength="80" placeholder="e.g. Culturally adapted CBT" autocomplete="off">
+                <input class="fu-input" type="text" id="researchInput" maxlength="80" placeholder="Type topic, then Add" autocomplete="off">
                 <button type="button" class="btn-pmc btn-pmc-outline" id="researchAddBtn">Add</button>
               </div>
             </div>
             <input type="hidden" name="research_preferences" id="researchHidden" value="">
-            <p class="fu-note" id="researchCount">0 topics added</p>
+            <p class="fu-note" id="researchCount">0 topics</p>
           </div>
 
           <div class="fu-card">
             <h3>3. Publications</h3>
-            <p class="fu-help">We need your full publication list. Easiest ways below — no need to type each paper.</p>
 
             <div class="fu-row">
               <div>
-                <label class="fu-label" for="publicationsUrl">Publications profile link (optional)</label>
-                <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="Google Scholar, ORCID, or ResearchGate link">
-                <p class="fu-note">Examples: scholar.google.com · orcid.org · researchgate.net</p>
+                <label class="fu-label" for="publicationsUrl">Link (optional)</label>
+                <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="Google Scholar / ORCID / ResearchGate">
               </div>
             </div>
 
             <div class="fu-row">
               <div>
-                <label class="fu-label" for="publicationsFile">Upload your full publications list <span class="req">*</span></label>
+                <label class="fu-label" for="publicationsFile">Upload list <span class="req">*</span></label>
                 <input class="fu-file" type="file" id="publicationsFile" name="publications_file" accept=".pdf,.doc,.docx,.txt,.rtf,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" required>
-                <p class="fu-note">Upload the publications page from your CV, or export from Google Scholar / ORCID. PDF, Word, or TXT — under 8 MB.</p>
+                <p class="fu-note">PDF, Word, or TXT — max 8 MB</p>
               </div>
             </div>
           </div>
 
           <div class="fu-card">
-            <h3>4. Education, duties &amp; photo</h3>
-            <p class="fu-help" id="optionalHelp">If you do not have a website profile yet, please fill these. If you already have one, fill only what you want to change.</p>
+            <h3>4. Other details</h3>
 
             <div class="fu-row">
               <div>
                 <label class="fu-label" for="qualifications">Education / degrees</label>
-                <textarea class="fu-textarea" id="qualifications" name="qualifications" placeholder="One degree per line&#10;MBBS&#10;FCPS (Psychiatry)"></textarea>
+                <textarea class="fu-textarea" id="qualifications" name="qualifications" placeholder="One per line"></textarea>
               </div>
             </div>
 
             <div class="fu-row">
               <div>
                 <label class="fu-label" for="skills">College duties</label>
-                <textarea class="fu-textarea" id="skills" name="skills" placeholder="One duty per line&#10;Research supervision&#10;Curriculum committee"></textarea>
+                <textarea class="fu-textarea" id="skills" name="skills" placeholder="One per line"></textarea>
               </div>
             </div>
 
@@ -144,12 +138,11 @@ include __DIR__ . '/includes/header.php';
               <div>
                 <label class="fu-label" for="photo">Photo</label>
                 <input class="fu-file" type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp">
-                <p class="fu-note">JPG or PNG, under 2.5 MB. Strongly recommended if you do not have a profile photo yet.</p>
+                <p class="fu-note">JPG/PNG — max 2.5 MB</p>
               </div>
               <div>
-                <label class="fu-label" for="phone">Phone / WhatsApp (for office only)</label>
+                <label class="fu-label" for="phone">Phone (office only)</label>
                 <input class="fu-input" type="tel" id="phone" name="contact_phone" placeholder="03xx-xxxxxxx" autocomplete="tel">
-                <p class="fu-note">Not shown on the public website.</p>
               </div>
             </div>
           </div>
@@ -157,9 +150,8 @@ include __DIR__ . '/includes/header.php';
           <div class="fu-card">
             <div class="fu-actions">
               <button type="submit" class="btn-pmc btn-pmc-primary" id="submitBtn">
-                <i class="bi bi-send"></i> Submit for review
+                <i class="bi bi-send"></i> Submit
               </button>
-              <span class="fu-note">Takes about 2 minutes. You can close the page after submitting.</span>
             </div>
           </div>
         </form>
@@ -192,7 +184,6 @@ include __DIR__ . '/includes/header.php';
   const publicationsFile = document.getElementById('publicationsFile');
   const qualifications = document.getElementById('qualifications');
   const skills = document.getElementById('skills');
-  const optionalHelp = document.getElementById('optionalHelp');
   const form = document.getElementById('facultyUpdateForm');
   const submitBtn = document.getElementById('submitBtn');
 
@@ -220,8 +211,8 @@ include __DIR__ . '/includes/header.php';
   function syncResearchHidden() {
     researchHidden.value = researchTags.join('\n');
     researchCount.textContent = researchTags.length
-      ? (researchTags.length + ' topic' + (researchTags.length === 1 ? '' : 's') + ' added')
-      : '0 topics added';
+      ? (researchTags.length + ' topic' + (researchTags.length === 1 ? '' : 's'))
+      : '0 topics';
   }
 
   function renderResearchTags() {
@@ -324,17 +315,11 @@ include __DIR__ . '/includes/header.php';
     const existing = findExistingProfile(slugEl.value, empName.value);
     if (existing) {
       applyProfileExtras(existing);
-      if (optionalHelp) {
-        optionalHelp.textContent = 'We found your current website profile and pre-filled what we could. Change only what needs updating.';
-      }
       statusEl.className = 'fu-status is-existing';
-      statusEl.textContent = 'Selected — website profile found. Review the pre-filled fields, then submit updates.';
+      statusEl.textContent = 'Selected — existing profile (pre-filled).';
     } else {
-      if (optionalHelp) {
-        optionalHelp.textContent = 'No website profile yet — please add education, duties, and a photo if you can. Research topics and publications file are still required above.';
-      }
       statusEl.className = 'fu-status is-new';
-      statusEl.textContent = 'Selected — no website profile yet. Fill the form to create one (reviewed before going live).';
+      statusEl.textContent = 'Selected — new profile.';
     }
   }
 
@@ -365,7 +350,7 @@ include __DIR__ . '/includes/header.php';
       if (empId) idBits.push('Emp ID: ' + empId);
       if (f.desTitle) idBits.push(f.desTitle);
       if (f.depName) idBits.push(f.depName);
-      idBits.push(hasProfile ? 'Has website profile' : 'New profile');
+      idBits.push(hasProfile ? 'Has profile' : 'New');
       return (
         '<button type="button" role="option" data-i="' + i + '">' +
           '<strong>' + escapeHtml(f.empName || '') + '</strong>' +
@@ -394,12 +379,7 @@ include __DIR__ . '/includes/header.php';
     depName.value = '';
     clearProfileFields();
     statusEl.className = 'fu-status';
-    statusEl.textContent = faculty.length
-      ? 'Faculty list ready. Type your name to begin.'
-      : 'Faculty list is empty. Please try again later.';
-    if (optionalHelp) {
-      optionalHelp.textContent = 'If you do not have a website profile yet, please fill these. If you already have one, fill only what you want to change.';
-    }
+    statusEl.textContent = faculty.length ? 'Type your name.' : 'List empty.';
     renderSuggest(search.value);
   });
   search.addEventListener('focus', () => {
@@ -413,13 +393,13 @@ include __DIR__ . '/includes/header.php';
     syncResearchHidden();
     if (!empName.value.trim() || !slugEl.value.trim()) {
       e.preventDefault();
-      statusEl.textContent = 'Please select your name from the list.';
+      statusEl.textContent = 'Select your name from the list.';
       search.focus();
       return;
     }
     if (!researchTags.length) {
       e.preventDefault();
-      researchCount.textContent = 'Please add at least one research topic tag.';
+      researchCount.textContent = 'Add at least one topic.';
       researchInput.focus();
       return;
     }
@@ -450,13 +430,13 @@ include __DIR__ . '/includes/header.php';
         ? Object.keys(profiles.profiles).length
         : 0;
       statusEl.textContent = faculty.length
-        ? ('All ' + faculty.length + ' HRMS faculty loaded'
-            + (profileCount ? (' · ' + profileCount + ' already have website profiles') : '')
-            + '. Type your name to begin.')
-        : 'Faculty list is empty. Please try again later.';
+        ? (faculty.length + ' faculty loaded'
+            + (profileCount ? (' · ' + profileCount + ' with profiles') : '')
+            + '.')
+        : 'List empty.';
     } catch (err) {
       console.error(err);
-      statusEl.textContent = 'Could not load faculty list. Refresh the page and try again.';
+      statusEl.textContent = 'Could not load list. Refresh and try again.';
     }
   })();
 })();
