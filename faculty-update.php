@@ -103,21 +103,14 @@ include __DIR__ . '/includes/header.php';
 
           <div class="fu-card">
             <h3>3. Publications</h3>
-            <p class="fu-help">Easiest: paste your ORCID or Google Scholar link. Optionally add up to 5 recent papers with short details (not full citations).</p>
-
+            <p class="fu-help">Paste one link to your publication list. That is enough — no need to type paper titles here.</p>
             <div class="fu-row">
               <div>
-                <label class="fu-label" for="publicationsUrl">ORCID / Google Scholar / ResearchGate link</label>
-                <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="https://orcid.org/… or https://scholar.google.com/…">
+                <label class="fu-label" for="publicationsUrl">Your publications link</label>
+                <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="Google Scholar, ORCID, or ResearchGate link">
+                <p class="fu-note">Examples: scholar.google.com/… · orcid.org/… · researchgate.net/profile/…</p>
               </div>
             </div>
-
-            <div class="fu-papers-head">
-              <strong>Recent papers on this website (optional)</strong>
-              <button type="button" class="btn-pmc btn-pmc-outline" id="addPaperBtn"><i class="bi bi-plus-lg"></i> Add paper</button>
-            </div>
-            <div id="papersList" class="fu-papers"></div>
-            <p class="fu-note">Title is enough. Year and link help students open the paper.</p>
           </div>
 
           <div class="fu-card">
@@ -173,7 +166,6 @@ include __DIR__ . '/includes/header.php';
   const API_URL = 'faculty-proxy';
   const PROFILES_URL = 'assets/data/faculty-profiles.json';
   const MAX_TAGS = 8;
-  const MAX_PAPERS = 5;
 
   const search = document.getElementById('nameSearch');
   const suggest = document.getElementById('nameSuggest');
@@ -188,8 +180,6 @@ include __DIR__ . '/includes/header.php';
   const researchCount = document.getElementById('researchCount');
   const researchAddBtn = document.getElementById('researchAddBtn');
   const publicationsUrl = document.getElementById('publicationsUrl');
-  const papersList = document.getElementById('papersList');
-  const addPaperBtn = document.getElementById('addPaperBtn');
   const qualifications = document.getElementById('qualifications');
   const skills = document.getElementById('skills');
   const form = document.getElementById('facultyUpdateForm');
@@ -198,7 +188,6 @@ include __DIR__ . '/includes/header.php';
   let faculty = [];
   let profiles = {};
   let researchTags = [];
-  let paperCount = 0;
 
   function facultySlug(name) {
     let n = String(name || '').trim();
@@ -260,47 +249,6 @@ include __DIR__ . '/includes/header.php';
       if (tag && researchTags.length < MAX_TAGS) researchTags.push(tag.slice(0, 80));
     });
     renderResearchTags();
-  }
-
-  function addPaperCard(prefill) {
-    if (paperCount >= MAX_PAPERS) return;
-    const i = paperCount++;
-    const data = prefill || {};
-    const card = document.createElement('div');
-    card.className = 'fu-paper';
-    card.innerHTML =
-      '<div class="fu-paper-top"><strong>Paper ' + (i + 1) + '</strong>' +
-        '<button type="button" class="fu-paper-remove" data-remove>Remove</button></div>' +
-      '<div class="fu-row">' +
-        '<div><label class="fu-label">Title</label>' +
-          '<input class="fu-input" name="paper_title[]" value="' + escapeHtml(data.title || '') + '" placeholder="Short paper title"></div>' +
-      '</div>' +
-      '<div class="fu-row fu-row-2">' +
-        '<div><label class="fu-label">Year</label>' +
-          '<input class="fu-input" name="paper_year[]" value="' + escapeHtml(data.year || '') + '" placeholder="2025" inputmode="numeric" maxlength="4"></div>' +
-        '<div><label class="fu-label">Journal (optional)</label>' +
-          '<input class="fu-input" name="paper_journal[]" value="' + escapeHtml(data.journal || '') + '" placeholder="Journal name"></div>' +
-      '</div>' +
-      '<div class="fu-row">' +
-        '<div><label class="fu-label">Link / DOI (optional)</label>' +
-          '<input class="fu-input" name="paper_url[]" value="' + escapeHtml(data.url || '') + '" placeholder="https://…"></div>' +
-      '</div>';
-    card.querySelector('[data-remove]').addEventListener('click', () => {
-      card.remove();
-      renumberPapers();
-    });
-    papersList.appendChild(card);
-    renumberPapers();
-  }
-
-  function renumberPapers() {
-    const cards = papersList.querySelectorAll('.fu-paper');
-    paperCount = cards.length;
-    cards.forEach((card, idx) => {
-      const strong = card.querySelector('.fu-paper-top strong');
-      if (strong) strong.textContent = 'Paper ' + (idx + 1);
-    });
-    addPaperBtn.disabled = paperCount >= MAX_PAPERS;
   }
 
   function closeSuggest() {
@@ -394,7 +342,6 @@ include __DIR__ . '/includes/header.php';
       addResearchTag(researchInput.value.replace(/,/g, ''));
     }
   });
-  addPaperBtn.addEventListener('click', () => addPaperCard());
 
   search.addEventListener('input', () => {
     empName.value = '';
