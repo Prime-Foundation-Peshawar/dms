@@ -31,8 +31,8 @@ include('includes/header.php');
         <p class="slide-body">Peshawar Medical College offers a PM&amp;DC-recognized five-year MBBS — rigorous basic sciences, early clinical exposure, and mentors who teach medicine with integrity.</p>
         <p class="slide-body slide-body-sub">Study at Riphah International University – Peshawar Campus and build the competence to serve communities across KP and beyond.</p>
         <div class="slide-actions">
-          <a href="admissions.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions Info</a>
-          <a href="pmc.php" class="btn-pmc btn-pmc-outline-white">About PMC</a>
+          <a href="admissions" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions Info</a>
+          <a href="pmc" class="btn-pmc btn-pmc-outline-white">About PMC</a>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@ include('includes/header.php');
     </div>
     <div class="row g-4 home-prog-grid">
       <div class="col-lg-6 fu fu-delay-1">
-        <a class="home-prog-card home-prog-card--ug" href="pmc.php">
+        <a class="home-prog-card home-prog-card--ug" href="pmc">
           <span class="home-prog-code">Undergraduate</span>
           <h3>Peshawar Medical College</h3>
           <p>MBBS education aligned with the community health needs of KP and Pakistan, with clinical training at three affiliated teaching hospitals.</p>
@@ -97,7 +97,7 @@ include('includes/header.php');
         </a>
       </div>
       <div class="col-lg-6 fu fu-delay-2">
-        <a class="home-prog-card home-prog-card--pg" href="pg-medical-education.php">
+        <a class="home-prog-card home-prog-card--pg" href="pg-medical-education">
           <span class="home-prog-code">Postgraduate</span>
           <h3>Postgraduate Medical Education</h3>
           <p>FCPS and MCPS programmes recognized by CPSP since 2011, with plans to introduce MS and diploma pathways.</p>
@@ -126,7 +126,7 @@ include('includes/header.php');
         <h2 class="sec-title">Department of Medical Sciences</h2>
         <p class="sec-desc">A constituent department of Riphah International University – Peshawar Campus. It comprises <strong>Peshawar Medical College</strong> and postgraduate medical programmes, preparing physicians with competence, integrity, commitment, and research ability aligned to the health needs of KP and Pakistan.</p>
         <p class="sec-desc">Recognized by PM&amp;DC. In the 2024 inspection, we stood first among private medical colleges of KP with more than 80% score.</p>
-        <a href="about.php" class="btn-pmc btn-pmc-primary mt-2"><i class="bi bi-arrow-right-circle"></i> Read Full About</a>
+        <a href="about" class="btn-pmc btn-pmc-primary mt-2"><i class="bi bi-arrow-right-circle"></i> Read Full About</a>
       </div>
     </div>
   </div>
@@ -227,7 +227,7 @@ include('includes/header.php');
           <span class="ehealth-home-phone-label">Dial now</span>
           <span class="ehealth-home-phone-num"><i class="bi bi-telephone-fill"></i>091-2385262</span>
         </a>
-        <a href="e-health.php" class="btn-pmc btn-pmc-outline-white ehealth-home-link">Topic codes &amp; how to use <i class="bi bi-arrow-right"></i></a>
+        <a href="e-health" class="btn-pmc btn-pmc-outline-white ehealth-home-link">Topic codes &amp; how to use <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -243,7 +243,7 @@ include('includes/header.php');
         <p class="sec-desc mb-0">Spanning 25 kanals at Warsak Rd, Sher Ali Town, Peshawar — academics, recreation, spirituality, and community support in one place.</p>
       </div>
       <div class="col-lg-4 text-lg-end fu fu-delay-2">
-        <a href="about.php#campus" class="btn-pmc btn-pmc-outline">View Campus Details <i class="bi bi-arrow-right"></i></a>
+        <a href="about#campus" class="btn-pmc btn-pmc-outline">View Campus Details <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
     <div class="campus-mosaic fu">
@@ -394,7 +394,7 @@ include('includes/header.php');
         <p class="sec-desc mb-0">Campus notices, research activity, and student life highlights.</p>
       </div>
       <!-- <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
-        <a href="events.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
+        <a href="events" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
       </div> -->
     </div>
     <div class="row g-4">
@@ -408,7 +408,7 @@ include('includes/header.php');
             <h3 class="nc-title">PM&amp;DC Inspection — Top Private Medical College in KP</h3>
             <p class="nc-excerpt">PMC stood first among private medical colleges of KP with more than 80% score in the 2024 inspection.</p>
             <div class="nc-actions">
-              <a href="pmc.php" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+              <a href="pmc" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </article>
@@ -457,8 +457,8 @@ include('includes/header.php');
       </div>
       <div class="col-lg-5 text-lg-end fu fu-delay-2">
         <div class="home-cta-actions">
-          <a href="admissions.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-mortarboard"></i> Admissions Info</a>
-          <a href="contact.php" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-telephone"></i> Contact Us</a>
+          <a href="admissions" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-mortarboard"></i> Admissions Info</a>
+          <a href="contact" class="btn-pmc btn-pmc-outline-white"><i class="bi bi-telephone"></i> Contact Us</a>
         </div>
       </div>
     </div>

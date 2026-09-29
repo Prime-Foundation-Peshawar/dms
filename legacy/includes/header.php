@@ -204,7 +204,7 @@ if (($seo['schema'] ?? null) === 'Course') {
   <!-- ═══ NAVBAR ═══ -->
   <nav class="pmc-nav navbar navbar-expand-lg" id="mainNav">
     <div class="container">
-      <a class="pmc-brand" href="index.php">
+      <a class="pmc-brand" href="<?= htmlspecialchars(rtrim(base_url, '/') . '/', ENT_QUOTES, 'UTF-8') ?>">
         <div class="">
           <img src="assets/images/logo/riphah-psh.png"
             alt="Department of Medical Sciences (PMC) — Riphah Peshawar Campus" width="200px;" />
@@ -222,24 +222,24 @@ if (($seo['schema'] ?? null) === 'Course') {
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav ms-auto align-items-lg-center position-static">
 
-          <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= htmlspecialchars(rtrim(base_url, '/') . '/', ENT_QUOTES, 'UTF-8') ?>">Home</a></li>
 
           <!-- ABOUT mega -->
           <li class="nav-item mega-menu-wrapper position-static">
-            <a class="nav-link dropdown-toggle" href="about.php">About</a>
+            <a class="nav-link dropdown-toggle" href="about">About</a>
             <div class="mega-menu">
               <div class="container">
                 <div class="row g-4">
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-info-circle-fill"></i> About Us</div>
-                    <a class="mega-link" href="about.php"><i class="bi bi-building"></i>About PMC</a>
-                    <a class="mega-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
-                    <a class="mega-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
-                    <a class="mega-link" href="e-health.php"><i class="bi bi-heart-pulse"></i>E-Health Service</a>
+                    <a class="mega-link" href="about"><i class="bi bi-building"></i>About PMC</a>
+                    <a class="mega-link" href="vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
+                    <a class="mega-link" href="faculty"><i class="bi bi-people"></i>Faculty</a>
+                    <a class="mega-link" href="e-health"><i class="bi bi-heart-pulse"></i>E-Health Service</a>
                   </div>
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-hospital-fill"></i> College &amp; Hospitals</div>
-                    <a class="mega-link" href="pmc.php"><i class="bi bi-award"></i>Peshawar Medical College</a>
+                    <a class="mega-link" href="pmc"><i class="bi bi-award"></i>Peshawar Medical College</a>
                     <a class="mega-link" href="https://kth.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-hospital"></i>Kuwait Teaching Hospital</a>
                     <a class="mega-link" href="https://mth.riphahpsh.edu.pk/" target="_blank"><i
@@ -258,25 +258,25 @@ if (($seo['schema'] ?? null) === 'Course') {
             </div>
           </li>
 
-          <li class="nav-item"><a class="nav-link" href="departments.php">Departments</a></li>
+          <li class="nav-item"><a class="nav-link" href="departments">Departments</a></li>
 
           <li class="nav-item mega-menu-wrapper">
-            <a class="nav-link dropdown-toggle" href="index.php#programs">Programs</a>
+            <a class="nav-link dropdown-toggle" href="<?= htmlspecialchars(rtrim(base_url, '/') . '/#programs', ENT_QUOTES, 'UTF-8') ?>">Programs</a>
             <div class="dropdown-menu plain-dd" style="min-width:260px;">
-              <a class="dropdown-item" href="pmc.php"><i class="bi bi-mortarboard"></i>Undergraduate Medical Education (PMC)</a>
-              <a class="dropdown-item" href="pg-medical-education.php"><i class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
+              <a class="dropdown-item" href="pmc"><i class="bi bi-mortarboard"></i>Undergraduate Medical Education (PMC)</a>
+              <a class="dropdown-item" href="pg-medical-education"><i class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
             </div>
           </li>
 
           <!-- ADMISSIONS mega -->
           <li class="nav-item mega-menu-wrapper position-static">
-            <a class="nav-link dropdown-toggle" href="admissions.php">Admissions</a>
+            <a class="nav-link dropdown-toggle" href="admissions">Admissions</a>
             <div class="mega-menu">
               <div class="container">
                 <div class="row g-4">
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-mortarboard-fill"></i> Apply</div>
-                    <a class="mega-link" href="admissions.php"><i class="bi bi-pencil-square"></i>Admissions Info</a>
+                    <a class="mega-link" href="admissions"><i class="bi bi-pencil-square"></i>Admissions Info</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/Medical Final Prospectus 2025-26.pdf"
                       target="_blank"><i class="bi bi-file-pdf"></i>Prospectus 2025–26</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/PMC MBBS Prospectus 2024-25.pdf"
@@ -300,9 +300,9 @@ if (($seo['schema'] ?? null) === 'Course') {
                   </div>
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-info-circle"></i> Key Information</div>
-                    <a class="mega-link" href="admissions.php#eligibility"><i class="bi bi-check-circle"></i>Eligibility
+                    <a class="mega-link" href="admissions#eligibility"><i class="bi bi-check-circle"></i>Eligibility
                       Criteria</a>
-                    <a class="mega-link" href="admissions.php#process"><i class="bi bi-list-ol"></i>Admission
+                    <a class="mega-link" href="admissions#process"><i class="bi bi-list-ol"></i>Admission
                       Process</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/portal_login.php"><i class="bi bi-person-circle"></i>Student Portal</a>
                   </div>
@@ -312,7 +312,7 @@ if (($seo['schema'] ?? null) === 'Course') {
                       <h5>Seats Availability</h5>
                       <p>Limited seats remaining for MBBS Session 2026–27. Apply before seats fill up — open to
                         students.</p>
-                      <a class="mf-link" href="vacant-seats.php">Check Seats <i class="bi bi-arrow-right"></i></a>
+                      <a class="mf-link" href="vacant-seats">Check Seats <i class="bi bi-arrow-right"></i></a>
                     </div>
                   </div> -->
                 </div>
@@ -322,19 +322,19 @@ if (($seo['schema'] ?? null) === 'Course') {
 
           <!-- EDUCATION & RESEARCH mega -->
           <li class="nav-item mega-menu-wrapper position-static">
-            <a class="nav-link dropdown-toggle" href="curriculum.php">Education & Research</a>
+            <a class="nav-link dropdown-toggle" href="curriculum">Education & Research</a>
             <div class="mega-menu">
               <div class="container">
                 <div class="row g-4">
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-book-fill"></i> Education</div>
-                    <a class="mega-link" href="pmc.php#mbbs"><i class="bi bi-mortarboard"></i>MBBS (PMC)</a>
-                    <a class="mega-link" href="pg-medical-education.php"><i
+                    <a class="mega-link" href="pmc#mbbs"><i class="bi bi-mortarboard"></i>MBBS (PMC)</a>
+                    <a class="mega-link" href="pg-medical-education"><i
                         class="bi bi-journal-medical"></i>Postgraduate Medical Education</a>
-                    <a class="mega-link" href="curriculum.php"><i class="bi bi-journal-text"></i>Curriculum</a>
-                    <a class="mega-link" href="examinations.php"><i class="bi bi-clipboard-pulse"></i>Examinations &
+                    <a class="mega-link" href="curriculum"><i class="bi bi-journal-text"></i>Curriculum</a>
+                    <a class="mega-link" href="examinations"><i class="bi bi-clipboard-pulse"></i>Examinations &
                       Assessments</a>
-                    <!-- <a class="mega-link" href="clinical-skill-labs.php"><i class="bi bi-activity"></i>Clinical Skill
+                    <!-- <a class="mega-link" href="clinical-skill-labs"><i class="bi bi-activity"></i>Clinical Skill
                       Labs</a> -->
                   </div>
                   <div class="col-lg-4">
@@ -343,7 +343,7 @@ if (($seo['schema'] ?? null) === 'Course') {
                         class="bi bi-search"></i>Undergraduate Medical Research (UMR)</a>
                     <a class="mega-link" href="https://sws.prime.edu.pk/"><i class="bi bi-file-earmark-text"></i>Students
                       Research</a>
-                    <a class="mega-link" href="faculty-research.php"><i class="bi bi-people"></i>Faculty Research</a>
+                    <a class="mega-link" href="faculty-research"><i class="bi bi-people"></i>Faculty Research</a>
                     <a class="mega-link" href="https://oric.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-lightbulb"></i>ORIC</a>
                     <a class="mega-link" href="https://riphahpsh.edu.pk/pubedu"><i
@@ -351,7 +351,7 @@ if (($seo['schema'] ?? null) === 'Course') {
                   </div>
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-calendar-event"></i> Resources</div>
-                    <a class="mega-link" href="student-guide.php"><i class="bi bi-book"></i>Student Guide</a>
+                    <a class="mega-link" href="student-guide"><i class="bi bi-book"></i>Student Guide</a>
                     <!-- <a class="mega-link" href="#"><i class="bi bi-calendar3"></i>Academic Calendar</a> -->
                   </div>
                   <!-- <div class="col-lg-3">
@@ -370,7 +370,7 @@ if (($seo['schema'] ?? null) === 'Course') {
             </div>
           </li>
 
-          <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
         </ul>
       </div>
     </div>

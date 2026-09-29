@@ -6,7 +6,7 @@
     <span class="page-hero-eyebrow">Riphah International University (Peshawar Campus)</span>
     <h1>Student, Parent &amp; Faculty Portal</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Portal Login</span>
     </div>

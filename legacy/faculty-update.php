@@ -18,9 +18,9 @@ include __DIR__ . '/includes/header.php';
     <span class="page-hero-eyebrow">Faculty</span>
     <h1>Faculty profile form</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="faculty.php">Faculty</a>
+      <a href="faculty">Faculty</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Faculty profile form</span>
     </div>
@@ -38,7 +38,7 @@ include __DIR__ . '/includes/header.php';
           <p>Submitted for review. You can close this page.</p>
           <div class="fu-actions" style="justify-content:center;margin-top:18px">
             <a class="btn-pmc btn-pmc-outline" href="faculty-update"><i class="bi bi-arrow-repeat"></i> Submit another</a>
-            <a class="btn-pmc btn-pmc-primary" href="faculty.php"><i class="bi bi-people"></i> Faculty list</a>
+            <a class="btn-pmc btn-pmc-primary" href="faculty"><i class="bi bi-people"></i> Faculty list</a>
           </div>
         </div>
       <?php else: ?>
@@ -52,7 +52,7 @@ include __DIR__ . '/includes/header.php';
           <div class="fu-alert fu-alert-err" role="alert"><?= htmlspecialchars($errorMsg) ?></div>
         <?php endif; ?>
 
-        <form class="fu-form" id="facultyUpdateForm" action="faculty-update-submit.php" method="post" enctype="multipart/form-data" novalidate>
+        <form class="fu-form" id="facultyUpdateForm" action="faculty-update-submit" method="post" enctype="multipart/form-data" novalidate>
           <input type="text" name="website" class="fu-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="fu-card">

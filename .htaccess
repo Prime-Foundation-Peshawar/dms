@@ -16,9 +16,24 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.dms\.riphahpsh\.edu\.pk$ [NC]
 RewriteRule ^(.*)$ https://dms.riphahpsh.edu.pk/$1 [R=301,L]
 
-# Prefer clean /dms/ over /dms/index.php
-RewriteRule ^index\.php$ public/index.php [L,QSA]
-RewriteRule ^index\.php/(.*)$ public/index.php/$1 [L,QSA]
+# Redirect legacy *.php URLs to clean routes (keep query string)
+# Staging: /dms/page.php → /dms/page
+RewriteCond %{HTTP_HOST} ^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
+RewriteCond %{THE_REQUEST} \s/dms/index\.php[\s?] [NC]
+RewriteRule ^index\.php$ /dms/ [R=301,L,QSA]
 
-# Send everything through CI4 public/ (shared hosting layout)
+RewriteCond %{HTTP_HOST} ^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
+RewriteCond %{THE_REQUEST} \s/dms/([^\s?]+)\.php[\s?] [NC]
+RewriteRule ^(.+)\.php$ /dms/$1 [R=301,L,QSA]
+
+# Production: /page.php → /page
+RewriteCond %{HTTP_HOST} !^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
+RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+RewriteRule ^index\.php$ / [R=301,L,QSA]
+
+RewriteCond %{HTTP_HOST} !^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.php[\s?] [NC]
+RewriteRule ^(.+)\.php$ /$1 [R=301,L,QSA]
+
+# Front-controller map into public/
 RewriteRule ^(.*)$ public/$1 [L]

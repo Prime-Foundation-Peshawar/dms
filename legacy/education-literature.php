@@ -112,9 +112,9 @@
   <div class="container page-hero-content">
     <h1>Education Literature</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="medical-education.php">Education &amp; Research</a>
+      <a href="medical-education">Education &amp; Research</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Education Literature</span>
     </div>

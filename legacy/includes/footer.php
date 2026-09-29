@@ -19,24 +19,24 @@
         <div class="col-6 col-lg-2">
           <p class="foot-heading">Quick Links</p>
           <ul class="foot-links">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About Us</a></li>
-            <li><a href="vision-mission.php">Vision & Mission</a></li>
-            <li><a href="faculty.php">Faculty</a></li>
-            <li><a href="admissions.php">Admissions</a></li>
-            <li><a href="pmc.php">Peshawar Medical College</a></li>
-            <li><a href="pg-medical-education.php">PG Medical Education</a></li>
-            <li><a href="e-health.php">E-Health Service</a></li>
-            <li><a href="contact.php">Contact Us</a></li>
+            <li><a href="<?= htmlspecialchars(rtrim(base_url, '/') . '/', ENT_QUOTES, 'UTF-8') ?>">Home</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="vision-mission">Vision & Mission</a></li>
+            <li><a href="faculty">Faculty</a></li>
+            <li><a href="admissions">Admissions</a></li>
+            <li><a href="pmc">Peshawar Medical College</a></li>
+            <li><a href="pg-medical-education">PG Medical Education</a></li>
+            <li><a href="e-health">E-Health Service</a></li>
+            <li><a href="contact">Contact Us</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-2">
           <p class="foot-heading">Education</p>
           <ul class="foot-links">
-            <li><a href="pmc.php#mbbs">MBBS</a></li>
-            <li><a href="curriculum.php">Curriculum</a></li>
-            <li><a href="examinations.php">Examinations</a></li>
-            <li><a href="faculty-research.php">Faculty Research</a></li>
+            <li><a href="pmc#mbbs">MBBS</a></li>
+            <li><a href="curriculum">Curriculum</a></li>
+            <li><a href="examinations">Examinations</a></li>
+            <li><a href="faculty-research">Faculty Research</a></li>
             <li><a href="https://riphahpsh.edu.pk/news-letter.php">Newsletter</a></li>
           </ul>
         </div>

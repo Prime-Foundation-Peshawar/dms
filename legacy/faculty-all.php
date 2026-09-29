@@ -1,3 +1,3 @@
 <?php
-header('Location: faculty.php', true, 301);
+header('Location: faculty', true, 301);
 exit;

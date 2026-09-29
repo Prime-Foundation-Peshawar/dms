@@ -7,7 +7,7 @@
     <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>About Us</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">About Us</span>
     </div>
@@ -32,7 +32,7 @@
               PMC is the oldest component department of the Peshawar Campus. It coordinates undergraduate MBBS education through Peshawar Medical College, postgraduate pathways, and clinical training across affiliated teaching hospitals — with a focus on the health needs of Khyber Pakhtunkhwa and Pakistan.
             </p>
             <p>
-              For the MBBS college profile, graduate attributes, clinical hospitals, and campus gallery, see <a href="pmc.php"><strong>Peshawar Medical College</strong></a>. Department values are on <a href="vision-mission.php"><strong>Vision &amp; Mission</strong></a>.
+              For the MBBS college profile, graduate attributes, clinical hospitals, and campus gallery, see <a href="pmc"><strong>Peshawar Medical College</strong></a>. Department values are on <a href="vision-mission"><strong>Vision &amp; Mission</strong></a>.
             </p>
           </div>
 
@@ -75,25 +75,25 @@
               <p>Where teaching and clinical training are delivered within PMC.</p>
             </div>
             <div class="pmc-hosp-grid">
-              <a class="pmc-hosp-card" href="pmc.php">
+              <a class="pmc-hosp-card" href="pmc">
                 <i class="bi bi-award"></i>
                 <strong>Peshawar Medical College</strong>
                 <span>MBBS · recognition · attributes · gallery</span>
               </a>
-              <a class="pmc-hosp-card" href="pg-medical-education.php">
+              <a class="pmc-hosp-card" href="pg-medical-education">
                 <i class="bi bi-journal-medical"></i>
                 <strong>PG Medical Education</strong>
                 <span>FCPS / MCPS and related pathways</span>
               </a>
-              <a class="pmc-hosp-card" href="pmc.php#mbbs">
+              <a class="pmc-hosp-card" href="pmc#mbbs">
                 <i class="bi bi-mortarboard"></i>
                 <strong>MBBS Programme</strong>
                 <span>Integrated teaching &amp; clinical learning</span>
               </a>
             </div>
             <div class="about-cta-row">
-              <a href="pmc.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-award"></i> Explore PMC</a>
-              <a href="admissions.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions</a>
+              <a href="pmc" class="btn-pmc btn-pmc-primary"><i class="bi bi-award"></i> Explore PMC</a>
+              <a href="admissions" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions</a>
             </div>
           </div>
 
@@ -140,8 +140,8 @@
               <div class="about-facility"><i class="bi bi-shield-check"></i><span>Security</span></div>
             </div>
             <div class="about-cta-row">
-              <a href="admissions.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions</a>
-              <a href="contact.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-envelope"></i> Contact Us</a>
+              <a href="admissions" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions</a>
+              <a href="contact" class="btn-pmc btn-pmc-outline"><i class="bi bi-envelope"></i> Contact Us</a>
             </div>
           </div>
 

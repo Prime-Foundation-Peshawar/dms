@@ -3,7 +3,7 @@
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <h1>Vision & Mission</h1>
-    <div class="breadcrumb-pmc"><a href="index.php">Home</a><span class="sep"><i
+    <div class="breadcrumb-pmc"><a href="./">Home</a><span class="sep"><i
           class="bi bi-chevron-right"></i></span><span class="current">Vision &amp; Mission</span></div>
   </div>
 </div>

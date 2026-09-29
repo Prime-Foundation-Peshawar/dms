@@ -67,7 +67,7 @@
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <h1>Portal Login</h1>
-    <div class="breadcrumb-pmc"><a href="index.php">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">Portal Login</span></div>
+    <div class="breadcrumb-pmc"><a href="./">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">Portal Login</span></div>
   </div>
 </div>
 
@@ -146,16 +146,16 @@
         <div class="sidebar-widget">
           <div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div>
           <div class="sw-body">
-            <a class="sw-link" href="about.php"><i class="bi bi-building"></i>Introduction</a>
-            <a class="sw-link" href="vision-mission.php"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
-            <a class="sw-link" href="faculty.php"><i class="bi bi-people"></i>Faculty</a>
-            <a class="sw-link" href="admissions.php"><i class="bi bi-mortarboard"></i>Admissions</a>
-            <a class="sw-link" href="vacant-seats.php"><i class="bi bi-door-open"></i>Vacant Seats</a>
-            <a class="sw-link" href="medical-education.php"><i class="bi bi-book"></i>Medical Education</a>
-            <a class="sw-link" href="curriculum.php"><i class="bi bi-journal-text"></i>Curriculum</a>
-            <a class="sw-link" href="examinations.php"><i class="bi bi-clipboard-pulse"></i>Examinations</a>
-            <a class="sw-link" href="umr.php"><i class="bi bi-flask"></i>UMR Research</a>
-            <a class="sw-link" href="contact.php"><i class="bi bi-envelope"></i>Contact Us</a>
+            <a class="sw-link" href="about"><i class="bi bi-building"></i>Introduction</a>
+            <a class="sw-link" href="vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
+            <a class="sw-link" href="faculty"><i class="bi bi-people"></i>Faculty</a>
+            <a class="sw-link" href="admissions"><i class="bi bi-mortarboard"></i>Admissions</a>
+            <a class="sw-link" href="vacant-seats"><i class="bi bi-door-open"></i>Vacant Seats</a>
+            <a class="sw-link" href="medical-education"><i class="bi bi-book"></i>Medical Education</a>
+            <a class="sw-link" href="curriculum"><i class="bi bi-journal-text"></i>Curriculum</a>
+            <a class="sw-link" href="examinations"><i class="bi bi-clipboard-pulse"></i>Examinations</a>
+            <a class="sw-link" href="umr"><i class="bi bi-flask"></i>UMR Research</a>
+            <a class="sw-link" href="contact"><i class="bi bi-envelope"></i>Contact Us</a>
           </div>
         </div>
         <div class="sidebar-widget">
@@ -172,7 +172,7 @@
           <div class="sw-body" style="padding:18px 20px;">
             <p style="font-family:var(--font-body);font-size:.84rem;color:var(--gray-mid);margin-bottom:14px;">
               For login issues or portal assistance, please contact the relevant department.</p>
-            <a href="contact.php" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Contact IT Support</a>
+            <a href="contact" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Contact IT Support</a>
           </div>
         </div>
       </div>

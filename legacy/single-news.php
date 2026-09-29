@@ -628,9 +628,9 @@
   <div class="container page-hero-content">
     <h1>News &amp; Events</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="all-news.php">News &amp; Events</a>
+      <a href="all-news">News &amp; Events</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Achievement</span>
     </div>
@@ -748,16 +748,16 @@
 
           <p>PMC continues to welcome applications from local, overseas Pakistani, and international students for the
             upcoming MBBS Session 2025–26. With limited seats remaining, eligible students are encouraged to <a
-              href="admissions.php">apply now</a>.</p>
+              href="admissions">apply now</a>.</p>
 
           <!-- Tags -->
           <div class="article-tags">
             <span class="tag-label">Tags:</span>
-            <a class="article-tag" href="all-news.php">Achievement</a>
-            <a class="article-tag" href="all-news.php">PM&amp;DC</a>
-            <a class="article-tag" href="all-news.php">Ranking</a>
-            <a class="article-tag" href="all-news.php">PMC</a>
-            <a class="article-tag" href="all-news.php">KP Medical Colleges</a>
+            <a class="article-tag" href="all-news">Achievement</a>
+            <a class="article-tag" href="all-news">PM&amp;DC</a>
+            <a class="article-tag" href="all-news">Ranking</a>
+            <a class="article-tag" href="all-news">PMC</a>
+            <a class="article-tag" href="all-news">KP Medical Colleges</a>
           </div>
 
         </div><!-- /.article-body -->
@@ -781,7 +781,7 @@
           </h3>
           <div class="row g-3">
             <div class="col-md-4">
-              <a class="related-card" href="single-news.php">
+              <a class="related-card" href="single-news">
                 <div class="rc-img" style="background:linear-gradient(135deg,#0A1628,#1a3a6b);"><i
                     class="bi bi-mortarboard-fill"></i></div>
                 <div class="rc-body">
@@ -792,7 +792,7 @@
               </a>
             </div>
             <div class="col-md-4">
-              <a class="related-card" href="single-news.php">
+              <a class="related-card" href="single-news">
                 <div class="rc-img" style="background:linear-gradient(135deg,#00695C,#00897B);"><i
                     class="bi bi-flask-fill"></i></div>
                 <div class="rc-body">
@@ -803,7 +803,7 @@
               </a>
             </div>
             <div class="col-md-4">
-              <a class="related-card" href="single-news.php">
+              <a class="related-card" href="single-news">
                 <div class="rc-img" style="background:linear-gradient(135deg,#1565C0,#1976D2);"><i
                     class="bi bi-mic-fill"></i></div>
                 <div class="rc-body">
@@ -818,14 +818,14 @@
 
         <!-- Prev / Next (static) -->
         <div class="prev-next fu">
-          <a class="pn-card" href="single-news.php">
+          <a class="pn-card" href="single-news">
             <i class="bi bi-chevron-left pn-icon"></i>
             <div>
               <div class="pn-dir">Previous Article</div>
               <div class="pn-title">International Medical Education Symposium 2025</div>
             </div>
           </a>
-          <a class="pn-card" href="single-news.php" style="justify-content:flex-end;text-align:right;">
+          <a class="pn-card" href="single-news" style="justify-content:flex-end;text-align:right;">
             <div>
               <div class="pn-dir">Next Article</div>
               <div class="pn-title">MBBS Admissions Open for Session 2025–26</div>
@@ -858,11 +858,11 @@
             <div class="sw-head" style="background:var(--teal);"><i class="bi bi-mortarboard-fill"></i> Quick Actions
             </div>
             <div class="sw-body" style="padding:16px 18px;">
-              <a href="admissions.php" class="btn-pmc btn-pmc-primary w-100 justify-content-center mb-2"
+              <a href="admissions" class="btn-pmc btn-pmc-primary w-100 justify-content-center mb-2"
                 style="font-size:.82rem;padding:11px;">Apply for MBBS 2025–26</a>
-              <a href="vacant-seats.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center mb-2"
+              <a href="vacant-seats" class="btn-pmc btn-pmc-outline w-100 justify-content-center mb-2"
                 style="font-size:.82rem;padding:11px;">Check Vacant Seats</a>
-              <a href="faculty-all.php" class="btn-pmc btn-pmc-navy w-100 justify-content-center"
+              <a href="faculty-all" class="btn-pmc btn-pmc-navy w-100 justify-content-center"
                 style="font-size:.82rem;padding:11px;"><i class="bi bi-people me-1"></i>Our Faculty</a>
             </div>
           </div>
@@ -871,11 +871,11 @@
           <div class="sidebar-widget fu mt-3">
             <div class="sw-head"><i class="bi bi-newspaper"></i> Browse More</div>
             <div class="sw-body">
-              <a class="sw-link" href="all-news.php"><i class="bi bi-grid" style="color:var(--teal);"></i>All News &amp;
+              <a class="sw-link" href="all-news"><i class="bi bi-grid" style="color:var(--teal);"></i>All News &amp;
                 Events</a>
               <a class="sw-link" href="events.html"><i class="bi bi-calendar-event" style="color:var(--teal);"></i>Event
                 Calendar</a>
-              <a class="sw-link" href="newsletter.php"><i class="bi bi-envelope-paper"
+              <a class="sw-link" href="newsletter"><i class="bi bi-envelope-paper"
                   style="color:var(--teal);"></i>Newsletter Archive</a>
               <a class="sw-link" href="gallery.html"><i class="bi bi-images" style="color:var(--teal);"></i>Photo
                 Gallery</a>

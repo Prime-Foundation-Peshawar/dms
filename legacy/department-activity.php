@@ -6,7 +6,7 @@ $id = isset($_GET['id']) ? (int)$_GET['id'] : -1;
 $payload = ($slug !== '' && $id >= 0) ? get_department_activity($slug, $id) : null;
 
 if (!$payload) {
-  header('Location: ' . ($slug !== '' ? 'department.php?slug=' . urlencode($slug) . '#activities' : 'departments.php'));
+  header('Location: ' . ($slug !== '' ? 'department?slug=' . urlencode($slug) . '#activities' : 'departments'));
   exit;
 }
 
@@ -28,11 +28,11 @@ include('includes/header.php');
     <span class="page-hero-eyebrow">Department Activity</span>
     <h1><?= htmlspecialchars($title) ?></h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="departments.php">Departments</a>
+      <a href="departments">Departments</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="department.php?slug=<?= urlencode($slug) ?>"><?= htmlspecialchars($dept['name']) ?></a>
+      <a href="department?slug=<?= urlencode($slug) ?>"><?= htmlspecialchars($dept['name']) ?></a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Activity</span>
     </div>
@@ -59,8 +59,8 @@ include('includes/header.php');
               <p class="dept-activity-detail-text">More details for this activity will be published soon.</p>
             <?php endif; ?>
             <div class="about-cta-row">
-              <a href="department.php?slug=<?= urlencode($slug) ?>#activities" class="btn-pmc btn-pmc-primary"><i class="bi bi-arrow-left"></i> Back to Activities</a>
-              <a href="department.php?slug=<?= urlencode($slug) ?>" class="btn-pmc btn-pmc-outline"><i class="bi bi-diagram-3"></i> Department Page</a>
+              <a href="department?slug=<?= urlencode($slug) ?>#activities" class="btn-pmc btn-pmc-primary"><i class="bi bi-arrow-left"></i> Back to Activities</a>
+              <a href="department?slug=<?= urlencode($slug) ?>" class="btn-pmc btn-pmc-outline"><i class="bi bi-diagram-3"></i> Department Page</a>
             </div>
           </div>
         </div>

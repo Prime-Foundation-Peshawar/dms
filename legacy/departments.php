@@ -11,7 +11,7 @@ include('includes/header.php');
     <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>Academic Departments</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Departments</span>
     </div>
@@ -38,7 +38,7 @@ include('includes/header.php');
             $updatedLabel = department_updated_label($dept);
           ?>
             <div class="col-md-6 col-lg-4">
-              <a href="department.php?slug=<?= urlencode($slug) ?>" class="dept-index-card">
+              <a href="department?slug=<?= urlencode($slug) ?>" class="dept-index-card">
                 <div class="dept-index-ico"><i class="bi <?= htmlspecialchars($dept['icon']) ?>"></i></div>
                 <div class="dept-index-main">
                   <h4><?= htmlspecialchars($dept['name']) ?></h4>

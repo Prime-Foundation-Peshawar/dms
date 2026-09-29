@@ -111,8 +111,8 @@ include('includes/header.php');
   <div class="container page-hero-content">
     <h1>Faculty Research</h1>
     <nav class="breadcrumb-pmc" aria-label="breadcrumb">
-      <a href="index.php">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="medical-education.php">Education &amp; Research</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="./">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="medical-education">Education &amp; Research</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Faculty Research</span>
     </nav>
   </div>
@@ -141,7 +141,7 @@ include('includes/header.php');
         <?php if ($fetch_error): ?>
           <div class="alert alert-warning">
             <i class="bi bi-exclamation-triangle-fill"></i>
-            Unable to load publication data at the moment. Please try again later or contact <a href="contact.php">our support team</a>.
+            Unable to load publication data at the moment. Please try again later or contact <a href="contact">our support team</a>.
           </div>
         <?php elseif (empty($flat_publications)): ?>
           <div class="alert alert-info">

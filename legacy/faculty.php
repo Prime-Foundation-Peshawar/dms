@@ -9,9 +9,9 @@
     <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>Our Faculty</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="about.php">About Us</a>
+      <a href="about">About Us</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Faculty</span>
     </div>
@@ -61,7 +61,7 @@
         <p class="sec-desc mb-0">PM&amp;DC-registered professors, lecturers, and clinicians who teach the MBBS programme.</p>
       </div>
       <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-        <a href="departments.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-diagram-3"></i> Academic Departments</a>
+        <a href="departments" class="btn-pmc btn-pmc-outline"><i class="bi bi-diagram-3"></i> Academic Departments</a>
       </div>
     </div>
 

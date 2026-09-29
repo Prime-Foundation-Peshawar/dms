@@ -3,7 +3,7 @@
     <div class="page-hero-grid"></div>
     <div class="container page-hero-content">
         <h1>Faculty</h1>
-        <div class="breadcrumb-pmc"><a href="index.php">Home</a><span class="sep"><i
+        <div class="breadcrumb-pmc"><a href="./">Home</a><span class="sep"><i
                     class="bi bi-chevron-right"></i></span><span class="current">Faculty</span></div>
     </div>
 </div>
@@ -58,7 +58,7 @@
                                 style="color:var(--teal);font-size:1.1rem;"></i><span
                                 style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-dark);">For a
                                 detailed faculty directory with qualifications and departments, please <a
-                                    href="contact.php" style="color:var(--teal);font-weight:700;">contact the PMC
+                                    href="contact" style="color:var(--teal);font-weight:700;">contact the PMC
                                     registrar</a> or visit <a href="https://pmc.prime.edu.pk/faculty_all.php"
                                     target="_blank" style="color:var(--teal);font-weight:700;">the official faculty
                                     page</a>.</span></div>

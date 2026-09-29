@@ -3,13 +3,13 @@ require_once __DIR__ . '/includes/faculty-lib.php';
 
 $slug = faculty_slug($_GET['n'] ?? '');
 if ($slug === '') {
-  header('Location: faculty.php', true, 302);
+  header('Location: faculty', true, 302);
   exit;
 }
 
 $extra = faculty_profile_lookup_cv($slug);
 if (!$extra) {
-  header('Location: faculty.php', true, 302);
+  header('Location: faculty', true, 302);
   exit;
 }
 $display_name = $extra['name'] ?? '';
@@ -47,9 +47,9 @@ if ($display_name !== '') {
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="faculty.php">Faculty</a>
+      <a href="faculty">Faculty</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current" id="fpCrumb"><?= $display_name !== '' ? htmlspecialchars($display_name) : 'Profile' ?></span>
     </div>
@@ -67,7 +67,7 @@ if ($display_name !== '') {
       <div class="fac-error-icon"><i class="bi bi-person-x"></i></div>
       <h5>Profile not found</h5>
       <p>This person could not be found in the faculty list.</p>
-      <a href="faculty.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-people"></i> All faculty</a>
+      <a href="faculty" class="btn-pmc btn-pmc-primary"><i class="bi bi-people"></i> All faculty</a>
     </div>
 
     <article id="fpCard" class="fp-layout"<?= $extra ? '' : ' hidden' ?>>
@@ -105,7 +105,7 @@ if ($display_name !== '') {
             <?php endforeach; ?>
           </ul>
         </div>
-        <a href="faculty.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center fp-back"><i class="bi bi-arrow-left"></i> All faculty</a>
+        <a href="faculty" class="btn-pmc btn-pmc-outline w-100 justify-content-center fp-back"><i class="bi bi-arrow-left"></i> All faculty</a>
       </aside>
 
       <div class="fp-main">

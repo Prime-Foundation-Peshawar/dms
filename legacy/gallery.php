@@ -283,7 +283,7 @@
   <div class="container page-hero-content">
     <h1>Photo Gallery</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Gallery</span>
     </div>
@@ -475,7 +475,7 @@
           <span class="album-count">8 Photos</span>
         </div>
         <!-- <div class="ms-auto">
-          <a href="events.php" class="gf-btn" style="font-size:.72rem;padding:6px 14px;text-decoration:none;">
+          <a href="events" class="gf-btn" style="font-size:.72rem;padding:6px 14px;text-decoration:none;">
             <i class="bi bi-calendar3 me-1"></i> View All Events
           </a>
         </div> -->

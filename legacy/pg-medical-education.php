@@ -9,7 +9,7 @@ include('includes/header.php');
     <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>Postgraduate Medical Education</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Postgraduate Programs</span>
     </div>
@@ -132,7 +132,7 @@ include('includes/header.php');
                     <span class="pg-chip">Endocrinology</span>
                     <span class="pg-chip">Gastroenterology</span>
                     <span class="pg-chip">General Medicine</span>
-                    <a class="pg-chip pg-chip-link" href="pg-surgery-residency.php">General Surgery</a>
+                    <a class="pg-chip pg-chip-link" href="pg-surgery-residency">General Surgery</a>
                     <span class="pg-chip">Histopathology</span>
                     <span class="pg-chip">Neurosurgery</span>
                     <span class="pg-chip">Obstetrics &amp; Gynaecology</span>

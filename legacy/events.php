@@ -649,7 +649,7 @@
   <div class="container page-hero-content">
     <h1>News &amp; Events</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Events</span>
     </div>
@@ -709,7 +709,7 @@
               <div class="fem-item"><i class="bi bi-tag"></i> Achievement</div>
               <div class="fem-item"><i class="bi bi-clock"></i> 3 min read</div>
             </div>
-            <a href="event-single.php" class="btn-pmc btn-pmc-gold"
+            <a href="event-single" class="btn-pmc btn-pmc-gold"
               style="font-size:.85rem;padding:11px 22px;align-self:flex-start;">
               <i class="bi bi-arrow-right-circle"></i> Read Full Story
             </a>
@@ -721,7 +721,7 @@
 
           <!-- Event 1 -->
           <div class="col-md-6 ev-item fu" data-cat="admissions" data-year="2025" data-date="2025-06-15">
-            <a class="event-card" href="event-single.php">
+            <a class="event-card" href="event-single">
               <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#0A1628,#122040);">
                 <i class="bi bi-mortarboard-fill"></i>
                 <span>Admissions</span>
@@ -748,7 +748,7 @@
 
           <!-- Event 2 -->
           <div class="col-md-6 ev-item fu" data-cat="research" data-year="2025" data-date="2025-04-22">
-            <a class="event-card" href="event-single.php">
+            <a class="event-card" href="event-single">
               <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#00695C,#00897B);">
                 <i class="bi bi-flask-fill"></i>
                 <span>Research</span>
@@ -775,7 +775,7 @@
 
           <!-- Event 3 -->
           <div class="col-md-6 ev-item fu" data-cat="society" data-year="2025" data-date="2025-03-10">
-            <a class="event-card" href="event-single.php">
+            <a class="event-card" href="event-single">
               <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#6A1B9A,#7B1FA2);">
                 <i class="bi bi-trophy-fill"></i>
                 <span>Sports</span>
@@ -802,7 +802,7 @@
 
           <!-- Event 4 -->
           <div class="col-md-6 ev-item fu" data-cat="conference" data-year="2025" data-date="2025-02-18">
-            <a class="event-card" href="event-single.php">
+            <a class="event-card" href="event-single">
               <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#1565C0,#1976D2);">
                 <i class="bi bi-mic-fill"></i>
                 <span>Conference</span>
@@ -830,7 +830,7 @@
 
           <!-- Event 5 -->
           <div class="col-md-6 ev-item fu" data-cat="society" data-year="2025" data-date="2025-01-28">
-            <a class="event-card" href="event-single.php">
+            <a class="event-card" href="event-single">
               <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#E65100,#F57C00);">
                 <i class="bi bi-heart-fill"></i>
                 <span>Social Welfare</span>
@@ -858,7 +858,7 @@
 
           <!-- Event 6 -->
           <div class="col-md-6 ev-item fu" data-cat="general" data-year="2024" data-date="2024-12-05">
-            <a class="event-card" href="event-single.php">
+            <a class="event-card" href="event-single">
               <div class="ec-img-placeholder" style="background:linear-gradient(135deg,#37474F,#546E7A);">
                 <i class="bi bi-mortarboard-fill"></i>
                 <span>Convocation</span>
@@ -918,7 +918,7 @@
           <div class="sw-head"><i class="bi bi-calendar-event"></i> Upcoming Events</div>
           <div class="sw-body" style="padding:16px;">
 
-            <a class="upcoming-card" href="event-single.php">
+            <a class="upcoming-card" href="event-single">
               <div class="upcoming-date-block">
                 <span class="udb-day">25</span>
                 <span class="udb-month">Jul</span>
@@ -929,7 +929,7 @@
               </div>
             </a>
 
-            <a class="upcoming-card" href="event-single.php">
+            <a class="upcoming-card" href="event-single">
               <div class="upcoming-date-block">
                 <span class="udb-day">10</span>
                 <span class="udb-month">Aug</span>
@@ -940,7 +940,7 @@
               </div>
             </a>
 
-            <a class="upcoming-card" href="event-single.php">
+            <a class="upcoming-card" href="event-single">
               <div class="upcoming-date-block">
                 <span class="udb-day">02</span>
                 <span class="udb-month">Sep</span>
@@ -951,7 +951,7 @@
               </div>
             </a>
 
-            <a class="upcoming-card" href="event-single.php">
+            <a class="upcoming-card" href="event-single">
               <div class="upcoming-date-block">
                 <span class="udb-day">20</span>
                 <span class="udb-month">Sep</span>
@@ -962,7 +962,7 @@
               </div>
             </a>
 
-            <a class="upcoming-card" href="event-single.php">
+            <a class="upcoming-card" href="event-single">
               <div class="upcoming-date-block">
                 <span class="udb-day">15</span>
                 <span class="udb-month">Oct</span>

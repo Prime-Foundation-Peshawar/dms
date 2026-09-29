@@ -72,7 +72,7 @@ include('includes/header.php');
     <span class="page-hero-eyebrow">Public Health Service</span>
     <h1>E-Health Service</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">E-Health Service</span>
     </div>

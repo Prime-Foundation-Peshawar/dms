@@ -88,7 +88,7 @@ include('includes/header.php');
   <div class="container page-hero-content">
     <h1>Examinations &amp; Assessments</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="./">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
       Education &amp; Research<span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Examinations</span>
     </div>

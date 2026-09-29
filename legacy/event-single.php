@@ -526,7 +526,7 @@
   <div class="container page-hero-content">
     <h1>Events &amp; News</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <a href="events.html">Events</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
@@ -703,7 +703,7 @@
 
           <p>The UMR Society has announced that the <strong>UMR Annual Conference 2026</strong> will be expanded to include inter-collegiate participation, inviting students from medical colleges across KP to present their research at PMC — a further step in establishing PMC as the hub of undergraduate medical research in the province.</p>
 
-          <p>For more information about the UMR Society, research mentorship, or submitting your abstract for next year's conference, please visit the <a href="umr.php" style="color:var(--teal);font-weight:700;">UMR Society page</a> or contact the UMR Coordinator at the college.</p>
+          <p>For more information about the UMR Society, research mentorship, or submitting your abstract for next year's conference, please visit the <a href="umr" style="color:var(--teal);font-weight:700;">UMR Society page</a> or contact the UMR Coordinator at the college.</p>
 
           <!-- Tags -->
           <div class="article-tags">
@@ -863,8 +863,8 @@
         <div class="sidebar-widget mt-4 fu">
           <div class="sw-head" style="background:var(--teal);"><i class="bi bi-mortarboard-fill"></i> Quick Actions</div>
           <div class="sw-body" style="padding:16px 20px;">
-            <a href="admissions.php" class="btn-pmc btn-pmc-primary w-100 justify-content-center mb-2" style="font-size:.82rem;padding:11px;">Apply for MBBS 2026-27</a>
-            <a href="vacant-seats.php" class="btn-pmc btn-pmc-outline w-100 justify-content-center mb-2" style="font-size:.82rem;padding:11px;">Check Vacant Seats</a>
+            <a href="admissions" class="btn-pmc btn-pmc-primary w-100 justify-content-center mb-2" style="font-size:.82rem;padding:11px;">Apply for MBBS 2026-27</a>
+            <a href="vacant-seats" class="btn-pmc btn-pmc-outline w-100 justify-content-center mb-2" style="font-size:.82rem;padding:11px;">Check Vacant Seats</a>
             <a href="gallery.html" class="btn-pmc btn-pmc-navy w-100 justify-content-center" style="font-size:.82rem;padding:11px;"><i class="bi bi-images me-1"></i>Photo Gallery</a>
           </div>
         </div>

@@ -9,9 +9,9 @@
         <span class="page-hero-eyebrow">Department of Medical Sciences</span>
         <h1>Peshawar Medical College</h1>
         <div class="breadcrumb-pmc">
-          <a href="index.php">Home</a>
+          <a href="./">Home</a>
           <span class="sep"><i class="bi bi-chevron-right"></i></span>
-          <a href="about.php">About</a>
+          <a href="about">About</a>
           <span class="sep"><i class="bi bi-chevron-right"></i></span>
           <span class="current">Peshawar Medical College</span>
         </div>
@@ -46,7 +46,7 @@
               The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. In the 2024 inspection, the institution stood first among private medical colleges of KP with more than <strong>80% score</strong>. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
             </p>
             <p>
-              For department overview, campus facilities, and location, see <a href="about.php"><strong>About PMC</strong></a>. Values are on <a href="vision-mission.php"><strong>Vision &amp; Mission</strong></a>.
+              For department overview, campus facilities, and location, see <a href="about"><strong>About PMC</strong></a>. Values are on <a href="vision-mission"><strong>Vision &amp; Mission</strong></a>.
             </p>
           </div>
 
@@ -107,14 +107,14 @@
             </div>
             <div class="row g-3 mb-4">
               <div class="col-md-6">
-                <a href="student-guide.php" class="pmc-hosp-card">
+                <a href="student-guide" class="pmc-hosp-card">
                   <i class="bi bi-book-fill"></i>
                   <strong>Student Guide</strong>
                   <span>Policies &amp; student life</span>
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="curriculum.php" class="pmc-hosp-card">
+                <a href="curriculum" class="pmc-hosp-card">
                   <i class="bi bi-journal-text"></i>
                   <strong>Curriculum</strong>
                   <span>Integrated MBBS map</span>
@@ -150,8 +150,8 @@
               <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Serve as socially responsible, honest and patriotic citizens</span></div>
             </div>
             <div class="about-cta-row">
-              <a href="admissions.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> MBBS Admissions</a>
-              <a href="curriculum.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-journal-text"></i> Curriculum</a>
+              <a href="admissions" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> MBBS Admissions</a>
+              <a href="curriculum" class="btn-pmc btn-pmc-outline"><i class="bi bi-journal-text"></i> Curriculum</a>
             </div>
           </div>
 
@@ -212,9 +212,9 @@
               <?php endforeach; ?>
             </div>
             <div class="about-cta-row">
-              <a href="gallery.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-images"></i> Full Photo Gallery</a>
-              <a href="admissions.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions</a>
-              <a href="faculty.php" class="btn-pmc btn-pmc-outline"><i class="bi bi-people"></i> Faculty</a>
+              <a href="gallery" class="btn-pmc btn-pmc-primary"><i class="bi bi-images"></i> Full Photo Gallery</a>
+              <a href="admissions" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions</a>
+              <a href="faculty" class="btn-pmc btn-pmc-outline"><i class="bi bi-people"></i> Faculty</a>
             </div>
           </div>
 

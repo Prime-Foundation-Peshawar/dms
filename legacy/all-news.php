@@ -676,7 +676,7 @@
   <div class="container page-hero-content">
     <h1>News &amp; Events</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">News &amp; Events</span>
     </div>
@@ -746,7 +746,7 @@
               <span><i class="bi bi-person"></i> PMC Admin</span>
               <span><i class="bi bi-clock"></i> 2 min read</span>
             </div>
-            <a href="single-news.php" class="btn-pmc btn-pmc-gold" style="align-self:flex-start;">
+            <a href="single-news" class="btn-pmc btn-pmc-gold" style="align-self:flex-start;">
               <i class="bi bi-arrow-right-circle"></i> Read Full Article
             </a>
           </div>
@@ -757,7 +757,7 @@
 
           <!-- 1. Admissions -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#0A1628,#1a3a6b);">
                 <i class="bi bi-mortarboard-fill"></i><span>Admissions</span>
                 <div class="nc-date-pill"><span class="day">15</span><span class="month">Jun</span></div>
@@ -775,7 +775,7 @@
 
           <!-- 2. Achievement -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#C9A84C,#e0c068);">
                 <i class="bi bi-award-fill"></i><span>Achievement</span>
                 <div class="nc-date-pill"><span class="day">15</span><span class="month">May</span></div>
@@ -794,7 +794,7 @@
 
           <!-- 3. Research -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#00695C,#00897B);">
                 <i class="bi bi-flask-fill"></i><span>Research</span>
                 <div class="nc-date-pill"><span class="day">22</span><span class="month">Apr</span></div>
@@ -813,7 +813,7 @@
 
           <!-- 4. Conference -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#1565C0,#1976D2);">
                 <i class="bi bi-mic-fill"></i><span>Conference</span>
                 <div class="nc-date-pill"><span class="day">18</span><span class="month">Feb</span></div>
@@ -832,7 +832,7 @@
 
           <!-- 5. Sports Society -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#6A1B9A,#7B1FA2);">
                 <i class="bi bi-trophy-fill"></i><span>Society</span>
                 <div class="nc-date-pill"><span class="day">10</span><span class="month">Mar</span></div>
@@ -851,7 +851,7 @@
 
           <!-- 6. Blood Donation -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#C62828,#E53935);">
                 <i class="bi bi-heart-fill"></i><span>Society</span>
                 <div class="nc-date-pill"><span class="day">28</span><span class="month">Jan</span></div>
@@ -870,7 +870,7 @@
 
           <!-- 7. Convocation -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#37474F,#546E7A);">
                 <i class="bi bi-mortarboard-fill"></i><span>General</span>
                 <div class="nc-date-pill"><span class="day">05</span><span class="month">Dec</span></div>
@@ -889,7 +889,7 @@
 
           <!-- 8. Scholarship -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#00695C,#2E7D32);">
                 <i class="bi bi-award"></i><span>Admissions</span>
                 <div class="nc-date-pill"><span class="day">01</span><span class="month">Oct</span></div>
@@ -908,7 +908,7 @@
 
           <!-- 9. Faculty Research -->
           <div class="col-md-6 news-item">
-            <a class="news-card" href="single-news.php">
+            <a class="news-card" href="single-news">
               <div class="nc-img-placeholder" style="background:linear-gradient(135deg,#0A1628,#00695C);">
                 <i class="bi bi-journal-richtext"></i><span>Research</span>
                 <div class="nc-date-pill"><span class="day">14</span><span class="month">Aug</span></div>
@@ -945,21 +945,21 @@
         <div class="news-sidebar-widget fu">
           <div class="nsw-head"><i class="bi bi-clock-history"></i> Recent News</div>
           <div class="nsw-body" style="padding:0;">
-            <a class="recent-item" href="single-news.php">
+            <a class="recent-item" href="single-news">
               <div class="ri-thumb"><i class="bi bi-mortarboard-fill"></i></div>
               <div style="flex:1;min-width:0;">
                 <div class="ri-title">MBBS Admissions — Applications Closed</div>
                 <div class="ri-date"><i class="bi bi-calendar3"></i> June 15, 2025</div>
               </div>
             </a>
-            <a class="recent-item" href="single-news.php">
+            <a class="recent-item" href="single-news">
               <div class="ri-thumb"><i class="bi bi-award-fill"></i></div>
               <div style="flex:1;min-width:0;">
                 <div class="ri-title">PMC Retains #1 Ranking Among Private Medical Colleges in KP</div>
                 <div class="ri-date"><i class="bi bi-calendar3"></i> May 15, 2025</div>
               </div>
             </a>
-            <a class="recent-item" href="single-news.php">
+            <a class="recent-item" href="single-news">
               <div class="ri-thumb"><i class="bi bi-flask-fill"></i></div>
               <div style="flex:1;min-width:0;">
                 <div class="ri-title">UMR Society Annual Medical Research Conference 2025</div>

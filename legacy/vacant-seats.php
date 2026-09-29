@@ -3,7 +3,7 @@
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <h1>Vacant Seats (Migration)</h1>
-    <div class="breadcrumb-pmc"><a href="index.php">Home</a><span class="sep"><i
+    <div class="breadcrumb-pmc"><a href="./">Home</a><span class="sep"><i
           class="bi bi-chevron-right"></i></span><span class="current">Vacant Seats – Migration</span></div>
   </div>
 </div>
@@ -146,7 +146,7 @@
             <a href="https://pmc.prime.edu.pk/vacant_admission/" target="_blank" class="btn-pmc btn-pmc-primary" style="font-size:.95rem;padding:13px 30px;">
               <i class="bi bi-pencil-square"></i> Apply Online for Migration
             </a>
-            <a href="admissions.php" class="btn-pmc btn-pmc-outline ms-2" style="font-size:.95rem;padding:13px 30px;">
+            <a href="admissions" class="btn-pmc btn-pmc-outline ms-2" style="font-size:.95rem;padding:13px 30px;">
               <i class="bi bi-arrow-left-circle"></i> Back to Admissions
             </a>
           </div>

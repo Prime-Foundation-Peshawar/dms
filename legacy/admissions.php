@@ -6,7 +6,7 @@
     <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>Admissions 2025–26</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="./">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Admissions 2025–26</span>
     </div>
@@ -199,10 +199,10 @@
           </div>
 
           <div class="adm-cta-row fu">
-            <a href="contact.php" class="btn-pmc btn-pmc-primary">
+            <a href="contact" class="btn-pmc btn-pmc-primary">
               <i class="bi bi-envelope"></i> Contact Admissions
             </a>
-            <a href="pg-medical-education.php" class="btn-pmc btn-pmc-outline">
+            <a href="pg-medical-education" class="btn-pmc btn-pmc-outline">
               <i class="bi bi-journal-medical"></i> Postgraduate Pathways
             </a>
             <a href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline">
@@ -242,7 +242,7 @@
           <div class="sw-head"><i class="bi bi-telephone"></i> Need Help?</div>
           <div class="sw-body" style="padding:16px 18px;">
             <p style="font-size:.88rem;color:var(--gray-mid);margin:0 0 12px;line-height:1.6;">Questions about MBBS admissions at PMC.</p>
-            <a href="contact.php" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;">
+            <a href="contact" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;">
               <i class="bi bi-envelope"></i> Contact Us
             </a>
           </div>

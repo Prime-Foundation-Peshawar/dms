@@ -3,7 +3,7 @@
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <h1>Contact Us</h1>
-    <div class="breadcrumb-pmc"><a href="index.php">Home</a><span class="sep"><i
+    <div class="breadcrumb-pmc"><a href="./">Home</a><span class="sep"><i
           class="bi bi-chevron-right"></i></span><span class="current">Contact Us</span></div>
   </div>
 </div>
@@ -62,7 +62,7 @@
                 <h4>E-Health Service</h4>
                 <p>Free health information by phone from Peshawar Medical College (Prime Foundation).</p>
                 <p style="margin-bottom:14px;"><a href="tel:0912385262" style="color:var(--teal);font-weight:700;font-size:1.15rem;">091-2385262</a></p>
-                <a href="e-health.php" class="btn-pmc btn-pmc-outline" style="font-size:.85rem;padding:8px 16px;">How to use &amp; topic codes <i class="bi bi-arrow-right"></i></a>
+                <a href="e-health" class="btn-pmc btn-pmc-outline" style="font-size:.85rem;padding:8px 16px;">How to use &amp; topic codes <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div>

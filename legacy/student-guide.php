@@ -3,7 +3,7 @@
     <div class="page-hero-grid"></div>
     <div class="container page-hero-content">
         <h1>Student Guide</h1>
-        <div class="breadcrumb-pmc"><a href="index.php">Home</a><span class="sep"><i
+        <div class="breadcrumb-pmc"><a href="./">Home</a><span class="sep"><i
                     class="bi bi-chevron-right"></i></span>Education &amp; Research <span class="sep"><i
                     class="bi bi-chevron-right"></i></span><span class="current">Student Guide</span></div>
     </div>

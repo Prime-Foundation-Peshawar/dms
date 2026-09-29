@@ -15,8 +15,8 @@ include('includes/header.php');
   <div class="container page-hero-content">
     <h1>Postgraduate General Surgery Residency Programme</h1>
     <nav class="breadcrumb-pmc" aria-label="breadcrumb">
-      <a href="index.php">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="medical-education.php">Education &amp; Research</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="./">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="medical-education">Education &amp; Research</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">PG General Surgery Residency</span>
     </nav>
   </div>

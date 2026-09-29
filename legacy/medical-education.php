@@ -1,3 +1,3 @@
 <?php
-header('Location: pmc.php#mbbs', true, 301);
+header('Location: pmc#mbbs', true, 301);
 exit;
