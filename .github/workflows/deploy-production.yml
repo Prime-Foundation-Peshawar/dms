@@ -93,8 +93,16 @@ jobs:
             git clean -fd -e "$OLD_DIR" -e "./$OLD_DIR" -e "./$OLD_DIR/**"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             chmod -R u+rwX,go-w "$TARGET" || true
-            php "$TARGET/db/apply.php"
+            chmod -R ug+rwX "$TARGET/writable" 2>/dev/null || true
+            PHP_BIN="php"
+            if [ -x /opt/cpanel/ea-php81/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php81/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php82/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php82/root/usr/bin/php"
+            fi
+            echo "Using PHP: $($PHP_BIN -v | head -1)"
+            "$PHP_BIN" "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             if [ -d "$TARGET/$OLD_DIR" ]; then
-              echo "Archived old site at $TARGET/$OLD_DIR ($(find "$TARGET/$OLD_DIR" -type f | wc -l) files)"
+              echo "Archived old site at $TARGET/$OLD_DIR ($(find "$TARGET/$OLD_DIR" -type file | wc -l) files)"
             fi

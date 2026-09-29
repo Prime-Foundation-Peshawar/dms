@@ -2,10 +2,18 @@
 error_log
 **/error_log
 *.log
-logs/
-tmp/
-temp/
-cache/
+
+# CI4 writable (keep folders, ignore contents)
+writable/cache/*
+!writable/cache/index.html
+writable/logs/*
+!writable/logs/index.html
+writable/session/*
+!writable/session/index.html
+writable/uploads/*
+!writable/uploads/index.html
+writable/debugbar/*
+!writable/debugbar/index.html
 
 # Archived previous production site (kept on server only)
 /old/
@@ -17,12 +25,8 @@ cache/
 credentials.json
 *.pem
 
-# Dependencies (if added later)
-/vendor/
-/node_modules/
-composer.lock
-package-lock.json
-yarn.lock
+# Do NOT ignore vendor — hosting has no Composer; deploy with vendor committed.
+# /vendor/
 
 # OS / editor junk
 .DS_Store
@@ -41,9 +45,6 @@ Desktop.ini
 *_old.php
 * copy.php
 *copy.php
-*.sql
-!db/changes/
-!db/changes/*.sql
 *.sql.gz
 *.zip
 *.tar
@@ -60,15 +61,16 @@ cgi-bin/
 .softaculous/
 .cagefs/
 
-# 4K source + extract frames (web uses compressed pmc-hero-720/480)
-/assets/videos/pmc-hero-source.mp4
-/assets/videos/frames/
+# 4K source + extract frames
+/public/assets/videos/pmc-hero-source.mp4
+/public/assets/videos/frames/
 
 # Local tooling
 .cursor/
 .claude/
 agent-transcripts/
 todo.zip
+/dms-ci4-tmp/
 
 # Faculty self-update submissions (pending review)
 /data/faculty-submissions/*

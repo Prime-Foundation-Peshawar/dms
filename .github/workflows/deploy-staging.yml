@@ -71,9 +71,19 @@ jobs:
             git reset --hard "origin/$BRANCH"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             chmod -R u+rwX,go-w "$TARGET" || true
-            php "$TARGET/db/apply.php"
+            chmod -R ug+rwX "$TARGET/writable" 2>/dev/null || true
+            PHP_BIN="php"
+            if [ -x /opt/cpanel/ea-php81/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php81/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php82/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php82/root/usr/bin/php"
+            fi
+            echo "Using PHP: $($PHP_BIN -v | head -1)"
+            "$PHP_BIN" "$TARGET/db/apply.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
+            echo "NOTE: Ensure .env has app.baseURL, encryption.key, CMS_ADMIN_* and MultiPHP 8.1+"
             echo "---- recent error_log (if any) ----"
             tail -n 40 "$TARGET/error_log" 2>/dev/null || true
+            tail -n 40 "$TARGET/writable/logs/"*.log 2>/dev/null || true
             tail -n 40 "$HOME/public_html/error_log" 2>/dev/null || true
             tail -n 40 "$HOME/logs/"*error* 2>/dev/null || true
