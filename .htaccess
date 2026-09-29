@@ -1,8 +1,13 @@
 DirectoryIndex index.php index.html
 
-# Prefer PHP 8.2 for CI4 4.7+ (cPanel EA4). If this host ignores it, set MultiPHP 8.2 for /dms in cPanel.
+# Staging /dms uses PHP 8.4 for CI4. Production stays on 8.2 unless MultiPHP is changed.
 <IfModule mime_module>
-  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+  <If "%{HTTP_HOST} =~ /staging\.riphahpsh\.edu\.pk$/i">
+    AddHandler application/x-httpd-ea-php84 .php .php8 .phtml
+  </If>
+  <Else>
+    AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+  </Else>
 </IfModule>
 
 RewriteEngine On
