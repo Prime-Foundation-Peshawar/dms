@@ -8,6 +8,9 @@ class Modules extends BaseController
 {
     public function show(string $key)
     {
+        if ($key === 'departments') {
+            return redirect()->to(site_url('acp/departments'));
+        }
         $labels = [
             'news'         => 'News',
             'events'       => 'Events',

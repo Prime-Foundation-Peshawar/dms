@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/departments-data.php';
 require_once __DIR__ . '/includes/faculty-lib.php';
-$groups = academic_department_groups($academic_departments);
+$groups = academic_department_groups(academic_departments_all());
 include('includes/header.php');
 ?>
 

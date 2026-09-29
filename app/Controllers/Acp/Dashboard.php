@@ -33,7 +33,7 @@ class Dashboard extends BaseController
                 ['key' => 'news', 'label' => 'News', 'status' => 'soon', 'href' => site_url('acp/modules/news')],
                 ['key' => 'events', 'label' => 'Events', 'status' => 'soon', 'href' => site_url('acp/modules/events')],
                 ['key' => 'gallery', 'label' => 'Gallery', 'status' => 'soon', 'href' => site_url('acp/modules/gallery')],
-                ['key' => 'departments', 'label' => 'Departments', 'status' => 'soon', 'href' => site_url('acp/modules/departments')],
+                ['key' => 'departments', 'label' => 'Departments', 'status' => 'live', 'href' => site_url('acp/departments')],
                 ['key' => 'vacant', 'label' => 'Vacant seats', 'status' => 'soon', 'href' => site_url('acp/modules/vacant-seats')],
                 ['key' => 'newsletters', 'label' => 'Newsletters', 'status' => 'soon', 'href' => site_url('acp/modules/newsletters')],
                 ['key' => 'pages', 'label' => 'Pages', 'status' => 'soon', 'href' => site_url('acp/modules/pages')],

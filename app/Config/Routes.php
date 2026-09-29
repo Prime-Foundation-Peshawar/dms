@@ -23,6 +23,9 @@ $routes->group('acp', ['filter' => 'acpauth'], static function ($routes) {
     $routes->get('faculty/profiles', 'Acp\Faculty::profiles');
     $routes->get('faculty/profiles/(:num)', 'Acp\Faculty::editProfile/$1');
     $routes->post('faculty/profiles/(:num)', 'Acp\Faculty::saveProfile/$1');
+    $routes->get('departments', 'Acp\Departments::index');
+    $routes->get('departments/(:num)', 'Acp\Departments::edit/$1');
+    $routes->post('departments/(:num)', 'Acp\Departments::save/$1');
     $routes->get('modules/(:segment)', 'Acp\Modules::show/$1');
 });
 

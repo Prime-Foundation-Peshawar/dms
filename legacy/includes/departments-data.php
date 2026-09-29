@@ -1694,12 +1694,115 @@ foreach ($academic_departments as $slug => &$dept) {
 }
 unset($dept);
 
-function get_academic_department(string $slug): ?array {
-  global $academic_departments;
-  return $academic_departments[$slug] ?? null;
+function dms_departments_db_available(): bool
+{
+  try {
+    require_once __DIR__ . '/db.php';
+    $pdo = dms_db();
+    $n = (int) $pdo->query("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = 'departments'")->fetchColumn();
+    if ($n < 1) {
+      return false;
+    }
+    $rows = (int) $pdo->query('SELECT COUNT(*) FROM departments')->fetchColumn();
+
+    return $rows > 0;
+  } catch (Throwable $e) {
+    return false;
+  }
 }
 
-function get_department_activity(string $slug, int $index): ?array {
+/**
+ * @return array<string,array<string,mixed>>|null
+ */
+function dms_departments_load_from_db(): ?array
+{
+  static $cache = null;
+  static $tried = false;
+  if ($tried) {
+    return $cache;
+  }
+  $tried = true;
+  if (!dms_departments_db_available()) {
+    $cache = null;
+
+    return null;
+  }
+
+  try {
+    // Prefer CI service when the app is booted.
+    if (class_exists(\App\Libraries\DepartmentService::class)) {
+      $cache = (new \App\Libraries\DepartmentService())->allKeyed();
+
+      return $cache;
+    }
+  } catch (Throwable $e) {
+    // fall through to PDO
+  }
+
+  try {
+    require_once __DIR__ . '/db.php';
+    $pdo = dms_db();
+    $deptRows = $pdo->query('SELECT * FROM departments WHERE is_active = 1 ORDER BY sort_order ASC, name ASC')->fetchAll();
+    $actStmt = $pdo->prepare('SELECT * FROM department_activities WHERE department_id = ? ORDER BY sort_order ASC, id ASC');
+    $out = [];
+    foreach ($deptRows as $row) {
+      $actStmt->execute([(int) $row['id']]);
+      $activities = [];
+      foreach ($actStmt->fetchAll() as $a) {
+        $activities[] = [
+          'id' => (int) $a['id'],
+          'title' => (string) $a['title'],
+          'date' => (string) ($a['activity_date'] ?? ''),
+          'text' => (string) ($a['body'] ?? ''),
+        ];
+      }
+      $intro = json_decode((string) ($row['intro'] ?? '[]'), true);
+      $faculty = json_decode((string) ($row['faculty_fallback'] ?? '[]'), true);
+      $slug = (string) $row['slug'];
+      $out[$slug] = [
+        'id' => (int) $row['id'],
+        'slug' => $slug,
+        'name' => (string) $row['name'],
+        'icon' => (string) ($row['icon'] ?? 'bi-building'),
+        'group' => (string) ($row['dept_group'] ?? 'Other'),
+        'hod' => (string) ($row['hod_name'] ?? ''),
+        'intro' => is_array($intro) ? array_values($intro) : [],
+        'faculty' => is_array($faculty) ? array_values($faculty) : [],
+        'activities' => $activities,
+        'updated' => (string) ($row['updated_on'] ?? ''),
+        'oric_id' => $row['oric_id'] !== null ? (int) $row['oric_id'] : null,
+      ];
+    }
+    $cache = $out;
+
+    return $cache;
+  } catch (Throwable $e) {
+    $cache = null;
+
+    return null;
+  }
+}
+
+function academic_departments_all(): array
+{
+  $db = dms_departments_load_from_db();
+  if (is_array($db) && $db !== []) {
+    return $db;
+  }
+  global $academic_departments;
+
+  return is_array($academic_departments) ? $academic_departments : [];
+}
+
+function get_academic_department(string $slug): ?array
+{
+  $all = academic_departments_all();
+
+  return $all[$slug] ?? null;
+}
+
+function get_department_activity(string $slug, int $index): ?array
+{
   $dept = get_academic_department($slug);
   if (!$dept) {
     return null;
@@ -1708,6 +1811,7 @@ function get_department_activity(string $slug, int $index): ?array {
   if (!isset($activities[$index]) || !is_array($activities[$index])) {
     return null;
   }
+
   return [
     'dept' => $dept,
     'slug' => $slug,
@@ -1716,23 +1820,32 @@ function get_department_activity(string $slug, int $index): ?array {
   ];
 }
 
-function academic_department_groups(array $departments): array {
+function academic_department_groups(array $departments): array
+{
   $groups = [];
   foreach ($departments as $slug => $dept) {
     $group = $dept['group'] ?? 'Other';
     $groups[$group][$slug] = $dept;
   }
+
   return $groups;
 }
 
-function department_updated_label(array $dept): string {
+function department_updated_label(array $dept): string
+{
   $raw = $dept['updated'] ?? DEPARTMENTS_DEFAULT_UPDATED;
   $ts = strtotime($raw);
+
   return $ts ? date('j M Y', $ts) : (string) $raw;
 }
 
 /** ORIC department IDs from https://oric.riphahpsh.edu.pk/publications.php */
-function department_oric_id(string $slug): ?int {
+function department_oric_id(string $slug): ?int
+{
+  $dept = get_academic_department($slug);
+  if ($dept && array_key_exists('oric_id', $dept) && $dept['oric_id'] !== null && (int) $dept['oric_id'] > 0) {
+    return (int) $dept['oric_id'];
+  }
   $map = [
     'anatomy' => 4,
     'physiology' => 5,
@@ -1753,13 +1866,16 @@ function department_oric_id(string $slug): ?int {
     'psychiatry' => 9,
     'cardiology' => 5035,
   ];
+
   return $map[$slug] ?? null;
 }
 
-function department_oric_publications_url(string $slug): string {
+function department_oric_publications_url(string $slug): string
+{
   $id = department_oric_id($slug);
   if ($id === null) {
     return 'https://oric.riphahpsh.edu.pk/publications.php';
   }
+
   return 'https://oric.riphahpsh.edu.pk/dep_research.php?id=' . $id;
 }

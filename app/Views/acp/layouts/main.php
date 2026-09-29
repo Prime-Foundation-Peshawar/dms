@@ -28,7 +28,7 @@
       <a href="<?= site_url('acp/modules/news') ?>">News</a>
       <a href="<?= site_url('acp/modules/events') ?>">Events</a>
       <a href="<?= site_url('acp/modules/gallery') ?>">Gallery</a>
-      <a href="<?= site_url('acp/modules/departments') ?>">Departments</a>
+      <a href="<?= site_url('acp/departments') ?>" class="<?= ($nav ?? '') === 'departments' ? 'is-active' : '' ?>">Departments</a>
       <a href="<?= site_url('acp/modules/vacant-seats') ?>">Vacant seats</a>
       <a href="<?= site_url('acp/modules/newsletters') ?>">Newsletters</a>
       <a href="<?= site_url('acp/modules/pages') ?>">Pages</a>

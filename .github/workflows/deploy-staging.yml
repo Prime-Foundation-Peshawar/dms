@@ -82,6 +82,7 @@ jobs:
             fi
             echo "Using PHP: $($PHP_BIN -v | head -1)"
             "$PHP_BIN" "$TARGET/db/apply.php"
+            "$PHP_BIN" "$TARGET/db/seed_departments.php" || true
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             echo "NOTE: Staging /dms uses EA PHP 8.4. Other staging apps stay on the account default."
             echo "---- recent error_log (if any) ----"
