@@ -1094,3 +1094,133 @@ function faculty_hrms_count_for_department(string $slug, string $deptName, ?int 
   }
   return $n;
 }
+
+/** Faculty self-update submissions (not published until applied by admin). */
+function faculty_submissions_dir(): string {
+  return dirname(__DIR__) . '/data/faculty-submissions';
+}
+
+function faculty_submissions_photos_dir(): string {
+  return faculty_submissions_dir() . '/photos';
+}
+
+/**
+ * Split textarea / multi-line field into clean list items.
+ *
+ * @return list<string>
+ */
+function faculty_parse_lines_field($raw, int $maxItems = 12): array {
+  if (is_array($raw)) {
+    $parts = $raw;
+  } else {
+    $parts = preg_split('/[\r\n]+/', (string) $raw) ?: [];
+  }
+  $out = [];
+  $seen = [];
+  foreach ($parts as $part) {
+    $text = trim(faculty_soft_space((string) $part));
+    $text = trim($text, " \t•●\-–—");
+    if ($text === '') {
+      continue;
+    }
+    if (strlen($text) > 220) {
+      $text = substr($text, 0, 220);
+    }
+    $key = strtolower($text);
+    if (isset($seen[$key])) {
+      continue;
+    }
+    $seen[$key] = true;
+    $out[] = $text;
+    if (count($out) >= $maxItems) {
+      break;
+    }
+  }
+  return $out;
+}
+
+function faculty_submission_rate_limited(string $ip, int $seconds = 45): bool {
+  $dir = faculty_submissions_dir() . '/.rate';
+  if (!is_dir($dir) && !@mkdir($dir, 0755, true) && !is_dir($dir)) {
+    return false;
+  }
+  $file = $dir . '/' . hash('sha256', $ip) . '.txt';
+  $now = time();
+  if (is_file($file)) {
+    $last = (int) trim((string) @file_get_contents($file));
+    if ($last > 0 && ($now - $last) < $seconds) {
+      return true;
+    }
+  }
+  @file_put_contents($file, (string) $now);
+  return false;
+}
+
+/**
+ * @param array<string,mixed> $payload
+ * @return array{ok:bool,id?:string,error?:string}
+ */
+function faculty_save_submission(array $payload, ?array $photoFile = null): array {
+  $dir = faculty_submissions_dir();
+  $photoDir = faculty_submissions_photos_dir();
+  if (!is_dir($dir) && !@mkdir($dir, 0755, true) && !is_dir($dir)) {
+    return ['ok' => false, 'error' => 'Could not create submissions folder.'];
+  }
+  if (!is_dir($photoDir) && !@mkdir($photoDir, 0755, true) && !is_dir($photoDir)) {
+    return ['ok' => false, 'error' => 'Could not create photo folder.'];
+  }
+
+  $id = date('Ymd-His') . '-' . bin2hex(random_bytes(4));
+  $photoRel = null;
+
+  if ($photoFile && !empty($photoFile['tmp_name']) && (int) ($photoFile['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+    if ((int) ($photoFile['error'] ?? 0) !== UPLOAD_ERR_OK) {
+      return ['ok' => false, 'error' => 'Photo upload failed. Try a smaller JPG or PNG.'];
+    }
+    if ((int) ($photoFile['size'] ?? 0) > 2.5 * 1024 * 1024) {
+      return ['ok' => false, 'error' => 'Photo must be under 2.5 MB.'];
+    }
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($photoFile['tmp_name']) ?: '';
+    $map = [
+      'image/jpeg' => 'jpg',
+      'image/png' => 'png',
+      'image/webp' => 'webp',
+    ];
+    if (!isset($map[$mime])) {
+      return ['ok' => false, 'error' => 'Photo must be JPG, PNG, or WEBP.'];
+    }
+    $photoName = $id . '.' . $map[$mime];
+    $dest = $photoDir . '/' . $photoName;
+    if (!@move_uploaded_file($photoFile['tmp_name'], $dest)) {
+      return ['ok' => false, 'error' => 'Could not save photo.'];
+    }
+    @chmod($dest, 0644);
+    $photoRel = 'photos/' . $photoName;
+  }
+
+  $record = [
+    'id' => $id,
+    'submitted_at' => date('c'),
+    'ip' => (string) ($payload['ip'] ?? ''),
+    'college' => (string) ($payload['college'] ?? ''),
+    'emp_name' => (string) ($payload['emp_name'] ?? ''),
+    'slug' => (string) ($payload['slug'] ?? ''),
+    'des_title' => (string) ($payload['des_title'] ?? ''),
+    'dep_name' => (string) ($payload['dep_name'] ?? ''),
+    'research_preferences' => array_values($payload['research_preferences'] ?? []),
+    'qualifications' => array_values($payload['qualifications'] ?? []),
+    'skills' => array_values($payload['skills'] ?? []),
+    'contact_phone' => (string) ($payload['contact_phone'] ?? ''),
+    'photo' => $photoRel,
+    'status' => 'pending',
+  ];
+
+  $path = $dir . '/' . $id . '.json';
+  $json = json_encode($record, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+  if ($json === false || @file_put_contents($path, $json . "\n") === false) {
+    return ['ok' => false, 'error' => 'Could not save your form. Please try again.'];
+  }
+  @chmod($path, 0644);
+  return ['ok' => true, 'id' => $id];
+}

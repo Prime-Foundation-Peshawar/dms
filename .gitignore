@@ -69,3 +69,10 @@ cgi-bin/
 .claude/
 agent-transcripts/
 todo.zip
+
+# Faculty self-update submissions (pending review)
+/data/faculty-submissions/*
+!/data/faculty-submissions/.gitkeep
+!/data/faculty-submissions/.htaccess
+/data/faculty-submissions/photos/
+/data/faculty-submissions/.rate/

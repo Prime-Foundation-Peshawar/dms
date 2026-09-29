@@ -1,0 +1,192 @@
+/* Faculty self-update form — large, simple, mobile-first */
+.fu-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.fu-intro {
+  background: #fff;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 18px;
+  padding: 22px 22px 18px;
+  margin-bottom: 18px;
+}
+.fu-intro h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--navy, #0b1f3a);
+  margin: 0 0 8px;
+}
+.fu-intro p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.fu-card {
+  background: #fff;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+.fu-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--navy, #0b1f3a);
+  margin: 0 0 6px;
+}
+.fu-help {
+  margin: 0 0 14px;
+  color: #6b7280;
+  font-size: .92rem;
+  line-height: 1.45;
+}
+.fu-label {
+  display: block;
+  font-weight: 700;
+  color: var(--navy, #0b1f3a);
+  margin-bottom: 8px;
+  font-size: .95rem;
+}
+.fu-label .req {
+  color: #b91c1c;
+  font-weight: 800;
+}
+.fu-input,
+.fu-select,
+.fu-textarea,
+.fu-file {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 14px 14px;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: #111827;
+  background: #fff;
+}
+.fu-input:focus,
+.fu-select:focus,
+.fu-textarea:focus {
+  outline: 2px solid rgba(13, 148, 136, .35);
+  border-color: var(--teal, #0d9488);
+}
+.fu-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+.fu-readonly {
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+}
+.fu-row {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+@media (min-width: 640px) {
+  .fu-row-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.fu-search-wrap {
+  position: relative;
+}
+.fu-suggest {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 20;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  max-height: 280px;
+  overflow: auto;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .12);
+  display: none;
+}
+.fu-suggest.is-open { display: block; }
+.fu-suggest button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 12px 14px;
+  font-size: .98rem;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+}
+.fu-suggest button:hover,
+.fu-suggest button:focus {
+  background: rgba(13, 148, 136, .08);
+}
+.fu-suggest strong { display: block; font-weight: 700; }
+.fu-suggest span { display: block; font-size: .85rem; color: #6b7280; margin-top: 2px; }
+.fu-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.fu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+.fu-actions .btn-pmc {
+  min-height: 48px;
+  font-size: 1.02rem;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+.fu-note {
+  font-size: .88rem;
+  color: #6b7280;
+}
+.fu-alert {
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.fu-alert-ok {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+.fu-alert-err {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+.fu-thanks {
+  text-align: center;
+  padding: 28px 18px;
+}
+.fu-thanks .fu-check {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 148, 136, .12);
+  color: var(--teal, #0d9488);
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+.fu-status {
+  font-size: .9rem;
+  color: #6b7280;
+  margin-top: 8px;
+}

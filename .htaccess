@@ -26,6 +26,7 @@ RewriteCond %{HTTP_HOST} !^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
 RewriteCond %{THE_REQUEST} !\s/+(?:robots|sitemap)\.php [NC]
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteCond %{THE_REQUEST} !faculty-proxy\.php [NC]
+RewriteCond %{THE_REQUEST} !faculty-update-submit\.php [NC]
 RewriteRule ^ /%1 [R=301,L,QSA]
 
 # Staging subdirectory: /dms/page.php -> /dms/page
@@ -33,4 +34,5 @@ RewriteCond %{HTTP_HOST} ^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
 RewriteCond %{THE_REQUEST} !\s/dms/(?:robots|sitemap)\.php [NC]
 RewriteCond %{THE_REQUEST} \s/dms/(.+?)\.php[\s?] [NC]
 RewriteCond %{THE_REQUEST} !faculty-proxy\.php [NC]
+RewriteCond %{THE_REQUEST} !faculty-update-submit\.php [NC]
 RewriteRule ^ /dms/%1 [R=301,L,QSA]
