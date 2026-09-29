@@ -15,6 +15,11 @@ $routes->get('acp/logout', 'Acp\Auth::logout');
 // ACP protected
 $routes->group('acp', ['filter' => 'acpauth'], static function ($routes) {
     $routes->get('/', 'Acp\Dashboard::index');
+    $routes->get('analytics', 'Acp\Analytics::index');
+    $routes->post('analytics', 'Acp\Analytics::save');
+    $routes->get('reports', 'Acp\Reports::index');
+    $routes->post('reports/contributions', 'Acp\Reports::saveContribution');
+    $routes->post('reports/contributions/(:num)', 'Acp\Reports::saveContribution/$1');
     $routes->get('faculty/submissions', 'Acp\Faculty::submissions');
     $routes->get('faculty/submissions/(:num)', 'Acp\Faculty::submission/$1');
     $routes->post('faculty/submissions/(:num)/approve', 'Acp\Faculty::approve/$1');
