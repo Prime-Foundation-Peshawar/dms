@@ -92,7 +92,7 @@ class Dashboard extends BaseController
 
         return view('acp/dashboard/index', [
             'title'    => 'Dashboard',
-            'subtitle' => 'Website Cell command center — content health, KPIs, and weekly review cues from the RCP website management protocol.',
+            'subtitle' => 'Content health, KPIs, and weekly Website Cell review.',
             'nav'      => 'dashboard',
             'pending'  => $pending,
             'approved' => $approved,

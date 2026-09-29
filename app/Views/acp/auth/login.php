@@ -4,25 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Sign in · RCP Website Cell</title>
+  <title>Sign in · DMS Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="<?= esc(base_url('assets/css/acp.css')) ?>" rel="stylesheet">
 </head>
 <body>
   <div class="acp-login">
     <div class="acp-login-card">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-        <span class="acp-brand-mark">RCP</span>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+        <span class="acp-brand-mark">PMC</span>
         <div>
-          <strong style="display:block;font-family:var(--font-display)">Website Cell</strong>
-          <small class="acp-muted">Riphah Campus Peshawar</small>
+          <strong style="display:block;font-family:var(--font-head);color:var(--navy)">DMS Admin</strong>
+          <small class="acp-muted">Website Cell</small>
         </div>
       </div>
-      <h1>Command access</h1>
-      <p>Manage content, KPIs, missing-unit reports, analytics, and faculty reviews.</p>
+      <h1>Sign in</h1>
+      <p>Manage website content, faculty reviews, analytics, and KPI reports.</p>
       <?php if (!empty($error)): ?>
         <div class="acp-alert acp-alert-err"><?= esc($error) ?></div>
       <?php endif; ?>
@@ -34,7 +34,7 @@
         <label>Password
           <input type="password" name="password" required autocomplete="current-password">
         </label>
-        <button class="acp-btn acp-btn-teal" type="submit" style="width:100%"><i class="bi bi-shield-lock-fill"></i> Enter ACP</button>
+        <button class="acp-btn acp-btn-teal" type="submit" style="width:100%">Sign in</button>
       </form>
     </div>
   </div>

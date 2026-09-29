@@ -2,10 +2,10 @@
 <?= $this->section('content') ?>
 
 <div class="acp-hero-banner">
-  <h2><i class="bi bi-broadcast-pin"></i> RCP Website Cell · Operations pulse</h2>
-  <p>Structured monitoring from the Aug 2026 Website Management protocol: pending submissions, upcoming events, contributor rankings, website analytics, and KPI compliance (≥2 approved updates / month).</p>
-  <span class="acp-chip"><i class="bi bi-calendar3"></i> Month <?= esc($monthKey) ?></span>
-  <span class="acp-chip"><i class="bi bi-trophy"></i> KPI compliance <?= (int) $kpiRate ?>%</span>
+  <h2>Website Cell overview</h2>
+  <p>Content health, faculty queue, KPIs, and weekly review items from the RCP website management protocol (Aug 2026).</p>
+  <span class="acp-chip">Month <?= esc($monthKey) ?></span>
+  <span class="acp-chip">KPI compliance <?= (int) $kpiRate ?>%</span>
 </div>
 
 <div class="acp-grid">

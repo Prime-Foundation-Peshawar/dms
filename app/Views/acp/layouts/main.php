@@ -7,17 +7,17 @@
   <title><?= esc($title ?? 'ACP') ?> · DMS Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="<?= esc(base_url('assets/css/acp.css')) ?>" rel="stylesheet">
 </head>
 <body class="acp">
   <aside class="acp-nav" aria-label="ACP navigation">
     <div class="acp-brand">
-      <span class="acp-brand-mark">RCP</span>
+      <span class="acp-brand-mark">PMC</span>
       <div>
-        <strong>Website Cell</strong>
-        <small>ACP · DMS / PMC</small>
+        <strong>DMS Admin</strong>
+        <small>Website Cell</small>
       </div>
     </div>
     <nav>
