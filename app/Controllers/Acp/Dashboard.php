@@ -33,10 +33,10 @@ class Dashboard extends BaseController
                 ['key' => 'news', 'label' => 'News', 'status' => 'live', 'href' => site_url('acp/news')],
                 ['key' => 'events', 'label' => 'Events', 'status' => 'live', 'href' => site_url('acp/events')],
                 ['key' => 'slider', 'label' => 'Homepage slider', 'status' => 'live', 'href' => site_url('acp/slider')],
-                ['key' => 'gallery', 'label' => 'Gallery', 'status' => 'soon', 'href' => site_url('acp/modules/gallery')],
+                ['key' => 'gallery', 'label' => 'Gallery', 'status' => 'live', 'href' => site_url('acp/gallery')],
                 ['key' => 'departments', 'label' => 'Departments', 'status' => 'live', 'href' => site_url('acp/departments')],
-                ['key' => 'vacant', 'label' => 'Vacant seats', 'status' => 'soon', 'href' => site_url('acp/modules/vacant-seats')],
-                ['key' => 'newsletters', 'label' => 'Newsletters', 'status' => 'soon', 'href' => site_url('acp/modules/newsletters')],
+                ['key' => 'vacant', 'label' => 'Vacant seats', 'status' => 'live', 'href' => site_url('acp/vacant-seats')],
+                ['key' => 'newsletters', 'label' => 'Newsletters', 'status' => 'live', 'href' => site_url('acp/newsletters')],
                 ['key' => 'pages', 'label' => 'Pages', 'status' => 'soon', 'href' => site_url('acp/modules/pages')],
             ],
         ]);

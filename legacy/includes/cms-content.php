@@ -240,3 +240,69 @@ function dms_cms_date_parts(?string $dt): array
     }
     return ['day' => date('d', $ts), 'month' => date('M', $ts)];
 }
+
+function dms_vacant_seats(): array
+{
+  try {
+    if (class_exists(\App\Models\VacantSeatModel::class)) {
+      return model(\App\Models\VacantSeatModel::class)->activeOrdered();
+    }
+  } catch (Throwable $e) {}
+  try {
+    return dms_db()->query("SELECT * FROM vacant_seats WHERE is_active = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
+  } catch (Throwable $e) { return []; }
+}
+
+function dms_vacant_seats_settings(): array
+{
+  try {
+    if (class_exists(\App\Models\VacantSeatsSettingsModel::class)) {
+      return model(\App\Models\VacantSeatsSettingsModel::class)->getSettings();
+    }
+  } catch (Throwable $e) {}
+  try {
+    $row = dms_db()->query("SELECT * FROM vacant_seats_settings WHERE id = 1")->fetch();
+    if (!$row) return [];
+    $inst = json_decode((string)($row["instructions_json"] ?? "[]"), true);
+    $row["instructions_json"] = is_array($inst) ? $inst : [];
+    return $row;
+  } catch (Throwable $e) { return []; }
+}
+
+function dms_newsletters_all(): array
+{
+  try {
+    if (class_exists(\App\Models\NewsletterModel::class)) {
+      return model(\App\Models\NewsletterModel::class)->activeOrdered();
+    }
+  } catch (Throwable $e) {}
+  try {
+    return dms_db()->query("SELECT * FROM newsletters WHERE is_active = 1 ORDER BY sort_order ASC, published_at DESC, id DESC")->fetchAll();
+  } catch (Throwable $e) { return []; }
+}
+
+function dms_gallery_albums_with_images(): array
+{
+  try {
+    if (class_exists(\App\Models\GalleryAlbumModel::class)) {
+      $albums = model(\App\Models\GalleryAlbumModel::class)->activeOrdered();
+      $imgModel = model(\App\Models\GalleryImageModel::class);
+      foreach ($albums as &$a) {
+        $a["images"] = $imgModel->forAlbum((int)$a["id"]);
+      }
+      unset($a);
+      return $albums;
+    }
+  } catch (Throwable $e) {}
+  try {
+    $pdo = dms_db();
+    $albums = $pdo->query("SELECT * FROM gallery_albums WHERE is_active = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
+    $stmt = $pdo->prepare("SELECT * FROM gallery_images WHERE album_id = ? AND is_active = 1 ORDER BY sort_order ASC, id ASC");
+    foreach ($albums as &$a) {
+      $stmt->execute([(int)$a["id"]]);
+      $a["images"] = $stmt->fetchAll();
+    }
+    unset($a);
+    return $albums;
+  } catch (Throwable $e) { return []; }
+}

@@ -28,10 +28,10 @@
       <a href="<?= site_url('acp/news') ?>" class="<?= ($nav ?? '') === 'news' ? 'is-active' : '' ?>">News</a>
       <a href="<?= site_url('acp/events') ?>" class="<?= ($nav ?? '') === 'events' ? 'is-active' : '' ?>">Events</a>
       <a href="<?= site_url('acp/slider') ?>" class="<?= ($nav ?? '') === 'slider' ? 'is-active' : '' ?>">Slider</a>
-      <a href="<?= site_url('acp/modules/gallery') ?>">Gallery</a>
+      <a href="<?= site_url('acp/gallery') ?>" class="<?= ($nav ?? '') === 'gallery' ? 'is-active' : '' ?>">Gallery</a>
       <a href="<?= site_url('acp/departments') ?>" class="<?= ($nav ?? '') === 'departments' ? 'is-active' : '' ?>">Departments</a>
-      <a href="<?= site_url('acp/modules/vacant-seats') ?>">Vacant seats</a>
-      <a href="<?= site_url('acp/modules/newsletters') ?>">Newsletters</a>
+      <a href="<?= site_url('acp/vacant-seats') ?>" class="<?= ($nav ?? '') === 'vacant-seats' ? 'is-active' : '' ?>">Vacant seats</a>
+      <a href="<?= site_url('acp/newsletters') ?>" class="<?= ($nav ?? '') === 'newsletters' ? 'is-active' : '' ?>">Newsletters</a>
       <a href="<?= site_url('acp/modules/pages') ?>">Pages</a>
     </nav>
     <div class="acp-nav-foot">

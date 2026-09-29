@@ -83,5 +83,6 @@ jobs:
             echo "Using PHP: $($PHP_BIN -v | head -1)"
             "$PHP_BIN" "$TARGET/db/apply.php"
             "$PHP_BIN" "$TARGET/db/seed_news_events_slider.php"
+            "$PHP_BIN" "$TARGET/db/seed_vacant_gallery_newsletters.php"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             tail -n 20 "$TARGET/writable/logs/"*.log 2>/dev/null || true

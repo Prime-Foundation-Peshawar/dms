@@ -45,6 +45,26 @@ $routes->group('acp', ['filter' => 'acpauth'], static function ($routes) {
     $routes->get('slider/(:num)', 'Acp\Slider::edit/$1');
     $routes->post('slider/(:num)', 'Acp\Slider::save/$1');
 
+    $routes->get('vacant-seats', 'Acp\VacantSeats::index');
+    $routes->get('vacant-seats/new', 'Acp\VacantSeats::create');
+    $routes->get('vacant-seats/settings', 'Acp\VacantSeats::settings');
+    $routes->post('vacant-seats/settings', 'Acp\VacantSeats::saveSettings');
+    $routes->post('vacant-seats', 'Acp\VacantSeats::save');
+    $routes->get('vacant-seats/(:num)', 'Acp\VacantSeats::edit/$1');
+    $routes->post('vacant-seats/(:num)', 'Acp\VacantSeats::save/$1');
+
+    $routes->get('newsletters', 'Acp\Newsletters::index');
+    $routes->get('newsletters/new', 'Acp\Newsletters::create');
+    $routes->post('newsletters', 'Acp\Newsletters::save');
+    $routes->get('newsletters/(:num)', 'Acp\Newsletters::edit/$1');
+    $routes->post('newsletters/(:num)', 'Acp\Newsletters::save/$1');
+
+    $routes->get('gallery', 'Acp\Gallery::index');
+    $routes->get('gallery/new', 'Acp\Gallery::create');
+    $routes->post('gallery', 'Acp\Gallery::save');
+    $routes->get('gallery/(:num)', 'Acp\Gallery::edit/$1');
+    $routes->post('gallery/(:num)', 'Acp\Gallery::save/$1');
+
     $routes->get('modules/(:segment)', 'Acp\Modules::show/$1');
 });
 
