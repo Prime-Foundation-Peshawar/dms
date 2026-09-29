@@ -104,32 +104,9 @@ for ($i = 1; $i <= 2; $i++) {
 }
 echo "website_contributions: prior months seeded for escalation demo\n";
 
-// Activity reception log
-$aCount = (int) $pdo->query("SELECT COUNT(*) FROM website_activity_log WHERE month_key = " . $pdo->quote($month))->fetchColumn();
-if ($aCount === 0) {
-    $acts = [
-        ['Student Affairs', 'MBBS admissions calendar update', 4, 'published', 1],
-        ['ORIC', 'Faculty publication highlight — Sep batch', 8, 'published', 1],
-        ['UMR', 'Call for undergraduate research abstracts', 6, 'published', 0],
-        ['Literary Society', 'Seerat week literary session photos', 30, 'published', 1],
-        ['HR', 'Lecturer vacancies notice', 10, 'published', 0],
-        ['Finance', 'Fee structure clarification (single update)', 20, 'published', 0],
-    ];
-    $aIns = $pdo->prepare(
-        'INSERT INTO website_activity_log
-        (month_key, unit_name, activity_title, received_at, approved_at, published_at, turnaround_hours, status, shared_social, notes, created_at, updated_at)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)'
-    );
-    foreach ($acts as $i => $a) {
-        $recv = date('Y-m-d H:i:s', strtotime('-' . (12 - $i) . ' days'));
-        $appr = date('Y-m-d H:i:s', strtotime($recv . ' +1 day'));
-        $pub = date('Y-m-d H:i:s', strtotime($recv . ' +' . max(1, (int) ($a[2] / 8)) . ' day'));
-        $aIns->execute([$month, $a[0], $a[1], $recv, $appr, $pub, $a[2], $a[3], $a[4], null, $now, $now]);
-    }
-    echo "website_activity_log: seeded\n";
-} else {
-    echo "website_activity_log: exists\n";
-}
+// Do not seed dummy reception activity — clear any prior demo rows.
+$pdo->exec('DELETE FROM website_activity_log');
+echo "website_activity_log: cleared (no dummy activity)\n";
 
 // Integrity checks
 $iCount = (int) $pdo->query('SELECT COUNT(*) FROM website_integrity_checks')->fetchColumn();
