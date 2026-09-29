@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/includes/faculty-lib.php';
 
-$page_title = 'Update Your Faculty Profile | Department of Medical Sciences';
-$page_description = 'Simple form for PMC faculty to share research preferences and profile details for the college website.';
+$page_title = 'Create or Update Your Faculty Profile | Department of Medical Sciences';
+$page_description = 'Simple form for PMC faculty to add or update research preferences and profile details for the college website.';
 $robots = 'noindex, nofollow';
 $thanks = isset($_GET['thanks']);
 $errorMsg = trim((string) ($_GET['error'] ?? ''));
@@ -16,13 +16,13 @@ include __DIR__ . '/includes/header.php';
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <span class="page-hero-eyebrow">Faculty</span>
-    <h1>Update your profile</h1>
+    <h1>Create or update your profile</h1>
     <div class="breadcrumb-pmc">
       <a href="index.php">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <a href="faculty.php">Faculty</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <span class="current">Update profile</span>
+      <span class="current">Faculty profile form</span>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@ include __DIR__ . '/includes/header.php';
         <div class="fu-card fu-thanks">
           <div class="fu-check" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
           <h2>Thank you</h2>
-          <p>Your details were received. The website team will review them before they appear on your public profile.</p>
+          <p>Your details were received. The website team will review them before they appear on your public profile (new or updated).</p>
           <p class="fu-note" style="margin-top:14px">You can close this page now.</p>
           <div class="fu-actions" style="justify-content:center;margin-top:18px">
             <a class="btn-pmc btn-pmc-outline" href="faculty-update"><i class="bi bi-arrow-repeat"></i> Submit another</a>
@@ -45,8 +45,8 @@ include __DIR__ . '/includes/header.php';
       <?php else: ?>
 
         <div class="fu-intro">
-          <h2>Easy profile form for PMC faculty</h2>
-          <p>Find your name, add research topic tags, share a publications link, and optionally update education, duties, or photo. No login needed. Changes are reviewed before going live.</p>
+          <h2>For all PMC faculty</h2>
+          <p>Use this whether you already have a website profile or not. Pick your name from the HRMS list, add research topics, upload your publications list, and fill education / duties if you can. No login needed. Submissions are reviewed before going live.</p>
         </div>
 
         <?php if ($errorMsg !== ''): ?>
@@ -123,8 +123,8 @@ include __DIR__ . '/includes/header.php';
           </div>
 
           <div class="fu-card">
-            <h3>4. Optional details</h3>
-            <p class="fu-help">Fill only if you want to update these. Leave blank to keep existing website info.</p>
+            <h3>4. Education, duties &amp; photo</h3>
+            <p class="fu-help" id="optionalHelp">If you do not have a website profile yet, please fill these. If you already have one, fill only what you want to change.</p>
 
             <div class="fu-row">
               <div>
@@ -142,9 +142,9 @@ include __DIR__ . '/includes/header.php';
 
             <div class="fu-row fu-row-2">
               <div>
-                <label class="fu-label" for="photo">Photo (optional)</label>
+                <label class="fu-label" for="photo">Photo</label>
                 <input class="fu-file" type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp">
-                <p class="fu-note">JPG or PNG, under 2.5 MB.</p>
+                <p class="fu-note">JPG or PNG, under 2.5 MB. Strongly recommended if you do not have a profile photo yet.</p>
               </div>
               <div>
                 <label class="fu-label" for="phone">Phone / WhatsApp (for office only)</label>
@@ -192,6 +192,7 @@ include __DIR__ . '/includes/header.php';
   const publicationsFile = document.getElementById('publicationsFile');
   const qualifications = document.getElementById('qualifications');
   const skills = document.getElementById('skills');
+  const optionalHelp = document.getElementById('optionalHelp');
   const form = document.getElementById('facultyUpdateForm');
   const submitBtn = document.getElementById('submitBtn');
 
@@ -261,45 +262,52 @@ include __DIR__ . '/includes/header.php';
     renderResearchTags();
   }
 
+  function clearProfileFields() {
+    setResearchTags([]);
+    publicationsUrl.value = '';
+    qualifications.value = '';
+    skills.value = '';
+  }
+
   function closeSuggest() {
     suggest.classList.remove('is-open');
     suggest.innerHTML = '';
   }
 
-  function applyProfileExtras(slug, name) {
+  function findExistingProfile(slug, name) {
     const pack = profiles || {};
     const map = pack.profiles || pack;
     const index = pack.index || {};
-    let rec = null;
+    if (!map || typeof map !== 'object') return null;
+
     const keys = [slug, index[slug], facultySlug(name)].filter(Boolean);
     for (const key of keys) {
-      if (map[key]) { rec = map[key]; break; }
+      if (map[key]) return map[key];
     }
-    if (!rec && map && typeof map === 'object') {
-      for (const row of Object.values(map)) {
-        if (!row || typeof row !== 'object') continue;
-        const aliases = [row.slug, ...(row.aliases || [])].map(facultySlug);
-        if (aliases.includes(slug) || aliases.includes(facultySlug(name))) {
-          rec = row;
-          break;
-        }
+    for (const row of Object.values(map)) {
+      if (!row || typeof row !== 'object') continue;
+      const aliases = [row.slug, ...(row.aliases || [])].map(facultySlug);
+      if (aliases.includes(slug) || aliases.includes(facultySlug(name))) {
+        return row;
       }
     }
+    return null;
+  }
+
+  function applyProfileExtras(rec) {
     if (!rec) return;
-    if (!researchTags.length) {
-      if (Array.isArray(rec.research_preferences) && rec.research_preferences.length) {
-        setResearchTags(rec.research_preferences);
-      } else if (Array.isArray(rec.research_interests) && rec.research_interests.length) {
-        setResearchTags(rec.research_interests);
-      }
+    if (Array.isArray(rec.research_preferences) && rec.research_preferences.length) {
+      setResearchTags(rec.research_preferences);
+    } else if (Array.isArray(rec.research_interests) && rec.research_interests.length) {
+      setResearchTags(rec.research_interests);
     }
-    if (!publicationsUrl.value.trim() && rec.publications_url) {
+    if (rec.publications_url) {
       publicationsUrl.value = rec.publications_url;
     }
-    if (!qualifications.value.trim() && Array.isArray(rec.qualifications)) {
+    if (Array.isArray(rec.qualifications)) {
       qualifications.value = linesFromList(rec.qualifications);
     }
-    if (!skills.value.trim() && Array.isArray(rec.skills)) {
+    if (Array.isArray(rec.skills)) {
       skills.value = linesFromList(rec.skills);
     }
   }
@@ -311,8 +319,23 @@ include __DIR__ . '/includes/header.php';
     depName.value = row.depName || '';
     search.value = row.empName || '';
     closeSuggest();
-    applyProfileExtras(slugEl.value, empName.value);
-    statusEl.textContent = 'Selected. You can edit the fields below.';
+
+    clearProfileFields();
+    const existing = findExistingProfile(slugEl.value, empName.value);
+    if (existing) {
+      applyProfileExtras(existing);
+      if (optionalHelp) {
+        optionalHelp.textContent = 'We found your current website profile and pre-filled what we could. Change only what needs updating.';
+      }
+      statusEl.className = 'fu-status is-existing';
+      statusEl.textContent = 'Selected — website profile found. Review the pre-filled fields, then submit updates.';
+    } else {
+      if (optionalHelp) {
+        optionalHelp.textContent = 'No website profile yet — please add education, duties, and a photo if you can. Research topics and publications file are still required above.';
+      }
+      statusEl.className = 'fu-status is-new';
+      statusEl.textContent = 'Selected — no website profile yet. Fill the form to create one (reviewed before going live).';
+    }
   }
 
   function renderSuggest(q) {
@@ -336,10 +359,13 @@ include __DIR__ . '/includes/header.php';
 
     suggest.innerHTML = hits.map((f, i) => {
       const empId = f.empId || f.empID || f.EmpID || f.emp_id || f.empCode || '';
+      const slug = facultySlug(f.empName || '');
+      const hasProfile = !!findExistingProfile(slug, f.empName || '');
       const idBits = [];
       if (empId) idBits.push('Emp ID: ' + empId);
       if (f.desTitle) idBits.push(f.desTitle);
       if (f.depName) idBits.push(f.depName);
+      idBits.push(hasProfile ? 'Has website profile' : 'New profile');
       return (
         '<button type="button" role="option" data-i="' + i + '">' +
           '<strong>' + escapeHtml(f.empName || '') + '</strong>' +
@@ -366,6 +392,14 @@ include __DIR__ . '/includes/header.php';
     slugEl.value = '';
     desTitle.value = '';
     depName.value = '';
+    clearProfileFields();
+    statusEl.className = 'fu-status';
+    statusEl.textContent = faculty.length
+      ? 'Faculty list ready. Type your name to begin.'
+      : 'Faculty list is empty. Please try again later.';
+    if (optionalHelp) {
+      optionalHelp.textContent = 'If you do not have a website profile yet, please fill these. If you already have one, fill only what you want to change.';
+    }
     renderSuggest(search.value);
   });
   search.addEventListener('focus', () => {
@@ -412,8 +446,13 @@ include __DIR__ . '/includes/header.php';
       if (profRes && profRes.ok) {
         profiles = await profRes.json();
       }
+      const profileCount = profiles && profiles.profiles
+        ? Object.keys(profiles.profiles).length
+        : 0;
       statusEl.textContent = faculty.length
-        ? 'Faculty list ready. Type your name to begin.'
+        ? ('All ' + faculty.length + ' HRMS faculty loaded'
+            + (profileCount ? (' · ' + profileCount + ' already have website profiles') : '')
+            + '. Type your name to begin.')
         : 'Faculty list is empty. Please try again later.';
     } catch (err) {
       console.error(err);

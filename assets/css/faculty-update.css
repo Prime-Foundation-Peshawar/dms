@@ -190,6 +190,14 @@
   color: #6b7280;
   margin-top: 8px;
 }
+.fu-status.is-new {
+  color: #0f766e;
+  font-weight: 600;
+}
+.fu-status.is-existing {
+  color: #1d4ed8;
+  font-weight: 600;
+}
 .fu-tag-box {
   border: 1px solid #d1d5db;
   border-radius: 14px;
