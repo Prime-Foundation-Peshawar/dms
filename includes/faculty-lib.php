@@ -1244,7 +1244,7 @@ function faculty_save_submission(array $payload, ?array $photoFile = null, ?arra
     'id' => $id,
     'submitted_at' => date('c'),
     'ip' => (string) ($payload['ip'] ?? ''),
-    'college' => (string) ($payload['college'] ?? ''),
+    'college' => (string) ($payload['college'] ?? 'dms'),
     'emp_name' => (string) ($payload['emp_name'] ?? ''),
     'slug' => (string) ($payload['slug'] ?? ''),
     'des_title' => (string) ($payload['des_title'] ?? ''),
@@ -1260,11 +1260,53 @@ function faculty_save_submission(array $payload, ?array $photoFile = null, ?arra
     'status' => 'pending',
   ];
 
+  // Keep a local JSON backup of each submission.
   $path = $dir . '/' . $id . '.json';
   $json = json_encode($record, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
   if ($json === false || @file_put_contents($path, $json . "\n") === false) {
     return ['ok' => false, 'error' => 'Could not save your form. Please try again.'];
   }
   @chmod($path, 0644);
+
+  // Primary store: MySQL
+  try {
+    require_once __DIR__ . '/db.php';
+    $pdo = dms_db();
+    $stmt = $pdo->prepare(
+      'INSERT INTO faculty_profile_submissions (
+        submission_key, submitted_at, ip, college, emp_name, slug, des_title, dep_name,
+        research_preferences, publications_url, publications_file, publications,
+        qualifications, skills, contact_phone, photo, status
+      ) VALUES (
+        :submission_key, :submitted_at, :ip, :college, :emp_name, :slug, :des_title, :dep_name,
+        :research_preferences, :publications_url, :publications_file, :publications,
+        :qualifications, :skills, :contact_phone, :photo, :status
+      )'
+    );
+    $submittedAt = date('Y-m-d H:i:s');
+    $stmt->execute([
+      ':submission_key' => $id,
+      ':submitted_at' => $submittedAt,
+      ':ip' => $record['ip'] !== '' ? $record['ip'] : null,
+      ':college' => $record['college'] !== '' ? $record['college'] : 'dms',
+      ':emp_name' => $record['emp_name'],
+      ':slug' => $record['slug'],
+      ':des_title' => $record['des_title'] !== '' ? $record['des_title'] : null,
+      ':dep_name' => $record['dep_name'] !== '' ? $record['dep_name'] : null,
+      ':research_preferences' => json_encode($record['research_preferences'], JSON_UNESCAPED_UNICODE),
+      ':publications_url' => $record['publications_url'] !== '' ? $record['publications_url'] : null,
+      ':publications_file' => $publicationsFileRel,
+      ':publications' => json_encode($record['publications'], JSON_UNESCAPED_UNICODE),
+      ':qualifications' => json_encode($record['qualifications'], JSON_UNESCAPED_UNICODE),
+      ':skills' => json_encode($record['skills'], JSON_UNESCAPED_UNICODE),
+      ':contact_phone' => $record['contact_phone'] !== '' ? $record['contact_phone'] : null,
+      ':photo' => $photoRel,
+      ':status' => 'pending',
+    ]);
+  } catch (Throwable $e) {
+    error_log('[faculty_save_submission] DB error: ' . $e->getMessage());
+    return ['ok' => false, 'error' => 'Could not save to database. Please try again later.'];
+  }
+
   return ['ok' => true, 'id' => $id];
 }
