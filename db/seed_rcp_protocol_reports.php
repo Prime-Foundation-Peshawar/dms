@@ -104,9 +104,18 @@ for ($i = 1; $i <= 2; $i++) {
 }
 echo "website_contributions: prior months seeded for escalation demo\n";
 
-// Do not seed dummy reception activity — clear any prior demo rows.
+// Clear dummy reception activity (and keep empty).
 $pdo->exec('DELETE FROM website_activity_log');
-echo "website_activity_log: cleared (no dummy activity)\n";
+echo "website_activity_log: cleared\n";
+
+// Also clear any leftover demo news/events if this seed runs after content seed.
+try {
+    $n = $pdo->exec('DELETE FROM news_posts');
+    $e = $pdo->exec('DELETE FROM events');
+    echo "news_posts/events: cleared ({$n}/{$e})\n";
+} catch (Throwable $ex) {
+    echo "news/events clear skipped: " . $ex->getMessage() . "\n";
+}
 
 // Integrity checks
 $iCount = (int) $pdo->query('SELECT COUNT(*) FROM website_integrity_checks')->fetchColumn();

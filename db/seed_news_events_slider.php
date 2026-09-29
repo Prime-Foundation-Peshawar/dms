@@ -283,10 +283,12 @@ $news = [
 
 
 foreach ($news as $row) {
-    seed_upsert_news($pdo, $row, $now);
+    // Demo news seed disabled — kept array only for reference; rows are cleared below.
 }
 
-// Remove previously seeded demo events â€” do not re-seed.
+// Clear demo news / events / (activities cleared in seed_rcp_protocol_reports).
+$deletedNews = $pdo->exec('DELETE FROM news_posts');
+echo "news_posts: cleared demo rows ({$deletedNews})\n";
 $deletedEvents = $pdo->exec('DELETE FROM events');
 echo "events: cleared demo rows ({$deletedEvents})\n";
 
