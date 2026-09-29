@@ -106,4 +106,28 @@ class Encryption extends BaseConfig
      * by CI3 Encryption default configuration.
      */
     public string $cipher = 'AES-256-CTR';
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->key !== '') {
+            return;
+        }
+
+        // Persist an app key under writable/ when .env encryption.key is missing.
+        $path = WRITEPATH . 'encryption_key.txt';
+        if (is_file($path)) {
+            $existing = trim((string) file_get_contents($path));
+            if ($existing !== '') {
+                $this->key = $existing;
+
+                return;
+            }
+        }
+
+        $generated = 'hex2bin:' . bin2hex(random_bytes(32));
+        @file_put_contents($path, $generated . PHP_EOL);
+        $this->key = $generated;
+    }
 }

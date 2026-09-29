@@ -200,5 +200,26 @@ class Database extends Config
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
         }
+
+        // Support legacy DB_* keys already used by this project .env
+        if ($this->default['hostname'] === '' || $this->default['hostname'] === 'localhost') {
+            $host = (string) (getenv('DB_HOST') ?: getenv('MYSQL_HOST') ?: '');
+            if ($host !== '') {
+                $this->default['hostname'] = $host;
+            }
+        }
+        if ($this->default['database'] === '') {
+            $this->default['database'] = (string) (getenv('DB_DATABASE') ?: getenv('DB_NAME') ?: getenv('MYSQL_DATABASE') ?: '');
+        }
+        if ($this->default['username'] === '') {
+            $this->default['username'] = (string) (getenv('DB_USERNAME') ?: getenv('DB_USER') ?: getenv('MYSQL_USER') ?: '');
+        }
+        if ($this->default['password'] === '') {
+            $this->default['password'] = (string) (getenv('DB_PASSWORD') ?: getenv('MYSQL_PASSWORD') ?: '');
+        }
+        $port = (string) (getenv('DB_PORT') ?: getenv('MYSQL_PORT') ?: '');
+        if ($port !== '') {
+            $this->default['port'] = (int) $port;
+        }
     }
 }

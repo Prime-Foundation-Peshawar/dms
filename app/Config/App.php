@@ -199,4 +199,24 @@ class App extends BaseConfig
      * @see http://www.w3.org/TR/CSP/
      */
     public bool $CSPEnabled = false;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        // Prefer .env app.baseURL; otherwise detect staging/production.
+        $configured = (string) env('app.baseURL', '');
+        if ($configured !== '') {
+            $this->baseURL = rtrim($configured, '/') . '/';
+
+            return;
+        }
+
+        $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+        if ($host === 'staging.riphahpsh.edu.pk' || $host === 'www.staging.riphahpsh.edu.pk') {
+            $this->baseURL = 'https://staging.riphahpsh.edu.pk/dms/';
+        } elseif ($host === 'dms.riphahpsh.edu.pk' || $host === 'www.dms.riphahpsh.edu.pk') {
+            $this->baseURL = 'https://dms.riphahpsh.edu.pk/';
+        }
+    }
 }
