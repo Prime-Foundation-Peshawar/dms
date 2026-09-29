@@ -20,6 +20,9 @@ $routes->group('acp', ['filter' => 'acpauth'], static function ($routes) {
     $routes->get('reports', 'Acp\Reports::index');
     $routes->post('reports/contributions', 'Acp\Reports::saveContribution');
     $routes->post('reports/contributions/(:num)', 'Acp\Reports::saveContribution/$1');
+    $routes->post('reports/activities', 'Acp\Reports::saveActivity');
+    $routes->post('reports/integrity', 'Acp\Reports::saveIntegrity');
+    $routes->post('reports/suggestions', 'Acp\Reports::saveSuggestion');
     $routes->get('faculty/submissions', 'Acp\Faculty::submissions');
     $routes->get('faculty/submissions/(:num)', 'Acp\Faculty::submission/$1');
     $routes->post('faculty/submissions/(:num)/approve', 'Acp\Faculty::approve/$1');

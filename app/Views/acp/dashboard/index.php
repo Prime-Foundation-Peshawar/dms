@@ -114,12 +114,32 @@
     <ul class="acp-checklist">
       <li><i class="bi bi-check2-square"></i><span>Pending submissions — <?= (int) $pending ?> in faculty queue</span></li>
       <li><i class="bi bi-calendar2-week"></i><span>Upcoming events — <?= count($upcomingEvents) ?> scheduled</span></li>
-      <li><i class="bi bi-exclamation-triangle"></i><span>Low contributors — <?= count($lowContributors) ?> units flagged</span></li>
+      <li><i class="bi bi-exclamation-triangle"></i><span>Missing departments — <?= count($missingUnits) ?> units with zero input</span></li>
       <li><i class="bi bi-bar-chart"></i><span>Website analytics — refresh GA snapshot</span></li>
       <li><i class="bi bi-lightbulb"></i><span>Improvement suggestions — capture in monthly report</span></li>
     </ul>
   </div>
 </div>
+
+<?php if (!empty($missingUnits)): ?>
+<div class="acp-card acp-danger-panel" style="margin-top:18px">
+  <div class="acp-card-head">
+    <h2><i class="bi bi-building-exclamation"></i> Missing departments (no website input)</h2>
+    <a class="acp-btn" href="<?= site_url('acp/reports?tab=missing') ?>">Full report</a>
+  </div>
+  <div class="acp-grid-3">
+    <?php foreach (array_slice($missingUnits, 0, 6) as $m): ?>
+      <div class="acp-rank missing">
+        <div class="acp-rank-pos">!</div>
+        <div>
+          <strong><?= esc($m['unit_name']) ?></strong>
+          <div class="acp-muted"><?= esc($m['unit_type']) ?> · <?= esc($m['reason']) ?></div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</div>
+<?php endif; ?>
 
 <div class="acp-grid-2" style="margin-top:18px">
   <div class="acp-card">

@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Sign in · DMS ACP</title>
+  <title>Sign in · RCP Website Cell</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="<?= esc(base_url('assets/css/acp.css')) ?>" rel="stylesheet">
 </head>
@@ -15,14 +15,14 @@
   <div class="acp-login">
     <div class="acp-login-card">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-        <span class="acp-brand-mark" style="width:48px;height:48px">PMC</span>
+        <span class="acp-brand-mark">RCP</span>
         <div>
-          <strong style="display:block">RCP Website Cell</strong>
-          <small class="acp-muted">Department of Medical Sciences</small>
+          <strong style="display:block;font-family:var(--font-display)">Website Cell</strong>
+          <small class="acp-muted">Riphah Campus Peshawar</small>
         </div>
       </div>
-      <h1>Welcome back</h1>
-      <p>Sign in to manage content, review faculty profiles, analytics, and monthly KPI reports.</p>
+      <h1>Command access</h1>
+      <p>Manage content, KPIs, missing-unit reports, analytics, and faculty reviews.</p>
       <?php if (!empty($error)): ?>
         <div class="acp-alert acp-alert-err"><?= esc($error) ?></div>
       <?php endif; ?>
@@ -34,7 +34,7 @@
         <label>Password
           <input type="password" name="password" required autocomplete="current-password">
         </label>
-        <button class="acp-btn acp-btn-teal" type="submit" style="width:100%"><i class="bi bi-shield-lock"></i> Sign in</button>
+        <button class="acp-btn acp-btn-teal" type="submit" style="width:100%"><i class="bi bi-shield-lock-fill"></i> Enter ACP</button>
       </form>
     </div>
   </div>

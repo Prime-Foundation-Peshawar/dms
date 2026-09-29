@@ -15,6 +15,8 @@ use App\Models\NewsletterModel;
 use App\Models\NewsPostModel;
 use App\Models\VacantSeatModel;
 use App\Models\WebsiteContributionModel;
+use App\Models\WebsiteExpectedUnitModel;
+use App\Libraries\RcpWebsiteProtocol;
 
 class Dashboard extends BaseController
 {
@@ -40,13 +42,23 @@ class Dashboard extends BaseController
 
         $month = date('Y-m');
         $contributions = [];
+        $expected = [];
         try {
             $contributions = model(WebsiteContributionModel::class)->forMonth($month);
         } catch (\Throwable $e) {
             $contributions = [];
         }
+        try {
+            $expected = model(WebsiteExpectedUnitModel::class)->activeOrdered();
+        } catch (\Throwable $e) {
+            $expected = RcpWebsiteProtocol::expectedRoster();
+        }
+        if ($expected === []) {
+            $expected = RcpWebsiteProtocol::expectedRoster();
+        }
+        $missingUnits = RcpWebsiteProtocol::missingUnits($expected, $contributions);
         $top = array_values(array_filter($contributions, static fn ($r) => ($r['rank_band'] ?? '') === 'top'));
-        $low = array_values(array_filter($contributions, static fn ($r) => ($r['rank_band'] ?? '') === 'low'));
+        $low = array_values(array_filter($contributions, static fn ($r) => in_array(($r['rank_band'] ?? ''), ['low', 'missing'], true)));
 
         $analytics = [];
         try {
@@ -55,15 +67,16 @@ class Dashboard extends BaseController
             $analytics = [];
         }
 
-        $kpiTarget = 2; // MoM: ≥2 approved updates / month
+        $kpiTarget = RcpWebsiteProtocol::KPI_APPROVED_PER_MONTH;
         $unitsMeetingKpi = 0;
         foreach ($contributions as $c) {
             if ((int) ($c['approved'] ?? 0) >= $kpiTarget) {
                 $unitsMeetingKpi++;
             }
         }
-        $kpiRate = count($contributions) > 0
-            ? (int) round(($unitsMeetingKpi / count($contributions)) * 100)
+        $unitsTotal = max(count($expected), count($contributions));
+        $kpiRate = $unitsTotal > 0
+            ? (int) round(($unitsMeetingKpi / $unitsTotal) * 100)
             : 0;
 
         $upcomingEvents = [];
@@ -99,9 +112,10 @@ class Dashboard extends BaseController
             'analytics' => $analytics,
             'topContributors' => array_slice($top, 0, 5),
             'lowContributors' => array_slice($low, 0, 5),
+            'missingUnits' => $missingUnits,
             'kpiRate' => $kpiRate,
             'unitsMeetingKpi' => $unitsMeetingKpi,
-            'unitsTotal' => count($contributions),
+            'unitsTotal' => $unitsTotal,
             'monthKey' => $month,
             'upcomingEvents' => $upcomingEvents,
             'modules' => [
