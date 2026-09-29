@@ -10,7 +10,12 @@ if (!$dept) {
   exit;
 }
 
-$faculty = faculty_for_department_page($slug, (string) ($dept['name'] ?? ''), $dept['faculty'] ?? []);
+$faculty = faculty_for_department_page(
+  $slug,
+  (string) ($dept['name'] ?? ''),
+  $dept['faculty'] ?? [],
+  (string) ($dept['hod'] ?? '')
+);
 $activities = $dept['activities'] ?? [];
 $intro = $dept['intro'] ?? [];
 $facultyCount = count($faculty);

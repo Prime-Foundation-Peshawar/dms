@@ -961,14 +961,16 @@ function faculty_is_hod_name(string $memberName, string $hodName): bool {
 /**
  * Faculty for a department page from HRMS (name / qualification / reg).
  * Falls back to $staticFaculty only when the HRMS request fails.
+ * HoD (when provided) is sorted first.
  *
  * @param list<array{name?:string,qualification?:string,reg?:string}> $staticFaculty
  * @return list<array{name:string,qualification:string,reg:string}>
  */
-function faculty_for_department_page(string $slug, string $deptName, array $staticFaculty = []): array {
+function faculty_for_department_page(string $slug, string $deptName, array $staticFaculty = [], string $hodName = ''): array {
   $pack = faculty_hrms_fetch_all();
   if (!$pack['ok']) {
-    return array_values($staticFaculty);
+    $out = array_values($staticFaculty);
+    return faculty_sort_hod_first($out, $hodName);
   }
 
   $wanted = [];
@@ -1005,7 +1007,32 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
       'reg' => trim((string) ($row['facPMDCNo'] ?? '')),
     ];
   }
-  return $out;
+  return faculty_sort_hod_first($out, $hodName);
+}
+
+/**
+ * @param list<array{name?:string,qualification?:string,reg?:string}> $faculty
+ * @return list<array{name?:string,qualification?:string,reg?:string}>
+ */
+function faculty_sort_hod_first(array $faculty, string $hodName): array {
+  if ($hodName === '' || !$faculty) {
+    return array_values($faculty);
+  }
+  $indexed = [];
+  foreach (array_values($faculty) as $i => $row) {
+    $indexed[] = ['i' => $i, 'row' => $row];
+  }
+  usort($indexed, static function ($a, $b) use ($hodName) {
+    $aHod = faculty_is_hod_name((string) ($a['row']['name'] ?? ''), $hodName) ? 0 : 1;
+    $bHod = faculty_is_hod_name((string) ($b['row']['name'] ?? ''), $hodName) ? 0 : 1;
+    if ($aHod !== $bHod) {
+      return $aHod <=> $bHod;
+    }
+    return $a['i'] <=> $b['i'];
+  });
+  return array_map(static function ($item) {
+    return $item['row'];
+  }, $indexed);
 }
 
 function faculty_hrms_count_for_department(string $slug, string $deptName, ?int $staticCount = null): int {
