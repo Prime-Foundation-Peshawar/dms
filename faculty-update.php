@@ -103,12 +103,21 @@ include __DIR__ . '/includes/header.php';
 
           <div class="fu-card">
             <h3>3. Publications</h3>
-            <p class="fu-help">Paste one link to your publication list. That is enough — no need to type paper titles here.</p>
+            <p class="fu-help">We need your full publication list. Easiest ways below — no need to type each paper.</p>
+
             <div class="fu-row">
               <div>
-                <label class="fu-label" for="publicationsUrl">Your publications link</label>
+                <label class="fu-label" for="publicationsUrl">Publications profile link (optional)</label>
                 <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="Google Scholar, ORCID, or ResearchGate link">
-                <p class="fu-note">Examples: scholar.google.com/… · orcid.org/… · researchgate.net/profile/…</p>
+                <p class="fu-note">Examples: scholar.google.com · orcid.org · researchgate.net</p>
+              </div>
+            </div>
+
+            <div class="fu-row">
+              <div>
+                <label class="fu-label" for="publicationsFile">Upload your full publications list <span class="req">*</span></label>
+                <input class="fu-file" type="file" id="publicationsFile" name="publications_file" accept=".pdf,.doc,.docx,.txt,.rtf,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" required>
+                <p class="fu-note">Upload the publications page from your CV, or export from Google Scholar / ORCID. PDF, Word, or TXT — under 8 MB.</p>
               </div>
             </div>
           </div>
@@ -180,6 +189,7 @@ include __DIR__ . '/includes/header.php';
   const researchCount = document.getElementById('researchCount');
   const researchAddBtn = document.getElementById('researchAddBtn');
   const publicationsUrl = document.getElementById('publicationsUrl');
+  const publicationsFile = document.getElementById('publicationsFile');
   const qualifications = document.getElementById('qualifications');
   const skills = document.getElementById('skills');
   const form = document.getElementById('facultyUpdateForm');
@@ -369,6 +379,11 @@ include __DIR__ . '/includes/header.php';
       e.preventDefault();
       researchCount.textContent = 'Please add at least one research topic tag.';
       researchInput.focus();
+      return;
+    }
+    if (!publicationsFile.files || !publicationsFile.files.length) {
+      e.preventDefault();
+      publicationsFile.focus();
       return;
     }
     submitBtn.disabled = true;

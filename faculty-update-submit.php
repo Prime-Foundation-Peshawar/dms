@@ -50,12 +50,19 @@ $research = faculty_parse_lines_field($_POST['research_preferences'] ?? '', 8);
 $quals = faculty_parse_lines_field($_POST['qualifications'] ?? '', 12);
 $skills = faculty_parse_lines_field($_POST['skills'] ?? '', 12);
 $publicationsUrl = faculty_clean_url((string) ($_POST['publications_url'] ?? ''));
+$publicationsFile = $_FILES['publications_file'] ?? null;
+$hasPubsFile = is_array($publicationsFile)
+  && !empty($publicationsFile['tmp_name'])
+  && (int) ($publicationsFile['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE;
 
 if ($empName === '' || $slug === '') {
   faculty_update_redirect('error=' . rawurlencode('Please select your name from the list.'));
 }
 if (count($research) < 1) {
   faculty_update_redirect('error=' . rawurlencode('Please add at least one research topic tag.'));
+}
+if (!$hasPubsFile) {
+  faculty_update_redirect('error=' . rawurlencode('Please upload your full publications list (PDF, Word, or TXT).'));
 }
 if (strlen($phone) > 40) {
   $phone = substr($phone, 0, 40);
@@ -75,7 +82,7 @@ $result = faculty_save_submission([
   'qualifications' => $quals,
   'skills' => $skills,
   'contact_phone' => $phone,
-], is_array($photo) ? $photo : null);
+], is_array($photo) ? $photo : null, $publicationsFile);
 
 if (empty($result['ok'])) {
   faculty_update_redirect('error=' . rawurlencode($result['error'] ?? 'Could not save. Please try again.'));

@@ -75,4 +75,5 @@ todo.zip
 !/data/faculty-submissions/.gitkeep
 !/data/faculty-submissions/.htaccess
 /data/faculty-submissions/photos/
+/data/faculty-submissions/docs/
 /data/faculty-submissions/.rate/

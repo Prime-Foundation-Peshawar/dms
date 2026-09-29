@@ -1160,18 +1160,23 @@ function faculty_submission_rate_limited(string $ip, int $seconds = 45): bool {
  * @param array<string,mixed> $payload
  * @return array{ok:bool,id?:string,error?:string}
  */
-function faculty_save_submission(array $payload, ?array $photoFile = null): array {
+function faculty_save_submission(array $payload, ?array $photoFile = null, ?array $publicationsFile = null): array {
   $dir = faculty_submissions_dir();
   $photoDir = faculty_submissions_photos_dir();
+  $docsDir = $dir . '/docs';
   if (!is_dir($dir) && !@mkdir($dir, 0755, true) && !is_dir($dir)) {
     return ['ok' => false, 'error' => 'Could not create submissions folder.'];
   }
   if (!is_dir($photoDir) && !@mkdir($photoDir, 0755, true) && !is_dir($photoDir)) {
     return ['ok' => false, 'error' => 'Could not create photo folder.'];
   }
+  if (!is_dir($docsDir) && !@mkdir($docsDir, 0755, true) && !is_dir($docsDir)) {
+    return ['ok' => false, 'error' => 'Could not create documents folder.'];
+  }
 
   $id = date('Ymd-His') . '-' . bin2hex(random_bytes(4));
   $photoRel = null;
+  $publicationsFileRel = null;
 
   if ($photoFile && !empty($photoFile['tmp_name']) && (int) ($photoFile['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
     if ((int) ($photoFile['error'] ?? 0) !== UPLOAD_ERR_OK) {
@@ -1199,6 +1204,42 @@ function faculty_save_submission(array $payload, ?array $photoFile = null): arra
     $photoRel = 'photos/' . $photoName;
   }
 
+  if ($publicationsFile && !empty($publicationsFile['tmp_name']) && (int) ($publicationsFile['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE) {
+    if ((int) ($publicationsFile['error'] ?? 0) !== UPLOAD_ERR_OK) {
+      return ['ok' => false, 'error' => 'Publications file upload failed. Try PDF or Word again.'];
+    }
+    if ((int) ($publicationsFile['size'] ?? 0) > 8 * 1024 * 1024) {
+      return ['ok' => false, 'error' => 'Publications file must be under 8 MB.'];
+    }
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($publicationsFile['tmp_name']) ?: '';
+    $orig = strtolower((string) ($publicationsFile['name'] ?? ''));
+    $extFromName = pathinfo($orig, PATHINFO_EXTENSION);
+    $map = [
+      'application/pdf' => 'pdf',
+      'application/msword' => 'doc',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'docx',
+      'text/plain' => 'txt',
+      'text/rtf' => 'rtf',
+      'application/rtf' => 'rtf',
+    ];
+    $ext = $map[$mime] ?? '';
+    if ($ext === '' && in_array($extFromName, ['pdf', 'doc', 'docx', 'txt', 'rtf'], true)) {
+      // Some hosts report odd MIME for Office files; allow by extension.
+      $ext = $extFromName;
+    }
+    if ($ext === '') {
+      return ['ok' => false, 'error' => 'Publications file must be PDF, Word, or TXT.'];
+    }
+    $docName = $id . '-publications.' . $ext;
+    $dest = $docsDir . '/' . $docName;
+    if (!@move_uploaded_file($publicationsFile['tmp_name'], $dest)) {
+      return ['ok' => false, 'error' => 'Could not save publications file.'];
+    }
+    @chmod($dest, 0644);
+    $publicationsFileRel = 'docs/' . $docName;
+  }
+
   $record = [
     'id' => $id,
     'submitted_at' => date('c'),
@@ -1210,6 +1251,7 @@ function faculty_save_submission(array $payload, ?array $photoFile = null): arra
     'dep_name' => (string) ($payload['dep_name'] ?? ''),
     'research_preferences' => array_values($payload['research_preferences'] ?? []),
     'publications_url' => (string) ($payload['publications_url'] ?? ''),
+    'publications_file' => $publicationsFileRel,
     'publications' => array_values($payload['publications'] ?? []),
     'qualifications' => array_values($payload['qualifications'] ?? []),
     'skills' => array_values($payload['skills'] ?? []),
