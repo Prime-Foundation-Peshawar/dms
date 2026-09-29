@@ -90,7 +90,7 @@ include __DIR__ . '/includes/header.php';
             <div class="fu-tag-box" id="researchBox">
               <div class="fu-tags" id="researchTags" aria-live="polite"></div>
               <div class="fu-tag-add">
-                <input class="fu-input" type="text" id="researchInput" maxlength="80" placeholder="Type topic, then Add" autocomplete="off">
+                <input class="fu-input" type="text" id="researchInput" maxlength="80" placeholder="e.g. Culturally adapted CBT" autocomplete="off">
                 <button type="button" class="btn-pmc btn-pmc-outline" id="researchAddBtn">Add</button>
               </div>
             </div>
@@ -104,7 +104,7 @@ include __DIR__ . '/includes/header.php';
             <div class="fu-row">
               <div>
                 <label class="fu-label" for="publicationsUrl">Link (optional)</label>
-                <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="Google Scholar / ORCID / ResearchGate">
+                <input class="fu-input" type="url" id="publicationsUrl" name="publications_url" placeholder="e.g. scholar.google.com / orcid.org">
               </div>
             </div>
 
