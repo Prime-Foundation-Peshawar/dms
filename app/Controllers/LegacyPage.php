@@ -43,6 +43,22 @@ class LegacyPage extends BaseController
             // ignore
         }
 
+        // Prefer published cms_pages over hard-coded legacy files (except reserved modules).
+        if (! $this->isReservedCmsSlug($page)) {
+            try {
+                require_once ROOTPATH . 'legacy/includes/cms-content.php';
+                $cmsPage = dms_cms_page_by_slug($page);
+                if (is_array($cmsPage)) {
+                    return $this->response->setBody($this->renderLegacy(
+                        ROOTPATH . 'legacy/cms-page.php',
+                        ['cmsPage' => $cmsPage]
+                    ));
+                }
+            } catch (\Throwable $e) {
+                // Fall through to legacy file.
+            }
+        }
+
         // Map clean URLs to legacy PHP scripts
         $map = [
             'index' => 'index.php',
@@ -60,7 +76,31 @@ class LegacyPage extends BaseController
         return $this->response->setBody($this->renderLegacy($path));
     }
 
-    protected function renderLegacy(string $path): string
+    /**
+     * Slugs owned by other modules / APIs — never serve from cms_pages.
+     */
+    protected function isReservedCmsSlug(string $page): bool
+    {
+        static $reserved = [
+            'index', 'home',
+            'all-news', 'single-news', 'events', 'event-single',
+            'gallery', 'vacant-seats', 'newsletter',
+            'departments', 'department', 'department-activity',
+            'faculty', 'faculty-profile', 'faculty-all', 'faculty-update',
+            'faculty-update-submit', 'faculty_api', 'faculty-profiles-api', 'faculty-proxy',
+            'e-health', 'examinations', 'faculty-research',
+            'portal', 'portal-login', 'portal_login',
+            'sitemap', 'sitemap-page', 'robots',
+            'medical-education', 'cms-page', 'acp',
+        ];
+
+        return in_array($page, $reserved, true);
+    }
+
+    /**
+     * @param array<string,mixed> $vars
+     */
+    protected function renderLegacy(string $path, array $vars = []): string
     {
         // Ensure legacy helpers see CI constants.
         if (!defined('base_url')) {
@@ -68,6 +108,10 @@ class LegacyPage extends BaseController
         }
         if (!defined('hub_base')) {
             define('hub_base', dms_hub_base());
+        }
+
+        if ($vars !== []) {
+            extract($vars, EXTR_SKIP);
         }
 
         ob_start();

@@ -306,3 +306,20 @@ function dms_gallery_albums_with_images(): array
     return $albums;
   } catch (Throwable $e) { return []; }
 }
+
+function dms_cms_page_by_slug(string $slug): ?array
+{
+  $slug = trim($slug);
+  if ($slug === "") return null;
+  try {
+    if (class_exists(\App\Models\CmsPageModel::class)) {
+      return model(\App\Models\CmsPageModel::class)->findPublishedBySlug($slug);
+    }
+  } catch (Throwable $e) {}
+  try {
+    $stmt = dms_db()->prepare("SELECT * FROM cms_pages WHERE slug = ? AND status = \"published\" LIMIT 1");
+    $stmt->execute([$slug]);
+    $row = $stmt->fetch();
+    return $row ?: null;
+  } catch (Throwable $e) { return null; }
+}

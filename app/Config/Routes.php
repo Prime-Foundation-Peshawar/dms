@@ -65,6 +65,12 @@ $routes->group('acp', ['filter' => 'acpauth'], static function ($routes) {
     $routes->get('gallery/(:num)', 'Acp\Gallery::edit/$1');
     $routes->post('gallery/(:num)', 'Acp\Gallery::save/$1');
 
+    $routes->get('pages', 'Acp\Pages::index');
+    $routes->get('pages/new', 'Acp\Pages::create');
+    $routes->post('pages', 'Acp\Pages::save');
+    $routes->get('pages/(:num)', 'Acp\Pages::edit/$1');
+    $routes->post('pages/(:num)', 'Acp\Pages::save/$1');
+
     $routes->get('modules/(:segment)', 'Acp\Modules::show/$1');
 });
 

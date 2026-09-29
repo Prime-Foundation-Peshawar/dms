@@ -32,7 +32,7 @@
       <a href="<?= site_url('acp/departments') ?>" class="<?= ($nav ?? '') === 'departments' ? 'is-active' : '' ?>">Departments</a>
       <a href="<?= site_url('acp/vacant-seats') ?>" class="<?= ($nav ?? '') === 'vacant-seats' ? 'is-active' : '' ?>">Vacant seats</a>
       <a href="<?= site_url('acp/newsletters') ?>" class="<?= ($nav ?? '') === 'newsletters' ? 'is-active' : '' ?>">Newsletters</a>
-      <a href="<?= site_url('acp/modules/pages') ?>">Pages</a>
+      <a href="<?= site_url('acp/pages') ?>" class="<?= ($nav ?? '') === 'pages' ? 'is-active' : '' ?>">Pages</a>
     </nav>
     <div class="acp-nav-foot">
       <a href="<?= site_url('/') ?>" target="_blank" rel="noopener">View website</a>
