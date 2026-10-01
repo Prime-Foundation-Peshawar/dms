@@ -735,11 +735,11 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Saima Ali',
-        'qualification' => 'MBBS, DCH, FCPS, FRCPCH, MHPE, MRCPS',
+        'qualification' => 'MBBS, DCH(PK), FCPS(Paediatrics,PK), FRCPCH (UK), MHPE(PK), MRCPS(Glasgow)',
         'reg' => '7435-N',
       ],
       [
-        'name' => 'Professor Dr. Saffiullah',
+        'name' => 'Professor Dr. Saffi Ullah',
         'qualification' => 'MBBS, MRCPCH (London), MRCPS (Glasgow)',
         'reg' => '9141-N',
       ],
