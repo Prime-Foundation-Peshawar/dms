@@ -1155,10 +1155,38 @@ function faculty_is_hod_name(string $memberName, string $hodName): bool {
  * @param list<array{name?:string,qualification?:string,reg?:string}> $staticFaculty
  * @return list<array{name:string,qualification:string,reg:string}>
  */
+/**
+ * Designations excluded from public faculty / department listings.
+ *
+ * @return array<string,true>
+ */
+function faculty_public_hidden_desigs(): array {
+  return [
+    'Senior Lecturer' => true,
+    'Lecturer' => true,
+    'Junior Registrar' => true,
+  ];
+}
+
+function faculty_public_desig_allowed(string $desTitle): bool {
+  return !isset(faculty_public_hidden_desigs()[trim($desTitle)]);
+}
+
+function faculty_public_static_row_allowed(array $row): bool {
+  $name = trim((string) ($row['name'] ?? ''));
+  if ($name === '') {
+    return false;
+  }
+  if (preg_match('/^(Senior\s+Lecturer|Junior\s+Registrar|Sr\.?\s+Lecturer|Lecturer)\b/i', $name)) {
+    return false;
+  }
+  return true;
+}
+
 function faculty_for_department_page(string $slug, string $deptName, array $staticFaculty = [], string $hodName = ''): array {
   $pack = faculty_hrms_fetch_all();
   if (!$pack['ok']) {
-    $out = array_values($staticFaculty);
+    $out = array_values(array_filter($staticFaculty, 'faculty_public_static_row_allowed'));
     return faculty_sort_hod_first($out, $hodName);
   }
 
@@ -1170,6 +1198,9 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
   $matched = [];
   foreach ($pack['employees'] as $row) {
     if (!is_array($row)) {
+      continue;
+    }
+    if (!faculty_public_desig_allowed((string) ($row['desTitle'] ?? ''))) {
       continue;
     }
     $dep = faculty_hrms_norm_dept((string) ($row['depName'] ?? ''));
@@ -1236,6 +1267,9 @@ function faculty_hrms_count_for_department(string $slug, string $deptName, ?int 
   $n = 0;
   foreach ($pack['employees'] as $row) {
     if (!is_array($row)) {
+      continue;
+    }
+    if (!faculty_public_desig_allowed((string) ($row['desTitle'] ?? ''))) {
       continue;
     }
     $dep = faculty_hrms_norm_dept((string) ($row['depName'] ?? ''));

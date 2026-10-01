@@ -165,6 +165,13 @@ const DESIG_RANK = {
   'Registrar': 7, 'CEO': 8, 'Director IT': 9, 'Other': 10
 };
 
+/** Posts hidden from the public faculty directory. */
+const HIDDEN_DESIGS = new Set(['Senior Lecturer', 'Lecturer', 'Junior Registrar']);
+
+function isPublicFacultyDesig(desTitle) {
+  return !HIDDEN_DESIGS.has(String(desTitle || '').trim());
+}
+
 const DESIG_PREFIX = {
   'Professor': 'Prof.',
   'Associate Professor': 'Assoc. Prof.',
@@ -489,7 +496,9 @@ function clearAllFilters() {
     if (debugEl) debugEl.textContent = JSON.stringify(data[0], null, 2);
   }
 
-  allFaculty = data.sort((a, b) => {
+  allFaculty = data
+    .filter(f => isPublicFacultyDesig(f.desTitle))
+    .sort((a, b) => {
     const deptDiff = getDeptOrder(a.depName) - getDeptOrder(b.depName);
     if (deptDiff !== 0) return deptDiff;
     return getDesigRank(a.desTitle) - getDesigRank(b.desTitle);
