@@ -295,6 +295,7 @@ function faculty_fix_runons(string $text): string {
   $text = str_replace(['—', '–', '−'], '-', $text);
   $text = preg_replace('/\bAT\b/', 'At', $text);
   $text = preg_replace('/([a-z])([A-Z])/', '$1 $2', $text);
+  $text = preg_replace('/\bUo P\b/', 'UoP', $text);
   $text = preg_replace('/\bPh D\b/', 'PhD', $text);
   $text = preg_replace('/([A-Za-z])((?:19|20)\d{2})\b/', '$1 $2', $text);
   $text = preg_replace('/([A-Za-z])(\d{1,2}[-.\/]\d{1,2}[-.\/]\d{2,4})/', '$1 $2', $text);
@@ -392,17 +393,23 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bCertificate in Interventional Cardiology\b/i',
     '/\bFellowship in Interventional Cardiology\b/i',
     '/\bMRCS\b/i',
-    '/\bM\.?\s*Phil\.?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Chemical Pathology|Hematology|Microbiology|Physiology|Oral Pathology)(?:\s+Scholar)?)?/i',
+    '/\bM\.?\s*Phil\.?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Chemical Pathology|Hematology|Microbiology|Physiology|Oral Pathology|Community Medicine)(?:\s+Scholar)?)?/i',
     '/\bPhD(?:\s*\([^)]{0,80}\))?(?:\s*[—–-]\s*[^·|]{8,90})?(?:\s+(?:Physiology|Microbiology))?/i',
-    '/\b(?:MPH|Master of Public Health)\b/i',
-    '/\bCHPE\b/i',
+    '/\b(?:Master of Public Health|MPH)\b(?:\s*\([^)]{0,50}\))?/i',
+    '/\bCHPE\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bCHR\b/i',
     '/\bMHPE\b/i',
-    '/\bPGD(?:\s+in\s+[^,.(]{8,60})?/i',
+    '/\bPGD\b(?:\s*\([^)]{0,40}\)|\s+in\s+[^,.(]{8,60})?/i',
     '/\bPGT(?:\s+Pharmacy)?\b/i',
     '/\bDCP\b/i',
-    '/\bDCH\b/i',
-    '/\bDOMS\b/i',
+    '/\b(?:D\.C\.H\.?|DCH)\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bDOMS\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bDIHL\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bDCEH\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bADHPE\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bAdvanced Diploma in Health Professions Education(?:\s*\([^)]{0,40}\))?/i',
+    '/\bDiploma in Community Eye Health(?:\s*\([^)]{0,120}\))?/i',
+    '/\bAttended a course of Executive MBA(?:\s*\([^)]{0,80}\))?/i',
     '/\bDiploma in (?:Anaesthesia|Anesthesia|Gynae and Obs)\b/i',
     '/\bDA\b/',
     '/\bDip(?:loma)?(?:\s+in)?\s+CBT\b/i',

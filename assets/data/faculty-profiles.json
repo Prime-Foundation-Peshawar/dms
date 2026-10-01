@@ -1772,13 +1772,19 @@
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS (KMC) DIHL (UOP) D.C.H (UOP)",
-        "M. Phil (Community Medicine) CHPE (KMU)"
+        "MBBS (KMC)",
+        "DIHL (UOP)",
+        "D.C.H (UOP)",
+        "M. Phil (Community Medicine)",
+        "CHPE (KMU)"
       ],
       "experience": [
         "19 Years"
       ],
       "skills": [
+        "Public Health Specialist with special interest in Child Health and Nutrition"
+      ],
+      "research_preferences": [
         "Public Health Specialist with special interest in Child Health and Nutrition"
       ],
       "publications": [
@@ -1788,7 +1794,8 @@
     "farhat-r-malik": {
       "slug": "farhat-r-malik",
       "aliases": [
-        "farhat-r-malik"
+        "farhat-r-malik",
+        "farhat-malik"
       ],
       "name": "Farhat R. Malik",
       "department": "CHS",
@@ -1796,12 +1803,18 @@
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS (KMC) MPH (IMS- UOP) CHPE (RU) PGD (RU)"
+        "MBBS (KMC)",
+        "MPH (IMS- UOP)",
+        "CHPE (RU)",
+        "PGD (RU)"
       ],
       "experience": [
         "20 Years"
       ],
       "skills": [
+        "Public Health Person with special interest in Reproductive Health & NCDs"
+      ],
+      "research_preferences": [
         "Public Health Person with special interest in Reproductive Health & NCDs"
       ],
       "publications": [
@@ -1815,13 +1828,15 @@
         "mohammad-aman-khan",
         "muhammad-aman-khan"
       ],
-      "name": "M. Aman Khan",
+      "name": "Mohammad Aman Khan",
       "department": "CHS",
-      "designation": "HOD/ Professor",
+      "designation": "Professor",
       "hod": true,
       "photo": "",
       "qualifications": [
-        "MBBS (KMC) DOMS (UOP) MCPS (CPSP)",
+        "MBBS (KMC)",
+        "DOMS (UOP)",
+        "MCPS (CPSP)",
         "Diploma in Community Eye Health (Institute of ophthalmology, University of London)",
         "Attended a course of Executive MBA (Preston University)",
         "MPhil (University of London)"
@@ -1830,7 +1845,12 @@
         "More than 40 Years"
       ],
       "skills": [
-        "Public Health Issues in Nutrition, Social and Emotional life and integrating it in health of individuals and families working at community level Working on handwashing, water supply on community level and green environment everywhere"
+        "Public Health Issues in Nutrition, Social and Emotional life and integrating it in health of individuals and families working at community level",
+        "Working on handwashing, water supply on community level and green environment everywhere"
+      ],
+      "research_preferences": [
+        "Public Health Issues in Nutrition, Social and Emotional life and integrating it in health of individuals and families working at community level",
+        "Working on handwashing, water supply on community level and green environment everywhere"
       ],
       "publications": [
         "More than 30 Publication in Local and international Journals"
@@ -1848,13 +1868,21 @@
       "photo": "",
       "qualifications": [
         "MPH (Gomal University)",
-        "Advanced Diploma in Health Professions Education (AKU) MBBS (KMC – UoP)"
+        "Advanced Diploma in Health Professions Education (AKU)",
+        "MBBS (KMC – UoP)"
       ],
       "experience": [
         "More than 40 years"
       ],
       "skills": [
-        "Winner of the BMJ South Asia Award for research paper of the year 2017; Grant Writing; Managing Public Health Interventions."
+        "Winner of the BMJ South Asia Award for research paper of the year 2017",
+        "Grant Writing",
+        "Managing Public Health Interventions."
+      ],
+      "research_preferences": [
+        "Winner of the BMJ South Asia Award for research paper of the year 2017",
+        "Grant Writing",
+        "Managing Public Health Interventions."
       ],
       "publications": [
         "https://www.researchgate.net/profile/Saeed-Anwar-8 (46 publications in impact factor local and international journals including Lancet Global Health)"
@@ -3846,6 +3874,7 @@
     "najibul-haq": "najib-ul-haq",
     "najeeb-ul-haq": "najib-ul-haq",
     "najeebul-haq": "najib-ul-haq",
-    "najibulhaq": "najib-ul-haq"
+    "najibulhaq": "najib-ul-haq",
+    "farhat-malik": "farhat-r-malik"
   }
 }

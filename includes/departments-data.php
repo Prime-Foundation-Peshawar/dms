@@ -385,17 +385,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Farhat R Malik',
-        'qualification' => 'MBBS, MPH',
+        'qualification' => 'MBBS, MPH, CHPE, PGD',
         'reg' => '7155-N',
       ],
       [
-        'name' => 'Assistant Professor Dr. Faqir Muhammad Anwar',
-        'qualification' => 'MD, MPH',
-        'reg' => '1282-N',
-      ],
-      [
         'name' => 'Assistant Professor Dr. Aziza Alam',
-        'qualification' => 'MBBS, M.Phil',
+        'qualification' => 'MBBS, M.Phil, CHPE',
         'reg' => '7401-N',
       ],
     ],
