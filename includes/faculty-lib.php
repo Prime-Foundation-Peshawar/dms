@@ -391,7 +391,7 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bMCPSHPE\b/i',
     '/\bMCPS(?:\s*\([^)]{0,50}\)|\s+(?:Anesthesiology|Anaesthesia|Anesthesia|Ophthalmology))?\b/i',
     '/\bPOA fellowship in Arthroplasty\b/i',
-    '/\bFellowship in Pead[’']s Urology\b/i',
+    '/\bFellowship in Pead(?:\x{2019}|\x27)s Urology\b/iu',
     '/\bFellowship in Paediatric Orthopaedic\b/i',
     '/\bMS(?:\s*[-–]\s*Mental Health Policy(?:\s+&\s+Services)?)?\b/i',
     '/\bIMM(?:\s*\/\s*MCPS|\s*\([^)]{0,50}\))?/i',
