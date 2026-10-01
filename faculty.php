@@ -158,13 +158,14 @@ const DEPT_CONFIG = {
 };
 
 const DESIG_RANK = {
-  'Professor': 1, 'Associate Professor': 2, 'Assistant Professor': 3,
-  'Senior Lecturer': 4, 'Lecturer': 5, 'Senior Registrar': 6,
+  'Professor': 1, 'Professor & HOD': 1, 'Associate Professor': 2, 'Assistant Professor': 3,
+  'Senior Registrar': 4, 'Senior Lecturer': 5, 'Lecturer': 6,
   'Registrar': 7, 'CEO': 8, 'Director IT': 9, 'Other': 10
 };
 
 const DESIG_PREFIX = {
   'Professor': 'Prof.',
+  'Professor & HOD': 'Prof.',
   'Associate Professor': 'Assoc. Prof.',
   'Assistant Professor': 'Asst. Prof.',
   'Senior Lecturer': 'Sr. Lecturer',
@@ -190,6 +191,18 @@ function getDesigRank(desig) {
   return DESIG_RANK[desig] || 10;
 }
 
+function isFacultyRank(desig) {
+  const d = String(desig || '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
+  if (!d) return false;
+  if (/\bsenior lecturer\b/.test(d)) return false;
+  if (/\blecturer\b/.test(d) && !/\bsenior registrar\b/.test(d)) return false;
+  if (/\bregistrar\b/.test(d) && !/\bsenior registrar\b/.test(d)) return false;
+  if (/\bsenior registrar\b/.test(d) || /(^| )sr( |$)/.test(d)) return true;
+  if (/\bassociate professor\b/.test(d) || /\bassoc prof\b/.test(d)) return true;
+  if (/\bassistant professor\b/.test(d) || /\basst prof\b/.test(d) || /\bassist prof\b/.test(d)) return true;
+  return /\bprofessor\b/.test(d) || /(^| )prof( |$)/.test(d);
+}
+
 function getDesignationPrefix(desTitle) {
   return DESIG_PREFIX[desTitle] || '';
 }
@@ -198,8 +211,8 @@ function getDisplayName(m) {
   const prefix = getDesignationPrefix(m.desTitle);
   const name = m.empName || '';
   const medicalDesigs = [
-    'Professor', 'Associate Professor', 'Assistant Professor',
-    'Senior Lecturer', 'Lecturer', 'Senior Registrar', 'Registrar'
+    'Professor', 'Professor & HOD', 'Associate Professor', 'Assistant Professor',
+    'Senior Registrar'
   ];
   if (medicalDesigs.includes(m.desTitle)) {
     return prefix ? (prefix + ' Dr. ' + name) : ('Dr. ' + name);
@@ -353,9 +366,37 @@ function extraFor(name) {
 
 function hasWordProfile(extra) {
   if (!extra) return false;
+  if (!isFacultyRank(extra.designation)) return false;
   if (extra.photo) return true;
   return ['qualifications', 'experience', 'publications', 'skills']
     .some(key => Array.isArray(extra[key]) && extra[key].length > 0);
+}
+
+function listHasProfile(rec) {
+  const keys = [rec.slug, ...(rec.aliases || [])].filter(Boolean);
+  return allFaculty.some(f => {
+    const s = facultySlug(f.empName);
+    return keys.some(k => slugsMatch(s, k));
+  });
+}
+
+function appendMissingCvFaculty() {
+  const rows = extraPack.profiles ? Object.values(extraPack.profiles) : [];
+  for (const rec of rows) {
+    if (!rec || !rec.name || !hasWordProfile(rec)) continue;
+    if (!isFacultyRank(rec.designation)) continue;
+    if (listHasProfile(rec)) continue;
+    allFaculty.push({
+      empName: rec.name,
+      desTitle: rec.designation || 'Faculty',
+      depName: rec.department || '',
+      facPMDCNo: '',
+      facFacRegNo: '',
+      qualifications: Array.isArray(rec.qualifications)
+        ? rec.qualifications.join(', ')
+        : (rec.qualifications || ''),
+    });
+  }
 }
 
 function renderMemberRow(m) {
@@ -487,7 +528,7 @@ function clearAllFilters() {
     if (debugEl) debugEl.textContent = JSON.stringify(data[0], null, 2);
   }
 
-  allFaculty = data.sort((a, b) => {
+  allFaculty = data.filter(f => isFacultyRank(f.desTitle)).sort((a, b) => {
     const deptDiff = getDeptOrder(a.depName) - getDeptOrder(b.depName);
     if (deptDiff !== 0) return deptDiff;
     return getDesigRank(a.desTitle) - getDesigRank(b.desTitle);
@@ -501,6 +542,7 @@ function clearAllFilters() {
     facFacRegNo: '',
     qualifications: 'MS Computer Science'
   });
+  appendMissingCvFaculty();
 
   updateStats(allFaculty);
   populateFilters(allFaculty);

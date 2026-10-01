@@ -1,5 +1,5 @@
 {
-  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry, and Endocrinology).",
+  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry, and Endocrinology); Anatomy departmental template Oct 2026 (Senior Registrar and above).",
   "profiles": {
     "fozia-rauf": {
       "slug": "fozia-rauf",
@@ -1551,6 +1551,314 @@
         "Clinicopathological Profile of Patient with Solitary Thyroid Nodule Presented to OPD at a Tertiary Care Hospital Pakistan",
         "Frequency of Osteomalacia and Vitamin D Deficiency in Elderly Patient Presenting at a Tertiary Care Hospital"
       ]
+    },
+    "jehanzeb-khan": {
+      "slug": "jehanzeb-khan",
+      "aliases": [
+        "jehanzeb-khan",
+        "jehanzeb",
+        "khan-jehanzeb"
+      ],
+      "name": "Jehanzeb Khan",
+      "department": "Anatomy",
+      "designation": "Professor & HOD",
+      "hod": true,
+      "photo": "",
+      "qualifications": [
+        "M.B.B.S",
+        "M. Phil (Anatomy)"
+      ],
+      "experience": [
+        "Instruction, Facilitation, Assessment & mentorship of Undergraduate and Postgraduate Students since Dec., 1988 till date",
+        "HOD, Anatomy, KMC (Oct., 2011 to March, 2012) & PMC (Since 24-04-2026)"
+      ],
+      "skills": [],
+      "publications": [
+        "Khan J and Janjua M.Z. (1998). Localization of the facial motor nucleus in Sprague – dawley albino rat: A morphometric and retrograde tracing study with horseradish peroxidase (HRP). JPMI; 12(2): 29 – 36.",
+        "Khan J and Janjua M.Z. (1999). Effect of survival time on retrograde neuronal labeling with horseradish peroxidase (HRP), using rat’s facial nucleus as a model. JPMI; 13(2): 1 – 7.",
+        "Khan J and Janjua M.Z. (1999). Morphology of the facial branchiomotor nucleus: A retrograde neuron tracer study utilizing horseradish peroxidase (HRP) as a neuronal tracer. JMS; 9(3): 27 – 37.",
+        "Ilahi M, Khan J, Inayat Q and Abidi TS. (2006). Histological changes in parts of foregut of rat after indomethacin administration. JAMC; 18(3): 29 – 34.",
+        "Inayat Q, Khan J, Ilahi M and Azeem R (2007). A histological study of the liver of mice exposed to cypermethrin. JMS; 15(1): 27 – 31.",
+        "Inayat Q, Khan J, Ilahi M and Azeem R (2007). A histological and morphometric study of the kidney of mice after oral administration of cypermethrin. JMS; 15(2): 145 – 150.",
+        "Inayat Q, Ilahi M and Khan J (2007). A morphometric and histological study of the kidney of mice after dermal Application of cypermethrin. JPMA; 57(12): 587 – 591.",
+        "Wazir FU, Wazir IU, Javed M, Muhammad F, Saeed M, Khan J and Shah H. (2006). Morphological changes induced by cotton seed flour in rat testes. Biomedica; 22: 105-9",
+        "Wazir IU, Wazir FU, Javed M, Muhammad F, Saeed M, Haq N , Jehanzeb M and Khan HU (2008). Quantitative assessment of liver fibrosis in patients with chronic hepatitis C using special stains. GJMS; 6 (1): 25-29",
+        "Wazir NU, Saeed M, Wazir IU, Khan J, Wazir FU and Huma Z (2021). Hepatocytes protection by vitamin E in Alcoholic Liver Injury: A Light Microscopic Study. PJMHS; 15(10): 2869-74",
+        "Wazir NU, Khan J, Huma Z , Khan F, Ara N and Humayun A (2021). Counter effects of vitamen E against outcomes of alcohol toxicity in pancreatic acini: Histomorphometric study. PJMHS; 15(11): 2974-78",
+        "Iftikhar SA, Khan J, Rauf F, Yousuf S, Shafqat F, Ahmad A (2026), Histmorphological study of the protective roles of Margalla honey (Multifloral) and Silymarine in Valproate induced hepatotoxicity in male rats."
+      ]
+    },
+    "muhammad-saeed": {
+      "slug": "muhammad-saeed",
+      "aliases": [
+        "muhammad-saeed",
+        "m-saeed",
+        "saeed-muhammad"
+      ],
+      "name": "Muhammad Saeed",
+      "department": "Anatomy",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "M.B.B.S",
+        "M. Phil (Anatomy)"
+      ],
+      "experience": [
+        "G.D.M.O (Pakistan Army), 01.06.1978 – 15.09.1980",
+        "M.O/Registrar Surgical A unit, Govt. Lady Reading Hospital, Peshawar, 11.11.1980 – 23.05.1983",
+        "M.O, Govt. Lady Reading Hospital, Peshawar, 20.04.1986 – 20.10.1986",
+        "Demonstrator (Anatomy), K.M.C, Peshawar, 24.04.1983 – 19.04.1986 & 21.10.1986 – 31.07.1992",
+        "Assistant Professor (Anatomy), K.M.C, Peshawar, 01.08.1992 – 21.09.1998",
+        "Associate Professor (Anatomy), K.M.C, Peshawar, 22.09.1998 – 30.09.2006",
+        "Professor & Head (Anatomy), P.M.C, Peshawar, 01.08.2005 – 23.04.2026",
+        "Professor (Anatomy), P.M.C, Peshawar, 24.04.2026 – till date"
+      ],
+      "skills": [
+        "The technique of Horseradish Peroxidase of tracing neuronal connections was introduce by me for the first time in Pakistan through my M. Phil research."
+      ],
+      "publications": [
+        "Saeed M. and Janjua M.Z. (1997). Termination of ulnar and radial nerves in the cuneate and external cuneate nuclei. A transganglionic horseradish peroxidase (HRP) study. JPMI; 11 (1): 34-40",
+        "Saeed M. and Janjua M.Z. (1997). Topographical organization of motoneurons of the ulnar and radial nerves in albino rat. A retrograde horseradish peroxidase (HRP) study. JPMI; 11 (1): 77-82",
+        "Saeed M. and Janjua M.Z. (1997). Columnar organization of the neurons in the ventral horn of the cervical and upper thoracic spinal cord in albino rat. JPMI; 11 (2): 186-91",
+        "Saeed M. and Janjua M.Z. (2000). Segmental distribution, number and size of motoneurons of the ulnar and radial nerves in albino rat. A retrograde horseradish peroxidase (HRP) study. JMS; 9 (3): 1-10",
+        "Saeed M. and Janjua M.Z. (2000). Segmental distribution, number and size of sensory neurons projecting into the ulnar and radial nerves in albino rat. A retrograde horseradish peroxidase (HRP) study. JMS; 9 (3): 38-46",
+        "Wazir FU, Wazir IU, Javed M, Muhammad F, Saeed M, Khan J and Shah H. (2006). Morphological changes induced by cottonseed flour in rat testes. Biomedica; 22: 105-9",
+        "Wazir IU, Wazir FU, Javed M, Muhammad F, Saeed M, Haq N, Jehanzeb M and Khan HU (2008). Quantitative assessment of liver fibrosis in patients with chronic hepatitis C using special stains. GJMS; 6 (1): 25-29",
+        "Wazir IU, Wazir FU, Javed M, Saeed M, Haq N and Khan HU (2008). Effect of vitamin E supplements in therapy of chronic Hepatitis C: A histological study. GJMS; 6 (2): 81-86",
+        "Khan ZS, Saeed M and Hamid SM (2020). Effects of cannabis sativa extract and its combination with vitamin C administration on histomorphological changes in the testicular tissue of male mice. KMUJ; 12(3): 229-33",
+        "Wazir NU, Saeed M, Wazir IU, Khan J, Wazir FU and Huma Z (2021). Hepatocytes protection by vitamin E in Alcoholic Liver Injury: A Light Microscopic Study. PJMHS; 15(10): 2869-74"
+      ]
+    },
+    "muhammad-imran-qureshi": {
+      "slug": "muhammad-imran-qureshi",
+      "aliases": [
+        "muhammad-imran-qureshi",
+        "imran-qureshi",
+        "m-imran-qureshi"
+      ],
+      "name": "Muhammad Imran Qureshi",
+      "department": "Anatomy",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "M.B.B.S",
+        "M. Phil (Anatomy)"
+      ],
+      "experience": [
+        "Lecturer, Department of Anatomy, Ayub Medical College, Abbottabad, May 1990 to March 1993",
+        "Lecturer on Deputation to Federal Postgraduate Medical Institute Lahore for M. Phil (Anatomy), March 1993 to February 1995",
+        "Lecturer, Department of Anatomy, Ayub Medical College, Abbottabad, Feb 1995 to May 1998",
+        "Assistant Professor, Department of Anatomy, Ayub Medical College, Abbottabad, May 1998 to July 2001",
+        "Associate Professor, Department of Anatomy, Ayub Medical College, Abbottabad, July 2001 to March 2002",
+        "Associate Professor, Department of Anatomy, Women Medical College, Abbottabad, March 2002 to November 2005",
+        "Associate Professor, Department of Anatomy, Peshawar Medical College, Peshawar, November 2005 to December 2007",
+        "Professor, Department of Anatomy, Peshawar Medical College, Peshawar, January 2008 to Date",
+        "Supervisor M. Phil, March 2009 to 2022"
+      ],
+      "skills": [
+        "Undergraduate Examiner of First & Second Prof. MBBS in Bahauddin Zakariya University, Multan.",
+        "Undergraduate Examiner of First & Second Prof. MBBS in Khyber Medical University, Peshawar",
+        "Undergraduate Examiner of First & Second Prof. MBBS in Riphah International University, Islamabad.",
+        "Postgraduate (M. Phil Anatomy) Examiner in the University of Punjab.",
+        "Postgraduate (M. Phil Anatomy) in Riphah International University, Islamabad."
+      ],
+      "publications": [
+        "M. Phil Thesis: Evaluation Of Reversible And Irreversible Changes In The Thyroid Follicles On The Basis Of Histologic And Morphometric Study In Protein Malnutrition (A Study In Albino Rats)",
+        "Effects of protein malnutrition on the thyroid follicular cell size of albino rats. (pp. 27-31, Journal Of Ayub Medical College Abbottabad; Vol.10, No.2, July-Dec.1998)",
+        "An Improved Embalming Procedure For Preservation Of The Cadavers (pp. 21-22 Journal Of Ayub Medical College Abbottabad; Vol.112, No.1, Jan.-Mar.2000)",
+        "Vascularization Pattern of Insula, A Study On Cadaver Brains. (pp. 14-16, Rawal Medical Journal Rawalpindi Islamabad; Vol.27, No.2, April-June 2000)",
+        "Effects Of Protein Malnutrition On The Weight And Serum Albumin Of Albino Rats. (pp. 8-10, Journal Of Ayub Medical College Abbottabad; Vol.13, No.1, Jan.-Mar.2001.)",
+        "Complications Of Thyroidectomy For Benign Disease. (pp. 17-18, Journal Of Ayub Medical College Abbottabad; Vol.13, No.1, Jan.-Mar.2001.)",
+        "Frequency Of Prescribing Injectable Medicines To Patients By General Practitioners In Hazara, Pakistan (pp. 221-224, Pakistan Journal Of Medical Sciences Karachi; Vol. 17, No.4, Oct-Dec.2001)",
+        "Effects of Honey on Lead Induced changes in spermatogenesis JIIMC Vol. 6 No. 2, Dec 2011 ISSN No. 1815-4018; pp 8-13",
+        "Anatomical variations of sacral hiatus in dry human sacra: JIIMC, Vol. 10, No. 1 2015, pp 121-123",
+        "Prevalence of Congenital Anomalies and Its Association with Consanguinity in Pakistan; pp. 25-29, JHBS M&DC Vol 1(1) January-March 2021",
+        "Assessment of Root Anatomy and Variations of Third Mandibular Molars in the Population of Peshawar using Cone Beam Computed Tomography; PJMHS Vol. 16, No. 09, September 2022, pp. 325-327."
+      ]
+    },
+    "ihsan-ullah-wazir": {
+      "slug": "ihsan-ullah-wazir",
+      "aliases": [
+        "ihsan-ullah-wazir",
+        "ihsanullah-wazir",
+        "ihsan-wazir"
+      ],
+      "name": "Ihsan Ullah Wazir",
+      "department": "Anatomy",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "M.B.B.S",
+        "M. Phil (Anatomy)"
+      ],
+      "experience": [
+        "14-11-1984 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "FU. Wazir, IU. Wazir, M. Javeed, Fida Muhammad, M. Saeed Jehanzeb Khan and S. Hamayun Shah. Morphological changes Induced by Cottonseed Flour in Rat Testes. Biomedica Vol. 22 ( Jul.- Dec 2006)",
+        "Muhammad Javeed, FidaullahWazir, IhsanullahWazir, Fida Muhammad, Fida Muhammad Marwat. Morphological changes Induced by Bifenthrin Toxicity in Rabbit Liver. Journal of Medical Sciences Vol. 14, No. 2 July 2006",
+        "FidaullahWazir, Muhammad Javeed, IhsanullahWazir, FidaMuhammad. Light Microscopic Study of Rats Testes for Protective Role of Vitamin E against the Toxic effects of Cottonseed Flour. Journal of Medical Sciences Vol. 15, No. 1 January 2007.",
+        "IhsanullahWazir, FidaullahWazir, Muhammad Javeed, Fida Muhammad, Muhammad Saeed, Najeeb-ul-Haq, Muhammad Jehanzeb, Habibullah Khan. Quantitative assessment of liver Fibrosis in Chronic HCV using special stains. Gomel Journal Of Medical Sciences Vol. 6, No. 1 Jan-June 2008.",
+        "IhsanullahWazir, FidaullahWazir, Muhammad Javeed, Muhammad Saeed, Najeeb-ul-Haq, Habibullah Khan. Effect of Vitamin E supplements in therapy of Chronic Hepatitis C; A histological study. Gomel Journal Of Medical Sciences Vol. 6, No.2 July- December 2008.",
+        "NadeemUllah Khan Wazir, Asad Ur Rahman, Rizwan Amir Khan, Irfan Amir Khan, IhsanUllahWazir. NomanUllahWazir,Muhammad AftabWazir, Tawseef Ahmad, Assessing Stroke Patients' Treatment and Prognosis to Enhance Therapeutic Strategies. DOI: https://doi.org/10.56536/ijpihs.v4i2.99 Published; - 2023-09-01Vol. 4 No. 2 (2023): International Journal of Pharmacy & Integrated Health Sciences",
+        "NomanUllahWazir, Muhammad Saeed, IhsanUllahWazir, Jehanzeb Khan, FidaUllahWazir, ZilliHuma … Hepatocytes Protection by Vitamin E in Alcoholic Liver Injury: A Light Microscopic Study DOI:https://doi.org/10.53350/pjmhs2115102869 P J M H S Vol. 15, No.10, OCT 2021 2869"
+      ]
+    },
+    "noman-ullah-wazir": {
+      "slug": "noman-ullah-wazir",
+      "aliases": [
+        "noman-ullah-wazir",
+        "nomanullah-wazir",
+        "noman-wazir"
+      ],
+      "name": "Noman Ullah Wazir",
+      "department": "Anatomy",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "MPhil",
+        "PHD",
+        "PGD",
+        "CHPE"
+      ],
+      "experience": [
+        "Lecturer, 01-12-2012 to 31-01-2013",
+        "PG Trainee (MPhil Anatomy), 01-02-2013 to 19-11-2015",
+        "Lecturer, 20-11-2015 to 31-12-2015",
+        "Assistant Professor, 01-01-2016 to 31-07-2022",
+        "Associate Professor, 01-08-2022 to 10-03-2025",
+        "Professor, 11-03-2025 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "Revolutionizing bone tumor management: cutting-edge breakthroughs in limb-saving treatments. https://link.springer.com/article/10.1007/s00590-024-03876-z",
+        "EFFICACY OF FORMALIN FIXATION IN DETECTING GFAP AND MAP2 IN THE SPINAL CORD VIA IMMUNOFLUORESCENCE AND IMMUNOHISTOCHEMISTRY. https://jmedsci.com/Jmedsci/article/view/1878",
+        "VITAMIN E SHIELDS AGAINST ALCOHOLIC TOXICITY BY SAFEGUARDING HEPATIC PARENCHYMAL MORPHOLOGY AND LOWERING BLOOD ALT LEVELS. https://jamc.ayubmed.edu.pk/jamc/index.php/jamc/article/view/13489",
+        "Topographic Anatomy and Clinical Impact of Vascular Foramen on the Trochlear Groove of Adult Human Dry Femora. https://www.cureus.com/articles/77478-topographic-anatomy-and-clinical-impact-of-vascular-foramen-on-the-trochlear-groove-of-adult-human-dry-femora#!/authors",
+        "Preemptive Regime Modulates c-fos Expression at Hippocampus in the Rats Postoperative Pain Models. https://www.sciencedirect.com/science/article/pii/S1658361225000782?ref=pdf_download&fr=RR-2&rr=96c4415c983d21f5",
+        "THYROID DYSFUNCTION ACROSS THE LIFESPAN INSIGHTS INTO PHYSIOLOGY AND DISEASE. https://www.afjbs.com/uploads/paper/09b7a37fdfef5922311c2acfc79422c8.pdf",
+        "Unveiling The Patterns Of Cardiac Fibrosis Using 3d Radiomics In Heart Failure Patients. https://healthinformaticsjournal.com/index.php/IJMI/article/view/437/433",
+        "Influence of Vitamin E on Pancreatic Acinar Cell Morphology and Serum Amylase Concentrations in Alcohol-Induced Pancreatic Toxicity. https://jamc.ayubmed.edu.pk/jamc/index.php/jamc/article/view/13548",
+        "ROBOTIC SURGERY: ASSESSING THE ADVANCEMENTS AND OUTCOMES OF ROBOTIC-ASSISTED SURGERIES. A BIBLIOMETRIC PERSPECTIVE. https://cuestionesdefisioterapia.com/index.php/es/article/view/1515",
+        "Superior outcomes of cementless total hip arthroplasty in elderly osteoarthritis patients: Findings from a 5-year retrospective cohort study. https://www.sciencedirect.com/science/article/pii/S2773157X24001486?via%3Dihub",
+        "Pirfenidone's Potential for Motor Recovery following Spinal Cord Compression Injury. https://apmcfmu.com/index.php/apmc/article/view/1517",
+        "Unveiling the Therapeutic Potential of Vitamin-E in Preventing Inflammation and Stromal Congestion in Alcoholic Liver Injury. https://www.cureus.com/articles/232105-unveiling-the-therapeutic-potential-of-vitamin-e-in-preventing-inflammation-and-stromal-congestion-in-alcoholic-liver-injury#!/authors",
+        "Genomics and Cardiovascular Disease: Investigating genomic markers in predicting heart disease risk. A bibliometric review. https://www.jneonatalsurg.com/index.php/jns/article/view/4803",
+        "VENOUS THROMBOEMBOLISM RISK ASSESSMENT IN HOSPITALISED PATIENTS IN A TERTIARY CARE HOSPITAL IN PAKISTAN. https://jamc.ayubmed.edu.pk/jamc/index.php/jamc/article/view/13243",
+        "NEURONAL DEGENERATION CAN BE DECELERATED BY PIRFENIDONE AFTER COMPRESSION SPINAL CORD INJURY. https://www.jptcp.com/index.php/jptcp/article/view/2727",
+        "Pirfenidone Reduces Neurological Deficit by Promoting Axonal Growth after Compression Spinal Cord Injury. https://www.xisdxjxsu.asia/viewarticle.php?aid=2184",
+        "Revitalizing Lower Motor Neurons Function: Role of Pirfenidone in Recovery of Post-Compression Spinal Cord Injury. https://bmcjms.org/index.php/bmcj/article/view/273",
+        "Prevalence of In-Stent Restenosis in Patients having Drug Eluting Stents with Lengths Exceeding 40mm: A Single-Center Study. https://jhrlmc.com/index.php/home/article/view/960",
+        "The Hepatoprotective Potential of Nigella Sativa Oil Against Cypermethrin-Induced Hepatotoxicity in Rats: A Histomorphological Investigation. https://theprofesional.com/index.php/tpmj/article/view/8193",
+        "Pirfenidone: An Encouraging Therapeutic Approach For Enhancing Lateral Spinothalamic Tract Function After Spinal Cord Compression Injury. https://www.journalrmc.com/index.php/JRMC/article/view/2553",
+        "Preserving Hepatic Glycogen Stores: Investigating the Therapeutic Influence of Vitamin E in Alcoholic Liver Injury-Induced Intracellular Carbohydrate Depletion. https://apmcfmu.com/index.php/apmc/article/view/1594",
+        "Morphometrical Analysis of Diaphyseal Nutrient Foramina of Adult Human Dry Fibulae. https://medicalforummonthly.com/index.php/mfm/article/view/589",
+        "Exploring protective potential of Vitamin E in mitigating liver steatosis in alcoholic liver injury. https://www.theprofesional.com/index.php/tpmj/article/view/8163",
+        "Pirfenidone Confines Glial Scar and Improves Functional Recovery after Compression Spinal Cord Injury. https://tobreg.org/index.php/journal/article/view/1155",
+        "Hepatocytes Protection by Vitamin E in Alcoholic Liver Injury: A Light Microscopic Study. https://pjmhsonline.com/published-issues/2021/october/102869",
+        "FROM DIAGNOSIS TO TREATMENT THE PROGRESSION OF ACUTE KIDNEY INJURY MANAGEMENT IN INTENSIVE CARE UNITS. https://www.afjbs.com/uploads/paper/ef3a9801f9b24a40039bb4fb2a752180.pdf",
+        "Counter effects of Vitamin E against Outcomes of Alcohol Toxicity in Pancreatic Acini: Histomorphometric Study. https://pjmhsonline.com/published-issues/2021/november/112974",
+        "Modified Postoperative Strategy for Substantiation of Fibrotic Glial Scar Formation after Aneurysm Clip Compression Spinal Cord Injury in Rats. https://www.xisdxjxsu.asia/viewarticle.php?aid=2231",
+        "Collagen Deposition Reduction by Vitamin E in Alcoholic Liver Injury. https://pjmhsonline.com/index.php/pjmhs/article/view/223",
+        "Hypogonadism in Benign Prostate Hyperplasia: A Cross Sectional Study. https://www.thejas.com.pk/index.php/pjhs/article/view/66",
+        "Developing Sciatic nerve compression model in rats using aneurysm clip and validating it by histological and behavior studies. https://www.jptcp.com/index.php/jptcp/article/view/2767",
+        "Frequency and Patterns of Congenital Talipes Equinovarus (Clubfoot) Deformity in Children. https://apmcfmu.com/index.php/apmc/article/view/1313",
+        "Ethnicity Based Anatomical Variations in Malleus on Computerized Tomographic Scan. https://www.ajsmu.com/index.php/AJSMU/article/view/293",
+        "Neuro-inflammation and Its Impact on Neurodegenerative Diseases: A Systematic Review. https://jmhsr.com/index.php/jmhsr/article/view/299",
+        "Estimation of the frequency of second mesiobuccal root canal in maxillary first permanent molar teeth in subjects visiting teaching dental hospitals of Peshawar. https://theprofesional.com/index.php/tpmj/article/view/4439",
+        "Effectiveness of preemptive regime; buprenorphine or tramadol with lidocaine and isoflurane on smooth post-operative recovery in novel uterine surgical model. https://sciencescholar.us/journal/index.php/ijhs/article/view/13787",
+        "Epidemiological Trends in Cleft Lip and Cleft Palate Frequency: An Analytical Perspective. https://apmcfmu.com/index.php/apmc/article/view/1371",
+        "HISTOMORPHOMETRIC STUDY REVEALING THE PROTECTIVE ROLE OF VITAMINS C IN DOXORUBICIN INDUCED TOXICITY IN RAT TESTES. https://kjms.com.pk/old/content/histomorphometric-study-revealing-protective-role-vitamins-c-doxorubicin-induced-toxicity",
+        "The Preventive Role of Vitamin E Against Imatinib Induced Toxicity on Liver of Albino Rats: A Histomorphometric Study. https://medicalforummonthly.com/index.php/mfm/article/view/3785",
+        "ASSESSING STROKE PATIENTS' TREATMENT AND PROGNOSIS TO ENHANCE THERAPEUTIC STRATEGIES. https://ijpihs.pk/index.php/IJPIHS/article/view/99",
+        "Influence of Fasting on Emergency Visits to A Tertiary Care Hospital by Fasting Diabetic Patients in Ramadan. https://jhrlmc.com/index.php/home/article/view/920",
+        "ATTENUATION OF CISPLATIN ASSOCIATED TESTICULAR TOXICITY BY 6-HYDROXYFLAVONE. https://journalofkcd.com/kcd/article/view/373",
+        "Protective Role of Vitamins E in Doxorubicin Induced Toxicity in Rat Testes: A Histomorphometric Study. https://kjms.com.pk/old/sites/default/files/KJMS-20%20%281%29.pdf",
+        "Oral administration of apigenin 7-O-β-D glucoside reverses hyperlipidemia and associated vascular dysfunction in rats. https://www.xisdxjxsu.asia/viewarticle.php?aid=2357",
+        "Calibrated behaviors assessment in spinal cord compression injury model in rats. https://sciencescholar.us/journal/index.php/ijhs/article/view/14079",
+        "Genetic Predisposition to Kidney Diseases Uncovering the Role of Genomics in Nephrology. https://jnmc.com.pk/index.php/website/article/view/28",
+        "AI-Driven Diagnostic Tools for Cardiovascular Risk Assessment: Opportunities and Challenges. https://www.seejph.com/index.php/seejph/article/view/5896",
+        "Insomnia and Neuroticism in Pakistani Medical Students: ACross-Sectional Study (https://www.mdpi.com/2227-9032/13/21/2778)6"
+      ]
+    },
+    "ambereen-humayun": {
+      "slug": "ambereen-humayun",
+      "aliases": [
+        "ambereen-humayun",
+        "ambereen",
+        "amber-humayun"
+      ],
+      "name": "Ambereen Humayun",
+      "department": "Anatomy",
+      "designation": "Associate Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "BDS",
+        "MPhil"
+      ],
+      "experience": [
+        "Associate Professor, 1st OCT 2025…till date",
+        "Assistant Professor, 20th dec,2020 to 30th Sept 2025",
+        "Lecturer, 01.11.2012 to 20.12.2020"
+      ],
+      "skills": [],
+      "publications": [
+        "Protective role of vitamin E in doxorubicin induced toxicity in rat testes’’ (A Histomorphometric Study). Farooq Khan, Nighat Ara, Shamila Hafizi, Nomanullah Wazir, Fahadullah and Ambereen Humayun",
+        "Frequency of Palatogingival Groove in maxillary incisors”. Aamir Mehmood Khan, Shahzad Ali, Fayyaz Alam, Asmat Ullah, Ambereen Humayun, Sundas Nisar.",
+        "The preventive role of vitamin E against Imatinib-Induced toxicity on liver of albino rats’’ (A Histomorphometric Study). Nighat Ara, Farooq Khan, Noman Ullah Wazir, Fahad Ullah, Ambereen Humayun, Riffat Shameem",
+        "Clinicopathological Analysis of Pre-Operative Diagnosis and Histopathological diagnosis in Hysterectomy Specimens in Females Undergoing Abdominal Hysterectomy- A three years’ experience. Shahnaz Parveen, Sadia Zahid, Naila Nasr Malik, Rukhsana Karim, Syeda Asma Safdar, Ambereen Humayun.",
+        "Histomorphometric study revealing protective role of vitamin C in doxorubicin induced toxicity in rat testes’’. Farooq Khan, Nighat Ara, Shahabuddin, Noman Ullah, Ahmad Nabi, Ambereen Humayun",
+        "Estimation of the frequency of 2nd mesiobuccal root canal in maxillary first permanent molar teeth in subjects visiting teaching dental hospitals of peshawar. Ambereen Humayun, Munawar Aziz Khattak, Aamir Mehmood Khan, Nighat Ara, Farooq Khan, Noman Ullah Wazir",
+        "Counter effects of Vitamin E against outcomes of Alcohol toxicity in Pancreatic acini: Histpmorphometric study. Noman Ullah Wazir, Jehanzeb Khan, Zilli Huma, Farooq Khan, Nighat Ara, Ambereen Humayun",
+        "Collagen deposition Reduction by vitamin E in alcoholic liver injury. Noman Ullah Wazir, Farooq Khan, Nighat Ara, Ambereen Humayun, Nadeem Ullah Wazir, Saima Mumtaz",
+        "Association Between Kinematic Center And Anatomy, The Function Of Temporomandibular Joint. Zahid Sarfaraz, Syeda Gulrukh saba, Ambereen Humayun, Zakirullah Khan, Waqas Ali, Maira Iqbal.",
+        "Assessment of root anatomy and variations of third mandibular molars in the population of Peshawar using CBCT. Asma Amir, Imran Qureshi, Ambereen Humayun, Farooq Khan, Imran Khattak, Yusra Jamil Khattak.",
+        "Evaluation of the Occlusal Contact Between the Opposing Teeth & the Cusp of Carabelli in Maxillary Permanent First Molars in Patients visiting Peshawar Dental College.”. Sana Arbab, Munawwar Aziz Khattak, Imran Khattak, Yusra Jamil, Faiza Ijaz, Ambereen Humayun.",
+        "Enucleation with or without Adjuvant Therapy versus Marsupialization with or without Secondary Enucleation in the treatment of Keratocystic Odontogenic Tumors. Ambereen Humayun, Sobia Tariq, Mohammad Umar, Noor-ul- Wahab, Atif Iqbal Butt, Sufyan Ammar.",
+        "Influence of Vitamin E on Pancreatic Acinar Cell Morphology and Serum Amylase Concentrations in Alcohol-Induced Pancreatic Toxicity.”. Noman Ullah Wazir, Farzana Salman, Shamaila Wadud, Ambereen Humayun, Asma Amir, Momina Haq",
+        "Pirfenidone: An Encouraging Therapeutic Approach for Enhancing Lateral Spinothalamic Tract Function After Spinal Cord Compression Injury. Noman Ullah Wazir1, Ambereen Humayun2, Irum Javaid3, Asma Amir4, Nayyab Khattak5, Ayesha Iftikhar6."
+      ]
+    },
+    "mariya-azam-khattak": {
+      "slug": "mariya-azam-khattak",
+      "aliases": [
+        "mariya-azam-khattak",
+        "mariya-khattak",
+        "maria-azam-khattak"
+      ],
+      "name": "Mariya Azam Khattak",
+      "department": "Anatomy",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "BDS",
+        "MPhil Anatomy",
+        "CHPE"
+      ],
+      "experience": [
+        "Lecturer, From 2020 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "Omicron: A New Rise to Epidemic in Journal of Pharmaceutical Research International 2022",
+        "Anatomical Variations of Rhinogenic Headache and Its Relation with Sinusitis: A Computerized Tomography (CT) Scan Study in Pakistan journal of Medicine and Dentistry (PJMD) 2022, Vol. 11(03)",
+        "Relationship of Brodsky tonsillar grading in adults with age, gender, body mass index and neck circumference, in Annals of Jinnah Sindh Medical University 2022, Vol. 8 (1)",
+        "Anatomy and Physiology of Right Heart Adaptation to Pulmonary Arterial Hypertension along with treatment, in Pakistan Journal of Medical and Health Sciences, 2022",
+        "Morphological Variations in Malleus among the Male and Female, in Journal of Pakistan Medical Association(JPMA), 2023",
+        "Usage of Epworth Sleepiness Scale, Modified Mallampati Scoring and Brodsky Grading in Adults with Hypertrophic Palatine tonsils, in Journal of Aziz Fatimah Medical & Dental College, 2023",
+        "Morphological assessment of oral exfoliated cells in oral submucous fibrosis and healthy individuals in Rawal Medical Journal, 2023",
+        "Association of Body mass Index with Neck circumference & snoring in Adult patients with hypertrophic Tonsils, in Annals of Punjab Medical College, 2024",
+        "Pirfenidone’s Potential for motor recovery following spinal cord compression injury in Annals of Punjab Medical College, 2024",
+        "Ethnicity based anatomical variations in Malleus on Computerized Tomographic Scan in Annals of Jinnah Sindh Medical University, 2024"
+      ]
     }
   },
   "index": {
@@ -1610,6 +1918,27 @@
     "rabiya": "rabiya",
     "ameer-hamza": "ameer-hamza",
     "kifayat-ali": "kifayat-ali",
-    "sana": "sana"
+    "sana": "sana",
+    "jehanzeb-khan": "jehanzeb-khan",
+    "jehanzeb": "jehanzeb-khan",
+    "khan-jehanzeb": "jehanzeb-khan",
+    "muhammad-saeed": "muhammad-saeed",
+    "m-saeed": "muhammad-saeed",
+    "saeed-muhammad": "muhammad-saeed",
+    "muhammad-imran-qureshi": "muhammad-imran-qureshi",
+    "imran-qureshi": "muhammad-imran-qureshi",
+    "m-imran-qureshi": "muhammad-imran-qureshi",
+    "ihsan-ullah-wazir": "ihsan-ullah-wazir",
+    "ihsanullah-wazir": "ihsan-ullah-wazir",
+    "ihsan-wazir": "ihsan-ullah-wazir",
+    "noman-ullah-wazir": "noman-ullah-wazir",
+    "nomanullah-wazir": "noman-ullah-wazir",
+    "noman-wazir": "noman-ullah-wazir",
+    "ambereen-humayun": "ambereen-humayun",
+    "ambereen": "ambereen-humayun",
+    "amber-humayun": "ambereen-humayun",
+    "mariya-azam-khattak": "mariya-azam-khattak",
+    "mariya-khattak": "mariya-azam-khattak",
+    "maria-azam-khattak": "mariya-azam-khattak"
   }
 }

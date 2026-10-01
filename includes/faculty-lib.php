@@ -29,6 +29,34 @@ if (!function_exists('str_contains')) {
   }
 }
 
+function faculty_is_directory_rank(?string $designation): bool {
+  $d = strtolower(trim((string) $designation));
+  $d = str_replace('&', ' and ', $d);
+  $d = trim(preg_replace('/[^a-z0-9]+/', ' ', $d) ?? '');
+  if ($d === '') {
+    return false;
+  }
+  if (preg_match('/\bsenior lecturer\b/', $d)) {
+    return false;
+  }
+  if (preg_match('/\blecturer\b/', $d) && !preg_match('/\bsenior registrar\b/', $d)) {
+    return false;
+  }
+  if (preg_match('/\bregistrar\b/', $d) && !preg_match('/\bsenior registrar\b/', $d)) {
+    return false;
+  }
+  if (preg_match('/\bsenior registrar\b/', $d) || preg_match('/(^| )sr( |$)/', $d)) {
+    return true;
+  }
+  if (preg_match('/\bassociate professor\b/', $d) || preg_match('/\bassoc prof\b/', $d)) {
+    return true;
+  }
+  if (preg_match('/\bassistant professor\b/', $d) || preg_match('/\basst prof\b/', $d) || preg_match('/\bassist prof\b/', $d)) {
+    return true;
+  }
+  return (bool) preg_match('/\bprofessor\b/', $d) || (bool) preg_match('/(^| )prof( |$)/', $d);
+}
+
 function faculty_slug(string $name): string {
   $n = trim($name);
   $titles = '/^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i';
@@ -79,6 +107,17 @@ function faculty_profiles_pack(): array {
   $pack = is_array($decoded) ? $decoded : ['profiles' => [], 'index' => [], 'source' => ''];
   $pack['profiles'] = $pack['profiles'] ?? [];
   $pack['index'] = $pack['index'] ?? [];
+  foreach ($pack['profiles'] as $slug => $rec) {
+    if (!is_array($rec) || faculty_is_directory_rank((string) ($rec['designation'] ?? ''))) {
+      continue;
+    }
+    unset($pack['profiles'][$slug]);
+    foreach (array_keys($pack['index']) as $alias) {
+      if (($pack['index'][$alias] ?? '') === $slug) {
+        unset($pack['index'][$alias]);
+      }
+    }
+  }
   return $pack;
 }
 
@@ -121,6 +160,9 @@ function faculty_profile_has_cv(?array $rec): bool {
 function faculty_profile_lookup_cv(string $nameOrSlug): ?array {
   try {
     $rec = faculty_profile_lookup(faculty_slug($nameOrSlug));
+    if (!faculty_is_directory_rank((string) ($rec['designation'] ?? ''))) {
+      return null;
+    }
     return faculty_profile_has_cv($rec) ? $rec : null;
   } catch (Throwable $e) {
     return null;
