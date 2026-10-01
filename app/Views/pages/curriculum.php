@@ -47,7 +47,7 @@
 
         </div>
       </div><!-- Sidebar -->
-      <?php include('includes/sidebar.php'); ?>
+      <?= $this->include('partials/sidebar') ?>
     </div>
   </div>
 </section>

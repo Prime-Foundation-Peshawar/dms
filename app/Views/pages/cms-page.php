@@ -22,7 +22,7 @@
         </div>
       </div>
       <?php if ($showSidebar): ?>
-        <?php include __DIR__ . '/includes/sidebar.php'; ?>
+        <?= $this->include('partials/sidebar') ?>
       <?php endif; ?>
     </div>
   </div>

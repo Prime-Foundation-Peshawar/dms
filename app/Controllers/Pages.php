@@ -31,8 +31,12 @@ class Pages extends PublicController
             return $this->redirectLegacy('portal-login', 301);
         }
 
-        // CMS override for editable slugs (non-reserved).
-        if (! $this->isReserved($slug)) {
+        // Built-in static views win over CMS so ported pages never 500 on a missing sidebar include.
+        $view = 'pages/' . $slug;
+        $hasStatic = is_file(APPPATH . 'Views/' . $view . '.php');
+
+        // CMS override only for slugs that are not reserved and have no static view.
+        if (! $hasStatic && ! $this->isReserved($slug)) {
             require_once ROOTPATH . 'legacy/includes/cms-content.php';
             $cmsPage = dms_cms_page_by_slug($slug);
             if (is_array($cmsPage)) {
@@ -40,8 +44,7 @@ class Pages extends PublicController
             }
         }
 
-        $view = 'pages/' . $slug;
-        if (! is_file(APPPATH . 'Views/' . $view . '.php')) {
+        if (! $hasStatic) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound($slug);
         }
 

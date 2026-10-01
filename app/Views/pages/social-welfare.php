@@ -57,7 +57,7 @@
               class="bi bi-arrow-up-right-square"></i> Visit Official SWS Page</a>
         </div>
       </div>
-      <?php include('includes/sidebar.php'); ?>
+      <?= $this->include('partials/sidebar') ?>
     </div>
   </div>
 </section>
