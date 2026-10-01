@@ -964,25 +964,33 @@ $academic_departments = [
     'icon' => 'bi-droplet-half',
     'group' => 'Clinical',
     'intro' => [
-      'The Department of Dermatology covers common skin diseases, clinical diagnosis, and outpatient-based teaching.',
-      'Students learn pattern recognition and management approaches for frequently encountered dermatological conditions.',
+      'Comprehensive Dermatology Outpatient (OPD) Services',
+      'Dermatological Procedures and Minor Skin Surgery',
+      'Skin Biopsy and Histopathological Examination',
+      'Electrocautery',
+      'Intralesional Therapy',
     ],
     'hod' => 'Professor Dr. Miraj Muhammad Khan',
     'faculty' => [
       [
         'name' => 'Professor Dr. Miraj Muhammad Khan',
-        'qualification' => 'MBBS, Diploma in Dermatology, FVMA',
+        'qualification' => 'MBBS, Diploma in Dermatological Sciences, FACHARTZ',
         'reg' => '1921-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Hafsa Usman',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE',
         'reg' => '18690-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Farah Sagheer',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHR, DHPE',
         'reg' => '20164-N',
+      ],
+      [
+        'name' => 'Senior Registrar Dr. Nargis Jabeen',
+        'qualification' => 'FCPS (Dermatology)',
+        'reg' => '',
       ],
     ],
     'activities' => [

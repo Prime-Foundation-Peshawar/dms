@@ -312,8 +312,11 @@ function faculty_normalize_designation(string $raw): string {
   $d = preg_replace('/\bhod\b/i', '', $d) ?? $d;
   $d = faculty_soft_space($d);
   $d = trim($d, " ,&");
-  if (preg_match('/^assit\.?\s*prof\.?$/i', $d) || preg_match('/^asst\.?\s*prof\.?$/i', $d)) {
+  if (preg_match('/^assit\.?\s*prof\.?$/i', $d) || preg_match('/^asst\.?\s*prof\.?$/i', $d) || preg_match('/^assistant\s*prof\.?$/i', $d)) {
     return 'Assistant Professor';
+  }
+  if (preg_match('/^prof(?:essor)?(?:\s+of)?\s+dermatology$/i', $d)) {
+    return 'Professor';
   }
   if ($d === '' || strcasecmp($d, 'hod') === 0 || strcasecmp($d, 'head of department') === 0) {
     return '';
@@ -379,7 +382,7 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bMBBS\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bBDS\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bMD\b(?:\s*\([^)]{0,40}\))?/i',
-    '/\bFCPS(?:-I|-l)?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Hematology|Haematology|Pathology|Psychiatry|Pediatrics|Paediatrics|Surgery and Allied|Anesthesiology|Anaesthesia|Anesthesia|Cardiology|Interventional Cardiology))?/i',
+    '/\bFCPS(?:-I|-l)?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Hematology|Haematology|Pathology|Psychiatry|Pediatrics|Paediatrics|Surgery and Allied|Anesthesiology|Anaesthesia|Anesthesia|Cardiology|Interventional Cardiology|Dermatology))?/i',
     '/\bMCPS(?:\s*\([^)]{0,50}\)|\s+(?:Anesthesiology|Anaesthesia|Anesthesia))?/i',
     '/\bMS(?:\s*[-–]\s*Mental Health Policy(?:\s+&\s+Services)?)?\b/i',
     '/\bIMM(?:\s*\/\s*MCPS|\s*\([^)]{0,50}\))?/i',
@@ -398,6 +401,7 @@ function faculty_normalize_qualifications(array $items): array {
     '/\b(?:Master of Public Health|MPH)\b(?:\s*\([^)]{0,50}\))?/i',
     '/\bCHPE\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bCHR\b/i',
+    '/\bDHPE\b/i',
     '/\bMHPE\b/i',
     '/\bPGD\b(?:\s*\([^)]{0,40}\)|\s+in\s+[^,.(]{8,60})?/i',
     '/\bPGT(?:\s+Pharmacy)?\b/i',
@@ -410,7 +414,10 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bAdvanced Diploma in Health Professions Education(?:\s*\([^)]{0,40}\))?/i',
     '/\bDiploma in Community Eye Health(?:\s*\([^)]{0,120}\))?/i',
     '/\bAttended a course of Executive MBA(?:\s*\([^)]{0,80}\))?/i',
-    '/\bDiploma in (?:Anaesthesia|Anesthesia|Gynae and Obs)\b/i',
+    '/\bDiploma in (?:Anaesthesia|Anesthesia|Gynae and Obs|Tuberculosis and Chest Diseases|Dermatological Sciences|Dermatology and Venereology|Aesthetic [Mm]edicine)\b/i',
+    '/\bFACHARTZ(?:\s*\/\s*Academy Fellowship(?:\s*\([^)]{0,40}\))?)?/i',
+    '/\bAmerican Board of Aesthetic Medicine and Surgery(?:\s*\([^)]{0,40}\))?/i',
+    '/\bUAE Qualified MOH\b/i',
     '/\bDA\b/',
     '/\bDip(?:loma)?(?:\s+in)?\s+CBT\b/i',
   ];

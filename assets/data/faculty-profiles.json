@@ -2114,7 +2114,7 @@
       ],
       "name": "Farah Sagheer",
       "department": "Dermatology",
-      "designation": "Assistant Prof",
+      "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
@@ -2127,7 +2127,12 @@
         "Dr. Farah is a qualified Dermatologist with extensive experience in clinical dermatology, postgraduate medical education, and academic administration. She has been actively involved in teaching and training postgraduate medical trainees and has contributed to academic development, curriculum planning & monitoring and evaluation."
       ],
       "skills": [
-        "Comprehensive clinical diagnosis and management of dermatological disorders Dermatological procedures, including skin biopsy, cryotherapy, electrocautery, and intralesional therapy Clinical skills training and BLS instruction as an AHA-certified BLS Instructor Medical education and postgraduate training Monitoring and evaluation of academic and training programmes Research, academic writing, and evidence-based practice"
+        "Comprehensive clinical diagnosis and management of dermatological disorders",
+        "Dermatological procedures, including skin biopsy, cryotherapy, electrocautery, and intralesional therapy",
+        "Clinical skills training and BLS instruction as an AHA-certified BLS Instructor",
+        "Medical education and postgraduate training",
+        "Monitoring and evaluation of academic and training programmes",
+        "Research, academic writing, and evidence-based practice"
       ],
       "publications": [
         "Dr. Farah Sagheer has contributed to 15 peer-reviewed publications in national and international medical and dermatology journals. Her research work includes multiple randomized controlled trials and clinical studies focusing on psoriasis, acne, cutaneous leishmaniasis, pityriasis versicolor, anogenital warts, chronic actinic dermatitis, molluscum contagiosum, keloids, alopecia areata, pemphigus, and other dermatological conditions. Her publications reflect a strong commitment to evidence-based dermatological practice and clinical research."
@@ -2140,7 +2145,7 @@
       ],
       "name": "Hafsa Usman",
       "department": "Dermatology",
-      "designation": "Assistant Prof",
+      "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
@@ -2155,23 +2160,33 @@
     "miraj-muhammad-khan": {
       "slug": "miraj-muhammad-khan",
       "aliases": [
-        "miraj-muhammad-khan"
+        "miraj-muhammad-khan",
+        "miraj-mohammad-khan",
+        "mairaj-muhammad-khan",
+        "mairaj-mohammad-khan"
       ],
       "name": "Miraj Muhammad Khan",
       "department": "Dermatology",
-      "designation": "Prof of Dermatology",
-      "hod": false,
+      "designation": "Professor",
+      "hod": true,
       "photo": "assets/images/faculty/miraj-muhammad-khan.jpeg",
       "qualifications": [
-        "MBBS (with distinction in general medicine), Peshawar, Pakistan1978 UK1982 Diploma in Tuberculosis and Chest Diseases UK1983 Diploma in Dermatological Sciences Austria1990 Diploma in Dermatology and Venereology Austria1990 FACHARTZ/ Academy Fellowship (Dermatology) UAE Qualified MOH"
+        "MBBS (with distinction in general medicine), Peshawar, Pakistan1978",
+        "Diploma in Tuberculosis and Chest Diseases",
+        "Diploma in Dermatological Sciences",
+        "Diploma in Dermatology and Venereology",
+        "FACHARTZ/ Academy Fellowship (Dermatology)",
+        "UAE Qualified MOH"
       ],
-      "experience": [
-        "Khyber girls Medical College, Hayatabad2008 to 2013 Professor of Dermatology Hayatabad Medical Complex, Peshawar2008 to2013 Visiting Consultant dermatologist/ Head Dermatology Unit Postgraduate Medical Institute, Hayatabad Medical Complex, Peshawar2006 to 2008 Associate Professor& Head of the Dermatology Unit Postgraduate Medical Institute, Lady Reading Hospital, Peshawar1993 to 2006 Assistant Professor& Head of the Department of Dermatology Riyadh Care Hospital, Saudi Arabia2004 to 2005 Consultant Dermatologist (On Deputation)",
-        "Khyber Teaching Hospital, Peshawar1986 to 1993 Senior Registrar, Dermatology Department Postgraduate Medical Institute, Lady Reading Hospital, Peshawar1983 to 1986 Medical Officer in Dermatology Unit House Job Experience: a. Six months in General Medicine in Lady Reading Hospital Peshawar Pakistan. b. Six months in General Surgery in Lady Reading Hospital Peshawar Pakistan. c. Six months in Radiology in Lady Reading Hospital Peshawar Pakistan."
-      ],
+      "experience": [],
       "skills": [],
       "publications": [
-        "\"Single Dose Fluconazole in the treatment of PITYRIASIS VERSICOLOR.\" Journal of Pakistan Association of Dermatologist 17: 28-31. Volume 17 No:1 , January- March 2007 \"Compasrion of two dosage regime of Ketoconazole in the treatment of PITYRIASIS VERSICOLOR.\" Journal of Postgraduate Medical Institute; Vol. 20 No.3., July- September 2006 \"HIV/ AIDS; experience at two tertiary care hospitals of Peshawar Professional Med J.\" 13(4):627-31. Khyber Teaching Hospital and Postgraduate Medical Institute Hayatabad Medical Complex. December 2006 \"Open Label Study of Intracavernous Injection of Alpostadil Alphadex in the Treatment of Erectile Dysfunction.\" Vol. 19 No.1:52-57 . Journal of Postgraduate Medical Institute, 2005 Cutaneous manifestations of chronic liver disease, journal of Pakistan association of dermatologists, 2005.15.233-237 Intralesional chloroquin in cutaneous leshmaniasis volume 15,number 1,jan-march,2005.journal of pakistan association of dermatologists"
+        "\"Single Dose Fluconazole in the treatment of PITYRIASIS VERSICOLOR.\" Journal of Pakistan Association of Dermatologist 17: 28-31. Volume 17 No:1 , January- March 2007",
+        "\"Compasrion of two dosage regime of Ketoconazole in the treatment of PITYRIASIS VERSICOLOR.\" Journal of Postgraduate Medical Institute; Vol. 20 No.3., July- September 2006",
+        "\"HIV/ AIDS; experience at two tertiary care hospitals of Peshawar Professional Med J.\" 13(4):627-31. Khyber Teaching Hospital and Postgraduate Medical Institute Hayatabad Medical Complex. December 2006",
+        "\"Open Label Study of Intracavernous Injection of Alpostadil Alphadex in the Treatment of Erectile Dysfunction.\" Vol. 19 No.1:52-57 . Journal of Postgraduate Medical Institute, 2005",
+        "Cutaneous manifestations of chronic liver disease, journal of Pakistan association of dermatologists, 2005.15.233-237",
+        "Intralesional chloroquin in cutaneous leshmaniasis volume 15,number 1,jan-march,2005.journal of pakistan association of dermatologists"
       ]
     },
     "nargis-jabeen": {
@@ -2185,17 +2200,27 @@
       "hod": false,
       "photo": "",
       "qualifications": [
-        "FCPS Dermatology Diploma in Aesthetic medicine",
+        "FCPS Dermatology",
+        "Diploma in Aesthetic medicine",
         "American Board of Aesthetic Medicine and Surgery (ABAMS USA)"
       ],
       "experience": [
-        "Junior Registrar Mercy Teaching Hospital(Nov 2025 till Jan 2026) Senior Registrar Mercy Teaching Hospital (Jan 2026 till date)FCPS residency from Hayatabad Medical Complex Peshawar"
+        "Senior Registrar Mercy Teaching Hospital (Jan 2026 till date)"
       ],
       "skills": [
-        "Diagnosis and management of dermatological disordersDermatologic procedures (skin biopsy, electrocautery, cryotherapy, intralesional injections)Management of dermatologic emergenciesLaser and aesthetic dermatology (laser procedures, chemical peels, hydrafacial, PRP, microneedling, mesotherapy)Patient counseling and follow-upTeaching Dermatology to junior doctorsClinical research and medical writingGood communication and teamworkDocumentation and record keeping"
+        "Diagnosis and management of dermatological disorders",
+        "Dermatologic procedures (skin biopsy, electrocautery, cryotherapy, intralesional injections)",
+        "Management of dermatologic emergencies",
+        "Laser and aesthetic dermatology (laser procedures, chemical peels, hydrafacial, PRP, microneedling, mesotherapy)",
+        "Patient counseling and follow-up",
+        "Teaching Dermatology to junior doctors",
+        "Clinical research and medical writing",
+        "Good communication and teamwork",
+        "Documentation and record keeping"
       ],
       "publications": [
-        "Efficacy of oral Terbinafine with meglumine antimoniate / Glucantime I/L vs Glucantime I/L alone in treatment of cutaneous leishmaniasis ( Journal of Neonatal Surgery/ Year 2025/ volume 14/ issue 32s)Comparison of Efficacy of microneedling plus Platelet rich plasma and Fractional CO2 LASER plus platelet rich plasma in the treatment of post۔acne scars ( European Journal of Clinical Pharmacy/ Year 2025/ Volume 7/ Issue 1)"
+        "Efficacy of oral Terbinafine with meglumine antimoniate / Glucantime I/L vs Glucantime I/L alone in treatment of cutaneous leishmaniasis ( Journal of Neonatal Surgery/ Year 2025/ volume 14/ issue 32s)",
+        "Comparison of Efficacy of microneedling plus Platelet rich plasma and Fractional CO2 LASER plus platelet rich plasma in the treatment of post۔acne scars ( European Journal of Clinical Pharmacy/ Year 2025/ Volume 7/ Issue 1)"
       ]
     },
     "humaira-khattak": {
@@ -3875,6 +3900,9 @@
     "najeeb-ul-haq": "najib-ul-haq",
     "najeebul-haq": "najib-ul-haq",
     "najibulhaq": "najib-ul-haq",
-    "farhat-malik": "farhat-r-malik"
+    "farhat-malik": "farhat-r-malik",
+    "miraj-mohammad-khan": "miraj-muhammad-khan",
+    "mairaj-muhammad-khan": "miraj-muhammad-khan",
+    "mairaj-mohammad-khan": "miraj-muhammad-khan"
   }
 }
