@@ -193,32 +193,32 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Mohsina Haq',
-        'qualification' => 'MBBS, M.Phil (Microbiology), PhD',
+        'qualification' => 'MBBS, M.Phil (Microbiology), PhD (Microbiology), CHPE',
         'reg' => '17218-N',
       ],
       [
         'name' => 'Professor Dr. Ambreen Gul',
-        'qualification' => 'MBBS, M.Phil (Chemical Pathology)',
+        'qualification' => 'MBBS, M.Phil (Chemical Pathology), CHPE',
         'reg' => '11850-N',
       ],
       [
         'name' => 'Professor Dr. Mian Ihsanullah',
-        'qualification' => 'MBBS, M.Phil (Chemical Pathology), DCP',
+        'qualification' => 'MBBS, DCP, M.Phil (Chemical Pathology)',
         'reg' => '475-N',
       ],
       [
         'name' => 'Professor Dr. Ashraf Khan',
-        'qualification' => 'MBBS, M.Phil (Haematology)',
+        'qualification' => 'MBBS, DCH, DCP, M.Phil (Hematology)',
         'reg' => '2445-N',
       ],
       [
         'name' => 'Professor Dr. Sadaf Alam',
-        'qualification' => 'MBBS, M.Phil, FCPS (Histopathology)',
+        'qualification' => 'MBBS, M.Phil Histopathology, FCPS Histopathology',
         'reg' => '12281-N',
       ],
       [
         'name' => 'Professor Dr. Sardar Muhammad',
-        'qualification' => 'MBBS, M.Phil (Microbiology)',
+        'qualification' => 'MBBS, DOMS, M.Phil Microbiology',
         'reg' => '',
       ],
       [
@@ -228,12 +228,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Sumira Abbas',
-        'qualification' => 'MBBS, M.Phil (Haematology)',
+        'qualification' => 'MBBS, FCPS (Hematology), CHPE, CHR',
         'reg' => '21012-N',
       ],
       [
-        'name' => 'Assistant Professor Dr. Sara Yousaf',
-        'qualification' => 'MBBS, M.Phil (Histopathology)',
+        'name' => 'Assistant Professor Dr. Sarah Yousuf',
+        'qualification' => 'MBBS, FCPS (Histopathology), M.Phil (Histopathology)',
         'reg' => '80451-N',
       ],
       [
@@ -243,7 +243,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Haseeba Arif',
-        'qualification' => 'BDS, M.Phil (Microbiology)',
+        'qualification' => 'BDS, CHPE, CHR, M.Phil (Microbiology)',
         'reg' => '18937-D',
       ],
     ],
