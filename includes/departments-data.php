@@ -331,17 +331,17 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Rubina Salma Yasmin',
-        'qualification' => 'MBBS, MCPS, M.Phil',
+        'qualification' => 'MBBS, MCPS, M.Phil, CHPE, PGD',
         'reg' => '814-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Muhammad Bilal Khan',
-        'qualification' => 'MBBS, DMJ',
+        'qualification' => 'MBBS, DMJ, CHPE, PGD',
         'reg' => '28264-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Muhammad Wasif',
-        'qualification' => 'MBBS, M.Phil',
+        'qualification' => 'MBBS, M.Phil (FMT), MSHCM, CHPE, CHR',
         'reg' => '30470-N',
       ],
     ],
