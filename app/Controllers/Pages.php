@@ -235,12 +235,27 @@ class Pages extends PublicController
             }
         }
 
+        usort($flatPublications, static function (array $a, array $b): int {
+            if ((int) $a['year'] !== (int) $b['year']) {
+                return (int) $b['year'] - (int) $a['year'];
+            }
+
+            return strcmp((string) $a['department'], (string) $b['department']);
+        });
+
+        $departments = array_keys($publicationsByDept);
+        sort($departments);
+        $years = array_values(array_unique(array_map(static fn (array $p) => $p['year'], $flatPublications)));
+        rsort($years);
+
         return [
             'debug_mode' => $debugMode,
             'debug_info' => $debugInfo,
             'fetch_error' => $fetchError,
             'publications_by_dept' => $publicationsByDept,
             'flat_publications' => $flatPublications,
+            'departments' => $departments,
+            'years' => $years,
             'page_title' => 'Faculty Research — Department of Medical Sciences - Riphah International University (Peshawar Campus)',
             'page_description' => 'Explore the extensive research publications by faculty members of the Department of Medical Sciences, covering medicine, surgery, basic sciences, dentistry, and allied health disciplines.',
         ];
