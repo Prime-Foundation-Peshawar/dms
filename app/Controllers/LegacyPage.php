@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+/** @deprecated Public routes use Controllers + Views. Kept for reference only. */
+
 /**
  * Serve unported public pages from /legacy while CI4 owns routing.
  */
@@ -169,3 +171,4 @@ class LegacyPage extends BaseController
         );
     }
 }
+

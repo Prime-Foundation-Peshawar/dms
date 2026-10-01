@@ -4,8 +4,8 @@ use CodeIgniter\Router\RouteCollection;
 
 /** @var RouteCollection $routes */
 
-// Public home via legacy until fully ported
-$routes->get('/', 'LegacyPage::show/index');
+// Public home (CI4 Controllers + Views)
+$routes->get('/', 'Home::index');
 
 // ACP auth
 $routes->get('acp/login', 'Acp\Auth::login');
@@ -82,6 +82,32 @@ $routes->group('acp', ['filter' => 'acpauth'], static function ($routes) {
     $routes->get('modules/(:segment)', 'Acp\Modules::show/$1');
 });
 
-// Legacy public pages (extensionless)
-$routes->get('(:segment)', 'LegacyPage::show/$1');
-$routes->post('(:segment)', 'LegacyPage::show/$1');
+// Public module routes (CI4 Controllers + Views)
+$routes->get('all-news', 'News::index');
+$routes->get('single-news', 'News::single');
+$routes->get('events', 'Events::index');
+$routes->get('event-single', 'Events::single');
+$routes->get('departments', 'Departments::index');
+$routes->get('department', 'Departments::show');
+$routes->get('department-activity', 'Departments::activity');
+$routes->get('faculty', 'Faculty::index');
+$routes->get('faculty-all', 'Faculty::all');
+$routes->get('faculty-profile', 'Faculty::profile');
+$routes->get('faculty-research', 'Faculty::research');
+$routes->get('faculty-profiles-api', 'Faculty::profilesApi');
+$routes->get('faculty-proxy', 'Faculty::proxy');
+$routes->get('faculty_api', 'Faculty::apiPage');
+$routes->get('faculty-update', 'FacultyUpdate::index');
+$routes->post('faculty-update-submit', 'FacultyUpdate::submit');
+$routes->get('gallery', 'Media::gallery');
+$routes->get('vacant-seats', 'Media::vacantSeats');
+$routes->get('newsletter', 'Media::newsletter');
+$routes->get('robots', 'Site::robots');
+$routes->get('robots.txt', 'Site::robots');
+$routes->get('sitemap', 'Site::sitemap');
+$routes->get('sitemap.xml', 'Site::sitemap');
+$routes->get('cms-page', 'Pages::cms');
+
+// Static + CMS catch-all (must stay above any remaining legacy fallback)
+$routes->get('(:segment)', 'Pages::show/$1');
+$routes->post('(:segment)', 'Pages::show/$1');

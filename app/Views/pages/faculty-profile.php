@@ -1,0 +1,163 @@
+<?= $this->extend('layouts/public') ?>
+<?= $this->section('content') ?>
+
+$photo = faculty_photo_url($extra['photo'] ?? '');
+$desig = faculty_normalize_designation((string) ($extra['designation'] ?? ''));
+$dept = (string) ($extra['department'] ?? '');
+$is_hod = !empty($extra['hod']);
+$quals = faculty_normalize_qualifications($extra['qualifications'] ?? []);
+$skills = faculty_normalize_skills($extra['skills'] ?? []);
+$research = faculty_research_preferences($extra);
+$pubs = faculty_explode_publications($extra['publications'] ?? []);
+$initials = 'F';
+if ($display_name !== '') {
+  $parts = preg_split('/\s+/', $display_name);
+  $initials = strtoupper(substr($parts[0], 0, 1) . substr($parts[count($parts) - 1] ?? '', 0, 1));
+}
+?>
+
+<link href="<?= dms_asset('assets/css/faculty.css') ?>" rel="stylesheet"/>
+
+<div class="page-hero fp-page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb-pmc">
+      <a href="./">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="faculty">Faculty</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current" id="fpCrumb"><?= $display_name !== '' ? htmlspecialchars($display_name) : 'Profile' ?></span>
+    </div>
+  </div>
+</div>
+
+<section class="pmc-section bg-off fp-section">
+  <div class="container">
+    <div id="fpLoading" class="fp-loading"<?= $extra ? ' style="display:none"' : '' ?>>
+      <div class="spinner-pmc"></div>
+      <p>Loading profile…</p>
+    </div>
+
+    <div id="fpMissing" class="fac-error" style="display:none">
+      <div class="fac-error-icon"><i class="bi bi-person-x"></i></div>
+      <h5>Profile not found</h5>
+      <p>This person could not be found in the faculty list.</p>
+      <a href="faculty" class="btn-pmc btn-pmc-primary"><i class="bi bi-people"></i> All faculty</a>
+    </div>
+
+    <article id="fpCard" class="fp-layout"<?= $extra ? '' : ' hidden' ?>>
+      <aside class="fp-side">
+        <div class="fp-portrait">
+          <?php if ($photo): ?>
+            <img id="fpPhoto" src="<?= htmlspecialchars($photo) ?>" alt="<?= htmlspecialchars($display_name) ?>">
+          <?php else: ?>
+            <div id="fpAvatar" class="fp-avatar des-professor"><?= htmlspecialchars($initials) ?></div>
+          <?php endif; ?>
+          <?php if ($is_hod): ?>
+            <span class="fp-hod"><i class="bi bi-award-fill"></i> Head of Department</span>
+          <?php else: ?>
+            <span id="fpHod" class="fp-hod" hidden><i class="bi bi-award-fill"></i> Head of Department</span>
+          <?php endif; ?>
+        </div>
+        <div class="fp-side-meta">
+          <p class="fp-kicker">Department of Medical Sciences</p>
+          <p class="fp-dept" id="fpDept"><?= htmlspecialchars($dept !== '' ? $dept : 'Peshawar Medical College') ?></p>
+          <div class="fp-chips" id="fpRegChips"></div>
+        </div>
+        <div class="fp-side-block" id="fpQualBlock"<?= $quals ? '' : ' hidden' ?>>
+          <h2>Education</h2>
+          <ul class="fp-qual-list" id="fpQuals">
+            <?php foreach ($quals as $q): ?>
+              <li><i class="bi bi-mortarboard-fill"></i><span><?= htmlspecialchars(faculty_soft_space((string) $q)) ?></span></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+        <div class="fp-side-block" id="fpSkillBlock"<?= $skills ? '' : ' hidden' ?>>
+          <h2>College duties</h2>
+          <ul class="fp-duty-list" id="fpSkills">
+            <?php foreach ($skills as $s): ?>
+              <li><?= htmlspecialchars(faculty_soft_space((string) $s)) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+        <a href="faculty" class="btn-pmc btn-pmc-outline w-100 justify-content-center fp-back"><i class="bi bi-arrow-left"></i> All faculty</a>
+      </aside>
+
+      <div class="fp-main">
+        <header class="fp-identity">
+          <p class="fp-desig-label">Current post</p>
+          <p class="fp-desig" id="fpDesig"><?= htmlspecialchars($desig) ?></p>
+          <h1 class="fp-name" id="fpName"><?= htmlspecialchars($display_name !== '' ? $display_name : 'Faculty member') ?></h1>
+          <p class="fp-college">Peshawar Medical College · Riphah International University, Peshawar Campus</p>
+          <div class="fp-stats" id="fpStats">
+            <div class="fp-stat"><strong id="fpStatResearch"><?= count($research) ?: '—' ?></strong><span>Research areas</span></div>
+            <div class="fp-stat"><strong id="fpStatPub"><?= count($pubs) ?: '—' ?></strong><span>Papers</span></div>
+            <div class="fp-stat"><strong id="fpStatQual"><?= count($quals) ?: '—' ?></strong><span>Degrees</span></div>
+          </div>
+        </header>
+
+        <section class="fp-panel" id="fpResearchPanel"<?= $research ? '' : ' hidden' ?>>
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-lightbulb"></i></span>
+            <div>
+              <h3>Research preferences</h3>
+              <p>Areas of academic and clinical research interest</p>
+            </div>
+          </div>
+          <ul class="fp-research-list" id="fpResearch">
+            <?php foreach ($research as $item): ?>
+              <li><?= htmlspecialchars($item) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </section>
+
+        <section class="fp-panel" id="fpPubPanel"<?= $pubs ? '' : ' hidden' ?>>
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-journal-richtext"></i></span>
+            <div>
+              <h3>Research papers</h3>
+              <p id="fpPubCount"><?= count($pubs) ?> listed from college records</p>
+            </div>
+          </div>
+          <ol class="fp-pubs<?= count($pubs) > 8 ? ' is-collapsed' : '' ?>" id="fpPubs">
+            <?php foreach ($pubs as $i => $pub):
+              $year = faculty_pub_year($pub);
+              $url = faculty_pub_url($pub);
+            ?>
+              <li class="fp-pub">
+                <span class="fp-pub-num"><?= (int) $i + 1 ?></span>
+                <div class="fp-pub-body">
+                  <p><?= htmlspecialchars($pub) ?></p>
+                  <div class="fp-pub-meta">
+                    <?php if ($year !== ''): ?>
+                      <span class="fp-pub-year"><?= htmlspecialchars($year) ?></span>
+                    <?php endif; ?>
+                    <?php if ($url !== ''): ?>
+                      <a class="fp-pub-link" href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener">Open paper <i class="bi bi-box-arrow-up-right"></i></a>
+                    <?php endif; ?>
+                  </div>
+                </div>
+              </li>
+            <?php endforeach; ?>
+          </ol>
+          <?php if (count($pubs) > 8): ?>
+            <button type="button" class="fp-pubs-more" id="fpPubsMore" data-total="<?= count($pubs) ?>">Show all <?= count($pubs) ?> papers</button>
+          <?php endif; ?>
+        </section>
+
+        <section class="fp-panel" id="fpPending"<?= $extra ? ' hidden' : '' ?>>
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-hourglass-split"></i></span>
+            <div>
+              <h3>More details coming</h3>
+              <p>The department is still adding this profile.</p>
+            </div>
+          </div>
+          <p class="fp-pending-copy">Name, current post, subject, and PM&amp;DC numbers come from the college staff record. Research preferences, college duties, and papers will appear when the department provides them.</p>
+        </section>
+      </div>
+    </article>
+  </div>
+</section>
+
+<?= $this->endSection() ?>
