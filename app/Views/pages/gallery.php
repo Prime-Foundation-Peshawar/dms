@@ -231,3 +231,117 @@
 </section>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<button id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/pmc-global.js"></script>
+<script>
+function galleryPlaceholder(label, icon) {
+  return `<div class="gallery-placeholder">
+    <i class="bi ${icon || 'bi-image'}"></i>
+    <span>${label}</span>
+  </div>
+  <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+  <div class="gallery-overlay">
+    <div><div class="gallery-overlay-text">${label}</div></div>
+  </div>`;
+}
+
+const filterBtns = document.querySelectorAll('.gf-btn[data-filter]');
+const albumSections = document.querySelectorAll('.album-section');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    albumSections.forEach(section => {
+      const cat = section.dataset.category;
+      section.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+    });
+    const first = [...albumSections].find(s => s.style.display !== 'none');
+    if (first && filter !== 'all') first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+let lbItems = [];
+let lbCurrent = 0;
+
+function openLightbox(el) {
+  lbItems = [...document.querySelectorAll('.gallery-item[data-img]')].filter(e => {
+    return e.closest('.album-section').style.display !== 'none';
+  });
+  lbCurrent = lbItems.indexOf(el);
+  renderLightbox();
+  document.getElementById('pmcLightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openAlbumLightbox(category) {
+  lbItems = [...document.querySelectorAll(`.gallery-item[data-category="${category}"][data-img]`)];
+  lbCurrent = 0;
+  renderLightbox();
+  document.getElementById('pmcLightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('pmcLightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeLightboxOnBackdrop(e) {
+  if (e.target === document.getElementById('pmcLightbox')) closeLightbox();
+}
+
+function lbNav(dir) {
+  if (!lbItems.length) return;
+  lbCurrent = ((lbCurrent + dir) + lbItems.length) % lbItems.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const el = lbItems[lbCurrent];
+  if (!el) return;
+  const img = el.dataset.img || '';
+  const title = el.dataset.title || '';
+  const cap = el.dataset.caption || '';
+  const cat = el.dataset.category || '';
+  const wrap = document.getElementById('lbImgWrap');
+  if (img) {
+    wrap.innerHTML = `<img src="${img}" class="lb-img" alt="${title}"
+      onerror="this.parentElement.innerHTML='<div class=\\'lb-placeholder\\'><i class=\\'bi bi-image\\'></i><span>${title}</span></div>'"/>`;
+  } else {
+    wrap.innerHTML = `<div class="lb-placeholder"><i class="bi bi-image"></i><span>${title}</span></div>`;
+  }
+  document.getElementById('lbCaption').innerHTML = `
+    <div class="lb-caption-cat">${cat}</div>
+    <div class="lb-caption-title">${title}</div>
+    ${cap ? `<div style="font-family:var(--font-body);font-size:.8rem;color:rgba(255,255,255,.5);margin-top:3px;">${cap}</div>` : ''}
+  `;
+  document.getElementById('lbCounter').textContent = `${lbCurrent + 1} / ${lbItems.length}`;
+}
+
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('pmcLightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') lbNav(1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') lbNav(-1);
+  if (e.key === 'Escape') closeLightbox();
+});
+
+const fuEls = document.querySelectorAll('.fu');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+fuEls.forEach(el => obs.observe(el));
+
+const btt = document.getElementById('backToTop');
+window.addEventListener('scroll', () => btt.classList.toggle('visible', scrollY > 500));
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+const nav = document.getElementById('mainNav');
+if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+</script>
+<?= $this->endSection() ?>

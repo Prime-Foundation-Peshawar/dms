@@ -195,3 +195,16 @@
 </section>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<script>
+function switchPortal(portal) {
+  document.querySelectorAll('.portal-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.portal === portal);
+  });
+  document.getElementById('pane-student').style.display = portal === 'student' ? '' : 'none';
+  document.getElementById('pane-teacher').style.display = portal === 'teacher' ? '' : 'none';
+  document.getElementById('pane-parent').style.display = portal === 'parent' ? '' : 'none';
+}
+</script>
+<?= $this->endSection() ?>

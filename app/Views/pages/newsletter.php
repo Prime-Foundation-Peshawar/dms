@@ -90,3 +90,38 @@
 </section>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<style>
+.btn-teal {
+  background-color: var(--teal);
+  color: #fff;
+  border: none;
+  transition: background 0.2s;
+}
+.btn-teal:hover {
+  background-color: #00796b;
+  color: #fff;
+}
+.hover-shadow:hover {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+  transform: translateY(-2px);
+}
+.transition {
+  transition: all 0.2s ease;
+}
+.row > .d-flex.align-items-stretch .card {
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .nl-card-img-container {
+    height: 450px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .nl-card-img-container {
+    height: 500px !important;
+  }
+}
+</style>
+<?= $this->endSection() ?>

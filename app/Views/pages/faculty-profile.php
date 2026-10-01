@@ -161,3 +161,102 @@ if ($display_name !== '') {
 </section>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<script>
+const SLUG = <?= json_encode($slug, JSON_UNESCAPED_UNICODE) ?>;
+const EXTRA = <?= json_encode($extra, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>;
+const API_URL = 'faculty-proxy';
+
+function facultySlug(name) {
+  let n = String(name || '').trim();
+  const titles = /^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i;
+  while (titles.test(n)) n = n.replace(titles, '');
+  return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function escapeHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function avatarClass(desTitle) {
+  const map = {
+    'Professor': 'des-professor',
+    'Associate Professor': 'des-associate',
+    'Assistant Professor': 'des-assistant',
+    'Senior Lecturer': 'des-senior-lec',
+    'Lecturer': 'des-lecturer',
+    'Senior Registrar': 'des-registrar',
+    'Registrar': 'des-registrar',
+  };
+  return map[desTitle] || 'des-other';
+}
+
+(async function init() {
+  const loading = document.getElementById('fpLoading');
+  const missing = document.getElementById('fpMissing');
+  const card = document.getElementById('fpCard');
+  let hrms = null;
+  try {
+    const res = await fetch(API_URL);
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        hrms = data.find(f => facultySlug(f.empName) === SLUG)
+          || data.find(f => EXTRA && facultySlug(f.empName) === facultySlug(EXTRA.name));
+      }
+    }
+  } catch (e) {
+    console.error(e);
+  }
+
+  if (!EXTRA && !hrms) {
+    loading.style.display = 'none';
+    missing.style.display = 'block';
+    return;
+  }
+
+  if (hrms) {
+    const name = hrms.empName || (EXTRA && EXTRA.name) || '';
+    const desig = hrms.desTitle || (EXTRA && EXTRA.designation) || '';
+    const dept = hrms.depName || (EXTRA && EXTRA.department) || '';
+    document.getElementById('fpCrumb').textContent = name;
+    document.getElementById('fpName').textContent = name;
+    document.title = name + ' — Faculty | Department of Medical Sciences';
+    if (desig) document.getElementById('fpDesig').textContent = desig;
+    if (dept) document.getElementById('fpDept').textContent = dept;
+    const chips = [];
+    if (hrms.facPMDCNo) chips.push('<span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC No. ' + escapeHtml(hrms.facPMDCNo) + '</span>');
+    if (hrms.facFacRegNo) chips.push('<span class="reg-chip"><i class="bi bi-card-text"></i> Faculty No. ' + escapeHtml(hrms.facFacRegNo) + '</span>');
+    document.getElementById('fpRegChips').innerHTML = chips.join('');
+    const av = document.getElementById('fpAvatar');
+    if (av) av.className = 'fp-avatar ' + avatarClass(hrms.desTitle);
+    if (!EXTRA && hrms.qualifications) {
+      const block = document.getElementById('fpQualBlock');
+      const ul = document.getElementById('fpQuals');
+      ul.innerHTML = hrms.qualifications.split(/[,;]+/).map(q => q.trim()).filter(Boolean)
+        .map(q => '<li><i class="bi bi-mortarboard-fill"></i><span>' + escapeHtml(q) + '</span></li>').join('');
+      block.hidden = ul.children.length === 0;
+      document.getElementById('fpStatQual').textContent = ul.children.length || '—';
+    }
+  }
+
+  if (!EXTRA) {
+    document.getElementById('fpPending').hidden = false;
+  }
+
+  loading.style.display = 'none';
+  card.hidden = false;
+
+  const more = document.getElementById('fpPubsMore');
+  if (more) {
+    more.addEventListener('click', () => {
+      const list = document.getElementById('fpPubs');
+      if (list) list.classList.remove('is-collapsed');
+      more.remove();
+    });
+  }
+})();
+</script>
+<?= $this->endSection() ?>

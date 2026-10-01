@@ -95,3 +95,56 @@
 </section>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<!-- Portal card styles -->
+<style>
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.portal-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.portal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+.portal-card-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--teal, #009688);
+  color: #fff;
+  font-size: 1.5rem;
+}
+.portal-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.portal-card p {
+  font-size: .88rem;
+  color: var(--gray-mid, #6c757d);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.portal-card .btn-pmc {
+  width: 100%;
+  justify-content: center;
+  font-size: .82rem;
+}
+</style>
+<?= $this->endSection() ?>

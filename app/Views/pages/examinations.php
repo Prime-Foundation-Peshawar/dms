@@ -148,3 +148,11 @@
 </section>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<style>
+.table td, .table th { font-size: 0.9rem; vertical-align: middle; }
+.table-responsive table { width: 100%; border-collapse: collapse; }
+.table-responsive table td, .table-responsive table th { padding: 8px; border: 1px solid #dee2e6; }
+</style>
+<?= $this->endSection() ?>

@@ -268,3 +268,18 @@
 </section>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('vis'); obs.unobserve(x.target); } }), { threshold: .07 });
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+  const nav = document.getElementById('mainNav');
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', scrollY > 40);
+    btt.classList.toggle('visible', scrollY > 500);
+  }, { passive: true });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+<?= $this->endSection() ?>
