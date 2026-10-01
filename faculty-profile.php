@@ -47,6 +47,7 @@ if ($display_name !== '') {
 }
 ?>
 
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet"/>
 <link href="<?= dms_asset('assets/css/faculty.css') ?>" rel="stylesheet"/>
 
 <div class="page-hero fp-page-hero">
@@ -147,12 +148,17 @@ if ($display_name !== '') {
         </section>
 
         <?php
+          $main_pubs = [];
+          $other_pubs = [];
+          foreach ($pubs as $pub) {
+            if (faculty_has_arabic($pub)) {
+              $other_pubs[] = $pub;
+            } else {
+              $main_pubs[] = $pub;
+            }
+          }
           $extra_panels = [
             ['academic_roles', 'Academic roles', 'Examiner, supervisor, and current academic appointments', $academic_roles, 'bi-mortarboard'],
-            ['memberships', 'Memberships', 'Academic and professional bodies', $memberships, 'bi-people'],
-            ['courses', 'Courses attended', 'Medical education and professional courses', $courses, 'bi-journal-check'],
-            ['books', 'Published books', 'Books listed in the college CV', $books, 'bi-book'],
-            ['chapters', 'Book chapters', 'Chapters listed in the college CV', $chapters, 'bi-bookmark'],
           ];
           foreach ($extra_panels as [$id, $title, $sub, $items, $ico]):
             if (!$items) continue;
@@ -166,30 +172,41 @@ if ($display_name !== '') {
             </div>
           </div>
           <ul class="fp-cv-list">
-            <?php foreach ($items as $item): ?>
-              <li><?= htmlspecialchars($item) ?></li>
+            <?php foreach ($items as $item):
+              $rtl = faculty_has_arabic($item);
+            ?>
+              <li<?= $rtl ? ' class="fp-rtl" dir="rtl" lang="ur"' : '' ?>><?= htmlspecialchars($item) ?></li>
             <?php endforeach; ?>
           </ul>
         </section>
         <?php endforeach; ?>
 
-        <section class="fp-panel" id="fpPubPanel"<?= $pubs ? '' : ' hidden' ?>>
+        <?php
+          $pub_sections = [
+            ['fpPubPanel', 'Research papers', 'Main journal and conference papers from the college CV', $main_pubs ?: $pubs, true],
+            ['fpOtherPubPanel', 'Islamic and ethical articles', 'Writings listed after the main research papers', $other_pubs, false],
+          ];
+          foreach ($pub_sections as [$panel_id, $title, $sub, $items, $collapse]):
+            if (!$items) continue;
+        ?>
+        <section class="fp-panel" id="<?= htmlspecialchars($panel_id) ?>">
           <div class="fp-panel-head">
             <span class="fp-panel-ico"><i class="bi bi-journal-richtext"></i></span>
             <div>
-              <h3>Research papers</h3>
-              <p id="fpPubCount"><?= count($pubs) ?> listed from college records</p>
+              <h3><?= htmlspecialchars($title) ?></h3>
+              <p><?= count($items) ?> listed from college records. <?= htmlspecialchars($sub) ?></p>
             </div>
           </div>
-          <ol class="fp-pubs<?= count($pubs) > 8 ? ' is-collapsed' : '' ?>" id="fpPubs">
-            <?php foreach ($pubs as $i => $pub):
+          <ol class="fp-pubs<?= $collapse && count($items) > 8 ? ' is-collapsed' : '' ?>"<?= $collapse ? ' id="fpPubs"' : '' ?>>
+            <?php foreach ($items as $i => $pub):
               $year = faculty_pub_year($pub);
               $url = faculty_pub_url($pub);
+              $rtl = faculty_has_arabic($pub);
             ?>
-              <li class="fp-pub">
+              <li class="fp-pub<?= $rtl ? ' fp-rtl' : '' ?>">
                 <span class="fp-pub-num"><?= (int) $i + 1 ?></span>
                 <div class="fp-pub-body">
-                  <p><?= htmlspecialchars($pub) ?></p>
+                  <p<?= $rtl ? ' dir="rtl" lang="ur"' : '' ?>><?= htmlspecialchars($pub) ?></p>
                   <div class="fp-pub-meta">
                     <?php if ($year !== ''): ?>
                       <span class="fp-pub-year"><?= htmlspecialchars($year) ?></span>
@@ -202,10 +219,39 @@ if ($display_name !== '') {
               </li>
             <?php endforeach; ?>
           </ol>
-          <?php if (count($pubs) > 8): ?>
-            <button type="button" class="fp-pubs-more" id="fpPubsMore" data-total="<?= count($pubs) ?>">Show all <?= count($pubs) ?> papers</button>
+          <?php if ($collapse && count($items) > 8): ?>
+            <button type="button" class="fp-pubs-more" id="fpPubsMore" data-total="<?= count($items) ?>">Show all <?= count($items) ?> papers</button>
           <?php endif; ?>
         </section>
+        <?php endforeach; ?>
+
+        <?php
+          $later_panels = [
+            ['books', 'Published books', 'Books listed in the college CV', $books, 'bi-book'],
+            ['chapters', 'Book chapters', 'Chapters listed in the college CV', $chapters, 'bi-bookmark'],
+            ['memberships', 'Memberships', 'Academic and professional bodies', $memberships, 'bi-people'],
+            ['courses', 'Courses attended', 'Medical education and professional courses', $courses, 'bi-journal-check'],
+          ];
+          foreach ($later_panels as [$id, $title, $sub, $items, $ico]):
+            if (!$items) continue;
+        ?>
+        <section class="fp-panel" id="fp<?= htmlspecialchars($id) ?>Panel">
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi <?= htmlspecialchars($ico) ?>"></i></span>
+            <div>
+              <h3><?= htmlspecialchars($title) ?></h3>
+              <p><?= htmlspecialchars($sub) ?></p>
+            </div>
+          </div>
+          <ul class="fp-cv-list">
+            <?php foreach ($items as $item):
+              $rtl = faculty_has_arabic($item);
+            ?>
+              <li<?= $rtl ? ' class="fp-rtl" dir="rtl" lang="ur"' : '' ?>><?= htmlspecialchars($item) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </section>
+        <?php endforeach; ?>
 
         <section class="fp-panel" id="fpPending"<?= $extra ? ' hidden' : '' ?>>
           <div class="fp-panel-head">

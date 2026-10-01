@@ -875,6 +875,26 @@ a.fac-list-row:hover .fac-list-go {
   color: var(--teal);
   background: var(--teal-pale);
 }
+.fp-rtl,
+.fp-cv-list li.fp-rtl,
+.fp-pub.fp-rtl .fp-pub-body p {
+  font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Jameel Noori Nastaleeq", serif;
+  line-height: 2.15;
+  unicode-bidi: isolate;
+}
+.fp-cv-list li.fp-rtl {
+  direction: rtl;
+  text-align: right;
+  padding: 10px 18px 10px 0;
+}
+.fp-cv-list li.fp-rtl:before {
+  left: auto;
+  right: 0;
+}
+.fp-pub.fp-rtl .fp-pub-body p {
+  direction: rtl;
+  text-align: right;
+}
 .fp-cv-list {
   list-style: none;
   margin: 0;

@@ -162,6 +162,10 @@ function faculty_profile_has_cv(?array $rec): bool {
   return false;
 }
 
+function faculty_has_arabic(string $text): bool {
+  return (bool) preg_match('/\p{Arabic}/u', $text);
+}
+
 function faculty_plain_list($raw): array {
   if (is_string($raw)) {
     $raw = preg_split('/[\n;|]+/', $raw) ?: [];
