@@ -351,8 +351,8 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bMBBS\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bBDS\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bMD\b(?:\s*\([^)]{0,40}\))?/i',
-    '/\bFCPS(?:-I|-l)?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Hematology|Haematology|Pathology|Psychiatry|Pediatrics|Paediatrics|Surgery and Allied))?/i',
-    '/\bMCPS(?:\s*\([^)]{0,50}\))?/i',
+    '/\bFCPS(?:-I|-l)?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Hematology|Haematology|Pathology|Psychiatry|Pediatrics|Paediatrics|Surgery and Allied|Anesthesiology|Anaesthesia|Anesthesia))?/i',
+    '/\bMCPS(?:\s*\([^)]{0,50}\)|\s+(?:Anesthesiology|Anaesthesia|Anesthesia))?/i',
     '/\bMS(?:\s*[-–]\s*Mental Health Policy(?:\s+&\s+Services)?)?\b/i',
     '/\bIMM(?:\s*\([^)]{0,50}\))?/i',
     '/\bMRCS\b/i',
@@ -367,7 +367,8 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bDCP\b/i',
     '/\bDCH\b/i',
     '/\bDOMS\b/i',
-    '/\bDiploma in Gynae and Obs\b/i',
+    '/\bDiploma in (?:Anaesthesia|Anesthesia|Gynae and Obs)\b/i',
+    '/\bDA\b/',
     '/\bDip(?:loma)?(?:\s+in)?\s+CBT\b/i',
   ];
   foreach ($patterns as $re) {
