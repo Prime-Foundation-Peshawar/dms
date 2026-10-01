@@ -902,6 +902,37 @@
         "Shah F, Irfan M, Khan H, Zareef M. Helicobacter Pylori infection in Type II Diabetic patients with non-ulcer dyspepsia. J Med Sci. 2004;12(1):29-32."
       ]
     },
+    "muhammad-abbas": {
+      "slug": "muhammad-abbas",
+      "aliases": [
+        "muhammad-abbas"
+      ],
+      "name": "Muhammad Abbas",
+      "department": "Medicine",
+      "designation": "Associate Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/muhammad-abbas.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
+    "najm-ud-din": {
+      "slug": "najm-ud-din",
+      "aliases": [
+        "najm-ud-din",
+        "najam-ud-din"
+      ],
+      "name": "Najm UD Din",
+      "department": "Nephrology",
+      "designation": "Associate Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/najm-ud-din.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
     "mohammad-idrees": {
       "slug": "mohammad-idrees",
       "aliases": [
@@ -1118,7 +1149,7 @@
       "department": "Anatomy",
       "designation": "Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/muhammad-imran-qureshi.jpeg",
       "qualifications": [
         "M.B.B.S",
         "M. Phil (Anatomy)"
@@ -1154,6 +1185,36 @@
         "Prevalence of Congenital Anomalies and Its Association with Consanguinity in Pakistan; pp. 25-29, JHBS M&DC Vol 1(1) January-March 2021",
         "Assessment of Root Anatomy and Variations of Third Mandibular Molars in the Population of Peshawar using Cone Beam Computed Tomography; PJMHS Vol. 16, No. 09, September 2022, pp. 325-327."
       ]
+    },
+    "fazli-wahab": {
+      "slug": "fazli-wahab",
+      "aliases": [
+        "fazli-wahab"
+      ],
+      "name": "Fazli Wahab",
+      "department": "Critical Care",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/fazli-wahab.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
+    "zia-ullah": {
+      "slug": "zia-ullah",
+      "aliases": [
+        "zia-ullah"
+      ],
+      "name": "Zia Ullah",
+      "department": "Critical Care",
+      "designation": "Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/zia-ullah.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
     },
     "ihsan-ullah-wazir": {
       "slug": "ihsan-ullah-wazir",
@@ -1939,7 +2000,7 @@
       "department": "Cardiology",
       "designation": "Senior Registrar",
       "hod": false,
-      "photo": "assets/images/faculty/rahid-ullah.png",
+      "photo": "assets/images/faculty/rahid-ullah.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS (Cardiology)",
@@ -2464,6 +2525,51 @@
         "Correlation of serum vitamin D levels with serum levels of alkaline phosphatase. https://theprofesional.com/index.php/tpmj/article/view/3154"
       ]
     },
+    "shumaila-farman": {
+      "slug": "shumaila-farman",
+      "aliases": [
+        "shumaila-farman"
+      ],
+      "name": "Shumaila Farman",
+      "department": "Cardiac Surgery",
+      "designation": "Senior Registrar",
+      "hod": false,
+      "photo": "assets/images/faculty/shumaila-farman.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
+    "sana-nafis": {
+      "slug": "sana-nafis",
+      "aliases": [
+        "sana-nafis"
+      ],
+      "name": "Sana Nafis",
+      "department": "Paediatrics",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/sana-nafis.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
+    "nasir-bakhtiar": {
+      "slug": "nasir-bakhtiar",
+      "aliases": [
+        "nasir-bakhtiar"
+      ],
+      "name": "Nasir Bakhtiar",
+      "department": "Surgery",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/nasir-bakhtiar.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
     "mian-shah-yousaf": {
       "slug": "mian-shah-yousaf",
       "aliases": [
@@ -2781,7 +2887,7 @@
       "department": "Neurosurgery",
       "designation": "Associate Professor",
       "hod": true,
-      "photo": "assets/images/faculty/akram-ullah.png",
+      "photo": "assets/images/faculty/akram-ullah.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS (Neurosurgery)",
@@ -2958,6 +3064,22 @@
         "clinical outcome of hypoglossal facial anastomosis in severe facial nerve paralysis , An experience from Khyber pukhtunkhwa. Pak jns"
       ]
     },
+    "aminul-haq": {
+      "slug": "aminul-haq",
+      "aliases": [
+        "aminul-haq",
+        "amin-ul-haq"
+      ],
+      "name": "Aminul Haq",
+      "department": "Family Medicine",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/aminul-haq.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
     "faisal-nawaz": {
       "slug": "faisal-nawaz",
       "aliases": [
@@ -3002,7 +3124,7 @@
       "department": "Ophthalmology",
       "designation": "Assistant Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/abdul-munim.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS Ophthalmology",
@@ -3033,6 +3155,22 @@
         "Neuro-ophthalmic interface: Investigating the therapeutic potential of Glial cellderived neurotrophic factor (GDNF) in pathology of diabetic retinopathy. https://www.rmj.org.pk/fulltext/27-1723859598.pdf?1769830668",
         "Choroidal Thickness as a Predictor of Myopic Progression in Adolescents: A Longitudinal Study. https://doi.org/10.48047/AFJBS.6.16.2024.4651-4661"
       ]
+    },
+    "shahid-rizwan-safir": {
+      "slug": "shahid-rizwan-safir",
+      "aliases": [
+        "shahid-rizwan-safir",
+        "shahid-rizwan"
+      ],
+      "name": "Shahid Rizwan Safir",
+      "department": "Nephrology",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/shahid-rizwan-safir.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
     },
     "muhammad-usman": {
       "slug": "muhammad-usman",
@@ -3125,7 +3263,7 @@
       "department": "Ophthalmology",
       "designation": "Professor",
       "hod": false,
-      "photo": "assets/images/faculty/mir-ali-shah.png",
+      "photo": "assets/images/faculty/mir-ali-shah.jpeg",
       "qualifications": [
         "MBBS",
         "MCPS. Ophthalmology",
@@ -3177,6 +3315,21 @@
         "To determine the Refractive status in Albinism and Idiopathic Congenital Nystagmus at Hayatabad Medical Complex, Peshawar. Ophthalmology Update vol.16, No 1.Jan-March 2018; 455-8.",
         "Comparison of Changes in Intraocular Pressure after Subtenon and Peribulbar Local Anaesthesia for Phacoemulsification Pak J Ophthalmol 2017; 33(4):223-6(corresponding author)."
       ]
+    },
+    "aamir-zeb": {
+      "slug": "aamir-zeb",
+      "aliases": [
+        "aamir-zeb"
+      ],
+      "name": "Aamir Zeb",
+      "department": "Cardiac Surgery",
+      "designation": "Assistant Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/aamir-zeb.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
     },
     "zaheer-babar": {
       "slug": "zaheer-babar",
@@ -3369,7 +3522,7 @@
       "department": "Orthopaedics",
       "designation": "Assistant Professor",
       "hod": false,
-      "photo": "assets/images/faculty/hidayat-ullah.png",
+      "photo": "assets/images/faculty/hidayat-ullah.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS (ortho)"
@@ -3897,6 +4050,36 @@
         "Frequency of Gall Bladder carcinoma after cholecystectomy for symptomatic gallstone diseases in tertiary care hospital, Peshawar"
       ]
     },
+    "bilal": {
+      "slug": "bilal",
+      "aliases": [
+        "bilal"
+      ],
+      "name": "Bilal",
+      "department": "Paediatrics",
+      "designation": "Senior Registrar",
+      "hod": false,
+      "photo": "assets/images/faculty/bilal.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
+    "shandana-bawar": {
+      "slug": "shandana-bawar",
+      "aliases": [
+        "shandana-bawar"
+      ],
+      "name": "Shandana Bawar",
+      "department": "Gynaecology & Obstetrics",
+      "designation": "Associate Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/shandana-bawar.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
     "muzafar-ud-din-sadiq": {
       "slug": "muzafar-ud-din-sadiq",
       "aliases": [
@@ -4144,6 +4327,21 @@
         "Circumferential sub coronal deg loving incision for the Management of penile fracture.. KJMS Sep-Dec 2015. Vol 8, No.3 1st Author as associate professor."
       ]
     },
+    "bakht-jehan": {
+      "slug": "bakht-jehan",
+      "aliases": [
+        "bakht-jehan"
+      ],
+      "name": "Bakht Jehan",
+      "department": "Neurology",
+      "designation": "Assistant Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/bakht-jehan.jpeg",
+      "qualifications": [],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
     "muhammad-hisham-naeem": {
       "slug": "muhammad-hisham-naeem",
       "aliases": [
@@ -4356,6 +4554,9 @@
     "muhammad-zubair": "muhammad-zubair-bashir",
     "hafeez-ur-rehman": "hafeez-ur-rahman",
     "muhammad-zaheer-ullah-baber": "zaheer-babar",
-    "zaheer-ullah-baber": "zaheer-babar"
+    "zaheer-ullah-baber": "zaheer-babar",
+    "amin-ul-haq": "aminul-haq",
+    "shahid-rizwan": "shahid-rizwan-safir",
+    "najam-ud-din": "najm-ud-din"
   }
 }

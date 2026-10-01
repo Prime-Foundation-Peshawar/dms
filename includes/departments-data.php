@@ -616,6 +616,11 @@ $academic_departments = [
         'reg' => '19009-N',
       ],
       [
+        'name' => 'Assistant Professor Dr. Nasir Bakhtiar',
+        'qualification' => '',
+        'reg' => '',
+      ],
+      [
         'name' => 'Senior Registrar Dr. Asad Ullah Khan',
         'qualification' => 'MBBS, FCPS',
         'reg' => '18341-N',
