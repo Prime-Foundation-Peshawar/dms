@@ -2965,13 +2965,13 @@
       ],
       "name": "Faisal Nawaz",
       "department": "Ophthalmology",
-      "designation": "Associate Professor",
+      "designation": "Associate professor",
       "hod": false,
       "photo": "",
       "qualifications": [
         "MBBS",
-        "FCPS (Ophthalmology)",
-        "FCPS (Vitreoretina)"
+        "FCPS Ophthalmology",
+        "FCPS Vitreoretina"
       ],
       "experience": [
         "Associate professor (PMC)"
@@ -3005,8 +3005,8 @@
       "photo": "",
       "qualifications": [
         "MBBS",
-        "FCPS (Ophthalmology)",
-        "FCPS (Vitreo Retina)",
+        "FCPS Ophthalmology",
+        "FCPS Vitreo Retina",
         "FICO (UK)"
       ],
       "experience": [
@@ -3046,8 +3046,8 @@
       "photo": "",
       "qualifications": [
         "MBBS",
-        "FCPS (Ophthalmology)",
-        "FCPS (Vitreo Retina)"
+        "FCPS Ophthalmology",
+        "FCPS Vitreo Retina"
       ],
       "experience": [
         "Assistant Professor (PMC) April 2024 till Date"
@@ -3077,7 +3077,7 @@
       "qualifications": [
         "MBBS",
         "MCPS",
-        "FCPS (Ophthalmology)",
+        "FCPS Ophthalmology",
         "FRCS",
         "Fellowship in Oculoplastic surgery (England)"
       ],
@@ -3085,8 +3085,7 @@
         "Professor Ophthalmology and Oculoplastics"
       ],
       "skills": [
-        "Cataract, Squint, Ptosis, Lid surgeries",
-        "Orbital surgery, other oculoplastic procedures, Refractive surgery"
+        "Cataract, Squint, Ptosis, Lid surgeries, Orbital surgery, other oculoplastic procedures, Refractive surgery"
       ],
       "publications": [
         "An original article on “Visual Outcome and Complications of Boston Keratoprosthesis: An Experience from North West Pakistan”. Published in Pak J Ophthalmol 2017, Vol. 33 No. 3:151- 158.",
@@ -3129,14 +3128,17 @@
       "photo": "",
       "qualifications": [
         "MBBS",
-        "MCPS (Ophthalmology)",
+        "MCPS. Ophthalmology",
         "ICO (Cambridge)",
-        "FCPS (Ophthalmology)",
+        "FCPS Ophthalmology",
         "Fellowship Retina (Netherlands)",
         "MCPS-HPE"
       ],
       "experience": [
-        "Prof of Ophthalmology, Peshawar medical college"
+        "Dean CPSP Faculty of Ophthalmology",
+        "Prof of Ophthalmology",
+        "HOD Vitreo Retina Peshawar medical college",
+        "General Secretary OSP KPK"
       ],
       "skills": [
         "Cataract, Glaucoma, Squint, Refractive and Retina Surgery"
@@ -3190,7 +3192,7 @@
       "photo": "",
       "qualifications": [
         "MBBS",
-        "FCPS (Ophthalmology)",
+        "FCPS Ophthalmology",
         "FCPS (Retina)",
         "ICO (London)"
       ],
@@ -3225,11 +3227,12 @@
       "qualifications": [
         "MBBS",
         "FCPS (Ophthalmology)",
-        "ICO (UK)",
-        "AD-HPE"
+        "ICO(UK)",
+        "AD-HPE AKU"
       ],
       "experience": [
-        "Professor (PMC) 2008- till Date"
+        "Professor & HOD (PMC) 2008- till Date",
+        "Dean/Principal (PMC) 2025 till Date"
       ],
       "skills": [
         "Cataract, Glaucoma, Squint Surgery"

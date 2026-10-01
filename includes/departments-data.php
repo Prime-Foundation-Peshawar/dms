@@ -863,7 +863,7 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Hafeez Ur Rahman',
-        'qualification' => 'MBBS, FCPS (Ophthalmology), ICO (UK), AD-HPE',
+        'qualification' => 'MBBS, FCPS (Ophthalmology), ICO (UK), AD-HPE AKU',
         'reg' => '6392-P',
       ],
       [
@@ -873,12 +873,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Mir Ali Shah',
-        'qualification' => 'MBBS, MCPS, ICO, FCPS (Ophthalmology), Fellowship Retina, MCPS-HPE',
+        'qualification' => 'MBBS, MCPS. Ophthalmology, ICO (Cambridge), FCPS Ophthalmology, Fellowship Retina (Netherlands), MCPS-HPE',
         'reg' => '2186-N',
       ],
       [
         'name' => 'Professor Dr. Ibrar Hussain',
-        'qualification' => 'MBBS, MCPS, FCPS (Ophthalmology), FRCS, Fellowship in Oculoplastic surgery',
+        'qualification' => 'MBBS, MCPS, FCPS Ophthalmology, FRCS, Fellowship in Oculoplastic surgery (England)',
         'reg' => '3570-N',
       ],
       [
