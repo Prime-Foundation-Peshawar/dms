@@ -2519,9 +2519,9 @@
       ],
       "name": "Arbab M. Kashif Khan",
       "department": "Gastroenterology",
-      "designation": "Assistant Professor & Director Endo Suites",
+      "designation": "Assistant Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/arbab-m-kashif-khan.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS (Gastroenterology)"
@@ -2530,11 +2530,21 @@
         "6 years after post graduation. 15 years after graduation"
       ],
       "skills": [
-        "Advance endoscopist doing all therapeutic endoscopies, ERCP, Endoscopic Ultrasound and cholangioscopy"
+        "Director Endo Suites",
+        "Advance endoscopist doing all therapeutic endoscopies",
+        "ERCP, Endoscopic Ultrasound and cholangioscopy"
       ],
       "publications": [
-        "Comparative Analysis of Intravenous Ceftriaxone and Ciprofloxacin for the Treatment of Bacterial Peritonitis in Liver Cirrhosis https://www.researchgate.net/publication/365185126_Comparative_Analysis_of_Intravenous_Ceftriaxone_and_Ciprofloxacin_for_the_Treatment_of_Bacterial_Peritonitis_in_Liver_Cirrhosis Frequency of Hyponatremia among Patients with Chronic Liver Disease https://psimj.com/wp-content/uploads/2024/06/15.-Frequency-of-Hyponatremia-among-Patients-with-Chronic-Liver-Disease.pdf Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan https://www.sciencedirect.com/science/article/pii/S2213398421001172 GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE https://www.jptcp.com/index.php/jptcp/article/view/4592 CORRELATION OF SERUM VITAMIN D LEVELS WITH SERUM LEVELS OF ALKALINE PHOSPHATASE IN PATIENTS WITH DETECTABLE HCV RNA.",
-        "A common presentation of uncommon disease – Biliary Fasciola Hepatica https://journals.sagepub.com/doi/abs/10.1177/00494755231174264 Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan https://cegh.net/article/S2213-3984(21)00117-2/fulltext Predictive Potential Of Il28b Gene In Hcv Patients, Resistant To Daclatasvir And Sofosbuvir In KPK Population. https://europepmc.org/article/med/38406928 Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C. https://theprofesional.com/index.php/tpmj/article/view/3094 Correlation of serum vitamin D levels with serum levels of alkaline phosphatase. https://theprofesional.com/index.php/tpmj/article/view/3154"
+        "Comparative Analysis of Intravenous Ceftriaxone and Ciprofloxacin for the Treatment of Bacterial Peritonitis in Liver Cirrhosis. https://www.researchgate.net/publication/365185126_Comparative_Analysis_of_Intravenous_Ceftriaxone_and_Ciprofloxacin_for_the_Treatment_of_Bacterial_Peritonitis_in_Liver_Cirrhosis",
+        "Frequency of Hyponatremia among Patients with Chronic Liver Disease. https://psimj.com/wp-content/uploads/2024/06/15.-Frequency-of-Hyponatremia-among-Patients-with-Chronic-Liver-Disease.pdf",
+        "Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan. https://www.sciencedirect.com/science/article/pii/S2213398421001172",
+        "GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE. https://www.jptcp.com/index.php/jptcp/article/view/4592",
+        "CORRELATION OF SERUM VITAMIN D LEVELS WITH SERUM LEVELS OF ALKALINE PHOSPHATASE IN PATIENTS WITH DETECTABLE HCV RNA.",
+        "A common presentation of uncommon disease – Biliary Fasciola Hepatica. https://journals.sagepub.com/doi/abs/10.1177/00494755231174264",
+        "Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan. https://cegh.net/article/S2213-3984(21)00117-2/fulltext",
+        "Predictive Potential Of Il28b Gene In Hcv Patients, Resistant To Daclatasvir And Sofosbuvir In KPK Population. https://europepmc.org/article/med/38406928",
+        "Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C. https://theprofesional.com/index.php/tpmj/article/view/3094",
+        "Correlation of serum vitamin D levels with serum levels of alkaline phosphatase. https://theprofesional.com/index.php/tpmj/article/view/3154"
       ]
     },
     "mian-shah-yousaf": {
@@ -2544,27 +2554,35 @@
       ],
       "name": "Mian Shah Yousaf",
       "department": "Gastroenterology",
-      "designation": "Assistant Professor and Head Department of Gastroenterology",
-      "hod": false,
-      "photo": "",
+      "designation": "Assistant Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/mian-shah-yousaf.jpeg",
       "qualifications": [
         "MBBS (Gold Medalist)",
-        "FCPS Gastroenterology (Aga Khan University Hospital)",
+        "FCPS (Gastroenterology)",
         "Fellowship in EUS and ERCP (WEO)",
-        "CHPE (Ripah University)"
+        "CHPE"
       ],
       "experience": [
         "15 years"
       ],
       "skills": [
-        "Advance Interventional Gastroenterologist. Expert in therapeutic endoscopies, ERCP, Endoscopic Ultrasound Cholangioscopy+EHL"
+        "Advance Interventional Gastroenterologist",
+        "Expert in therapeutic endoscopies",
+        "ERCP, Endoscopic Ultrasound, Cholangioscopy+EHL"
       ],
       "publications": [
         "Mian Shah Yousaf, Fouzia Jehangir, Zamin Hussain, Aizza Saeed, Syeda Fatima Rizvi, Shahzada Khalid Sohail. Comparative Immunohistochemical Expression of HER2/neu in Intestinal-type and Diffuse-type Gastric Adenocarcinoma: A Cross-Sectional Study. IJPRT 2026 Jul. 30;16(2):1746-57.",
         "Khan P, Yousaf MS, Kamani L, Ali R. Chronic Giardiasis: Devil of a developing country. Pak J Med Sci. 2025 Dec;41(12):3558-3560. doi: 10.12669/pjms.41.12.12123. PMID: 41451013; PMCID: PMC12728711.",
-        "Yousaf M S, Khan N, Fareed G, et al. (January 05, 2025) Short-Term Outcomes of Laparoscopic Sleeve Gastrectomy for Weight Loss and Gastroesophageal Reflux Disease. Cureus 17(1): e76943. doi:10.7759/cureus.76943 Dr Gohar Ali khan, Dr Tahir Ullah, Dr Mian Shah Yousaf, Dr Naimat Ullah Shah, Dr Shad Muhammad Khan, Dr Asmat Saeed. Dietary Patterns and Their Impact on Irritable Bowel Syndrome (IBS) Symptoms in Young Adults. Afr.J.Bio.Sc. 6(12) (2024). doi:10.48047/AFJBS.6.12.2024.6646-6652 Dr Mian Shah Yousaf, Dr Gohar Ali Khan, Dr Tahir Ullah, Dr Muhammad Iqbal Qasim, Dr Naimat Ullah Shah, Dr Shad Muhammad Khan. Prevalence and Risk Factors of Non-Alcoholic Fatty Liver Disease (NAFLD) in Adults with Metabolic Syndrome. Afr.J.Bio.Sc. 6(16) (2024) doi:10.48047/AFJBS.6.16.2024.4162-4168 Dr Naveed Pervez, Dr Tahir Ullah2, Dr Mian Shah Yousaf, Dr Najma Fida, Dr Saad Aziz, Dr Intikhab Alam. Assessment of Gastroesophageal Reflux Disease as a Contributor to Pulmonary Dysfunction: A Physiological Perspective. Afr.J.Bio.Sc. 6(16) (2024). doi:10.48047/AFJBS.6.16.2024.3384-3389 Shah J, Adnan SH, Yousaf MS, Din SJU, Haq MU, Siddiqui N, Shahid M, Elhamid ASA, Rauf S, Afnan M. A Multi-Hospital Comparative Study on the Efficacy of Probiotics Versus Placebo in Preventing Antibiotic-Associated Diarrhea in Adult Patients. Cureus. 2024 Oct 5;16(10):e70881. doi: 10.7759/cureus.70881. PMID: 39497860; PMCID: PMC11533712.",
+        "Yousaf M S, Khan N, Fareed G, et al. (January 05, 2025) Short-Term Outcomes of Laparoscopic Sleeve Gastrectomy for Weight Loss and Gastroesophageal Reflux Disease. Cureus 17(1): e76943. doi:10.7759/cureus.76943",
+        "Dr Gohar Ali khan, Dr Tahir Ullah, Dr Mian Shah Yousaf, Dr Naimat Ullah Shah, Dr Shad Muhammad Khan, Dr Asmat Saeed. Dietary Patterns and Their Impact on Irritable Bowel Syndrome (IBS) Symptoms in Young Adults. Afr.J.Bio.Sc. 6(12) (2024). doi:10.48047/AFJBS.6.12.2024.6646-6652",
+        "Dr Mian Shah Yousaf, Dr Gohar Ali Khan, Dr Tahir Ullah, Dr Muhammad Iqbal Qasim, Dr Naimat Ullah Shah, Dr Shad Muhammad Khan. Prevalence and Risk Factors of Non-Alcoholic Fatty Liver Disease (NAFLD) in Adults with Metabolic Syndrome. Afr.J.Bio.Sc. 6(16) (2024) doi:10.48047/AFJBS.6.16.2024.4162-4168",
+        "Dr Naveed Pervez, Dr Tahir Ullah2, Dr Mian Shah Yousaf, Dr Najma Fida, Dr Saad Aziz, Dr Intikhab Alam. Assessment of Gastroesophageal Reflux Disease as a Contributor to Pulmonary Dysfunction: A Physiological Perspective. Afr.J.Bio.Sc. 6(16) (2024). doi:10.48047/AFJBS.6.16.2024.3384-3389",
+        "Shah J, Adnan SH, Yousaf MS, Din SJU, Haq MU, Siddiqui N, Shahid M, Elhamid ASA, Rauf S, Afnan M. A Multi-Hospital Comparative Study on the Efficacy of Probiotics Versus Placebo in Preventing Antibiotic-Associated Diarrhea in Adult Patients. Cureus. 2024 Oct 5;16(10):e70881. doi: 10.7759/cureus.70881. PMID: 39497860; PMCID: PMC11533712.",
         "Khan MI, Shah J, Ullah M, Rasheed H, Khan S, Yousaf MS, Ullah A. Prevalence of Iron Deficiency Among Patients With Helicobacter pylori Infection at a Tertiary Care Hospital. Cureus. 2024 Aug 30;16(8):e68168. doi: 10.7759/cureus.68168. PMID: 39347179; PMCID: PMC11439128.",
-        "Dr Ihsan Ullah, Dr Rahid Gul, Dr Tahir Ullah, Dr Naimat Ullah Shah, Dr Sajjad Ahmad, Dr Mian Shah Yousaf. Gastroesophageal Reflux Disease (GERD) Symptoms and Quality of Life Among Healthcare Workers. Afr.J.Bio.Sc. 6(8) (2024) doi:10.48047/AFJBS.6.8.2024.3752-3757 IQBAL N, KHAN A, YOUSAF MS, KHAN MA, ALAM I, REHMAN RU, AHMAD Y, KHAN MA. PREVALENCE AND RISK FACTORS OF GASTROESOPHAGEAL REFLUX DISEASE (GERD) IN MEDICAL COLLEGE STUDENTS. Biol. Clin. Sci. Res. J., Volume, 2024: 816. DOI: https://doi.org/10.54112/bcsrj.v2024i1.816 Dr Mian Shah Yousaf, Dr Noman Khan, Dr Wajid Iqbal, Dr. Arbab Muhammad Kashif Khan, Dr Masood Muhammad Karim, & Dr Muhammad Abbas. (2024). GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE. Journal of Population Therapeutics and Clinical Pharmacology, 31(2), 2153–2164.https://doi.org/10.53555/jptcp.v31i2.4592.",
+        "Dr Ihsan Ullah, Dr Rahid Gul, Dr Tahir Ullah, Dr Naimat Ullah Shah, Dr Sajjad Ahmad, Dr Mian Shah Yousaf. Gastroesophageal Reflux Disease (GERD) Symptoms and Quality of Life Among Healthcare Workers. Afr.J.Bio.Sc. 6(8) (2024) doi:10.48047/AFJBS.6.8.2024.3752-3757",
+        "IQBAL N, KHAN A, YOUSAF MS, KHAN MA, ALAM I, REHMAN RU, AHMAD Y, KHAN MA. PREVALENCE AND RISK FACTORS OF GASTROESOPHAGEAL REFLUX DISEASE (GERD) IN MEDICAL COLLEGE STUDENTS. Biol. Clin. Sci. Res. J., Volume, 2024: 816. DOI: https://doi.org/10.54112/bcsrj.v2024i1.816",
+        "Dr Mian Shah Yousaf, Dr Noman Khan, Dr Wajid Iqbal, Dr. Arbab Muhammad Kashif Khan, Dr Masood Muhammad Karim, & Dr Muhammad Abbas. (2024). GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE. Journal of Population Therapeutics and Clinical Pharmacology, 31(2), 2153–2164. https://doi.org/10.53555/jptcp.v31i2.4592.",
         "Yousaf MS, Kamani L, Fareed G, Khan AMK. A common presentation of uncommon disease - Biliary Fasciola Hepatica. Trop Doct. 2023 Oct;53(4):502-504. doi: 10.1177/00494755231174264. Epub 2023 May 10. PMID: 37165596.",
         "Hasan MK, Yousaf MS, Tehami N, Ala K, Arain UA, Ahmad S, Kadir S, Abbas Z, Niaz SK. Optimal stent placement strategy for malignant hilar biliary obstruction: a management dilemma. Gastrointest Endosc. 2021 Feb;93(2):532-533. doi: 10.1016/j.gie.2020.08.019. PMID: 33478669.",
         "Faisal Aslam, Yousaf MS et al, Screening For Prior Exposure To Hepatitis B Virus Infection In Patients Undergoing Chemotherapy., Indo Am. J. P. Sci, 2021; 08(10).",
@@ -2581,19 +2599,27 @@
       "department": "Gastroenterology",
       "designation": "Assistant Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/noman-khan.jpeg",
       "qualifications": [
         "MBBS (Gold Medalist)",
-        "FCPS Gastroenterology (Aga Khan University Hospital) MRCP-II (UK) CHPE CHPE"
+        "FCPS (Gastroenterology)",
+        "MRCP-II (UK)",
+        "CHPE"
       ],
       "experience": [
         "13 years"
       ],
       "skills": [
-        "Endoscopy, Colonoscopy, Advance Therapeutic Endoscopies, ERCP."
+        "Endoscopy, Colonoscopy, ERCP",
+        "Advance Therapeutic Endoscopies"
       ],
       "publications": [
-        "Diagnostic Accuracy of Endoscopic Findings (Duodenal Fissuring) in Diagnosis of Celiac Disease GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE PREVALENCE OF EXTRAINTESTINAL MANIFESTATIONS AMONG PATIENTS WITH ULCERATIVE COLITIS Short-term Outcomes of Laparoscopic Sleeve Gastrectomy for Weight Loss and Gastroesophageal Reflux Disease The Knowledge of Healthcare Professionals in Quetta District about Post-Exposure Prophylaxis for Hepatitis B CLINICIANS APPROACH TO EUTHANASIA IN THE PROVINCE OF KHYBER PAKHTUNKHWA"
+        "Diagnostic Accuracy of Endoscopic Findings (Duodenal Fissuring) in Diagnosis of Celiac Disease",
+        "GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE",
+        "PREVALENCE OF EXTRAINTESTINAL MANIFESTATIONS AMONG PATIENTS WITH ULCERATIVE COLITIS",
+        "Short-term Outcomes of Laparoscopic Sleeve Gastrectomy for Weight Loss and Gastroesophageal Reflux Disease",
+        "The Knowledge of Healthcare Professionals in Quetta District about Post-Exposure Prophylaxis for Hepatitis B",
+        "CLINICIANS APPROACH TO EUTHANASIA IN THE PROVINCE OF KHYBER PAKHTUNKHWA"
       ]
     },
     "asma-ghani": {

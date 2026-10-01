@@ -1427,17 +1427,17 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Assistant Professor Dr. Mian Shah Yousaf',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS (Gold Medalist), FCPS (Gastroenterology), Fellowship in EUS and ERCP, CHPE',
         'reg' => '17803-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Arbab Muhammad Kashif Khan',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Gastroenterology)',
         'reg' => '17318-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Noman Khan',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS (Gold Medalist), FCPS (Gastroenterology), MRCP-II (UK), CHPE',
         'reg' => '20380-N',
       ],
       [
