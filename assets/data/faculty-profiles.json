@@ -510,117 +510,6 @@
         "Antibiogram Profile of Patients Having Urinary Tract Infection Treated with Commonly Used Antibiotics. Pakistan Journal of Medicine and Dentistry. 2025;14(01)."
       ]
     },
-    "shehla-akbar": {
-      "slug": "shehla-akbar",
-      "aliases": [
-        "shehla-akbar"
-      ],
-      "name": "Shehla Akbar",
-      "department": "Pathology",
-      "designation": "Senior Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [],
-      "experience": [],
-      "skills": [],
-      "publications": []
-    },
-    "aiman-ajmeer": {
-      "slug": "aiman-ajmeer",
-      "aliases": [
-        "aiman-ajmeer"
-      ],
-      "name": "Aiman Ajmeer",
-      "department": "Pathology",
-      "designation": "Senior Lecturer",
-      "hod": false,
-      "photo": "assets/images/faculty/aiman-ajmeer.jpeg",
-      "qualifications": [
-        "MBBS",
-        "M.Phil (Histopathology)"
-      ],
-      "experience": [
-        "Senior Lecturer, Peshawar Medical College",
-        "Demonstrator, Peshawar Medical College"
-      ],
-      "skills": [],
-      "publications": []
-    },
-    "razia-aamir": {
-      "slug": "razia-aamir",
-      "aliases": [
-        "razia-aamir"
-      ],
-      "name": "Razia Aamir",
-      "department": "Pathology",
-      "designation": "Senior Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "BDS",
-        "M.Phil (Oral Pathology)"
-      ],
-      "experience": [
-        "Senior Lecturer, Peshawar Dental College, Peshawar (Jun 2023 – Present)",
-        "Lecturer, Peshawar Dental College, Peshawar (Jan 2021 – May 2023)",
-        "M.Phil Trainee, Peshawar Dental College, Peshawar (Jan 2019 – Jan 2021)",
-        "Dental Surgeon, Dr. Anees & Associates (Mar 2014 – Dec 2017)",
-        "Internship, Associate to Dr. Mushtaq Khattak, Hayatabad Medical Complex (Nov 2012 – Feb 2013)",
-        "Dental Assistant, Towncare Dental, Naples, Florida, USA (2006-2008)",
-        "Dental Assistant, Maria Dental Care, Miami, Florida, USA",
-        "House Officer, Khyber College of Dentistry, Peshawar (2000-2001)"
-      ],
-      "skills": [],
-      "publications": [
-        "Immunohistochemical Expression of Epidermal Growth Factor Receptor (EGFR) in Oral Squamous Cell Carcinoma and Oral Potentially Malignant Disorders. Applied Immunohistochemistry & Molecular Morphology, 2024;32:157–162.",
-        "Immunohistochemical Expression of p16 in Various Grades of Oral Squamous Cell Carcinoma (OSCC) with Snuff Use in Tertiary Care Hospitals of Peshawar. Pakistan Journal of Health Sciences, 2024;5(4)."
-      ]
-    },
-    "aminah-saqib": {
-      "slug": "aminah-saqib",
-      "aliases": [
-        "aminah-saqib"
-      ],
-      "name": "Aminah Saqib",
-      "department": "Pathology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "assets/images/faculty/aminah-saqib.png",
-      "qualifications": [
-        "MBBS",
-        "CHPE"
-      ],
-      "experience": [
-        "Lecturer, Peshawar Medical College (1 year)",
-        "House Officer, PMC affiliated hospitals (1 year)"
-      ],
-      "skills": [],
-      "publications": []
-    },
-    "mishgan-dayem": {
-      "slug": "mishgan-dayem",
-      "aliases": [
-        "mishgan-dayem"
-      ],
-      "name": "Mishgan Dayem",
-      "department": "Pathology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "assets/images/faculty/mishgan-dayem.jpeg",
-      "qualifications": [
-        "MBBS",
-        "M.Phil Scholar (Histopathology)"
-      ],
-      "experience": [
-        "Demonstrator, Pathology Department, Peshawar Medical College (2026)",
-        "House Officer, Gynaecology, Khyber Teaching Hospital, Peshawar",
-        "House Officer, Plastic Surgery",
-        "House Officer, Endocrinology",
-        "House Officer, Paediatrics"
-      ],
-      "skills": [],
-      "publications": []
-    },
     "shafaq-zafar": {
       "slug": "shafaq-zafar",
       "aliases": [
@@ -736,90 +625,6 @@
         "Assistant Professor, Department of Pharmacology, Peshawar Medical College (01 Oct 2019 – Till date)"
       ],
       "skills": [],
-      "publications": []
-    },
-    "khadija-maryam": {
-      "slug": "khadija-maryam",
-      "aliases": [
-        "khadija-maryam"
-      ],
-      "name": "Khadija Maryam",
-      "department": "Pharmacology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "MBBS",
-        "CHPE",
-        "PGT Pharmacy"
-      ],
-      "experience": [
-        "Lecturer, Department of Pharmacology, Peshawar Medical College (02 Nov 2020 – Till date)"
-      ],
-      "skills": [
-        "BLS workshop",
-        "Computer-related skill"
-      ],
-      "publications": []
-    },
-    "fahad-jan": {
-      "slug": "fahad-jan",
-      "aliases": [
-        "fahad-jan"
-      ],
-      "name": "Fahad Jan",
-      "department": "Pharmacology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "assets/images/faculty/fahad-jan.jpeg",
-      "qualifications": [
-        "MBBS",
-        "CHPE"
-      ],
-      "experience": [
-        "Lecturer, Department of Pharmacology, Peshawar Medical College (01 Jan 2022 – Till date)"
-      ],
-      "skills": [
-        "BLS workshop",
-        "Computer-related skill"
-      ],
-      "publications": []
-    },
-    "rabiya": {
-      "slug": "rabiya",
-      "aliases": [
-        "rabiya"
-      ],
-      "name": "Rabiya",
-      "department": "Pharmacology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "MBBS",
-        "CHPE"
-      ],
-      "experience": [
-        "Lecturer, Department of Pharmacology, Peshawar Medical College (03 Feb 2025 – Till date)"
-      ],
-      "skills": [],
-      "publications": []
-    },
-    "ameer-hamza": {
-      "slug": "ameer-hamza",
-      "aliases": [
-        "ameer-hamza"
-      ],
-      "name": "Ameer Hamza",
-      "department": "Pharmacology",
-      "designation": "Lecturer (on leave)",
-      "hod": false,
-      "photo": "",
-      "qualifications": [],
-      "experience": [],
-      "skills": [
-        "Currently on leave"
-      ],
       "publications": []
     },
     "robina-riaz": {
@@ -1085,221 +890,6 @@
         "Lipid profile in patients of type 2 diabetes mellitus with and without hypertension.",
         "Treatment and prevention of anti-glomerular basement membrane disease: a tertiary care hospital study.",
         "Diagnosis of malaria gametocytes using MP ICT vs PCR in infected patients: a cross-sectional study of asymptomatic relatives."
-      ]
-    },
-    "muhammad-ishraq": {
-      "slug": "muhammad-ishraq",
-      "aliases": [
-        "muhammad-ishraq"
-      ],
-      "name": "Muhammad Ishraq",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "assets/images/faculty/muhammad-ishraq.jpeg",
-      "qualifications": [
-        "MBBS, Khyber Medical College (2010)",
-        "CHPE, Riphah International University, Islamabad (2023-2024)",
-        "M.Phil Physiology, Khyber Medical University (2026)"
-      ],
-      "experience": [
-        "Lecturer, Physiology Department, Peshawar Medical College (2011-2014)",
-        "Lecturer, Physiology Department, Peshawar Medical College (2022 – Till date)"
-      ],
-      "skills": [],
-      "publications": [
-        "Ashraf S, Ishraq M, Khan MI, Kalsoom O, Ijaz A, Farukh U. Iodine levels and thyroid hormones in pregnant women and neonatal outcomes: a systematic review. Pakistan Journal of Health Sciences (Lahore). 6(4):311-317.",
-        "Ishraq M, Obaid S, Kamran J, Kakakhel S, Wazir A. Oxidative stress and its role in the pathophysiology of cardiovascular diseases. Journal of Pharmaceutical Negative Results. 2022;13(Special issue 10).",
-        "Kakakhel S, Ishraq M, Obaid S, Siddique A, et al. The interplay between hormonal regulation and obesity in type 2 diabetes mellitus. Journal of Pharmaceutical Negative Results. 2022;13(Special issue 07).",
-        "Khan I, Khan Z, Bukhari SKS, Bukhari SMS, Ishraq M. Application of staple gun versus proline suture during inguinal hernia mesh hernioplasty in terms of post-operative complications."
-      ]
-    },
-    "nabhan-rashad": {
-      "slug": "nabhan-rashad",
-      "aliases": [
-        "nabhan-rashad"
-      ],
-      "name": "Nabhan Rashad",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "assets/images/faculty/nabhan-rashad.jpeg",
-      "qualifications": [
-        "MBBS, Peshawar Medical College (2016)",
-        "FCPS-I (Surgery and Allied), College of Physicians and Surgeons Pakistan (2018)",
-        "IMM (Surgery and Allied), College of Physicians and Surgeons Pakistan (2020)"
-      ],
-      "experience": [
-        "Demonstrator, Physiology Department, Peshawar Medical College (February 2024 – Till date)",
-        "Medical Officer (Evening), Orthopedics Clinic, Peshawar (June 2024 – Till date)"
-      ],
-      "skills": [
-        "Paper presented at 1st Northwest Annual Research Conference, 2022"
-      ],
-      "publications": [
-        "Availability and use of in-patient electronic health records in low resource setting. Computer Methods and Programs in Biomedicine.",
-        "Diagnostic accuracy of clinical tests in knee joint injuries: a single centered experience.",
-        "Impact of staffing levels and resources of intensive care units on compliance to standard mechanical ventilator guidelines: a city-wide study in times of COVID-19 pandemic."
-      ]
-    },
-    "muhammad-haroon": {
-      "slug": "muhammad-haroon",
-      "aliases": [
-        "muhammad-haroon"
-      ],
-      "name": "Muhammad Haroon",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "assets/images/faculty/muhammad-haroon.jpeg",
-      "qualifications": [
-        "MBBS, Peshawar Medical College, Riphah International University (2017)",
-        "FCPS-I, College of Physicians and Surgeons Pakistan (2019)",
-        "IMM, College of Physicians and Surgeons Pakistan (2021)",
-        "CHPE, Riphah International University (2025)",
-        "MRCS, Royal College of Surgeons of England (2025)"
-      ],
-      "experience": [
-        "Lecturer, Department of Physiology, Peshawar Medical College (2019)",
-        "Postgraduate Resident, General Surgery, Khyber Teaching Hospital, MTI (2019-2021)",
-        "Postgraduate Resident, Orthopedic Surgery, Lady Reading Hospital, MTI (2021-2024)",
-        "Lecturer, Department of Physiology, Peshawar Medical College (2024 – Till date)"
-      ],
-      "skills": [],
-      "publications": [
-        "Khan, Muhammad Haroon. Level of depression and anxiety in maintenance dialysis patients undergoing treatment in public sector hospitals of Peshawar. Northwest Journal of Medical Sciences. 2017."
-      ]
-    },
-    "ammara-habib": {
-      "slug": "ammara-habib",
-      "aliases": [
-        "ammara-habib"
-      ],
-      "name": "Ammara Habib",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "MBBS, Peshawar Medical College (2021)",
-        "Certificate in Health Professional Education in Health Research (2026)"
-      ],
-      "experience": [
-        "Lecturer, CHS Department, Peshawar Medical College (2023-2024)",
-        "Lecturer, Physiology Department, Peshawar Medical College (2024 – Till date)"
-      ],
-      "skills": [],
-      "publications": []
-    },
-    "huma-mir": {
-      "slug": "huma-mir",
-      "aliases": [
-        "huma-mir"
-      ],
-      "name": "Huma Mir",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "MBBS, Peshawar Medical College (2018)",
-        "FCPS Pediatrics, Northwest General Hospital and Khyber Teaching Hospital (2021-2025)"
-      ],
-      "experience": [
-        "Lecturer, Department of Physiology, Peshawar Medical College (2020-2021)",
-        "Lecturer, Department of Physiology, Peshawar Medical College (2025 – Till date)"
-      ],
-      "skills": [],
-      "publications": []
-    },
-    "farzeen-pervez": {
-      "slug": "farzeen-pervez",
-      "aliases": [
-        "farzeen-pervez"
-      ],
-      "name": "Farzeen Pervez",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "MD (Gold Medalist), ELAM (Latin American School of Medicine), Cuba (2015)"
-      ],
-      "experience": [
-        "Medical Officer, Al-Hamza Hospital, Ghazi, Pakistan (June 2015 – March 2017)",
-        "Medical Officer, Adeena Diagnostic Center, Peshawar (February 2021 – March 2022)",
-        "Lecturer, Physiology Department, Peshawar Medical College"
-      ],
-      "skills": [],
-      "publications": []
-    },
-    "gulalay-ihsan": {
-      "slug": "gulalay-ihsan",
-      "aliases": [
-        "gulalay-ihsan"
-      ],
-      "name": "Gulalay Ihsan",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "MBBS, Peshawar Medical College (2016)"
-      ],
-      "experience": [
-        "Lecturer, Department of Physiology, Peshawar Medical College (2018 – Till date)"
-      ],
-      "skills": [],
-      "publications": [
-        "Effects of mothers' education on childhood vaccination (March 2016).",
-        "Comparative study of anxiety and depression among undergraduate medical students of public and private sector medical colleges of Peshawar (March 2016).",
-        "Role of family system, education level and financial dependency on the mental state of elderly individuals of Peshawar (March 2015)."
-      ]
-    },
-    "hafsa-humayon": {
-      "slug": "hafsa-humayon",
-      "aliases": [
-        "hafsa-humayon"
-      ],
-      "name": "Hafsa Humayon",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "BDS, Peshawar Dental College (2022)",
-        "M.Phil Physiology (in progress), Riphah International University"
-      ],
-      "experience": [
-        "Demonstrator, Department of Physiology, Peshawar Dental College (19 March 2024 – Till date)"
-      ],
-      "skills": [],
-      "publications": []
-    },
-    "palwasha-zahid": {
-      "slug": "palwasha-zahid",
-      "aliases": [
-        "palwasha-zahid"
-      ],
-      "name": "Palwasha Zahid",
-      "department": "Physiology",
-      "designation": "Lecturer",
-      "hod": false,
-      "photo": "",
-      "qualifications": [
-        "BDS, Peshawar Dental College (2018)",
-        "CHPE, Khyber Medical University (2024)",
-        "MHPE, Khyber Medical University (2026)"
-      ],
-      "experience": [
-        "Lecturer, Physiology, Peshawar Medical and Dental College (Jan 2025 – Till date)"
-      ],
-      "skills": [],
-      "publications": [
-        "Comparison of open-book versus closed-book assessments in medical students. International Journal of Pharmacy Research & Technology (IJPRT). 2026. https://ijprt.org/index.php/pub/article/view/2218",
-        "Impact of artificial intelligence-assisted feedback on clinical reasoning skills among postgraduate medical trainees. International Journal of Pharmacy Research and Technology (IJPRT). 2026. https://ijprt.org/index.php/pub/article/view/2600",
-        "Understanding the goals of service learning and community-based medical education: a systematic review. Pakistan Journal of Health Sciences (PJHS). 2025. https://share.google/PSy1O4PsIjOQtnhlN",
-        "E-learning platforms in medical education: a quantitative comparison of online and traditional learning in Peshawar. Journal of Population Therapeutics and Clinical Pharmacology (JPTCP). 2025. https://www.jptcp.com/index.php/jptcp/article/view/11985"
       ]
     },
     "muhammad-irfan": {
@@ -1785,7 +1375,7 @@
         "Calibrated behaviors assessment in spinal cord compression injury model in rats. https://sciencescholar.us/journal/index.php/ijhs/article/view/14079",
         "Genetic Predisposition to Kidney Diseases Uncovering the Role of Genomics in Nephrology. https://jnmc.com.pk/index.php/website/article/view/28",
         "AI-Driven Diagnostic Tools for Cardiovascular Risk Assessment: Opportunities and Challenges. https://www.seejph.com/index.php/seejph/article/view/5896",
-        "Insomnia and Neuroticism in Pakistani Medical Students: ACross-Sectional Study (https://www.mdpi.com/2227-9032/13/21/2778)6"
+        "Insomnia and Neuroticism in Pakistani Medical Students: ACross-Sectional Study (https://www.mdpi.com/2227-9032/13/21/2778)"
       ]
     },
     "ambereen-humayun": {
@@ -3808,18 +3398,11 @@
     "sumira-abbas": "sumira-abbas",
     "sarah-yousuf": "sarah-yousuf",
     "haseeba-arif": "haseeba-arif",
-    "shehla-akbar": "shehla-akbar",
-    "aiman-ajmeer": "aiman-ajmeer",
-    "razia-aamir": "razia-aamir",
-    "aminah-saqib": "aminah-saqib",
-    "mishgan-dayem": "mishgan-dayem",
     "shafaq-zafar": "shafaq-zafar",
     "riaz-nasim": "riaz-nasim",
     "amber-javaid": "amber-javaid",
     "erum-rehman": "erum-rehman",
     "muhammad-shahid": "muhammad-shahid",
-    "khadija-maryam": "khadija-maryam",
-    "fahad-jan": "fahad-jan",
     "robina-riaz": "robina-riaz",
     "robina-usman": "robina-riaz",
     "farzana-salman": "farzana-salman",
@@ -3827,15 +3410,6 @@
     "momina-haq": "momina-haq",
     "marina-hidayat": "marina-hidayat",
     "fatima-saadat": "fatima-saadat",
-    "muhammad-ishraq": "muhammad-ishraq",
-    "nabhan-rashad": "nabhan-rashad",
-    "muhammad-haroon": "muhammad-haroon",
-    "ammara-habib": "ammara-habib",
-    "huma-mir": "huma-mir",
-    "farzeen-pervez": "farzeen-pervez",
-    "gulalay-ihsan": "gulalay-ihsan",
-    "hafsa-humayon": "hafsa-humayon",
-    "palwasha-zahid": "palwasha-zahid",
     "mohammad-irfan": "muhammad-irfan",
     "muhammad-irfan": "muhammad-irfan",
     "mohammad-idrees": "mohammad-idrees",
@@ -3848,8 +3422,6 @@
     "sarah-yousaf": "sarah-yousuf",
     "farzana-khan": "farzana-salman",
     "mohsina": "mohsina-haq",
-    "rabiya": "rabiya",
-    "ameer-hamza": "ameer-hamza",
     "kifayat-ali": "kifayat-ali",
     "sana": "sana",
     "jehanzeb-khan": "jehanzeb-khan",

@@ -402,7 +402,7 @@ function appendMissingCvFaculty() {
     if (listHasProfile(rec)) continue;
     allFaculty.push({
       empName: rec.name,
-      desTitle: rec.designation || 'Faculty',
+      desTitle: String(rec.designation || 'Faculty').split(/[\n;]/)[0].trim(),
       depName: rec.department || '',
       facPMDCNo: '',
       facFacRegNo: '',
@@ -520,7 +520,18 @@ function clearAllFilters() {
   const data = await fetchFaculty();
   try {
     const extraRes = await fetch('assets/data/faculty-profiles.json');
-    if (extraRes.ok) extraPack = await extraRes.json();
+    if (extraRes.ok) {
+      extraPack = await extraRes.json();
+      const profiles = extraPack.profiles || {};
+      const index = extraPack.index || {};
+      for (const [slug, rec] of Object.entries(profiles)) {
+        if (rec && isFacultyRank(rec.designation)) continue;
+        delete profiles[slug];
+        for (const [alias, target] of Object.entries(index)) {
+          if (target === slug) delete index[alias];
+        }
+      }
+    }
   } catch (e) { /* directory still works without extra CVs */ }
   loading.style.display = 'none';
 

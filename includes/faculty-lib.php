@@ -162,6 +162,35 @@ function faculty_profile_has_cv(?array $rec): bool {
   return false;
 }
 
+function faculty_research_preferences(array $rec): array {
+  foreach (['research_preferences', 'research_interests', 'research', 'preferences'] as $key) {
+    if (empty($rec[$key])) {
+      continue;
+    }
+    $raw = $rec[$key];
+    if (is_string($raw)) {
+      $raw = preg_split('/[\n;|]+/', $raw) ?: [];
+    }
+    if (!is_array($raw)) {
+      continue;
+    }
+    $out = [];
+    $seen = [];
+    foreach ($raw as $item) {
+      $text = trim(faculty_soft_space((string) $item));
+      if ($text === '' || isset($seen[strtolower($text)])) {
+        continue;
+      }
+      $seen[strtolower($text)] = true;
+      $out[] = $text;
+    }
+    if ($out) {
+      return $out;
+    }
+  }
+  return [];
+}
+
 function faculty_profile_lookup_cv(string $nameOrSlug): ?array {
   try {
     $rec = faculty_profile_lookup(faculty_slug($nameOrSlug));
