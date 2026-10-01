@@ -863,7 +863,7 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Hafeez Ur Rahman',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Ophthalmology), ICO (UK), AD-HPE',
         'reg' => '6392-P',
       ],
       [
@@ -873,32 +873,32 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Mir Ali Shah',
-        'qualification' => 'MBBS, MCPS, FCPS',
+        'qualification' => 'MBBS, MCPS, ICO, FCPS (Ophthalmology), Fellowship Retina, MCPS-HPE',
         'reg' => '2186-N',
       ],
       [
         'name' => 'Professor Dr. Ibrar Hussain',
-        'qualification' => 'MBBS, MCPS, FCPS',
+        'qualification' => 'MBBS, MCPS, FCPS (Ophthalmology), FRCS, Fellowship in Oculoplastic surgery',
         'reg' => '3570-N',
       ],
       [
         'name' => 'Associate Professor Dr. Faisal Nawaz',
-        'qualification' => 'MBBS, FCPS(Ophthalmology), FCPS(VR)',
+        'qualification' => 'MBBS, FCPS (Ophthalmology), FCPS (Vitreoretina)',
         'reg' => '5663-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Abdul Munim',
-        'qualification' => 'MBBS, FCPS (Ophthalmology), FCPS (VR)',
+        'qualification' => 'MBBS, FCPS (Ophthalmology), FCPS (Vitreo Retina), FICO (UK)',
         'reg' => '16590-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Muhammad Usman',
-        'qualification' => 'MBBS, FCPS (Ophthalmology), FCPS (VR)',
+        'qualification' => 'MBBS, FCPS (Ophthalmology), FCPS (Vitreo Retina)',
         'reg' => '70849-P',
       ],
       [
         'name' => 'Senior Registrar Dr. Muhammad Zaheer Ullah Baber',
-        'qualification' => 'MBBS, FCPS (Ophthalmology), FCPS (VR)',
+        'qualification' => 'MBBS, FCPS (Ophthalmology), FCPS (Retina), ICO (London)',
         'reg' => '27313-N',
       ],
     ],
