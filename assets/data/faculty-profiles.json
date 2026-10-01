@@ -2862,26 +2862,52 @@
       ],
       "name": "Akram Ullah",
       "department": "Neurosurgery",
-      "designation": "HOD/ Associate Professor Neurosurgery department Prime teaching Hospital PMC Peshawar",
+      "designation": "Associate Professor",
       "hod": true,
-      "photo": "",
+      "photo": "assets/images/faculty/akram-ullah.png",
       "qualifications": [
         "MBBS",
-        "FCPS (Neurosurgery) MCPS",
-        "FACS ASCD",
+        "FCPS (Neurosurgery)",
+        "MCPS",
+        "FACS",
+        "ASCD",
         "ESBD",
-        "EDISC CHPE",
+        "EDISC",
+        "CHPE",
         "CHR"
       ],
       "experience": [
-        "District Consultant Neurosurgeon DHQ Buner Dec 2016 to 30 march 2019 Assistant professor of neurosurgery prime teaching hospital PMC Peshawar 1st April to 7th May 2026 Associate professor of neurosurgery prime teaching hospital PMC Peshawar 8th may 2026 till date FCPS II SUPERVISOR & EXAMINER"
+        "Associate professor of neurosurgery prime teaching hospital PMC Peshawar 8th may 2026 till date"
       ],
       "skills": [
-        "Expert in Brain & Spine Pathologies, • Advanced neurosurgical techniques (cranial, spinal, and trauma) • Clinical teaching and mentoring • Research design and execution • Conference presentation and scientific writing"
+        "Expert in Brain & Spine Pathologies",
+        "Advanced neurosurgical techniques (cranial, spinal, and trauma)",
+        "Clinical teaching and mentoring",
+        "Research design and execution",
+        "Conference presentation and scientific writing"
       ],
       "publications": [
-        "Frequency of Post-Operative Cerebrospinal Fluid Leak after Infratentorial Surgery, Microsurgical Resection of Intracranial Dermoid and Epidermoid Tumors (IDET)",
-        "Evaluation of the Efficacy of the Non-Decompressive Single Stage Bilateral Craniotomy in Treatment of Traumatic Brain Injury Medication and Facial Nerve Outcome of Surgical Treatment for Lumber Disc Herniation Causing Painful Incomplete Foot-Drop Outcome of Anterior Cervical Discectomy with PEEK Cage Fixation for Single Level Cervical Disc Disease Outcome of Endoscopic Third Ventriculostomy: An Experience of 80 Treated Patients RETRO MASTOID SUBOCCIPITAL MICROVASCULAR DECOMPRESSION TECHNIQUE FOR THE TREATMENT OF TRIGEMINAL NEURALGIA: A CASE SERIES STUDY NON DISCOGENIC SCIATICA MIMICKING DISORDERS Pediatric Traumatic Brain Injury; Experience in Tertiary Care Hospitals of KPK, A Multi- Center Study SURGICAL MANAGEMENT OF CRANIAL DERMOID/EPIDERMOID TUMORS A MULTI-CENTER STUDY Clinical Outcomes of Craniotomy in the Management of Cranial Arachnoid Cyst: An experience from Ali Institute of Neurosciences, Irfan General Hospital Peshawar: A Retrospective Case Series Incidental Durotomy in Lumbar Microdiskectomy; Incidence, Management and Early Sequelae Thoracic and lumbar spine Pott’s spine surgery results five institutional a multicenter study compares transpedicular decompression with and without general reconstructive surgery Sub Temporal Trans Tentorial Approach in Excision of Mid Brain Tumor Visual Outcome after Microsurgical removal of Craniopharyngioma via Pterional Craniotomy This article may be cited as: Khaliq A, Azam F, Ali M, Asadullah, Akramullah, Zubair M. Visual Outcome after Microsurgical removal of Craniopharyngioma via Pterional Craniotomy Hemorrhagic Stroke May Be the Sequelae of Brain Tumors HYDROCEPHALUS; CAUSES OF HYDROCEPHALUS AMONG DIFFERENT AGE GROUPS Effectiveness of Discectomy for Pain Control in Lumber Radiculopathy Maternal Concepts and Practices of Antenatal Care in Patients with Spinal Dysraphism Radiological misdiagnosis of intracranial solitary fibrous tumor: a case report STAT6 immunohistochemistry resolves the diagnostic challenge"
+        "Frequency of Post-Operative Cerebrospinal Fluid Leak after Infratentorial Surgery",
+        "Microsurgical Resection of Intracranial Dermoid and Epidermoid Tumors (IDET)",
+        "Evaluation of the Efficacy of the Non-Decompressive Single Stage Bilateral Craniotomy in Treatment of Traumatic Brain Injury",
+        "Medication and Facial Nerve",
+        "Outcome of Surgical Treatment for Lumber Disc Herniation Causing Painful Incomplete Foot-Drop",
+        "Outcome of Anterior Cervical Discectomy with PEEK Cage Fixation for Single Level Cervical Disc Disease",
+        "Outcome of Endoscopic Third Ventriculostomy: An Experience of 80 Treated Patients",
+        "RETRO MASTOID SUBOCCIPITAL MICROVASCULAR DECOMPRESSION TECHNIQUE FOR THE TREATMENT OF TRIGEMINAL NEURALGIA: A CASE SERIES STUDY",
+        "NON DISCOGENIC SCIATICA MIMICKING DISORDERS",
+        "Pediatric Traumatic Brain Injury; Experience in Tertiary Care Hospitals of KPK, A Multi- Center Study",
+        "SURGICAL MANAGEMENT OF CRANIAL DERMOID/EPIDERMOID TUMORS A MULTI-CENTER STUDY",
+        "Clinical Outcomes of Craniotomy in the Management of Cranial Arachnoid Cyst: An experience from Ali Institute of Neurosciences, Irfan General Hospital Peshawar: A Retrospective Case Series",
+        "Incidental Durotomy in Lumbar Microdiskectomy; Incidence, Management and Early Sequelae",
+        "Thoracic and lumbar spine Pott’s spine surgery results five institutional a multicenter study compares transpedicular decompression with and without general reconstructive surgery",
+        "Sub Temporal Trans Tentorial Approach in Excision of Mid Brain Tumor",
+        "Visual Outcome after Microsurgical removal of Craniopharyngioma via Pterional Craniotomy This article may be cited as: Khaliq A, Azam F, Ali M, Asadullah, Akramullah, Zubair M. Visual Outcome after Microsurgical removal of Craniopharyngioma via Pterional Craniotomy",
+        "Hemorrhagic Stroke May Be the Sequelae of Brain Tumors",
+        "HYDROCEPHALUS; CAUSES OF HYDROCEPHALUS AMONG DIFFERENT AGE GROUPS",
+        "Effectiveness of Discectomy for Pain Control in Lumber Radiculopathy",
+        "Maternal Concepts and Practices of Antenatal Care in Patients with Spinal Dysraphism",
+        "Radiological misdiagnosis of intracranial solitary fibrous tumor: a case report STAT6 immunohistochemistry resolves the diagnostic challenge"
       ]
     },
     "arif-hussain": {
@@ -2893,44 +2919,60 @@
       "department": "Neurosurgery",
       "designation": "Assistant Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/arif-hussain.jpeg",
       "qualifications": [
         "MBBS",
-        "FCPS (Neurosurgery) MCPS",
+        "FCPS (Neurosurgery)",
+        "MCPS",
         "CHPE",
-        "CHR ASCD"
+        "CHR",
+        "ASCD"
       ],
       "experience": [
-        "Senior Registrar Neurosurgery Prime Teaching Hospital, Peshawar April 2021 – Present • Performing elective and emergency neurosurgical procedures • Supervising neurosurgical residents and interns • Teaching undergraduate medical students • Participating in academic activities and examinations FCPS Neurosurgery Residency Lady Reading Hospital, Peshawar 2015 – 2020 • Managed neurosurgical cases in both operative and non-operative settings • Assisted in high-complexity cranial and spinal surgeries • Participated in academic journal clubs, case presentations, and audits House Officer Mardan Medical Complex 2014 • Rotations in major specialties including surgery, medicine, pediatrics, and obstetrics"
+        "Senior Registrar Neurosurgery Prime Teaching Hospital, Peshawar April 2021 – Present"
       ],
       "skills": [
-        "Expert in Brain & Spine Pathologies • Advanced neurosurgical techniques (cranial, spinal, trauma) • Clinical teaching and mentoring • Research design and execution • Conference presentation and scientific writing"
+        "Expert in Brain & Spine Pathologies",
+        "Advanced neurosurgical techniques (cranial, spinal, trauma)",
+        "Clinical teaching and mentoring",
+        "Research design and execution",
+        "Conference presentation and scientific writing"
       ],
       "publications": [
-        "• Clinical Outcome and Complication of Endoscopic Endo Nasal Trans Sphenoidal Surgery (ETSS) for Pituitary Adenoma: A Retrospective Study at Prime Teaching Hospital Peshawar - PJNS | Jan-March 2021 • Spectrum of Spinal Dysraphism in Pediatric Patients in Tertiary Care Hospital - PJNS | April-June 2021 • Clinical Outcome and Complication of Anterior Cranial Fossa Meningiomas in Tertiary Care Hospital - PJNS | April-June 2021 • Neurological Improvement after Decompression for Dorsal Spine Tuberculosis (TB) - PJNS | April-June 2021 • Clinical Spectrum and Surgical Outcomes: Institutional Experience from a Single Center Spinal Tumors (Vol VIII, No II, Spring 2023) • Non-Decompressive Single Stage Bilateral Craniotomy in Traumatic Brain Injury (Vol. 17 No 01, 2023) Pakistan Journal of Medical & Health Sciences • Clinical Outcome of Hypoglossal-Facial Nerve Anastomosis in Severe Facial Nerve Paralysis: An Experience from Khyber Pakhtunkhwa (KPK) - Pak Journal of Neural Surgery, 2022, 26(4): 631-637"
+        "Clinical Outcome and Complication of Endoscopic Endo Nasal Trans Sphenoidal Surgery (ETSS) for Pituitary Adenoma: A Retrospective Study at Prime Teaching Hospital Peshawar - PJNS | Jan-March 2021",
+        "Spectrum of Spinal Dysraphism in Pediatric Patients in Tertiary Care Hospital - PJNS | April-June 2021",
+        "Clinical Outcome and Complication of Anterior Cranial Fossa Meningiomas in Tertiary Care Hospital - PJNS | April-June 2021",
+        "Neurological Improvement after Decompression for Dorsal Spine Tuberculosis (TB) - PJNS | April-June 2021",
+        "Clinical Spectrum and Surgical Outcomes: Institutional Experience from a Single Center Spinal Tumors (Vol VIII, No II, Spring 2023)",
+        "Non-Decompressive Single Stage Bilateral Craniotomy in Traumatic Brain Injury (Vol. 17 No 01, 2023) Pakistan Journal of Medical & Health Sciences",
+        "Clinical Outcome of Hypoglossal-Facial Nerve Anastomosis in Severe Facial Nerve Paralysis: An Experience from Khyber Pakhtunkhwa (KPK) - Pak Journal of Neural Surgery, 2022, 26(4): 631-637"
       ]
     },
     "muhammad-zubair-bashir": {
       "slug": "muhammad-zubair-bashir",
       "aliases": [
-        "muhammad-zubair-bashir"
+        "muhammad-zubair-bashir",
+        "muhammad-zubair"
       ],
       "name": "Muhammad Zubair Bashir",
       "department": "Neurosurgery",
       "designation": "Associate Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/muhammad-zubair-bashir.jpeg",
       "qualifications": [
         "MD",
         "MS (Neurosurgery)",
-        "MCPS ASCD",
+        "MCPS",
+        "ASCD",
         "FACS"
       ],
-      "experience": [
-        "Attended Workshop on Communication Skills Organized by Dept of Medicaleducation , PIMS at Quaid e Azam post Graduate Medical College, PIMS Islamabad (2013) Attended Workshop on Computer and Internet Skills Organized by Dept of Medical education , PIMS at Quaid e Azam post Graduate Medical College, PIMS Islamabad (2013) Attended International Neurosurgery Conference Organized by Pakistan Society of Neurosurgeons at Ayub Medical College, Abbottabad, KPK (2012) Attended International Neurosurgery Conference Organized by Pakistan Society of Neurosurgeons at Pearl Continental Hotel Lahore (2012) Attended International Neurosurgery Conference Organized by Pakistan Society of Neurosurgeons at Bhurban ,Murree (2011) Attended PTC Foundation Course Comprised of Hands on Training for the lifesaving Skills as Prescribed by Primary Trauma Care Foundation, UK at PIMS Islamabad, (2011) Attended Workshop on Data Analysis for Nutritional Surveillance Organized by Health Services Accademy Islamabad in Collaboration with World HealrthOrganisation&Neutrition Cell Dept of Health KPK at Provicial Health Services Academy, Peshawar (2011) Attended 4th Neurotrauma Conference Organized by Pakistan Society of Neurosurgeons at North West General Hospital, Peshawar (2009) Attended Workshop on Head Injury held in PIMS Islamabad (2008) Attended Workshop on Communication Skills Organized by Children Hospital Islamabad at PIMS Islamabad (2008) Attended 5th Annual PIMS Symposium at PIMS Islamabad ( 2008) Attended PTC Foundation Course Comprised of Hands on Training for the lifesaving Skills as Prescribed by Primary Trauma Care Foundation, UK at PIMS Islamabad, (2008) Attended Six Days Training Course on Community Based TB DOTS organized by Association for community Development and Provincial TB Control Program at District Health Office Lower Dir, KPK (2006) Attended a Medical Training for Emergency Conditions at Municipal Organization at Tver Medical Emergency Centre Russia (2000)"
-      ],
+      "experience": [],
       "skills": [
-        "Expert in Brain & Spine Pathologies. • Advanced neurosurgical techniques (cranial, spinal, trauma) • Clinical teaching and mentoring • Research design and execution • Conference presentation and scientific writing"
+        "Expert in Brain & Spine Pathologies",
+        "Advanced neurosurgical techniques (cranial, spinal, trauma)",
+        "Clinical teaching and mentoring",
+        "Research design and execution",
+        "Conference presentation and scientific writing"
       ],
       "publications": [
         "Surgical Outcome of Dorso lumbar spinal injury stabilization with Fixatuer Internae.",
@@ -2946,8 +2988,9 @@
         "Sub Temporal Trans Tentorial Approach in Excision Of Mid Brain Tumor: A Case report",
         "Clinical Outcomes of Craniotomy in the Management of Cranial Arachnoid Cyst:",
         "Clinical Outcomes Of Full Endoscopic Thoracic Discectomy In Acute Disc Herniation: A Case Report From Khyber Pakhtunkhwa",
-        "Medication and Facial nerve rehabilitation: A two year Retrospective Analysis of Microsurgical resection outcomes for benign cerebellopontine angle tumors in 31 cases at prime teaching hospital peshawar WORKSHOP & EXPERIENCES",
-        "Clinical Outcome of Microvascular Decompression In The Management Of Trigeminal Neuralgia In A Single Center: A Prospective Study 16. Non decompressive single stage Bilatral Craniotomy in traumatic brain injury"
+        "Medication and Facial nerve rehabilitation: A two year Retrospective Analysis of Microsurgical resection outcomes for benign cerebellopontine angle tumors in 31 cases at prime teaching hospital peshawar",
+        "Clinical Outcome of Microvascular Decompression In The Management Of Trigeminal Neuralgia In A Single Center: A Prospective Study",
+        "Non decompressive single stage Bilatral Craniotomy in traumatic brain injury"
       ]
     },
     "sajid-khan": {
@@ -2959,36 +3002,43 @@
       "department": "Neurosurgery",
       "designation": "Assistant Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/sajid-khan.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS (Neurosurgery)",
-        "ASCD CHPE",
+        "ASCD",
+        "CHPE",
         "CHR"
       ],
-      "experience": [
-        "HOUSE JOB EXPERIENCE (25-01-2010 till 23-02-2011) 12 Months full time, residential and paid house job at Ayub Teaching Hospital, Abbottabad Medicine & Allied (6 Months) 5 months in general medicine in Medical C Unit at Ayub Teaching Hospital, Abbottabad 01 months in endocrinology at ATH Abbottabad Surgery & Allied (6 Months) 05months in General Surgery (Surgical ‘B’ Unit) Ayub Teaching Hospital, Abbottabad 01 months in Radiology at Ayub Teaching Hospital, Abbottabad POSTGRADUATE EXPERIENCE(NEUROSURGERY) 24 Months full time, residential and paid post graduate training at PGMI Lady Reading Hospital Peshawar.",
-        "HOUSE JOB EXPERIENCE (25-01-2010 till 23-02-2011) 12 Months full time, residential and paid house job at Ayub Teaching Hospital, Abbottabad Medicine & Allied (6 Months) 5 months in general medicine in Medical C Unit at Ayub Teaching Hospital, Abbottabad 01 months in endocrinology at ATH Abbottabad Surgery & Allied (6 Months) 05months in General Surgery (Surgical ‘B’ Unit) Ayub Teaching Hospital, Abbottabad 01 months in Radiology at Ayub Teaching Hospital, Abbottabad POSTGRADUATE EXPERIENCE(NEUROSURGERY) 24 Months full time, residential and paid post graduate training at PGMI Lady Reading Hospital Peshawar."
-      ],
+      "experience": [],
       "skills": [
-        "Expert in Brain & Spine Pathologies. • Advanced neurosurgical techniques (cranial, spinal, trauma) • Clinical teaching and mentoring • Research design and execution • Conference presentation and scientific writing"
+        "Expert in Brain & Spine Pathologies",
+        "Advanced neurosurgical techniques (cranial, spinal, trauma)",
+        "Clinical teaching and mentoring",
+        "Research design and execution",
+        "Conference presentation and scientific writing"
       ],
       "publications": [
-        "Giant tuberculoma resembling brain tumor in a child. Pakistan journal of neurological surgery, Vol20NO2 2016 principal author 2- Association of extradural hematoma with linear skull fracture, Pakistan journal of neurological surgery, VOL21No22017, co-author 3 )Outcome of endoscopic third ventriculostomy: An experience of 80 treated patients. Pakistan journal of neurological surgery, vol23, NO4 2019",
+        "Giant tuberculoma resembling brain tumor in a child. Pakistan journal of neurological surgery, Vol20NO2 2016 principal author",
+        "Association of extradural hematoma with linear skull fracture, Pakistan journal of neurological surgery, VOL21No22017, co-author",
+        "Outcome of endoscopic third ventriculostomy: An experience of 80 treated patients. Pakistan journal of neurological surgery, vol23, NO4 2019",
         "outcome of anterior cervical discectomy with peek cage fixation for single level cervical disc disease, Pakistan journal of neurological surgery, Vol24NO2 2020",
         "outcome of ventriculoperitoneal shunt in terms of improvement and complication. Pak jns.",
-        "isodense acute epidural hematoma in an anemic patient, 7)Frequency of intracranial hemmorhage among patients with skull fracture in blunt head trauma. American Journal of Health ,medicine and Nursing practice 8)endoscopic third ventriculostomy in the treatment of obstructive hydrocephalus due to posterior fossa tumors, A comparative analysis. American Journal of Health ,medicine and Nursing practice",
+        "isodense acute epidural hematoma in an anemic patient",
+        "Frequency of intracranial hemmorhage among patients with skull fracture in blunt head trauma. American Journal of Health ,medicine and Nursing practice",
+        "endoscopic third ventriculostomy in the treatment of obstructive hydrocephalus due to posterior fossa tumors, A comparative analysis. American Journal of Health ,medicine and Nursing practice",
         "Surgical intervention for the treatment of multiple Glioblastoma. Pakistan Journal of advances in Medicine and Medical research.",
         "Extrusion of Peritoneal catheter of ventriculoperitoneal chunt through rectum. Pak JNS",
         "Frequency of CSF leak after Mvd for idiopathic trigeminal neuralgia, A observation-based Research. International journal of Health siences. 27 nov 2022",
         "the role of dynamic lumbar spine X-ray in the diagnosis of type 1 spondylolisthesis in patients who have previously done lumbar spine surgery. American Journal of Health ,medicine and Nursing practice",
-        "classification of guillin barre syndrome based on electrophysiological features. . International journal of Health siences 14)Analysis of otorhinological manifestation in patients diagnosed with traumatic brain injury. Pakistan Journal of Medical and health sciences.",
-        "Non decompressive single stage bilateral craniotomy in traumatic brain injury. Pakistan Journal of Medical and health sciences. 16)surgical results of sub axial cervical injury in adult patients treated via anterior approach. Pakistan Journal of Medical and health sciences. Pakistan Journal of Medical and health sciences.",
+        "classification of guillin barre syndrome based on electrophysiological features. . International journal of Health siences",
+        "Analysis of otorhinological manifestation in patients diagnosed with traumatic brain injury. Pakistan Journal of Medical and health sciences.",
+        "Non decompressive single stage bilateral craniotomy in traumatic brain injury. Pakistan Journal of Medical and health sciences.",
+        "surgical results of sub axial cervical injury in adult patients treated via anterior approach. Pakistan Journal of Medical and health sciences.",
         "evaluation of the efficacy of non decompressive single stage bilateral craniotomy in the treatment of traumatic brain injury. Pakistan Journal of Medical and health sciences.",
         "clinical outcome and complication of anterior cranial fossa meningiomas in tertiary care hospital Peshawar. PAK JNS",
         "Neurological improvement after decompression for dorsal spine tuberculosis, pak jns",
-        "clinical outcome of hypoglossal facial anastomosis in severe facial nerve paralysis , An experience from Khyber pukhtunkhwa. Pak jns",
-        ") outcome of ventriculoperitoneal shunt in terms of improvement and complication pak jns"
+        "clinical outcome of hypoglossal facial anastomosis in severe facial nerve paralysis , An experience from Khyber pukhtunkhwa. Pak jns"
       ]
     },
     "faisal-nawaz": {
@@ -4234,6 +4284,7 @@
     "shoaib-muhammad": "muhammad-shoaib",
     "asad-ullah-khan": "muhammad-asad",
     "asadullah-khan": "muhammad-asad",
-    "shahnaz-parveen": "shehnaz-parveen"
+    "shahnaz-parveen": "shehnaz-parveen",
+    "muhammad-zubair": "muhammad-zubair-bashir"
   }
 }

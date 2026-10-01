@@ -1303,22 +1303,22 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Associate Professor Dr. Akram Ullah',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Neurosurgery), MCPS, FACS, ASCD, ESBD, EDISC, CHPE, CHR',
         'reg' => '14422-N',
       ],
       [
         'name' => 'Associate Professor Dr. Muhammad Zubair',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MD, MS (Neurosurgery), MCPS, ASCD, FACS',
         'reg' => '10946-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Sajid Khan',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Neurosurgery), ASCD, CHPE, CHR',
         'reg' => '17017-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Arif Hussain',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Neurosurgery), MCPS, CHPE, CHR, ASCD',
         'reg' => '20338-N',
       ],
     ],
