@@ -151,6 +151,9 @@ function faculty_profile_has_cv(?array $rec): bool {
   if (!$rec) {
     return false;
   }
+  if (faculty_is_directory_rank((string) ($rec['designation'] ?? '')) && trim((string) ($rec['name'] ?? '')) !== '') {
+    return true;
+  }
   if (!empty($rec['photo'])) {
     return true;
   }

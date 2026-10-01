@@ -1595,23 +1595,32 @@
       ],
       "name": "Hina Hakim",
       "department": "Biochemistry",
-      "designation": "Assistant professor",
+      "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
         "BDS",
         "M.phil",
         "CHR",
-        "CHPE. PGD",
+        "CHPE",
+        "PGD",
         "HQ&RM"
       ],
       "experience": [
-        "Senior lecturer Department of Biochemistry, Peshawar Medical and dental College Peshawar (22.01.2022 till3107.2022) Assistant professor Biochemistry department 01.08.2022 till date Peshawar medical college and dental college"
+        "Senior lecturer Department of Biochemistry, Peshawar Medical and dental College Peshawar (22.01.2022 till3107.2022)",
+        "Assistant professor Biochemistry department 01.08.2022 till date Peshawar medical college and dental college"
       ],
       "skills": [],
       "publications": [
-        "Diagnosis of Malaria Gametocytes Using MP ICT Vs PCR in Infected Patients: A Cross-Sectional Study of Asymptomatic Relatives Glycated Albumin's Clinical Effectiveness in the Diagnosis of Diabetes Association of Zinc Concentration in Seminal Plasma and Blood with Several Parameters of Semen in Infertile Males Association between Vitamin D and serum ferritin levels in anemic women of child bearing age in Malakand KPK Effect of cholecalciferol recommended daily allowances on vitamin d status and fabroblast growth factor- 23, in Acute burn patients AN ASSOCIATION BETWEEN TYPE 2 DIABETES MELLITUS AND A CLINICAL PERIODONTAL PARAMETER: POCKET DEPTH A comparison of the effects of hydrochlorothiazide and captopril on glucose and lipid metabolism in patients with hypertension.",
-        "Effects of Vitamin D on Respiratory Function and Immune Status for Patients with Chronic Obstructive Pulmonary Disease (COPD): A Systematic Review Frequency of undiagnosed Chronic Obstructive Pulmonary Disease amongst Coronary Artery Disease patients: A single centre study"
+        "Diagnosis of Malaria Gametocytes Using MP ICT Vs PCR in Infected Patients: A Cross-Sectional Study of Asymptomatic Relatives",
+        "Glycated Albumin's Clinical Effectiveness in the Diagnosis of Diabetes",
+        "Association of Zinc Concentration in Seminal Plasma and Blood with Several Parameters of Semen in Infertile Males",
+        "Association between Vitamin D and serum ferritin levels in anemic women of child bearing age in Malakand KPK",
+        "Effect of cholecalciferol recommended daily allowances on vitamin d status and fabroblast growth factor- 23, in Acute burn patients",
+        "AN ASSOCIATION BETWEEN TYPE 2 DIABETES MELLITUS AND A CLINICAL PERIODONTAL PARAMETER: POCKET DEPTH",
+        "A comparison of the effects of hydrochlorothiazide and captopril on glucose and lipid metabolism in patients with hypertension.",
+        "Effects of Vitamin D on Respiratory Function and Immune Status for Patients with Chronic Obstructive Pulmonary Disease (COPD): A Systematic Review",
+        "Frequency of undiagnosed Chronic Obstructive Pulmonary Disease amongst Coronary Artery Disease patients: A single centre study"
       ]
     },
     "sadia-haroon": {
@@ -1622,7 +1631,7 @@
       "name": "Sadia Haroon",
       "department": "Biochemistry",
       "designation": "Professor",
-      "hod": false,
+      "hod": true,
       "photo": "",
       "qualifications": [],
       "experience": [],
@@ -1636,7 +1645,7 @@
       ],
       "name": "Sara Yar Khan",
       "department": "Biochemistry",
-      "designation": "Assistant professor",
+      "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
@@ -1644,17 +1653,25 @@
         "M.Phil. Biochemistry 2024 Khyber medical University Peshawar."
       ],
       "experience": [
-        "Senior Lecturer Department of Biochemistry, Jinnah Medical College Peshawar (November 2022 to sept 2024) Assistant Professor Department of Biochemistry Peshawar Medical College (Sept 2024 till date)"
+        "Senior Lecturer Department of Biochemistry, Jinnah Medical College Peshawar (November 2022 to sept 2024)",
+        "Assistant Professor Department of Biochemistry Peshawar Medical College (Sept 2024 till date)"
       ],
       "skills": [],
       "publications": [
-        "Khan HB, Khattak MS, Durrani M, Hussain A, Khan SY, Rehman AU. Exploring the Role of Vitamin D3 in Addressing Lung Dysfunction and Small Airways Degeneration in Chronic Obstructive Pulmonary Disease. Pak J Chest Med.2021;27(04):282-287 Dr Chaman Ara, Dr Sara Yar Khan, Dr Sheherbano Yahya, Dr Umair Wadood, Dr Shahnaz Fatima, Dr Sofia Irshad. ASSOCIATION OF LIPID LEVELS DURING GESTATION WITH PREECLAMPSIA AND GESTATIONAL DIABETES MELLITUS: THE POTENTIAL ROLE OF STATINS. J Popl Ther Clin Pharmacol [Internet]. 2024 Jun. 29 [cited 2024 Jul. 4];31(6):2081-6. Available from: https://www.jptcp.com/index.php/jptcp/article/view/6825 Effect of meal frequency on insulin regulation in Athletes, A cross sectional study Impact of zinc biofortified wheat flour on the serum levels of IL2, IL12 and Interferon gamma in adolescent girls Association of plasma and muscle Amino acid profile with resting energy expenditure and inflammation in stable chronic obstructive pulmonary disease Physiological and biochemical effects of intermittent fasting on insulin sensitivity and glucose metabolism Effect of vitamin D on respiratory function and immune status for patients with chronic obstructive disease"
+        "Khan HB, Khattak MS, Durrani M, Hussain A, Khan SY, Rehman AU. Exploring the Role of Vitamin D3 in Addressing Lung Dysfunction and Small Airways Degeneration in Chronic Obstructive Pulmonary Disease. Pak J Chest Med.2021;27(04):282-287",
+        "Dr Chaman Ara, Dr Sara Yar Khan, Dr Sheherbano Yahya, Dr Umair Wadood, Dr Shahnaz Fatima, Dr Sofia Irshad. ASSOCIATION OF LIPID LEVELS DURING GESTATION WITH PREECLAMPSIA AND GESTATIONAL DIABETES MELLITUS: THE POTENTIAL ROLE OF STATINS. J Popl Ther Clin Pharmacol [Internet]. 2024 Jun. 29 [cited 2024 Jul. 4];31(6):2081-6. Available from: https://www.jptcp.com/index.php/jptcp/article/view/6825",
+        "Effect of meal frequency on insulin regulation in Athletes, A cross sectional study",
+        "Impact of zinc biofortified wheat flour on the serum levels of IL2, IL12 and Interferon gamma in adolescent girls",
+        "Association of plasma and muscle Amino acid profile with resting energy expenditure and inflammation in stable chronic obstructive pulmonary disease",
+        "Physiological and biochemical effects of intermittent fasting on insulin sensitivity and glucose metabolism",
+        "Effect of vitamin D on respiratory function and immune status for patients with chronic obstructive disease"
       ]
     },
     "shamaila-asim": {
       "slug": "shamaila-asim",
       "aliases": [
-        "shamaila-asim"
+        "shamaila-asim",
+        "shamaila-wadud"
       ],
       "name": "Shamaila Asim",
       "department": "Biochemistry",
@@ -1662,10 +1679,13 @@
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS, Dec 2000 – Khyber Medical College Peshawar M.Phil in Biochemistry, Feb, 2014 – Riphah International University Islamabad, Pakistan Ph.D. in Biochemistry, Jan,2025 – Khyber Medical University Hayatabad, Peshawar, Khyber Pakhtunkhwa, Pakistan"
+        "MBBS, Dec 2000 – Khyber Medical College Peshawar",
+        "M.Phil in Biochemistry, Feb, 2014 – Riphah International University Islamabad, Pakistan",
+        "Ph.D. in Biochemistry, Jan,2025 – Khyber Medical University Hayatabad, Peshawar, Khyber Pakhtunkhwa, Pakistan"
       ],
       "experience": [
-        "Lecturer at Peshawar Medical & Dental College Warsak Road Peshawar (1st Jan 2009-30th April 2014) Assistant Professor at Peshawar Medical & Dental College Warsak Road Peshawar (1st May 2014 to 30th sept 2020)",
+        "Lecturer at Peshawar Medical & Dental College Warsak Road Peshawar (1st Jan 2009-30th April 2014)",
+        "Assistant Professor at Peshawar Medical & Dental College Warsak Road Peshawar (1st May 2014 to 30th sept 2020)",
         "Associate Professor in Biochemistry department, Peshawar Medical & Dental College Warsak Road Peshawar (1st Oct 2020 to 31st Jan 2025)",
         "Professor in Biochemistry department, Peshawar Medical & Dental College Warsak Road Peshawar (1st Feb 2025 Till Date)"
       ],
@@ -1673,7 +1693,8 @@
       "publications": [
         "Relationship of glycemic control with thyroid hormone levels in patients with type 2 diabetes mellitus.",
         "Association of vitamin D with retinopathy in Patients with type 2 diabetes mellitus.",
-        "Vitamin D status in patients with cardio metabolic syndrome Vitamin D deficiency in patients with diabetic retinopathy.",
+        "Vitamin D status in patients with cardio metabolic syndrome",
+        "Vitamin D deficiency in patients with diabetic retinopathy.",
         "Effects Of Administration of Taraxacum Officinale’s Extract on Renal Parameters in Cisplatin Induced Nephrotoxicity in Albino Mice.",
         "Diagnosis of malaria gametocytes using MP ICT vs PCR in infected patients: a cross-sectional study of asymptomatic relatives.",
         "The biochemical and physiologic effect of zinc and vitamin A supplementation to increase cellular immune response of pulmonary tuberculosis patients: a systematic review.",
@@ -1696,17 +1717,19 @@
         "sikandar-ali",
         "sikandar-ali-khan"
       ],
-      "name": "Sikandar Ali",
+      "name": "Sikandar Ali Khan",
       "department": "Biochemistry",
-      "designation": "Assistant professor",
+      "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS (2010-2015): Peshawar medical and dental college, Peshawar (Riphah International University Islamabad) 2.June, 2019 to dill date Diploma in clinical pathology Waiting for exit exam, 2 years training completed Student, Peshawar, Pakistan 3.March, 2021 to Sep,2021 Certificate of health profession education (CHPE) Khyber Medical University Peshawar, Pakistan 4.Feb, 2017 to Nov,2021MPhil Haematology Khyber Medical University Peshawar, Pakistan Topic: Prevalence of mutations in HFE gene and its association with serum iron and serum ferritin levels.",
-        "June 2022 to Dec 2022Certificate of health research (CHR) Khyber Medical University Peshawar, Pakistan",
+        "MBBS (2010-2015): Peshawar medical and dental college, Peshawar (Riphah International University Islamabad)",
+        "June, 2019 to dill date Diploma in clinical pathology Waiting for exit exam, 2 years training completed Student, Peshawar, Pakistan",
+        "March, 2021 to Sep,2021 Certificate of health profession education (CHPE) Khyber Medical University Peshawar, Pakistan",
+        "Feb, 2017 to Nov,2021 MPhil Haematology Khyber Medical University Peshawar, Pakistan Topic: Prevalence of mutations in HFE gene and its association with serum iron and serum ferritin levels.",
+        "June 2022 to Dec 2022 Certificate of health research (CHR) Khyber Medical University Peshawar, Pakistan",
         "Feb, 2022 to Feb, 2024 MPhil Biochemistry Khyber Medical University Peshawar, Pakistan",
-        "May, 2024 to November 2024Diploma in health profession education (DHPE)",
-        "Khyber Medical University Peshawar, Pakistan"
+        "May, 2024 to November 2024 Diploma in health profession education (DHPE) Khyber Medical University Peshawar, Pakistan"
       ],
       "experience": [
         "Pak International Medical College Demonstrator (Department of Biochemistry)",
@@ -1717,15 +1740,25 @@
       "skills": [],
       "publications": [
         "Carbon Dioxide – Induced Anxiety; Effects of Carbon Dioxide on Behavior, Physiology, and Biochemistry in Patients with Panic Disorders and Healthy Subjects.",
-        "A comparison of the effects of hydrochlorothiazide and captopril on glucose and lipid metabolism in patients with hypertension Vitamin D status and its correlation with depression.",
-        "CDCA8, a mitosis-related gene, as a prospective pan-cancer biomarker: implications for survival prognosis and oncogenic immunology Effect of Meal Frequency on Insulin Regulation in Athletes: A Cross-Sectional Study Effect of meal frequency on insulin response and total insulin secretion in physically active people Vitamin D deficiency and its adverse results in COVID-19 Association of Zinc concentration in seminal plasma and blood with several parameters of semen in infertile males Expression of P16 in various grades of oral squamous cell carcinoma of tertiary care hospitals of Peshawar. 10.",
-        "Epidemiology and susceptibility profile of Aspergillus species; An experience from tertiary care hospital Frequency of Hypovitaminosis D in children with growing pains.",
+        "A comparison of the effects of hydrochlorothiazide and captopril on glucose and lipid metabolism in patients with hypertension",
+        "Vitamin D status and its correlation with depression.",
+        "CDCA8, a mitosis-related gene, as a prospective pan-cancer biomarker: implications for survival prognosis and oncogenic immunology",
+        "Effect of Meal Frequency on Insulin Regulation in Athletes: A Cross-Sectional Study",
+        "Effect of meal frequency on insulin response and total insulin secretion in physically active people",
+        "Vitamin D deficiency and its adverse results in COVID-19",
+        "Association of Zinc concentration in seminal plasma and blood with several parameters of semen in infertile males",
+        "Expression of P16 in various grades of oral squamous cell carcinoma of tertiary care hospitals of Peshawar.",
+        "Epidemiology and susceptibility profile of Aspergillus species; An experience from tertiary care hospital",
+        "Frequency of Hypovitaminosis D in children with growing pains.",
         "The impact of Toxoplasma Gondii infection on the Vitamin D3 levels among women in childbearing age, treatment and its effect on fetal brain development.",
         "Effects of low molecular weight and unfractionated heparin on lipoprotein lipase and lipid profile in hemodialysis patients.",
-        "Frequency and risk factors of multi drug resistance tuberculosis in Khyber Pakhtunkhwa Pakistan, A retrospective study Comparing frequency of cardiovascular autonomic neuropathy in diabetic cirrhotic with non-diabetic cirrhotic patients.",
+        "Frequency and risk factors of multi drug resistance tuberculosis in Khyber Pakhtunkhwa Pakistan, A retrospective study",
+        "Comparing frequency of cardiovascular autonomic neuropathy in diabetic cirrhotic with non-diabetic cirrhotic patients.",
         "Situation of corona virus in Pakistan regarding diagnosis, lab facilities, medical equipment and isolation wards in hospitals.",
         "Glycated albumin clinical effectiveness in the diagnosis of Diabetes.",
-        "A comparative study of stress levels serum cortisol and thyroid hormones in pregnant vs non pregnant women Biochemical Markers of Estrogen and Their Relationship with Gallstone Formation and Inflammatory Bowel Disease in Women with Uterine Fibroids: A Cross-Sectional Study Association of Different Formulation with Oral Contraceptive Agents in Lipid and Carbohydrates Metabolism in Women"
+        "A comparative study of stress levels serum cortisol and thyroid hormones in pregnant vs non pregnant women",
+        "Biochemical Markers of Estrogen and Their Relationship with Gallstone Formation and Inflammatory Bowel Disease in Women with Uterine Fibroids: A Cross-Sectional Study",
+        "Association of Different Formulation with Oral Contraceptive Agents in Lipid and Carbohydrates Metabolism in Women"
       ]
     },
     "aziza-alam": {
@@ -3651,6 +3684,7 @@
     "sadia-haroon": "sadia-haroon",
     "sara-yar-khan": "sara-yar-khan",
     "shamaila-asim": "shamaila-asim",
+    "shamaila-wadud": "shamaila-asim",
     "sikandar-ali": "sikandar-ali",
     "aziza-alam": "aziza-alam",
     "farhat-r-malik": "farhat-r-malik",

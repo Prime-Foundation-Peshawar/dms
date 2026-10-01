@@ -128,19 +128,24 @@ $academic_departments = [
         'reg' => '13072-P',
       ],
       [
-        'name' => 'Professor Dr. Shamaila Wadud',
+        'name' => 'Professor Dr. Shamaila Asim',
         'qualification' => 'MBBS, M.Phil, PhD',
         'reg' => '9330-N',
-      ],
-      [
-        'name' => 'Assistant Professor Dr. Sara Yar Khan',
-        'qualification' => 'BDS, M.Phil',
-        'reg' => '22465-D',
       ],
       [
         'name' => 'Assistant Professor Dr. Sikandar Ali Khan',
         'qualification' => 'MBBS, M.Phil',
         'reg' => '23145-N',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Hina Hakim',
+        'qualification' => 'BDS, M.Phil',
+        'reg' => '18806-D',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Sara Yar Khan',
+        'qualification' => 'BDS, M.Phil',
+        'reg' => '22465-D',
       ],
     ],
     'activities' => [
