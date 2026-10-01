@@ -280,26 +280,6 @@ $academic_departments = [
         'qualification' => 'MBBS, M.Phil, CHPE',
         'reg' => '28805-N',
       ],
-      [
-        'name' => 'Lecturer Dr. Khadija Maryam',
-        'qualification' => 'MBBS, CHPE, PGT Pharmacy',
-        'reg' => '',
-      ],
-      [
-        'name' => 'Lecturer Dr. Fahad Jan',
-        'qualification' => 'MBBS, CHPE',
-        'reg' => '',
-      ],
-      [
-        'name' => 'Lecturer Dr. Rabiya',
-        'qualification' => 'MBBS, CHPE',
-        'reg' => '',
-      ],
-      [
-        'name' => 'Lecturer Dr. Ameer Hamza',
-        'qualification' => 'On leave',
-        'reg' => '',
-      ],
     ],
     'activities' => [
       [
