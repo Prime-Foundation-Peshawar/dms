@@ -404,6 +404,14 @@ a.fac-list-row:hover .fac-list-go {
   grid-template-columns: 280px minmax(0, 1fr);
   gap: 24px;
   align-items: start;
+  width: 100%;
+  min-width: 0;
+}
+.fp-layout[hidden] { display: none !important; }
+.fp-side,
+.fp-main {
+  min-width: 0;
+  max-width: 100%;
 }
 .fp-layout[hidden] { display: none !important; }
 .fp-side {
@@ -455,10 +463,11 @@ a.fac-list-row:hover .fac-list-go {
 .fp-kicker {
   font-size: .66rem;
   font-weight: 700;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--teal);
   margin: 0 0 4px;
+  overflow-wrap: anywhere;
 }
 .fp-dept {
   font-family: var(--font-head);
@@ -475,6 +484,8 @@ a.fac-list-row:hover .fac-list-go {
 .fp-side .reg-chip {
   justify-content: center;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   border-radius: 999px;
   padding: 7px 12px;
   font-family: var(--font-body);
@@ -484,6 +495,9 @@ a.fac-list-row:hover .fac-list-go {
   background: #fff;
   border: 1px solid var(--border);
   box-shadow: 0 1px 0 rgba(11, 31, 51, .02);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
 }
 .fp-side .reg-chip i { color: var(--teal); }
 .fp-side-block {
@@ -511,7 +525,7 @@ a.fac-list-row:hover .fac-list-go {
 }
 .fp-qual-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   font-size: .86rem;
   font-weight: 600;
@@ -521,6 +535,7 @@ a.fac-list-row:hover .fac-list-go {
   border: 1px solid var(--border);
   border-radius: 10px;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 .fp-qual-list li i {
   color: var(--teal);
@@ -554,6 +569,8 @@ a.fac-list-row:hover .fac-list-go {
   border: 1px solid var(--border);
   border-radius: 10px;
   border-left: 3px solid var(--teal);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .fp-back { margin-top: 18px; }
 .fp-identity {
@@ -626,7 +643,7 @@ a.fac-list-row:hover .fac-list-go {
 }
 .fp-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   position: relative;
   z-index: 1;
@@ -652,6 +669,7 @@ a.fac-list-row:hover .fac-list-go {
   letter-spacing: .06em;
   text-transform: uppercase;
   color: rgba(255,255,255,.6);
+  overflow-wrap: anywhere;
 }
 .fp-panel {
   background: #fff;
@@ -803,7 +821,7 @@ a.fac-list-row:hover .fac-list-go {
 .fp-pubs.is-collapsed .fp-pub:nth-child(n+9) { display: none; }
 .fp-pub {
   display: grid;
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 40px minmax(0, 1fr);
   gap: 12px;
   align-items: flex-start;
   background: var(--off-white);
@@ -830,6 +848,8 @@ a.fac-list-row:hover .fac-list-go {
   font-size: .88rem;
   line-height: 1.6;
   color: var(--gray-dark);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .fp-pub-meta {
   display: flex;
@@ -907,6 +927,8 @@ a.fac-list-row:hover .fac-list-go {
   color: var(--navy);
   font-size: .92rem;
   line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .fp-cv-list li:last-child { border-bottom: 0; padding-bottom: 0; }
 .fp-cv-list li:before {
@@ -926,12 +948,28 @@ a.fac-list-row:hover .fac-list-go {
   line-height: 1.6;
 }
 @media (max-width: 991.98px) {
-  .fp-layout { grid-template-columns: 1fr; }
+  .fp-layout { grid-template-columns: minmax(0, 1fr); }
   .fp-side { position: static; }
 }
 @media (max-width: 575.98px) {
-  .fp-identity { padding: 22px 18px 18px; }
-  .fp-stats { gap: 8px; }
-  .fp-stat { padding: 12px 6px 10px; }
-  .fp-panel { padding: 18px 16px; }
+  .fp-section { padding-top: 16px; padding-bottom: 40px; }
+  .fp-side { padding: 18px 14px 16px; border-radius: 18px; }
+  .fp-portrait img,
+  .fp-avatar { width: 118px; height: 118px; }
+  .fp-identity { padding: 20px 16px 16px; border-radius: 18px; }
+  .fp-name { font-size: 1.4rem; }
+  .fp-college { font-size: .82rem; margin-bottom: 14px; }
+  .fp-stats { gap: 6px; }
+  .fp-stat { padding: 10px 4px 8px; border-radius: 10px; }
+  .fp-stat strong { font-size: 1.15rem; }
+  .fp-stat span { font-size: .58rem; letter-spacing: .03em; }
+  .fp-panel { padding: 16px 14px; border-radius: 16px; }
+  .fp-panel-head { gap: 10px; margin-bottom: 14px; padding-bottom: 10px; }
+  .fp-panel-head p { font-size: .78rem; }
+  .fp-pub { grid-template-columns: 32px minmax(0, 1fr); gap: 8px; padding: 12px; }
+  .fp-pub-num { width: 32px; height: 32px; font-size: .75rem; }
+  .fp-side .reg-chip { font-size: .72rem; padding: 8px 10px; }
+  .fp-kicker { letter-spacing: .05em; }
+  .fp-exp-top { flex-direction: column; gap: 6px; }
+  .fp-exp-dates { white-space: normal; }
 }

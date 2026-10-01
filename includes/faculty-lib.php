@@ -423,7 +423,7 @@ function faculty_normalize_skills(array $items): array {
   foreach ($items as $raw) {
     $s = faculty_fix_runons((string) $raw);
     $s = preg_replace('/\b(Former|Member of|Incharge|In charge)\b/i', '|$1', $s) ?? $s;
-    foreach (preg_split('/[|.;]+/', $s) ?: [] as $bit) {
+    foreach (preg_split('/[|;]+/', $s) ?: [] as $bit) {
       $bit = trim($bit, " ,:-");
       if (strlen($bit) < 8 || strlen($bit) > 88) {
         continue;
