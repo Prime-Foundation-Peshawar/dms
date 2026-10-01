@@ -1513,17 +1513,17 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Mir Alam Jan',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'FCPS (Surgery), FCPS (Urology)',
         'reg' => '1919-N',
       ],
       [
         'name' => 'Senior Registrar Dr. Muhammad Hisham Naeem',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'FCPS (Urology)',
         'reg' => '26983-N',
       ],
       [
         'name' => 'Senior Registrar Dr. Izhar Ali',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'FCPS Urology, Fellowship in Pead’s Urology',
         'reg' => '21826-N',
       ],
     ],

@@ -4088,7 +4088,8 @@
       "hod": false,
       "photo": "",
       "qualifications": [
-        "FCPS Urology Fellowship in Pead’s Urology"
+        "FCPS Urology",
+        "Fellowship in Pead’s Urology"
       ],
       "experience": [
         "4 Years"
@@ -4100,10 +4101,13 @@
         "Predictors of Renal Scarring Following First Febrile Urinary Tract Infection in Children: A Prospective Cohort Study(https://geneticsmr.com/index.php/gmr/article/view/2133)",
         "Predictors of Testicular Salvage and Loss in Pediatric Testicular Torsion: A Systematic Review (https://www.jneonatalsurg.com/index.php/jns/article/view/10449)",
         "Comparative analysis of mini PCNL vs standard PCNL in terms of stone free rates, hospital stay and post-operative complications in pediatric population: A systemic review. (Gomel journal of medical sciences)",
-        "Pre and Post Mean Serum Prostatic Specific Antigen Levels after Transurethral Resection of the Prostate (TURP) in Patients with Benign Prostatic Hyperplasia Comparative Analysis of Mean Hospital Stay in Patients Undergoing Percutaneous Nephrolithotomy (PCNL) With Versus Without Nephrostomy Tube. (journal of health and rehabilalitation research vol 4).",
-        "Analysis of Stenting versus Non-Stenting in patients undergoing Ureteroscopic Lithotripsy for management of Ureteric Calculi.(PJMHS vol 17). “Frequency of complications of transurethral pneumatic lithotripsy in paediatric bladder stone disease” (International journal of endorsing health sciences research).",
+        "Pre and Post Mean Serum Prostatic Specific Antigen Levels after Transurethral Resection of the Prostate (TURP) in Patients with Benign Prostatic Hyperplasia",
+        "Comparative Analysis of Mean Hospital Stay in Patients Undergoing Percutaneous Nephrolithotomy (PCNL) With Versus Without Nephrostomy Tube. (journal of health and rehabilalitation research vol 4).",
+        "Analysis of Stenting versus Non-Stenting in patients undergoing Ureteroscopic Lithotripsy for management of Ureteric Calculi.(PJMHS vol 17).",
+        "“Frequency of complications of transurethral pneumatic lithotripsy in paediatric bladder stone disease” (International journal of endorsing health sciences research).",
         "Comparison of Outcome (in terms of Side Effects) of Alpha Blockers versus Anticholinergic on Double J Stent Related Symptoms at Ayub Teaching Hospital, Abbotabad.",
-        "Association Between Overnight Smartphone Notifications and Day Time Sleepiness among Undergraduate Medical Students: A Multicenter Cross-Sectional Study (European Journal of Clinical Pharmacy). “Short and Long Term Outcomes of Deflux Injection Versus Ureteral Reimplantation Paediatric Vesicoureteral Reflux: A Narrative Review” (Annals of Medicine and Surgery)"
+        "Association Between Overnight Smartphone Notifications and Day Time Sleepiness among Undergraduate Medical Students: A Multicenter Cross-Sectional Study (European Journal of Clinical Pharmacy).",
+        "“Short and Long Term Outcomes of Deflux Injection Versus Ureteral Reimplantation Paediatric Vesicoureteral Reflux: A Narrative Review” (Annals of Medicine and Surgery)"
       ]
     },
     "mir-alam-jan": {
@@ -4114,10 +4118,11 @@
       "name": "Mir Alam Jan",
       "department": "Urology",
       "designation": "Professor",
-      "hod": false,
-      "photo": "",
+      "hod": true,
+      "photo": "assets/images/faculty/mir-alam-jan.jpeg",
       "qualifications": [
-        "FCPS (Surgery) FCPS (Urology)"
+        "FCPS (Surgery)",
+        "FCPS (Urology)"
       ],
       "experience": [
         "22 Years"
@@ -4133,8 +4138,7 @@
         "Outcome of urethroplasty in the Management of Traumatic Urethral Strictures. Journal of Medical; Sciences (Peshawar Print). January 2014,Vol 22,No.1. 1st Author is Assistant professor",
         "Percutaneous Nephrostomy for the relief of upper ureneary tract obstruction. An experience with 200 cases. JPMI Vol 24 No 2 April-june 2010. 2nd Author",
         "Radical Nephrectomy in the management of localized Renal carcinoma. Gomal journal of medical sciences Oct-Dec 2015, Vol.13 No.4. 1st Author as Associate Professor",
-        "Circumferential sub coronal deg loving incision for the Management of penile fracture..",
-        "KJMS Sep-Dec 2015. Vol 8, No.3 1st Author as associate professor."
+        "Circumferential sub coronal deg loving incision for the Management of penile fracture.. KJMS Sep-Dec 2015. Vol 8, No.3 1st Author as associate professor."
       ]
     },
     "muhammad-hisham-naeem": {
@@ -4146,7 +4150,7 @@
       "department": "Urology",
       "designation": "Senior Registrar (Urology)",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/muhammad-hisham-naeem.jpeg",
       "qualifications": [
         "FCPS (Urology)"
       ],
