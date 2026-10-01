@@ -84,9 +84,19 @@ $academic_departments = [
         'reg' => '4576-N',
       ],
       [
+        'name' => 'Professor Dr. Munaza Khattak',
+        'qualification' => 'BDS, MPH, M.Phil',
+        'reg' => '',
+      ],
+      [
         'name' => 'Professor Dr. Momina Haq',
-        'qualification' => 'MBBS, M.Phil',
+        'qualification' => 'MBBS, M.Phil, CHPE',
         'reg' => '20339-N',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Marina Hidayat',
+        'qualification' => 'BDS, M.Phil',
+        'reg' => '',
       ],
       [
         'name' => 'Assistant Professor Dr. Fatima Saadat',
