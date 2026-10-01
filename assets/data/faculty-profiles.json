@@ -3174,19 +3174,23 @@
       ],
       "name": "Abdul Hameed",
       "department": "Paediatrics",
-      "designation": "Assistant Professor Pediatrics",
+      "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS FCPS CHPE"
+        "MBBS",
+        "FCPS",
+        "CHPE"
       ],
       "experience": [
-        "Assistant Professor, Pediatrics MTH – January 2026 till date Senior Registrar Pediatrics MTH – Octuber 30th, 2023 till September 30th 2025"
+        "Assistant Professor, Pediatrics MTH – January 2026 till date"
       ],
       "skills": [],
       "publications": [
-        "Clinical Spectrum of Juvenile Idiopathic Arthritis in Children in Tertiary Care Hospital https://doi.org/10.36283/PJMD13-3/004 Meningitis in Children Presenting With First-Time Fits And Fever https://doi.org/10.36552/pjns.v29i3.1152 Frequency of Celiac Disease in Pediatric Patients With Chronic Diarrhea. Cureus 17(5): e84428. doi:10.7759/cureus.84428 Probiotics' Effectiveness in Antibiotic-Induced Diarrhea.",
-        "DOI: https://doi.org/10.53350/pjmhs2023175240"
+        "Clinical Spectrum of Juvenile Idiopathic Arthritis in Children in Tertiary Care Hospital https://doi.org/10.36283/PJMD13-3/004",
+        "Meningitis in Children Presenting With First-Time Fits And Fever https://doi.org/10.36552/pjns.v29i3.1152",
+        "Frequency of Celiac Disease in Pediatric Patients With Chronic Diarrhea. Cureus 17(5): e84428. doi:10.7759/cureus.84428",
+        "Probiotics' Effectiveness in Antibiotic-Induced Diarrhea. DOI: https://doi.org/10.53350/pjmhs2023175240"
       ]
     },
     "rabbia-shaheen": {
@@ -3196,44 +3200,62 @@
       ],
       "name": "Rabbia Shaheen",
       "department": "Paediatrics",
-      "designation": "Assistant Professor Pediatrics",
+      "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS FCPS CHPE"
+        "MBBS",
+        "FCPS",
+        "CHPE"
       ],
       "experience": [
-        "Assistant Professor, Pediatrics MTH – 1st Oct 2025 till date Senior Registrar Pediatrics MTH – January 8th, 2022 till September 30th 2025"
+        "Assistant Professor, Pediatrics MTH – 1st Oct 2025 till date"
       ],
       "skills": [],
       "publications": [
-        "Frequency of Hypocalcemia in Breastfed Infants Presenting with Afebrile FitsPJMHS, Vol. 17, No. 5, May 2023DOI: 10.53350/pjmhs2023175486 Association of Iron Deficiency Anemia with Acute IllnessBMC Journal of Medical Sciences, Published December 30, 2024DOI: 10.70905/bmcj.05.02.0429 Frequency of Meningitis in Neonates with Late-Onset Sepsis: A Cross-Sectional StudyKJMS, Vol. 17, No. 3, July–September 2024DOI: https://doi.org/10.70520/kjms.v17i3.537 Comparison of Efficacy of Azithromycin Versus Ceftriaxone in the Treatment of Enteric FeverPJMHS, Vol. 17, No. 3, March 2023DOI: 10.53350/pjmhs2023173432 Frequency of Thrombocytopenia in Plasmodium vivax Malaria Among ChildrenPJMHS, Vol. 17, No. 3, March 2023DOI: 10.53350/pjmhs2023173476"
+        "Frequency of Hypocalcemia in Breastfed Infants Presenting with Afebrile Fits PJMHS, Vol. 17, No. 5, May 2023 DOI: 10.53350/pjmhs2023175486",
+        "Association of Iron Deficiency Anemia with Acute Illness BMC Journal of Medical Sciences, Published December 30, 2024 DOI: 10.70905/bmcj.05.02.0429",
+        "Frequency of Meningitis in Neonates with Late-Onset Sepsis: A Cross-Sectional Study KJMS, Vol. 17, No. 3, July–September 2024 DOI: https://doi.org/10.70520/kjms.v17i3.537",
+        "Comparison of Efficacy of Azithromycin Versus Ceftriaxone in the Treatment of Enteric Fever PJMHS, Vol. 17, No. 3, March 2023 DOI: 10.53350/pjmhs2023173432",
+        "Frequency of Thrombocytopenia in Plasmodium vivax Malaria Among Children PJMHS, Vol. 17, No. 3, March 2023 DOI: 10.53350/pjmhs2023173476"
       ]
     },
     "saffiullah": {
       "slug": "saffiullah",
       "aliases": [
-        "saffiullah"
+        "saffiullah",
+        "saffi-ullah"
       ],
       "name": "Saffiullah",
       "department": "Paediatrics",
-      "designation": "Professor of Paediatrics",
+      "designation": "Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS",
-        "MRCPCH (London)",
-        "MRCPS (Glasgow)"
+        "Mbbs(Peshawar)",
+        "MRCPCH(London)",
+        "MRCPS(Glasgow)"
       ],
       "experience": [
-        "Dr Saffiullah did his graduation from Khyber medical college in December 1999.After completing his house job in Khyber teaching hospital he went to United Kingdom for his postgraduate training in paediatrics.Dr Saffiullah did his MRCPCH (London) in 2006 and was also awarded MRCPS (Glasgow) in 2009.Dr. Saffiullah joined Peshawar medical college in 2011 and is currently working as Professor of Paediatrics based at Kuwait Teaching Hospital."
+        "Dr Saffi Ullah has more than two decade of clinical experience in the field of paediatrics including over 15 years of teaching and training doctors in paediatrics."
       ],
-      "skills": [],
+      "skills": [
+        "General paediatrics"
+      ],
       "publications": [
-        "Awareness andacceptance ofHumanpapilloma virusvaccination among medical students of Peshawar medical college(KJMC)",
-        "Evaluation ofmaternalknowledge andperceptions onneonataljaundice (ahospital-based survey) (KJMC)",
-        "An associationof irondeficiencyAnemia withAcuteGastroenteritis amongchildren: A cross-sectional study (KJMC)",
-        "Frequency of Meningitis in Neonates with late onset"
+        "“Knowledge of safe swaddling practices among mothers of neonates visiting a tertiary-care hospital in a developing country”, Original article published in journal of Gandhara medical and dental science(JGMDS),Vol,10,No.2(2023)",
+        "“Evaluation of maternal knowledge and perceptions on neonatal jaundice(A hospital based survey)”, Original article published in Khyber journal of medical sciences(KJMS),Vol,13,No3,(2020)",
+        "“Assessment of maternal knowledge of world health organization recognized neonatal danger signs” ,Original article published in journal of postgraduate medical institute(JPMI),Vol.34,No1(2020)",
+        "“Anxiety among children 5-10 years of age visiting dental teaching hospitals in Peshawar city” ,Original article published in journal of Saidu medical college(J Saidu Med Coll Swat),Vol 9,No.2(2019)",
+        "“Awareness and acceptance of Rota virus vaccine among mothers of neonates attending Kuwait teaching hospital,Peshawar,Pakistan” ,Original article published in Khyber medical college journal(KMUJ),Vol 11,No.3(2019)",
+        "“Awareness and acceptance of human papilloma virus vaccine among medical students of Peshawar medical college”, Original article published in Khyber journal of medical sciences(KJMS),Vol,9,No3,(2016)",
+        "“To determine etiology of global developmental delay in young children”, Original article published in Khyber journal of medical sciences(KJMS),Vol,9,No2,(2016)",
+        "“Smith Lemli Opitz Syndrome: A case report”, case report published in Khyber medical university journal(KMUJ),Vol,7,No1,(2015)",
+        "“ Awareness of parents regarding the beta Thalassemia major disease”, Original article published in Khyber medical college journal(KMUJ),Vol,7,No2,(2015)",
+        "“A unique method of care of umbilical stump:Interesting similarity among practices in Africa and Asia”,Pictorial published in Journal of Ayub medical college(JAMC),Vol.27,No2(2015)",
+        "“If its itchy its scabies..Not always”, a case report published in Journal of postgraduate medical institute(JPMI),Vol.29,No3(2015)",
+        "“A study of the spectrum of presenting symptoms, diagnostic investigations, treatment and outcome of severe malaria in the admitted children of Kuwait teaching hospital, Peshawar” ,Original article published in Journal of postgraduate medical institute(JMPI),Vol 29,No.4(2015)",
+        "“Hypovitaminosis D in healthy students of a medical college”,Original article published in Khyber medical college journal(KMUJ),Vol 7,No.4(2015)"
       ]
     },
     "saima-ali": {
@@ -3243,22 +3265,51 @@
       ],
       "name": "Saima Ali",
       "department": "Paediatrics",
-      "designation": "Professor and head of department",
+      "designation": "Professor",
       "hod": true,
       "photo": "",
       "qualifications": [
-        "MBBS,DCH(PK),FCPS(Paediatrics,PK)FRCPCH (UK),MHPE(PK),MRCPS(Glasgow)"
+        "MBBS",
+        "DCH(PK)",
+        "FCPS(Paediatrics,PK)",
+        "FRCPCH (UK)",
+        "MHPE(PK)",
+        "MRCPS(Glasgow)"
       ],
       "experience": [
         "Dr Saima has 28 years of clinical experience in the field of pediatrics along with over 21 years of teaching and training."
       ],
       "skills": [
-        "Medical educationist An author of multiple chapters in Two books of neonatology"
+        "Medical educationist",
+        "An author of multiple chapters in Two books of neonatology"
+      ],
+      "academic_roles": [
+        "Head of department and professor of pediatrics",
+        "Focal person and lead facilitator for conducting neonatal resuscitation courses of Khyber Pakhtunkhwa"
+      ],
+      "books": [
+        "Pakistan Neonatal Resuscitation Manual (one among eight authors, national and international)"
+      ],
+      "book_chapters": [
+        "National Guidelines for Small & Sick New born Care At Primary & Secondary Healthcare Facilities In Pakistan"
       ],
       "publications": [
-        "Mohammad Tahir, Faisal Raza Malik, Saima Ali, Zafarullah Kundi. “Chelation practices and iron overload in thalassemia major” ANNALS OF PIMS. July-Sep 2006, 2(3)148-152 “Transfusion transmitted HBV, HCV, and HIV infections in multi transfused patients of thalassemia major”. ANNALS OF PIMS. April-June 2007,3(2) 80-83 ”Primary Nocturnal Enuresis in Pediatric Age group” Jouranal of Saidu Medical College. March 2007 Saima Ali, Tahir Chaudary, Qurat-ul-ain Naqvi.“Effect of maternal literacy on child health. Myth or reality” ANNALS OF PIMS. April-June 2011,7(2)100-103 “Role Of Pneumatic Lithotripsy In Pediatric Bladder Stones” KMUJ,April-June 2014; Vol. 6(2) 60-64 “Etiology and Postnatal Management of Prenatal Hydronephrosis: a Study of Two Teaching Hospitals of Khyber Pakhtunkhwa”, PJMR,2014; 53(2) 39-41 “Smith Lemli Opitz syndrome: a case report.KMUJ,2015;Vol 7(1). “Efficacy of Gagne’s nine events of instructions in improving the performance of undergraduate final year students.” Advances in health professions education.2015;Vol 1(2). “Parents’ awareness regarding the Beta thalassemia major disease”.KMUJ ,April-June, 2015;Vol 7(2)",
+        "Mohammad Tahir, Faisal Raza Malik, Saima Ali, Zafarullah Kundi. “Chelation practices and iron overload in thalassemia major” ANNALS OF PIMS. July-Sep 2006, 2(3)148-152",
+        "“Transfusion transmitted HBV, HCV, and HIV infections in multi transfused patients of thalassemia major”. ANNALS OF PIMS. April-June 2007,3(2) 80-83",
+        "”Primary Nocturnal Enuresis in Pediatric Age group” Jouranal of Saidu Medical College. March 2007",
+        "Saima Ali, Tahir Chaudary, Qurat-ul-ain Naqvi.“Effect of maternal literacy on child health. Myth or reality” ANNALS OF PIMS. April-June 2011,7(2)100-103",
+        "“Role Of Pneumatic Lithotripsy In Pediatric Bladder Stones” KMUJ,April-June 2014; Vol. 6(2) 60-64",
+        "“Etiology and Postnatal Management of Prenatal Hydronephrosis: a Study of Two Teaching Hospitals of Khyber Pakhtunkhwa”, PJMR,2014; 53(2) 39-41",
+        "“Smith Lemli Opitz syndrome: a case report.KMUJ,2015;Vol 7(1).",
+        "“Efficacy of Gagne’s nine events of instructions in improving the performance of undergraduate final year students.” Advances in health professions education.2015;Vol 1(2).",
+        "“Parents’ awareness regarding the Beta thalassemia major disease”.KMUJ ,April-June, 2015;Vol 7(2)",
         "Hypovitaminosis d in healthy students of a medical college. Khyber Med Univ J 2015; 7(4): 162-164.",
-        "A study of the spectrum of presenting symptoms, diagnostic investigations, treatment and outcome of severe malaria in the admitted children of kuwait teaching hospital, peshawar, pakistan. J Postgrad Med Inst 2015; 29(4): 288-93. “Role of Spiritual Sentiments in improving the compliance of water intake in patients with urolithiasis”. J Relig Health. 2016 Jun 24. http://www.ncbi.nlm.nih.gov/pubmed/27342410 ATTITUDE OF NURSING STUDENTS TOWARDS E-LEARNING. Adv Health Prof Educ. 2016;2(1):24-29 Effectiveness of various teaching methodology in developing clinical reasoning skill in undergraduate female medical students. Khyber Med Univ J 2018;10(2):71-75. DOI: https://doi.org/10.35845/kmuj.2018.17766 Effectiveness of Direct Observation of Procedural Skills (DOPS) in Postgraduate Training in Urology at Institute of Kidney Diseases, Peshawar. Journal of the College of Physicians and Surgeons Pakistan 2019, Vol. 29 (6): 516-519. https://jcpsp.pk/archive/2019/Jun2019/06.pdf Design, development & Validation of an assessment tool for undergraduate Medical students of community health. Vol. 16 No. 03 (2022): Pakistan Journal of Medical & Health Sciences https://pjmhsonline.com/index.php/pjmhs/article/download/593/588/613"
+        "A study of the spectrum of presenting symptoms, diagnostic investigations, treatment and outcome of severe malaria in the admitted children of kuwait teaching hospital, peshawar, pakistan. J Postgrad Med Inst 2015; 29(4): 288-93.",
+        "“Role of Spiritual Sentiments in improving the compliance of water intake in patients with urolithiasis”. J Relig Health. 2016 Jun 24. http://www.ncbi.nlm.nih.gov/pubmed/27342410",
+        "ATTITUDE OF NURSING STUDENTS TOWARDS E-LEARNING. Adv Health Prof Educ. 2016;2(1):24-29",
+        "Effectiveness of various teaching methodology in developing clinical reasoning skill in undergraduate female medical students. Khyber Med Univ J 2018;10(2):71-75. DOI: https://doi.org/10.35845/kmuj.2018.17766",
+        "Effectiveness of Direct Observation of Procedural Skills (DOPS) in Postgraduate Training in Urology at Institute of Kidney Diseases, Peshawar. Journal of the College of Physicians and Surgeons Pakistan 2019, Vol. 29 (6): 516-519. https://jcpsp.pk/archive/2019/Jun2019/06.pdf",
+        "Design, development & Validation of an assessment tool for undergraduate Medical students of community health. Vol. 16 No. 03 (2022): Pakistan Journal of Medical & Health Sciences https://pjmhsonline.com/index.php/pjmhs/article/download/593/588/613"
       ]
     },
     "shazia-aurangzeb": {
@@ -3268,25 +3319,77 @@
       ],
       "name": "Shazia Aurangzeb",
       "department": "Paediatrics",
-      "designation": "HOD Pediatrics",
-      "hod": true,
+      "designation": "Professor",
+      "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS MCPS FCPS"
+        "MBBS",
+        "MCPS",
+        "FCPS"
       ],
       "experience": [
         "HOD Pediatrics MTH – July 2019 till Date.",
-        "Training and supervising trainees since July 2018 till date.",
-        "Assistant Professor, PMC – Feb 2009 till Feb 2010.",
-        "Senior Registrar, PMC April 2006 till Feb 2009.",
-        "Senior Registrar, PIMS Islamabad – Oct 2002 till Dec 2004."
+        "Training and supervising trainees since July 2018 till date."
       ],
       "skills": [],
       "publications": [
         "Clinical feature, etiological factors, neurological imaging and outcome in children with ischemic Stroke. ( Pakistan journal of neurological surgery Vol 14, No 1, Jan. –Jun., 2010 )",
         "Risk factors of epilepsy in children( KJMS Volume 6 January – June, 2013 Number 1)",
         "To determine etiology and outcome of infantile hydrocephalus.( KJMS Volume 6 January – June, 2013 Number 1)",
-        "To determine the etiology of global developmental delay in young children.( KJMS Volume 9 May – August, 2016 Number Association between iron deficiency anemia and febrile seizures.( JPMI Vol 30 No 4 2016)"
+        "To determine the etiology of global developmental delay in young children.( KJMS Volume 9 May – August, 2016 Number",
+        "Association between iron deficiency anemia and febrile seizures.( JPMI Vol 30 No 4 2016)"
+      ]
+    },
+    "hameed-ullah": {
+      "slug": "hameed-ullah",
+      "aliases": [
+        "hameed-ullah",
+        "hameedullah"
+      ],
+      "name": "Hameed Ullah",
+      "department": "Paediatrics",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "MRCPCH",
+        "MRCPS"
+      ],
+      "experience": [
+        "8 years"
+      ],
+      "skills": [
+        "Pediadiatric medicine and clinical teaching"
+      ],
+      "publications": []
+    },
+    "imtiaz-khan": {
+      "slug": "imtiaz-khan",
+      "aliases": [
+        "imtiaz-khan"
+      ],
+      "name": "Imtiaz Khan",
+      "department": "Paediatrics",
+      "designation": "Senior Registrar",
+      "hod": false,
+      "photo": "assets/images/faculty/imtiaz-khan.jpeg",
+      "qualifications": [
+        "MBBS",
+        "MCPS",
+        "CHPE"
+      ],
+      "experience": [
+        "18 Years"
+      ],
+      "skills": [
+        "Diagnosis and management of common and complex child illnesses",
+        "Basic and advanced life support",
+        "Clinical decision making and problem solving"
+      ],
+      "publications": [
+        "Hypovitaminosis D In Healthy students of a Medical College",
+        "If It’s Itchy, Its Scabies ... Not Always"
       ]
     },
     "ahmad-arsalan-tahir": {
@@ -3903,6 +4006,8 @@
     "farhat-malik": "farhat-r-malik",
     "miraj-mohammad-khan": "miraj-muhammad-khan",
     "mairaj-muhammad-khan": "miraj-muhammad-khan",
-    "mairaj-mohammad-khan": "miraj-muhammad-khan"
+    "mairaj-mohammad-khan": "miraj-muhammad-khan",
+    "saffi-ullah": "saffiullah",
+    "hameedullah": "hameed-ullah"
   }
 }

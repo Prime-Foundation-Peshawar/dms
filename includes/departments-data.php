@@ -725,48 +725,38 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Saima Ali',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, DCH, FCPS, FRCPCH, MHPE, MRCPS',
         'reg' => '7435-N',
       ],
       [
-        'name' => 'Professor Dr. Shazia Aurangzeb',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '8628-N',
-      ],
-      [
         'name' => 'Professor Dr. Saffiullah',
-        'qualification' => 'MBBS, MRCPCH (UK), MRCPS (Glasgow)',
+        'qualification' => 'MBBS, MRCPCH (London), MRCPS (Glasgow)',
         'reg' => '9141-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Hameed Ullah',
-        'qualification' => 'MBBS, MRCPCH (UK)',
+        'qualification' => 'MBBS, MRCPCH, MRCPS',
         'reg' => '9601-N',
       ],
       [
-        'name' => 'Assistant Professor Dr. Rabbia Shaheen',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '19131-N',
-      ],
-      [
-        'name' => 'Assistant Professor Dr. Sana Nafis',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '23264-N',
-      ],
-      [
-        'name' => 'Assistant Professor Dr. Abdul Hameed',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '25638-N',
-      ],
-      [
         'name' => 'Senior Registrar Dr. Imtiaz Khan',
-        'qualification' => 'MBBS, MCPS',
+        'qualification' => 'MBBS, MCPS, CHPE',
         'reg' => '12076-N',
       ],
       [
-        'name' => 'Senior Registrar Dr. Bilal',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '17291-N',
+        'name' => 'Professor Dr. Shazia Aurangzeb',
+        'qualification' => 'MBBS, MCPS, FCPS',
+        'reg' => '8628-N',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Rabbia Shaheen',
+        'qualification' => 'MBBS, FCPS, CHPE',
+        'reg' => '19131-N',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Abdul Hameed',
+        'qualification' => 'MBBS, FCPS, CHPE',
+        'reg' => '25638-N',
       ],
     ],
     'activities' => [

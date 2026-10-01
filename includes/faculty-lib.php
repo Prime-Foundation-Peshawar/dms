@@ -309,13 +309,17 @@ function faculty_fix_runons(string $text): string {
 function faculty_normalize_designation(string $raw): string {
   $d = trim($raw);
   $d = preg_replace('/^head of department\s*/i', '', $d) ?? $d;
+  $d = preg_replace('/\band head of department\b/i', '', $d) ?? $d;
   $d = preg_replace('/\bhod\b/i', '', $d) ?? $d;
   $d = faculty_soft_space($d);
   $d = trim($d, " ,&");
   if (preg_match('/^assit\.?\s*prof\.?$/i', $d) || preg_match('/^asst\.?\s*prof\.?$/i', $d) || preg_match('/^assistant\s*prof\.?$/i', $d)) {
     return 'Assistant Professor';
   }
-  if (preg_match('/^prof(?:essor)?(?:\s+of)?\s+dermatology$/i', $d)) {
+  if (preg_match('/^assistant professor(?:\s+pediatrics|\s+paediatrics)?$/i', $d)) {
+    return 'Assistant Professor';
+  }
+  if (preg_match('/^(hod|head of department|unit incharge)\s*(pediatrics|paediatrics)?$/i', $d)) {
     return 'Professor';
   }
   if ($d === '' || strcasecmp($d, 'hod') === 0 || strcasecmp($d, 'head of department') === 0) {
@@ -386,8 +390,11 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bMCPS(?:\s*\([^)]{0,50}\)|\s+(?:Anesthesiology|Anaesthesia|Anesthesia))?/i',
     '/\bMS(?:\s*[-–]\s*Mental Health Policy(?:\s+&\s+Services)?)?\b/i',
     '/\bIMM(?:\s*\/\s*MCPS|\s*\([^)]{0,50}\))?/i',
-    '/\bFRCP(?:\s*\([^)]{0,40}\))?/i',
-    '/\bMRCP(?:-UK)?(?:\s*\([^)]{0,40}\))?/i',
+    '/\bFRCPCH(?:\s*\([^)]{0,40}\))?/i',
+    '/\bMRCPCH(?:\s*\([^)]{0,40}\))?/i',
+    '/\bMRCPS(?:\s*\([^)]{0,40}\))?/i',
+    '/\bFRCP\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bMRCP(?:-UK)?\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bMACG\b/i',
     '/\bFACC\b/i',
     '/\bFESC\b/i',
