@@ -405,15 +405,25 @@ a.fac-list-row:hover .fac-list-go {
   gap: 24px;
   align-items: start;
   width: 100%;
+  max-width: 100%;
   min-width: 0;
 }
 .fp-layout[hidden] { display: none !important; }
 .fp-side,
-.fp-main {
+.fp-main,
+.fp-side-meta,
+.fp-chips,
+.fp-side-block,
+.fp-identity,
+.fp-panel,
+.fp-panel-head,
+.fp-panel-head > div,
+.fp-cv-list,
+.fp-qual-list,
+.fp-duty-list {
   min-width: 0;
   max-width: 100%;
 }
-.fp-layout[hidden] { display: none !important; }
 .fp-side {
   background: #fff;
   border: 1px solid var(--border);
@@ -468,6 +478,7 @@ a.fac-list-row:hover .fac-list-go {
   color: var(--teal);
   margin: 0 0 4px;
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .fp-dept {
   font-family: var(--font-head);
@@ -475,6 +486,7 @@ a.fac-list-row:hover .fac-list-go {
   font-weight: 800;
   color: var(--navy);
   margin: 0 0 14px;
+  overflow-wrap: anywhere;
 }
 .fp-chips {
   display: flex;
@@ -482,11 +494,13 @@ a.fac-list-row:hover .fac-list-go {
   gap: 8px;
 }
 .fp-side .reg-chip {
+  display: flex;
   justify-content: center;
   width: 100%;
   max-width: 100%;
+  min-width: 0;
   box-sizing: border-box;
-  border-radius: 999px;
+  border-radius: 12px;
   padding: 7px 12px;
   font-family: var(--font-body);
   font-size: .78rem;
@@ -497,6 +511,7 @@ a.fac-list-row:hover .fac-list-go {
   box-shadow: 0 1px 0 rgba(11, 31, 51, .02);
   white-space: normal;
   overflow-wrap: anywhere;
+  word-break: break-word;
   line-height: 1.35;
 }
 .fp-side .reg-chip i { color: var(--teal); }
@@ -632,6 +647,7 @@ a.fac-list-row:hover .fac-list-go {
   position: relative;
   z-index: 1;
   line-height: 1.15;
+  overflow-wrap: anywhere;
 }
 .fp-college {
   color: rgba(255,255,255,.68);
@@ -640,6 +656,7 @@ a.fac-list-row:hover .fac-list-go {
   position: relative;
   z-index: 1;
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 .fp-stats {
   display: grid;
@@ -687,11 +704,16 @@ a.fac-list-row:hover .fac-list-go {
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
 }
-.fp-panel-head h3 { margin-bottom: 0; }
+.fp-panel-head > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.fp-panel-head h3 { margin-bottom: 0; overflow-wrap: anywhere; }
 .fp-panel-head p {
   margin: 3px 0 0;
   color: var(--gray-mid);
   font-size: .84rem;
+  overflow-wrap: anywhere;
 }
 .fp-panel-ico {
   width: 40px;
@@ -721,7 +743,9 @@ a.fac-list-row:hover .fac-list-go {
   padding: 10px 14px;
   background: rgba(13, 148, 136, 0.08);
   border: 1px solid rgba(13, 148, 136, 0.22);
-  border-radius: 999px;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+  max-width: 100%;
 }
 .fp-timeline {
   list-style: none;
@@ -817,6 +841,8 @@ a.fac-list-row:hover .fac-list-go {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-width: 0;
+  max-width: 100%;
 }
 .fp-pubs.is-collapsed .fp-pub:nth-child(n+9) { display: none; }
 .fp-pub {
@@ -828,6 +854,12 @@ a.fac-list-row:hover .fac-list-go {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 16px;
+  min-width: 0;
+  max-width: 100%;
+}
+.fp-pub-body {
+  min-width: 0;
+  max-width: 100%;
 }
 .fp-pub-num {
   width: 40px;
@@ -901,6 +933,9 @@ a.fac-list-row:hover .fac-list-go {
   font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Jameel Noori Nastaleeq", serif;
   line-height: 2.15;
   unicode-bidi: isolate;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
 }
 .fp-cv-list li.fp-rtl {
   direction: rtl;
@@ -914,6 +949,7 @@ a.fac-list-row:hover .fac-list-go {
 .fp-pub.fp-rtl .fp-pub-body p {
   direction: rtl;
   text-align: right;
+  width: 100%;
 }
 .fp-cv-list {
   list-style: none;
@@ -948,8 +984,16 @@ a.fac-list-row:hover .fac-list-go {
   line-height: 1.6;
 }
 @media (max-width: 991.98px) {
-  .fp-layout { grid-template-columns: minmax(0, 1fr); }
-  .fp-side { position: static; }
+  .fp-layout {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fp-side,
+  .fp-main {
+    position: static;
+    width: 100%;
+  }
 }
 @media (max-width: 575.98px) {
   .fp-section { padding-top: 16px; padding-bottom: 40px; }
