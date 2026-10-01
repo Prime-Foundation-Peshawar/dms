@@ -153,6 +153,12 @@ const DEPT_CONFIG = {
   'Dermatology':       { icon: 'bi-droplet-half',      order: 17 },
   'Radiology':         { icon: 'bi-radioactive',       order: 18 },
   'Anaesthesia':       { icon: 'bi-lungs-fill',        order: 19 },
+  'Cardiology':        { icon: 'bi-heart-pulse',       order: 20 },
+  'Gastroenterology':  { icon: 'bi-clipboard2-pulse',  order: 21 },
+  'Neurosurgery':      { icon: 'bi-bandaid',           order: 22 },
+  'Urology':           { icon: 'bi-droplet',           order: 23 },
+  'Medical Oncology':  { icon: 'bi-heart',             order: 24 },
+  'Family Medicine':   { icon: 'bi-house-heart',       order: 25 },
   'Administration':    { icon: 'bi-building-fill',     order: 99 },
   'IT & MI':           { icon: 'bi-display',           order: 100 },
 };
@@ -199,7 +205,8 @@ function isFacultyRank(desig) {
   if (/\bregistrar\b/.test(d) && !/\bsenior registrar\b/.test(d)) return false;
   if (/\bsenior registrar\b/.test(d) || /(^| )sr( |$)/.test(d)) return true;
   if (/\bassociate professor\b/.test(d) || /\bassoc prof\b/.test(d)) return true;
-  if (/\bassistant professor\b/.test(d) || /\basst prof\b/.test(d) || /\bassist prof\b/.test(d)) return true;
+  if (/\bassistant professor\b/.test(d) || /\basst prof\b/.test(d) || /\bassist prof\b/.test(d) || /\bassistant prof\b/.test(d)) return true;
+  if (/\bhod\b/.test(d) || /\bchairman\b/.test(d) || /\bhead of\b/.test(d) || /\bdean\b/.test(d)) return true;
   return /\bprofessor\b/.test(d) || /(^| )prof( |$)/.test(d);
 }
 

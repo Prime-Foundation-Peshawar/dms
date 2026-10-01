@@ -51,7 +51,10 @@ function faculty_is_directory_rank(?string $designation): bool {
   if (preg_match('/\bassociate professor\b/', $d) || preg_match('/\bassoc prof\b/', $d)) {
     return true;
   }
-  if (preg_match('/\bassistant professor\b/', $d) || preg_match('/\basst prof\b/', $d) || preg_match('/\bassist prof\b/', $d)) {
+  if (preg_match('/\bassistant professor\b/', $d) || preg_match('/\basst prof\b/', $d) || preg_match('/\bassist prof\b/', $d) || preg_match('/\bassistant prof\b/', $d)) {
+    return true;
+  }
+  if (preg_match('/\bhod\b/', $d) || preg_match('/\bchairman\b/', $d) || preg_match('/\bhead of\b/', $d) || preg_match('/\bdean\b/', $d)) {
     return true;
   }
   return (bool) preg_match('/\bprofessor\b/', $d) || (bool) preg_match('/(^| )prof( |$)/', $d);
