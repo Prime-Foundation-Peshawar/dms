@@ -2199,19 +2199,26 @@
       ],
       "name": "Humaira Khattak",
       "department": "Family Medicine",
-      "designation": "Assistant Professor and head of unit",
+      "designation": "Assistant Professor",
       "hod": true,
       "photo": "",
       "qualifications": [
         "MBBS",
         "DFM",
-        "MCPS.CHPE"
+        "MCPS",
+        "CHPE"
       ],
-      "experience": [],
+      "experience": [
+        "Assistant Professor Family Medicine, Peshawar Medical College, Aug 2022 till date"
+      ],
       "skills": [
         "Special interest in women and child health."
       ],
-      "publications": []
+      "publications": [
+        "AN OBSERVATIONAL STUDY OF SURGICAL SITE INFECTION PREVENTION PRACTICES BY SURGICAL STAFF AMONG THE PRIVATE SECTOR TERTIARY CARE HOSPITALS OF PESHAWAR. Farhat R Malik, Humaira Khattak, Marwah Amjad. Azerbaijan Medical Journal (AMJ ISSN: 0005-2523), Volume 63, Issue 02, October 2023",
+        "CURRENT CESAREAN SECTION RATE AND FACTORS AFFECTING THE PATIENT DECISION REGARDING MODE OF DELIVERY. Robina Qadeer, Tehniyat Attiya ur Razaq, Humaira Khattak. Journal of postgrad medical institute (JPMI Vol 38(4), 8th December, 2024). http://doi.org/10.54079/jpmi.38.4.3489",
+        "SEXUAL HARASSMENT BETWEEN DOCTORS. Cambridge University Press, ISBN: 9781009673037, 27th March, 2026. Edited by Louise Stone, Australian National University, Contribution from Pakistan by Dr. Hina Jawaid, Tehzeed Zulfiqar, Humaira Khattak"
+      ]
     },
     "najib-ul-haq": {
       "slug": "najib-ul-haq",
