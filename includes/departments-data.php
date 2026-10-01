@@ -237,6 +237,11 @@ $academic_departments = [
         'reg' => '80451-N',
       ],
       [
+        'name' => 'Assistant Professor Dr. Ashfaq Ahmad',
+        'qualification' => 'MBBS, M.Phil (Microbiology)',
+        'reg' => '25375-N',
+      ],
+      [
         'name' => 'Assistant Professor Dr. Haseeba Arif',
         'qualification' => 'BDS, M.Phil (Microbiology)',
         'reg' => '18937-D',
@@ -382,6 +387,11 @@ $academic_departments = [
         'name' => 'Professor Dr. Farhat R Malik',
         'qualification' => 'MBBS, MPH, CHPE, PGD',
         'reg' => '7155-N',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Faqir Muhammad Anwar',
+        'qualification' => 'MD, MPH',
+        'reg' => '1282-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Aziza Alam',
@@ -757,6 +767,16 @@ $academic_departments = [
         'name' => 'Assistant Professor Dr. Abdul Hameed',
         'qualification' => 'MBBS, FCPS, CHPE',
         'reg' => '25638-N',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Sana Nafis',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '23264-N',
+      ],
+      [
+        'name' => 'Senior Registrar Dr. Bilal',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '17291-N',
       ],
     ],
     'activities' => [
@@ -1420,6 +1440,11 @@ $academic_departments = [
         'qualification' => 'MBBS, FCPS',
         'reg' => '20380-N',
       ],
+      [
+        'name' => 'Senior Registrar Dr. Yasir Abbas',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '14302-N',
+      ],
     ],
     'activities' => [
       [
@@ -1619,6 +1644,11 @@ $academic_departments = [
         'name' => 'Assistant Professor Dr. Humaira Khattak',
         'qualification' => 'MBBS, MCPS (Family Med.)',
         'reg' => '5930-N',
+      ],
+      [
+        'name' => 'Assistant Professor Dr. Aminul Haq',
+        'qualification' => 'MBBS, MCPS (Family Med.), FCPS (Medicine)',
+        'reg' => '4120-N',
       ],
     ],
     'activities' => [
