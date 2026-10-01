@@ -132,21 +132,6 @@ if ($display_name !== '') {
           </div>
         </header>
 
-        <section class="fp-panel" id="fpResearchPanel"<?= $research ? '' : ' hidden' ?>>
-          <div class="fp-panel-head">
-            <span class="fp-panel-ico"><i class="bi bi-lightbulb"></i></span>
-            <div>
-              <h3>Research preferences</h3>
-              <p>Areas of academic and clinical research interest</p>
-            </div>
-          </div>
-          <ul class="fp-research-list" id="fpResearch">
-            <?php foreach ($research as $item): ?>
-              <li><?= htmlspecialchars($item) ?></li>
-            <?php endforeach; ?>
-          </ul>
-        </section>
-
         <?php
           $main_pubs = [];
           $other_pubs = [];
@@ -180,6 +165,21 @@ if ($display_name !== '') {
           </ul>
         </section>
         <?php endforeach; ?>
+
+        <section class="fp-panel" id="fpResearchPanel"<?= $research ? '' : ' hidden' ?>>
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-lightbulb"></i></span>
+            <div>
+              <h3>Research interests</h3>
+              <p>Areas of academic and clinical research interest</p>
+            </div>
+          </div>
+          <ul class="fp-research-list" id="fpResearch">
+            <?php foreach ($research as $item): ?>
+              <li><?= htmlspecialchars($item) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </section>
 
         <?php
           $pub_sections = [
@@ -261,7 +261,7 @@ if ($display_name !== '') {
               <p>The department is still adding this CV.</p>
             </div>
           </div>
-          <p class="fp-pending-copy">Name, current post, subject, and PM&amp;DC numbers come from the college staff record. Research preferences, college duties, and papers will appear when the department provides them.</p>
+          <p class="fp-pending-copy">Name, current post, subject, and PM&amp;DC numbers come from the college staff record. Research interests, college duties, and papers will appear when the department provides them.</p>
         </section>
       </div>
     </article>
