@@ -212,6 +212,16 @@ $academic_departments = [
         'reg' => '2445-N',
       ],
       [
+        'name' => 'Professor Dr. Sadaf Alam',
+        'qualification' => 'MBBS, M.Phil, FCPS (Histopathology)',
+        'reg' => '12281-N',
+      ],
+      [
+        'name' => 'Professor Dr. Sardar Muhammad',
+        'qualification' => 'MBBS, M.Phil (Microbiology)',
+        'reg' => '',
+      ],
+      [
         'name' => 'Assistant Professor Dr. Shabina Saifullah',
         'qualification' => 'MBBS, M.Phil (Chemical Pathology)',
         'reg' => '8611-N',
@@ -225,11 +235,6 @@ $academic_departments = [
         'name' => 'Assistant Professor Dr. Sara Yousaf',
         'qualification' => 'MBBS, M.Phil (Histopathology)',
         'reg' => '80451-N',
-      ],
-      [
-        'name' => 'Assistant Professor Dr. Ashfaq Ahmad',
-        'qualification' => 'MBBS, M.Phil (Microbiology)',
-        'reg' => '25375-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Haseeba Arif',
@@ -576,6 +581,11 @@ $academic_departments = [
         'reg' => '17595-N',
       ],
       [
+        'name' => 'Assistant Professor Dr. Muhammad Ishfaq',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '19531-N',
+      ],
+      [
         'name' => 'Assistant Professor Dr. Shahid Ullah Ahmad',
         'qualification' => 'MBBS, FCPS',
         'reg' => '15170-N',
@@ -675,7 +685,7 @@ $academic_departments = [
         'reg' => '19166-N',
       ],
       [
-        'name' => 'Senior Registrar Dr. Asma Ghani',
+        'name' => 'Assistant Professor Dr. Asma Ghani',
         'qualification' => 'MBBS, FCPS',
         'reg' => '18364-N',
       ],
@@ -1410,11 +1420,6 @@ $academic_departments = [
         'qualification' => 'MBBS, FCPS',
         'reg' => '20380-N',
       ],
-      [
-        'name' => 'Senior Registrar Dr. Yasir Abbas',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '14302-N',
-      ],
     ],
     'activities' => [
       [
@@ -1568,14 +1573,14 @@ $academic_departments = [
         'reg' => '22170-N',
       ],
       [
-        'name' => 'Senior Registrar Dr. Uzma Rahim',
-        'qualification' => 'MBBS, FCPS (Clinical Haematology)',
-        'reg' => '27012-N',
-      ],
-      [
         'name' => 'Senior Registrar Dr. Syeda Sama Bilal',
         'qualification' => 'MBBS, FCPS (Oncology)',
         'reg' => '20409-N',
+      ],
+      [
+        'name' => 'Senior Registrar Dr. Uzma Rahim',
+        'qualification' => 'MBBS, FCPS (Clinical Haematology)',
+        'reg' => '27012-N',
       ],
     ],
     'activities' => [
@@ -1606,14 +1611,14 @@ $academic_departments = [
     'hod' => 'Assistant Professor Dr. Humaira Khattak',
     'faculty' => [
       [
+        'name' => 'Professor Dr. Najib Ul Haq',
+        'qualification' => 'MBBS, MCPS, MRCP (UK)',
+        'reg' => '1795-N',
+      ],
+      [
         'name' => 'Assistant Professor Dr. Humaira Khattak',
         'qualification' => 'MBBS, MCPS (Family Med.)',
         'reg' => '5930-N',
-      ],
-      [
-        'name' => 'Assistant Professor Dr. Aminul Haq',
-        'qualification' => 'MBBS, MCPS (Family Med.), FCPS (Medicine)',
-        'reg' => '4120-N',
       ],
     ],
     'activities' => [
