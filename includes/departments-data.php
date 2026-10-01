@@ -656,12 +656,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Shahnaz Parveen',
-        'qualification' => 'MBBS, MCPS, FCPS',
+        'qualification' => 'MBBS, FCPS',
         'reg' => '1871-N',
       ],
       [
         'name' => 'Professor Dr. Samdana Wahab',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE, MHR',
         'reg' => '7886-N',
       ],
       [
@@ -676,7 +676,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Farzana Burki',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE, MRCPI (Part 2)',
         'reg' => '14305-N',
       ],
       [
@@ -696,7 +696,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Asma Ghani',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, MRCOG, CHPE',
         'reg' => '18364-N',
       ],
       [
