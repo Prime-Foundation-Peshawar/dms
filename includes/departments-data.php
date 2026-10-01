@@ -286,7 +286,7 @@ $academic_departments = [
         'reg' => '598-N',
       ],
       [
-        'name' => 'Assistant Professor Dr. Amber Javed',
+        'name' => 'Assistant Professor Dr. Amber Javaid',
         'qualification' => 'MBBS, M.Phil, CHPE',
         'reg' => '10512-N',
       ],
