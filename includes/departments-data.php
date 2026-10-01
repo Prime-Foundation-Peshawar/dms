@@ -1594,17 +1594,17 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Assistant Professor Dr. Bilal Ahmad',
-        'qualification' => 'MBBS, FCPS (Oncology)',
+        'qualification' => 'MBBS, FCPS (Medical Oncology), SCE-MRCP UK (Medical Oncology), Certificate Of Palliative Care, CHPE',
         'reg' => '22170-N',
       ],
       [
         'name' => 'Senior Registrar Dr. Syeda Sama Bilal',
-        'qualification' => 'MBBS, FCPS (Oncology)',
+        'qualification' => 'MBBS, FCPS (Medical Oncology), Palliative Care Course, CHPE',
         'reg' => '20409-N',
       ],
       [
         'name' => 'Senior Registrar Dr. Uzma Rahim',
-        'qualification' => 'MBBS, FCPS (Clinical Haematology)',
+        'qualification' => 'MBBS, FCPS (Clinical Haematology), EHA Exam',
         'reg' => '27012-N',
       ],
     ],

@@ -2744,28 +2744,39 @@
       ],
       "name": "Bilal Ahmad",
       "department": "Medical Oncology",
-      "designation": "HOD-Department of Medical Oncology Assistant Professor- Medical Oncology/Hematology Kuwait Teaching Hospital",
+      "designation": "Assistant Professor",
       "hod": true,
       "photo": "",
       "qualifications": [
+        "MBBS",
         "FCPS (Medical Oncology)",
         "SCE-MRCP UK (Medical Oncology)",
-        "Certificate Of Palliative Care Certificate in Health Professions Education (CHPE) MBBS"
+        "Certificate Of Palliative Care",
+        "CHPE"
       ],
       "experience": [
-        "Consultant Medical Oncologist/Hematologist (Peshawar Medical College)",
-        "Fellowship Medical Oncology (CMH Rawalpindi)"
+        "Consultant Medical Oncologist/Hematologist (Peshawar Medical College)"
       ],
       "skills": [
-        "Expert in managing multiple solid organ and hematological malignancies Chemotherapy Immunotherapy Palliative & Supportive Care Personalized Cancer Management Skilled in Oncology Procedures Medical Education Research Multidisciplinary Tumor Board meetings"
+        "Expert in managing multiple solid organ and hematological malignancies",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Palliative & Supportive Care",
+        "Personalized Cancer Management",
+        "Skilled in Oncology Procedures",
+        "Medical Education",
+        "Research",
+        "Multidisciplinary Tumor Board meetings"
       ],
       "publications": [
         "Frequency of Chemotherapy Induced Febrile Neutropenia: A Tertiary Care Hospital Study.",
         "Tolerance of Sorafinib in patients with residual HCC Post TACE.",
         "Role of Ki67 in response rate of neoadjuvant chemotherapy in hormonal positive breast cancer.",
-        "Evaluation of pathological complete response following neoadjuvant chemotherapy. Severity of neutropenia in patients with non-Hodgkin B-cell lymphoma on R-CHOP chemotherapy regimen.",
+        "Evaluation of pathological complete response following neoadjuvant chemotherapy.",
+        "Severity of neutropenia in patients with non-Hodgkin B-cell lymphoma on R-CHOP chemotherapy regimen.",
         "Frequency of HER2 Over-expression in metastatic gastric and gastro-esophageal junction adenocarcinoma.",
-        "Radiological misdiagnosis of intracranial solitary fibrous tumor: a case report STAT6 immunohistochemistry resolves the diagnostic challenge Feasibility and Policy Implications of a Pragmatically Adapted Pediatric-Inspired Induction Regimen for Adults with Acute Lymphoblastic Leukemia in a Resource-Restricted Setting: A Prospective Observational Study"
+        "Radiological misdiagnosis of intracranial solitary fibrous tumor: a case report STAT6 immunohistochemistry resolves the diagnostic challenge",
+        "Feasibility and Policy Implications of a Pragmatically Adapted Pediatric-Inspired Induction Regimen for Adults with Acute Lymphoblastic Leukemia in a Resource-Restricted Setting: A Prospective Observational Study"
       ]
     },
     "syeda-sama-bilal": {
@@ -2775,22 +2786,32 @@
       ],
       "name": "Syeda Sama Bilal",
       "department": "Medical Oncology",
-      "designation": "Consultant Medical Oncologist Senior Registrar-Medical Oncology Kuwait Teaching Hospital",
+      "designation": "Senior Registrar",
       "hod": false,
       "photo": "",
       "qualifications": [
+        "MBBS",
         "FCPS (Medical Oncology)",
         "Palliative Care Course (Riphah International)",
-        "Certificate in Health Professions Education MBBS"
+        "CHPE"
       ],
       "experience": [
-        "Consultant Medical Oncologist Peshawar Medical College Fellowship Medical Oncology (Hayatabad Medical Complex)"
+        "Consultant Medical Oncologist Peshawar Medical College"
       ],
       "skills": [
-        "Hematological and Solid Organ Malignancies Chemotherapy Palliative & Supportive Care Oncology Procedures Multidisciplinary Tumor Board-meetings Oncological Emergencies Medical Education Research"
+        "Hematological and Solid Organ Malignancies",
+        "Chemotherapy",
+        "Palliative & Supportive Care",
+        "Oncology Procedures",
+        "Multidisciplinary Tumor Board-meetings",
+        "Oncological Emergencies",
+        "Medical Education",
+        "Research"
       ],
       "publications": [
-        "Tolerance of sorafenib in patients with residual HCC post TACE Role of Ki-67 in response rate of neoadjuvant chemotherapy in hormone-positive breast cancer 3. Feasibility and Policy Implications of a Pragmatically Adapted Pediatric-Inspired Induction Regimen for Adults with Acute Lymphoblastic Leukemia in a Resource-Restricted Setting: A Prospective Observational Study"
+        "Tolerance of sorafenib in patients with residual HCC post TACE",
+        "Role of Ki-67 in response rate of neoadjuvant chemotherapy in hormone-positive breast cancer",
+        "Feasibility and Policy Implications of a Pragmatically Adapted Pediatric-Inspired Induction Regimen for Adults with Acute Lymphoblastic Leukemia in a Resource-Restricted Setting: A Prospective Observational Study"
       ]
     },
     "uzma-rahim": {
@@ -2800,22 +2821,33 @@
       ],
       "name": "Uzma Rahim",
       "department": "Medical Oncology",
-      "designation": "Consultant Clinical Hematologist Senior Registrar-Clinical Hematology Kuwait Teaching Hospital",
+      "designation": "Senior Registrar",
       "hod": false,
       "photo": "",
       "qualifications": [
-        "EHA Exam FCPS (Clinical Haematology) MBBS"
+        "MBBS",
+        "FCPS (Clinical Haematology)",
+        "EHA Exam"
       ],
       "experience": [
-        "Consultant Clinical Hematologist (Peshawar Medical College)",
-        "Clinical Haematology Fellowship (AFBMTC/CMH Rawalpindi) Internal Medicine Residency (Hayatabad Medical Complex)",
-        "Internship at Kuwait Teaching Hospital"
+        "Consultant Clinical Hematologist (Peshawar Medical College)"
       ],
       "skills": [
-        "Haemato-Oncology Bone Marrow Transplantation Benign Haematology Transfusion Medicine Paediatric Haematology Diagnostic Haematology Bone Marrow Aspiration & Trephine Biopsy Intrathecal Chemotherapy Ultrasound guided Central Venous Line Insertion Bone Marrow Harvest Research & Medical Education"
+        "Haemato-Oncology",
+        "Bone Marrow Transplantation",
+        "Benign Haematology",
+        "Transfusion Medicine",
+        "Paediatric Haematology",
+        "Diagnostic Haematology",
+        "Bone Marrow Aspiration & Trephine Biopsy",
+        "Intrathecal Chemotherapy",
+        "Ultrasound guided Central Venous Line Insertion",
+        "Bone Marrow Harvest",
+        "Research & Medical Education"
       ],
       "publications": [
-        "Autoimmune Hemolytic Anemia: Response to First-line Therapy. 2. Correlation of CD3+ T-cell Infusion Dose with Acute GVHD after Allogeneic HSCT.",
+        "Autoimmune Hemolytic Anemia: Response to First-line Therapy.",
+        "Correlation of CD3+ T-cell Infusion Dose with Acute GVHD after Allogeneic HSCT.",
         "Pattern of Immune Reconstitution Post-Allo HSCT.",
         "Correlation of FibroScan and Liver Biopsy in β-Thalassemia Major Undergoing Stem Cell Transplant.",
         "Outcome of HSCT in β-Thalassemia Major.",

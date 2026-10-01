@@ -363,6 +363,7 @@ function faculty_normalize_qualifications(array $items): array {
     'Certificate in Health Professional Education in Health Research' => 'CHR',
     'Certificate Course in Health Profession and Education' => 'CHPE',
     'Certificate in Health Professional Education' => 'CHPE',
+    'Certificate in Health Professions Education' => 'CHPE',
   ];
   $text = str_ireplace(array_keys($repl), array_values($repl), $text);
 
@@ -386,7 +387,7 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bMBBS\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bBDS\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bMD\b(?:\s*\([^)]{0,40}\))?/i',
-    '/\bFCPS(?:-I|-l)?(?:\s*\([^)]{0,80}\)|\s+(?:Histopathology|Hematology|Haematology|Pathology|Psychiatry|Pediatrics|Paediatrics|Surgery and Allied|Anesthesiology|Anaesthesia|Anesthesia|Cardiology|Interventional Cardiology|Dermatology|Gastroenterology))?/i',
+    '/\bFCPS(?:-I|-l)?(?:\s*\([^)]{0,80}\)|\s+(?:Histopathology|Hematology|Haematology|Pathology|Psychiatry|Pediatrics|Paediatrics|Surgery and Allied|Anesthesiology|Anaesthesia|Anesthesia|Cardiology|Interventional Cardiology|Dermatology|Gastroenterology|Medical Oncology))?/i',
     '/\bMCPS(?:\s*\([^)]{0,50}\)|\s+(?:Anesthesiology|Anaesthesia|Anesthesia))?/i',
     '/\bMS(?:\s*[-–]\s*Mental Health Policy(?:\s+&\s+Services)?)?\b/i',
     '/\bIMM(?:\s*\/\s*MCPS|\s*\([^)]{0,50}\))?/i',
@@ -394,6 +395,7 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bMRCPCH(?:\s*\([^)]{0,40}\))?/i',
     '/\bMRCPS(?:\s*\([^)]{0,40}\))?/i',
     '/\bFRCP\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bSCE-MRCP(?:\s+UK)?(?:\s*\([^)]{0,50}\))?/i',
     '/\bMRCP-II(?:\s*\([^)]{0,40}\))?/i',
     '/\bMRCOG\b(?:\s*\([^)]{0,40}\))?/i',
     '/\bMRCPI(?:\s*\([^)]{0,40}\))?/i',
@@ -416,6 +418,9 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bPhD(?:\s*\([^)]{0,80}\))?(?:\s*[—–-]\s*[^·|]{8,90})?(?:\s+(?:Physiology|Microbiology))?/i',
     '/\b(?:Master of Public Health|MPH)\b(?:\s*\([^)]{0,50}\))?/i',
     '/\bCHPE\b(?:\s*\([^)]{0,40}\))?/i',
+    '/\bCertificate Of Palliative Care\b/i',
+    '/\bPalliative Care Course(?:\s*\([^)]{0,80}\))?/i',
+    '/\bEHA Exam\b/i',
     '/\bCHR\b/i',
     '/\bDHPE\b/i',
     '/\bMHPE\b/i',
