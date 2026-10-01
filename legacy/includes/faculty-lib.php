@@ -167,6 +167,8 @@ function faculty_profiles_pack(): array {
         $pack['index'][$a] = $slug;
       }
     }
+  }
+  if ($rows !== []) {
     $pack['source'] = $pack['source'] !== '' ? $pack['source'] . '+db' : 'db';
   }
   return $pack;
