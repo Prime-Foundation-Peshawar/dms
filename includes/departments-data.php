@@ -572,22 +572,22 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Muzaffur Ud Din Sadiq',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FRCS',
         'reg' => '1831-N',
       ],
       [
         'name' => 'Associate Professor Dr. Sahibzada Salma Rahman',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, MCPS, FCPS, CHPE',
         'reg' => '10023-N',
       ],
       [
         'name' => 'Associate Professor Dr. Sheikh Muhammad Ibqar Azeem',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE, CHR',
         'reg' => '13791-N',
       ],
       [
         'name' => 'Associate Professor Dr. Ahmad Arsalan Tahir',
-        'qualification' => 'MBBS, FCPS, FRCS (Edinburgh)',
+        'qualification' => 'MBBS, FCPS, FRCS',
         'reg' => '17595-N',
       ],
       [
@@ -597,12 +597,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Shahid Ullah Ahmad',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHR',
         'reg' => '15170-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Waleed Mabood',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, MRCS (UK), FACS (USA), CHPE, CHR, ATLS',
         'reg' => '23916-N',
       ],
       [
@@ -612,7 +612,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Shoaib Muhammad',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, FMAS, CHPE',
         'reg' => '19009-N',
       ],
       [
