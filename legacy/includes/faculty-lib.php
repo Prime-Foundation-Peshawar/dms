@@ -71,7 +71,34 @@ function faculty_profiles_pack(): array {
     return $pack;
   }
 
-  $pack = ['profiles' => [], 'index' => [], 'source' => 'db'];
+  $pack = ['profiles' => [], 'index' => [], 'source' => ''];
+
+  // Base: master parity JSON under public/assets (CI4 layout).
+  $candidates = [];
+  if (defined('ROOTPATH')) {
+    $candidates[] = ROOTPATH . 'public/assets/data/faculty-profiles.json';
+  }
+  $legacyRoot = dirname(__DIR__);
+  $candidates[] = dirname($legacyRoot) . '/public/assets/data/faculty-profiles.json';
+  $candidates[] = $legacyRoot . '/assets/data/faculty-profiles.json';
+
+  foreach ($candidates as $path) {
+    if (!is_file($path)) {
+      continue;
+    }
+    $decoded = json_decode((string) file_get_contents($path), true);
+    if (!is_array($decoded)) {
+      continue;
+    }
+    $pack = [
+      'profiles' => is_array($decoded['profiles'] ?? null) ? $decoded['profiles'] : [],
+      'index' => is_array($decoded['index'] ?? null) ? $decoded['index'] : [],
+      'source' => (string) ($decoded['source'] ?? 'json'),
+    ];
+    break;
+  }
+
+  // Overlay ACP / DB profiles (wins per slug).
   try {
     require_once __DIR__ . '/db.php';
     $pdo = dms_db();
@@ -83,24 +110,25 @@ function faculty_profiles_pack(): array {
     )->fetchAll();
   } catch (Throwable $e) {
     error_log('[faculty_profiles_pack] ' . $e->getMessage());
-    return $pack;
+    $rows = [];
   }
+
+  $decode = static function ($v) {
+    if (is_array($v)) {
+      return $v;
+    }
+    if (!is_string($v) || $v === '') {
+      return [];
+    }
+    $d = json_decode($v, true);
+    return is_array($d) ? $d : [];
+  };
 
   foreach ($rows as $row) {
     $slug = (string) ($row['slug'] ?? '');
     if ($slug === '') {
       continue;
     }
-    $decode = static function ($v) {
-      if (is_array($v)) {
-        return $v;
-      }
-      if (!is_string($v) || $v === '') {
-        return [];
-      }
-      $d = json_decode($v, true);
-      return is_array($d) ? $d : [];
-    };
     $aliases = $decode($row['aliases'] ?? '[]');
     $rec = [
       'slug' => $slug,
@@ -139,6 +167,7 @@ function faculty_profiles_pack(): array {
         $pack['index'][$a] = $slug;
       }
     }
+    $pack['source'] = $pack['source'] !== '' ? $pack['source'] . '+db' : 'db';
   }
   return $pack;
 }
