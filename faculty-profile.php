@@ -33,6 +33,12 @@ $is_hod = !empty($extra['hod']);
 $quals = faculty_normalize_qualifications($extra['qualifications'] ?? []);
 $skills = faculty_normalize_skills($extra['skills'] ?? []);
 $research = faculty_research_preferences($extra);
+$academic_roles = faculty_plain_list($extra['academic_roles'] ?? []);
+$memberships = faculty_plain_list($extra['memberships'] ?? []);
+$courses = faculty_plain_list($extra['courses'] ?? []);
+$books = faculty_plain_list($extra['books'] ?? []);
+$chapters = faculty_plain_list($extra['book_chapters'] ?? []);
+$registrations = faculty_plain_list($extra['registrations'] ?? []);
 $pubs = faculty_explode_publications($extra['publications'] ?? []);
 $initials = 'F';
 if ($display_name !== '') {
@@ -87,7 +93,11 @@ if ($display_name !== '') {
         <div class="fp-side-meta">
           <p class="fp-kicker">Department of Medical Sciences</p>
           <p class="fp-dept" id="fpDept"><?= htmlspecialchars($dept !== '' ? $dept : 'Peshawar Medical College') ?></p>
-          <div class="fp-chips" id="fpRegChips"></div>
+          <div class="fp-chips" id="fpRegChips">
+            <?php foreach ($registrations as $reg): ?>
+              <span class="reg-chip"><i class="bi bi-card-text"></i> <?= htmlspecialchars($reg) ?></span>
+            <?php endforeach; ?>
+          </div>
         </div>
         <div class="fp-side-block" id="fpQualBlock"<?= $quals ? '' : ' hidden' ?>>
           <h2>Education</h2>
@@ -135,6 +145,33 @@ if ($display_name !== '') {
             <?php endforeach; ?>
           </ul>
         </section>
+
+        <?php
+          $extra_panels = [
+            ['academic_roles', 'Academic roles', 'Examiner, supervisor, and current academic appointments', $academic_roles, 'bi-mortarboard'],
+            ['memberships', 'Memberships', 'Academic and professional bodies', $memberships, 'bi-people'],
+            ['courses', 'Courses attended', 'Medical education and professional courses', $courses, 'bi-journal-check'],
+            ['books', 'Published books', 'Books listed in the college CV', $books, 'bi-book'],
+            ['chapters', 'Book chapters', 'Chapters listed in the college CV', $chapters, 'bi-bookmark'],
+          ];
+          foreach ($extra_panels as [$id, $title, $sub, $items, $ico]):
+            if (!$items) continue;
+        ?>
+        <section class="fp-panel" id="fp<?= htmlspecialchars($id) ?>Panel">
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi <?= htmlspecialchars($ico) ?>"></i></span>
+            <div>
+              <h3><?= htmlspecialchars($title) ?></h3>
+              <p><?= htmlspecialchars($sub) ?></p>
+            </div>
+          </div>
+          <ul class="fp-cv-list">
+            <?php foreach ($items as $item): ?>
+              <li><?= htmlspecialchars($item) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </section>
+        <?php endforeach; ?>
 
         <section class="fp-panel" id="fpPubPanel"<?= $pubs ? '' : ' hidden' ?>>
           <div class="fp-panel-head">
@@ -258,7 +295,9 @@ function avatarClass(desTitle) {
 
   if (hrms) {
     const name = hrms.empName || (EXTRA && EXTRA.name) || '';
-    const desig = hrms.desTitle || (EXTRA && EXTRA.designation) || '';
+    const rawDesig = hrms.desTitle || (EXTRA && EXTRA.designation) || '';
+    const ownerTitle = /owner|patron|founder|\bceo\b|chairman of (the )?prime/i.test(String(rawDesig));
+    const desig = ownerTitle ? ((EXTRA && EXTRA.designation) || 'Professor') : rawDesig;
     const dept = hrms.depName || (EXTRA && EXTRA.department) || '';
     document.getElementById('fpCrumb').textContent = name;
     document.getElementById('fpName').textContent = name;
@@ -268,6 +307,13 @@ function avatarClass(desTitle) {
     const chips = [];
     if (hrms.facPMDCNo) chips.push('<span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC No. ' + escapeHtml(hrms.facPMDCNo) + '</span>');
     if (hrms.facFacRegNo) chips.push('<span class="reg-chip"><i class="bi bi-card-text"></i> Faculty No. ' + escapeHtml(hrms.facFacRegNo) + '</span>');
+    const extraRegs = Array.isArray(EXTRA && EXTRA.registrations) ? EXTRA.registrations : [];
+    extraRegs.forEach(reg => {
+      const text = String(reg || '').trim();
+      if (!text) return;
+      if (/pm\s*&?\s*dc/i.test(text) && hrms.facPMDCNo) return;
+      chips.push('<span class="reg-chip"><i class="bi bi-card-text"></i> ' + escapeHtml(text) + '</span>');
+    });
     document.getElementById('fpRegChips').innerHTML = chips.join('');
     const av = document.getElementById('fpAvatar');
     if (av) av.className = 'fp-avatar ' + avatarClass(hrms.desTitle);

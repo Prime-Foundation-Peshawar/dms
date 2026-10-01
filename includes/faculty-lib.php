@@ -162,6 +162,26 @@ function faculty_profile_has_cv(?array $rec): bool {
   return false;
 }
 
+function faculty_plain_list($raw): array {
+  if (is_string($raw)) {
+    $raw = preg_split('/[\n;|]+/', $raw) ?: [];
+  }
+  if (!is_array($raw)) {
+    return [];
+  }
+  $out = [];
+  $seen = [];
+  foreach ($raw as $item) {
+    $text = trim(faculty_soft_space((string) $item));
+    if ($text === '' || isset($seen[strtolower($text)])) {
+      continue;
+    }
+    $seen[strtolower($text)] = true;
+    $out[] = $text;
+  }
+  return $out;
+}
+
 function faculty_research_preferences(array $rec): array {
   foreach (['research_preferences', 'research_interests', 'research', 'preferences'] as $key) {
     if (empty($rec[$key])) {
@@ -355,6 +375,9 @@ function faculty_normalize_qualifications(array $items): array {
     '/\bMCPS(?:\s*\([^)]{0,50}\)|\s+(?:Anesthesiology|Anaesthesia|Anesthesia))?/i',
     '/\bMS(?:\s*[-–]\s*Mental Health Policy(?:\s+&\s+Services)?)?\b/i',
     '/\bIMM(?:\s*\([^)]{0,50}\))?/i',
+    '/\bFRCP(?:\s*\([^)]{0,40}\))?/i',
+    '/\bMRCP(?:\s*\([^)]{0,40}\))?/i',
+    '/\bMACG\b/i',
     '/\bMRCS\b/i',
     '/\bM\.?\s*Phil\.?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Chemical Pathology|Hematology|Microbiology|Physiology|Oral Pathology)(?:\s+Scholar)?)?/i',
     '/\bPhD(?:\s*\([^)]{0,80}\))?(?:\s*[—–-]\s*[^·|]{8,90})?(?:\s+(?:Physiology|Microbiology))?/i',
