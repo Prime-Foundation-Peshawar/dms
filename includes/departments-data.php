@@ -932,22 +932,22 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Mahmood Ul Hassan',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (ortho), MCPSHPE, POA fellowship in Arthroplasty',
         'reg' => '7960-N',
       ],
       [
         'name' => 'Associate Professor Dr. Saeed Ahmad',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (ortho), Fellowship in Paediatric Orthopaedic',
         'reg' => '15419-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Akhtar Hussain',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (ortho)',
         'reg' => '15870-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Hidayat Ullah',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (ortho)',
         'reg' => '14917-N',
       ],
     ],
