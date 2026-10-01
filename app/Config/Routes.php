@@ -93,7 +93,7 @@ $routes->get('department-activity', 'Departments::activity');
 $routes->get('faculty', 'Faculty::index');
 $routes->get('faculty-all', 'Faculty::all');
 $routes->get('faculty-profile', 'Faculty::profile');
-$routes->get('faculty-research', 'Faculty::research');
+// faculty-research is served by Pages::show (needs ORIC publication data)
 $routes->get('faculty-profiles-api', 'Faculty::profilesApi');
 $routes->get('faculty-proxy', 'Faculty::proxy');
 $routes->get('faculty_api', 'Faculty::apiPage');
