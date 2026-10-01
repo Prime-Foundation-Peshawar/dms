@@ -1,6 +1,7 @@
 <?= $this->extend('layouts/public') ?>
 <?= $this->section('content') ?>
 
+<?php
 $photo = faculty_photo_url($extra['photo'] ?? '');
 $desig = faculty_normalize_designation((string) ($extra['designation'] ?? ''));
 $dept = (string) ($extra['department'] ?? '');

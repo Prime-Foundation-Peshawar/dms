@@ -1,6 +1,7 @@
 <?= $this->extend('layouts/public') ?>
 <?= $this->section('content') ?>
 
+<?php
 $href = dms_cms_public_href($post, 'single-news');
 $gradient = $post['card_gradient'] ?? 'linear-gradient(135deg,#0A1628,#1a3a6b)';
 $icon = $post['card_icon'] ?? 'bi-newspaper';

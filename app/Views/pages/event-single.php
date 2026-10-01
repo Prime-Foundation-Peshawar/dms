@@ -1,6 +1,7 @@
 <?= $this->extend('layouts/public') ?>
 <?= $this->section('content') ?>
 
+<?php
 $gradient = $event['card_gradient'] ?? 'linear-gradient(135deg,#0A1628,#1a3a6b)';
 $icon = $event['card_icon'] ?? 'bi-calendar-event';
 $dateLabel = dms_cms_format_date($event['event_date'] ?? ($event['published_at'] ?? null));
