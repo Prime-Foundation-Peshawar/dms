@@ -1463,7 +1463,8 @@
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS DA"
+        "MBBS",
+        "DA"
       ],
       "experience": [
         "4 Years"
@@ -1476,13 +1477,14 @@
       "aliases": [
         "ihsan-ul-haq"
       ],
-      "name": "Ihsan ul Haq",
+      "name": "Ihsan Ul Haq",
       "department": "Anaesthesia",
       "designation": "Assistant Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS DA"
+        "MBBS",
+        "DA"
       ],
       "experience": [
         "22 Years"
@@ -1503,7 +1505,8 @@
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS DA"
+        "MBBS",
+        "DA"
       ],
       "experience": [
         "3 Years"
@@ -1514,15 +1517,18 @@
     "neelam-rashad": {
       "slug": "neelam-rashad",
       "aliases": [
-        "neelam-rashad"
+        "neelam-rashad",
+        "neelam-noreen",
+        "neelam"
       ],
-      "name": "Neelam Rashad",
+      "name": "Neelam Noreen",
       "department": "Anaesthesia",
-      "designation": "Associate Professor",
+      "designation": "Professor",
       "hod": false,
       "photo": "",
       "qualifications": [
-        "MBBS. DA",
+        "MBBS",
+        "DA",
         "FCPS (Anesthesia)"
       ],
       "experience": [
@@ -1531,8 +1537,17 @@
       "skills": [],
       "publications": [
         "Comparison between ondansetron and metoclopramide in Post-Operative Nausea and Vomiting after laparoscopic cholecystectomy as Principle Author.",
-        "To determine the frequency of failed spinal anesthesia during cesarean section as Principle Author Comparison of Hemodynamic changes with Laryngeal mask insertion and Endotracheal Intubation in Intermediate Duration Surgery as Principle author.",
-        "Efficacy of ondansetron and metoclopramide against post operative nausea and vomiting in patients undergoing laparoscopic cholecystectomy as 2nd Author Need of Oxygen Administration in Post Anesthesia Care unit (PACU) with respect to Type of Anesthesia and Surgery as 3rd Author Comparison of mean induction time and emergence from anesthesia between Sevoflurane and halothane in children as 4th Author Randomized control trial of tramadol versus ketamine in the prevention of shivering during spinal anesthesia as 4th Author The effect of Perioperative Forced Air Warming Blanket on Older Adult Patients Undergoing Spinal Surgery with General Anesthesia 3rd Author Influence of Intraoperative Hemodynamic Stability on Wound Dehiscence in Patients Receiving General Anesthesia for Major Abdominal Surgery 2nd Author Influence of Perioperative Hemodynamic Instability and Glycemic Control on Postoperative Complications in Patients Undergoing Major Abdominal Surgery 1st Author Comparative Study of Intrathecal Bupivacaine with Dexmedetomidine vs Fentanyl in Lower Limb Orthopedic Surgeries 4th Author Postoperative Pain relief in Patients Unilateral Modified radical Mastectomy; Comparison Between Ultrasound Guided thoracic Paravertebral Block 3rd Author"
+        "To determine the frequency of failed spinal anesthesia during cesarean section as Principle Author",
+        "Comparison of Hemodynamic changes with Laryngeal mask insertion and Endotracheal Intubation in Intermediate Duration Surgery as Principle author.",
+        "Efficacy of ondansetron and metoclopramide against post operative nausea and vomiting in patients undergoing laparoscopic cholecystectomy as 2nd Author",
+        "Need of Oxygen Administration in Post Anesthesia Care unit (PACU) with respect to Type of Anesthesia and Surgery as 3rd Author",
+        "Comparison of mean induction time and emergence from anesthesia between Sevoflurane and halothane in children as 4th Author",
+        "Randomized control trial of tramadol versus ketamine in the prevention of shivering during spinal anesthesia as 4th Author",
+        "The effect of Perioperative Forced Air Warming Blanket on Older Adult Patients Undergoing Spinal Surgery with General Anesthesia 3rd Author",
+        "Influence of Intraoperative Hemodynamic Stability on Wound Dehiscence in Patients Receiving General Anesthesia for Major Abdominal Surgery 2nd Author",
+        "Influence of Perioperative Hemodynamic Instability and Glycemic Control on Postoperative Complications in Patients Undergoing Major Abdominal Surgery 1st Author",
+        "Comparative Study of Intrathecal Bupivacaine with Dexmedetomidine vs Fentanyl in Lower Limb Orthopedic Surgeries 4th Author",
+        "Postoperative Pain relief in Patients Unilateral Modified radical Mastectomy; Comparison Between Ultrasound Guided thoracic Paravertebral Block 3rd Author"
       ]
     },
     "rukhsana-samad": {
@@ -1543,23 +1558,34 @@
       "name": "Rukhsana Samad",
       "department": "Anaesthesia",
       "designation": "Professor",
-      "hod": false,
+      "hod": true,
       "photo": "",
       "qualifications": [
         "MBBS",
-        "MCPS Anesthesiology FCPS Anesthesiology"
+        "MCPS Anesthesiology",
+        "FCPS Anesthesiology"
       ],
       "experience": [
         "45 Years"
       ],
       "skills": [
-        "45 years of experience as anesthetists Assessment of high risk multimorbid, geriatric and rare congenital anomaly cases.",
-        "Complex difficult airway management Cardiothoracic, neurosurgical, pediatric, trauma/disaster monitoring.",
-        "Regional techniques for various blocks for pain management Critical care management Teaching, training and examining under and post-graduate students.",
+        "45 years of experience as anesthetists",
+        "Assessment of high risk multimorbid, geriatric and rare congenital anomaly cases.",
+        "Complex difficult airway management",
+        "Cardiothoracic, neurosurgical, pediatric, trauma/disaster monitoring.",
+        "Regional techniques for various blocks for pain management",
+        "Critical care management",
+        "Teaching, training and examining under and post-graduate students.",
         "Act as supervision, article reviewer and examiner to CPSP."
       ],
       "publications": [
-        "Muscle pain after succinylcholine injection and its management. Journal of surgery Pakistan (International) 8 (3) July – September, 2003. 19-22 Typhoid perforation – results of surgical treatment. Journal of Pakistan Medical Association Vol. 32 February, 1982. 46-47 Caudal Epidural Analgesia for Hemorrhoidectomy in males: A comparative study of lignocaine vs. Bupivacaine. Journal of Rawalpindi Medical College. JRMC vol. 7 (2) July – Dec, 2003 page 47-92 Anesthetic management of foreign body tracheobronchial tree with sevoflurane; A double blind comparison with Halothane. Journal of Surgery Pakistan (International) 2006. (JSP); 2006; 11 (3); 93-96 Role of clinical assessment and plain chest radiograph in the management of suspected tracheobronchial foreign body. Journal of Surgery Pakistan (international) (JSP); 2008; 13(3) 99-102 Occulacardiac Relix in strabismus surgery under general Anesthesia. Journal of Medical Sciences. J.Med.Sci, April 2013; Vol. 21 No.2 Comparison of Caudal Tramadol – Bupivacaine and Ketamine – Bupivacaine for post- operative analgesia in children. JSP. Journal of Surgery, Pakistan. Vol. 18 No 2 (April-June) 2013."
+        "Muscle pain after succinylcholine injection and its management. Journal of surgery Pakistan (International) 8 (3) July – September, 2003. 19-22",
+        "Typhoid perforation – results of surgical treatment. Journal of Pakistan Medical Association Vol. 32 February, 1982. 46-47",
+        "Caudal Epidural Analgesia for Hemorrhoidectomy in males: A comparative study of lignocaine vs. Bupivacaine. Journal of Rawalpindi Medical College. JRMC vol. 7 (2) July – Dec, 2003 page 47-92",
+        "Anesthetic management of foreign body tracheobronchial tree with sevoflurane; A double blind comparison with Halothane. Journal of Surgery Pakistan (International) 2006. (JSP); 2006; 11 (3); 93-96",
+        "Role of clinical assessment and plain chest radiograph in the management of suspected tracheobronchial foreign body. Journal of Surgery Pakistan (international) (JSP); 2008; 13(3) 99-102",
+        "Occulacardiac Relix in strabismus surgery under general Anesthesia. Journal of Medical Sciences. J.Med.Sci, April 2013; Vol. 21 No.2",
+        "Comparison of Caudal Tramadol – Bupivacaine and Ketamine – Bupivacaine for post- operative analgesia in children. JSP. Journal of Surgery, Pakistan. Vol. 18 No 2 (April-June) 2013."
       ]
     },
     "hina-hakim": {
@@ -3382,6 +3408,24 @@
         "Endourology"
       ],
       "publications": []
+    },
+    "adil-hussain": {
+      "slug": "adil-hussain",
+      "aliases": [
+        "adil-hussain"
+      ],
+      "name": "Adil Hussain",
+      "department": "Anaesthesia",
+      "designation": "Associate Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MBBS",
+        "Diploma in Anaesthesia"
+      ],
+      "experience": [],
+      "skills": [],
+      "publications": []
     }
   },
   "index": {
@@ -3522,6 +3566,9 @@
     "muhammad-saqib-qureshi": "saqib-qureshi",
     "abdul-rauf": "abdur-rauf",
     "arbab-muhammad-kashif-khan": "arbab-m-kashif-khan",
-    "arbab-mohammad-kashif-khan": "arbab-m-kashif-khan"
+    "arbab-mohammad-kashif-khan": "arbab-m-kashif-khan",
+    "neelam-noreen": "neelam-rashad",
+    "neelam": "neelam-rashad",
+    "adil-hussain": "adil-hussain"
   }
 }
