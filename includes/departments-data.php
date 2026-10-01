@@ -75,17 +75,17 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Robina Riaz',
-        'qualification' => 'MBBS, M.Phil, MHPE, PhD',
+        'qualification' => 'MBBS, Diploma in Gynae and Obs, M.Phil (Physiology), MHPE, PGD, PhD',
         'reg' => '3929-N',
       ],
       [
         'name' => 'Professor Dr. Farzana Salman',
-        'qualification' => 'MBBS, M.Phil, PhD',
+        'qualification' => 'MBBS, M.Phil, PGD, CHPE, PhD',
         'reg' => '4576-N',
       ],
       [
         'name' => 'Professor Dr. Munaza Khattak',
-        'qualification' => 'BDS, MPH, M.Phil',
+        'qualification' => 'BDS, MPH, M.Phil, PhD',
         'reg' => '',
       ],
       [
