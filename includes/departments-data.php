@@ -1181,33 +1181,36 @@ $academic_departments = [
     'group' => 'Clinical',
     'intro' => [
       'Cardiology training covers cardiovascular assessment, common heart diseases, and hospital-based clinical exposure.',
+      'Inpatient services: 2 CCU, One 8-bed Kuwait Teaching Hospital, Second one 12 beded at Prime Teaching Hospital,16-bed Interventional Cardiology Ward, and 16-bed General Cardiology Ward.',
+      'Non-invasive services: Echocardiography, Exercise tolerance testing, Holter monitoring, Ambulatory blood pressure monitoring, and CT coronary angiography.',
+      'Two cardiac catheterization laboratories providing coronary angiography, primary and complex PCI, CTO/post-CABG/bifurcation/left-main intervention, PTMC, and pacemaker implantation.',
     ],
-    'hod' => 'Professor Dr. Mohammad Saqib Qureshi',
+    'hod' => 'Associate Professor Dr. Muhammad Abdur Rauf',
     'faculty' => [
       [
-        'name' => 'Professor Dr. Mohammad Saqib Qureshi',
-        'qualification' => 'MBBS, FCPS',
+        'name' => 'Professor Dr. Saqib Qureshi',
+        'qualification' => 'MBBS, FCPS (Cardiology), CHPE',
         'reg' => '3398-N',
       ],
       [
         'name' => 'Associate Professor Dr. Muhammad Abdur Rauf',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Cardiology)',
         'reg' => '14299-N',
       ],
       [
         'name' => 'Senior Registrar Dr. Rahid Ullah',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Cardiology)',
         'reg' => '18991-N',
       ],
       [
-        'name' => 'Senior Registrar Dr. Farhat Shireen',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '21393-N',
+        'name' => 'Senior Registrar Dr. Naveed Danish',
+        'qualification' => 'MBBS, FCPS (Cardiology)',
+        'reg' => '18353-N',
       ],
       [
-        'name' => 'Senior Registrar Dr. Naveed Danish',
-        'qualification' => 'MBBS, FCPS',
-        'reg' => '18353-N',
+        'name' => 'Senior Registrar Dr. Farhat Shireen',
+        'qualification' => 'MBBS, FCPS (Cardiology)',
+        'reg' => '21393-N',
       ],
     ],
     'activities' => [

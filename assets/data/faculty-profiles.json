@@ -1867,9 +1867,9 @@
       ],
       "name": "Farhat Shireen",
       "department": "Cardiology",
-      "designation": "Senior Registrar; Cardiologist",
+      "designation": "Senior Registrar",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/farhat-shireen.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS (Cardiology)",
@@ -1877,14 +1877,15 @@
         "Fellowship in Interventional Cardiology"
       ],
       "experience": [
-        "Senior Registrar, Kuwait Teaching Hospital (Sep 2025-present); Interventional Cardiology Fellow, HMC (Jan 2023-Dec 2024); Consultant Cardiologist, Fauji Foundation Hospital (Jun-Dec 2022)."
+        "Senior Registrar, Kuwait Teaching Hospital, Peshawar, Sep 2025-present"
       ],
       "skills": [
-        "Coronary intervention (expert); pericardiocentesis (advanced); peripheral vascular intervention (intermediate); echocardiography (intermediate)."
+        "Coronary interventions - expert",
+        "Pericardiocentesis - advanced",
+        "Peripheral vascular interventions - intermediate",
+        "Echocardiography - intermediate"
       ],
-      "publications": [
-        "No publications were listed in the supplied CV. Further details in Annexure E."
-      ]
+      "publications": []
     },
     "muhammad-abdur-rauf": {
       "slug": "muhammad-abdur-rauf",
@@ -1893,9 +1894,9 @@
       ],
       "name": "Muhammad Abdur Rauf",
       "department": "Cardiology",
-      "designation": "Associate Professor; Head of Cardiology; Cath Lab Director",
+      "designation": "Associate Professor",
       "hod": true,
-      "photo": "",
+      "photo": "assets/images/faculty/muhammad-abdur-rauf.jpeg",
       "qualifications": [
         "MBBS",
         "IMM/MCPS",
@@ -1907,13 +1908,75 @@
         "MEAPCI"
       ],
       "experience": [
-        "HoD/Cath Lab Director and Associate Professor, PMC/KTH (Oct 2025-present); Assistant Professor (Jun 2019-Sep 2025); Registrar, HMC (Apr 2016-Jun 2019)."
+        "Head of Cardiology Department and Director, Cath Lab, Peshawar Medical College / Kuwait Teaching Hospital, Oct 2025-present",
+        "Associate Professor of Cardiology, Peshawar Medical College, Oct 2025-present"
       ],
       "skills": [
-        "Complex and primary PCI; bifurcation, CTO, post-CABG and left-main PCI; PTMC; echocardiography; renal denervation/IVUS exposure; cath-lab governance and postgraduate supervision."
+        "Complex and primary PCI",
+        "Bifurcation, CTO, post-CABG and left-main PCI",
+        "PTMC",
+        "Echocardiography",
+        "Renal denervation/IVUS exposure",
+        "Cath-lab governance and postgraduate supervision"
       ],
       "publications": [
-        "52 original articles, 1 case report, and 6 internationally presented/published abstracts. Complete list in Annexure B."
+        "Khan J, Raza S, Nishtar S, Hadi N, Rauf MA, Saleem A. Hidden Cardiovascular Risk: Early Menopause Triggering Acute Coronary Syndrome (ACS) in Young Patients. Cureus 2026;18(2): e103193. doi:10.7759/cureus.103193",
+        "Amin QNU, Rauf MA, Khan D, Arshad. Diagnostic accuracy of D-dimers in patients with non-ST-segment elevation myocardial infarction using Troponin-I as the gold standard. Pakistan Journal of Cardiovascular Intervention. 2025;5(1):15-21.",
+        "Razaq, A., Iqbal, W., Shah, S. T., Abdur Rauf, M., Aldekhail, N. M., Van Nieuwerburgh, F., & Siraj, S.. Impact of ABCB1 gene polymorphism on clopidogrel plasma concentration and cardiovascular events in post-PCI patients. Pharmacogenomics.2025; 1-8. https://doi.org/10.1080/14622416.2025.2534325",
+        "Rauf MA, Ziyad M, Mahmood N, et al. Evaluating the safety and efficacy of ticagrelor versus clopidogrel following percutaneous coronary intervention in chronic coronary disease. Cureus. 2025;17(1):e77610. doi:10.7759/cureus.77610",
+        "Ziyad M, Shah S, Rauf MA, et al. Drug-eluting balloons versus stenting for provisional bifurcation lesions: Short-term outcomes and future directions. Cureus. 2025;17(2):e78436. doi:10.7759/cureus.78436",
+        "Ahmad F, Ikramullah, Farhad A, Ahmad W, Afridi AK, Rauf MA. Thrombolytic therapy success rate and time to thrombolysis in patients with ST-elevation myocardial infarction. Khyber Journal of Medical Sciences. 2024;17(2).",
+        "Amin QNU, Rauf MA, Shah SHA, Shakir SU, Shah SKU, Ali A, Ali N. Comparison of intracoronary verapamil and adenosine for no-reflow in normotensive patients with acute coronary syndrome. Pakistan Heart Journal. 2024;57(4):343-348.",
+        "Ikramullah, Ahmad F, Rauf MA, Haq A, Ayaz S, Misbahuddin S, Ali L. ST-segment resolution in post-primary PCI patients at Lady Reading Hospital, Peshawar. Journal of Saidu Medical College Swat. 2024;14(3).",
+        "Awan MS, Khan ZU, Khan M, Maqbool MF, Rauf MA, Jalil S, Daud MY. Factors leading to late presentation of ST-elevation myocardial infarction for thrombolytic therapy. Journal of Saidu Medical College Swat. 2024;14(3).",
+        "Bashar JU, Khan FR, Shaikh SA, Khan AN, Rauf MA, Zeeshan MA, Aslam M. Beyond medicine: How diet influences cardiovascular interventions in Pakistan. Journal of Population Therapeutics and Clinical Pharmacology. 2024;31(6).",
+        "Ashraf T, Aamir KF, Nadeem A, Hassan MU, Raza H, Rauf MA, et al. Impact of educational intervention on hypertension management by primary care physicians: A randomized controlled trial. PEC Innovation. 2024;4:100285.",
+        "Rauf MA, Shafiullah S, Abbas M, Ziyad M, Awan MS, Shah ST. Hyperuricemia in patients with acute coronary syndrome. Advances in Basic Medical Sciences. 2024;8(1).",
+        "Bashar KU, Khan FR, Rauf MA, Ali M, Khan A, Khan AN. Survival outcomes after left main coronary artery bypass grafting versus stenting in diabetic patients. Journal of Population Therapeutics and Clinical Pharmacology. 2024;31(6).",
+        "Hadi N, Asfandiyar, Alam S, Rauf MA, Mehmood T, Raza S, Khan J. Prevalence of ECG findings in COVID-19 patients. Journal of Pharmaceutical Negative Results. 2023.",
+        "Shah ST, Shah I, Hadi NU, Rauf MA, Nawaz T, Sanaullah. Outcomes of late presenters with inferior wall myocardial infarction complicated by complete heart block treated with PCI. Pakistan Journal of Medical and Health Sciences. 2023;17(5).",
+        "Zakria M, Hussain A, Ahmad N, Ahmed N, Rauf MA, Siraj S. Rosuvastatin efficacy and SLCO1B1 genetic variations. European Review for Medical and Pharmacological Sciences. 2023;27:4708-4717.",
+        "Din IU, Waleed M, Ghaffar S, Rauf MA, Khan MI, Khan MI. Pre-dilation ballooning and slow-flow phenomenon in STEMI patients. Pakistan Journal of Medical and Health Sciences. 2023;17(2).",
+        "Rauf MA, Raza S, Safi SI, Arafat Y, Khan J, Khan N. Cardiac events in dengue fever patients. International Journal of Health Sciences. 2023;7(S1).",
+        "Din IU, Ahmad T, Khan I, Arafat Y, Khan SU, Rauf MA. Aberrant lipid profiles in patients with coronary artery disease. Pakistan Journal of Medical and Health Sciences. 2022;16(6).",
+        "Khan IA, Rauf MA, Arafat Y, Shah ST, Rizwana, Ullah S. Left atrial and left atrial appendage thrombus in severe mitral stenosis. Indo American Journal of Pharmaceutical Sciences. 2022;9(5).",
+        "Ashraf J, Din IU, Rauf MA, Arafat Y, Khan I, Ahmad T. Risk factors for cardiovascular disease among high-school students. Pakistan Journal of Medical and Health Sciences. 2022;16(6).",
+        "Din IU, Rauf MA, Arafat Y, Khan I, Mustafa B, Ahmad T. Pleural effusion after coronary artery bypass grafting. Pakistan Journal of Medical and Health Sciences. 2022;16(6).",
+        "Ullah S, Sharif H, Khaleeque M, Jan MH, Ahmed A, Rauf MA, et al. Ticagrelor versus clopidogrel in acute coronary syndrome: A systematic review. Indo American Journal of Pharmaceutical Sciences. 2022;9(5).",
+        "Rauf MA, Arafat Y, Din IU, Shah ST, Sumia, Khan SU. Safety of Chinese COVID-19 vaccine in cardiac patients. Pakistan Journal of Medical and Health Sciences. 2022;16(5).",
+        "Rauf MA, Rizwana, Aman T, Noe M, Roghani M, Mehmood N. Hypertension in adolescents of private schools. Indo American Journal of Pharmaceutical Sciences. 2022;9(5).",
+        "Hassan MU, Shah B, Shasawar, Hussain C, Rauf MA, Khan A, et al. Femoral versus transradial coronary [title incomplete in the supplied CV]. Indo American Journal of Pharmaceutical Sciences. 2021;8(12).",
+        "Ashraf A, Ashraf S, Faheem M, Ali U, Hadi UN, Rauf MA. Gender differences in ischemic heart disease with COPD. Pakistan Journal of Chest Medicine. 2018;24(2).",
+        "Khan MA, Rauf MA, Hassan M, Khan I, Jan R, Awan ZA. Enoxaparin use in elective percutaneous coronary intervention. Journal of Postgraduate Medical Institute. 2018;32(2).",
+        "Sami A, Iftekhar MF, Rauf MA, Sher A. Subclinical hypothyroidism in obese adults. Pakistan Journal of Medical Sciences. 2018;34(4).",
+        "Rauf MA, Khan MA, Ashraf A, Samiullah, Khan N, Hassan M, et al. Percutaneous balloon mitral valvotomy: Early outcomes. Journal of Postgraduate Medical Institute. 2018;32(2).",
+        "Rauf MA, Khan N, Mehmood N, Gul AM, Hafizullah M. Outcomes after percutaneous mitral commissurotomy. Pakistan Heart Journal. 2017;50(3).",
+        "Ullah S, Jan SU, Jan T, Ahmad HN, Jan MY, Rauf MA. Five-year bibliometric analysis of JCPSP. Journal of College of Physicians and Surgeons Pakistan. 2016;26(11).",
+        "Ullah S, Rauf MA, Ullah S, Khan I. Left atrial enlargement in atrial fibrillation. Journal of Cardiovascular Diseases. 2014;12(1).",
+        "Hameedullah, Ghaffar R, Rauf MA, Awan ZA. Localization and ablation of accessory pathway. Pakistan Heart Journal. 2014;47(4).",
+        "Gul AM, Hafizullah M, Shahzeb, Shah I, Ali N, Ali J, Rauf MA, et al. Left ventricular systolic dysfunction in rheumatic mitral stenosis. Pakistan Heart Journal. 2013;46(4).",
+        "Ahmed F, Rauf MA, Maula F, Mehmood N. Adverse events following H1N1 vaccination. Journal of Postgraduate Medical Institute. 2013;27(1).",
+        "Ahmad F, Ilyas M, Rauf MA, Adnan Y, Rafiullah, Hafizullah M. Electrolyte disorders in congestive heart failure. Pakistan Heart Journal. 2013;46(3).",
+        "Iqbal MA, Khan M, Faheem M, Rauf MA, Khan SB, Shah I, et al. Complications of acute right ventricular myocardial infarction. Journal of Postgraduate Medical Institute. 2013;27(3).",
+        "Shahzeb, Ali J, Irfan M, Gul AM, Rauf MA. High-degree atrioventricular blocks. Pakistan Heart Journal. 2013;46(3).",
+        "Iqbal MA, Rauf MA, Khan N, Adil M, Hafizullah M. Acute decompensated heart failure. Pakistan Heart Journal. 2013;46(3).",
+        "Maula F, Khan MN, Adil M, Ullah J, Rauf MA, Samiullah. Echocardiographic findings in chronic obstructive pulmonary disease. Pakistan Journal of Chest Medicine. 2013;19(1).",
+        "Ilyas M, Ahmad F, Rauf MA, Shah SFA, Hafizullah M. Left atrial volume and diastolic dysfunction. Pakistan Heart Journal. 2013;46(2).",
+        "Khan N, Rauf MA, Iqbal MA, Hafizullah M. Outcomes of acute decompensated heart failure. Pakistan Heart Journal. 2013;46(2).",
+        "Khan SB, Ataullah, Ali J, Rauf MA, Gul AM, Irfan M, et al. CT coronary angiography versus conventional coronary angiography. Pakistan Heart Journal. 2013;46(1).",
+        "Ahmed I, Ali J, Rauf MA, Aman W, Gul AM, Hafizullah M. Patterns of left main stem coronary artery disease. Pakistan Heart Journal. 2013;46(1).",
+        "Irfan M, Ali J, Khan IH, Rauf MA, Shahzeb, Gul AM, et al. Brain natriuretic peptide levels in patients with decompensated heart failure. Pakistan Heart Journal. 2013;46(1).",
+        "Iqbal MA, Rauf MA, Faheem M, Shah I, Khan N, Khan SB, et al. Inferior myocardial infarction with right ventricular involvement. Pakistan Heart Journal. 2012;45(4).",
+        "Rauf MA, Aman W, Shah ST, Khan N, Khan SB, Khan I, et al. Risk-factor control in coronary artery disease. Journal of Postgraduate Medical Institute. 2012;26(3).",
+        "Iqbal MA, Shah I, Rauf MA, Khan N, Khan SB, Hafizullah M. Frequency of right ventricular myocardial infarction. Pakistan Heart Journal. 2012;45(2).",
+        "Rauf MA, Aman W, Khan N, Shah ST, Khan I, Mahmood N, et al. Secondary prevention of coronary artery disease. Pakistan Heart Journal. 2012;45(1).",
+        "Khan SB, Rafiullah, Hadi A, Shah ST, Khan S, Ikramullah, Rauf MA, et al. Arrhythmias after thrombolysis. Pakistan Heart Journal. 2011;44(3-4).",
+        "Ahmed H, Rauf MA, Farooqi JI, Khan N, Saad, Imtiaz, et al. Hepatitis-B vaccination status of hospital staff. Journal of Postgraduate Medical Institute. 2009;23(3).",
+        "Rauf MA, Zeb S , Adil M , Gul AM , Hafizullah M. A 13-Year-Old Girl with Muscle Weakness and Ventricular Tachycardia. Pak Heart J 2012 Vol. 45 (02) : 133 - 137",
+        "Comparison Of Blood Bnp Levels In Patients With Decompensated Congestive Heart Failure Due To Different Etiology And Its Correlation With Echocardiographic Parameters M Irfan, MA Rauf, M Hafizullah, AM Gul. Global Heart 9(1), e174-e175, Elsevier, 2014/3/1.",
+        "Effect of intervention on the control of risk factors in coronary artery disease (CAD) patients Muhammad A Rauf, Mohammad H Ullah, Wahaj A Khan, MN Khan, Syed T Shah, Nida M Rauf. CIRCULATION 125(19), E866-E866, LIPPINCOTT WILLIAMS & WILKINS, 2012/5/15.",
+        "Short term clinical outcomes after percutaneous mitral commissurotomy for mitral stenosis MA Rauf, NM Rauf, W Aman, M Hafizullah Global Heart 9 (1), e188.Elsevier,2014/3/1.",
+        "Short Term Clinical Outcomes After Percutaneous Mitral Commissurotomy For Mitral Stenosis Based On Wilkin'S Score MA Rauf, N Mahmood, W Aman, M Hafizullah, MF Iftikhar, AM Gul Journal of the American College of Cardiology 64 (16), C196."
       ]
     },
     "naveed-danish": {
@@ -1923,22 +1986,34 @@
       ],
       "name": "Naveed Danish",
       "department": "Cardiology",
-      "designation": "Senior Registrar; Consultant Interventional Cardiologist",
+      "designation": "Senior Registrar",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/naveed-danish.jpeg",
       "qualifications": [
         "MBBS",
         "FCPS (Cardiology)",
         "Fellowship in Interventional Cardiology"
       ],
       "experience": [
-        "Senior Registrar, KTH/PMC (current); Interventional Cardiology Fellow, HMC (Jan 2024-Jan 2026); Registrar, KTH (Dec 2021-Dec 2023); previous CCU and DHQ posts."
+        "Senior Registrar, Kuwait Teaching Hospital / Peshawar Medical College (current)"
       ],
       "skills": [
-        "Coronary angiography and PCI; management of cardiac emergencies; ward leadership; undergraduate/postgraduate teaching; CME/workshop organization."
+        "Coronary angiography and PCI",
+        "Management of cardiac emergencies",
+        "Undergraduate and postgraduate teaching",
+        "CME workshop organization"
       ],
       "publications": [
-        "10 publications listed in the supplied CV. Complete list in Annexure D."
+        "Frequency of Stress Hyperglycemia and Incident Diabetes Mellitus in Patients Presenting with Acute Coronary Syndrome, Naveed Danish1, Samiullah Khan2, Muhammad Niaz Khan3, Muhammad Saad Bin Nasir3, Muhammad Kashif Iltaf2 and Hammad Shah4, Med. Forum, Vol. 32, No. 10, October, 2021",
+        "Correlation of red cell distribution width with inflammatory markers and its prognostic value in patients with diabetes and coronary artery disease, Afrasyab Altaf , Miqdad Ali Khan, Aftab Alam, Momin Khan, Mazhar Mahmood, Hammad Shah , Naveed Danish, Momin Salahuddin ,Cardiology Department, Rehman Institute of Medical Sciences, Peshawar, Pakistan, ISSN 2450-7458",
+        "Frequency of Accelerated Idioventricular Rhythm in Patients with Acute ST Elevation Myocardial Infarction Receiving Thrombolytic Therapy , Noshed Khan1, Samiullah Khan2, Naveed Danish4, Muhammad Niaz Khan5, Sadullah Shah1 and Raza Muhammad3, Med. Forum, Vol. 32, No. 11 , November, 2021",
+        "Relationship of Gender to Prevalence, Knowledge, Attitude and Practice among Healthcare Workers Regarding Needlestick Injuries in Tertiary Care Hospitals Afrasyab Altaf1, Ayman Javaid2, Mohsin Shabir3, Sohrab Khan3, Naveed Danish3,Ghassan Jamshed Khan2, Arshad Islam2, Pakistan Journal of Public Health https://doi.org/10.32413/pjph.v12i3.1079 www.pjph.org",
+        "Efficacy of Xylocaine and Nitrate Combination in Preventing Radial Artery Spasm and Pain during Transradial Coronary Interventions, Abdul Waris, Naveed Danish, Muhammad Niaz Khan, DOI: https://doi.org/10.35787/jimdc.v14i2.1157",
+        "Correlation Between Complexity of Coronary Lesions and Delta High-sensitivity Troponin (hs-cTn) I Levels in Patients of Non-ST Elevation Myocardial Infarction, Muhammad Hammad Azam, Muhammad Abdul Wahab , Naveed Danish , Muhammad Taha , Shitba Naeem and 3 Shaheer Khan Muhammad, https://doi.org/10.54393/pjhs.v5i09.2039",
+        "Correlation between Grace Risk Score and Coronary Angiographic Complexity in High Risk NSTEMI Patients, Muhammad Hammad Azam, Muhammad Abdul Wahab, Naveed Danish, Waqar Ahmad Khan, Shitba Naeem, Shaheer Khan Muhammad , DOI: 10.55958/jcvd.v20i2.184",
+        "Frequency of Atrial Fibrillation among patients with ischemic heart disease, Samiullah Shakir, Naveed Danish, Javid Hayat, Asfandyar Ahmad, Ambar Ashraf, https://pakheartjournal.com/index.php/pk/article/view/2445",
+        "Association of Hemoglobin Level with In Hospital Outcomes in Patients with STEMI Treated with Primary Percutaneous Coronary Intervention, Syed Kashifullah Shah1, Naveed Danish1, Shakeel Akhtar1, Muhammad Shahab Ud Din Khalil1, Nasir Ali1, Qazi Najeeb Ullah Amin1 1Hayatabad Medical Complex, Peshawar, Pakistan, DOI: https://doi.org/10.47144/phj.v56i2.2514",
+        "The Relationship between Serum Calcium Levels and Angiographic Severity of Coronary Artery Disease in Patients with Chronic Coronary Syndrome Muhammad Hammad Azam1, Naveed Danish1, Muhammad Abdul Wahab1, Atta ur Rehman1, Shitba Naeem2, Shaheer Khan Muhammad2 1Department of Cardiology, Hayatabad Medical Complex, Peshawar, Pakistan, 2The National Institute of Cardiovascular Diseases, Karachi, Pakistan, DOI:10.47144/phj.v57i3.2822"
       ]
     },
     "rahid-ullah": {
@@ -1948,22 +2023,32 @@
       ],
       "name": "Rahid Ullah",
       "department": "Cardiology",
-      "designation": "Senior Registrar, Cardiology",
+      "designation": "Senior Registrar",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/rahid-ullah.png",
       "qualifications": [
         "MBBS",
         "FCPS (Cardiology)",
         "FCPS Interventional Cardiology"
       ],
       "experience": [
-        "Senior Registrar, Prime Teaching Hospital (Nov 2024-present); Specialist Cardiologist, DHQ KDA Kohat (Jan-Oct 2024); Interventional Cardiology Fellow, NICVD (Jan 2022-Dec 2023)."
+        "Senior Registrar, Prime Teaching Hospital, Peshawar, Nov 2024-present"
       ],
       "skills": [
-        "Coronary/peripheral angiography; primary and elective PCI; PTMC; coronary IVUS; echocardiography; ECG; CTO and rotational atherectomy training."
+        "Coronary and peripheral angiography",
+        "Primary and elective PCI",
+        "PTMC",
+        "Coronary IVUS",
+        "Echocardiography",
+        "ECG",
+        "CTO and rotational atherectomy training"
       ],
       "publications": [
-        "5 publications listed in the supplied CV. Complete list in Annexure C."
+        "Frequency of Left Ventricular Thrombus in ST Elevation Myocardial Infarction Patients Treated with Primary Percutaneous Coronary Intervention. https://jszmc.com/ojs/index.php/jszmc/article/view/227",
+        "Frequency of Right Ventricular Infarction in Patients with Acute Inferior Wall Myocardial Infarction Presenting at a Tertiary Care Hospital, Peshawar. Pakistan Heart Journal. 2023;56(2).",
+        "Treatment and Outcome of In-Stent Restenosis with Drug-Eluting Balloons: A Real-Life Single-Centre Study. DOI: 10.29054/APMC/2023.1287.",
+        "Frequency of New-Onset Right Bundle Branch Block in Acute Myocardial Infarction and Its Coronary Angiographic Findings in Patients Presenting at a Tertiary Care Hospital, Peshawar. Pakistan Journal of Cardiovascular Intervention.",
+        "Efficacy of Primary Percutaneous Coronary Intervention Performed Through a Transradial Approach in Patients with ST-Segment Elevation Myocardial Infarction at a Tertiary Care Cardiac Centre."
       ]
     },
     "saqib-qureshi": {
@@ -1975,23 +2060,24 @@
       ],
       "name": "Saqib Qureshi",
       "department": "Cardiology",
-      "designation": "Chairman, Cardiovascular Unit",
-      "hod": true,
-      "photo": "",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/saqib-qureshi.jpeg",
       "qualifications": [
         "MBBS",
-        "FCPS (Cardiology) CHPE"
+        "FCPS (Cardiology)",
+        "CHPE"
       ],
       "experience": [
         "Chairman, Cardiovascular Unit (current).",
-        "Ex Professor Qazi Hussain Ahmad Medical Complex EX-Senior Registrar Lady reading Hospital Pesahawar"
+        "Ex Professor Qazi Hussain Ahmad Medical Complex",
+        "EX-Senior Registrar Lady reading Hospital Pesahawar"
       ],
       "skills": [
-        "Cardiovascular unit leadership. Teaching Experience Head of cardiology"
+        "Cardiovascular unit leadership",
+        "Head of cardiology"
       ],
-      "publications": [
-        "16 publications reported. Titles and citations were not supplied. Further details in Annexure A."
-      ]
+      "publications": []
     },
     "farah-sagheer": {
       "slug": "farah-sagheer",
