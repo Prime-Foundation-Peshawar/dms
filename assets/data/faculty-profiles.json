@@ -1461,7 +1461,7 @@
       "department": "Anaesthesia",
       "designation": "Senior Registrar",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/abdur-rauf.jpeg",
       "qualifications": [
         "MBBS",
         "Diploma in Anaesthesia"
@@ -1481,7 +1481,7 @@
       "department": "Anaesthesia",
       "designation": "Assistant Professor",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/ihsan-ul-haq.jpeg",
       "qualifications": [
         "MBBS",
         "DA"
@@ -1503,7 +1503,7 @@
       "department": "Anaesthesia",
       "designation": "Senior Registrar",
       "hod": false,
-      "photo": "",
+      "photo": "assets/images/faculty/muhammad-naeem-anjum.jpeg",
       "qualifications": [
         "MBBS",
         "Diploma in Anaesthesia"
