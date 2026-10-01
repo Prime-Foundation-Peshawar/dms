@@ -62,7 +62,7 @@ function faculty_is_directory_rank(?string $designation): bool {
 
 function faculty_slug(string $name): string {
   $n = trim($name);
-  $titles = '/^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i';
+  $titles = '/^(associate professor|assistant professor|senior registrar|sr\.?\s*registrar|professor|prof\.?|dr\.?)\s+/i';
   while (preg_match($titles, $n)) {
     $n = preg_replace($titles, '', $n, 1);
   }

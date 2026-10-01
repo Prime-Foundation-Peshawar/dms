@@ -194,7 +194,7 @@ const API_URL = 'faculty-proxy';
 
 function facultySlug(name) {
   let n = String(name || '').trim();
-  const titles = /^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i;
+  const titles = /^(associate professor|assistant professor|senior registrar|sr\.?\s*registrar|professor|prof\.?|dr\.?)\s+/i;
   while (titles.test(n)) n = n.replace(titles, '');
   n = n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   return n.replace(/^(mohammad|muhammed)-/, 'muhammad-');
