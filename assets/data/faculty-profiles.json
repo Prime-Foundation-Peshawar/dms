@@ -1593,7 +1593,8 @@
       "aliases": [
         "muhammad-saeed",
         "m-saeed",
-        "saeed-muhammad"
+        "saeed-muhammad",
+        "mohammad-saeed"
       ],
       "name": "Muhammad Saeed",
       "department": "Anatomy",
@@ -1863,7 +1864,8 @@
     "abdur-rauf": {
       "slug": "abdur-rauf",
       "aliases": [
-        "abdur-rauf"
+        "abdur-rauf",
+        "abdul-rauf"
       ],
       "name": "Abdur Rauf",
       "department": "Anaesthesia",
@@ -2075,7 +2077,8 @@
     "sikandar-ali": {
       "slug": "sikandar-ali",
       "aliases": [
-        "sikandar-ali"
+        "sikandar-ali",
+        "sikandar-ali-khan"
       ],
       "name": "Sikandar Ali",
       "department": "Biochemistry",
@@ -2159,7 +2162,9 @@
     "m-aman-khan": {
       "slug": "m-aman-khan",
       "aliases": [
-        "m-aman-khan"
+        "m-aman-khan",
+        "mohammad-aman-khan",
+        "muhammad-aman-khan"
       ],
       "name": "M. Aman Khan",
       "department": "CHS",
@@ -2315,7 +2320,9 @@
     "saqib-qureshi": {
       "slug": "saqib-qureshi",
       "aliases": [
-        "saqib-qureshi"
+        "saqib-qureshi",
+        "mohammad-saqib-qureshi",
+        "muhammad-saqib-qureshi"
       ],
       "name": "Saqib Qureshi",
       "department": "Cardiology",
@@ -2527,7 +2534,9 @@
     "arbab-m-kashif-khan": {
       "slug": "arbab-m-kashif-khan",
       "aliases": [
-        "arbab-m-kashif-khan"
+        "arbab-m-kashif-khan",
+        "arbab-muhammad-kashif-khan",
+        "arbab-mohammad-kashif-khan"
       ],
       "name": "Arbab M. Kashif Khan",
       "department": "Gastroenterology",
@@ -3932,6 +3941,15 @@
     "waleed-mahbood": "waleed-mahbood",
     "izhar-ali": "izhar-ali",
     "mir-alam-jan": "mir-alam-jan",
-    "muhammad-hisham-naeem": "muhammad-hisham-naeem"
+    "muhammad-hisham-naeem": "muhammad-hisham-naeem",
+    "mohammad-saeed": "muhammad-saeed",
+    "sikandar-ali-khan": "sikandar-ali",
+    "mohammad-aman-khan": "m-aman-khan",
+    "muhammad-aman-khan": "m-aman-khan",
+    "mohammad-saqib-qureshi": "saqib-qureshi",
+    "muhammad-saqib-qureshi": "saqib-qureshi",
+    "abdul-rauf": "abdur-rauf",
+    "arbab-muhammad-kashif-khan": "arbab-m-kashif-khan",
+    "arbab-mohammad-kashif-khan": "arbab-m-kashif-khan"
   }
 }

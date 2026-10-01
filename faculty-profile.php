@@ -220,7 +220,22 @@ function facultySlug(name) {
   let n = String(name || '').trim();
   const titles = /^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i;
   while (titles.test(n)) n = n.replace(titles, '');
-  return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  n = n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return n.replace(/^(mohammad|muhammed)-/, 'muhammad-');
+}
+
+function slugsMatch(a, b) {
+  if (!a || !b) return false;
+  a = facultySlug(a);
+  b = facultySlug(b);
+  if (a === b) return true;
+  const ta = a.split('-').filter(Boolean);
+  const tb = b.split('-').filter(Boolean);
+  if (!ta.length || !tb.length) return false;
+  if (ta[0] === tb[0] && ta[1] && tb[1] && ta[1] === tb[1]) return true;
+  const fa = ta[0], fb = tb[0], la = ta[ta.length - 1], lb = tb[tb.length - 1];
+  return (fa === fb || (fa.length >= 4 && fb.length >= 4 && (fa.startsWith(fb.slice(0, 4)) || fb.startsWith(fa.slice(0, 4)))))
+    && (la === lb || la.startsWith(lb) || lb.startsWith(la));
 }
 
 function escapeHtml(str) {
@@ -251,8 +266,8 @@ function avatarClass(desTitle) {
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data)) {
-        hrms = data.find(f => facultySlug(f.empName) === SLUG)
-          || data.find(f => EXTRA && facultySlug(f.empName) === facultySlug(EXTRA.name));
+        hrms = data.find(f => slugsMatch(f.empName, SLUG))
+          || data.find(f => EXTRA && slugsMatch(f.empName, EXTRA.name || EXTRA.slug || ''));
       }
     }
   } catch (e) {

@@ -68,7 +68,9 @@ function faculty_slug(string $name): string {
   }
   $n = strtolower($n);
   $n = preg_replace('/[^a-z0-9]+/', '-', $n);
-  return trim($n, '-');
+  $n = trim($n, '-');
+  $n = preg_replace('/^(mohammad|muhammed)-/', 'muhammad-', $n) ?? $n;
+  return $n;
 }
 
 function faculty_slugs_match(string $a, string $b): bool {

@@ -344,15 +344,19 @@ function facultySlug(name) {
   let n = String(name || '').trim();
   const titles = /^(associate professor|assistant professor|professor|prof\.?|dr\.?)\s+/i;
   while (titles.test(n)) n = n.replace(titles, '');
-  return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  n = n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return n.replace(/^(mohammad|muhammed)-/, 'muhammad-');
 }
 
 function slugsMatch(a, b) {
   if (!a || !b) return false;
+  a = String(a).replace(/^(mohammad|muhammed)-/, 'muhammad-');
+  b = String(b).replace(/^(mohammad|muhammed)-/, 'muhammad-');
   if (a === b) return true;
   const ta = a.split('-').filter(Boolean);
   const tb = b.split('-').filter(Boolean);
   if (!ta.length || !tb.length) return false;
+  if (ta[0] === tb[0] && ta[1] && tb[1] && ta[1] === tb[1]) return true;
   const fa = ta[0], fb = tb[0], la = ta[ta.length - 1], lb = tb[tb.length - 1];
   const firstOk = fa === fb || (fa.length >= 4 && fb.length >= 4 && (fa.startsWith(fb.slice(0, 4)) || fb.startsWith(fa.slice(0, 4))));
   const lastOk = la === lb || la.startsWith(lb) || lb.startsWith(la) || (la.length >= 4 && lb.length >= 4 && la.slice(0, 4) === lb.slice(0, 4));
@@ -361,12 +365,15 @@ function slugsMatch(a, b) {
 
 function extraFor(name) {
   const s = facultySlug(name);
-  const canon = (extraPack.index && extraPack.index[s]) || s;
-  if (extraPack.profiles && extraPack.profiles[canon]) return extraPack.profiles[canon];
+  const tries = [s];
+  if (extraPack.index && extraPack.index[s]) tries.push(extraPack.index[s]);
+  for (const key of tries) {
+    if (extraPack.profiles && extraPack.profiles[key]) return extraPack.profiles[key];
+  }
   const rows = extraPack.profiles ? Object.values(extraPack.profiles) : [];
   for (const rec of rows) {
-    const keys = [rec.slug, ...(rec.aliases || [])];
-    if (keys.some(k => slugsMatch(s, k))) return rec;
+    const keys = [rec.slug, rec.name, ...(rec.aliases || [])].filter(Boolean);
+    if (keys.some(k => slugsMatch(s, facultySlug(k)) || slugsMatch(s, k))) return rec;
   }
   return null;
 }
@@ -408,7 +415,7 @@ function appendMissingCvFaculty() {
 
 function renderMemberRow(m) {
   const extra = extraFor(m.empName);
-  const linked = hasWordProfile(extra);
+  const linked = true;
   const slug = (extra && extra.slug) || facultySlug(m.empName);
   const name = escapeHtml(getDisplayName(m));
   const desig = escapeHtml(m.desTitle || 'Faculty');
