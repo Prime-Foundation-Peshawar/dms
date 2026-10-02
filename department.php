@@ -98,25 +98,29 @@ include('includes/header.php');
             <?php if ($faculty): ?>
               <div class="dept-faculty-list">
                 <?php foreach ($faculty as $member):
-                  $isHod = !empty($dept['hod']) && strcasecmp(trim($member['name']), trim($dept['hod'])) === 0;
-                  $parts = preg_split('/\s+/', trim($member['name']));
+                  $lookupName = trim((string) ($member['empName'] ?? $member['name'] ?? ''));
+                  $isHod = !empty($dept['hod']) && (
+                    faculty_is_hod_name((string) ($member['name'] ?? ''), (string) $dept['hod'])
+                    || faculty_is_hod_name($lookupName, (string) $dept['hod'])
+                  );
+                  $parts = preg_split('/\s+/', trim((string) ($member['name'] ?? '')));
                   $initials = '';
+                  $skipInit = ['dr.', 'dr', 'professor', 'associate', 'assistant', 'senior', 'registrar', 'assoc.', 'asst.', 'prof.', 'sr.'];
                   foreach ($parts as $part) {
-                    if ($part === '' || in_array(strtolower($part), ['dr.', 'dr', 'professor', 'associate', 'assistant', 'senior', 'registrar'], true)) {
+                    if ($part === '' || in_array(strtolower($part), $skipInit, true)) {
                       continue;
                     }
                     $initials .= strtoupper(substr($part, 0, 1));
                     if (strlen($initials) >= 2) break;
                   }
                   if ($initials === '') $initials = 'D';
-                ?>
-                <?php
-                  $profile = faculty_profile_lookup_cv($member['name']);
+                  $profile = faculty_profile_lookup_cv($lookupName) ?: faculty_profile_lookup_cv((string) ($member['name'] ?? ''));
+                  $profileSlug = (string) ($profile['slug'] ?? faculty_slug($lookupName !== '' ? $lookupName : (string) ($member['name'] ?? '')));
+                  // Same as faculty page: always link to the profile route.
+                  $href = 'faculty-profile?n=' . rawurlencode($profileSlug);
                 ?>
                   <article class="dept-faculty-card<?= $isHod ? ' is-hod' : '' ?><?= $profile ? '' : ' is-static' ?>">
-                    <?php if ($profile): ?>
-                    <a class="dept-faculty-link" href="faculty-profile?n=<?= htmlspecialchars($profile['slug'] ?? faculty_slug($member['name'])) ?>">
-                    <?php endif; ?>
+                    <a class="dept-faculty-link" href="<?= htmlspecialchars($href) ?>">
                     <div class="dept-faculty-avatar"><?= htmlspecialchars($initials) ?></div>
                     <div class="dept-faculty-info">
                       <div class="dept-faculty-name-row">
@@ -128,9 +132,7 @@ include('includes/header.php');
                       <p><?= htmlspecialchars($member['qualification']) ?></p>
                       <span class="reg-number">PM&amp;DC <?= htmlspecialchars($member['reg']) ?></span>
                     </div>
-                    <?php if ($profile): ?>
                     </a>
-                    <?php endif; ?>
                   </article>
                 <?php endforeach; ?>
               </div>

@@ -62,7 +62,8 @@ function faculty_is_directory_rank(?string $designation): bool {
 
 function faculty_slug(string $name): string {
   $n = trim($name);
-  $titles = '/^(associate professor|assistant professor|senior registrar|sr\.?\s*registrar|professor|prof\.?|dr\.?)\s+/i';
+  // Strip full and abbreviated rank/title prefixes used in directory display names.
+  $titles = '/^(associate professor|assistant professor|senior registrar|senior lecturer|assoc\.?\s*prof\.?|asst\.?\s*prof\.?|sr\.?\s*registrar|sr\.?\s*lecturer|professor|prof\.?|dr\.?)\s+/i';
   while (preg_match($titles, $n)) {
     $n = preg_replace($titles, '', $n, 1);
   }
@@ -1395,8 +1396,10 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
 
   $out = [];
   foreach ($matched as $row) {
+    $emp = trim((string) ($row['empName'] ?? ''));
     $out[] = [
       'name' => faculty_hrms_display_name($row),
+      'empName' => $emp,
       'qualification' => trim((string) ($row['qualifications'] ?? '')),
       'reg' => trim((string) ($row['facPMDCNo'] ?? '')),
     ];
