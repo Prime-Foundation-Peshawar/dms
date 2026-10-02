@@ -277,6 +277,37 @@ function faculty_profile_lookup_cv(string $nameOrSlug): ?array {
   }
 }
 
+/**
+ * Find a person in the shared public directory by slug/name.
+ *
+ * @return array{empName:string,desTitle:string,depName:string,facPMDCNo:string,facFacRegNo:string,qualifications:string}|null
+ */
+function faculty_directory_lookup(string $nameOrSlug): ?array {
+  $slug = faculty_slug($nameOrSlug);
+  if ($slug === '') {
+    return null;
+  }
+  $exact = null;
+  $fuzzy = null;
+  foreach (faculty_public_directory() as $row) {
+    if (!is_array($row)) {
+      continue;
+    }
+    $empSlug = faculty_slug((string) ($row['empName'] ?? ''));
+    if ($empSlug === '') {
+      continue;
+    }
+    if ($empSlug === $slug) {
+      $exact = $row;
+      break;
+    }
+    if ($fuzzy === null && faculty_slugs_match($empSlug, $slug)) {
+      $fuzzy = $row;
+    }
+  }
+  return $exact ?? $fuzzy;
+}
+
 function faculty_profile_link_html(string $label, string $qual = ''): string {
   $cv = faculty_profile_lookup_cv($label);
   $nameHtml = '<span>' . htmlspecialchars($label) . '</span>';

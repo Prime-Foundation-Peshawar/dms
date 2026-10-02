@@ -7,12 +7,15 @@ if ($slug === '') {
   exit;
 }
 
+// Prefer full CV pack; otherwise show shared directory / HRMS stub (no redirect bounce).
 $extra = faculty_profile_lookup_cv($slug);
-if (!$extra) {
+$directory = faculty_directory_lookup($slug);
+if (!$extra && !$directory) {
   header('Location: faculty.php', true, 302);
   exit;
 }
-$display_name = $extra['name'] ?? '';
+
+$display_name = trim((string) ($extra['name'] ?? $directory['empName'] ?? ''));
 $page_title = ($display_name !== '' ? $display_name . ' — Faculty' : 'Faculty') . ' | Department of Medical Sciences';
 $page_description = $display_name !== ''
   ? $display_name . ' teaches at Peshawar Medical College, Riphah Peshawar Campus.'
@@ -27,24 +30,37 @@ if (!empty($extra['photo'])) {
     $photo = $extra['photo'];
   }
 }
-$desig = faculty_normalize_designation((string) ($extra['designation'] ?? ''));
-$dept = (string) ($extra['department'] ?? '');
+$desig = faculty_normalize_designation((string) ($extra['designation'] ?? $directory['desTitle'] ?? ''));
+$dept = (string) ($extra['department'] ?? $directory['depName'] ?? '');
 $is_hod = !empty($extra['hod']);
-$quals = faculty_normalize_qualifications($extra['qualifications'] ?? []);
+$dirQuals = [];
+if (!$extra && !empty($directory['qualifications'])) {
+  $dirQuals = array_values(array_filter(array_map('trim', preg_split('/[,;]+/', (string) $directory['qualifications']) ?: [])));
+}
+$quals = faculty_normalize_qualifications($extra['qualifications'] ?? $dirQuals);
 $skills = faculty_normalize_skills($extra['skills'] ?? []);
-$research = faculty_research_preferences($extra);
+$research = $extra ? faculty_research_preferences($extra) : [];
 $academic_roles = faculty_plain_list($extra['academic_roles'] ?? []);
 $memberships = faculty_plain_list($extra['memberships'] ?? []);
 $courses = faculty_plain_list($extra['courses'] ?? []);
 $books = faculty_plain_list($extra['books'] ?? []);
 $chapters = faculty_plain_list($extra['book_chapters'] ?? []);
 $registrations = faculty_plain_list($extra['registrations'] ?? []);
+if (!$registrations && $directory) {
+  if (!empty($directory['facPMDCNo'])) {
+    $registrations[] = 'PM&DC ' . $directory['facPMDCNo'];
+  }
+  if (!empty($directory['facFacRegNo'])) {
+    $registrations[] = 'Faculty No. ' . $directory['facFacRegNo'];
+  }
+}
 $pubs = faculty_explode_publications($extra['publications'] ?? []);
 $initials = 'F';
 if ($display_name !== '') {
   $parts = preg_split('/\s+/', $display_name);
   $initials = strtoupper(substr($parts[0], 0, 1) . substr($parts[count($parts) - 1] ?? '', 0, 1));
 }
+$has_cv = (bool) $extra;
 ?>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet"/>
@@ -65,7 +81,7 @@ if ($display_name !== '') {
 
 <section class="pmc-section bg-off fp-section">
   <div class="container">
-    <div id="fpLoading" class="fp-loading"<?= $extra ? ' style="display:none"' : '' ?>>
+    <div id="fpLoading" class="fp-loading" style="display:none">
       <div class="spinner-pmc"></div>
       <p>Loading profile…</p>
     </div>
@@ -77,7 +93,7 @@ if ($display_name !== '') {
       <a href="faculty.php" class="btn-pmc btn-pmc-primary"><i class="bi bi-people"></i> All faculty</a>
     </div>
 
-    <article id="fpCard" class="fp-layout"<?= $extra ? '' : ' hidden' ?>>
+    <article id="fpCard" class="fp-layout">
       <aside class="fp-side">
         <div class="fp-portrait">
           <?php if ($photo): ?>
@@ -253,7 +269,7 @@ if ($display_name !== '') {
         </section>
         <?php endforeach; ?>
 
-        <section class="fp-panel" id="fpPending"<?= $extra ? ' hidden' : '' ?>>
+        <section class="fp-panel" id="fpPending"<?= $has_cv ? ' hidden' : '' ?>>
           <div class="fp-panel-head">
             <span class="fp-panel-ico"><i class="bi bi-hourglass-split"></i></span>
             <div>
@@ -273,6 +289,7 @@ if ($display_name !== '') {
 <script>
 const SLUG = <?= json_encode($slug, JSON_UNESCAPED_UNICODE) ?>;
 const EXTRA = <?= json_encode($extra, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>;
+const DIRECTORY = <?= json_encode($directory, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>;
 const API_URL = 'faculty-proxy';
 
 function facultySlug(name) {
@@ -358,9 +375,14 @@ function avatarClass(desTitle) {
     console.error(e);
   }
 
+  if (!hrms && DIRECTORY) {
+    hrms = DIRECTORY;
+  }
+
   if (!EXTRA && !hrms) {
     loading.style.display = 'none';
     missing.style.display = 'block';
+    card.hidden = true;
     return;
   }
 
@@ -385,7 +407,7 @@ function avatarClass(desTitle) {
       if (/pm\s*&?\s*dc/i.test(text) && hrms.facPMDCNo) return;
       chips.push('<span class="reg-chip"><i class="bi bi-card-text"></i> ' + escapeHtml(text) + '</span>');
     });
-    document.getElementById('fpRegChips').innerHTML = chips.join('');
+    if (chips.length) document.getElementById('fpRegChips').innerHTML = chips.join('');
     const av = document.getElementById('fpAvatar');
     if (av) av.className = 'fp-avatar ' + avatarClass(hrms.desTitle);
     if (!EXTRA && hrms.qualifications) {
