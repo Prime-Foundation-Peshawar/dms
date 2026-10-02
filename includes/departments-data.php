@@ -364,11 +364,11 @@ $academic_departments = [
     ],
   ],
   'chs' => [
-    'name' => 'Community Health Sciences',
+    'name' => 'CHS',
     'icon' => 'bi-people-fill',
     'group' => 'Basic',
     'intro' => [
-      'Community Health Sciences prepares students for population health, prevention, epidemiology, and community-oriented primary care.',
+      'Community Health Sciences (CHS) prepares students for population health, prevention, epidemiology, and community-oriented primary care.',
       'Field exposure and community placements connect classroom learning with real public-health needs in KP.',
     ],
     'hod' => 'Professor Dr. Mohammad Aman Khan',
@@ -418,11 +418,11 @@ $academic_departments = [
     ],
   ],
   'dhpe' => [
-    'name' => 'DHPE & Research',
+    'name' => 'DHPE & R',
     'icon' => 'bi-mortarboard-fill',
     'group' => 'Basic',
     'intro' => [
-      'The Department of Health Professions Education & Research supports teaching excellence, curriculum development, and educational scholarship across PMC.',
+      'The Department of Health Professions Education & Research (DHPE & R) supports teaching excellence, curriculum development, and educational scholarship across PMC.',
       'Faculty contribute to faculty development, assessment design, and research capacity building.',
     ],
     'hod' => 'Assistant Professor Dr. Neelofar Shaheen',
@@ -645,11 +645,11 @@ $academic_departments = [
     ],
   ],
   'gynaecology' => [
-    'name' => 'Gynaecology & Obstetrics',
+    'name' => 'Gynae and Obstetrics',
     'icon' => 'bi-gender-female',
     'group' => 'Clinical',
     'intro' => [
-      'Gynaecology & Obstetrics provides training in women’s health, antenatal care, labour-ward practice, and common gynaecological conditions.',
+      'Gynae and Obstetrics provides training in women’s health, antenatal care, labour-ward practice, and common gynaecological conditions.',
       'Students gain clinical exposure in teaching-hospital settings with a focus on respectful, evidence-based care.',
     ],
     'hod' => 'Professor Dr. Tehniyat Attiya Ur Razaq',
@@ -926,11 +926,11 @@ $academic_departments = [
     ],
   ],
   'orthopaedics' => [
-    'name' => 'Orthopaedics',
+    'name' => 'Orthopedics',
     'icon' => 'bi-bandaid-fill',
     'group' => 'Clinical',
     'intro' => [
-      'Orthopaedics focuses on musculoskeletal injury and disease, trauma care, and rehabilitation principles.',
+      'Orthopedics focuses on musculoskeletal injury and disease, trauma care, and rehabilitation principles.',
       'Students participate in clinics, wards, and trauma-related teaching at affiliated hospitals.',
     ],
     'hod' => 'Professor Dr. Mahmood Ul Hassan',
@@ -1708,6 +1708,84 @@ $academic_departments = [
       [
         'title' => 'CME / Departmental Meetings',
         'date' => '2025–26',
+        'text' => 'Continuing medical education sessions and departmental academic meetings.',
+      ],
+    ],
+  ],
+  'accident-emergency' => [
+    'name' => 'Accident and Emergency',
+    'icon' => 'bi-ambulance',
+    'group' => 'Clinical',
+    'intro' => [
+      'Accident and Emergency provides teaching in acute assessment, triage, and initial management of medical and surgical emergencies.',
+      'Students learn structured approaches to common emergency presentations in affiliated teaching hospitals.',
+    ],
+    'hod' => 'Assistant Professor Dr. Muhammad Ishfaq',
+    'faculty' => [
+      [
+        'name' => 'Assistant Professor Dr. Muhammad Ishfaq',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '19531-N',
+      ],
+      [
+        'name' => 'Senior Registrar Dr. Asif Ali',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '26366-N',
+      ],
+      [
+        'name' => 'Senior Registrar Dr. Shumaila Farman',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '27920-N',
+      ],
+    ],
+    'activities' => [
+      [
+        'title' => 'Ward & Clinic Teaching',
+        'date' => 'Ongoing 2026',
+        'text' => 'Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations.',
+      ],
+      [
+        'title' => 'Case Presentations',
+        'date' => 'Weekly',
+        'text' => 'Student case presentations with consultant feedback to strengthen clinical reasoning.',
+      ],
+      [
+        'title' => 'CME / Departmental Meetings',
+        'date' => '2025ΓÇô26',
+        'text' => 'Continuing medical education sessions and departmental academic meetings.',
+      ],
+    ],
+  ],
+  'paeds-cardiology' => [
+    'name' => 'Paeds Cardiology',
+    'icon' => 'bi-heart',
+    'group' => 'Clinical',
+    'intro' => [
+      'Paeds Cardiology covers diagnosis and management of congenital and acquired heart disease in children.',
+      'Teaching links paediatric medicine with cardiac assessment in tertiary-care settings.',
+    ],
+    'hod' => 'Assistant Professor Dr. Zia Ur Rahman',
+    'faculty' => [
+      [
+        'name' => 'Assistant Professor Dr. Zia Ur Rahman',
+        'qualification' => 'MBBS, FCPS',
+        'reg' => '16502-N',
+      ],
+    ],
+    'activities' => [
+      [
+        'title' => 'Ward & Clinic Teaching',
+        'date' => 'Ongoing 2026',
+        'text' => 'Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations.',
+      ],
+      [
+        'title' => 'Case Presentations',
+        'date' => 'Weekly',
+        'text' => 'Student case presentations with consultant feedback to strengthen clinical reasoning.',
+      ],
+      [
+        'title' => 'CME / Departmental Meetings',
+        'date' => '2025ΓÇô26',
         'text' => 'Continuing medical education sessions and departmental academic meetings.',
       ],
     ],
