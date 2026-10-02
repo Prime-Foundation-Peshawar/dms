@@ -136,27 +136,50 @@ const API_URL = 'faculty-proxy';
 const DEBUG = new URLSearchParams(window.location.search).has('debug');
 
 const DEPT_CONFIG = {
-  'Anatomy':           { icon: 'bi-body-text',        order: 1  },
-  'Physiology':        { icon: 'bi-activity',          order: 2  },
-  'Biochemistry':      { icon: 'bi-moisture',          order: 3  },
-  'Pathology':         { icon: 'bi-eyedropper',        order: 4  },
-  'Pharmacology':      { icon: 'bi-capsule-pill',      order: 5  },
-  'Forensic Medicine': { icon: 'bi-shield-check',      order: 6  },
-  'CHS':               { icon: 'bi-people-fill',       order: 7  },
-  'DHPE & R':          { icon: 'bi-mortarboard-fill',  order: 8  },
-  'Psychiatry':        { icon: 'bi-hypnotize',         order: 9  },
-  'Medicine':          { icon: 'bi-heart-pulse-fill',  order: 10 },
-  'Surgery':           { icon: 'bi-scissors',          order: 11 },
-  'Gynaecology':       { icon: 'bi-gender-female',     order: 12 },
-  'Paediatrics':       { icon: 'bi-person-fill',       order: 13 },
-  'ENT':               { icon: 'bi-ear-fill',          order: 14 },
-  'Ophthalmology':     { icon: 'bi-eye-fill',          order: 15 },
-  'Orthopaedics':      { icon: 'bi-bandaid-fill',      order: 16 },
-  'Dermatology':       { icon: 'bi-droplet-half',      order: 17 },
-  'Radiology':         { icon: 'bi-radioactive',       order: 18 },
-  'Anaesthesia':       { icon: 'bi-lungs-fill',        order: 19 },
-  'Administration':    { icon: 'bi-building-fill',     order: 99 },
-  'IT & MI':           { icon: 'bi-display',           order: 100 },
+  'Anatomy':                  { icon: 'bi-body-text',        order: 1  },
+  'Physiology':               { icon: 'bi-activity',          order: 2  },
+  'Biochemistry':             { icon: 'bi-moisture',          order: 3  },
+  'Pathology':                { icon: 'bi-eyedropper',        order: 4  },
+  'Pharmacology':             { icon: 'bi-capsule-pill',      order: 5  },
+  'Forensic Medicine':        { icon: 'bi-shield-check',      order: 6  },
+  'CHS':                      { icon: 'bi-people-fill',       order: 7  },
+  'DHPE & R':                 { icon: 'bi-mortarboard-fill',  order: 8  },
+  'Medicine':                 { icon: 'bi-heart-pulse-fill',  order: 9  },
+  'Surgery':                  { icon: 'bi-scissors',          order: 10 },
+  'Gynae and Obstetrics':     { icon: 'bi-gender-female',     order: 11 },
+  'Paediatrics':              { icon: 'bi-person-fill',       order: 12 },
+  'Paeds Cardiology':         { icon: 'bi-heart',             order: 13 },
+  'ENT':                      { icon: 'bi-ear-fill',          order: 14 },
+  'Ophthalmology':            { icon: 'bi-eye-fill',          order: 15 },
+  'Orthopedics':              { icon: 'bi-bandaid-fill',      order: 16 },
+  'Dermatology':              { icon: 'bi-droplet-half',      order: 17 },
+  'Radiology':                { icon: 'bi-radioactive',       order: 18 },
+  'Anaesthesia':              { icon: 'bi-lungs-fill',        order: 19 },
+  'Psychiatry':               { icon: 'bi-hypnotize',         order: 20 },
+  'Cardiology':               { icon: 'bi-heart-pulse',       order: 21 },
+  'Cardiac Surgery':          { icon: 'bi-heart-pulse',       order: 22 },
+  'Neurosurgery':             { icon: 'bi-radioactive',       order: 23 },
+  'Neurology':                { icon: 'bi-lightning',         order: 24 },
+  'Pulmonology':              { icon: 'bi-lungs',             order: 25 },
+  'Gastroenterology':         { icon: 'bi-capsule',           order: 26 },
+  'Nephrology':               { icon: 'bi-droplet',           order: 27 },
+  'Urology':                  { icon: 'bi-water',             order: 28 },
+  'Endocrinology':            { icon: 'bi-clipboard2-pulse',  order: 29 },
+  'Oncology':                 { icon: 'bi-virus',             order: 30 },
+  'Family Medicine':          { icon: 'bi-house-heart',       order: 31 },
+  'Critical Care':            { icon: 'bi-activity',          order: 32 },
+  'Accident and Emergency':   { icon: 'bi-ambulance',         order: 33 },
+  'Administration':           { icon: 'bi-building-fill',     order: 99 },
+  'IT & MI':                  { icon: 'bi-display',           order: 100 },
+};
+
+/** Map legacy / catalog labels onto HRMS department names. */
+const DEPT_ALIASES = {
+  'community health sciences': 'CHS',
+  'dhpe & research': 'DHPE & R',
+  'gynaecology & obstetrics': 'Gynae and Obstetrics',
+  'gynaecology': 'Gynae and Obstetrics',
+  'orthopaedics': 'Orthopedics',
 };
 
 const DESIG_RANK = {
@@ -187,12 +210,22 @@ const DESIG_PREFIX = {
 
 let allFaculty = [];
 
+function canonicalDept(name) {
+  const raw = String(name || '').trim();
+  if (!raw) return '';
+  if (DEPT_CONFIG[raw]) return raw;
+  const key = raw.toLowerCase().replace(/&/g, 'and').replace(/\s+/g, ' ').trim();
+  if (DEPT_ALIASES[key]) return DEPT_ALIASES[key];
+  if (DEPT_ALIASES[raw.toLowerCase()]) return DEPT_ALIASES[raw.toLowerCase()];
+  return raw;
+}
+
 function getDeptIcon(dept) {
-  return (DEPT_CONFIG[dept] || { icon: 'bi-person-badge' }).icon;
+  return (DEPT_CONFIG[canonicalDept(dept)] || { icon: 'bi-person-badge' }).icon;
 }
 
 function getDeptOrder(dept) {
-  return (DEPT_CONFIG[dept] || { order: 50 }).order;
+  return (DEPT_CONFIG[canonicalDept(dept)] || { order: 50 }).order;
 }
 
 function getDesigRank(desig) {
@@ -498,6 +531,10 @@ function clearAllFilters() {
 
   allFaculty = data
     .filter(f => isPublicFacultyDesig(f.desTitle))
+    .map(f => {
+      f.depName = canonicalDept(f.depName) || f.depName;
+      return f;
+    })
     .sort((a, b) => {
     const deptDiff = getDeptOrder(a.depName) - getDeptOrder(b.depName);
     if (deptDiff !== 0) return deptDiff;
