@@ -130,6 +130,7 @@
 <?php include('includes/footer.php'); ?>
 
 <script>
+// Shared server directory (same source as departments.php faculty counts).
 const API_URL = 'faculty-proxy';
 const DEBUG = new URLSearchParams(window.location.search).has('debug');
 
@@ -602,8 +603,8 @@ function clearAllFilters() {
     if (debugEl) debugEl.textContent = JSON.stringify(data[0], null, 2);
   }
 
+  // Directory is already filtered/merged server-side (faculty_public_directory).
   allFaculty = data
-    .filter(f => isFacultyRank(f.desTitle))
     .map(f => {
       f.depName = canonicalDept(f.depName) || f.depName;
       return f;
@@ -613,16 +614,6 @@ function clearAllFilters() {
     if (deptDiff !== 0) return deptDiff;
     return getDesigRank(a.desTitle) - getDesigRank(b.desTitle);
   });
-
-  allFaculty.push({
-    depName: 'IT & MI',
-    empName: 'Muhammad Furqan',
-    desTitle: 'Director IT',
-    facPMDCNo: '',
-    facFacRegNo: '',
-    qualifications: 'MS Computer Science'
-  });
-  appendMissingCvFaculty();
 
   updateStats(allFaculty);
   populateFilters(allFaculty);

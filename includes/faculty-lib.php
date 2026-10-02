@@ -1216,22 +1216,42 @@ function faculty_sort_hod_first(array $faculty, string $hodName): array {
 }
 
 /**
- * Faculty for a department page: HRMS directory ranks + CV-only profiles
- * (same rules as faculty.php), falling back to static seed when HRMS fails.
- *
- * @param list<array{name?:string,qualification?:string,reg?:string}> $staticFaculty
- * @return list<array{name?:string,qualification?:string,reg?:string}>
+ * Canonical department label (same aliases as faculty.php).
  */
-function faculty_for_department_page(string $slug, string $deptName, array $staticFaculty = [], string $hodName = ''): array {
-  $wanted = [];
-  foreach (faculty_hrms_dept_names_for_slug($slug, $deptName) as $label) {
-    $wanted[faculty_hrms_norm_dept($label)] = true;
+function faculty_canonical_dept(string $name): string {
+  $raw = trim($name);
+  if ($raw === '') {
+    return '';
+  }
+  $key = strtolower(str_replace('&', 'and', $raw));
+  $key = trim(preg_replace('/\s+/', ' ', $key) ?? '');
+  $aliases = [
+    'community health sciences' => 'CHS',
+    'dhpe and research' => 'DHPE & R',
+    'gynaecology and obstetrics' => 'Gynae and Obstetrics',
+    'gynaecology' => 'Gynae and Obstetrics',
+    'orthopaedics' => 'Orthopedics',
+  ];
+  return $aliases[$key] ?? $raw;
+}
+
+/**
+ * Single public faculty directory used by Faculty + Departments pages.
+ * HRMS (directory ranks) + CV-only profiles not already in HRMS + IT director.
+ *
+ * @return list<array{empName:string,desTitle:string,depName:string,facPMDCNo:string,facFacRegNo:string,qualifications:string}>
+ */
+function faculty_public_directory(): array {
+  static $memo = null;
+  if (is_array($memo)) {
+    return $memo;
   }
 
+  $out = [];
+  $slugs = [];
   $pack = faculty_hrms_fetch_all();
-  $matched = [];
 
-  if ($pack['ok']) {
+  if (!empty($pack['ok'])) {
     foreach ($pack['employees'] as $row) {
       if (!is_array($row)) {
         continue;
@@ -1239,32 +1259,110 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
       if (!faculty_is_directory_rank((string) ($row['desTitle'] ?? ''))) {
         continue;
       }
-      $dep = faculty_hrms_norm_dept((string) ($row['depName'] ?? ''));
-      if ($dep === '' || empty($wanted[$dep])) {
+      $emp = trim((string) ($row['empName'] ?? ''));
+      if ($emp === '') {
         continue;
       }
-      $matched[] = $row;
-    }
-
-    usort($matched, static function ($a, $b) {
-      $ra = faculty_hrms_desig_rank((string) ($a['desTitle'] ?? ''));
-      $rb = faculty_hrms_desig_rank((string) ($b['desTitle'] ?? ''));
-      if ($ra !== $rb) {
-        return $ra <=> $rb;
-      }
-      return strcasecmp((string) ($a['empName'] ?? ''), (string) ($b['empName'] ?? ''));
-    });
-
-    $out = [];
-    foreach ($matched as $row) {
       $out[] = [
-        'name' => faculty_hrms_display_name($row),
-        'qualification' => trim((string) ($row['qualifications'] ?? '')),
-        'reg' => trim((string) ($row['facPMDCNo'] ?? '')),
-        '_slug' => faculty_slug((string) ($row['empName'] ?? '')),
+        'empName' => $emp,
+        'desTitle' => trim((string) ($row['desTitle'] ?? '')),
+        'depName' => faculty_canonical_dept((string) ($row['depName'] ?? '')),
+        'facPMDCNo' => trim((string) ($row['facPMDCNo'] ?? '')),
+        'facFacRegNo' => trim((string) ($row['facFacRegNo'] ?? '')),
+        'qualifications' => trim((string) ($row['qualifications'] ?? '')),
       ];
+      $slugs[] = faculty_slug($emp);
     }
-  } else {
+  }
+
+  foreach (faculty_profiles_pack()['profiles'] as $rec) {
+    if (!is_array($rec) || trim((string) ($rec['name'] ?? '')) === '') {
+      continue;
+    }
+    if (!faculty_cv_has_word_profile($rec)) {
+      continue;
+    }
+    $keys = array_filter([(string) ($rec['slug'] ?? '')]);
+    if (!empty($rec['aliases']) && is_array($rec['aliases'])) {
+      foreach ($rec['aliases'] as $alias) {
+        $keys[] = (string) $alias;
+      }
+    }
+    $already = false;
+    foreach ($slugs as $memberSlug) {
+      foreach ($keys as $key) {
+        $key = trim($key);
+        if ($key === '') {
+          continue;
+        }
+        if (faculty_slugs_match($memberSlug, faculty_slug($key)) || faculty_slugs_match($memberSlug, $key)) {
+          $already = true;
+          break 2;
+        }
+      }
+    }
+    if ($already) {
+      continue;
+    }
+
+    $name = trim((string) $rec['name']);
+    $des = trim((string) ($rec['designation'] ?? 'Faculty'));
+    $des = trim(preg_split('/[\n;]/', $des)[0] ?? $des);
+    $qual = $rec['qualifications'] ?? '';
+    if (is_array($qual)) {
+      $qual = implode(', ', array_map('strval', $qual));
+    }
+
+    $out[] = [
+      'empName' => $name,
+      'desTitle' => $des !== '' ? $des : 'Faculty',
+      'depName' => faculty_canonical_dept((string) ($rec['department'] ?? '')),
+      'facPMDCNo' => '',
+      'facFacRegNo' => '',
+      'qualifications' => trim((string) $qual),
+    ];
+    $slugs[] = faculty_slug($name);
+  }
+
+  $out[] = [
+    'depName' => 'IT & MI',
+    'empName' => 'Muhammad Furqan',
+    'desTitle' => 'Director IT',
+    'facPMDCNo' => '',
+    'facFacRegNo' => '',
+    'qualifications' => 'MS Computer Science',
+  ];
+
+  $memo = $out;
+  return $memo;
+}
+
+/**
+ * Faculty for a department page — filtered from faculty_public_directory().
+ * Falls back to static seed only when the live directory cannot be loaded.
+ *
+ * @param list<array{name?:string,qualification?:string,reg?:string}> $staticFaculty
+ * @return list<array{name?:string,qualification?:string,reg?:string}>
+ */
+function faculty_for_department_page(string $slug, string $deptName, array $staticFaculty = [], string $hodName = ''): array {
+  $wanted = [];
+  foreach (faculty_hrms_dept_names_for_slug($slug, $deptName) as $label) {
+    $wanted[faculty_hrms_norm_dept(faculty_canonical_dept($label))] = true;
+    $wanted[faculty_hrms_norm_dept($label)] = true;
+  }
+
+  $pack = faculty_hrms_fetch_all();
+  $directory = faculty_public_directory();
+  $matched = [];
+  foreach ($directory as $row) {
+    $dep = faculty_hrms_norm_dept((string) ($row['depName'] ?? ''));
+    if ($dep === '' || empty($wanted[$dep])) {
+      continue;
+    }
+    $matched[] = $row;
+  }
+
+  if (!$matched && empty($pack['ok'])) {
     $out = [];
     foreach ($staticFaculty as $row) {
       if (!is_array($row)) {
@@ -1281,84 +1379,28 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
         'name' => $name,
         'qualification' => trim((string) ($row['qualification'] ?? '')),
         'reg' => trim((string) ($row['reg'] ?? '')),
-        '_slug' => faculty_slug($name),
       ];
     }
+    return faculty_sort_hod_first($out, $hodName);
   }
 
-  // Append CV-only faculty (mirrors faculty.php appendMissingCvFaculty).
-  // Skip anyone already present anywhere in HRMS (not only this department),
-  // so a CV tagged "Surgery" cannot inflate Surgery when HRMS lists them under A&E.
-  $hrmsSlugs = [];
-  if (!empty($pack['ok'])) {
-    foreach ($pack['employees'] as $row) {
-      if (!is_array($row) || !faculty_is_directory_rank((string) ($row['desTitle'] ?? ''))) {
-        continue;
-      }
-      $hrmsSlugs[] = faculty_slug((string) ($row['empName'] ?? ''));
+  usort($matched, static function ($a, $b) {
+    $ra = faculty_hrms_desig_rank((string) ($a['desTitle'] ?? ''));
+    $rb = faculty_hrms_desig_rank((string) ($b['desTitle'] ?? ''));
+    if ($ra !== $rb) {
+      return $ra <=> $rb;
     }
-  }
+    return strcasecmp((string) ($a['empName'] ?? ''), (string) ($b['empName'] ?? ''));
+  });
 
-  $profiles = faculty_profiles_pack()['profiles'] ?? [];
-  foreach ($profiles as $rec) {
-    if (!is_array($rec) || trim((string) ($rec['name'] ?? '')) === '') {
-      continue;
-    }
-    if (!faculty_cv_has_word_profile($rec)) {
-      continue;
-    }
-    $dep = faculty_hrms_norm_dept((string) ($rec['department'] ?? ''));
-    if ($dep === '' || empty($wanted[$dep])) {
-      continue;
-    }
-
-    // Match faculty.php listHasProfile keys: slug + aliases only.
-    $keys = array_filter([(string) ($rec['slug'] ?? '')]);
-    if (!empty($rec['aliases']) && is_array($rec['aliases'])) {
-      foreach ($rec['aliases'] as $alias) {
-        $keys[] = (string) $alias;
-      }
-    }
-
-    $already = false;
-    $knownSlugs = array_merge($hrmsSlugs, array_column($out, '_slug'));
-    foreach ($knownSlugs as $memberSlug) {
-      $memberSlug = (string) $memberSlug;
-      if ($memberSlug === '') {
-        continue;
-      }
-      foreach ($keys as $key) {
-        $key = trim($key);
-        if ($key === '') {
-          continue;
-        }
-        if (faculty_slugs_match($memberSlug, faculty_slug($key)) || faculty_slugs_match($memberSlug, $key)) {
-          $already = true;
-          break 2;
-        }
-      }
-    }
-    if ($already) {
-      continue;
-    }
-
-    $qual = $rec['qualifications'] ?? '';
-    if (is_array($qual)) {
-      $qual = implode(', ', array_map('strval', $qual));
-    }
-
+  $out = [];
+  foreach ($matched as $row) {
     $out[] = [
-      'name' => trim((string) $rec['name']),
-      'qualification' => trim((string) $qual),
-      'reg' => '',
-      '_slug' => faculty_slug((string) $rec['name']),
+      'name' => faculty_hrms_display_name($row),
+      'qualification' => trim((string) ($row['qualifications'] ?? '')),
+      'reg' => trim((string) ($row['facPMDCNo'] ?? '')),
     ];
   }
-
-  foreach ($out as &$row) {
-    unset($row['_slug']);
-  }
-  unset($row);
 
   return faculty_sort_hod_first($out, $hodName);
 }
