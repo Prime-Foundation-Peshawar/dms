@@ -10,20 +10,13 @@ if (!$dept) {
   exit;
 }
 
-$faculty = $dept['faculty'] ?? [];
 $hodName = trim((string) ($dept['hod'] ?? ''));
-if ($hodName !== '' && $faculty) {
-  $hodMembers = [];
-  $otherMembers = [];
-  foreach ($faculty as $member) {
-    if (strcasecmp(trim((string) ($member['name'] ?? '')), $hodName) === 0) {
-      $hodMembers[] = $member;
-    } else {
-      $otherMembers[] = $member;
-    }
-  }
-  $faculty = array_merge($hodMembers, $otherMembers);
-}
+$faculty = faculty_for_department_page(
+  $slug,
+  (string) ($dept['name'] ?? ''),
+  $dept['faculty'] ?? [],
+  $hodName
+);
 $activities = $dept['activities'] ?? [];
 $intro = $dept['intro'] ?? [];
 $facultyCount = count($faculty);

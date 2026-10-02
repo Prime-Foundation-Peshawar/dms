@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/departments-data.php';
+require_once __DIR__ . '/includes/faculty-lib.php';
 $groups = academic_department_groups($academic_departments);
 include('includes/header.php');
 ?>
@@ -32,7 +33,7 @@ include('includes/header.php');
         </div>
         <div class="row g-3">
           <?php foreach ($depts as $slug => $dept):
-            $facultyCount = count($dept['faculty'] ?? []);
+            $facultyCount = faculty_hrms_count_for_department($slug, (string) ($dept['name'] ?? ''), $dept['faculty'] ?? []);
             $activityCount = count($dept['activities'] ?? []);
             $updatedLabel = department_updated_label($dept);
           ?>
