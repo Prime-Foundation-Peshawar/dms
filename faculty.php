@@ -376,19 +376,40 @@ function facultySlug(name) {
   return n.replace(/^(mohammad|muhammed)-/, 'muhammad-');
 }
 
+function slugTokens(slug) {
+  const parts = String(slug || '').split('-').filter(Boolean);
+  return parts.map(p => (['m', 'md', 'mohammad', 'muhammed'].includes(p) ? 'muhammad' : p));
+}
+
+function tokensSubsequence(short, long) {
+  if (!short.length) return true;
+  if (short.length > long.length) return false;
+  let i = 0;
+  for (const token of long) {
+    if (i < short.length && short[i] === token) i++;
+  }
+  return i === short.length;
+}
+
 function slugsMatch(a, b) {
   if (!a || !b) return false;
-  a = String(a).replace(/^(mohammad|muhammed)-/, 'muhammad-');
-  b = String(b).replace(/^(mohammad|muhammed)-/, 'muhammad-');
+  a = facultySlug(a);
+  b = facultySlug(b);
   if (a === b) return true;
-  const ta = a.split('-').filter(Boolean);
-  const tb = b.split('-').filter(Boolean);
+  const ta = slugTokens(a);
+  const tb = slugTokens(b);
   if (!ta.length || !tb.length) return false;
-  if (ta[0] === tb[0] && ta[1] && tb[1] && ta[1] === tb[1]) return true;
-  const fa = ta[0], fb = tb[0], la = ta[ta.length - 1], lb = tb[tb.length - 1];
-  const firstOk = fa === fb || (fa.length >= 4 && fb.length >= 4 && (fa.startsWith(fb.slice(0, 4)) || fb.startsWith(fa.slice(0, 4))));
-  const lastOk = la === lb || la.startsWith(lb) || lb.startsWith(la) || (la.length >= 4 && lb.length >= 4 && la.slice(0, 4) === lb.slice(0, 4));
-  return firstOk && lastOk;
+  if (ta.join('-') === tb.join('-')) return true;
+  if (ta[0] !== tb[0]) return false;
+  const la = ta[ta.length - 1], lb = tb[tb.length - 1];
+  if (la !== lb && !la.startsWith(lb) && !lb.startsWith(la)) return false;
+  const midA = ta.slice(1, -1);
+  const midB = tb.slice(1, -1);
+  // Both have middle names: require overlap (stops aman-khan matching bilal-khan).
+  if (midA.length && midB.length) {
+    return tokensSubsequence(midA, midB) || tokensSubsequence(midB, midA);
+  }
+  return true;
 }
 
 function extraFor(name) {

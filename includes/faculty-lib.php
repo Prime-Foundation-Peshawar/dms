@@ -73,6 +73,41 @@ function faculty_slug(string $name): string {
   return $n;
 }
 
+/**
+ * Normalize slug tokens so m/md/mohammad/muhammed collapse to muhammad.
+ *
+ * @return list<string>
+ */
+function faculty_slug_tokens(string $slug): array {
+  $parts = array_values(array_filter(explode('-', trim($slug))));
+  foreach ($parts as $i => $part) {
+    if (in_array($part, ['m', 'md', 'mohammad', 'muhammed'], true)) {
+      $parts[$i] = 'muhammad';
+    }
+  }
+  return $parts;
+}
+
+/**
+ * @param list<string> $short
+ * @param list<string> $long
+ */
+function faculty_tokens_subsequence(array $short, array $long): bool {
+  if (!$short) {
+    return true;
+  }
+  if (count($short) > count($long)) {
+    return false;
+  }
+  $i = 0;
+  foreach ($long as $token) {
+    if ($i < count($short) && $short[$i] === $token) {
+      $i++;
+    }
+  }
+  return $i === count($short);
+}
+
 function faculty_slugs_match(string $a, string $b): bool {
   if ($a === '' || $b === '') {
     return false;
@@ -80,22 +115,33 @@ function faculty_slugs_match(string $a, string $b): bool {
   if ($a === $b) {
     return true;
   }
-  $ta = array_values(array_filter(explode('-', $a)));
-  $tb = array_values(array_filter(explode('-', $b)));
+  $ta = faculty_slug_tokens($a);
+  $tb = faculty_slug_tokens($b);
   if (!$ta || !$tb) {
     return false;
   }
-  $fa = $ta[0];
-  $fb = $tb[0];
+  if (implode('-', $ta) === implode('-', $tb)) {
+    return true;
+  }
+
+  // First and last names must agree (after muhammad normalization).
+  if ($ta[0] !== $tb[0]) {
+    return false;
+  }
   $la = $ta[count($ta) - 1];
   $lb = $tb[count($tb) - 1];
-  $firstOk = $fa === $fb
-    || (strlen($fa) >= 4 && strlen($fb) >= 4 && (str_starts_with($fa, substr($fb, 0, 4)) || str_starts_with($fb, substr($fa, 0, 4))));
-  $lastOk = $la === $lb
-    || str_starts_with($la, $lb)
-    || str_starts_with($lb, $la)
-    || (strlen($la) >= 4 && strlen($lb) >= 4 && substr($la, 0, 4) === substr($lb, 0, 4));
-  return $firstOk && $lastOk;
+  if ($la !== $lb && !str_starts_with($la, $lb) && !str_starts_with($lb, $la)) {
+    return false;
+  }
+
+  $midA = array_slice($ta, 1, -1);
+  $midB = array_slice($tb, 1, -1);
+  // Both have middle names (e.g. muhammad-aman-khan vs muhammad-bilal-khan): require overlap.
+  if ($midA && $midB) {
+    return faculty_tokens_subsequence($midA, $midB) || faculty_tokens_subsequence($midB, $midA);
+  }
+  // One side has no middle name — allow first+last match.
+  return true;
 }
 
 function faculty_profiles_pack(): array {
