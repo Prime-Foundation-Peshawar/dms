@@ -1287,6 +1287,18 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
   }
 
   // Append CV-only faculty (mirrors faculty.php appendMissingCvFaculty).
+  // Skip anyone already present anywhere in HRMS (not only this department),
+  // so a CV tagged "Surgery" cannot inflate Surgery when HRMS lists them under A&E.
+  $hrmsSlugs = [];
+  if (!empty($pack['ok'])) {
+    foreach ($pack['employees'] as $row) {
+      if (!is_array($row) || !faculty_is_directory_rank((string) ($row['desTitle'] ?? ''))) {
+        continue;
+      }
+      $hrmsSlugs[] = faculty_slug((string) ($row['empName'] ?? ''));
+    }
+  }
+
   $profiles = faculty_profiles_pack()['profiles'] ?? [];
   foreach ($profiles as $rec) {
     if (!is_array($rec) || trim((string) ($rec['name'] ?? '')) === '') {
@@ -1300,10 +1312,8 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
       continue;
     }
 
-    $keys = array_filter([
-      (string) ($rec['slug'] ?? ''),
-      (string) ($rec['name'] ?? ''),
-    ]);
+    // Match faculty.php listHasProfile keys: slug + aliases only.
+    $keys = array_filter([(string) ($rec['slug'] ?? '')]);
     if (!empty($rec['aliases']) && is_array($rec['aliases'])) {
       foreach ($rec['aliases'] as $alias) {
         $keys[] = (string) $alias;
@@ -1311,8 +1321,12 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
     }
 
     $already = false;
-    foreach ($out as $member) {
-      $memberSlug = (string) ($member['_slug'] ?? faculty_slug((string) ($member['name'] ?? '')));
+    $knownSlugs = array_merge($hrmsSlugs, array_column($out, '_slug'));
+    foreach ($knownSlugs as $memberSlug) {
+      $memberSlug = (string) $memberSlug;
+      if ($memberSlug === '') {
+        continue;
+      }
       foreach ($keys as $key) {
         $key = trim($key);
         if ($key === '') {
