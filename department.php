@@ -115,12 +115,11 @@ include('includes/header.php');
                   }
                   if ($initials === '') $initials = 'D';
                   $profile = faculty_profile_lookup_cv($lookupName) ?: faculty_profile_lookup_cv((string) ($member['name'] ?? ''));
-                  $profileSlug = (string) ($profile['slug'] ?? faculty_slug($lookupName !== '' ? $lookupName : (string) ($member['name'] ?? '')));
-                  // Same as faculty page: always link to the profile route.
-                  $href = 'faculty-profile?n=' . rawurlencode($profileSlug);
                 ?>
                   <article class="dept-faculty-card<?= $isHod ? ' is-hod' : '' ?><?= $profile ? '' : ' is-static' ?>">
-                    <a class="dept-faculty-link" href="<?= htmlspecialchars($href) ?>">
+                    <?php if ($profile): ?>
+                    <a class="dept-faculty-link" href="faculty-profile?n=<?= htmlspecialchars($profile['slug'] ?? faculty_slug($lookupName !== '' ? $lookupName : (string) ($member['name'] ?? ''))) ?>">
+                    <?php endif; ?>
                     <div class="dept-faculty-avatar"><?= htmlspecialchars($initials) ?></div>
                     <div class="dept-faculty-info">
                       <div class="dept-faculty-name-row">
@@ -132,7 +131,9 @@ include('includes/header.php');
                       <p><?= htmlspecialchars($member['qualification']) ?></p>
                       <span class="reg-number">PM&amp;DC <?= htmlspecialchars($member['reg']) ?></span>
                     </div>
+                    <?php if ($profile): ?>
                     </a>
+                    <?php endif; ?>
                   </article>
                 <?php endforeach; ?>
               </div>

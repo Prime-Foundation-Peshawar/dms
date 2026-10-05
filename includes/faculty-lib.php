@@ -195,21 +195,10 @@ function faculty_profile_lookup(string $slug): ?array {
 }
 
 function faculty_profile_has_cv(?array $rec): bool {
-  if (!$rec) {
+  if (!$rec || trim((string) ($rec['name'] ?? '')) === '') {
     return false;
   }
-  if (faculty_is_directory_rank((string) ($rec['designation'] ?? '')) && trim((string) ($rec['name'] ?? '')) !== '') {
-    return true;
-  }
-  if (!empty($rec['photo'])) {
-    return true;
-  }
-  foreach (['qualifications', 'experience', 'publications', 'skills'] as $key) {
-    if (!empty($rec[$key]) && is_array($rec[$key])) {
-      return true;
-    }
-  }
-  return false;
+  return faculty_cv_has_word_profile($rec);
 }
 
 function faculty_has_arabic(string $text): bool {

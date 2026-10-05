@@ -2000,6 +2000,17 @@
       border-color: rgba(21,95,122,.3);
       box-shadow: 0 6px 18px rgba(10,22,40,.05);
     }
+    .dept-faculty-card.is-static {
+      cursor: default;
+    }
+    .dept-faculty-card.is-static:hover {
+      border-color: var(--border);
+      box-shadow: none;
+    }
+    .dept-faculty-card.is-static.is-hod:hover {
+      border-color: rgba(21,95,122,.4);
+      box-shadow: 0 8px 24px rgba(10,22,40,.06);
+    }
     .dept-faculty-link {
       display: flex;
       align-items: flex-start;

@@ -465,7 +465,7 @@ function appendMissingCvFaculty() {
 
 function renderMemberRow(m) {
   const extra = extraFor(m.empName);
-  const linked = true;
+  const linked = hasWordProfile(extra);
   const slug = (extra && extra.slug) || facultySlug(m.empName);
   const name = escapeHtml(getDisplayName(m));
   const desig = escapeHtml(m.desTitle || 'Faculty');
