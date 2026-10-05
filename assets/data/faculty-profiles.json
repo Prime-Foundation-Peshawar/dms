@@ -1193,14 +1193,26 @@
         "fazli-wahab"
       ],
       "name": "Fazli Wahab",
-      "department": "Critical Care",
+      "department": "Medicine",
       "designation": "Professor",
       "hod": false,
       "photo": "assets/images/faculty/fazli-wahab.jpeg",
-      "qualifications": [],
-      "experience": [],
+      "qualifications": [
+        "FCPS (MEDICINE)",
+        "FCPS (PULMONOLOGY)",
+        "CHPE"
+      ],
+      "experience": [
+        "Professor Jan 2017  till date"
+      ],
       "skills": [],
-      "publications": []
+      "publications": [
+        "1. Clinical Analysis Of Risk Factors Of Diabetic Foot In 100 Patients. (Dissertation)",
+        "2. Risk Factors Stratification In 100 Patients Of Acute Stroke. JPMI Vol. 18(4) 2004",
+        "3. Management Of Patients Admitted With COPD Exacerbation In Chest & Medical Units Of Khyber Teaching Hospital, Peshawar. (Journal Of Chest Medicine Vol. 13 (4) 2007.",
+        "4. Risk Factors For Multi-Drug Resistant Tuberculosis In Patients At Tertiary Care Hospital, Peshawar. JCPSP 03/Vol. 19th March 2009 (162-164).",
+        "5. Community Survey Of Knowledge And Attitude Of Tuberculosis Among Tuberculosis Patients And Their Attendants In A Rural Setup. PJCM Vol. 21/4, October-December 2015 (145-148)"
+      ]
     },
     "zia-ullah": {
       "slug": "zia-ullah",
@@ -4401,6 +4413,205 @@
       "experience": [],
       "skills": [],
       "publications": []
+    },
+    "ahmed-usman": {
+      "slug": "ahmed-usman",
+      "aliases": [
+        "ahmed-usman",
+        "ahmad-usman"
+      ],
+      "name": "Ahmed Usman",
+      "department": "Pulmonology",
+      "designation": "Senior Registrar",
+      "hod": false,
+      "photo": "assets/images/faculty/ahmed-usman.jpeg",
+      "qualifications": [
+        "MBBS",
+        "FCPS (Pulmonology)"
+      ],
+      "experience": [
+        "Senior Registrar, Pulmonology (Peshawar Medical College) {16 months experience}"
+      ],
+      "skills": [],
+      "publications": [
+        "Pharmacologic effects of nebulized furosemide as an adjunct therapy in mechanically ventilated COPD exacerbation patients",
+        "Prognostic value of arterial blood gases in predicting ICU mortality in patients under general anesthesia",
+        "Pattern of arrhythmias in hospitalized patients with COPD and their association with disease severity",
+        "A comprehensive audit on the management of acute exacerbation of COPD"
+      ]
+    },
+    "fazli-maula": {
+      "slug": "fazli-maula",
+      "aliases": [
+        "fazli-maula"
+      ],
+      "name": "Fazli Maula",
+      "department": "Pulmonology",
+      "designation": "Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/fazli-maula.jpeg",
+      "qualifications": [
+        "MCPS (Chest diseases including TB)",
+        "FCPS (Pulmonology)"
+      ],
+      "experience": [
+        "Professor Pulmonology department Peshawar Medical College (2020- till date)"
+      ],
+      "skills": [],
+      "publications": [
+        "Histopathological pattern of bronchial biopsies in patients with suspected bronchogenic carcinoma.",
+        "Tobacco trends among medical and non-medical students.",
+        "Drug prescribing practices for upper respiratory tract infections among chest physicians, ENT surgeons, and general practitioners.",
+        "Histopathological patterns of lymph node biopsies in three teaching hospitals in Bannu.",
+        "Patterns of indications for flexible bronchoscopy in a tertiary care teaching hospital.",
+        "Frequency of side effects following H1N1 influenza vaccination.",
+        "Frequency of bronchial asthma in post-pulmonary tuberculosis patients.",
+        "Echocardiographic findings in COPD patients.",
+        "Prevalence of overweight and obesity among healthcare employees.",
+        "Spirometric findings in subjects presenting with dyspnea in Bannu District.",
+        "Frequency of coal workers' pneumoconiosis in patients presenting to chest opd",
+        "Treatment Outcomes and Factors Impacting Unsuccessful Outcome Among Extrapulmonary Tuberculosis Patients"
+      ]
+    },
+    "yasir-iqbal": {
+      "slug": "yasir-iqbal",
+      "aliases": [
+        "yasir-iqbal"
+      ],
+      "name": "Yasir Iqbal",
+      "department": "Medicine",
+      "designation": "Senior Registrar",
+      "hod": false,
+      "photo": "assets/images/faculty/yasir-iqbal.jpeg",
+      "qualifications": [
+        "FCPS (Med)",
+        "MRCP",
+        "CHPE"
+      ],
+      "experience": [
+        "1 year experience at Mercy Teaching Hospital as SR"
+      ],
+      "skills": [],
+      "publications": [
+        "Comprehension Of Lifestyle Modification In Patient With Type 2 Diabetes Mellitus: A Kap Study",
+        "Risk Stratification, Intention To Fast, And Outcomes Of Fasting During Ramadan In People With Diabetes Presenting To A Tertiary Care Hospital",
+        "Antibiotic Sensitivity Pattern Among Diabetic Patients Admitted With Urinary Tract Infection",
+        "Comprehension Of Long-Term Medications In Patient With Type 2 Diabetes Mellitus: A Kap Study"
+      ]
+    },
+    "nafees-ahmad": {
+      "slug": "nafees-ahmad",
+      "aliases": [
+        "nafees-ahmad",
+        "nafees-ahmed"
+      ],
+      "name": "Nafees Ahmad",
+      "department": "Medicine",
+      "designation": "Senior Registrar",
+      "hod": false,
+      "photo": "assets/images/faculty/nafees-ahmad.jpeg",
+      "qualifications": [
+        "FCPS MEDICINE",
+        "ECFMG CERTIFIED(USA)"
+      ],
+      "experience": [
+        "Two Year Senior Registrar In Medicine In MTH"
+      ],
+      "skills": [],
+      "publications": [
+        "1. Prevelance And Clinical Burden Of Cirrhosis In Patient Presenting With Upper Gastrointestinal Bleeding",
+        "2. Pervelance Of Electrolytes Abnormalities In Patient Presenting With Hepatic Encephalopathy",
+        "3. Gastric Pathologies And Helicobacter Pylori: A Correlative Study.",
+        "4. Efficacy And Safety Of Glp-1 Receptor Agonists In Obesity Management Among Otherwise Healthy Adults",
+        "5. Evaluation of Pleural fluid Adenosine Deaminase Activity and its Biochemical and Physiological Significance in the Diagnosis of Tuberculous Pleural Effusion Among Symptomatic Patients (ON GOING)"
+      ]
+    },
+    "bakht-biland-khan": {
+      "slug": "bakht-biland-khan",
+      "aliases": [
+        "bakht-biland-khan",
+        "bakht-biland"
+      ],
+      "name": "Bakht Biland Khan",
+      "department": "Medicine",
+      "designation": "Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/bakht-biland-khan.jpeg",
+      "qualifications": [
+        "FCPS (Medicine)",
+        "FRCP (Edinburgh,UK)",
+        "CHPE"
+      ],
+      "experience": [
+        "Consultant Physician & Hepatologist Mercy Teaching Hospital (2007 – Present)"
+      ],
+      "skills": [],
+      "publications": [
+        "Wilson’s Disease – Clinical Profile",
+        "Air Pollution Caused by Automobiles (Project)",
+        "Comparison Between Spacer and Nebulizer in Acute Severe Asthma",
+        "Sweet’s Syndrome – Case Report",
+        "Hypomagnesemia – Case Report",
+        "Sister Mary Joseph Nodule in Abdominal Malignancy – Case Report",
+        "Incidence and Prevalence of Diabetes Mellitus in NWFP",
+        "Positivity of PCR in Suspected Cases of Tuberculosis",
+        "Prevalence of Hepatitis C Genotype in District Mardan",
+        "Assessment of Risk Factors and Clinical Presentation in Liver Cirrhosis (Pakistan)",
+        "PSG Activity Report (WGN August 2015)",
+        "Molecular Identification of Bacteria from Infected Wounds – Hayatabad Medical Complex",
+        "Risk Factors & Clinical Presentation in Liver Cirrhosis (Duplicate Study – Expanded Analysis)",
+        "Prevalence of Active HCV Infection & Genotypes in District Mardan",
+        "Applications of Nanomaterials for Health and Environmental Protection",
+        "Frequency of Bacterial Pathogens in Neonatal Sepsis & Antibiotic Sensitivity",
+        "Seroprevalence of HSV Antibodies in ICU Patients – Doctor’s Hospital Lahore",
+        "Frequency of Depression in Untreated Chronic Hepatitis C Patients",
+        "Multi-Drug Resistant E. coli in Clinical Isolates – Peshawar",
+        "Evaluation of Alpha-Fetoprotein in Chronic Hepatitis C (ELFA Method)",
+        "Molecular Identification of Bacteria in Diabetic Foot Patients – KTH Peshawar",
+        "Molecular Identification & Prevalence of HCV in Hemodialysis Patients",
+        "Association of SARS-CoV-2 with ABO Blood Groups – Systematic Review",
+        "Frequency of Depression in Untreated Chronic Hepatitis C (Extended Study)",
+        "Distribution of HCV Genotypes by Age & Gender – KP Pakistan",
+        "Evaluation of Remdesivir in Non-Hospitalized COVID-19 Patients",
+        "Prevalence of Iron Deficiency Anemia in School Children – District Bannu",
+        "Inflammatory Bowel Disease – Prevalence & Management at PIMS Islamabad",
+        "Impact of Hepatitis B & C on Labor Productivity in Pakistan",
+        "Economic Burden of Hepatitis B & C in Pakistan (Direct & Indirect Costs)"
+      ]
+    },
+    "jehanzeb-afridi": {
+      "slug": "jehanzeb-afridi",
+      "aliases": [
+        "jehanzeb-afridi",
+        "jehan-zeb",
+        "jehan-zeb-afridi"
+      ],
+      "name": "Jehanzeb Afridi",
+      "department": "Medicine",
+      "designation": "Professor",
+      "hod": true,
+      "photo": "assets/images/faculty/jehanzeb-afridi.jpeg",
+      "qualifications": [
+        "FCPS Medicine",
+        "CHPE"
+      ],
+      "experience": [
+        "Professor Medicine MTH August 2013 upto date"
+      ],
+      "skills": [],
+      "publications": [
+        "Vaccination and status against Hepatitis “B” in doctors working in Hayat Shaheed Teaching Hospital Peshawar. JPMI vol. 12, No.1, Peshawar Pakistan.",
+        "Pre & Post Intervention Blood Lead Level; Results from Arms and Ammunition Factory Workers in Darrah Adam Khel, NWFP. Dr. Zahoorullah Senior Research Center Khyber Medical College, Peshawar .Prof. Najib-ul-Haq Professor of Medicine, Khyber Medical College, Peshawar. Dr. Tasleem Akhtar Senior Research Officer, PMRC, Research Center Khyber Medical College, Peshawar. Dr. Zahid Hussain Assistant Professor Deptt. of Forensic Medicine Khyber Medical College, Peshawar. Dr. Jehan Zeb Afridi Register Medical Unit ‘D’ Khyber Hospital, Peshawar. Professional Vol 07. No. 03, Aug, Sep, 2000.",
+        "Risk of Hepatitis in Surgical Practice. Faiz ur Rehman, Najib-ul-Haq, Muhammad Humayun, Jehanzeb Afridi, JPMI vol16(2) 157-160---2002.",
+        "Virological response to conventional Interferon therapy combined with Ribavirin against various HCV Genotypes in Khyber Pakhtunkhwa, Pakistan. Sajid Ali,Bashir, Ahmad,Ijaz Ali, Nourin Mahmood, Naveed Anwar, Ilyas Saeedi, jehanzeb Afridi. Asian pacific journal of cancer prevention, vol 17, 2016.",
+        "Rate of Active Hepatitis B Virus Infection and Correlation of Hbeag and HBV DNA in Hbsag Positive Patients in Three Districts of Khyber Pakhtunkhwa. Sajid Ali 1* , Nourin Mahmood 1 , Bashir Ahmad 2 , Ibrar Ahmad 2 , Ijaz Ali 3 and Jehanzeb Afridi 4. Research & Reviews: Journal of Medical and Health Sciences e-ISSN:2319-9865 p-ISSN:2322-0104. RRJMHS| Volume 6 | Issue 2 | March, 2017",
+        "HCV prevalence in the volunteer blood donors in Peshawar, Khyber Pakhtunkhwa Sajid Ali*1 Nourin Mahmood1, Jehan Zeb Afridi2, Fazal Jalil1, Ihtisham Ul Haq1Izaz Ali1 Fazal Jalil1, Hamza Hameed1, Tanveer Ahmad1, Najeeb Ur Rehman3,Bashir Ahmad4. International Journal of Biosciences | IJB | ISSN: 2220-6655 (Print) 2222-5234 (Online) http://www.innspub.net Vol. 12, No. 4, p. 431-436, 2018",
+        "Epidemics of dengue virus in the recent outbreak in 2017, in District Mardan, Khyber-Pakhtunkhwa province of Pakistan Sajid Ali*1, Nourin Mahmood1, Jehan Zeb Afridi2, Bashir Ahmad3, Abdullah1, Misbahud Din1, Munib Ahmad1, Faisal Hayat Khan1, Fazal Jalil1 International Journal of Biosciences | IJB |ISSN: 2220-6655 (Print) 2222-5234 (Online) http://www.innspub.net Vol. 12, No. 3, p. 280-284, 2018.",
+        "SOFOSBUVIR RIBAVIRIN COMBINATION THERAPY RESPONSE IN CHRONIC HCV PATIENTS IN KHYBER PAKHTUNKHWA Jehanzeb Afridi 1, Nourin Mahmood2, Sajid Ali2*, Bashir Ahmad3, Fazal Jalil2, Rahem Sher2. J Med Sci 2018; 26: (3) 246-249",
+        "Real Time PCR Based Detection of Hepatitis C Virus Major Genotypes in Chronic HCV Patients in Khyber Pakhtunkhwa Nourin Mahmood1, Sajid Ali1, *, Jehanzeb Afridi2, Bashir Ahmad3, Ijaz Ali4and Fazal Jalil1 Jundishapur J Microbiol. 2018 December; 11(12):e80931.",
+        "Response of sofosbuvir in chronic hepatitis C patient in Khyberpakhtunkhwa. Jehanzeb Afridi1,Ziauddin2, Nourin Mahmood3, Sajid Ali3, Basher Ahmad4, Fazal Jalil 3, Ijaz Ali4,Najeebul Haq1 KJMS Septemer-December, 2019, Vol. 12, No.3",
+        "Frequency of Helicobacter pylori in Stool Specimens of Patients Suspected of Upper Gastrointestinal Symptoms in District Bunir Noor Muhammad1, Jehanzeb Afridi1, Nourin Mahmood2and Sajid Ali2, * Jundishapur J Microbiol. 2020 August; 13(8):e104471.Published online 2020 October 5. doi: 10.5812/jjm.104471.Research Article"
+      ]
     }
   },
   "index": {
@@ -4580,6 +4791,18 @@
     "zaheer-ullah-baber": "zaheer-babar",
     "amin-ul-haq": "aminul-haq",
     "shahid-rizwan": "shahid-rizwan-safir",
-    "najam-ud-din": "najm-ud-din"
+    "najam-ud-din": "najm-ud-din",
+    "jehanzeb-afridi": "jehanzeb-afridi",
+    "jehan-zeb": "jehanzeb-afridi",
+    "jehan-zeb-afridi": "jehanzeb-afridi",
+    "bakht-biland-khan": "bakht-biland-khan",
+    "bakht-biland": "bakht-biland-khan",
+    "nafees-ahmad": "nafees-ahmad",
+    "nafees-ahmed": "nafees-ahmad",
+    "yasir-iqbal": "yasir-iqbal",
+    "fazli-maula": "fazli-maula",
+    "ahmed-usman": "ahmed-usman",
+    "ahmad-usman": "ahmed-usman",
+    "fazli-wahab": "fazli-wahab"
   }
 }

@@ -460,7 +460,7 @@ $academic_departments = [
       'The Department of Medicine provides clinical training in internal medicine through ward work, outpatient clinics, and bedside teaching at affiliated hospitals.',
       'Students develop history-taking, examination, diagnostic reasoning, and patient-management skills under consultant supervision.',
     ],
-    'hod' => 'Professor Dr. Muhammad Subhan',
+    'hod' => 'Professor Dr. Jehanzeb Afridi',
     'faculty' => [
       [
         'name' => 'Professor Dr. Muhammad Subhan',
@@ -474,7 +474,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Jehanzeb Afridi',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS Medicine, CHPE',
         'reg' => '5101-N',
       ],
       [
@@ -488,8 +488,13 @@ $academic_departments = [
         'reg' => '4053-N',
       ],
       [
-        'name' => 'Associate Professor Dr. Bakht Biland Khan',
-        'qualification' => 'MBBS, FCPS',
+        'name' => 'Professor Dr. Fazli Wahab',
+        'qualification' => 'MBBS, FCPS (MEDICINE), FCPS (PULMONOLOGY), CHPE',
+        'reg' => '7321-N',
+      ],
+      [
+        'name' => 'Professor Dr. Bakht Biland Khan',
+        'qualification' => 'MBBS, FCPS (Medicine), FRCP (Edinburgh,UK), CHPE',
         'reg' => '6180-N',
       ],
       [
@@ -514,12 +519,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Senior Registrar Dr. Nafees Ahmad',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS MEDICINE, ECFMG CERTIFIED(USA)',
         'reg' => '14584-N',
       ],
       [
         'name' => 'Senior Registrar Dr. Yasir Iqbal',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Med), MRCP, CHPE',
         'reg' => '29023-N',
       ],
     ],
@@ -1380,7 +1385,7 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Fazli Maula',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, MCPS (Chest diseases including TB), FCPS (Pulmonology)',
         'reg' => '4945-N',
       ],
       [
@@ -1390,7 +1395,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Senior Registrar Dr. Ahmed Usman',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS (Pulmonology)',
         'reg' => '25599-N',
       ],
     ],
@@ -1681,7 +1686,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Fazli Wahab',
-        'qualification' => 'MBBS, FCPS, (Med.), FCPS (Pulmonology)',
+        'qualification' => 'MBBS, FCPS (MEDICINE), FCPS (PULMONOLOGY), CHPE',
         'reg' => '7321-N',
       ],
     ],
