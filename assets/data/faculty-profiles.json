@@ -1740,6 +1740,25 @@
         "18"
       ]
     },
+    "faqir-muhammad-anwar": {
+      "slug": "faqir-muhammad-anwar",
+      "aliases": [
+        "faqir-muhammad-anwar",
+        "faqir-anwar"
+      ],
+      "name": "Faqir Muhammad Anwar",
+      "department": "CHS",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "",
+      "qualifications": [
+        "MD",
+        "MPH"
+      ],
+      "experience": [],
+      "skills": [],
+      "publications": []
+    },
     "farhat-r-malik": {
       "slug": "farhat-r-malik",
       "aliases": [
@@ -4457,6 +4476,8 @@
     "shamaila-wadud": "shamaila-asim",
     "sikandar-ali": "sikandar-ali",
     "aziza-alam": "aziza-alam",
+    "faqir-muhammad-anwar": "faqir-muhammad-anwar",
+    "faqir-anwar": "faqir-muhammad-anwar",
     "farhat-r-malik": "farhat-r-malik",
     "m-aman-khan": "m-aman-khan",
     "saeed-anwar": "saeed-anwar",
