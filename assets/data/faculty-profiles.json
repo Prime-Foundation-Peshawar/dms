@@ -1545,6 +1545,7 @@
       "department": "Biochemistry",
       "designation": "Assistant Professor",
       "hod": false,
+      "public": false,
       "photo": "",
       "qualifications": [
         "BDS",

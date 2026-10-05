@@ -1290,6 +1290,8 @@ function faculty_is_public_dept(string $depName): bool {
 function faculty_public_excluded_slugs(): array {
   return [
     'munaza-khattak' => true,
+    'hina-hakim' => true,
+    'amna-umer' => true,
   ];
 }
 
