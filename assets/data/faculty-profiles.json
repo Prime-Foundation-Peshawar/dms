@@ -654,6 +654,7 @@
       "department": "Physiology",
       "designation": "Professor",
       "hod": false,
+      "public": false,
       "photo": "",
       "qualifications": [
         "BDS ( Mar-1988 - Sep-1992) Khyber College of Dentistry, Peshawar",

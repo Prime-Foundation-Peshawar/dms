@@ -182,7 +182,6 @@ include('includes/header.php');
                 <h4>Physiology</h4>
                 <ul class="pg-staff-list">
                   <li><?= faculty_profile_link_html('Dr. Robina Riaz') ?></li>
-                  <li><?= faculty_profile_link_html('Dr. Munaza Khattak') ?></li>
                   <li><?= faculty_profile_link_html('Dr. Farzana Khan') ?></li>
                 </ul>
               </div>

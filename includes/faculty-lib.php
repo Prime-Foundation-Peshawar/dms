@@ -271,6 +271,9 @@ function faculty_profile_lookup_cv(string $nameOrSlug): ?array {
     if (!faculty_is_directory_rank((string) ($rec['designation'] ?? ''))) {
       return null;
     }
+    if (!faculty_profile_is_public($rec)) {
+      return null;
+    }
     return faculty_profile_has_cv($rec) ? $rec : null;
   } catch (Throwable $e) {
     return null;
@@ -1267,6 +1270,59 @@ function faculty_canonical_dept(string $name): string {
   return $aliases[$key] ?? $raw;
 }
 
+/** Departments excluded from public faculty directory / department index. */
+function faculty_public_hidden_depts(): array {
+  return [
+    'DHPE & R' => true,
+    'DHPE & Research' => true,
+  ];
+}
+
+function faculty_is_public_dept(string $depName): bool {
+  $canon = faculty_canonical_dept($depName);
+  return $canon !== '' && empty(faculty_public_hidden_depts()[$canon]);
+}
+
+/**
+ * People who must not appear on DMS even if a local CV exists
+ * (e.g. HRMS camlId is not PMC campus 1).
+ */
+function faculty_public_excluded_slugs(): array {
+  return [
+    'munaza-khattak' => true,
+  ];
+}
+
+function faculty_slug_is_public(string $slug): bool {
+  $slug = faculty_slug($slug);
+  if ($slug === '') {
+    return true;
+  }
+  foreach (array_keys(faculty_public_excluded_slugs()) as $excluded) {
+    if (faculty_slugs_match($slug, $excluded) || $slug === $excluded) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function faculty_profile_is_public(?array $rec): bool {
+  if (!$rec) {
+    return false;
+  }
+  if (array_key_exists('public', $rec) && $rec['public'] === false) {
+    return false;
+  }
+  $keys = array_merge([(string) ($rec['slug'] ?? '')], $rec['aliases'] ?? []);
+  $keys[] = (string) ($rec['name'] ?? '');
+  foreach ($keys as $key) {
+    if (!faculty_slug_is_public((string) $key)) {
+      return false;
+    }
+  }
+  return true;
+}
+
 /**
  * Single public faculty directory used by Faculty + Departments pages.
  * HRMS (directory ranks) + CV-only profiles not already in HRMS + IT director.
@@ -1295,10 +1351,17 @@ function faculty_public_directory(): array {
       if ($emp === '') {
         continue;
       }
+      if (!faculty_slug_is_public($emp)) {
+        continue;
+      }
+      $depName = faculty_canonical_dept((string) ($row['depName'] ?? ''));
+      if (!faculty_is_public_dept($depName)) {
+        continue;
+      }
       $out[] = [
         'empName' => $emp,
         'desTitle' => trim((string) ($row['desTitle'] ?? '')),
-        'depName' => faculty_canonical_dept((string) ($row['depName'] ?? '')),
+        'depName' => $depName,
         'facPMDCNo' => trim((string) ($row['facPMDCNo'] ?? '')),
         'facFacRegNo' => trim((string) ($row['facFacRegNo'] ?? '')),
         'qualifications' => trim((string) ($row['qualifications'] ?? '')),
@@ -1312,6 +1375,12 @@ function faculty_public_directory(): array {
       continue;
     }
     if (!faculty_cv_has_word_profile($rec)) {
+      continue;
+    }
+    if (!faculty_profile_is_public($rec)) {
+      continue;
+    }
+    if (!faculty_is_public_dept((string) ($rec['department'] ?? ''))) {
       continue;
     }
     $keys = array_filter([(string) ($rec['slug'] ?? '')]);
@@ -1402,6 +1471,9 @@ function faculty_for_department_page(string $slug, string $deptName, array $stat
       }
       $name = trim((string) ($row['name'] ?? ''));
       if ($name === '') {
+        continue;
+      }
+      if (!faculty_slug_is_public($name)) {
         continue;
       }
       if (preg_match('/^(Senior\s+Lecturer|Junior\s+Registrar|Sr\.?\s+Lecturer|Lecturer)\b/i', $name)) {

@@ -84,11 +84,6 @@ $academic_departments = [
         'reg' => '4576-N',
       ],
       [
-        'name' => 'Professor Dr. Munaza Khattak',
-        'qualification' => 'BDS, MPH, M.Phil, PhD',
-        'reg' => '',
-      ],
-      [
         'name' => 'Professor Dr. Momina Haq',
         'qualification' => 'MBBS, M.Phil, CHPE',
         'reg' => '20339-N',
@@ -421,6 +416,7 @@ $academic_departments = [
     'name' => 'DHPE & R',
     'icon' => 'bi-mortarboard-fill',
     'group' => 'Basic',
+    'hidden' => true,
     'intro' => [
       'The Department of Health Professions Education & Research (DHPE & R) supports teaching excellence, curriculum development, and educational scholarship across PMC.',
       'Faculty contribute to faculty development, assessment design, and research capacity building.',
@@ -1804,7 +1800,11 @@ unset($dept);
 
 function get_academic_department(string $slug): ?array {
   global $academic_departments;
-  return $academic_departments[$slug] ?? null;
+  $dept = $academic_departments[$slug] ?? null;
+  if (!$dept || !empty($dept['hidden'])) {
+    return null;
+  }
+  return $dept;
 }
 
 function get_department_activity(string $slug, int $index): ?array {
@@ -1827,6 +1827,9 @@ function get_department_activity(string $slug, int $index): ?array {
 function academic_department_groups(array $departments): array {
   $groups = [];
   foreach ($departments as $slug => $dept) {
+    if (!empty($dept['hidden'])) {
+      continue;
+    }
     $group = $dept['group'] ?? 'Other';
     $groups[$group][$slug] = $dept;
   }
