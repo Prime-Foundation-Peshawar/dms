@@ -421,7 +421,7 @@ include('includes/header.php');
           </div>
         </article>
       </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-2">
+      <!-- <div class="col-lg-4 col-md-6 fu fu-delay-2">
         <article class="news-card news-card-text news-card--campus">
           <div class="nc-body">
             <div class="nc-meta">
@@ -435,8 +435,8 @@ include('includes/header.php');
             </div>
           </div>
         </article>
-      </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-3">
+      </div> -->
+      <!-- <div class="col-lg-4 col-md-6 fu fu-delay-3">
         <article class="news-card news-card-text news-card--campus">
           <div class="nc-body">
             <div class="nc-meta">
@@ -450,7 +450,7 @@ include('includes/header.php');
             </div>
           </div>
         </article>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
