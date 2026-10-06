@@ -327,7 +327,7 @@ include('includes/header.php');
             <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>09 Nov 2026</strong></p>
             <p class="nc-excerpt">Provisional Merit List: 10 November 2026.</p>
             <div class="nc-actions nc-actions-split">
-              <a target="_blank" rel="noopener" href="http://localhost/dms/admissions" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+              <a target="_blank" rel="noopener" href="admissions.php" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
               <a target="_blank" rel="noopener" href="assets/images/news/kmu-mbbs-bds-admissions.jpeg" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Advertisement</a>
             </div>
           </div>
