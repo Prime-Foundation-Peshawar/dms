@@ -315,33 +315,33 @@ include('includes/header.php');
         <p class="sec-desc mb-0">Current programme openings and application guidance for Peshawar Medical College and postgraduate medical programmes.</p>
       </div>
     </div>
-    <!-- <div class="row g-4">
+    <div class="row g-4">
       <div class="col-lg-4 col-md-6 fu fu-delay-1">
         <article class="news-card news-card-text news-card--admissions">
           <div class="nc-body">
             <div class="nc-meta">
               <span class="nc-cat nc-cat-admissions">Admissions</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Aug 2026</span>
+              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Oct 2026</span>
             </div>
-            <h3 class="nc-title">MPhil Basic Medical Sciences</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>03 Sep 2026</strong></p>
-            <p class="nc-excerpt">Extended schedule: test <strong>04 Sep 2026</strong>, interview <strong>05 Sep 2026</strong>. Includes DMJ.</p>
+            <h3 class="nc-title">MBBS Admissions Open 2026-27</h3>
+            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>09 Nov 2026</strong></p>
+            <p class="nc-excerpt">Provisional Merit List: 10 November 2026.</p>
             <div class="nc-actions nc-actions-split">
-              <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/pg-medical-dental-ad-fall-2026.png" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-              <a target="_blank" rel="noopener" href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Form</a>
+              <a target="_blank" rel="noopener" href="http://localhost/dms/admissions" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+              <a target="_blank" rel="noopener" href="assets/images/news/kmu-mbbs-bds-admissions.jpeg" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Advertisement</a>
             </div>
           </div>
         </article>
       </div>
-    </div> -->
-    <div class="row">
+    </div>
+    <!-- <div class="row">
       <div class="col-lg-12 fu-scale">
         <div class="alert alert-warning d-inline-flex align-items-center gap-2 py-2 px-3 mb-0 small rounded-pill" role="status">
           <i class="bi bi-exclamation-triangle-fill"></i>
           <span>No admissions are open at the moment.</span>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 

@@ -4,11 +4,11 @@
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <span class="page-hero-eyebrow">Department of Medical Sciences</span>
-    <h1>Admissions 2025–26</h1>
+    <h1>Admissions 2026–27</h1>
     <div class="breadcrumb-pmc">
       <a href="index.php">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <span class="current">Admissions 2025–26</span>
+      <span class="current">Admissions 2026–27</span>
     </div>
   </div>
 </div>
@@ -44,7 +44,7 @@
               <span>Admission through</span>
             </div>
             <div class="adm-fact is-closed">
-              <strong>Closed</strong>
+              <strong>Open</strong>
               <span>Applications</span>
             </div>
           </div>
@@ -83,7 +83,7 @@
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
-                <span>Candidates who have passed <strong>MDCAT-2023, 2024 or MDCAT-2025</strong> with minimum <strong>55% marks for MBBS</strong> and <strong>50% marks for BDS</strong>.</span>
+                <span>Candidates who have passed <strong>MDCAT-2024, 2025 or MDCAT-2026</strong> with minimum <strong>55% marks for MBBS</strong> and <strong>50% marks for BDS</strong>.</span>
               </li>
               <li>
                 <i class="bi bi-check-circle-fill"></i>
@@ -145,41 +145,45 @@
           <div class="adm-block fu" id="dates">
             <div class="adm-block-head">
               <h3>Important Dates</h3>
-              <p>Key milestones for the 2025–26 admission cycle.</p>
+              <p>Key milestones for the 2026–27 admission cycle.</p>
             </div>
             <ul class="adm-dates">
               <li>
                 <span class="adm-date-event">Admission Portal Opens</span>
-                <span class="adm-date-val">07 November 2025</span>
+                <span class="adm-date-val">06 October 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Last Date for Submission</span>
-                <span class="adm-date-val is-deadline">08 December 2025</span>
+                <span class="adm-date-val is-deadline">09 November 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Provisional Merit List</span>
-                <span class="adm-date-val">12 December 2025</span>
+                <span class="adm-date-val">10 November 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Submission of Online Objections / Claims</span>
-                <span class="adm-date-val">15 – 16 December 2025</span>
+                <span class="adm-date-val">10 - 11 November 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">Appellate Scrutiny Committee</span>
+                <span class="adm-date-val">16 November 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Final Merit List</span>
-                <span class="adm-date-val">22 December 2025</span>
+                <span class="adm-date-val">23 November 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Placement in Colleges</span>
-                <span class="adm-date-val">25 – 27 December 2025</span>
+                <span class="adm-date-val">26 November - 18 December 2026</span>
               </li>
-              <li>
+              <!-- <li>
                 <span class="adm-date-event">2nd Round of Placement (Vacant Seats)</span>
                 <span class="adm-date-val">03 – 07 January 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">3rd Round of Placement (Vacant Seats)</span>
                 <span class="adm-date-val">19 – 21 January 2026</span>
-              </li>
+              </li> -->
             </ul>
           </div>
 
@@ -199,15 +203,15 @@
           </div>
 
           <div class="adm-cta-row fu">
-            <a href="contact.php" class="btn-pmc btn-pmc-primary">
-              <i class="bi bi-envelope"></i> Contact Admissions
+            <a href="https://caspr.kmu.edu.pk/" target="_blank" class="btn-pmc btn-pmc-primary">
+              <i class="bi bi-send"></i> Apply Now
             </a>
-            <a href="pg-medical-education.php" class="btn-pmc btn-pmc-outline">
-              <i class="bi bi-journal-medical"></i> Postgraduate Pathways
+            <a href="assets/images/news/kmu-mbbs-bds-admissions.jpeg" class="btn-pmc btn-pmc-outline">
+              <i class="bi bi-download"></i> Advertisement
             </a>
-            <a href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline">
+            <!-- <a href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline">
               <i class="bi bi-file-earmark-pdf"></i> MPhil Form
-            </a>
+            </a> -->
           </div>
 
         </div>
