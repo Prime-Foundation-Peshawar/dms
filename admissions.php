@@ -232,14 +232,14 @@
         <div class="sidebar-widget">
           <div class="sw-head"><i class="bi bi-download"></i> Downloads &amp; Portals</div>
           <div class="sw-body">
-            <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Medical Final Prospectus 2025-26.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>Prospectus 2025–26</a>
-            <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/MBBS_Fee_Session 2025-26_24-12-2025.htm" target="_blank" rel="noopener"><i class="bi bi-receipt"></i>Fee Structure 2025–26</a>
+            <!-- <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Medical Final Prospectus 2025-26.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>Prospectus 2026–27</a> -->
+            <a class="sw-link" href="assets/uploads/admissions/fee-structure/PMC_Fee structure 2026-27.htm" target="_blank" rel="noopener"><i class="bi bi-receipt"></i>Fee Structure 2026–27</a>
             <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Scholarship Policy.pdf" target="_blank" rel="noopener"><i class="bi bi-award"></i>Scholarship Policy</a>
             <a class="sw-link" href="https://caspr.kmu.edu.pk" target="_blank" rel="noopener"><i class="bi bi-globe"></i>KMU CASPR Portal</a>
             <a class="sw-link" href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" rel="noopener"><i class="bi bi-person-circle"></i>Student Portal</a>
             <a class="sw-link" href="https://riphahpsh.edu.pk/admissions.php" target="_blank" rel="noopener"><i class="bi bi-building"></i>Campus Admissions Hub</a>
-            <a class="sw-link" href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>MPhil Medical Form</a>
-            <a class="sw-link" href="<?= hub_base ?>assets/images/news/pg-medical-dental-ad-fall-2026.png" target="_blank" rel="noopener"><i class="bi bi-image"></i>Fall 2026 Advertisement</a>
+            <!-- <a class="sw-link" href="<?= hub_base ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>MPhil Medical Form</a> -->
+            <a class="sw-link" href="assets/images/news/kmu-mbbs-bds-admissions.jpeg" target="_blank" rel="noopener"><i class="bi bi-image"></i>2026 Advertisement</a>
           </div>
         </div>
         <div class="sidebar-widget">
