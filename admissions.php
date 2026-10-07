@@ -158,32 +158,33 @@
               </li>
               <li>
                 <span class="adm-date-event">Provisional Merit List</span>
-                <span class="adm-date-val">10 November 2026</span>
+                <span class="adm-date-val">11 November 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Submission of Online Objections / Claims</span>
-                <span class="adm-date-val">10 - 11 November 2026</span>
+                <span class="adm-date-val">11 - 12 November 2026</span>
               </li>
+
               <li>
-                <span class="adm-date-event">Appellate Scrutiny Committee</span>
+                <span class="adm-date-event">Meeting of Appellate Scrutiny Committee for objections/ claims/ complaints</span>
                 <span class="adm-date-val">16 November 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Final Merit List</span>
-                <span class="adm-date-val">23 November 2026</span>
+                <span class="adm-date-val">24 November 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">Placement in Colleges</span>
-                <span class="adm-date-val">26 November - 18 December 2026</span>
+                <span class="adm-date-val">8 - 12 December 2026</span>
               </li>
-              <!-- <li>
+              <li>
                 <span class="adm-date-event">2nd Round of Placement (Vacant Seats)</span>
-                <span class="adm-date-val">03 – 07 January 2026</span>
+                <span class="adm-date-val">21 – 24 December 2026</span>
               </li>
               <li>
                 <span class="adm-date-event">3rd Round of Placement (Vacant Seats)</span>
-                <span class="adm-date-val">19 – 21 January 2026</span>
-              </li> -->
+                <span class="adm-date-val">04 – 07 January 2027</span>
+              </li>
             </ul>
           </div>
 
