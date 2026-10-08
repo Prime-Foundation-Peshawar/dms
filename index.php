@@ -415,10 +415,10 @@ include('includes/header.php');
             </div>
             <h3 class="nc-title">Convocation 2026</h3>
             <p class="nc-excerpt">Last Date for Registration is October 27, 2026</p>
-            <div class="nc-actions">
-              <a href="assets/images/news/convocation2026.jpeg" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
+            <div class="nc-actions nc-actions-split">
+              <a target="_blank" rel="noopener" href="https://convocation.riphahpsh.edu.pk/" class="nc-btn nc-btn-primary">Register Now <i class="bi bi-arrow-right"></i></a>
+              <a target="_blank" rel="noopener" href="assets/images/news/convocation2026.jpeg" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Advertisement</a>
             </div>
-          </div>
         </article>
       </div>
       <!-- <div class="col-lg-4 col-md-6 fu fu-delay-2">
