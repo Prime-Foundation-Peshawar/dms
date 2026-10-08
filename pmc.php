@@ -43,7 +43,7 @@
               PMC prepares graduates for professional practice, ethical leadership, and research-minded care, with learning that stays close to the community health needs of KP and Pakistan.
             </p>
             <p>
-              The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. PMC achieved a commendable score of 96.47% in the recent PM&DC inspection consucted under the 2024 criteria. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
+              The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. PMC achieved a commendable score of 96.47% in the recent PM&DC inspection conducted under the 2024 criteria. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
             </p>
             <p>
               For department overview, campus facilities, and location, see <a href="about.php"><strong>About PMC</strong></a>. Values are on <a href="vision-mission.php"><strong>Vision &amp; Mission</strong></a>.
