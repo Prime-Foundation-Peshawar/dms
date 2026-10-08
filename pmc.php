@@ -37,13 +37,13 @@
             <span class="sec-eyebrow">College Profile</span>
             <h2 class="sec-title" style="font-size:1.75rem;">Peshawar Medical College</h2>
             <p class="about-lead">
-              The undergraduate medical college of the <strong>Department of Medical Sciences</strong> — delivering the MBBS programme with ethics-centred teaching and hospital-based clinical training. Peshawar Medical College is a leading medical college in Peshawar and among the top private medical colleges in Khyber Pakhtunkhwa and Pakistan — PM&amp;DC recognized, first among private medical colleges of KP in the 2024 inspection.
+              The undergraduate medical college of the <strong>Department of Medical Sciences</strong> — delivering the MBBS programme with ethics-centred teaching and hospital-based clinical training. Peshawar Medical College is a leading medical college in Peshawar and among the top private medical colleges in Khyber Pakhtunkhwa and Pakistan — PM&amp;DC recognized.
             </p>
             <p>
               PMC prepares graduates for professional practice, ethical leadership, and research-minded care, with learning that stays close to the community health needs of KP and Pakistan.
             </p>
             <p>
-              The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. In the 2024 inspection, the institution stood first among private medical colleges of KP with more than <strong>80% score</strong>. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
+              The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. PMC achieved a commendable score of 96.47% in the recent PM&DC inspection consucted under the 2024 criteria. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
             </p>
             <p>
               For department overview, campus facilities, and location, see <a href="about.php"><strong>About PMC</strong></a>. Values are on <a href="vision-mission.php"><strong>Vision &amp; Mission</strong></a>.
@@ -56,7 +56,7 @@
               <i class="bi bi-patch-check-fill"></i>
               <div>
                 <strong>PM&amp;DC Recognised</strong>
-                <span>#1 private (KP, 2024)</span>
+                <!-- <span>#1 private (KP, 2024)</span> -->
               </div>
             </div>
             <div class="about-fact">

@@ -83,7 +83,7 @@
               <a class="pmc-hosp-card" href="pg-medical-education.php">
                 <i class="bi bi-journal-medical"></i>
                 <strong>PG Medical Education</strong>
-                <span>FCPS / MCPS and related pathways</span>
+                <span>MPhil & PhD in Basic Sciences</span>
               </a>
               <a class="pmc-hosp-card" href="pmc.php#mbbs">
                 <i class="bi bi-mortarboard"></i>
