@@ -40,7 +40,10 @@
               The undergraduate medical college of the <strong>Department of Medical Sciences</strong> — delivering the MBBS programme with ethics-centred teaching and hospital-based clinical training. Peshawar Medical College is a leading medical college in Peshawar and among the top private medical colleges in Khyber Pakhtunkhwa and Pakistan — PM&amp;DC recognized.
             </p>
             <p>
-              PMC prepares graduates for professional practice, ethical leadership, and research-minded care, with learning that stays close to the community health needs of KP and Pakistan.
+              Founded in 2005 under aberasgise Pring Eoundation, Peshawar Medical College (PMC) stands as a premier center of excellence in medical education, research, and holistic patient care with high ethical values in Khyber Pakhtunkhwa. Recognized by the Pakistan Medical and Dental Council (PMDC) and component of Riphah International University Peshawar Campus, PMC is dedicated to preparing compassionate, competent, and ethical healthcare leaders. Through an integrated curriculum that pairs rigorous academic study with early clinical exposure across its attached teaching hospitals-including Kuwait Teaching Hospital, Mercy Teaching Hospital, and Prime Teaching Hospital-the institution ensures graduates possess both advanced clinical acumen and a deep commitment to societal well-being.
+            </p>
+            <p>
+              Driven by a vision of innovation and continuous discovery, Peshawar Medical College places a strong emphasis on undergraduate medical research and evidence-based practice. State-of-the-art lecture halls, modern diagnostic and simulation laboratories, and extensive digital library resources foster an environment of intellectual curiosity and active learning. Guided by a distinguished faculty, PMC integrates professional skill development with core Islamic and universal ethical values, nurturing healthcare professionals who excel in clinical practice, champion community health initiatives, and contribute meaningfully to the evolution of global health sciences.
             </p>
             <p>
               The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. PMC achieved a commendable score of 96.47% in the recent PM&DC inspection conducted under the 2024 criteria. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
@@ -198,17 +201,17 @@
               ];
               foreach ($pmc_gallery as $i => $img):
               ?>
-              <button type="button"
-                      class="pmc-gallery-item<?= $i === 0 ? ' pmc-gallery-item--wide' : '' ?>"
-                      data-img="<?= htmlspecialchars($img['src']) ?>"
-                      data-title="<?= htmlspecialchars($img['alt']) ?>"
-                      onclick="openPmcLightbox(this)"
-                      aria-label="Open <?= htmlspecialchars($img['alt']) ?>">
-                <img src="<?= htmlspecialchars($img['src']) ?>"
-                     alt="<?= htmlspecialchars($img['alt']) ?>"
-                     loading="lazy" decoding="async" />
-                <span class="pmc-gallery-zoom"><i class="bi bi-zoom-in"></i></span>
-              </button>
+                <button type="button"
+                  class="pmc-gallery-item<?= $i === 0 ? ' pmc-gallery-item--wide' : '' ?>"
+                  data-img="<?= htmlspecialchars($img['src']) ?>"
+                  data-title="<?= htmlspecialchars($img['alt']) ?>"
+                  onclick="openPmcLightbox(this)"
+                  aria-label="Open <?= htmlspecialchars($img['alt']) ?>">
+                  <img src="<?= htmlspecialchars($img['src']) ?>"
+                    alt="<?= htmlspecialchars($img['alt']) ?>"
+                    loading="lazy" decoding="async" />
+                  <span class="pmc-gallery-zoom"><i class="bi bi-zoom-in"></i></span>
+                </button>
               <?php endforeach; ?>
             </div>
             <div class="about-cta-row">
@@ -238,50 +241,50 @@
 </div>
 
 <script>
-let pmcLbItems = [];
-let pmcLbCurrent = 0;
+  let pmcLbItems = [];
+  let pmcLbCurrent = 0;
 
-function openPmcLightbox(el) {
-  pmcLbItems = [...document.querySelectorAll('.pmc-gallery-item[data-img]')];
-  pmcLbCurrent = Math.max(0, pmcLbItems.indexOf(el));
-  renderPmcLightbox();
-  document.getElementById('pmcPageLightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+  function openPmcLightbox(el) {
+    pmcLbItems = [...document.querySelectorAll('.pmc-gallery-item[data-img]')];
+    pmcLbCurrent = Math.max(0, pmcLbItems.indexOf(el));
+    renderPmcLightbox();
+    document.getElementById('pmcPageLightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
-function closePmcLightbox() {
-  document.getElementById('pmcPageLightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
+  function closePmcLightbox() {
+    document.getElementById('pmcPageLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
-function closePmcLightboxBackdrop(e) {
-  if (e.target === document.getElementById('pmcPageLightbox')) closePmcLightbox();
-}
+  function closePmcLightboxBackdrop(e) {
+    if (e.target === document.getElementById('pmcPageLightbox')) closePmcLightbox();
+  }
 
-function pmcLbNav(dir) {
-  if (!pmcLbItems.length) return;
-  pmcLbCurrent = (pmcLbCurrent + dir + pmcLbItems.length) % pmcLbItems.length;
-  renderPmcLightbox();
-}
+  function pmcLbNav(dir) {
+    if (!pmcLbItems.length) return;
+    pmcLbCurrent = (pmcLbCurrent + dir + pmcLbItems.length) % pmcLbItems.length;
+    renderPmcLightbox();
+  }
 
-function renderPmcLightbox() {
-  const el = pmcLbItems[pmcLbCurrent];
-  if (!el) return;
-  const img = el.dataset.img || '';
-  const title = el.dataset.title || '';
-  document.getElementById('pmcLbImgWrap').innerHTML =
-    `<img src="${img}" class="lb-img" alt="${title}" />`;
-  document.getElementById('pmcLbCaption').textContent = title;
-  document.getElementById('pmcLbCounter').textContent = `${pmcLbCurrent + 1} / ${pmcLbItems.length}`;
-}
+  function renderPmcLightbox() {
+    const el = pmcLbItems[pmcLbCurrent];
+    if (!el) return;
+    const img = el.dataset.img || '';
+    const title = el.dataset.title || '';
+    document.getElementById('pmcLbImgWrap').innerHTML =
+      `<img src="${img}" class="lb-img" alt="${title}" />`;
+    document.getElementById('pmcLbCaption').textContent = title;
+    document.getElementById('pmcLbCounter').textContent = `${pmcLbCurrent + 1} / ${pmcLbItems.length}`;
+  }
 
-document.addEventListener('keydown', (e) => {
-  const box = document.getElementById('pmcPageLightbox');
-  if (!box || !box.classList.contains('open')) return;
-  if (e.key === 'Escape') closePmcLightbox();
-  if (e.key === 'ArrowLeft') pmcLbNav(-1);
-  if (e.key === 'ArrowRight') pmcLbNav(1);
-});
+  document.addEventListener('keydown', (e) => {
+    const box = document.getElementById('pmcPageLightbox');
+    if (!box || !box.classList.contains('open')) return;
+    if (e.key === 'Escape') closePmcLightbox();
+    if (e.key === 'ArrowLeft') pmcLbNav(-1);
+    if (e.key === 'ArrowRight') pmcLbNav(1);
+  });
 </script>
 
 <?php include('includes/footer.php'); ?>
