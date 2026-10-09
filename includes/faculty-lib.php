@@ -1254,6 +1254,8 @@ function faculty_canonical_dept(string $name): string {
     'dhpe and research' => 'DHPE & R',
     'gynaecology and obstetrics' => 'Gynae and Obstetrics',
     'gynaecology' => 'Gynae and Obstetrics',
+    'obstetrics + gynae' => 'Gynae and Obstetrics',
+    'obstetrics and gynae' => 'Gynae and Obstetrics',
     'orthopaedics' => 'Orthopedics',
   ];
   return $aliases[$key] ?? $raw;

@@ -1,5 +1,5 @@
 {
-  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry, and Endocrinology); Anatomy departmental template Oct 2026 (Senior Registrar and above); missing SR+ faculty from departmental templates in D:\\New folder (Oct 2026).",
+  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry, and Endocrinology); Anatomy departmental template Oct 2026 (Senior Registrar and above); missing SR+ faculty from departmental templates in D:\\New folder (Oct 2026). ENT and Gynae KTH departmental Word templates Oct 2026.",
   "profiles": {
     "fozia-rauf": {
       "slug": "fozia-rauf",
@@ -4612,6 +4612,368 @@
         "Response of sofosbuvir in chronic hepatitis C patient in Khyberpakhtunkhwa. Jehanzeb Afridi1,Ziauddin2, Nourin Mahmood3, Sajid Ali3, Basher Ahmad4, Fazal Jalil 3, Ijaz Ali4,Najeebul Haq1 KJMS Septemer-December, 2019, Vol. 12, No.3",
         "Frequency of Helicobacter pylori in Stool Specimens of Patients Suspected of Upper Gastrointestinal Symptoms in District Bunir Noor Muhammad1, Jehanzeb Afridi1, Nourin Mahmood2and Sajid Ali2, * Jundishapur J Microbiol. 2020 August; 13(8):e104471.Published online 2020 October 5. doi: 10.5812/jjm.104471.Research Article"
       ]
+    },
+    "shafi-ullah": {
+      "slug": "shafi-ullah",
+      "aliases": [
+        "shafi-ullah",
+        "shafiullah"
+      ],
+      "name": "Shafi Ullah",
+      "department": "ENT",
+      "designation": "Professor",
+      "hod": true,
+      "qualifications": [
+        "MBBS",
+        "FCPS"
+      ],
+      "experience": [
+        "19 Years"
+      ],
+      "skills": [
+        "OTOLOGY.",
+        "Reconstructive surgery"
+      ],
+      "publications": [
+        "1.Hafeez M,Gul I,Shafiullah,Arif A.Microbiology and drug sensitivitypattern in CSOM in a Tertiary care hospital. JMed SCI24(4)2016.",
+        "Din I, Khan AR, Shafi Ullah, Khan W, Muhammad G Outcome of myringoplasty of graft success rate in patients with chronic otitis media. JMedSci.23(4).2016.",
+        "Outcome of posterosuperior based flaps in subtotal tympanic membrane perforations. Shafiullah, Muhammad Habib Khattak, Muhammad Salman Haider Qureshi JMed Sci. October 2016 Vol.24(4)",
+        "Microbiology and drug sensitivity pattern in chronic suppurative otitis media in a tertiary care hospital of KPK. Muhammad Hafeez, IslamGul, Shafiullah, Israr Ud Din, Asadullah Arif. JMed Sci. October 2016 Vol.24(4)",
+        "Dr. Muhammad Habib Khattak, M Asghar, Shafiullah, Usman Orakzai. Incidence of acute streptococcal pharyngitis (General of medical Sciences KMC Peshawar July 2015 Vol 23).",
+        "Dr. Habib Khattak, Farhan Salam, Naseem ul Haq, Shafiullah, Arif Raza Khan. Autografts in nasal septal surgery- Our experience. PGS, Karachi October – December 2023 Vol 3.",
+        "Muhammad Habib Khattak, Fazal Wahid, Ikram Ullah, Shafi Ullah. A management of peritonsillar ABSCESS (Annals of PIMS Islamabad vol. 7 April 2011)",
+        "MUHAMMAD SALEEM AFRIDI FAZAL-I-WAHID SAEED KHAN SHAFIULLAH. Nasal polyps - Clinical Profile and Management in a Tertiary Care Hospital. Journal of Fatima Jinnah medical College Lahore Vol. 6 issue 4 Oct- Dec,2012",
+        "MUHAMMAD SALEEM AFRIDI FAZAL-I-WAHID SAEED KHAN SHAFIULLAH An audit of pediatric Nasal foreign bodies studied at Lady Reading Hospital, Peshawar. Journal of Fatima Jinnah Medical college, Lahore Vol. 6, Issue 4 October – December 2012"
+      ],
+      "photo": "assets/images/faculty/shafi-ullah.jpg"
+    },
+    "arif-raza-khan": {
+      "slug": "arif-raza-khan",
+      "aliases": [
+        "arif-raza-khan",
+        "arif-raza"
+      ],
+      "name": "Arif Raza Khan",
+      "department": "ENT",
+      "designation": "Professor",
+      "hod": false,
+      "qualifications": [
+        "MBBS",
+        "FCPS",
+        "DHPE",
+        "CHPE"
+      ],
+      "experience": [
+        "39 Years"
+      ],
+      "skills": [
+        "ENDOSCOPIC SINUS SURGERY.",
+        "RHINOLOGY"
+      ],
+      "publications": [
+        "Shahabi I, Khan AR, Yousaf N.Removal of large Frontal Sinus Osteoma with unilateral osteoplastic flap Pak J Otolaryngol 1997, 13:87-8. Case Report",
+        "Khan AR. Treatment of Nasopharyngeal Carcinoma.JPMI:1999.13 (1) 10-12. Original Article.",
+        "Khan AR. Khan MU, Khan S, Khan,H, Non Malignant Osseous Tumors od Facial Skeleton. Pak J Otolaryngol.2000; 16:98-9. Original Article.",
+        "Arif S, Khan AR. Changes in Fibrinogen Level in Liver cirrhosis. JAMC.2002;14(2).19-21.",
+        "Rashid A, Khan AR. Yousaf N. Cholesterol Granuloma in Neck-A rara case. JPMI.1999, 13:147-9. Case Report.",
+        "Khan AR. Khan M, Khan S, Khan H. Treatment of Nasopharyngeal Carcinoma- Recent Advances. JPMI. 1999, 13:10-13. Review Article",
+        "Khan NS, Khan AR, Shahedin. Incidence of foreign bodies in tracheobronchial tree of Children. J Med Sci 2004, 12:08-10. Original Article.",
+        "Khan AR, Arif S. Actinomycosis in Neck Glands. JAMC. 16(2):84-6.",
+        "Khan AR, NS. Management of Whistle as a foreign body tracheobronchial tree. JPMI.2004, 18(4):602-6. Original Article.",
+        "Khan NS, Khan AR, Shahedin, Sattar F. Management of subglottic foreign body: a therapeutic challenge.JPMI.2004, 18(4):658-662. Original Article.",
+        "Hussain A, Yousaf N, Khan AR.Outcome of Myringoplasty.JPMI.2004, 18(4):693-95. Original Article.",
+        "Khan AR. Arif S. Ear Nose Throat injuries in children.JAMC.2005, 17(1): 54-6. Original Article",
+        "Hussain A Khan AR Frequency of intracranial Complications in Chromic Otitis Media. JAMC.2005, 17(1):75-7. Original Article",
+        "Hussain A, Yousaf N,Khan AR. Outcome of onlay pedicle skin flap and temporalis fascia sandwich graft in closure of tympanic membrane perforation. J.Med Sci.2005.13(2):165-67. Original Article",
+        "Hussain A, Yousaf N, Khan AR. Comparative Study of underlay and overlay techniques in closure of tympanic membrane perforation. J Med Sci. 2005. 13(1):40-3. Original Article",
+        "Khan AR, Haq NU, Ullah I, Din S, Khan NS. Causes and Complication of Ear, Nose and Throat Injuries in Children A Study of 80 Cases. JMS.2006. 14(1):57-60",
+        "Ullah I, Ali S,Ahmad N, Yousaf M.Khan AR. Complications of the Nasal Septa Corrective Surgery,. JMS,Jan 2007Vol 15(1).56-58.original Article",
+        "Ali F, Khan AR,Khan NS,Din S.Cervical Lvmphadewpathy Study of 100 Cases. JMS.July 2007. Vol 15(2),121-124,original Article",
+        "Khan AR , Jan A,Nawaz G, Zaman N . Adenoid Cystic Carcinoma of Larvinx. JCPSP,2006.16:669-17.Case Report.",
+        "Khan AR, Khan A,Ali f,Din S,Khan NS comparison between silk Ligatoion and Bipolar Cautry in Tonillectomy ,GJMS ,2007.5(1)13-16Original Article",
+        "Khan AR,Ali F Khan NS ,Din S, Using Comuter Technology in Teaching and Learning ,JMS,2008:16(2).84-86,Orignal Article",
+        "Din IK ,Rehman IU ,Rasool G,Khan AR,Din S. Intralesional Bleomvcin Therapy of Cystic Hygroma in Children. J Med Sci ,2008:16(2)-87-90 Original Article",
+        "Khan NS,Khan AR, Din S. Modified Radical Mastoidectomy ,Long Term Personal Experience . J Med Sci 2008:16(2);91-93 Original Article",
+        "Khan NS, Khan AR, Din S,Dawar A Frequency of Allergic Fungal Etiology of Chronic Rhino sinusitis . JPMI:2008,22(3).215-18.Original Article",
+        "Khan NS,Khan AR, Ali F,Din S Management of Tonsillectomy Hemorrhage by Bipolar Versus Dissection Method .J Med Sci ,2009:17(1):27-29 Original Article",
+        "Yousaf M, Ullah I ,Khan AR, Ahmed N . Ali S The Presentation Pattern of Otitis Media with Effusion , J Med Sci,2009: 17(1).53-56 Original Article",
+        "Khan AR, Ali F , Iman NU Khan NS,Din S,Invasive Sinu Orbital Aspergillosis in lmmunocompetent Host. J Med Sci,2009:17(2)87-91 Original Article",
+        "Khan AZ Khan AR, Results of Silver Nitrate Cauterization in Adult Patients with Epistaxis,J Med Sci 2010.18(2).107-09.Original Article",
+        "Hafeez M,Khan AR,N Ahmad ,Khan Ns BU Causes of Hoarseness in North of Pakistan ,J Med Sci .2010,18(3)151-53,Original Article",
+        "Dawar A Khan AR, Tonsillectomy without the Use of Post Operative antibiotics .JmedSci 2011,19(1).54-56Original Article",
+        "Khan AR, ,Ali F Din S Khan NS Dawar A ,Frequency of Allergic fungal Chronic Rhino sinusitis .Pak J Otol.2011.27.(1).12-14Original Article",
+        "Hassan SZ Khan AR,Hussain A ,Ali F Din S ,Clinical Profile of Carcinoma larynx in 50 adult patients Med Sci 2011,19(2.)78-81 Original Article",
+        "Khan AU ,Nawaz G,Khan AR, Raza ,An audit of 75 cases of cervical lymphadenopathy ,J Med Sci 2011(2).95-97Original Article",
+        "Khan N, Khan AR,Khan A , Khan S . Frequency of heaving loss in noisy Occupational sitting .J Med Sci .2012.20(4)192-195Original Article",
+        "Khan AR, Khan SA, Khan AU, Waheed R. Prevalence of Infection in Tonsillar SurgeryJMed Sci:2012.20(4): 196-197 Original Article.",
+        "Khan AR, Khan SA Khan AU Waheed R. Analyses of ENT diseases at KTH- Peshawar Jmed Sci.2013. 21 (1) 7-9 Original Article.",
+        "Nawaz G, Khan AR, Rehman A Shahabi I, Ahmed I. Emergency Management of otogenic intracranial Assesses in ENT Setup J Med Sci . 2013. 21(4):217-221. Original Article.",
+        "Khan AR, Khan SA Khan AU Waheed R. Intranasal Splints and Nasal Septal Surgery. J Med Sci 2014.22 (3). 143-145. Original Article.",
+        "Hafeez M, Din I, Khan AR, Rehman FU, Arif AU. An Audit of Foreign bodies Tracheopronchial tree at a Tertiary Care Hospital. JmedSci. 26(4)2016 297-300",
+        "Din I, Khan AR, Shafi Ullah, Khan W, Muhammad G Outcome of myringoplasty of graft success rate in patients with chronic otitis media. JmedSci.23(4).2016.",
+        "I Naila, Khan AR, A Sunia the ethesda system of cytological evaluation for thyroid nodules J Med Sci 2017.25 (1). Original Article",
+        "Rehman F:Khan AR:Nawaz G:Arif A: EARLY COMPLICATIONS OF TRACHEOSTOMY ANDFUTURE STRATEGY J Med Sci 2017.25 (4). Original Article",
+        "Hussain A, Ullah I, Zada B, Din I, Khan AR. Benign looking thyroid swelling and malignancies. J Med Sci 2018; 26: (2) 102-104. Original Article",
+        "Khan AR, Hafeez M, Arif AU. Ultrasonic cutting in multinodar thyroid swellings. J Med Sci 2019; 27: (1) 7-10 Original Article",
+        "Haider I, Amin B, Badshah A, Khan AR. Hepatocellular carcinoma: Management update J Med Sci 2019; 27: (1) 52-60. Review Article",
+        "Khan AR, Hussain I, Arif MAUA Rare presentation of cyst in hypopharynx.J Med Sci 2019; 27: (2) 150-152 Case Report",
+        "Khan AR, Arif MAU Mometasone Furoate Intra Nasal Spray for the Treatment of Bilateral Nasal Polyposis J Med Sci 2019; 27: (3) 203-209. Original Article",
+        "Khan I, Orakzai KA, Khan AR, Junaid M, Din IU, Azia A. Diagnostic accuracy of fine needle aspiration cytology (FNAC) In Thyroid Swellings: Study from a Tertiary Healthcare Facility in KPK. JmedSci. 2019.27(4)359-62 Original Article",
+        "47. Khan AA, Khan AR, Junaid M, Ali S, Alam M, Qasim A. Enlarged adenoids and allergy in otitis media- An experience at a tertiary care hospital. J Med Sci 2020 Jan;28(1):6-9. Original Article",
+        "48. Khan AR, Hafeez M, Arif AU. Tonsillectomy by Harmonic scalpel: A systematic review of evidence for postoperative hemorrhage. J Med Sci 2020 Jan;28(1):87-93. Original Article",
+        "49. Jan WA, Haq MIU, Khan AR. Assessment of advanced trauma life support course among trainees as key treatment objectives: a case of CPSP regional centre Peshawar, Pakistan. J Med Sci 2020 April;28(2):136-139. Original Article",
+        "50. Din IU, Hafeez M, Khan AR, Din Imran, Junaid M.Frequency of Malignency in patients presenting with parotid swelling. J Med Sci 2020 April;28(2):167-71. Original Article",
+        "51. Din IU, Hafeez M, Junaid M,Khan AR (Corressponding),Khan I. Clinical Outcome of Rigid bronchoscopy in patients with foreign body tracheobronchial Inhalation. J Med Sci 2020; 28(4)345-47. Original Article.",
+        "52.Haq NU,Salam F,Khan AR(Corresponding).Harmonic Scalpel method Vs Conventional Procedure for hospital stayduring Thyroid surgery.Pak journal of surgery. 2023.39(1) 54-56.Original Article.",
+        "53. Salam F,Haq NU,Khan AR(Corresponding).Selecting best approach to the Frontal Sinus. Pak journal of surgery. 2023.39(2) 102-06.Original Article."
+      ],
+      "photo": "assets/images/faculty/arif-raza-khan.jpg"
+    },
+    "muhammad-habib-khattak": {
+      "slug": "muhammad-habib-khattak",
+      "aliases": [
+        "muhammad-habib-khattak",
+        "mohammad-habib",
+        "muhammad-habib",
+        "habib-khattak"
+      ],
+      "name": "Muhammad Habib Khattak",
+      "department": "ENT",
+      "designation": "Professor",
+      "hod": false,
+      "qualifications": [
+        "MBBS",
+        "DLO",
+        "FCPS",
+        "CHPE"
+      ],
+      "experience": [
+        "30 Years"
+      ],
+      "skills": [
+        "Pediatric otorhinolaryngology and Endoscopic Otology"
+      ],
+      "publications": [
+        "Dr. Muhammad Habib Khattak, M Asghar, Shafiullah, Usman Orakzai. Incidence of acute streptococcal pharyngitis (General of medical Sciences KMC Peshawar July 2015 Vol 23).",
+        "Dr. Habib Khattak, Farhan Salam, Naseem ul Haq, Shafiullah, Arif Raza Khan. Autografts in nasal septal surgery- Our experience. PGS, Karachi October – December 2023 Vol 3.",
+        "Muhammad Habib Khattak, Fazal Wahid, Ikram Ullah, Shafi Ullah. A management of peritonsillar ABSCESS (Annals of PIMS Islamabad vol. 7 April 2011)",
+        "Tahir Ahmad, Ijaz Ahmad, M Tayeb, M Habib Khattak. Comparison of effectiveness of Epley/Maneur + beta histine in management of BPPV. (PJMHS, Lahore Vol. 15 April 2021)",
+        "Bakht zada, Tahir, M Tayeb, Dr. Muhammad Habib. BPPV in adult patients between 15 to 40 years of age study on treatment outcome in teaching hospital. (PJMHS Lahore Vol.15 June 2021)",
+        "Bakt Zada, Tahir, Rehan, Muhammad Habib. Management of post tracheostomy haemorrhage and evaluation of causing factors. (PJMHS, Lahore, Vol.15 July 2021)",
+        "Sakhawat Khan, Mubashir, Muhammad Habib ijaz. Compare post of outcomes of Elective tracheostomy with emergency tracheostomy. (PJMHS Lahore Vol. 14 October to December 2014.",
+        "Bakht Zada, Ijaz Muhammad Habib, Zafar. Incidence of allergic fungal sinusitis among patients with nasal polyps and its risk factors. (PJMHS Lahore July 2021 Vol. 15)",
+        "Bakht zada, Tahir, Muhammad Habib, Rehan, Tayeb. Efficacy of grommet insertation for improvement hearing among patients of secretary of otitis media. (PJMGS Lahore Vol. 15 July 2021)",
+        "Naseer Ahamd, Ihsan Ullah, Muhammad Javed, Muhammad Habib Khattak. Removal of Bead from TBT- A therapeutic challenge. (JPMI LRH Peshawar Vol. 20 2006.",
+        "Muhammad Habib Khattak, Bakhta Zada, Zafar Iqbal, Muhammad Naseem. Compare the outcomes Underly and Onlay Myringoplasty. (PJMHS Lahore Vol.16 March 2022.",
+        "M Naseem Khan, Kamran Chudri, Muhammad Habib, AbduSatar. Compare Bipolar Diathermy and Suture Ligation for haemostasis in Tonsillectomy and terms of blood loss. (PJMHS Lahore, vol.16 Jan 2022)",
+        "Naseem Ul Haq, Bakhtzada, Muhammad Habib, Zafar Iqbal. Study the effect of bilateral nasal packing on systalic blood pressure and prevaliance of complication associated with nasal packing in septoplasty patients. (PJMHS Lahore, Vol.15 Dec 2021)",
+        "Shafi Ullah, Muhammad Habib, Salman. Outcome of meatal Flap with graft in Myringoplasty. (Gmed Sci KMC Peshawar Oct 2016 Vol. 24)"
+      ],
+      "photo": "assets/images/faculty/muhammad-habib-khattak.jpg"
+    },
+    "naseem-ul-haq": {
+      "slug": "naseem-ul-haq",
+      "aliases": [
+        "naseem-ul-haq",
+        "naseemulhaq",
+        "haq-nu"
+      ],
+      "name": "Naseem Ul Haq",
+      "department": "ENT",
+      "designation": "Associate Professor",
+      "hod": false,
+      "qualifications": [
+        "MBBS",
+        "MCPS",
+        "FCPS",
+        "CHPE"
+      ],
+      "experience": [
+        "35 Years"
+      ],
+      "skills": [
+        "Head and Neck surgery"
+      ],
+      "publications": [
+        "Wahid F, Saleem M, Zada B, Rehman HU, Haq NU, Javed. M. Tympanoplasty Type I- Different approaches and their surgical outcomes. Pak armed Forces Med J. 2021 3(suppl 3)",
+        "Rehman HU, Wahid F, Zada B, Javed M, Ha NU,. Anteror trimming Vs outer displacement of Inferior turbinates. J Saidu Med College.2021.11(4)",
+        "Rehman HU, Wahid F, Zada B, Haq NU. Medical Vs Surgical treatment ofr enlarged inferior turbinates. Pak Armed forces Med N.2121 71.",
+        "Haq NU, Zada B, Habib M, et at. Study the effect of bilateral nasal packing on systemic PB and prevalence of complications.",
+        "Wahid F, Khan MR, Khan M, Haq NU et al. Pattern of FAI in head and neck regions at a tertiary care Hospital. JPMA,2016:66,849",
+        "Nawaz G, Haq NU, Khan Ar. Bomb blast injuries to the Ear; the Peshawar experience. J Med Sci,2014.22(40).193-96",
+        "Rehman HU, Wahid F, Riaz M, Muhammad Ay, Anwer K, Javaid M, Khan N, Khan Q, Haq NU. Presentation and Management of CSOM at LRH. JFJMC,2013.7(4)",
+        "Rehman HU, Wahid F, Khan MR, Khan N, Javed M, Khan Q, Haq NU. Thyroidectomy for the treatment of Multinodular Goiter. Pak J Med & Health Sci. 2013, 7 (July- Sep)",
+        "Said M, Wahid F, Haq UN, Khan N. Epistaxis, A prospective study of its aetiology and management. Pak J Med & Health Sciences. 2013, 7 (July – Sept)",
+        "Khan N, Haq NU, Islam Z, et al. Frequency of extrapulmonary tuberculosis in patients with cervical lymphadenopathy. Pak J Med & Health Sciences. 2013. 7 (1) 1176.80",
+        "Ullah T, Shadman, Iqbal I, Haq NU etal. Cleft Rhinoplasty; combining Erich Rhinoplasty with the Dibbell Tajima Technique. Pak J of plast Surg.2012 1(1).17-21",
+        "Ullah T, Bilal M, Haq UN, Abenoval F. Reconstruction of rare craniofacial clefts, an early experience. JPMI.2011;25(8)",
+        "Ullah T, Haq UN, Bilal M, Laiq N,. Aplasia Cutis Congenital Scalp; Management options; JPMI,2010.24(1)36-40.",
+        "Khan AR, Haq NU, Ullah I, Din Shah, Khan NS. Causes of Ear Nose, Throat injuries in children. 2006.14(1).57-60."
+      ],
+      "photo": "assets/images/faculty/naseem-ul-haq.jpg"
+    },
+    "farhan-salam": {
+      "slug": "farhan-salam",
+      "aliases": [
+        "farhan-salam"
+      ],
+      "name": "Farhan Salam",
+      "department": "ENT",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "qualifications": [
+        "MBBS",
+        "FCPS"
+      ],
+      "experience": [
+        "16 years"
+      ],
+      "skills": [
+        "Head and Neck surgery"
+      ],
+      "publications": [],
+      "photo": "assets/images/faculty/farhan-salam.jpg"
+    },
+    "tehniyat-attiya-ur-razaq": {
+      "slug": "tehniyat-attiya-ur-razaq",
+      "aliases": [
+        "tehniyat-attiya-ur-razaq",
+        "tehniyat-attiya",
+        "attiya-ur-razaq"
+      ],
+      "name": "Tehniyat Attiya ur Razaq",
+      "department": "Gynae and Obstetrics",
+      "designation": "Professor",
+      "hod": true,
+      "qualifications": [
+        "MBBS",
+        "FCPS",
+        "CHPE"
+      ],
+      "experience": [
+        "Professor/ HOD of Obs & Gynae Department, Peshawar Medical College, Peshawar 1st March 2013 Till date."
+      ],
+      "skills": [
+        "Supervisor post graduate training",
+        "Vice chair person SOGP Peshawar chapter (Society of Obstetrics and Gynecology Pakistan)",
+        "Faculty of ALSO – CPSP",
+        "Member of MCQs checking team – CPSP",
+        "Extended TOACs setter – CPSP",
+        "Member of PAK Menopause Society",
+        "Laparoscopic surgery",
+        "Special interest in ethical topics related to reproductive health"
+      ],
+      "publications": [
+        "Management of ectopic pregnancy A two year Hospital based survey in Tertiary care Hospital, Peshawar. Journal of Medical Sciences (JMS-1998, Vol 8 No.1 14-19)",
+        "Knowledge and attitude of students regarding HIV/ AIDs in Peshawar University. Rawal Medical Journal (June 2008 33(1)21-4",
+        "The frequency and age presentation of G6PD deficiency in 200 patients of hemolytic anemia. Journal of Postgraduate Medical Sciences 2006 Vol: 20: No.2 170-173.",
+        "The clinical and etiological profile of urinary tract infection. Journal of Postgraduate Medical Sciences 2008 Vol: 22, No.3 205-209.",
+        "HIV/ AIDs Transmission from mother to child with special attention towards transmission through breast feeding. Rawal Medical Journal: Vol 32, No.1 Jan-June 2007.",
+        "Incidence, out come and management of cord prolapse. Middle East Journal of family Medicine. (Jan 2010)",
+        "Pyrexia of unknown origin: An etiologic frequency in a tertiary care Hospital. Gomal Medical Journal of Medical Sciences.",
+        "Frequency and risk factors for Hepatitis C among pregnant women. Gomal Journal of Medical Sciences July-Dec 2011, vol 9 (no 2).",
+        "Central Retinal Vein occlusion, Study of Risk Factors in 93 patients. Ophthalmology Updates 2011.",
+        "Postpartum Hemorrhage: a preventable complication of labour, published in The Professional Medical Journal Oct to Dec 2011, vol 18(no 04) 604-610.",
+        "Does pregnancy affect severity of diabetic retinopathy a study of 38 cases. Ophthalmology International, Official Journal of Peshawar Medical College, vol 10, No 1 ,Jan-March 2012.",
+        "Frequency of metabolic syndrome and its components in 300 Pakistani obese patients. Rawal Medical Journal Jul-Sep 2017, Vol 42, No.3",
+        "Vertical Transmission Of Hepatitis B Decades After The International Recommendation Of Administering Hepatitis B Immunoglobulin’s Along Hepatitis B Vaccination To Newborn Babies. Journal Vaccine 2022",
+        "Current caesarean section rate and factors affecting the patient decision regarding the mode of delivery. JPMI Vol 38(4), 2025",
+        "The Urinary Incontinence in Women in Pakistan: Prevalence, Awareness, Current Management, and the Case for Establishing Female Continence Clinics. Vol. 3 No. 2 (2025): July to Dec 2025",
+        "Association of meconium-stained amniotic fluid with the mode of delivery and neonatal outcome:  A retrospective study"
+      ],
+      "photo": ""
+    },
+    "robina-qadeer": {
+      "slug": "robina-qadeer",
+      "aliases": [
+        "robina-qadeer"
+      ],
+      "name": "Robina Qadeer",
+      "department": "Gynae and Obstetrics",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "qualifications": [
+        "MBBS",
+        "FCPS",
+        "CHPE"
+      ],
+      "experience": [
+        "AP 2 YEARS"
+      ],
+      "skills": [
+        "Communication + team work"
+      ],
+      "publications": [
+        "Urinary Incontinence in Women in Pakistan: Prevalence, Awareness, Current Management, and the Case for Establishing Female Continence Clinics",
+        "Prenatal Checkups and Maternal Outcomes in Khyber Pakhtunkhwa: A Narrative Review",
+        "Maternal Iron and Folic Acid Deficiency in Pregnancy and Its Relationship with Maternal and Neonatal Haemoglobin Concentration E-ISSN 2250-0944  ISSN 2250-1150  doi: 10.31838/ijprt/16.01.611",
+        "Association of Obesity with Adverse Maternal and Perinatal Outcome in Pregnant Women P J M H S  Vol. 16, No. 10, October, 2022",
+        "Current Cesarean Section Rate and Factors Affecting the Patient Decision Regarding Mode of Delivery JPMI Vol 38(4)",
+        "Impact of Standardized Gestational Diabetes Screening on Maternal and Neonatal Health 194   P J M H S  Vol. 17, No. 11, November, 2023",
+        "Comparative anatomical study of fimbrial end of fallopian tubes in ectopic pregnancy Journal of Neonatal Surgery ISSN(Online): 2226-0439 Vol. 14,issue.32s (2025)"
+      ],
+      "photo": ""
+    },
+    "afrah-aman": {
+      "slug": "afrah-aman",
+      "aliases": [
+        "afrah-aman"
+      ],
+      "name": "Afrah Aman",
+      "department": "Gynae and Obstetrics",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "qualifications": [
+        "MBBS",
+        "FCPS",
+        "CHPE",
+        "CHR"
+      ],
+      "experience": [
+        "Assistant Professor 4 Years"
+      ],
+      "skills": [],
+      "publications": [
+        "Comparative Anatomical Study of Fimbrial end of fallopian tubes in Ectopic Pregnancy Journal of Neonatal Surgery 2226-0439",
+        "Manual Removal versus Spontaneous Delivery of Placenta During Caesarean Section: A Comparative Study of Blood Loss and Maternal Outcomes Journal of saidu medical college ISSN (P): 1819-4583 ISSN (E): 3007-9470",
+        "PROPORTION AND RISK FACTORS OF URINARY INCONTINENCE AMONG PERIMENOPAUSAL WOMEN Vol.31 No. 08 (2024) JPTCP (3412 - 3419)",
+        "Frequency of Risk Factor and Pattern of Uro-Genital Fistula Presenting in a Tertiary Care Hospital Dr Naila Raziq /Afr.J.Bio.Sc. 6(13) (2024)",
+        "Efficacy of oral versus vaginal progestogens for early pregnancy maintenance in women with recurrent miscarriages: a randomized controlled trial KMUJ 2024, Vol. 16  No.1",
+        "Does an Increase in Maternal Age Affect the Placental Delivery Method in Cesarean Section Avicenna J Med Sci (Vol. 2, Issue, 1 2022)",
+        "FREQUENCY OF GESTATIONAL DIABETES MELLITUS IN PATIENTS WITH OBESITY DURING PREGNANCY Vol.31 No. 11 (2024) JPTCP (2011-2017)"
+      ],
+      "photo": ""
+    },
+    "shamim-akhtar": {
+      "slug": "shamim-akhtar",
+      "aliases": [
+        "shamim-akhtar"
+      ],
+      "name": "Shamim Akhtar",
+      "department": "Gynae and Obstetrics",
+      "designation": "Associate Professor",
+      "hod": false,
+      "qualifications": [
+        "MBBS",
+        "FCPS",
+        "CHPE"
+      ],
+      "experience": [
+        "Associate Professor: 1-2-2025 till date"
+      ],
+      "skills": [],
+      "publications": [
+        "The Role Of Life Style Factors In Infertility. IJDDT, Volume16 Issue 59s, 2026",
+        "Laparoscopic findings in patients with secondary infertility Acta Scientific MEDICAL SCIENCES (ISSN: 2582-0931) Volume 6 Issue 6 June 2022",
+        "Factors associated with gestational diabetes mellitus and its outcome in pregnancy PJMHS vol 16. No 03,Mar 2022, pages 751-53",
+        "Inter pregnancy interval and labour outcome after previous 1 cesarean section Acta Scientific Women's Health (ISSN: 2582-3205) Volume 4 Issue 5 May 2022",
+        "Efficacy of manual vacuum aspiration  for the management of incomplete miscarriage Annals  of R.S.C.B-ISSN 1583-6258, vol 25, issue 3,2021, pages 9043-47",
+        "A Descriptive Study on Types of Violence, It’s Effects on Ante Natal Patient’s Health and Pregnancy Outcomes Acta Scientific MEDICAL SCIENCES (ISSN: 2582-0931) Volume 5 Issue 11 November 2021",
+        "Effect of myo-inositol and metformin on anthropometric parameters of women in polysystic ovarian disease IJPAS, February 2020.9(2):X-X ISSN 2277-4998",
+        "Association of intra uterine fetal death with maternal morbidity IJPAS, February 2020.9(2):X-X ISSN 2277-4998",
+        "Comparison of oxytocin and prostaglandin E2 for induction of labour in patients with pre labour rupture membrane PJMHS VOL:6 NO 1 JAN-MARCH 2012"
+      ],
+      "photo": ""
     }
   },
   "index": {
@@ -4803,6 +5165,24 @@
     "fazli-maula": "fazli-maula",
     "ahmed-usman": "ahmed-usman",
     "ahmad-usman": "ahmed-usman",
-    "fazli-wahab": "fazli-wahab"
+    "fazli-wahab": "fazli-wahab",
+    "shafi-ullah": "shafi-ullah",
+    "shafiullah": "shafi-ullah",
+    "arif-raza-khan": "arif-raza-khan",
+    "arif-raza": "arif-raza-khan",
+    "muhammad-habib-khattak": "muhammad-habib-khattak",
+    "mohammad-habib": "muhammad-habib-khattak",
+    "muhammad-habib": "muhammad-habib-khattak",
+    "habib-khattak": "muhammad-habib-khattak",
+    "naseem-ul-haq": "naseem-ul-haq",
+    "naseemulhaq": "naseem-ul-haq",
+    "haq-nu": "naseem-ul-haq",
+    "farhan-salam": "farhan-salam",
+    "tehniyat-attiya-ur-razaq": "tehniyat-attiya-ur-razaq",
+    "tehniyat-attiya": "tehniyat-attiya-ur-razaq",
+    "attiya-ur-razaq": "tehniyat-attiya-ur-razaq",
+    "robina-qadeer": "robina-qadeer",
+    "afrah-aman": "afrah-aman",
+    "shamim-akhtar": "shamim-akhtar"
   }
 }

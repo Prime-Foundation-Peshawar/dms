@@ -179,6 +179,8 @@ const DEPT_ALIASES = {
   'dhpe & research': 'DHPE & R',
   'gynaecology & obstetrics': 'Gynae and Obstetrics',
   'gynaecology': 'Gynae and Obstetrics',
+  'obstetrics + gynae': 'Gynae and Obstetrics',
+  'obstetrics and gynae': 'Gynae and Obstetrics',
   'orthopaedics': 'Orthopedics',
 };
 

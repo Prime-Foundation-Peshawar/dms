@@ -652,7 +652,7 @@ $academic_departments = [
     'faculty' => [
       [
         'name' => 'Professor Dr. Tehniyat Attiya Ur Razaq',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE',
         'reg' => '6459-N',
       ],
       [
@@ -667,7 +667,7 @@ $academic_departments = [
       ],
       [
         'name' => 'Associate Professor Dr. Shamim Akhtar',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE',
         'reg' => '43247-P',
       ],
       [
@@ -682,12 +682,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Assistant Professor Dr. Robina Qadeer',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE',
         'reg' => '13006-N',
       ],
       [
         'name' => 'Assistant Professor Dr. Afrah Aman',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, CHPE, CHR',
         'reg' => '17887-N',
       ],
       [
@@ -815,12 +815,12 @@ $academic_departments = [
       ],
       [
         'name' => 'Professor Dr. Mohammad Habib',
-        'qualification' => 'MBBS, DLO, FCPS',
+        'qualification' => 'MBBS, DLO, FCPS, CHPE',
         'reg' => '4164-N',
       ],
       [
         'name' => 'Professor Dr. Arif Raza Khan',
-        'qualification' => 'MBBS, FCPS',
+        'qualification' => 'MBBS, FCPS, DHPE, CHPE',
         'reg' => '4026-N',
       ],
       [
@@ -829,8 +829,8 @@ $academic_departments = [
         'reg' => '14626-N',
       ],
       [
-        'name' => 'Assistant Professor Dr. Naseem Ul Haq',
-        'qualification' => 'MBBS, FCPS',
+        'name' => 'Associate Professor Dr. Naseem Ul Haq',
+        'qualification' => 'MBBS, MCPS, FCPS, CHPE',
         'reg' => '4670-N',
       ],
     ],
