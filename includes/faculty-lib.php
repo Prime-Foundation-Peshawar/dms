@@ -1283,6 +1283,16 @@ function faculty_public_excluded_slugs(): array {
     'munaza-khattak' => true,
     'hina-hakim' => true,
     'amna-umer' => true,
+    'ambereen-humayun' => true,
+    'sadaf-alam' => true,
+    'maryam-tahir' => true,
+    'saima-afridi' => true,
+    'iftikhar-akbar' => true,
+    'muhammad-zain' => true,
+    'hasan-ali-raza' => true,
+    'shahab-adil' => true,
+    'zafar-ul-islam' => true,
+    'muhammad-raza' => true,
   ];
 }
 

@@ -2,7 +2,7 @@
 require_once __DIR__ . '/includes/faculty-lib.php';
 
 $slug = faculty_slug($_GET['n'] ?? '');
-if ($slug === '') {
+if ($slug === '' || !faculty_slug_is_public($slug)) {
   header('Location: faculty.php', true, 302);
   exit;
 }
@@ -11,6 +11,10 @@ if ($slug === '') {
 $extra = faculty_profile_lookup_cv($slug);
 $directory = faculty_directory_lookup($slug);
 if (!$extra && !$directory) {
+  header('Location: faculty.php', true, 302);
+  exit;
+}
+if ($extra && !faculty_profile_is_public($extra)) {
   header('Location: faculty.php', true, 302);
   exit;
 }
