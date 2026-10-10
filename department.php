@@ -115,12 +115,19 @@ include('includes/header.php');
                   }
                   if ($initials === '') $initials = 'D';
                   $profile = faculty_profile_lookup_cv($lookupName) ?: faculty_profile_lookup_cv((string) ($member['name'] ?? ''));
+                  $photoSrc = $profile ? faculty_public_photo_src($profile) : '';
                 ?>
                   <article class="dept-faculty-card<?= $isHod ? ' is-hod' : '' ?><?= $profile ? '' : ' is-static' ?>">
                     <?php if ($profile): ?>
                     <a class="dept-faculty-link" href="faculty-profile?n=<?= htmlspecialchars($profile['slug'] ?? faculty_slug($lookupName !== '' ? $lookupName : (string) ($member['name'] ?? ''))) ?>">
                     <?php endif; ?>
-                    <div class="dept-faculty-avatar"><?= htmlspecialchars($initials) ?></div>
+                    <div class="dept-faculty-avatar<?= $photoSrc !== '' ? ' has-photo' : '' ?>">
+                      <?php if ($photoSrc !== ''): ?>
+                        <img src="<?= $photoSrc ?>" alt="">
+                      <?php else: ?>
+                        <?= htmlspecialchars($initials) ?>
+                      <?php endif; ?>
+                    </div>
                     <div class="dept-faculty-info">
                       <div class="dept-faculty-name-row">
                         <h3><?= htmlspecialchars($member['name']) ?></h3>

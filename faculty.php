@@ -129,10 +129,15 @@
 
 <?php include('includes/footer.php'); ?>
 
+<?php
+require_once __DIR__ . '/includes/faculty-lib.php';
+$faculty_photos = faculty_photo_src_map();
+?>
 <script>
 // Shared server directory (same source as departments.php faculty counts).
 const API_URL = 'faculty-proxy';
 const DEBUG = new URLSearchParams(window.location.search).has('debug');
+const FACULTY_PHOTOS = <?= json_encode((object) $faculty_photos, JSON_UNESCAPED_SLASHES) ?>;
 
 const DEPT_CONFIG = {
   'Anatomy':                  { icon: 'bi-body-text',        order: 1  },
@@ -476,8 +481,13 @@ function renderMemberRow(m) {
   const facReg = escapeHtml(m.facFacRegNo || '—');
   const initials = escapeHtml(getInitials(m));
   const avatarClass = getAvatarClass(m.desTitle);
-  const avatar = extra && extra.photo
-    ? `<img src="${escapeHtml(extra.photo)}" alt="">`
+  const nameSlug = facultySlug(m.empName);
+  const photo = FACULTY_PHOTOS[nameSlug]
+    || (extra && extra.slug && FACULTY_PHOTOS[extra.slug])
+    || (extra && extra.photo)
+    || '';
+  const avatar = photo
+    ? `<img src="${escapeHtml(photo)}" alt="">`
     : initials;
   const inner = `
       <div class="fac-list-avatar ${avatarClass}">${avatar}</div>

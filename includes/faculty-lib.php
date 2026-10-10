@@ -201,6 +201,48 @@ function faculty_profile_has_cv(?array $rec): bool {
   return faculty_cv_has_word_profile($rec);
 }
 
+function faculty_public_photo_src(?array $rec): string {
+  if (!$rec || empty($rec['photo'])) {
+    return '';
+  }
+  $rel = ltrim(str_replace('\\', '/', (string) $rec['photo']), '/');
+  $fs = dirname(__DIR__) . '/' . $rel;
+  if (!is_file($fs)) {
+    return '';
+  }
+  if (function_exists('dms_asset')) {
+    return dms_asset($rel);
+  }
+  return $rel . '?v=' . filemtime($fs);
+}
+
+function faculty_photo_src_map(): array {
+  $out = [];
+  foreach (faculty_profiles_pack()['profiles'] as $rec) {
+    if (!is_array($rec) || !faculty_profile_is_public($rec)) {
+      continue;
+    }
+    $src = faculty_public_photo_src($rec);
+    if ($src === '') {
+      continue;
+    }
+    $keys = [
+      (string) ($rec['slug'] ?? ''),
+      faculty_slug((string) ($rec['name'] ?? '')),
+    ];
+    foreach ($rec['aliases'] ?? [] as $alias) {
+      $keys[] = faculty_slug((string) $alias);
+    }
+    foreach ($keys as $key) {
+      $key = trim($key);
+      if ($key !== '') {
+        $out[$key] = $src;
+      }
+    }
+  }
+  return $out;
+}
+
 function faculty_has_arabic(string $text): bool {
   return (bool) preg_match('/\p{Arabic}/u', $text);
 }
