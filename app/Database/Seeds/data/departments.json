@@ -41,23 +41,7 @@
                 "reg": "19170-D"
             }
         ],
-        "activities": [
-            {
-                "title": "Dissection Hall Sessions",
-                "date": "Ongoing 2026",
-                "text": "Structured cadaveric dissection and demonstration sessions for first-year MBBS students."
-            },
-            {
-                "title": "Histology Practicals",
-                "date": "Ongoing 2026",
-                "text": "Microscopy-based learning of tissue structure aligned with the integrated curriculum."
-            },
-            {
-                "title": "Clinical Correlation Seminars",
-                "date": "2025–26",
-                "text": "Seminars linking anatomical concepts to clinical cases in surgery and radiology."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 4,
         "content_updated_at": "2026-08-09"
@@ -99,23 +83,7 @@
                 "reg": "21384-D"
             }
         ],
-        "activities": [
-            {
-                "title": "Structured Practical Classes",
-                "date": "Ongoing 2026",
-                "text": "Regular laboratory and tutorial sessions aligned with the MBBS curriculum."
-            },
-            {
-                "title": "Assessment & Feedback Cycles",
-                "date": "Term 2026",
-                "text": "Formative quizzes, OSPE\/spotting practice, and feedback to support student learning."
-            },
-            {
-                "title": "Academic Seminars",
-                "date": "2025–26",
-                "text": "Departmental seminars linking core concepts to clinical applications."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5,
         "content_updated_at": "2026-08-09"
@@ -152,23 +120,7 @@
                 "reg": "22465-D"
             }
         ],
-        "activities": [
-            {
-                "title": "Structured Practical Classes",
-                "date": "Ongoing 2026",
-                "text": "Regular laboratory and tutorial sessions aligned with the MBBS curriculum."
-            },
-            {
-                "title": "Assessment & Feedback Cycles",
-                "date": "Term 2026",
-                "text": "Formative quizzes, OSPE\/spotting practice, and feedback to support student learning."
-            },
-            {
-                "title": "Academic Seminars",
-                "date": "2025–26",
-                "text": "Departmental seminars linking core concepts to clinical applications."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 3,
         "content_updated_at": "2026-08-09"
@@ -245,23 +197,7 @@
                 "reg": "18937-D"
             }
         ],
-        "activities": [
-            {
-                "title": "Structured Practical Classes",
-                "date": "Ongoing 2026",
-                "text": "Regular laboratory and tutorial sessions aligned with the MBBS curriculum."
-            },
-            {
-                "title": "Assessment & Feedback Cycles",
-                "date": "Term 2026",
-                "text": "Formative quizzes, OSPE\/spotting practice, and feedback to support student learning."
-            },
-            {
-                "title": "Academic Seminars",
-                "date": "2025–26",
-                "text": "Departmental seminars linking core concepts to clinical applications."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 8,
         "content_updated_at": "2026-08-09"
@@ -303,23 +239,7 @@
                 "reg": "28805-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Structured Practical Classes",
-                "date": "Ongoing 2026",
-                "text": "Regular laboratory and tutorial sessions aligned with the MBBS curriculum."
-            },
-            {
-                "title": "Assessment & Feedback Cycles",
-                "date": "Term 2026",
-                "text": "Formative quizzes, OSPE\/spotting practice, and feedback to support student learning."
-            },
-            {
-                "title": "Academic Seminars",
-                "date": "2025–26",
-                "text": "Departmental seminars linking core concepts to clinical applications."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5010,
         "content_updated_at": "2026-08-09"
@@ -351,23 +271,7 @@
                 "reg": "30470-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Structured Practical Classes",
-                "date": "Ongoing 2026",
-                "text": "Regular laboratory and tutorial sessions aligned with the MBBS curriculum."
-            },
-            {
-                "title": "Assessment & Feedback Cycles",
-                "date": "Term 2026",
-                "text": "Formative quizzes, OSPE\/spotting practice, and feedback to support student learning."
-            },
-            {
-                "title": "Academic Seminars",
-                "date": "2025–26",
-                "text": "Departmental seminars linking core concepts to clinical applications."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5011,
         "content_updated_at": "2026-08-09"
@@ -409,23 +313,7 @@
                 "reg": "7401-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Structured Practical Classes",
-                "date": "Ongoing 2026",
-                "text": "Regular laboratory and tutorial sessions aligned with the MBBS curriculum."
-            },
-            {
-                "title": "Assessment & Feedback Cycles",
-                "date": "Term 2026",
-                "text": "Formative quizzes, OSPE\/spotting practice, and feedback to support student learning."
-            },
-            {
-                "title": "Academic Seminars",
-                "date": "2025–26",
-                "text": "Departmental seminars linking core concepts to clinical applications."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5007,
         "content_updated_at": "2026-08-09"
@@ -457,23 +345,7 @@
                 "reg": "9198-D"
             }
         ],
-        "activities": [
-            {
-                "title": "Structured Practical Classes",
-                "date": "Ongoing 2026",
-                "text": "Regular laboratory and tutorial sessions aligned with the MBBS curriculum."
-            },
-            {
-                "title": "Assessment & Feedback Cycles",
-                "date": "Term 2026",
-                "text": "Formative quizzes, OSPE\/spotting practice, and feedback to support student learning."
-            },
-            {
-                "title": "Academic Seminars",
-                "date": "2025–26",
-                "text": "Departmental seminars linking core concepts to clinical applications."
-            }
-        ],
+        "activities": [],
         "hidden": 1,
         "oric_id": 11,
         "content_updated_at": "2026-08-09"
@@ -555,23 +427,7 @@
                 "reg": "29023-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 1,
         "content_updated_at": "2026-08-09"
@@ -653,23 +509,7 @@
                 "reg": "18341-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5001,
         "content_updated_at": "2026-08-09"
@@ -741,23 +581,7 @@
                 "reg": "21041-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5003,
         "content_updated_at": "2026-08-09"
@@ -819,23 +643,7 @@
                 "reg": "17291-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5002,
         "content_updated_at": "2026-08-09"
@@ -877,23 +685,7 @@
                 "reg": "4670-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5020,
         "content_updated_at": "2026-08-09"
@@ -950,23 +742,7 @@
                 "reg": "27313-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5030,
         "content_updated_at": "2026-08-09"
@@ -1003,23 +779,7 @@
                 "reg": "14917-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5027,
         "content_updated_at": "2026-08-09"
@@ -1059,23 +819,7 @@
                 "reg": ""
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1127,23 +871,7 @@
                 "reg": "25104-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5004,
         "content_updated_at": "2026-08-09"
@@ -1190,23 +918,7 @@
                 "reg": "22140-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1238,23 +950,7 @@
                 "reg": "29963-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 9,
         "content_updated_at": "2026-08-09"
@@ -1269,7 +965,7 @@
             "Cardiology training covers cardiovascular assessment, common heart diseases, and hospital-based clinical exposure.",
             "Inpatient services: 2 CCU, One 8-bed Kuwait Teaching Hospital, Second one 12 beded at Prime Teaching Hospital,16-bed Interventional Cardiology Ward, and 16-bed General Cardiology Ward.",
             "Non-invasive services: Echocardiography, Exercise tolerance testing, Holter monitoring, Ambulatory blood pressure monitoring, and CT coronary angiography.",
-            "Two cardiac catheterization laboratories providing coronary angiography, primary and complex PCI, CTO\/post-CABG\/bifurcation\/left-main intervention, PTMC, and pacemaker implantation."
+            "Two cardiac catheterization laboratories providing coronary angiography, primary and complex PCI, CTO/post-CABG/bifurcation/left-main intervention, PTMC, and pacemaker implantation."
         ],
         "faculty": [
             {
@@ -1298,23 +994,7 @@
                 "reg": "21393-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": 5035,
         "content_updated_at": "2026-08-09"
@@ -1350,23 +1030,7 @@
                 "reg": "27920-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1402,23 +1066,7 @@
                 "reg": "20338-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1439,23 +1087,7 @@
                 "reg": "5106-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1486,23 +1118,7 @@
                 "reg": "25599-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1538,23 +1154,7 @@
                 "reg": "14302-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1580,23 +1180,7 @@
                 "reg": "7668-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1627,23 +1211,7 @@
                 "reg": "21826-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1669,23 +1237,7 @@
                 "reg": "23110-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1716,23 +1268,7 @@
                 "reg": "27012-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1763,23 +1299,7 @@
                 "reg": "4120-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1805,23 +1325,7 @@
                 "reg": "7321-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025–26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1853,23 +1357,7 @@
                 "reg": "27920-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025ΓÇô26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"
@@ -1891,23 +1379,7 @@
                 "reg": "16502-N"
             }
         ],
-        "activities": [
-            {
-                "title": "Ward & Clinic Teaching",
-                "date": "Ongoing 2026",
-                "text": "Bedside teaching, outpatient exposure, and case-based discussions during clinical rotations."
-            },
-            {
-                "title": "Case Presentations",
-                "date": "Weekly",
-                "text": "Student case presentations with consultant feedback to strengthen clinical reasoning."
-            },
-            {
-                "title": "CME \/ Departmental Meetings",
-                "date": "2025ΓÇô26",
-                "text": "Continuing medical education sessions and departmental academic meetings."
-            }
-        ],
+        "activities": [],
         "hidden": 0,
         "oric_id": null,
         "content_updated_at": "2026-08-09"

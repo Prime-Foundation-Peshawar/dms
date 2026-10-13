@@ -61,6 +61,7 @@ class DmsSeeder extends Seeder
             }
             $this->db->table('faculty_profiles')->insert([
                 'slug' => $rec['slug'] ?? $slug,
+                'emp_id' => isset($rec['emp_id']) && $rec['emp_id'] !== '' ? (string) $rec['emp_id'] : (isset($rec['empId']) && $rec['empId'] !== '' ? (string) $rec['empId'] : null),
                 'name' => $rec['name'] ?? $slug,
                 'department_slug' => null,
                 'department_name' => $rec['department'] ?? null,
@@ -93,7 +94,7 @@ class DmsSeeder extends Seeder
             }
         }
 
-        // Pages
+        // Pages (CMS body prefilled from static views when use_cms=1)
         $pages = json_decode((string) file_get_contents($dataDir . '/pages.json'), true) ?: [];
         $this->db->table('pages')->emptyTable();
         foreach ($pages as $p) {
@@ -104,7 +105,9 @@ class DmsSeeder extends Seeder
                 'section' => $p['section'],
                 'description' => $p['description'],
                 'view_key' => $p['view_key'],
-                'body_html' => null,
+                'body_html' => $p['body_html'] ?? null,
+                'body_text' => $p['body_text'] ?? null,
+                'use_cms' => (int) ($p['use_cms'] ?? 0),
                 'seo_json' => json_encode($p['seo'] ?? [], JSON_UNESCAPED_UNICODE),
                 'status' => $p['status'] ?? 'published',
                 'priority' => $p['priority'] ?? 0.5,
@@ -112,6 +115,52 @@ class DmsSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);
+        }
+
+        // News (from legacy static cards)
+        $this->db->table('news_media')->emptyTable();
+        $this->db->table('news_posts')->emptyTable();
+        $newsFile = $dataDir . '/news.json';
+        if (is_file($newsFile)) {
+            foreach (json_decode((string) file_get_contents($newsFile), true) ?: [] as $n) {
+                $this->db->table('news_posts')->insert([
+                    'slug' => $n['slug'],
+                    'title' => $n['title'],
+                    'excerpt' => $n['excerpt'] ?? null,
+                    'body_html' => $n['body_html'] ?? null,
+                    'body_text' => $n['body_text'] ?? null,
+                    'category' => $n['category'] ?? null,
+                    'cover_image' => $n['cover_image'] ?? null,
+                    'published_at' => $n['published_at'] ?? $now,
+                    'expires_at' => $n['expires_at'] ?? null,
+                    'status' => $n['status'] ?? 'published',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
+        }
+
+        // Events (from legacy static cards)
+        $this->db->table('event_media')->emptyTable();
+        $this->db->table('events')->emptyTable();
+        $eventsFile = $dataDir . '/events.json';
+        if (is_file($eventsFile)) {
+            foreach (json_decode((string) file_get_contents($eventsFile), true) ?: [] as $e) {
+                $this->db->table('events')->insert([
+                    'slug' => $e['slug'],
+                    'title' => $e['title'],
+                    'excerpt' => $e['excerpt'] ?? null,
+                    'body_html' => $e['body_html'] ?? null,
+                    'body_text' => $e['body_text'] ?? null,
+                    'category' => $e['category'] ?? null,
+                    'cover_image' => $e['cover_image'] ?? null,
+                    'event_date' => $e['event_date'] ?? null,
+                    'location' => $e['location'] ?? null,
+                    'status' => $e['status'] ?? 'published',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
         }
 
         // Settings + newsletters
@@ -134,7 +183,7 @@ class DmsSeeder extends Seeder
             ]);
         }
 
-        // Bootstrap admin user (no UI yet)
+        // Bootstrap admin user
         $email = env('CMS_ADMIN_EMAIL', 'admin@riphahpsh.edu.pk');
         $pass = env('CMS_ADMIN_PASSWORD', 'change_me');
         $this->db->table('users')->emptyTable();

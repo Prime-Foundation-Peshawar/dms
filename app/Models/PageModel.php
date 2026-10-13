@@ -9,8 +9,8 @@ class PageModel extends Model
     protected $table = 'pages';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'slug', 'title', 'label', 'section', 'description', 'view_key', 'body_html',
-        'seo_json', 'status', 'priority', 'changefreq', 'created_at', 'updated_at',
+        'slug', 'title', 'label', 'section', 'description', 'view_key', 'body_html', 'body_text',
+        'use_cms', 'seo_json', 'status', 'priority', 'changefreq', 'created_at', 'updated_at',
     ];
     protected $useTimestamps = true;
 

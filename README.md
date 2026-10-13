@@ -33,9 +33,23 @@ For quick local smoke tests without MySQL, `.env` may use SQLite3 (`writable/dms
 | `/faculty` | Faculty directory |
 | `/faculty-proxy` | JSON directory API |
 | `/faculty-profile?n=` | Faculty profile |
+| `/all-news` | News list (DB) |
+| `/single-news?slug=` | News detail (DB) |
+| `/events` | Events list (DB) |
+| `/event-single?slug=` | Event detail (DB) |
+| `/acp/login` | Admin Control Panel |
+
+## Admin (ACP)
+
+- URL: `/acp/login` (same app)
+- Bootstrap admin from `.env`: `CMS_ADMIN_EMAIL` / `CMS_ADMIN_PASSWORD` (seeded by `DmsSeeder`)
+- Change the default password after first login
+- Modules: pages, news, events, departments, faculty, settings, users
+- Page/news/event editors support **Text** and **HTML** modes
+- Seed data is prefilled from the former static site (`tools/build_cms_seed.php` → `php spark db:seed DmsSeeder`)
+- CMS pages (`use_cms=1`) render from the database; template pages keep special layouts (home, faculty APIs, news/events listings)
 
 ## Notes
 
-- Admin/CMS UI is intentionally out of scope on this branch (schema includes `users` for later).
 - Legacy flat PHP is kept under `_legacy/` for reference during the port.
 - Do not commit real `.env` passwords.

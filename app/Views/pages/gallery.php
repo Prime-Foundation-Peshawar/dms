@@ -26,34 +26,36 @@
     .gf-btn:hover  { border-color: var(--teal); color: var(--teal); }
     .gf-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
 
-    /* ══ GALLERY GRID ══ */
+    /* ══ GALLERY GRID (justified rows, Google Images style) ══ */
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-content: flex-start;
     }
     .gallery-item {
       position: relative;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      height: 200px;
+      width: 200px;
+      max-width: 100%;
       border-radius: var(--r-md);
       overflow: hidden;
-      aspect-ratio: 1;
       cursor: pointer;
       background: var(--gray-light);
       transition: transform .3s, box-shadow .3s;
     }
-    .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
-
-    /* Span variants */
-    .gallery-item.span-2     { grid-column: span 2; aspect-ratio: 2/1; }
-    .gallery-item.span-2-row { grid-row: span 2; aspect-ratio: 1/2; }
+    .gallery-item:hover { transform: scale(1.015); box-shadow: var(--shadow-lg); z-index: 1; }
 
     .gallery-img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
       transition: transform .4s;
     }
-    .gallery-item:hover .gallery-img { transform: scale(1.06); }
+    .gallery-item:hover .gallery-img { transform: scale(1.04); }
 
     /* Placeholder (when no image) */
     .gallery-placeholder {
@@ -205,7 +207,7 @@
     }
     .lb-prev { left: 20px; }
     .lb-next { right: 20px; }
-    .lb-prev:hover, .lb-next:hover { background: rgba(21,95,122,.5); }
+    .lb-prev:hover, .lb-next:hover { background: rgba(194,65,12,.5); }
 
     /* ══ ALBUM SECTION HEADING ══ */
     .album-heading {
@@ -255,35 +257,34 @@
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; z-index: 999; opacity: 0; transform: translateY(10px);
       transition: opacity .25s, transform .25s, background .2s;
-      box-shadow: 0 4px 18px rgba(21,95,122,.35);
+      box-shadow: 0 4px 18px rgba(194,65,12,.35);
     }
     #backToTop.visible { opacity: 1; transform: translateY(0); }
     #backToTop:hover   { background: var(--navy); }
 
     /* ══ RESPONSIVE ══ */
-    @media (max-width: 991.98px) {
-      .gallery-grid { grid-template-columns: repeat(3,1fr); }
-      .gallery-item.span-2 { grid-column: span 2; }
-      .gallery-item.span-2-row { grid-row: span 1; aspect-ratio: 1; }
-    }
     @media (max-width: 767.98px) {
-      .gallery-grid { grid-template-columns: repeat(2,1fr); }
-      .gallery-item.span-2     { grid-column: span 2; }
-      .gallery-item.span-2-row { grid-row: span 1; aspect-ratio: 1; }
+      .gallery-grid { gap: 8px; }
       .lb-prev, .lb-next { display: none; }
     }
-    @media (max-width: 480px) {
-      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-    }
   </style>
+<?php
+if (empty($page_title)) {
+  $page_title = 'Photo Gallery | Department of Dental Sciences';
+}
+if (empty($page_description)) {
+  $page_description = 'Campus and facility photos from Peshawar Dental College and the Department of Dental Sciences at Riphah Peshawar Campus.';
+}
+if (empty($albums) || ! is_array($albums)) {
+  $albums = [];
+}
+?>
 
-
-
-
-<!-- ═══ PAGE HERO ═══ -->
+<!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
+    <span class="page-hero-eyebrow">Department of Dental Sciences</span>
     <h1>Photo Gallery</h1>
     <div class="breadcrumb-pmc">
       <a href="<?= site_url() ?>">Home</a>
@@ -293,393 +294,73 @@
   </div>
 </div>
 
-<!-- ═══ GALLERY CONTENT ═══ -->
 <section class="pmc-section bg-off">
   <div class="container">
-
-    <!-- Intro -->
     <div class="row mb-5">
       <div class="col-lg-7">
         <span class="sec-eyebrow">Visual Journey</span>
-        <h2 class="sec-title">Life at Campus</h2>
-        <p class="sec-desc">Explore our campus, events, clinical training, research activities, student societies, and memorable moments captured across our 20+ year journey.</p>
+        <h2 class="sec-title">Life at Peshawar Dental College</h2>
+        <p class="sec-desc">Explore PDC campus buildings and shared campus facilities that support dental education at Riphah International University – Peshawar Campus.</p>
       </div>
     </div>
 
-    <!-- Filter Tabs -->
     <div class="gallery-filters">
-      <button class="gf-btn active" data-filter="all">
-        <i class="bi bi-grid-3x3-gap me-1"></i> All Albums
-      </button>
-      <button class="gf-btn" data-filter="campus">
-        <i class="bi bi-buildings me-1"></i> Campus
-      </button>
-      <button class="gf-btn" data-filter="facilities">
-        <i class="bi bi-buildings me-1"></i> Facilities
-      </button>
-      <!-- <button class="gf-btn" data-filter="events">
-        <i class="bi bi-calendar-event me-1"></i> Events
-      </button>
-      <button class="gf-btn" data-filter="clinical">
-        <i class="bi bi-hospital me-1"></i> Clinical Training
-      </button> -->
-      <!-- <button class="gf-btn" data-filter="research">
-        <i class="bi bi-flask me-1"></i> Research
-      </button>
-      <button class="gf-btn" data-filter="societies">
-        <i class="bi bi-people me-1"></i> Societies
-      </button>
-      <button class="gf-btn" data-filter="convocation">
-        <i class="bi bi-mortarboard me-1"></i> Convocation
-      </button> -->
+      <button class="gf-btn active" data-filter="all" type="button"><i class="bi bi-grid-3x3-gap me-1"></i> All Albums</button>
+      <?php foreach ($albums as $category => $album): ?>
+      <button class="gf-btn" data-filter="<?= esc($category) ?>" type="button"><i class="bi <?= esc($album['icon'] ?? 'bi-images') ?> me-1"></i> <?= esc($album['title'] ?? ucfirst((string) $category)) ?></button>
+      <?php endforeach; ?>
     </div>
+    <?php if (! $albums): ?>
+    <div class="gallery-empty"><i class="bi bi-images"></i><p>Gallery albums will appear here once published.</p></div>
+    <?php endif; ?>
 
-    <!--
-    ═══════════════════════════════════════════════════════
-    ALBUM 1 — CAMPUS
-    PHP conversion:  foreach ($albums as $album) { ... }
-    ═══════════════════════════════════════════════════════
-    -->
-    <div class="album-section mb-5" data-category="campus">
+<?php foreach ($albums as $category => $album):
+  $count = count($album['items']);
+?>
+    <div class="album-section mb-5" data-category="<?= htmlspecialchars($category) ?>">
       <div class="album-heading">
-        <div class="album-heading-icon"><i class="bi bi-buildings"></i></div>
+        <div class="album-heading-icon"><i class="bi <?= htmlspecialchars($album['icon']) ?>"></i></div>
         <div>
-          <div class="album-title">PMC Campus</div>
-          <span class="album-count">3 Photos</span>
+          <div class="album-title"><?= htmlspecialchars($album['title']) ?></div>
+          <span class="album-count"><?= (int)$count ?> Photos</span>
         </div>
         <div class="ms-auto">
-          <button class="gf-btn" style="font-size:.72rem;padding:6px 14px;"
-                  onclick="openAlbumLightbox('campus')">
-            <i class="bi bi-play-fill me-1"></i> View Slideshow
+          <button class="gf-btn" type="button" style="font-size:.72rem;padding:6px 14px;" onclick="openAlbumLightbox('<?= htmlspecialchars($category) ?>')">
+            <i class="bi bi-images me-1"></i> View Album
           </button>
         </div>
       </div>
-
-      <div class="gallery-grid" id="grid-campus">
-        <!-- Item 1 — large -->
-        <div class="gallery-item span-2 fu"
-             data-category="campus"
-             data-title="Main Campus — Warsak Road"
-             data-caption="25-Kanal campus on Warsak Road, Peshawar"
-             data-img="assets/images/campus/pmc.jpg"
+      <div class="gallery-grid" id="grid-<?= htmlspecialchars($category) ?>">
+<?php foreach ($album['items'] as $item):
+  $src = $item['src'];
+  $title = $item['title'];
+  $caption = $item['caption'] ?? '';
+?>
+        <div class="gallery-item fu"
+             data-category="<?= htmlspecialchars($category) ?>"
+             data-title="<?= htmlspecialchars($title) ?>"
+             data-caption="<?= htmlspecialchars($caption) ?>"
+             data-img="<?= esc(base_url($src)) ?>"
              onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/pmc.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Main Campus','bi-buildings')"
-               class="gallery-img" loading="lazy" decoding="async" alt="PMC Main Campus"/>
+          <img src="<?= esc(base_url($src)) ?>"
+               alt="<?= htmlspecialchars($title) ?>"
+               class="gallery-img" loading="lazy" decoding="async" />
           <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
           <div class="gallery-overlay">
             <div>
-              <div class="gallery-overlay-cat">Campus</div>
-              <div class="gallery-overlay-text">Main Campus — Warsak Road</div>
+              <div class="gallery-overlay-cat"><?= htmlspecialchars(ucfirst($category)) ?></div>
+              <div class="gallery-overlay-text"><?= htmlspecialchars($title) ?></div>
             </div>
           </div>
         </div>
-
-        <!-- Item 2 -->
-        <div class="gallery-item fu" data-category="campus"
-             data-title="Department of Medical Sciences (DMS)"
-             data-caption="Modern Architecture"
-             data-img="assets/images/campus/pmc-building.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/pmc-building.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Campus','bi-book-half')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Campus"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Campus</div></div>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="gallery-item fu" data-category="campus"
-             data-title="Department of Medical Sciences (DMS)"
-             data-caption="Department of Medical Sciences (DMS)"
-             data-img="assets/images/campus/pmc-building2.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/pmc-building2.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Department of Medical Sciences (DMS)','bi-trophy')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Department of Medical Sciences (DMS)"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Administrative Block</div></div>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <!-- <div class="gallery-item fu" data-category="campus"
-             data-title="Cafeteria"
-             data-caption="Well-equipped cafeteria serving students and staff"
-             data-img="assets/images/campus/cafe.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/cafe.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Cafeteria','bi-cup-hot')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Cafeteria"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Cafeteria</div></div>
-          </div>
-        </div> -->
-
-        <!-- Item 5 -->
-        <!-- <div class="gallery-item fu" data-category="campus"
-             data-title="Girls Hostel"
-             data-caption="On-campus accommodation for female students"
-             data-img="assets/images/campus/hostel.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/hostel.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Girls Hostel','bi-house-heart')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Girls Hostel"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Girls Hostel</div></div>
-          </div>
-        </div> -->
-
-        <!-- Item 6 -->
-        <!-- <div class="gallery-item fu" data-category="campus"
-             data-title="College Masjid"
-             data-caption="The beautiful mosque at the heart of our campus"
-             data-img="assets/images/campus/mosque.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/mosque.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Masjid','bi-moon-stars')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Masjid"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">College Masjid</div></div>
-          </div>
-        </div> -->
-
-        <!-- Item 7 -->
-        <!-- <div class="gallery-item fu" data-category="campus"
-             data-title="Faculty Block"
-             data-caption="Administrative and faculty offices"
-             data-img="assets/images/campus/pmc-faculty.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/pmc-faculty.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Faculty Block','bi-building')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Faculty Block"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Faculty Block</div></div>
-          </div>
-        </div> -->
+<?php endforeach; ?>
       </div>
     </div>
-
-    <!--
-    ALBUM 2 — Facilities
-    -->
-    <div class="album-section mb-5" data-category="facilities">
-      <div class="album-heading">
-        <div class="album-heading-icon"><i class="bi bi-calendar-event"></i></div>
-        <div>
-          <div class="album-title">Facilities</div>
-          <span class="album-count">8 Photos</span>
-        </div>
-        <!-- <div class="ms-auto">
-          <a href="<?= site_url('events') ?>" class="gf-btn" style="font-size:.72rem;padding:6px 14px;text-decoration:none;">
-            <i class="bi bi-calendar3 me-1"></i> View All Events
-          </a>
-        </div> -->
-      </div>
-
-      <div class="gallery-grid" id="grid-facilities">
-        <div class="gallery-item span-2 fu" data-category="facilities"
-             data-title="Girls Hostel"
-             data-caption="Girls Hostel"
-             data-img="assets/images/campus/girls-hostel.png"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/girls-hostel.png') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Hostel','bi-mortarboard')"
-               class="gallery-img" loading="lazy" decoding="async" alt="hostel"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Girls Hostel</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="facilities"
-             data-title="Sports & Gym"
-             data-caption="Sports & Gym"
-             data-img="assets/images/news/news3.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/news/news3.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Sports & Gym','bi-flask')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Sports & Gym"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Sports & Gym</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="facilities"
-             data-title="Library & LRC"
-             data-caption="Library & LRC"
-             data-img="assets/images/news/pmc.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/news/pmc.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Library & LRC','bi-heart-pulse')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Library & LRC"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Library & LRC</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="facilities"
-             data-title="Cafeteria"
-             data-caption="Cafeteria"
-             data-img="assets/images/campus/pmc.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/pmc.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Cafeteria','bi-trophy')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Cafeteriaa"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Cafeteria</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="facilities"
-             data-title="Masjid"
-             data-caption="Masjid"
-             data-img="assets/images/campus/library.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/library.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Masjid','bi-droplet-half')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Masjid"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Masjid</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item span-2 fu" data-category="facilities"
-             data-title="Transportation"
-             data-caption="Social Welfare Society blood donation campaign"
-             data-img="assets/images/campus/library.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/library.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Blood Donation Drive','bi-droplet-half')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Blood Donation"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Transportation</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="facilities"
-             data-title="Blood Donation Drive — SWS"
-             data-caption="Social Welfare Society blood donation campaign"
-             data-img="assets/images/campus/library.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/library.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Blood Donation Drive','bi-droplet-half')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Blood Donation"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Day Care Center</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item span-2 fu" data-category="facilities"
-             data-title="Counseling & Aid"
-             data-caption="Counseling & Aid"
-             data-img="assets/images/campus/library.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/library.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Counseling & Aid','bi-droplet-half')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Counseling & Aid"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Counseling & Aid</div></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!--
-    ALBUM 3 — CLINICAL TRAINING
-    -->
-    <!-- <div class="album-section mb-5" data-category="clinical">
-      <div class="album-heading">
-        <div class="album-heading-icon"><i class="bi bi-hospital"></i></div>
-        <div>
-          <div class="album-title">Clinical Training</div>
-          <span class="album-count">4 Photos</span>
-        </div>
-      </div>
-
-      <div class="gallery-grid" id="grid-clinical">
-        <div class="gallery-item span-2-row fu" data-category="clinical"
-             data-title="Kuwait Teaching Hospital"
-             data-caption="Students on clinical rotation at Kuwait Teaching Hospital"
-             data-img="assets/images/campus/pmc.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/pmc.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Kuwait Hospital','bi-hospital-fill')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Kuwait Hospital"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Kuwait Teaching Hospital</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="clinical"
-             data-title="Clinical Skill Labs"
-             data-caption="Students practicing in the simulation labs"
-             data-img="assets/images/campus/gym.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/gym.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Skill Labs','bi-activity')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Skill Labs"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Clinical Skill Labs</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="clinical"
-             data-title="OPD Rotations"
-             data-caption="Students observing outpatient department procedures"
-             data-img="assets/images/campus/cafe.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/cafe.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('OPD Rotation','bi-clipboard-pulse')"
-               class="gallery-img" loading="lazy" decoding="async" alt="OPD Rotations"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">OPD Rotations</div></div>
-          </div>
-        </div>
-
-        <div class="gallery-item fu" data-category="clinical"
-             data-title="Surgery Ward Rounds"
-             data-caption="4th year students on surgery ward rounds"
-             data-img="assets/images/campus/hostel.jpg"
-             onclick="openLightbox(this)">
-          <img src="<?= base_url('assets/images/campus/hostel.jpg') ?>"
-               onerror="this.parentElement.innerHTML=galleryPlaceholder('Surgery Rounds','bi-scissors')"
-               class="gallery-img" loading="lazy" decoding="async" alt="Surgery Rounds"/>
-          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
-          <div class="gallery-overlay">
-            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Surgery Ward Rounds</div></div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Load More -->
-    <!-- <div class="text-center mt-4" id="loadMoreWrap">
-      <button class="btn-pmc btn-pmc-outline" id="loadMoreBtn" onclick="loadMore()">
-        <i class="bi bi-arrow-down-circle"></i> Load More Photos
-      </button>
-    </div> -->
+<?php endforeach; ?>
 
   </div>
 </section>
+
 
 <!-- ═══ LIGHTBOX ═══ -->
 <div class="pmc-lightbox" id="pmcLightbox" onclick="closeLightboxOnBackdrop(event)">
@@ -732,6 +413,108 @@ function galleryPlaceholder(label, icon) {
   </div>`;
 }
 
+// ── Justified layout (Google Images style) ───────────────────────
+function galleryTargetRowHeight() {
+  const w = window.innerWidth;
+  if (w < 576) return 120;
+  if (w < 768) return 150;
+  if (w < 992) return 180;
+  return 220;
+}
+
+function galleryAspect(item) {
+  if (item._ar && item._ar > 0) return item._ar;
+  const img = item.querySelector('img.gallery-img');
+  if (img && img.naturalWidth > 0 && img.naturalHeight > 0) {
+    item._ar = img.naturalWidth / img.naturalHeight;
+    return item._ar;
+  }
+  return 1;
+}
+
+function justifyGalleryGrid(grid) {
+  if (!grid || grid.offsetParent === null && grid.closest('.album-section')?.style.display === 'none') return;
+  const items = [...grid.querySelectorAll('.gallery-item')];
+  if (!items.length) return;
+
+  const gap = parseFloat(getComputedStyle(grid).gap) || 10;
+  const W = grid.clientWidth;
+  if (W < 40) return;
+  // Fixed row height keeps every tile the same size; widths flex to fill each row.
+  const H = galleryTargetRowHeight();
+
+  let row = [];
+  let widthSum = 0;
+
+  const flush = (isLast) => {
+    if (!row.length) return;
+    const gaps = gap * Math.max(row.length - 1, 0);
+    const avail = Math.max(W - gaps, 1);
+
+    // Single leftover photo: keep natural width at row height (no giant stretch).
+    if (isLast && row.length === 1) {
+      const ar = galleryAspect(row[0]);
+      row[0].style.height = H + 'px';
+      row[0].style.width = Math.min(avail, Math.max(1, Math.round(H * ar))) + 'px';
+      row = [];
+      widthSum = 0;
+      return;
+    }
+
+    // Always fill the row width so the last row matches earlier rows in height.
+    const scale = avail / Math.max(widthSum, 1);
+    let used = 0;
+    row.forEach((item, i) => {
+      let w;
+      if (i === row.length - 1) {
+        w = Math.max(1, avail - used);
+      } else {
+        w = Math.max(1, Math.floor(H * galleryAspect(item) * scale));
+        used += w;
+      }
+      item.style.height = H + 'px';
+      item.style.width = w + 'px';
+    });
+    row = [];
+    widthSum = 0;
+  };
+
+  items.forEach((item) => {
+    const w = H * galleryAspect(item);
+    if (row.length && widthSum + w + gap * row.length > W) {
+      flush(false);
+    }
+    row.push(item);
+    widthSum += w;
+  });
+  flush(true);
+}
+
+function justifyAllGalleries() {
+  document.querySelectorAll('.gallery-grid').forEach(justifyGalleryGrid);
+}
+
+function prepareGalleryImages() {
+  document.querySelectorAll('.gallery-item img.gallery-img').forEach((img) => {
+    const item = img.closest('.gallery-item');
+    const apply = () => {
+      if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+        item._ar = img.naturalWidth / img.naturalHeight;
+      }
+      justifyGalleryGrid(item.closest('.gallery-grid'));
+    };
+    if (img.complete && img.naturalWidth) apply();
+    else img.addEventListener('load', apply, { once: true });
+  });
+  justifyAllGalleries();
+}
+
+let galleryResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(galleryResizeTimer);
+  galleryResizeTimer = setTimeout(justifyAllGalleries, 120);
+});
+
 // ── Filter ───────────────────────────────────────────────────────
 const filterBtns   = document.querySelectorAll('.gf-btn[data-filter]');
 const albumSections = document.querySelectorAll('.album-section');
@@ -752,8 +535,11 @@ filterBtns.forEach(btn => {
     // Scroll to first visible album
     const first = [...albumSections].find(s => s.style.display !== 'none');
     if (first && filter !== 'all') first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    requestAnimationFrame(justifyAllGalleries);
   });
 });
+
+prepareGalleryImages();
 
 // ── Lightbox ─────────────────────────────────────────────────────
 let lbItems   = [];

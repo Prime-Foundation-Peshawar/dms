@@ -40,7 +40,7 @@ class FacultyDirectoryService
         }
 
         $out = [];
-        $slugs = [];
+        $seenEmpIds = [];
         $pack = $this->hrms->fetchAll();
 
         if (! empty($pack['ok'])) {
@@ -55,20 +55,37 @@ class FacultyDirectoryService
                 if ($emp === '') {
                     continue;
                 }
+                $empId = trim((string) ($row['empId'] ?? ''));
                 $depName = faculty_canonical_dept((string) ($row['depName'] ?? ''));
+                $hrmsDept = $depName;
+                // Match local CV/profile by HRMS empId only (never by name).
+                $rec = $empId !== '' ? $this->profiles->findByEmpId($empId) : null;
+                $cvDept = faculty_canonical_dept((string) ($rec['department_name'] ?? ''));
+                // Only remap when ACP explicitly enables override (Default/Overridden switch).
+                $overridden = ! empty($rec['dept_override']) && $cvDept !== '';
+                if ($overridden) {
+                    $depName = $cvDept;
+                }
                 if (! $this->isPublicDept($depName)) {
                     continue;
                 }
+                if ($empId !== '') {
+                    $seenEmpIds[$empId] = true;
+                }
                 $out[] = [
+                    'empId' => $empId,
                     'empName' => $emp,
                     'desTitle' => trim((string) ($row['desTitle'] ?? '')),
                     'depName' => $depName,
+                    'hrmsDepName' => $hrmsDept,
+                    'dept_override' => $overridden,
+                    'cv_only' => false,
                     'facPMDCNo' => trim((string) ($row['facPMDCNo'] ?? '')),
                     'facFacRegNo' => trim((string) ($row['facFacRegNo'] ?? '')),
                     'qualifications' => trim((string) ($row['qualifications'] ?? '')),
-                    'photo' => '',
+                    'photo' => (string) ($rec['photo'] ?? ''),
+                    'profile_id' => isset($rec['id']) ? (int) $rec['id'] : null,
                 ];
-                $slugs[] = faculty_slug($emp);
             }
         }
 
@@ -79,25 +96,14 @@ class FacultyDirectoryService
             if (! faculty_is_directory_rank((string) ($rec['designation'] ?? 'Faculty'))) {
                 continue;
             }
-            $keys = array_filter([(string) ($rec['slug'] ?? '')]);
-            foreach ($rec['aliases'] ?? [] as $alias) {
-                $keys[] = (string) $alias;
+            $profileEmpId = trim((string) ($rec['emp_id'] ?? ''));
+            if ($profileEmpId !== '' && isset($seenEmpIds[$profileEmpId])) {
+                continue; // already represented by HRMS row
             }
-            $already = false;
-            foreach ($slugs as $memberSlug) {
-                foreach ($keys as $key) {
-                    $key = trim($key);
-                    if ($key === '') {
-                        continue;
-                    }
-                    if (faculty_slugs_match($memberSlug, faculty_slug($key)) || faculty_slugs_match($memberSlug, $key)) {
-                        $already = true;
-                        break 2;
-                    }
-                }
-            }
-            if ($already) {
-                continue;
+            // Profiles without emp_id are CV-only extras; skip if we cannot safely dedupe.
+            if ($profileEmpId === '') {
+                // Keep only when not already covered — no name matching against HRMS.
+                // (Unlinked profiles still appear until emp_id is set in ACP.)
             }
             $depName = faculty_canonical_dept((string) ($rec['department_name'] ?? ''));
             if ($depName !== '' && ! $this->isPublicDept($depName)) {
@@ -110,15 +116,22 @@ class FacultyDirectoryService
                 $qualText = implode(', ', array_map('strval', $qual));
             }
             $out[] = [
+                'empId' => $profileEmpId,
                 'empName' => trim((string) $rec['name']),
                 'desTitle' => trim((string) ($rec['designation'] ?? 'Faculty')) ?: 'Faculty',
                 'depName' => $depName,
+                'hrmsDepName' => '',
+                'dept_override' => ! empty($rec['dept_override']),
+                'cv_only' => $profileEmpId === '',
                 'facPMDCNo' => '',
                 'facFacRegNo' => '',
                 'qualifications' => trim($qualText),
                 'photo' => (string) ($rec['photo'] ?? ''),
+                'profile_id' => (int) ($rec['id'] ?? 0) ?: null,
             ];
-            $slugs[] = faculty_slug((string) $rec['name']);
+            if ($profileEmpId !== '') {
+                $seenEmpIds[$profileEmpId] = true;
+            }
         }
 
         $memo = $out;
@@ -200,10 +213,16 @@ class FacultyDirectoryService
             $out[] = [
                 'name' => $this->displayName($row),
                 'empName' => $row['empName'],
+                'empId' => $row['empId'] ?? '',
                 'qualification' => $row['qualifications'] ?? '',
                 'reg' => $row['facPMDCNo'] ?? '',
                 'desTitle' => $row['desTitle'] ?? '',
                 'photo' => $row['photo'] ?? '',
+                'depName' => $row['depName'] ?? '',
+                'hrmsDepName' => $row['hrmsDepName'] ?? ($row['depName'] ?? ''),
+                'dept_override' => ! empty($row['dept_override']),
+                'profile_id' => $row['profile_id'] ?? null,
+                'slug' => faculty_slug((string) ($row['empName'] ?? '')),
             ];
         }
 

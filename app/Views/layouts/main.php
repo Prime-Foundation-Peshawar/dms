@@ -72,9 +72,9 @@ $ld_graph = $ld_graph ?? [];
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <!-- PMC Global CSS -->
-  <link href="<?= dms_asset('css/pmc-global.css') ?>" rel="stylesheet" />
+  <link href="<?= dms_asset('assets/css/pmc-global.css') ?>" rel="stylesheet" />
   <!-- PMC CSS -->
-  <link href="<?= dms_asset('css/style.css') ?>" rel="stylesheet" />
+  <link href="<?= dms_asset('assets/css/style.css') ?>" rel="stylesheet" />
   <?php if (!empty($preload_images) && is_array($preload_images)): ?>
     <?php foreach ($preload_images as $preload_href): ?>
   <link rel="preload" as="image" href="<?= htmlspecialchars($preload_href) ?>" type="image/webp" fetchpriority="high" />
@@ -110,7 +110,7 @@ $ld_graph = $ld_graph ?? [];
   <!-- ═══ NAVBAR ═══ -->
   <nav class="pmc-nav navbar navbar-expand-lg" id="mainNav">
     <div class="container">
-      <a class="pmc-brand" href=""<?= site_url() ?>">
+      <a class="pmc-brand" href="<?= site_url() ?>">
         <div class="">
           <img src="<?= base_url('assets/images/logo/riphah-psh.png') ?>"
             alt="Department of Medical Sciences (PMC) — Riphah Peshawar Campus" width="200px;" />
@@ -128,7 +128,7 @@ $ld_graph = $ld_graph ?? [];
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav ms-auto align-items-lg-center position-static">
 
-          <li class="nav-item"><a class="nav-link" href=""<?= site_url() ?>">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= site_url() ?>">Home</a></li>
 
           <!-- ABOUT mega -->
           <li class="nav-item mega-menu-wrapper position-static">
@@ -303,7 +303,7 @@ $ld_graph = $ld_graph ?? [];
         <div class="col-6 col-lg-2">
           <p class="foot-heading">Quick Links</p>
           <ul class="foot-links">
-            <li><a href=""<?= site_url() ?>">Home</a></li>
+            <li><a href="<?= site_url() ?>">Home</a></li>
             <li><a href="<?= site_url('about') ?>">About Us</a></li>
             <li><a href="<?= site_url('vision-mission') ?>">Vision & Mission</a></li>
             <li><a href="<?= site_url('faculty') ?>">Faculty</a></li>
@@ -321,7 +321,7 @@ $ld_graph = $ld_graph ?? [];
             <li><a href="<?= site_url('curriculum') ?>">Curriculum</a></li>
             <li><a href="<?= site_url('examinations') ?>">Examinations</a></li>
             <li><a href="<?= site_url('faculty-research') ?>">Faculty Research</a></li>
-            <li><a href="https://riphahpsh.edu.pk/news-letter.php">Newsletter</a></li>
+            <li><a href="https://riphahpsh.edu.pk/news-letter.php" target="_blank" rel="noopener">Newsletter</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-2">

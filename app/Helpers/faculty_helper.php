@@ -118,9 +118,170 @@ if (! function_exists('faculty_is_directory_rank')) {
 if (! function_exists('dms_asset')) {
     function dms_asset(string $path): string
     {
-        $path = ltrim($path, '/');
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+        if ($path !== '' && ! str_starts_with($path, 'assets/')) {
+            $path = 'assets/' . $path;
+        }
         $full = FCPATH . $path;
         $v = is_file($full) ? (string) filemtime($full) : (string) time();
+
         return base_url($path) . '?v=' . rawurlencode($v);
+    }
+}
+
+if (! function_exists('faculty_soft_space')) {
+    function faculty_soft_space(string $text): string
+    {
+        $text = preg_replace('/([a-z])([A-Z])/', '$1 $2', $text) ?? $text;
+        $text = preg_replace('/(Department)(Professor|Associate|Assistant)/', '$1 $2', $text) ?? $text;
+
+        return trim(preg_replace('/\s+/', ' ', $text) ?? '');
+    }
+}
+
+if (! function_exists('faculty_has_arabic')) {
+    function faculty_has_arabic(string $text): bool
+    {
+        return (bool) preg_match('/\p{Arabic}/u', $text);
+    }
+}
+
+if (! function_exists('faculty_plain_list')) {
+    /** @param mixed $raw @return list<string> */
+    function faculty_plain_list($raw): array
+    {
+        if (is_string($raw)) {
+            $raw = preg_split('/[\n;|]+/', $raw) ?: [];
+        }
+        if (! is_array($raw)) {
+            return [];
+        }
+        $out = [];
+        $seen = [];
+        foreach ($raw as $item) {
+            $text = trim(faculty_soft_space((string) $item));
+            if ($text === '' || isset($seen[strtolower($text)])) {
+                continue;
+            }
+            $seen[strtolower($text)] = true;
+            $out[] = $text;
+        }
+
+        return $out;
+    }
+}
+
+if (! function_exists('faculty_research_preferences')) {
+    /** @param array<string,mixed> $rec @return list<string> */
+    function faculty_research_preferences(array $rec): array
+    {
+        foreach (['research_preferences', 'research_interests', 'research', 'preferences'] as $key) {
+            if (empty($rec[$key])) {
+                continue;
+            }
+            $list = faculty_plain_list($rec[$key]);
+            if ($list) {
+                return $list;
+            }
+        }
+
+        return [];
+    }
+}
+
+if (! function_exists('faculty_normalize_designation')) {
+    function faculty_normalize_designation(string $raw): string
+    {
+        $d = trim($raw);
+        $d = preg_replace('/^head of department\s*/i', '', $d) ?? $d;
+        $d = preg_replace('/\band head of department\b/i', '', $d) ?? $d;
+        $d = preg_replace('/\bhod\b/i', '', $d) ?? $d;
+        $d = faculty_soft_space($d);
+        $d = trim($d, " ,&");
+        if (preg_match('/^assit\.?\s*prof\.?$/i', $d) || preg_match('/^asst\.?\s*prof\.?$/i', $d) || preg_match('/^assistant\s*prof\.?$/i', $d)) {
+            return 'Assistant Professor';
+        }
+        if ($d === '' || strcasecmp($d, 'hod') === 0 || strcasecmp($d, 'head of department') === 0) {
+            return '';
+        }
+
+        return $d;
+    }
+}
+
+if (! function_exists('faculty_normalize_qualifications')) {
+    /** @param list<mixed>|mixed $items @return list<string> */
+    function faculty_normalize_qualifications($items): array
+    {
+        if (is_string($items)) {
+            $items = preg_split('/[\n;,|]+/', $items) ?: [];
+        }
+        if (! is_array($items)) {
+            return [];
+        }
+
+        return faculty_plain_list($items);
+    }
+}
+
+if (! function_exists('faculty_normalize_skills')) {
+    /** @param list<mixed>|mixed $items @return list<string> */
+    function faculty_normalize_skills($items): array
+    {
+        return faculty_plain_list($items);
+    }
+}
+
+if (! function_exists('faculty_explode_publications')) {
+    /** @param list<mixed>|mixed $pubs @return list<string> */
+    function faculty_explode_publications($pubs): array
+    {
+        if (is_string($pubs)) {
+            $pubs = preg_split('/\n+/', $pubs) ?: [];
+        }
+        if (! is_array($pubs)) {
+            return [];
+        }
+        $out = [];
+        $seen = [];
+        foreach ($pubs as $raw) {
+            $p = trim(preg_replace('/\s+/', ' ', (string) $raw) ?? '');
+            if ($p === '') {
+                continue;
+            }
+            $key = strtolower(substr(preg_replace('/\W+/', '', $p) ?? '', 0, 90));
+            if ($key === '' || isset($seen[$key])) {
+                continue;
+            }
+            $seen[$key] = true;
+            $out[] = $p;
+        }
+
+        return $out;
+    }
+}
+
+if (! function_exists('faculty_pub_year')) {
+    function faculty_pub_year(string $cite): string
+    {
+        if (preg_match('/\b((?:19|20)\d{2})\b/', $cite, $m)) {
+            return $m[1];
+        }
+
+        return '';
+    }
+}
+
+if (! function_exists('faculty_pub_url')) {
+    function faculty_pub_url(string $cite): string
+    {
+        if (preg_match('#https?://[^\s<>"]+#i', $cite, $m)) {
+            return rtrim($m[0], '.,);');
+        }
+        if (preg_match('/\b(10\.\d{4,}\/[^\s<>"]+)/', $cite, $m)) {
+            return 'https://doi.org/' . rtrim($m[1], '.,);');
+        }
+
+        return '';
     }
 }
