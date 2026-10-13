@@ -1,7 +1,535 @@
 <?php
 $preload_images = ['assets/images/slider/pmc-hero-poster.webp'];
 include('includes/header.php');
+
+$hospitals = [
+  [
+    'id'           => 'kth',
+    'code'         => 'KTH',
+    'name'         => 'Kuwait Teaching Hospital',
+    'desc'         => 'Major tertiary care centre providing comprehensive clinical rotations across medical and surgical specialties.',
+    'url'          => 'https://kth.riphahpsh.edu.pk/',
+    'dept_url'     => 'https://kth.prime.edu.pk/index.php',
+    'services_url' => 'https://kth.prime.edu.pk/serviceskth.html',
+    'highlights'   => ['Cardiology & CCU', 'Angioplasty 24/7', 'CT & MRI', 'Dialysis'],
+    'departments'  => [
+      'Medicine & Allied',
+      'Family Medicine & Allied',
+      'Medical ICU & Dialysis',
+      'Surgery & Allied',
+      'Surgical HDU',
+      'Cardiology & CCU',
+      'Gynaecology & Obstetrics',
+      'Paediatrics',
+      'Ophthalmology',
+      'ENT',
+      'Dermatology',
+      'Radiology',
+    ],
+    'services' => [
+      'Outpatient Department (OPD)',
+      'Casualty / Emergency',
+      'Laboratory',
+      'X-Ray',
+      'ECG',
+      'Angiography',
+      'Angioplasty',
+      'Operation Theatre',
+      'Pharmacy',
+      'Ultrasound',
+      'ECHO',
+      'ETT',
+      'CT Scan',
+      'MRI',
+      'Liver Cancer Treatment',
+      'Endoscopy / Colonoscopy',
+      'Dialysis',
+      'Labour Room',
+    ],
+    'facilities' => [],
+  ],
+  [
+    'id'           => 'mth',
+    'code'         => 'MTH',
+    'name'         => 'Mercy Teaching Hospital',
+    'desc'         => 'Community-focused hospital with high patient volume, ideal for broad, everyday clinical experience.',
+    'url'          => 'https://mth.riphahpsh.edu.pk/',
+    'dept_url'     => 'https://mth.prime.edu.pk/index.php',
+    'services_url' => 'https://mth.prime.edu.pk/services2mth.php',
+    'highlights'   => ['Gynae & Obstetrics', 'Nursery / NICU', 'Emergency 24/7', 'Psychiatry'],
+    'departments'  => [
+      'General Medicine',
+      'Pulmonology',
+      'General Surgery',
+      'Gynaecology & Obstetrics',
+      'Paediatrics',
+      'Nursery / NICU',
+      'Orthopaedics',
+      'Endocrinology',
+      'Ophthalmology',
+      'Dermatology',
+      'Radiology',
+      'Anaesthesiology',
+      'Pathology',
+      'ICU',
+      'Psychiatry',
+    ],
+    'services' => [
+      'Outpatient Department (OPD)',
+      'Casualty / Emergency',
+      'Laboratory',
+      'X-Ray',
+      'ECG / ECHO',
+      'Operation Theatre',
+      'Pharmacy',
+      'Ultrasound',
+      'Labour Room',
+    ],
+    'facilities' => [],
+  ],
+  [
+    'id'           => 'pth',
+    'code'         => 'PTH',
+    'name'         => 'Prime Teaching Hospital',
+    'desc'         => 'Modern diagnostic and surgical facilities for intensive clinical and surgical training rotations.',
+    'url'          => 'https://pth.riphahpsh.edu.pk/',
+    'dept_url'     => 'https://pth.riphahpsh.edu.pk/prm_opd.php',
+    'services_url' => 'https://pth.riphahpsh.edu.pk/prm_services.php',
+    'highlights'   => ['Neurosurgery', 'Cardiac Surgery', 'ERCP & Endoscopy', 'CT & MRI'],
+    'departments'  => [
+      'Gastroenterology & Hepatology',
+      'Medicine',
+      'Neurosurgery',
+      'Neurology',
+      'Orthopaedics',
+      'Urology',
+      'Nephrology',
+      'Paediatrics',
+      'Gynaecology & Obstetrics',
+      'General Surgery',
+      'Vascular & Endovascular Surgery',
+      'Pulmonology',
+      'Radiology',
+      'Ophthalmology',
+      'Psychiatry',
+      'Cardiology',
+      'Cardiac Surgery',
+      'Family Medicine',
+      'Accident & Emergency',
+    ],
+    'services' => [
+      'Specialist OPD',
+      'General OPD',
+      'Emergency (Casualty)',
+      'ICU (Intensive Care Unit)',
+      'Operation Theatre',
+      'Laboratory',
+      'Special Chemistry Lab Tests',
+      'Pharmacy',
+      'Ultrasound',
+      'X-Ray',
+      'CT Scan',
+      'MRI',
+      'Endoscopy, Colonoscopy & Sigmoidoscopy',
+      'ERCP, PEG Tube & Metallic Stenting',
+      'ECG',
+      'ECHO',
+      'ETT',
+      'Physiotherapy',
+      'Wards & Private Rooms',
+    ],
+    'facilities' => ['Cafeteria', 'Masjid', '24/7 Generator Support', 'Spacious Parking'],
+  ],
+];
+
+if (!function_exists('hs_e')) {
+  function hs_e($s)
+  {
+    return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
+  }
+}
+
+
 ?>
+
+<style>
+  /* ═══ Home: Teaching Hospitals (extends existing .hosp-card) ═══ */
+  .home-hospitals {
+    --hh-gold: var(--gold-light, #e3c47d);
+    --hh-teal: var(--teal, #0e9384);
+    --hh-navy: var(--navy, #0b2545);
+    --hh-line: rgba(255, 255, 255, .12);
+  }
+
+  /* Card additions */
+  .hosp-card--rich .hosp-desc {
+    flex-grow: 0;
+    margin-bottom: 18px;
+  }
+
+  @media (min-width: 992px) {
+    .hosp-card--rich .hosp-desc {
+      min-height: calc(3 * 1.75em);
+    }
+  }
+
+  .hosp-facts {
+    display: flex;
+    margin: 0 0 16px;
+    padding: 14px 0;
+    list-style: none;
+    border-top: 1px solid var(--hh-line);
+    border-bottom: 1px solid var(--hh-line);
+  }
+
+  .hosp-facts li {
+    flex: 1;
+    font-family: var(--font-head, 'Montserrat', sans-serif);
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .55);
+  }
+
+  .hosp-facts li+li {
+    padding-left: 14px;
+    border-left: 1px solid var(--hh-line);
+  }
+
+  .hosp-facts strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    line-height: 1.1;
+    color: #fff;
+  }
+
+  .hosp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex-grow: 1;
+    align-content: flex-start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hosp-tags li {
+    padding: 4px 10px;
+    font-family: var(--font-body, 'Quicksand', sans-serif);
+    font-size: .74rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .82);
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid var(--hh-line);
+    border-radius: 999px;
+  }
+
+  .hosp-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .hosp-actions .hosp-link {
+    margin-top: 0;
+    text-decoration: none;
+  }
+
+  .hosp-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    font-family: var(--font-head, 'Montserrat', sans-serif);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: var(--hh-navy);
+    text-decoration: none;
+    background: var(--hh-gold);
+    border-radius: 999px;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .hosp-more:hover,
+  .hosp-more:focus-visible {
+    color: var(--hh-navy);
+    background: #fff;
+  }
+
+  /* ── Detail dialog ── */
+  .hosp-dialog {
+    width: min(1000px, calc(100vw - 32px));
+    max-height: min(86vh, 760px);
+    padding: 0;
+    color: #13233a;
+    background: #fff;
+    border: 0;
+    border-radius: var(--r-lg, 18px);
+    box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .6);
+    overflow: hidden;
+  }
+
+  .hosp-dialog[open] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    animation: hdIn .25s ease both;
+  }
+
+  .hosp-dialog::backdrop {
+    background: rgba(6, 18, 36, .6);
+    backdrop-filter: blur(3px);
+  }
+
+  @keyframes hdIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 12px)) scale(.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .hd-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 26px 18px;
+    color: #fff;
+    background: var(--hh-navy);
+    border-top: 3px solid var(--hh-gold);
+  }
+
+  .hd-code {
+    font-family: var(--font-head, 'Montserrat', sans-serif);
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    color: var(--hh-gold);
+  }
+
+  .hd-head h3 {
+    margin: 4px 0 0;
+    font-family: var(--font-head, 'Montserrat', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .hd-close {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    background: rgba(255, 255, 255, .1);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .hd-close:hover,
+  .hd-close:focus-visible {
+    background: rgba(255, 255, 255, .22);
+  }
+
+  .hd-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding: 22px 26px;
+    overflow-y: auto;
+    background: #f4f7fa;
+  }
+
+  .hd-panel {
+    padding: 18px 20px 8px;
+    background: #fff;
+    border: 1px solid #e3e9f0;
+    border-radius: 14px;
+  }
+
+  .hd-panel-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+    border-bottom: 2px solid var(--hh-navy);
+  }
+
+  .hd-panel-ico {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: .9rem;
+    color: var(--hh-teal);
+    background: rgba(14, 147, 132, .1);
+    border-radius: 8px;
+  }
+
+  .hd-panel-head h4 {
+    flex: 1;
+    margin: 0;
+    font-family: var(--font-head, 'Montserrat', sans-serif);
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--hh-navy);
+  }
+
+  .hd-count {
+    min-width: 28px;
+    padding: 2px 8px;
+    font-family: var(--font-head, 'Montserrat', sans-serif);
+    font-size: .72rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--hh-navy);
+    background: var(--hh-gold);
+    border-radius: 999px;
+  }
+
+  .hd-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hd-list li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 8px 0 8px 16px;
+    font-size: .82rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #2a3b52;
+    border-bottom: 1px solid #eef2f6;
+  }
+
+  .hd-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    background: var(--hh-teal);
+    border-radius: 50%;
+  }
+
+  .hd-list li:last-child,
+  .hd-list li:nth-last-child(2):nth-child(odd) {
+    border-bottom: 0;
+  }
+
+  .hd-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+    padding: 14px 26px;
+    font-size: .82rem;
+    background: #f6f8fb;
+    border-top: 1px solid #e3e9f0;
+  }
+
+  .hd-foot a {
+    font-weight: 600;
+    color: var(--hh-teal);
+    text-decoration: none;
+  }
+
+  .hd-foot a:hover {
+    text-decoration: underline;
+  }
+
+  .hd-foot .hd-visit {
+    margin-left: auto;
+    padding: 8px 16px;
+    color: #fff;
+    background: var(--hh-navy);
+    border-radius: 999px;
+  }
+
+  .hd-foot .hd-visit:hover {
+    text-decoration: none;
+    background: var(--hh-teal);
+  }
+
+  html.hosp-dialog-open {
+    overflow: hidden;
+  }
+
+  @media (max-width: 767.98px) {
+    .hd-body {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 14px;
+    }
+
+    .hd-panel {
+      padding: 16px 16px 6px;
+    }
+
+    .hd-head,
+    .hd-foot {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .hd-foot .hd-visit {
+      margin-left: 0;
+    }
+
+    .hosp-dialog {
+      max-height: 90vh;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hd-list {
+      grid-template-columns: 1fr;
+    }
+
+    .hd-list li:nth-last-child(2):nth-child(odd) {
+      border-bottom: 1px solid #eef2f6;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hosp-dialog[open] {
+      animation: none;
+    }
+  }
+</style>
 
 <!-- ═══ HERO — cinematic campus film ═══ -->
 <div id="heroSlider" class="hero-cinematic" aria-label="Peshawar Medical College campus film">
@@ -20,8 +548,7 @@ include('includes/header.php');
         disablepictureinpicture
         aria-hidden="true"
         data-src-720="assets/videos/pmc-hero-720.mp4"
-        data-src-480="assets/videos/pmc-hero-480.mp4"
-      ></video>
+        data-src-480="assets/videos/pmc-hero-480.mp4"></video>
     </div>
     <div class="slide-overlay slide-overlay-film"></div>
     <div class="container slide-inner">
@@ -174,41 +701,87 @@ include('includes/header.php');
 </section>
 
 <!-- ═══ TEACHING HOSPITALS ═══ -->
-<section class="pmc-section bg-navy home-hospitals" id="hospitals">
+<section class="pmc-section bg-navy home-hospitals" id="hospitals" data-hosp>
   <div class="container">
     <div class="home-sec-head text-center fu">
       <span class="sec-eyebrow">Affiliated Teaching Hospitals</span>
       <h2 class="sec-title">Clinical Training at Its Finest</h2>
       <p class="sec-desc">Students rotate through three affiliated teaching hospitals for comprehensive, real-world clinical exposure throughout MBBS training.</p>
     </div>
+
     <div class="row g-4">
-      <div class="col-lg-4 col-md-6 fu fu-delay-1">
-        <a class="hosp-card" href="https://kth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
-          <span class="hosp-code">KTH</span>
-          <h3 class="hosp-name">Kuwait Teaching Hospital</h3>
-          <p class="hosp-desc">Major tertiary care centre providing comprehensive clinical rotations across medical and surgical specialties.</p>
-          <span class="hosp-link">Visit hospital <i class="bi bi-arrow-right"></i></span>
-        </a>
-      </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-2">
-        <a class="hosp-card" href="https://mth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
-          <span class="hosp-code">MTH</span>
-          <h3 class="hosp-name">Mercy Teaching Hospital</h3>
-          <p class="hosp-desc">Focused on community healthcare with high patient volume — ideal for broad clinical experience.</p>
-          <span class="hosp-link">Visit hospital <i class="bi bi-arrow-right"></i></span>
-        </a>
-      </div>
-      <div class="col-lg-4 col-md-6 fu fu-delay-3">
-        <a class="hosp-card" href="https://pth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
-          <span class="hosp-code">PTH</span>
-          <h3 class="hosp-name">Prime Teaching Hospital</h3>
-          <p class="hosp-desc">Modern diagnostic and surgical facilities for intensive clinical and surgical training rotations.</p>
-          <span class="hosp-link">Visit hospital <i class="bi bi-arrow-right"></i></span>
-        </a>
-      </div>
+      <?php foreach ($hospitals as $i => $h): ?>
+        <div class="col-lg-4 col-md-6 fu fu-delay-<?= $i + 1 ?>">
+          <article class="hosp-card hosp-card--rich">
+            <span class="hosp-code"><?= hs_e($h['code']) ?></span>
+            <h3 class="hosp-name"><?= hs_e($h['name']) ?></h3>
+            <p class="hosp-desc"><?= hs_e($h['desc']) ?></p>
+
+            <ul class="hosp-facts">
+              <li><strong><?= count($h['departments']) ?></strong> Departments</li>
+              <li><strong><?= count($h['services']) ?></strong> Services</li>
+            </ul>
+
+            <!-- <ul class="hosp-tags" aria-label="Highlights">
+              <?php foreach ($h['highlights'] as $t): ?><li><?= hs_e($t) ?></li><?php endforeach; ?>
+            </ul> -->
+
+            <div class="hosp-actions">
+              <a class="hosp-more" href="<?= hs_e($h['services_url']) ?>" target="_blank" rel="noopener"
+                data-hosp-open="hosp-dlg-<?= hs_e($h['id']) ?>">
+                <i class="bi bi-list-ul" aria-hidden="true"></i> Departments &amp; services
+              </a>
+              <a class="hosp-link" href="<?= hs_e($h['url']) ?>" target="_blank" rel="noopener">Visit <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      <?php endforeach; ?>
     </div>
   </div>
+
+  <?php foreach ($hospitals as $h): ?>
+    <dialog class="hosp-dialog" id="hosp-dlg-<?= hs_e($h['id']) ?>" aria-labelledby="hosp-dlg-<?= hs_e($h['id']) ?>-title">
+      <div class="hd-head">
+        <div>
+          <span class="hd-code"><?= hs_e($h['code']) ?></span>
+          <h3 id="hosp-dlg-<?= hs_e($h['id']) ?>-title"><?= hs_e($h['name']) ?></h3>
+        </div>
+        <button type="button" class="hd-close" data-hosp-close aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+
+      <div class="hd-body">
+        <section class="hd-panel">
+          <header class="hd-panel-head">
+            <span class="hd-panel-ico" aria-hidden="true"><i class="bi bi-diagram-3"></i></span>
+            <h4>Departments</h4>
+            <span class="hd-count"><?= count($h['departments']) ?></span>
+          </header>
+          <ul class="hd-list">
+            <?php foreach ($h['departments'] as $d): ?><li><?= hs_e($d) ?></li><?php endforeach; ?>
+          </ul>
+        </section>
+
+        <section class="hd-panel">
+          <header class="hd-panel-head">
+            <span class="hd-panel-ico" aria-hidden="true"><i class="bi bi-clipboard2-pulse"></i></span>
+            <h4>Services</h4>
+            <span class="hd-count"><?= count($h['services']) ?></span>
+          </header>
+          <ul class="hd-list">
+            <?php foreach ($h['services'] as $sv): ?><li><?= hs_e($sv) ?></li><?php endforeach; ?>
+          </ul>
+        </section>
+      </div>
+
+      <div class="hd-foot">
+        <a href="<?= hs_e($h['dept_url']) ?>" target="_blank" rel="noopener">All departments <i class="bi bi-box-arrow-up-right"></i></a>
+        <a href="<?= hs_e($h['services_url']) ?>" target="_blank" rel="noopener">Services page <i class="bi bi-box-arrow-up-right"></i></a>
+        <a class="hd-visit" href="<?= hs_e($h['url']) ?>" target="_blank" rel="noopener">Visit hospital website <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </dialog>
+  <?php endforeach; ?>
 </section>
+
 
 <!-- ═══ E-HEALTH CTA ═══ -->
 <section class="ehealth-home-strip" id="e-health">
@@ -505,4 +1078,56 @@ include('includes/header.php');
   </div>
 </section>
 
+<script>
+  /* Home: Teaching Hospitals detail dialogs */
+  (function() {
+    'use strict';
+
+    function boot() {
+      var root = document.querySelector('[data-hosp]');
+      if (!root || typeof HTMLDialogElement === 'undefined') return; // links fall back to hospital services pages
+
+      var lastTrigger = null;
+
+      function close(dlg) {
+        if (dlg.open) dlg.close();
+      }
+
+      root.querySelectorAll('[data-hosp-open]').forEach(function(btn) {
+        var dlg = document.getElementById(btn.getAttribute('data-hosp-open'));
+        if (!dlg) return;
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-haspopup', 'dialog');
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          lastTrigger = btn;
+          dlg.showModal();
+          document.documentElement.classList.add('hosp-dialog-open');
+        });
+      });
+
+      root.querySelectorAll('.hosp-dialog').forEach(function(dlg) {
+        dlg.querySelectorAll('[data-hosp-close]').forEach(function(b) {
+          b.addEventListener('click', function() {
+            close(dlg);
+          });
+        });
+        // Click on backdrop closes
+        dlg.addEventListener('click', function(e) {
+          if (e.target !== dlg) return;
+          var r = dlg.getBoundingClientRect();
+          var inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+          if (!inside) close(dlg);
+        });
+        dlg.addEventListener('close', function() {
+          document.documentElement.classList.remove('hosp-dialog-open');
+          if (lastTrigger) lastTrigger.focus();
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+    else boot();
+  })();
+</script>
 <?php include('includes/footer.php'); ?>
