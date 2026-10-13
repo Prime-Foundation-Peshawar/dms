@@ -1400,6 +1400,12 @@ function faculty_public_directory(): array {
         continue;
       }
       $depName = faculty_canonical_dept((string) ($row['depName'] ?? ''));
+      $rec = faculty_profile_lookup(faculty_slug($emp));
+      $cvDept = faculty_canonical_dept((string) ($rec['department'] ?? ''));
+      // HRMS sometimes parks academic staff under Administration; keep the CV department.
+      if ($depName === 'Administration' && $cvDept !== '' && $cvDept !== 'Administration') {
+        $depName = $cvDept;
+      }
       if (!faculty_is_public_dept($depName)) {
         continue;
       }

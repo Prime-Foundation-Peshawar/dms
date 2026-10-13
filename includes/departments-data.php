@@ -207,7 +207,7 @@ $academic_departments = [
         'reg' => '12281-N',
       ],
       [
-        'name' => 'Professor Dr. Sardar Muhammad',
+        'name' => 'Assistant Professor Dr. Sardar Muhammad',
         'qualification' => 'MBBS, DOMS, M.Phil Microbiology',
         'reg' => '',
       ],

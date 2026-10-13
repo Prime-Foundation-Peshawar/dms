@@ -34,7 +34,7 @@ if (!empty($extra['photo'])) {
     $photo = $extra['photo'];
   }
 }
-$desig = faculty_normalize_designation((string) ($extra['designation'] ?? $directory['desTitle'] ?? ''));
+$desig = faculty_normalize_designation((string) ($directory['desTitle'] ?? $extra['designation'] ?? ''));
 $dept = (string) ($extra['department'] ?? $directory['depName'] ?? '');
 $is_hod = !empty($extra['hod']);
 $dirQuals = [];
