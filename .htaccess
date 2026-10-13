@@ -1,4 +1,4 @@
-﻿DirectoryIndex index.php index.html
+DirectoryIndex index.php index.html
 
 # Staging /dms uses PHP 8.4 for CI4. Production stays on 8.2 unless MultiPHP is changed.
 <IfModule mime_module>
