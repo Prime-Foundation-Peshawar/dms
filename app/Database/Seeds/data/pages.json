@@ -1,0 +1,673 @@
+[
+    {
+        "slug": "home",
+        "title": "Peshawar Medical College | PMC — MBBS in Peshawar",
+        "label": "Home",
+        "section": "College",
+        "description": "PMC Peshawar: a top private medical college in Peshawar and KP. PM&DC recognized MBBS, #1 private in KP (2024). Teaching hospitals, KMU admissions, Warsak Road.",
+        "view_key": "home",
+        "seo": {
+            "label": "Home",
+            "section": "College",
+            "title": "Peshawar Medical College | PMC — MBBS in Peshawar",
+            "description": "PMC Peshawar: a top private medical college in Peshawar and KP. PM&DC recognized MBBS, #1 private in KP (2024). Teaching hospitals, KMU admissions, Warsak Road.",
+            "priority": "1.0",
+            "changefreq": "weekly"
+        },
+        "status": "published",
+        "priority": "1.0",
+        "changefreq": "weekly"
+    },
+    {
+        "slug": "pmc",
+        "title": "PMC Peshawar | MBBS at a Private Medical College in KP",
+        "label": "Peshawar Medical College",
+        "section": "College",
+        "description": "MBBS in Peshawar at PMC — a private medical college with PM&DC recognition, teaching hospitals, and first rank among private medical colleges of KP in 2024.",
+        "view_key": "pmc",
+        "seo": {
+            "label": "Peshawar Medical College",
+            "section": "College",
+            "title": "PMC Peshawar | MBBS at a Private Medical College in KP",
+            "description": "MBBS in Peshawar at PMC — a private medical college with PM&DC recognition, teaching hospitals, and first rank among private medical colleges of KP in 2024.",
+            "priority": "0.95",
+            "changefreq": "monthly",
+            "schema": "Course",
+            "course_name": "MBBS"
+        },
+        "status": "published",
+        "priority": "0.95",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "about",
+        "title": "About PMC | Medical College in Peshawar since 2005",
+        "label": "About Us",
+        "section": "College",
+        "description": "About Peshawar Medical College: medical education in Peshawar since 2005, three teaching hospitals, PM&DC recognition, and Riphah International University affiliation.",
+        "view_key": "about",
+        "seo": {
+            "label": "About Us",
+            "section": "College",
+            "title": "About PMC | Medical College in Peshawar since 2005",
+            "description": "About Peshawar Medical College: medical education in Peshawar since 2005, three teaching hospitals, PM&DC recognition, and Riphah International University affiliation.",
+            "priority": "0.8",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.8",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "admissions",
+        "title": "PMC Admission | MBBS & KMU Medical College Peshawar",
+        "label": "Admissions",
+        "section": "Academics",
+        "description": "PMC admission for MBBS via KMU and PM&DC. Merit, overseas, and foreign seats at a private medical college in Peshawar. Also FCPS\/MCPS postgraduate pathways.",
+        "view_key": "admissions",
+        "seo": {
+            "label": "Admissions",
+            "section": "Academics",
+            "title": "PMC Admission | MBBS & KMU Medical College Peshawar",
+            "description": "PMC admission for MBBS via KMU and PM&DC. Merit, overseas, and foreign seats at a private medical college in Peshawar. Also FCPS\/MCPS postgraduate pathways.",
+            "priority": "0.9",
+            "changefreq": "weekly",
+            "schema": "Course",
+            "course_name": "MBBS"
+        },
+        "status": "published",
+        "priority": "0.9",
+        "changefreq": "weekly"
+    },
+    {
+        "slug": "vision-mission",
+        "title": "Vision & Mission | Peshawar Medical College",
+        "label": "Vision & Mission",
+        "section": "College",
+        "description": "Vision and mission of Peshawar Medical College: professional competence, ethical values, and medical education for KP and Pakistan.",
+        "view_key": "vision-mission",
+        "seo": {
+            "label": "Vision & Mission",
+            "section": "College",
+            "title": "Vision & Mission | Peshawar Medical College",
+            "description": "Vision and mission of Peshawar Medical College: professional competence, ethical values, and medical education for KP and Pakistan.",
+            "priority": "0.5",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.5",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "contact",
+        "title": "Contact Peshawar Medical College | Warsak Road",
+        "label": "Contact Us",
+        "section": "College",
+        "description": "Contact Peshawar Medical College on Warsak Road, Peshawar. Phone, email, and campus map for MBBS admissions and general enquiries.",
+        "view_key": "contact",
+        "seo": {
+            "label": "Contact Us",
+            "section": "College",
+            "title": "Contact Peshawar Medical College | Warsak Road",
+            "description": "Contact Peshawar Medical College on Warsak Road, Peshawar. Phone, email, and campus map for MBBS admissions and general enquiries.",
+            "priority": "0.7",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.7",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "departments",
+        "title": "Medical Departments | Peshawar Medical College",
+        "label": "Departments",
+        "section": "Academics",
+        "description": "Basic and clinical medical departments at Peshawar Medical College — anatomy to medicine, surgery, and specialties for MBBS training in Peshawar.",
+        "view_key": "departments",
+        "seo": {
+            "label": "Departments",
+            "section": "Academics",
+            "title": "Medical Departments | Peshawar Medical College",
+            "description": "Basic and clinical medical departments at Peshawar Medical College — anatomy to medicine, surgery, and specialties for MBBS training in Peshawar.",
+            "priority": "0.7",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.7",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "faculty",
+        "title": "Faculty | Peshawar Medical College",
+        "label": "Faculty",
+        "section": "College",
+        "description": "Meet PM&DC registered faculty at Peshawar Medical College, a leading medical college in Peshawar for MBBS and postgraduate teaching.",
+        "view_key": "faculty",
+        "seo": {
+            "label": "Faculty",
+            "section": "College",
+            "title": "Faculty | Peshawar Medical College",
+            "description": "Meet PM&DC registered faculty at Peshawar Medical College, a leading medical college in Peshawar for MBBS and postgraduate teaching.",
+            "priority": "0.7",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.7",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "pg-medical-education",
+        "title": "FCPS Training Peshawar | CPSP PG at PMC",
+        "label": "PG Medical Education",
+        "section": "Academics",
+        "description": "FCPS and MCPS training in Peshawar at PMC — CPSP-recognised postgraduate medical education in teaching hospitals.",
+        "view_key": "pg-medical-education",
+        "seo": {
+            "label": "PG Medical Education",
+            "section": "Academics",
+            "title": "FCPS Training Peshawar | CPSP PG at PMC",
+            "description": "FCPS and MCPS training in Peshawar at PMC — CPSP-recognised postgraduate medical education in teaching hospitals.",
+            "priority": "0.8",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.8",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "pg-surgery-residency",
+        "title": "PG General Surgery Residency | PMC Peshawar",
+        "label": "PG Surgery Residency",
+        "section": "Academics",
+        "description": "Postgraduate general surgery residency at Peshawar Medical College — structured surgical training in Peshawar teaching hospitals.",
+        "view_key": "pg-surgery-residency",
+        "seo": {
+            "label": "PG Surgery Residency",
+            "section": "Academics",
+            "title": "PG General Surgery Residency | PMC Peshawar",
+            "description": "Postgraduate general surgery residency at Peshawar Medical College — structured surgical training in Peshawar teaching hospitals.",
+            "priority": "0.6",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.6",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "curriculum",
+        "title": "MBBS Curriculum | Peshawar Medical College",
+        "label": "Curriculum",
+        "section": "Academics",
+        "description": "MBBS curriculum at Peshawar Medical College: integrated basic sciences, clinical training, and PM&DC-aligned medical education in Peshawar.",
+        "view_key": "curriculum",
+        "seo": {
+            "label": "Curriculum",
+            "section": "Academics",
+            "title": "MBBS Curriculum | Peshawar Medical College",
+            "description": "MBBS curriculum at Peshawar Medical College: integrated basic sciences, clinical training, and PM&DC-aligned medical education in Peshawar.",
+            "priority": "0.5",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.5",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "examinations",
+        "title": "Examinations | Peshawar Medical College",
+        "label": "Examinations",
+        "section": "Academics",
+        "description": "Examinations and assessments for MBBS and postgraduate students at Peshawar Medical College, Peshawar.",
+        "view_key": "examinations",
+        "seo": {
+            "label": "Examinations",
+            "section": "Academics",
+            "title": "Examinations | Peshawar Medical College",
+            "description": "Examinations and assessments for MBBS and postgraduate students at Peshawar Medical College, Peshawar.",
+            "priority": "0.4",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "student-guide",
+        "title": "Student Guide | Peshawar Medical College",
+        "label": "Student Guide",
+        "section": "Academics",
+        "description": "Student guide for MBBS students at Peshawar Medical College — policies, facilities, and campus life in Peshawar.",
+        "view_key": "student-guide",
+        "seo": {
+            "label": "Student Guide",
+            "section": "Academics",
+            "title": "Student Guide | Peshawar Medical College",
+            "description": "Student guide for MBBS students at Peshawar Medical College — policies, facilities, and campus life in Peshawar.",
+            "priority": "0.4",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "faculty-research",
+        "title": "Faculty Research | Peshawar Medical College",
+        "label": "Faculty Research",
+        "section": "Academics",
+        "description": "Faculty research and publications at Peshawar Medical College, supporting medical research culture in Peshawar and KP.",
+        "view_key": "faculty-research",
+        "seo": {
+            "label": "Faculty Research",
+            "section": "Academics",
+            "title": "Faculty Research | Peshawar Medical College",
+            "description": "Faculty research and publications at Peshawar Medical College, supporting medical research culture in Peshawar and KP.",
+            "priority": "0.5",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.5",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "clinical-skill-labs",
+        "title": "Clinical Skill Labs | PMC Peshawar",
+        "label": "Clinical Skill Labs",
+        "section": "Academics",
+        "description": "Clinical skill laboratories at Peshawar Medical College for hands-on MBBS training before hospital practice.",
+        "view_key": "clinical-skill-labs",
+        "seo": {
+            "label": "Clinical Skill Labs",
+            "section": "Academics",
+            "title": "Clinical Skill Labs | PMC Peshawar",
+            "description": "Clinical skill laboratories at Peshawar Medical College for hands-on MBBS training before hospital practice.",
+            "priority": "0.5",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.5",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "e-health",
+        "title": "E-Health Service | Peshawar Medical College",
+        "label": "E-Health",
+        "section": "College",
+        "description": "Free e-health information service from Peshawar Medical College — public health guidance by phone for communities in KP.",
+        "view_key": "e-health",
+        "seo": {
+            "label": "E-Health",
+            "section": "College",
+            "title": "E-Health Service | Peshawar Medical College",
+            "description": "Free e-health information service from Peshawar Medical College — public health guidance by phone for communities in KP.",
+            "priority": "0.5",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.5",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "newsletter",
+        "title": "Newsletter | Peshawar Medical College",
+        "label": "Newsletter",
+        "section": "News",
+        "description": "Campus and college newsletters from the Department of Medical Sciences, Peshawar Medical College.",
+        "view_key": "newsletter",
+        "seo": {
+            "label": "Newsletter",
+            "section": "News",
+            "title": "Newsletter | Peshawar Medical College",
+            "description": "Campus and college newsletters from the Department of Medical Sciences, Peshawar Medical College.",
+            "priority": "0.4",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "virtual-museum",
+        "title": "Virtual Museum | Peshawar Medical College",
+        "label": "Virtual Museum",
+        "section": "Academics",
+        "description": "Virtual museum collections from Peshawar Medical College for students and visitors.",
+        "view_key": "virtual-museum",
+        "seo": {
+            "label": "Virtual Museum",
+            "section": "Academics",
+            "title": "Virtual Museum | Peshawar Medical College",
+            "description": "Virtual museum collections from Peshawar Medical College for students and visitors.",
+            "priority": "0.3",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "student-exchange",
+        "title": "Student Exchange | Peshawar Medical College",
+        "label": "Student Exchange",
+        "section": "Academics",
+        "description": "Student exchange and elective opportunities at Peshawar Medical College, Peshawar.",
+        "view_key": "student-exchange",
+        "seo": {
+            "label": "Student Exchange",
+            "section": "Academics",
+            "title": "Student Exchange | Peshawar Medical College",
+            "description": "Student exchange and elective opportunities at Peshawar Medical College, Peshawar.",
+            "priority": "0.4",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "gallery",
+        "title": "Photo Gallery | Peshawar Medical College",
+        "label": "Gallery",
+        "section": "News",
+        "description": "Photos of campus life, labs, and events at Peshawar Medical College, Peshawar.",
+        "view_key": "gallery",
+        "seo": {
+            "label": "Gallery",
+            "section": "News",
+            "title": "Photo Gallery | Peshawar Medical College",
+            "description": "Photos of campus life, labs, and events at Peshawar Medical College, Peshawar.",
+            "priority": "0.3",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "all-news",
+        "title": "News | Peshawar Medical College",
+        "label": "News",
+        "section": "News",
+        "description": "News and notices from Peshawar Medical College — admissions, rankings, and campus updates.",
+        "view_key": "all-news",
+        "seo": {
+            "label": "News",
+            "section": "News",
+            "title": "News | Peshawar Medical College",
+            "description": "News and notices from Peshawar Medical College — admissions, rankings, and campus updates.",
+            "priority": "0.5",
+            "changefreq": "weekly"
+        },
+        "status": "published",
+        "priority": "0.5",
+        "changefreq": "weekly"
+    },
+    {
+        "slug": "events",
+        "title": "Events | Peshawar Medical College",
+        "label": "Events",
+        "section": "News",
+        "description": "Events at Peshawar Medical College including academic conferences and student activities.",
+        "view_key": "events",
+        "seo": {
+            "label": "Events",
+            "section": "News",
+            "title": "Events | Peshawar Medical College",
+            "description": "Events at Peshawar Medical College including academic conferences and student activities.",
+            "priority": "0.4",
+            "changefreq": "weekly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "weekly"
+    },
+    {
+        "slug": "single-news",
+        "title": "Campus News | Peshawar Medical College",
+        "label": "News Article",
+        "section": "News",
+        "description": "News from Peshawar Medical College, a leading medical college in Peshawar.",
+        "view_key": "single-news",
+        "seo": {
+            "label": "News Article",
+            "section": "News",
+            "title": "Campus News | Peshawar Medical College",
+            "description": "News from Peshawar Medical College, a leading medical college in Peshawar.",
+            "priority": "0.2",
+            "changefreq": "monthly",
+            "og_type": "article"
+        },
+        "status": "published",
+        "priority": "0.2",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "event-single",
+        "title": "Event | Peshawar Medical College",
+        "label": "Event",
+        "section": "News",
+        "description": "Event details from Peshawar Medical College, Peshawar.",
+        "view_key": "event-single",
+        "seo": {
+            "label": "Event",
+            "section": "News",
+            "title": "Event | Peshawar Medical College",
+            "description": "Event details from Peshawar Medical College, Peshawar.",
+            "priority": "0.2",
+            "changefreq": "monthly",
+            "og_type": "article"
+        },
+        "status": "published",
+        "priority": "0.2",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "vacant-seats",
+        "title": "MBBS Vacant Seats Peshawar | PMC Migration",
+        "label": "Vacant Seats",
+        "section": "Academics",
+        "description": "Vacant MBBS seats and migration at PMC Peshawar, a private medical college on Warsak Road.",
+        "view_key": "vacant-seats",
+        "seo": {
+            "label": "Vacant Seats",
+            "section": "Academics",
+            "title": "MBBS Vacant Seats Peshawar | PMC Migration",
+            "description": "Vacant MBBS seats and migration at PMC Peshawar, a private medical college on Warsak Road.",
+            "priority": "0.5",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.5",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "portal",
+        "title": "Student Portal | Peshawar Medical College",
+        "label": "Portal",
+        "section": "College",
+        "description": "Student and faculty portal links for Peshawar Medical College.",
+        "view_key": "portal",
+        "seo": {
+            "label": "Portal",
+            "section": "College",
+            "title": "Student Portal | Peshawar Medical College",
+            "description": "Student and faculty portal links for Peshawar Medical College.",
+            "priority": "0.3",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "portal-login",
+        "title": "Portal Login | Peshawar Medical College",
+        "label": "Portal Login",
+        "section": "College",
+        "description": "Portal login for Peshawar Medical College students and staff.",
+        "view_key": "portal-login",
+        "seo": {
+            "label": "Portal Login",
+            "section": "College",
+            "title": "Portal Login | Peshawar Medical College",
+            "description": "Portal login for Peshawar Medical College students and staff.",
+            "priority": "0.3",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "umr",
+        "title": "UMR Society | Peshawar Medical College",
+        "label": "UMR",
+        "section": "College",
+        "description": "Undergraduate Medical Research Society at Peshawar Medical College.",
+        "view_key": "umr",
+        "seo": {
+            "label": "UMR",
+            "section": "College",
+            "title": "UMR Society | Peshawar Medical College",
+            "description": "Undergraduate Medical Research Society at Peshawar Medical College.",
+            "priority": "0.4",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "student-research",
+        "title": "Student Research | Peshawar Medical College",
+        "label": "Student Research",
+        "section": "Academics",
+        "description": "Student research opportunities at Peshawar Medical College, Peshawar.",
+        "view_key": "student-research",
+        "seo": {
+            "label": "Student Research",
+            "section": "Academics",
+            "title": "Student Research | Peshawar Medical College",
+            "description": "Student research opportunities at Peshawar Medical College, Peshawar.",
+            "priority": "0.4",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "faculty-all",
+        "title": "All Faculty | Peshawar Medical College",
+        "label": "All Faculty",
+        "section": "College",
+        "description": "Full faculty directory of Peshawar Medical College.",
+        "view_key": "faculty-all",
+        "seo": {
+            "label": "All Faculty",
+            "section": "College",
+            "title": "All Faculty | Peshawar Medical College",
+            "description": "Full faculty directory of Peshawar Medical College.",
+            "priority": "0.4",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "literary-society",
+        "title": "Literary Society | Peshawar Medical College",
+        "label": "Literary Society",
+        "section": "College",
+        "description": "Society for literature and arts at Peshawar Medical College.",
+        "view_key": "literary-society",
+        "seo": {
+            "label": "Literary Society",
+            "section": "College",
+            "title": "Literary Society | Peshawar Medical College",
+            "description": "Society for literature and arts at Peshawar Medical College.",
+            "priority": "0.3",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "sports-society",
+        "title": "Sports Society | Peshawar Medical College",
+        "label": "Sports Society",
+        "section": "College",
+        "description": "Sports and athletics at Peshawar Medical College, Peshawar.",
+        "view_key": "sports-society",
+        "seo": {
+            "label": "Sports Society",
+            "section": "College",
+            "title": "Sports Society | Peshawar Medical College",
+            "description": "Sports and athletics at Peshawar Medical College, Peshawar.",
+            "priority": "0.3",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "social-welfare",
+        "title": "Social Welfare Society | Peshawar Medical College",
+        "label": "Social Welfare",
+        "section": "College",
+        "description": "Social Welfare Society at Peshawar Medical College — community service in Peshawar.",
+        "view_key": "social-welfare",
+        "seo": {
+            "label": "Social Welfare",
+            "section": "College",
+            "title": "Social Welfare Society | Peshawar Medical College",
+            "description": "Social Welfare Society at Peshawar Medical College — community service in Peshawar.",
+            "priority": "0.3",
+            "changefreq": "yearly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "yearly"
+    },
+    {
+        "slug": "education-literature",
+        "title": "Educational Literature | Peshawar Medical College",
+        "label": "Educational Literature",
+        "section": "Academics",
+        "description": "Educational literature from Peshawar Medical College faculty and students.",
+        "view_key": "education-literature",
+        "seo": {
+            "label": "Educational Literature",
+            "section": "Academics",
+            "title": "Educational Literature | Peshawar Medical College",
+            "description": "Educational literature from Peshawar Medical College faculty and students.",
+            "priority": "0.4",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.4",
+        "changefreq": "monthly"
+    },
+    {
+        "slug": "sitemap-page",
+        "title": "Sitemap | Peshawar Medical College",
+        "label": "Sitemap",
+        "section": "College",
+        "description": "HTML sitemap of Peshawar Medical College and the Department of Medical Sciences.",
+        "view_key": "sitemap-page",
+        "seo": {
+            "label": "Sitemap",
+            "section": "College",
+            "title": "Sitemap | Peshawar Medical College",
+            "description": "HTML sitemap of Peshawar Medical College and the Department of Medical Sciences.",
+            "priority": "0.3",
+            "changefreq": "monthly"
+        },
+        "status": "published",
+        "priority": "0.3",
+        "changefreq": "monthly"
+    }
+]
