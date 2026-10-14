@@ -111,9 +111,13 @@ function sqliteCreateToMysql(string $table, PDO $pdo): string
         $isPk = (int) $col['pk'] > 0;
 
         if ($type === '' || $type === 'TEXT' || str_contains($type, 'CHAR') || str_contains($type, 'CLOB')) {
-            $mysqlType = str_contains($type, 'VARCHAR') ? $type : 'TEXT';
-            if ($mysqlType === 'TEXT' && in_array($name, ['slug', 'status', 'email', 'hostname'], true)) {
+            if (preg_match('/VARCHAR\s*\(\s*(\d+)\s*\)/i', $type, $vm)) {
+                $mysqlType = 'VARCHAR(' . $vm[1] . ')';
+            } elseif (str_contains($type, 'VARCHAR') || str_contains($type, 'CHAR')) {
+                // SQLite often stores bare VARCHAR with no length — MySQL requires one.
                 $mysqlType = 'VARCHAR(191)';
+            } else {
+                $mysqlType = 'TEXT';
             }
         } elseif (str_contains($type, 'INT')) {
             $mysqlType = $isPk ? 'BIGINT UNSIGNED' : 'BIGINT';

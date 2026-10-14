@@ -72,20 +72,44 @@ if ($sql === false || trim($sql) === '') {
     exit(1);
 }
 
-if (! $mysqli->multi_query($sql)) {
-    fwrite(STDERR, 'reset: import failed: ' . $mysqli->error . "\n");
-    exit(1);
-}
-do {
-    if ($result = $mysqli->store_result()) {
-        $result->free();
+// Execute statement-by-statement so one bad statement doesn't leave a cryptic multi_query state.
+$offset = 0;
+$len = strlen($sql);
+$stmtCount = 0;
+while ($offset < $len) {
+    // Split on semicolons that end statements (naive but fine for our exporter output).
+    $semi = strpos($sql, ';', $offset);
+    if ($semi === false) {
+        $chunk = trim(substr($sql, $offset));
+        $offset = $len;
+    } else {
+        $chunk = trim(substr($sql, $offset, $semi - $offset));
+        $offset = $semi + 1;
     }
-} while ($mysqli->more_results() && $mysqli->next_result());
-
-if ($mysqli->errno) {
-    fwrite(STDERR, 'reset: import error: ' . $mysqli->error . "\n");
-    exit(1);
+    if ($chunk === '' || str_starts_with($chunk, '--')) {
+        // Skip pure-comment chunks; keep comments prefixed to SQL by stripping leading -- lines.
+        $lines = preg_split("/\r\n|\n|\r/", $chunk) ?: [];
+        $kept = [];
+        foreach ($lines as $line) {
+            if (! str_starts_with(ltrim($line), '--')) {
+                $kept[] = $line;
+            }
+        }
+        $chunk = trim(implode("\n", $kept));
+    }
+    if ($chunk === '') {
+        continue;
+    }
+    try {
+        $mysqli->query($chunk);
+        $stmtCount++;
+    } catch (Throwable $e) {
+        fwrite(STDERR, 'reset: statement failed: ' . $e->getMessage() . "\n");
+        fwrite(STDERR, 'reset: near: ' . substr($chunk, 0, 200) . "\n");
+        exit(1);
+    }
 }
+fwrite(STDOUT, "reset: executed {$stmtCount} statements\n");
 
 $mysqli->query('SET FOREIGN_KEY_CHECKS=1');
 fwrite(STDOUT, "reset: imported snapshot (" . number_format(strlen($sql)) . " bytes)\n");

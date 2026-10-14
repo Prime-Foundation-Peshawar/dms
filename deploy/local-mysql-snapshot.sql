@@ -1,4 +1,4 @@
--- Exported from D:\projects\php\www\dms/writable/dms.db at 2026-10-14T05:10:56+00:00
+-- Exported from D:\projects\php\www\dms/writable/dms.db at 2026-10-14T05:16:46+00:00
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS `department_activities`;
 CREATE TABLE `department_activities` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `department_id` BIGINT NOT NULL,
-  `title` VARCHAR NOT NULL,
-  `date_label` VARCHAR NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `date_label` VARCHAR(191) NULL,
   `body` TEXT NULL,
   `sort_order` BIGINT NOT NULL DEFAULT 0,
   `created_at` DATETIME NULL,
@@ -21,11 +21,11 @@ CREATE TABLE `department_activities` (
 DROP TABLE IF EXISTS `departments`;
 CREATE TABLE `departments` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `slug` VARCHAR NOT NULL,
-  `name` VARCHAR NOT NULL,
-  `icon` VARCHAR NULL,
-  `group_name` VARCHAR NOT NULL DEFAULT 'Other',
-  `hod` VARCHAR NULL,
+  `slug` VARCHAR(191) NOT NULL,
+  `name` VARCHAR(191) NOT NULL,
+  `icon` VARCHAR(191) NULL,
+  `group_name` VARCHAR(191) NOT NULL DEFAULT 'Other',
+  `hod` VARCHAR(191) NULL,
   `intro_json` TEXT NULL,
   `faculty_seed_json` TEXT NULL,
   `hidden` TINYINT(1) NOT NULL DEFAULT 0,
@@ -76,8 +76,8 @@ DROP TABLE IF EXISTS `event_media`;
 CREATE TABLE `event_media` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `event_id` BIGINT NOT NULL,
-  `path` VARCHAR NOT NULL,
-  `caption` VARCHAR NULL,
+  `path` VARCHAR(191) NOT NULL,
+  `caption` VARCHAR(191) NULL,
   `sort_order` BIGINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -87,15 +87,15 @@ CREATE TABLE `event_media` (
 DROP TABLE IF EXISTS `events`;
 CREATE TABLE `events` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `slug` VARCHAR NOT NULL,
-  `title` VARCHAR NOT NULL,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
   `excerpt` TEXT NULL,
   `body_html` TEXT NULL,
-  `category` VARCHAR NULL,
-  `cover_image` VARCHAR NULL,
+  `category` VARCHAR(191) NULL,
+  `cover_image` VARCHAR(191) NULL,
   `event_date` TEXT NULL,
-  `location` VARCHAR NULL,
-  `status` VARCHAR NOT NULL DEFAULT 'published',
+  `location` VARCHAR(191) NULL,
+  `status` VARCHAR(191) NOT NULL DEFAULT 'published',
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   `body_text` TEXT NULL,
@@ -112,7 +112,7 @@ DROP TABLE IF EXISTS `faculty_profile_aliases`;
 CREATE TABLE `faculty_profile_aliases` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `profile_id` BIGINT NOT NULL,
-  `alias` VARCHAR NOT NULL,
+  `alias` VARCHAR(191) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -348,12 +348,12 @@ INSERT INTO `faculty_profile_aliases` (`id`,`profile_id`,`alias`) VALUES
 DROP TABLE IF EXISTS `faculty_profiles`;
 CREATE TABLE `faculty_profiles` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `slug` VARCHAR NOT NULL,
-  `name` VARCHAR NOT NULL,
-  `department_slug` VARCHAR NULL,
-  `department_name` VARCHAR NULL,
-  `designation` VARCHAR NULL,
-  `photo` VARCHAR NULL,
+  `slug` VARCHAR(191) NOT NULL,
+  `name` VARCHAR(191) NOT NULL,
+  `department_slug` VARCHAR(191) NULL,
+  `department_name` VARCHAR(191) NULL,
+  `designation` VARCHAR(191) NULL,
+  `photo` VARCHAR(191) NULL,
   `is_hod` TINYINT(1) NOT NULL DEFAULT 0,
   `is_public` TINYINT(1) NOT NULL DEFAULT 1,
   `qualifications_json` TEXT NULL,
@@ -363,7 +363,7 @@ CREATE TABLE `faculty_profiles` (
   `extra_json` TEXT NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
-  `emp_id` VARCHAR NULL,
+  `emp_id` VARCHAR(191) NULL,
   `dept_override` BIGINT DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -514,9 +514,9 @@ INSERT INTO `faculty_profiles` (`id`,`slug`,`name`,`department_slug`,`department
 DROP TABLE IF EXISTS `gallery_albums`;
 CREATE TABLE `gallery_albums` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `slug` VARCHAR NOT NULL,
-  `title` VARCHAR NOT NULL,
-  `icon` VARCHAR NULL,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `icon` VARCHAR(191) NULL,
   `sort_order` BIGINT NOT NULL DEFAULT 0,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
@@ -532,10 +532,10 @@ DROP TABLE IF EXISTS `gallery_items`;
 CREATE TABLE `gallery_items` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `album_id` BIGINT NOT NULL,
-  `image_path` VARCHAR NOT NULL,
-  `title` VARCHAR NULL,
-  `caption` VARCHAR NULL,
-  `span` VARCHAR NULL,
+  `image_path` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NULL,
+  `caption` VARCHAR(191) NULL,
+  `span` VARCHAR(191) NULL,
   `sort_order` BIGINT NOT NULL DEFAULT 0,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
@@ -559,10 +559,10 @@ INSERT INTO `gallery_items` (`id`,`album_id`,`image_path`,`title`,`caption`,`spa
 DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `version` VARCHAR NOT NULL,
-  `class` VARCHAR NOT NULL,
-  `group` VARCHAR NOT NULL,
-  `namespace` VARCHAR NOT NULL,
+  `version` VARCHAR(191) NOT NULL,
+  `class` VARCHAR(191) NOT NULL,
+  `group` VARCHAR(191) NOT NULL,
+  `namespace` VARCHAR(191) NOT NULL,
   `time` BIGINT NOT NULL,
   `batch` BIGINT NOT NULL,
   PRIMARY KEY (`id`)
@@ -581,8 +581,8 @@ DROP TABLE IF EXISTS `news_media`;
 CREATE TABLE `news_media` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `news_id` BIGINT NOT NULL,
-  `path` VARCHAR NOT NULL,
-  `caption` VARCHAR NULL,
+  `path` VARCHAR(191) NOT NULL,
+  `caption` VARCHAR(191) NULL,
   `sort_order` BIGINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -592,14 +592,14 @@ CREATE TABLE `news_media` (
 DROP TABLE IF EXISTS `news_posts`;
 CREATE TABLE `news_posts` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `slug` VARCHAR NOT NULL,
-  `title` VARCHAR NOT NULL,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
   `excerpt` TEXT NULL,
   `body_html` TEXT NULL,
-  `category` VARCHAR NULL,
-  `cover_image` VARCHAR NULL,
+  `category` VARCHAR(191) NULL,
+  `cover_image` VARCHAR(191) NULL,
   `published_at` DATETIME NULL,
-  `status` VARCHAR NOT NULL DEFAULT 'published',
+  `status` VARCHAR(191) NOT NULL DEFAULT 'published',
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   `body_text` TEXT NULL,
@@ -624,17 +624,17 @@ INSERT INTO `news_posts` (`id`,`slug`,`title`,`excerpt`,`body_html`,`category`,`
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `slug` VARCHAR NOT NULL,
-  `title` VARCHAR NOT NULL,
-  `label` VARCHAR NULL,
-  `section` VARCHAR NULL,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `label` VARCHAR(191) NULL,
+  `section` VARCHAR(191) NULL,
   `description` TEXT NULL,
-  `view_key` VARCHAR NULL,
+  `view_key` VARCHAR(191) NULL,
   `body_html` TEXT NULL,
   `seo_json` TEXT NULL,
-  `status` VARCHAR NOT NULL DEFAULT 'published',
+  `status` VARCHAR(191) NOT NULL DEFAULT 'published',
   `priority` TEXT NOT NULL DEFAULT 0.5,
-  `changefreq` VARCHAR NOT NULL DEFAULT 'monthly',
+  `changefreq` VARCHAR(191) NOT NULL DEFAULT 'monthly',
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   `body_text` TEXT NULL,
@@ -683,7 +683,7 @@ INSERT INTO `pages` (`id`,`slug`,`title`,`label`,`section`,`description`,`view_k
 DROP TABLE IF EXISTS `settings`;
 CREATE TABLE `settings` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `key` VARCHAR NOT NULL,
+  `key` VARCHAR(191) NOT NULL,
   `value` TEXT NULL,
   `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`)
@@ -703,10 +703,10 @@ INSERT INTO `settings` (`id`,`key`,`value`,`updated_at`) VALUES
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR NOT NULL,
-  `password_hash` VARCHAR NOT NULL,
-  `name` VARCHAR NULL,
-  `role` VARCHAR NOT NULL DEFAULT 'admin',
+  `email` VARCHAR(191) NOT NULL,
+  `password_hash` VARCHAR(191) NOT NULL,
+  `name` VARCHAR(191) NULL,
+  `role` VARCHAR(191) NOT NULL DEFAULT 'admin',
   `is_active` TINYINT(1) NOT NULL DEFAULT 1,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
