@@ -33,9 +33,26 @@ class PageController extends BaseController
             return $this->redirectNewsletter();
         }
 
-        $page = model(PageModel::class)->findPublished($slug);
+        $page = null;
+        try {
+            $page = model(PageModel::class)->findPublished($slug);
+        } catch (\Throwable $e) {
+            log_message('error', 'Page lookup failed for {0}: {1}', [$slug, $e->getMessage()]);
+        }
+
+        // Allow static view templates before CMS rows are seeded.
         if (! $page) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound($slug);
+            $viewFile = APPPATH . 'Views/pages/' . $slug . '.php';
+            if (! is_file($viewFile)) {
+                throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound($slug);
+            }
+            $page = [
+                'slug'        => $slug,
+                'title'       => ucwords(str_replace('-', ' ', $slug)),
+                'description' => '',
+                'view_key'    => $slug,
+                'use_cms'     => 0,
+            ];
         }
 
         $data = [
