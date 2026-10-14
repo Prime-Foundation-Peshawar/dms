@@ -1,4 +1,4 @@
--- Exported from D:\projects\php\www\dms/writable/dms.db at 2026-10-14T05:26:00+00:00
+-- Exported from D:\projects\php\www\dms/writable/dms.db at 2026-10-14T05:28:35+00:00
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
@@ -636,7 +636,7 @@ CREATE TABLE `pages` (
   `body_html` TEXT NULL,
   `seo_json` TEXT NULL,
   `status` VARCHAR(191) NOT NULL DEFAULT 'published',
-  `priority` TEXT NOT NULL DEFAULT 0.5,
+  `priority` DOUBLE NOT NULL DEFAULT 0.5,
   `changefreq` VARCHAR(191) NOT NULL DEFAULT 'monthly',
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,

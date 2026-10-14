@@ -136,6 +136,9 @@ function sqliteCreateToMysql(string $table, PDO $pdo): string
         if (in_array($name, ['is_public', 'is_hod', 'hidden', 'use_cms'], true) || str_starts_with($name, 'is_')) {
             $mysqlType = 'TINYINT(1)';
         }
+        if (in_array($name, ['priority', 'sort_order', 'port'], true)) {
+            $mysqlType = $name === 'priority' ? 'DOUBLE' : 'BIGINT';
+        }
 
         $line = "`{$name}` {$mysqlType}";
         if ($isPk && $pkCount === 1 && str_contains($mysqlType, 'INT')) {
@@ -143,14 +146,15 @@ function sqliteCreateToMysql(string $table, PDO $pdo): string
         } elseif ($notnull && ! $isPk) {
             $line .= ' NOT NULL';
         }
-        if ($dflt !== null && $dflt !== '') {
+        $isTextual = str_starts_with($mysqlType, 'TEXT') || str_starts_with($mysqlType, 'BLOB') || str_starts_with($mysqlType, 'LONG');
+        if ($dflt !== null && $dflt !== '' && ! $isTextual) {
             $d = trim((string) $dflt, " '\"");
             if (strcasecmp($d, 'NULL') === 0) {
                 $line .= ' DEFAULT NULL';
             } elseif (is_numeric($d)) {
                 $line .= ' DEFAULT ' . $d;
             } else {
-                $line .= " DEFAULT '" . str_replace("'", "\\'", $d) . "'";
+                $line .= " DEFAULT '" . str_replace("'", "''", $d) . "'";
             }
         } elseif (! $notnull && ! $isPk) {
             $line .= ' NULL';
