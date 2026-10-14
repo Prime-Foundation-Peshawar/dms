@@ -14,15 +14,6 @@ Options -Indexes
 	Options +FollowSymlinks
 	RewriteEngine On
 
-	# Staging lives at /dms/ — production at site root
-	<If "%{HTTP_HOST} =~ /staging\.riphahpsh\.edu\.pk$/i">
-	  RewriteBase /dms/public/
-	</If>
-	RewriteCond %{HTTP_HOST} ^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
-	RewriteRule .* - [E=REWRITEBASE:/dms/]
-	RewriteCond %{HTTP_HOST} !^(www\.)?staging\.riphahpsh\.edu\.pk$ [NC]
-	RewriteRule .* - [E=REWRITEBASE:/]
-
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_URI} (.+)/$
 	RewriteRule ^ %1 [L,R=301]

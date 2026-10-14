@@ -111,6 +111,14 @@ jobs:
             (cd "$TARGET" && "$PHP_BIN" spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
 
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
+            echo "---- smoke /dms/ ----"
+            curl -sS -o /tmp/dms-home.body -w "HTTP %{http_code}\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/about\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/about" || true
+            head -c 400 /tmp/dms-home.body 2>/dev/null || true
+            echo ""
+            echo "---- CI4 writable/logs ----"
+            ls -la "$TARGET/writable/logs" 2>/dev/null || true
+            tail -n 80 "$TARGET/writable/logs"/log-*.log 2>/dev/null || true
             echo "---- recent error_log (if any) ----"
             tail -n 40 "$TARGET/error_log" 2>/dev/null || true
             tail -n 40 "$HOME/public_html/error_log" 2>/dev/null || true
