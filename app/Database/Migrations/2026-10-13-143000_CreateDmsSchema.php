@@ -46,9 +46,9 @@ class CreateDmsSchema extends Migration
         $this->forge->addForeignKey('department_id', 'departments', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('department_activities', true);
 
-        // faculty_profiles
+        // faculty_profiles (BIGINT id matches legacy pre-CI4 staging tables for FK compatibility)
         $this->forge->addField([
-            'id'               => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'id'               => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
             'slug'             => ['type' => 'VARCHAR', 'constraint' => 150],
             'name'             => ['type' => 'VARCHAR', 'constraint' => 191],
             'department_slug'  => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
@@ -74,7 +74,7 @@ class CreateDmsSchema extends Migration
         // faculty_profile_aliases
         $this->forge->addField([
             'id'         => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
-            'profile_id' => ['type' => 'INT', 'unsigned' => true],
+            'profile_id' => ['type' => 'BIGINT', 'unsigned' => true],
             'alias'      => ['type' => 'VARCHAR', 'constraint' => 150],
         ]);
         $this->forge->addKey('id', true);

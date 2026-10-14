@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `department_activities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `faculty_profiles` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `slug` VARCHAR(150) NOT NULL,
   `name` VARCHAR(191) NOT NULL,
   `department_slug` VARCHAR(100) NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `faculty_profiles` (
 
 CREATE TABLE IF NOT EXISTS `faculty_profile_aliases` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `profile_id` INT UNSIGNED NOT NULL,
+  `profile_id` BIGINT UNSIGNED NOT NULL,
   `alias` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`),

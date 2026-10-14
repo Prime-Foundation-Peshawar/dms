@@ -71,7 +71,24 @@ jobs:
             git reset --hard "origin/$BRANCH"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             chmod -R u+rwX,go-w "$TARGET" || true
-            php "$TARGET/db/apply.php"
+
+            if command -v composer >/dev/null 2>&1; then
+              COMPOSER_CMD="composer"
+            elif [ -f "$HOME/bin/composer" ]; then
+              COMPOSER_CMD="php $HOME/bin/composer"
+            else
+              COMPOSER_CMD="php $(command -v composer.phar 2>/dev/null || echo /usr/local/bin/composer)"
+            fi
+            (cd "$TARGET" && $COMPOSER_CMD install --no-dev --optimize-autoloader)
+
+            for d in writable/cache writable/logs writable/session writable/uploads; do
+              mkdir -p "$TARGET/$d"
+              chmod -R u+rwX "$TARGET/$d" 2>/dev/null || true
+            done
+
+            php "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed (see above); continuing deploy"
+            (cd "$TARGET" && php spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
+
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             echo "---- recent error_log (if any) ----"
             tail -n 40 "$TARGET/error_log" 2>/dev/null || true
