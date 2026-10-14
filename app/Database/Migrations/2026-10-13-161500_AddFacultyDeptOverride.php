@@ -13,7 +13,6 @@ class AddFacultyDeptOverride extends Migration
                 'type'       => 'TINYINT',
                 'constraint' => 1,
                 'default'    => 0,
-                'after'      => 'department_name',
             ],
         ]);
     }
