@@ -38,6 +38,11 @@ Events::on('pre_system', static function (): void {
         ob_start(static fn ($buffer) => $buffer);
     }
 
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+    if ($host !== '' && stripos($host, 'staging.riphahpsh.edu.pk') !== false) {
+        config('App')->baseURL = 'https://staging.riphahpsh.edu.pk/dms/';
+    }
+
     /*
      * --------------------------------------------------------------------
      * Debug Toolbar Listeners.
