@@ -16,6 +16,24 @@ use App\Filters\AcpAuth;
 
 class Filters extends BaseFilters
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        // Staging shares host with other apps; never serve cached HTML with a wrong baseURL.
+        $host = strtolower($_SERVER['HTTP_HOST'] ?? '');
+        if ($host !== '' && str_contains($host, 'staging.riphahpsh.edu.pk')) {
+            $this->required['before'] = array_values(array_filter(
+                $this->required['before'],
+                static fn ($f) => $f !== 'pagecache'
+            ));
+            $this->required['after'] = array_values(array_filter(
+                $this->required['after'],
+                static fn ($f) => $f !== 'pagecache'
+            ));
+        }
+    }
+
     /**
      * Configures aliases for Filter classes to
      * make reading things nicer and simpler.

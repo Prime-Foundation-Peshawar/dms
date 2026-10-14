@@ -38,9 +38,12 @@ Events::on('pre_system', static function (): void {
         ob_start(static fn ($buffer) => $buffer);
     }
 
-    $host = $_SERVER['HTTP_HOST'] ?? '';
-    if ($host !== '' && stripos($host, 'staging.riphahpsh.edu.pk') !== false) {
-        config('App')->baseURL = 'https://staging.riphahpsh.edu.pk/dms/';
+    $host = strtolower($_SERVER['HTTP_HOST'] ?? '');
+    if ($host !== '' && str_contains($host, 'staging.riphahpsh.edu.pk')) {
+        $app = config('App');
+        $app->baseURL = 'https://staging.riphahpsh.edu.pk/dms/';
+        $app->indexPage = '';
+        $app->forceGlobalSecureRequests = true;
     }
 
     /*

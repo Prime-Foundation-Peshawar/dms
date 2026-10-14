@@ -115,9 +115,14 @@ jobs:
 
             if [ -f "$TARGET/.env" ]; then
               "$PHP_BIN" "$TARGET/deploy/sync-env-db.php" "$TARGET/.env" || echo "WARNING: env sync failed"
+              "$PHP_BIN" "$TARGET/deploy/sync-env-app.php" "$TARGET/.env" "https://staging.riphahpsh.edu.pk/dms/" || echo "WARNING: env app sync failed"
             else
               echo "WARNING: $TARGET/.env missing"
             fi
+
+            # Drop stale page/HTML cache (wrong baseURL was being served as localhost).
+            find "$TARGET/writable/cache" -mindepth 1 ! -name 'index.html' ! -name '.gitkeep' -delete 2>/dev/null || true
+            rm -f "$TARGET/writable/cache/"* 2>/dev/null || true
 
             if [ "${RESET_FROM_LOCAL:-false}" = "true" ]; then
               echo "---- RESET staging DB from local snapshot ----"
