@@ -2,9 +2,7 @@
 helper('faculty');
 $host = strtolower($_SERVER['HTTP_HOST'] ?? '');
 $is_staging = ($host === 'staging.riphahpsh.edu.pk' || $host === 'www.staging.riphahpsh.edu.pk');
-$hub_base = $is_staging
-    ? 'https://staging.riphahpsh.edu.pk/riphahpsh/'
-    : 'https://riphahpsh.edu.pk/';
+$hub_base = hub_base();
 $page_title = $page_title ?? 'Peshawar Medical College';
 $page_description = $page_description ?? '';
 $canonical_url = $canonical_url ?? current_url();

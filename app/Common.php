@@ -13,3 +13,16 @@
  *
  * @see: https://codeigniter.com/user_guide/extending/common.html
  */
+
+if (! function_exists('hub_base')) {
+    /** Campus hub base URL (riphahpsh.edu.pk or staging /riphahpsh/). */
+    function hub_base(): string
+    {
+        $host = strtolower($_SERVER['HTTP_HOST'] ?? '');
+        $isStaging = $host === 'staging.riphahpsh.edu.pk' || $host === 'www.staging.riphahpsh.edu.pk';
+
+        return $isStaging
+            ? 'https://staging.riphahpsh.edu.pk/riphahpsh/'
+            : 'https://riphahpsh.edu.pk/';
+    }
+}
