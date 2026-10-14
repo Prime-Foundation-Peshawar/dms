@@ -21,7 +21,7 @@
       </div>
       <div class="col-lg-4 d-flex justify-content-lg-end justify-content-start">
         <div class="pmc-hero-logo">
-          <img src="<?= base_url('assets/images/logo/pmclogo.png') ?>" alt="Peshawar Medical College logo" />
+          <img src="<?= dms_asset('assets/images/logo/pmclogo.png') ?>" alt="Peshawar Medical College logo" />
         </div>
       </div>
     </div>
@@ -195,23 +195,23 @@
             <div class="pmc-gallery-grid">
               <?php
               $pmc_gallery = [
-                ['src' => 'assets/images/campus/pmc-building.jpg',  'alt' => 'PMC main campus building'],
-                ['src' => 'assets/images/campus/pmc-building1.jpg', 'alt' => 'PMC campus view'],
-                ['src' => 'assets/images/campus/pmc-building2.jpg', 'alt' => 'PMC academic block'],
-                ['src' => 'assets/images/campus/pmc-building3.jpg', 'alt' => 'PMC campus exterior'],
-                ['src' => 'assets/images/campus/pmc-building4.jpg', 'alt' => 'PMC campus grounds'],
-                ['src' => 'assets/images/campus/pmc-building5.jpg', 'alt' => 'PMC campus facilities'],
+                ['src' => dms_asset('assets/images/campus/pmc-building.jpg'),  'alt' => 'PMC main campus building'],
+                ['src' => dms_asset('assets/images/campus/pmc-building1.jpg'), 'alt' => 'PMC campus view'],
+                ['src' => dms_asset('assets/images/campus/pmc-building2.jpg'), 'alt' => 'PMC academic block'],
+                ['src' => dms_asset('assets/images/campus/pmc-building3.jpg'), 'alt' => 'PMC campus exterior'],
+                ['src' => dms_asset('assets/images/campus/pmc-building4.jpg'), 'alt' => 'PMC campus grounds'],
+                ['src' => dms_asset('assets/images/campus/pmc-building5.jpg'), 'alt' => 'PMC campus facilities'],
               ];
-              foreach ($pmc_gallery as $i => $img):
+              foreach ($pmc_gallery as $i => $galleryImg):
               ?>
                 <button type="button"
                   class="pmc-gallery-item<?= $i === 0 ? ' pmc-gallery-item--wide' : '' ?>"
-                  data-img="<?= htmlspecialchars($img['src']) ?>"
-                  data-title="<?= htmlspecialchars($img['alt']) ?>"
+                  data-img="<?= esc($galleryImg['src']) ?>"
+                  data-title="<?= esc($galleryImg['alt']) ?>"
                   onclick="openPmcLightbox(this)"
-                  aria-label="Open <?= htmlspecialchars($img['alt']) ?>">
-                  <img src="<?= htmlspecialchars($img['src']) ?>"
-                    alt="<?= htmlspecialchars($img['alt']) ?>"
+                  aria-label="Open <?= esc($galleryImg['alt']) ?>">
+                  <img src="<?= esc($galleryImg['src']) ?>"
+                    alt="<?= esc($galleryImg['alt']) ?>"
                     loading="lazy" decoding="async" />
                   <span class="pmc-gallery-zoom"><i class="bi bi-zoom-in"></i></span>
                 </button>

@@ -104,27 +104,29 @@ class PageController extends BaseController
             $data['canonical_url']    = site_url('event-single') . '?slug=' . rawurlencode($event['slug']);
         }
 
-        // CMS-managed pages render body from DB
+        // Prefer live PHP templates when present. Seeded CMS body_html can bake in
+        // wrong baseURL paths (missing /dms/) and drop dynamic helpers (faculty links).
+        $viewKey  = $page['view_key'] ?? $slug;
+        $viewFile = APPPATH . 'Views/pages/' . $viewKey . '.php';
+        if (is_file($viewFile) && $viewKey !== 'cms_content') {
+            return view('pages/content_wrap', array_merge($data, [
+                'viewKey' => $viewKey,
+            ]));
+        }
+
+        // CMS-managed pages (no static template) render body from DB
         if (! empty($page['use_cms']) && (! empty($page['body_html']) || ! empty($page['body_text']))) {
             return view('pages/content_wrap', array_merge($data, [
                 'viewKey' => 'cms_content',
             ]));
         }
 
-        $viewKey  = $page['view_key'] ?? $slug;
-        $viewFile = APPPATH . 'Views/pages/' . $viewKey . '.php';
-        if (! is_file($viewFile)) {
-            // Fallback: still show CMS body if present
-            if (! empty($page['body_html']) || ! empty($page['body_text'])) {
-                return view('pages/content_wrap', array_merge($data, [
-                    'viewKey' => 'cms_content',
-                ]));
-            }
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound($slug);
+        if (! empty($page['body_html']) || ! empty($page['body_text'])) {
+            return view('pages/content_wrap', array_merge($data, [
+                'viewKey' => 'cms_content',
+            ]));
         }
 
-        return view('pages/content_wrap', array_merge($data, [
-            'viewKey' => $viewKey,
-        ]));
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound($slug);
     }
 }

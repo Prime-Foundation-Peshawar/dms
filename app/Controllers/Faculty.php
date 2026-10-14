@@ -16,7 +16,28 @@ class Faculty extends BaseController
     {
         helper('faculty');
         $faculty_photos = [];
+        $faculty_cv_slugs = [];
         foreach (model(\App\Models\FacultyProfileModel::class)->publicRows() as $rec) {
+            $canon = trim((string) ($rec['slug'] ?? ''));
+            $hasCv = ! empty($rec['photo'])
+                || ! empty($rec['qualifications'])
+                || ! empty($rec['experience'])
+                || ! empty($rec['publications'])
+                || ! empty($rec['skills']);
+            if ($canon !== '' && $hasCv) {
+                $faculty_cv_slugs[$canon] = $canon;
+                foreach ($rec['aliases'] ?? [] as $alias) {
+                    $aliasSlug = faculty_slug((string) $alias);
+                    if ($aliasSlug !== '') {
+                        $faculty_cv_slugs[$aliasSlug] = $canon;
+                    }
+                }
+                $nameSlug = faculty_slug((string) ($rec['name'] ?? ''));
+                if ($nameSlug !== '') {
+                    $faculty_cv_slugs[$nameSlug] = $canon;
+                }
+            }
+
             $photo = trim((string) ($rec['photo'] ?? ''));
             if ($photo === '') {
                 continue;
@@ -38,6 +59,7 @@ class Faculty extends BaseController
             'page_description' => 'Meet PM&DC registered faculty at Peshawar Medical College.',
             'canonical_url' => site_url('faculty'),
             'faculty_photos' => $faculty_photos,
+            'faculty_cv_slugs' => $faculty_cv_slugs,
         ]);
     }
 

@@ -17,7 +17,8 @@ class DepartmentModel extends Model
     /** @return list<array<string,mixed>> */
     public function visibleDepartments(): array
     {
-        $rows = $this->where('hidden', 0)->orderBy('group_name')->orderBy('name')->findAll();
+        // Keep seed/legacy insertion order within each group (not alphabetical by name).
+        $rows = $this->where('hidden', 0)->orderBy('group_name')->orderBy('id')->findAll();
         return array_map([$this, 'hydrate'], $rows);
     }
 

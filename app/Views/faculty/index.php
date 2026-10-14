@@ -1,6 +1,5 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
-?>
 
 <link href="<?= dms_asset('assets/css/faculty.css') ?>" rel="stylesheet"/>
 
@@ -11,9 +10,9 @@
     <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>Our Faculty</h1>
     <div class="breadcrumb-pmc">
-      <a href="index.php">Home</a>
+      <a href="<?= site_url() ?>">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="about.php">About Us</a>
+      <a href="<?= site_url('about') ?>">About Us</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current">Faculty</span>
     </div>
@@ -129,11 +128,18 @@
   </div>
 </section>
 
+<?php
+$faculty_cv_slugs = $faculty_cv_slugs ?? [];
+$faculty_photos = $faculty_photos ?? [];
+$faculty_profiles_url = dms_asset('assets/data/faculty-profiles.json');
+?>
 <script>
 // Shared server directory (same source as departments.php faculty counts).
 const API_URL = <?= json_encode(site_url('faculty-proxy')) ?>;
 const DEBUG = new URLSearchParams(window.location.search).has('debug');
-const FACULTY_PHOTOS = <?= json_encode((object) ($faculty_photos ?? []), JSON_UNESCAPED_SLASHES) ?>;
+const FACULTY_PROFILES_URL = <?= json_encode($faculty_profiles_url, JSON_UNESCAPED_SLASHES) ?>;
+const CV_SLUGS = <?= json_encode((object) $faculty_cv_slugs, JSON_UNESCAPED_SLASHES) ?>;
+const FACULTY_PHOTOS = <?= json_encode((object) $faculty_photos, JSON_UNESCAPED_SLASHES) ?>;
 
 const DEPT_CONFIG = {
   'Anatomy':                  { icon: 'bi-body-text',        order: 1  },
@@ -468,8 +474,9 @@ function appendMissingCvFaculty() {
 
 function renderMemberRow(m) {
   const extra = extraFor(m.empName);
-  const linked = hasWordProfile(extra);
-  const slug = (extra && extra.slug) || facultySlug(m.empName);
+  const nameSlug = facultySlug(m.empName);
+  const slug = (extra && extra.slug) || CV_SLUGS[nameSlug] || nameSlug;
+  const linked = hasWordProfile(extra) || !!CV_SLUGS[nameSlug];
   const name = escapeHtml(getDisplayName(m));
   const desig = escapeHtml(m.desTitle || 'Faculty');
   const qual = escapeHtml(getQualification(m) || '—');
@@ -477,7 +484,6 @@ function renderMemberRow(m) {
   const facReg = escapeHtml(m.facFacRegNo || '—');
   const initials = escapeHtml(getInitials(m));
   const avatarClass = getAvatarClass(m.desTitle);
-  const nameSlug = facultySlug(m.empName);
   const photo = FACULTY_PHOTOS[nameSlug]
     || (extra && extra.slug && FACULTY_PHOTOS[extra.slug])
     || (extra && extra.photo)
@@ -575,9 +581,9 @@ function clearAllFilters() {
   const loading = document.getElementById('loadingState');
   loading.style.display = 'block';
 
-  const data = await fetchFaculty();
+  let data = await fetchFaculty();
   try {
-    const extraRes = await fetch('assets/data/faculty-profiles.json');
+    const extraRes = await fetch(FACULTY_PROFILES_URL, { cache: 'no-cache' });
     if (extraRes.ok) {
       extraPack = await extraRes.json();
       const profiles = extraPack.profiles || {};
@@ -594,7 +600,8 @@ function clearAllFilters() {
   loading.style.display = 'none';
 
   if (!data) {
-    document.getElementById('facultyContent').innerHTML = `
+    if (!(extraPack.profiles && Object.keys(extraPack.profiles).length)) {
+      document.getElementById('facultyContent').innerHTML = `
       <div class="fac-error">
         <div class="fac-error-icon"><i class="bi bi-wifi-off"></i></div>
         <h5>Could not load the faculty list</h5>
@@ -603,7 +610,9 @@ function clearAllFilters() {
           <i class="bi bi-arrow-clockwise"></i> Retry
         </button>
       </div>`;
-    return;
+      return;
+    }
+    data = [];
   }
 
   if (DEBUG && data.length > 0) {
@@ -618,6 +627,15 @@ function clearAllFilters() {
       return f;
     })
     .sort((a, b) => {
+    const deptDiff = getDeptOrder(a.depName) - getDeptOrder(b.depName);
+    if (deptDiff !== 0) return deptDiff;
+    return getDesigRank(a.desTitle) - getDesigRank(b.desTitle);
+  });
+  appendMissingCvFaculty();
+  allFaculty.forEach(f => {
+    f.depName = canonicalDept(f.depName) || f.depName;
+  });
+  allFaculty.sort((a, b) => {
     const deptDiff = getDeptOrder(a.depName) - getDeptOrder(b.depName);
     if (deptDiff !== 0) return deptDiff;
     return getDesigRank(a.desTitle) - getDesigRank(b.desTitle);

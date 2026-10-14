@@ -285,3 +285,45 @@ if (! function_exists('faculty_pub_url')) {
         return '';
     }
 }
+
+if (! function_exists('faculty_profile_has_cv')) {
+    function faculty_profile_has_cv(array $rec): bool
+    {
+        if (! empty($rec['photo'])) {
+            return true;
+        }
+        foreach (['qualifications', 'experience', 'publications', 'skills'] as $key) {
+            if (! empty($rec[$key]) && is_array($rec[$key])) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+if (! function_exists('faculty_profile_link_html')) {
+    /**
+     * Linked faculty name for PG / department pages (legacy faculty_profile_link_html).
+     */
+    function faculty_profile_link_html(string $label, string $qual = ''): string
+    {
+        $nameHtml = '<span>' . esc($label) . '</span>';
+        $qualHtml = $qual !== '' ? '<span class="pg-qual">' . esc($qual) . '</span>' : '';
+
+        try {
+            $cv = (new \App\Services\FacultyProfileService())->lookup($label);
+        } catch (\Throwable $e) {
+            $cv = null;
+        }
+
+        if ($cv && faculty_is_directory_rank((string) ($cv['designation'] ?? '')) && faculty_profile_has_cv($cv)) {
+            $slug = (string) ($cv['slug'] ?? faculty_slug($label));
+            $href = site_url('faculty-profile') . '?n=' . rawurlencode($slug);
+
+            return '<a class="pg-staff-link" href="' . esc($href) . '">' . $nameHtml . $qualHtml . '</a>';
+        }
+
+        return $nameHtml . $qualHtml;
+    }
+}
