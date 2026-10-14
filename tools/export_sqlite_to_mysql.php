@@ -86,7 +86,8 @@ function mysqlLiteral(mixed $v): string
         return (string) $v;
     }
     $s = (string) $v;
-    $s = str_replace(["\\", "\0", "\n", "\r", "'", '"', "\x1a"], ["\\\\", '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'], $s);
+    // SQL-standard quoting (doubled single quotes) — safer than backslash escapes for MySQL imports.
+    $s = str_replace("'", "''", $s);
 
     return "'" . $s . "'";
 }

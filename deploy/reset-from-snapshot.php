@@ -57,12 +57,12 @@ fwrite(STDOUT, "reset: connected to {$name}@{$host}\n");
 
 $mysqli->query('SET FOREIGN_KEY_CHECKS=0');
 $tables = [];
-$res = $mysqli->query('SHOW FULL TABLES WHERE Table_type = \'BASE TABLE\'');
+$res = $mysqli->query("SHOW FULL TABLES WHERE Table_type = 'BASE TABLE'");
 while ($row = $res->fetch_row()) {
     $tables[] = $row[0];
 }
 foreach ($tables as $t) {
-    $mysqli->query('DROP TABLE IF EXISTS `' . $mysqli->real_escape_string($t) . '`');
+    $mysqli->query('DROP TABLE IF EXISTS `' . str_replace('`', '``', $t) . '`');
 }
 fwrite(STDOUT, 'reset: dropped ' . count($tables) . " tables\n");
 
@@ -72,45 +72,127 @@ if ($sql === false || trim($sql) === '') {
     exit(1);
 }
 
-// Execute statement-by-statement so one bad statement doesn't leave a cryptic multi_query state.
-$offset = 0;
-$len = strlen($sql);
-$stmtCount = 0;
-while ($offset < $len) {
-    // Split on semicolons that end statements (naive but fine for our exporter output).
-    $semi = strpos($sql, ';', $offset);
-    if ($semi === false) {
-        $chunk = trim(substr($sql, $offset));
-        $offset = $len;
-    } else {
-        $chunk = trim(substr($sql, $offset, $semi - $offset));
-        $offset = $semi + 1;
-    }
-    if ($chunk === '' || str_starts_with($chunk, '--')) {
-        // Skip pure-comment chunks; keep comments prefixed to SQL by stripping leading -- lines.
-        $lines = preg_split("/\r\n|\n|\r/", $chunk) ?: [];
-        $kept = [];
-        foreach ($lines as $line) {
-            if (! str_starts_with(ltrim($line), '--')) {
-                $kept[] = $line;
-            }
+// Prefer mysql CLI when available (handles large dumps / HTML bodies cleanly).
+$mysqlBin = null;
+foreach (['mysql', '/usr/bin/mysql', '/opt/cpanel/mysql/bin/mysql'] as $cand) {
+    if ($cand === 'mysql') {
+        $which = trim((string) shell_exec('command -v mysql 2>/dev/null'));
+        if ($which !== '') {
+            $mysqlBin = $which;
+            break;
         }
-        $chunk = trim(implode("\n", $kept));
-    }
-    if ($chunk === '') {
-        continue;
-    }
-    try {
-        $mysqli->query($chunk);
-        $stmtCount++;
-    } catch (Throwable $e) {
-        fwrite(STDERR, 'reset: statement failed: ' . $e->getMessage() . "\n");
-        fwrite(STDERR, 'reset: near: ' . substr($chunk, 0, 200) . "\n");
-        exit(1);
+    } elseif (is_executable($cand)) {
+        $mysqlBin = $cand;
+        break;
     }
 }
-fwrite(STDOUT, "reset: executed {$stmtCount} statements\n");
+
+if ($mysqlBin !== null) {
+    $cmd = escapeshellarg($mysqlBin)
+        . ' --protocol=TCP'
+        . ' -h ' . escapeshellarg($host)
+        . ' -P ' . escapeshellarg((string) $port)
+        . ' -u ' . escapeshellarg($user)
+        . ' ' . escapeshellarg($name);
+    $descriptors = [
+        0 => ['file', $snapPath, 'r'],
+        1 => ['pipe', 'w'],
+        2 => ['pipe', 'w'],
+    ];
+    $env = ['MYSQL_PWD' => $pass];
+    $proc = proc_open($cmd, $descriptors, $pipes, null, $env + $_ENV);
+    if (! is_resource($proc)) {
+        fwrite(STDERR, "reset: failed to start mysql client\n");
+        exit(1);
+    }
+    $stdout = stream_get_contents($pipes[1]);
+    $stderr = stream_get_contents($pipes[2]);
+    fclose($pipes[1]);
+    fclose($pipes[2]);
+    $code = proc_close($proc);
+    if ($code !== 0) {
+        fwrite(STDERR, "reset: mysql client failed ({$code}): {$stderr}\n");
+        exit(1);
+    }
+    fwrite(STDOUT, "reset: imported via mysql client\n");
+} else {
+    foreach (splitSqlStatements($sql) as $i => $chunk) {
+        try {
+            $mysqli->query($chunk);
+        } catch (Throwable $e) {
+            fwrite(STDERR, 'reset: statement #' . ($i + 1) . ' failed: ' . $e->getMessage() . "\n");
+            fwrite(STDERR, 'reset: near: ' . substr($chunk, 0, 240) . "\n");
+            exit(1);
+        }
+    }
+    fwrite(STDOUT, 'reset: imported via PHP (' . count(splitSqlStatements($sql)) . " statements)\n");
+}
 
 $mysqli->query('SET FOREIGN_KEY_CHECKS=1');
-fwrite(STDOUT, "reset: imported snapshot (" . number_format(strlen($sql)) . " bytes)\n");
+fwrite(STDOUT, "reset: done\n");
 $mysqli->close();
+
+/**
+ * Split SQL on semicolons outside of single-quoted strings.
+ *
+ * @return list<string>
+ */
+function splitSqlStatements(string $sql): array
+{
+    $stmts = [];
+    $buf = '';
+    $inQuote = false;
+    $escape = false;
+    $len = strlen($sql);
+    for ($i = 0; $i < $len; $i++) {
+        $ch = $sql[$i];
+        if ($inQuote) {
+            $buf .= $ch;
+            if ($escape) {
+                $escape = false;
+                continue;
+            }
+            if ($ch === '\\') {
+                $escape = true;
+                continue;
+            }
+            if ($ch === "'") {
+                // SQL doubled quote ''
+                if ($i + 1 < $len && $sql[$i + 1] === "'") {
+                    $buf .= "'";
+                    $i++;
+                    continue;
+                }
+                $inQuote = false;
+            }
+            continue;
+        }
+        if ($ch === '-' && $i + 1 < $len && $sql[$i + 1] === '-' && ($buf === '' || preg_match('/\s$/', $buf))) {
+            // line comment
+            while ($i < $len && $sql[$i] !== "\n") {
+                $i++;
+            }
+            continue;
+        }
+        if ($ch === "'") {
+            $inQuote = true;
+            $buf .= $ch;
+            continue;
+        }
+        if ($ch === ';') {
+            $t = trim($buf);
+            if ($t !== '') {
+                $stmts[] = $t;
+            }
+            $buf = '';
+            continue;
+        }
+        $buf .= $ch;
+    }
+    $t = trim($buf);
+    if ($t !== '') {
+        $stmts[] = $t;
+    }
+
+    return $stmts;
+}
