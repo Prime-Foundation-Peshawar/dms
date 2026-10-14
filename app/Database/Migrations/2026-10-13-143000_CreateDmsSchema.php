@@ -10,7 +10,7 @@ class CreateDmsSchema extends Migration
     {
         // departments
         $this->forge->addField([
-            'id'         => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'id'         => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
             'slug'       => ['type' => 'VARCHAR', 'constraint' => 100],
             'name'       => ['type' => 'VARCHAR', 'constraint' => 191],
             'icon'       => ['type' => 'VARCHAR', 'constraint' => 80, 'null' => true],
@@ -32,8 +32,8 @@ class CreateDmsSchema extends Migration
 
         // department_activities
         $this->forge->addField([
-            'id'            => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
-            'department_id' => ['type' => 'INT', 'unsigned' => true],
+            'id'            => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
+            'department_id' => ['type' => 'BIGINT', 'unsigned' => true],
             'title'         => ['type' => 'VARCHAR', 'constraint' => 255],
             'date_label'    => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
             'body'          => ['type' => 'TEXT', 'null' => true],
@@ -85,7 +85,7 @@ class CreateDmsSchema extends Migration
 
         // pages
         $this->forge->addField([
-            'id'          => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'id'          => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
             'slug'        => ['type' => 'VARCHAR', 'constraint' => 120],
             'title'       => ['type' => 'VARCHAR', 'constraint' => 255],
             'label'       => ['type' => 'VARCHAR', 'constraint' => 120, 'null' => true],
@@ -107,7 +107,7 @@ class CreateDmsSchema extends Migration
 
         // news_posts
         $this->forge->addField([
-            'id'           => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'id'           => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
             'slug'         => ['type' => 'VARCHAR', 'constraint' => 160],
             'title'        => ['type' => 'VARCHAR', 'constraint' => 255],
             'excerpt'      => ['type' => 'TEXT', 'null' => true],
@@ -126,8 +126,8 @@ class CreateDmsSchema extends Migration
 
         // news_media
         $this->forge->addField([
-            'id'         => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
-            'news_id'    => ['type' => 'INT', 'unsigned' => true],
+            'id'         => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
+            'news_id'    => ['type' => 'BIGINT', 'unsigned' => true],
             'path'       => ['type' => 'VARCHAR', 'constraint' => 255],
             'caption'    => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
             'sort_order' => ['type' => 'INT', 'default' => 0],
@@ -139,7 +139,7 @@ class CreateDmsSchema extends Migration
 
         // events
         $this->forge->addField([
-            'id'           => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'id'           => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
             'slug'         => ['type' => 'VARCHAR', 'constraint' => 160],
             'title'        => ['type' => 'VARCHAR', 'constraint' => 255],
             'excerpt'      => ['type' => 'TEXT', 'null' => true],
@@ -158,8 +158,8 @@ class CreateDmsSchema extends Migration
 
         // event_media
         $this->forge->addField([
-            'id'         => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
-            'event_id'   => ['type' => 'INT', 'unsigned' => true],
+            'id'         => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
+            'event_id'   => ['type' => 'BIGINT', 'unsigned' => true],
             'path'       => ['type' => 'VARCHAR', 'constraint' => 255],
             'caption'    => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
             'sort_order' => ['type' => 'INT', 'default' => 0],
@@ -171,7 +171,7 @@ class CreateDmsSchema extends Migration
 
         // settings
         $this->forge->addField([
-            'id'         => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'id'         => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
             'key'        => ['type' => 'VARCHAR', 'constraint' => 100],
             'value'      => ['type' => 'LONGTEXT', 'null' => true],
             'updated_at' => ['type' => 'DATETIME', 'null' => true],
@@ -182,7 +182,7 @@ class CreateDmsSchema extends Migration
 
         // users (schema only for future CMS)
         $this->forge->addField([
-            'id'            => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'id'            => ['type' => 'BIGINT', 'unsigned' => true, 'auto_increment' => true],
             'email'         => ['type' => 'VARCHAR', 'constraint' => 191],
             'password_hash' => ['type' => 'VARCHAR', 'constraint' => 255],
             'name'          => ['type' => 'VARCHAR', 'constraint' => 120, 'null' => true],
