@@ -72,12 +72,30 @@ jobs:
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             chmod -R u+rwX,go-w "$TARGET" || true
 
+            PHP_BIN="php"
+            if [ -x /opt/cpanel/ea-php84/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php84/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php82/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php82/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php81/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php81/root/usr/bin/php"
+            fi
+            echo "Using PHP: $($PHP_BIN -v | head -1)"
+
+            COMPOSER_CMD=""
             if command -v composer >/dev/null 2>&1; then
               COMPOSER_CMD="composer"
-            elif [ -f "$HOME/bin/composer" ]; then
-              COMPOSER_CMD="php $HOME/bin/composer"
+            elif [ -x /opt/cpanel/composer/bin/composer ]; then
+              COMPOSER_CMD="/opt/cpanel/composer/bin/composer"
+            elif [ -f "$HOME/composer.phar" ]; then
+              COMPOSER_CMD="$PHP_BIN $HOME/composer.phar"
+            elif [ -f "$TARGET/composer.phar" ]; then
+              COMPOSER_CMD="$PHP_BIN $TARGET/composer.phar"
             else
-              COMPOSER_CMD="php $(command -v composer.phar 2>/dev/null || echo /usr/local/bin/composer)"
+              echo "Installing composer.phar into deploy target"
+              curl -fsSL https://getcomposer.org/installer | "$PHP_BIN"
+              mv -f composer.phar "$TARGET/composer.phar"
+              COMPOSER_CMD="$PHP_BIN $TARGET/composer.phar"
             fi
             (cd "$TARGET" && $COMPOSER_CMD install --no-dev --optimize-autoloader)
 
@@ -85,9 +103,10 @@ jobs:
               mkdir -p "$TARGET/$d"
               chmod -R u+rwX "$TARGET/$d" 2>/dev/null || true
             done
+            chmod -R ug+rwX "$TARGET/writable" 2>/dev/null || true
 
-            php "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed (see above); continuing deploy"
-            (cd "$TARGET" && php spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
+            "$PHP_BIN" "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed (see above); continuing deploy"
+            (cd "$TARGET" && "$PHP_BIN" spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
 
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             echo "---- recent error_log (if any) ----"
