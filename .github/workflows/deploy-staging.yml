@@ -92,12 +92,14 @@ jobs:
             elif [ -f "$TARGET/composer.phar" ]; then
               COMPOSER_CMD="$PHP_BIN $TARGET/composer.phar"
             else
-              echo "Installing composer.phar into deploy target"
-              curl -fsSL https://getcomposer.org/installer | "$PHP_BIN"
-              mv -f composer.phar "$TARGET/composer.phar"
-              COMPOSER_CMD="$PHP_BIN $TARGET/composer.phar"
+              echo "Downloading composer.phar into deploy target"
+              curl -fsSL https://getcomposer.org/download/latest-stable/composer.phar -o "$TARGET/composer.phar"
+              COMPOSER_CMD="$PHP_BIN -d allow_url_fopen=On $TARGET/composer.phar"
             fi
-            (cd "$TARGET" && $COMPOSER_CMD install --no-dev --optimize-autoloader)
+            (cd "$TARGET" && $COMPOSER_CMD install --no-dev --optimize-autoloader) || {
+              echo "WARNING: composer install failed; retrying with allow_url_fopen=On"
+              (cd "$TARGET" && "$PHP_BIN" -d allow_url_fopen=On "$TARGET/composer.phar" install --no-dev --optimize-autoloader) || echo "WARNING: composer install still failed"
+            }
 
             for d in writable/cache writable/logs writable/session writable/uploads; do
               mkdir -p "$TARGET/$d"
