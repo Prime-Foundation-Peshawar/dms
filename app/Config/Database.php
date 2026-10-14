@@ -201,6 +201,32 @@ class Database extends Config
             $this->defaultGroup = 'tests';
         }
 
+        // Staging/legacy .env may only define DB_* (apply.php reads those).
+        // CI4 only auto-maps database.default.*; fill gaps from DB_*.
+        if (($this->default['username'] ?? '') === '' || ($this->default['database'] ?? '') === '') {
+            $host = env('DB_HOST');
+            $user = env('DB_USERNAME', env('DB_USER'));
+            $pass = env('DB_PASSWORD');
+            $name = env('DB_DATABASE', env('DB_NAME'));
+            $port = env('DB_PORT');
+
+            if (is_string($host) && $host !== '') {
+                $this->default['hostname'] = $host;
+            }
+            if (is_string($user) && $user !== '') {
+                $this->default['username'] = $user;
+            }
+            if (is_string($pass)) {
+                $this->default['password'] = $pass;
+            }
+            if (is_string($name) && $name !== '') {
+                $this->default['database'] = $name;
+            }
+            if ($port !== null && $port !== '') {
+                $this->default['port'] = (int) $port;
+            }
+        }
+
         // Resolve relative SQLite paths against WRITEPATH.
         if (($this->default['DBDriver'] ?? '') === 'SQLite3') {
             $dbFile = (string) ($this->default['database'] ?? '');

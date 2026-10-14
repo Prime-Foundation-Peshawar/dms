@@ -107,6 +107,12 @@ jobs:
             done
             chmod -R ug+rwX "$TARGET/writable" 2>/dev/null || true
 
+            if [ -f "$TARGET/.env" ]; then
+              "$PHP_BIN" "$TARGET/deploy/sync-env-db.php" "$TARGET/.env" || echo "WARNING: env sync failed"
+            else
+              echo "WARNING: $TARGET/.env missing"
+            fi
+
             "$PHP_BIN" "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed (see above); continuing deploy"
             (cd "$TARGET" && "$PHP_BIN" spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
 
@@ -114,12 +120,11 @@ jobs:
             echo "---- smoke /dms/ ----"
             curl -sS -o /tmp/dms-home.body -w "HTTP %{http_code}\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/" || true
             curl -sS -o /dev/null -w "HTTP %{http_code} /dms/about\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/about" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/faculty\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/faculty" || true
             head -c 400 /tmp/dms-home.body 2>/dev/null || true
             echo ""
-            echo "---- CI4 writable/logs ----"
+            echo "---- CI4 writable/logs (today) ----"
             ls -la "$TARGET/writable/logs" 2>/dev/null || true
-            tail -n 80 "$TARGET/writable/logs"/log-*.log 2>/dev/null || true
+            tail -n 60 "$TARGET/writable/logs/log-$(date +%Y-%m-%d).log" 2>/dev/null || true
             echo "---- recent error_log (if any) ----"
             tail -n 40 "$TARGET/error_log" 2>/dev/null || true
-            tail -n 40 "$HOME/public_html/error_log" 2>/dev/null || true
-            tail -n 40 "$HOME/logs/"*error* 2>/dev/null || true
