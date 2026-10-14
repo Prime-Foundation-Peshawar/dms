@@ -5,6 +5,11 @@ on:
     branches:
       - staging
   workflow_dispatch:
+    inputs:
+      reset_from_local:
+        description: Drop MySQL tables and import deploy/local-mysql-snapshot.sql from local SQLite
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy-staging
@@ -43,13 +48,14 @@ jobs:
         uses: appleboy/ssh-action@v1.2.0
         env:
           GH_TOKEN: ${{ github.token }}
+          RESET_FROM_LOCAL: ${{ github.event.inputs.reset_from_local || 'false' }}
         with:
           host: ${{ secrets.STAGING_SSH_HOST }}
           username: ${{ secrets.STAGING_SSH_USER }}
           key: ${{ secrets.STAGING_SSH_KEY }}
           passphrase: ${{ secrets.STAGING_SSH_PASSPHRASE }}
           port: ${{ secrets.STAGING_SSH_PORT }}
-          envs: GH_TOKEN
+          envs: GH_TOKEN,RESET_FROM_LOCAL
           script: |
             set -euo pipefail
             TARGET="${{ secrets.STAGING_PATH }}"
@@ -113,14 +119,21 @@ jobs:
               echo "WARNING: $TARGET/.env missing"
             fi
 
-            "$PHP_BIN" "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed (see above); continuing deploy"
-            (cd "$TARGET" && "$PHP_BIN" spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
+            if [ "${RESET_FROM_LOCAL:-false}" = "true" ]; then
+              echo "---- RESET staging DB from local snapshot ----"
+              "$PHP_BIN" "$TARGET/deploy/reset-from-snapshot.php" "$TARGET/.env" "$TARGET/deploy/local-mysql-snapshot.sql"
+            else
+              "$PHP_BIN" "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed (see above); continuing deploy"
+              (cd "$TARGET" && "$PHP_BIN" spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
+            fi
 
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
             echo "---- smoke /dms/ ----"
             curl -sS -o /tmp/dms-home.body -w "HTTP %{http_code}\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/" || true
             curl -sS -o /dev/null -w "HTTP %{http_code} /dms/about\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/about" || true
             curl -sS -o /dev/null -w "HTTP %{http_code} /dms/faculty\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/faculty" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/departments\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/departments" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/gallery\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/gallery" || true
             head -c 400 /tmp/dms-home.body 2>/dev/null || true
             echo ""
             echo "---- CI4 writable/logs (today) ----"

@@ -31,6 +31,7 @@ Thumbs.db
 *.sql
 !db/changes/
 !db/changes/*.sql
+!deploy/local-mysql-snapshot.sql
 # Large local media sources
 /public/assets/videos/pmc-hero-source.mp4
 /public/assets/videos/frames/
