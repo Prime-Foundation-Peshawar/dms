@@ -55,6 +55,9 @@ class FacultyDirectoryService
                 if ($emp === '') {
                     continue;
                 }
+                if (! faculty_slug_is_public($emp)) {
+                    continue;
+                }
                 $empId = trim((string) ($row['empId'] ?? ''));
                 $depName = faculty_canonical_dept((string) ($row['depName'] ?? ''));
                 $hrmsDept = $depName;
@@ -65,7 +68,10 @@ class FacultyDirectoryService
                 $overridden = ! empty($rec['dept_override']) && $cvDept !== '';
                 if ($overridden) {
                     $depName = $cvDept;
+                } elseif ($depName === 'Administration' && $cvDept !== '' && $cvDept !== 'Administration') {
+                    $depName = $cvDept;
                 }
+                $depName = faculty_live_dept_name($emp, $depName);
                 if (! $this->isPublicDept($depName)) {
                     continue;
                 }
@@ -96,6 +102,9 @@ class FacultyDirectoryService
             if (! faculty_is_directory_rank((string) ($rec['designation'] ?? 'Faculty'))) {
                 continue;
             }
+            if (! faculty_slug_is_public((string) ($rec['name'] ?? '')) || ! faculty_slug_is_public((string) ($rec['slug'] ?? ''))) {
+                continue;
+            }
             $profileEmpId = trim((string) ($rec['emp_id'] ?? ''));
             if ($profileEmpId !== '' && isset($seenEmpIds[$profileEmpId])) {
                 continue; // already represented by HRMS row
@@ -105,7 +114,7 @@ class FacultyDirectoryService
                 // Keep only when not already covered — no name matching against HRMS.
                 // (Unlinked profiles still appear until emp_id is set in ACP.)
             }
-            $depName = faculty_canonical_dept((string) ($rec['department_name'] ?? ''));
+            $depName = faculty_live_dept_name((string) $rec['name'], (string) ($rec['department_name'] ?? ''));
             if ($depName !== '' && ! $this->isPublicDept($depName)) {
                 continue;
             }
@@ -132,6 +141,30 @@ class FacultyDirectoryService
             if ($profileEmpId !== '') {
                 $seenEmpIds[$profileEmpId] = true;
             }
+        }
+
+        $hasFurqan = false;
+        foreach ($out as $row) {
+            if (faculty_slugs_match(faculty_slug((string) ($row['empName'] ?? '')), 'muhammad-furqan')) {
+                $hasFurqan = true;
+                break;
+            }
+        }
+        if (! $hasFurqan) {
+            $out[] = [
+                'empId' => '',
+                'empName' => 'Muhammad Furqan',
+                'desTitle' => 'Director IT',
+                'depName' => 'IT & MI',
+                'hrmsDepName' => 'IT & MI',
+                'dept_override' => false,
+                'cv_only' => true,
+                'facPMDCNo' => '',
+                'facFacRegNo' => '',
+                'qualifications' => 'MS Computer Science',
+                'photo' => '',
+                'profile_id' => null,
+            ];
         }
 
         $memo = $out;
@@ -165,6 +198,8 @@ class FacultyDirectoryService
             'accident-emergency' => ['Accident and Emergency'],
             'paeds-cardiology' => ['Paeds Cardiology'],
             'forensic-medicine' => ['Forensic Medicine'],
+            'oncology' => ['Oncology', 'Medical Oncology'],
+            'critical-care' => ['Critical Care'],
         ];
         $names = $map[$slug] ?? [];
         if ($deptName !== '') {

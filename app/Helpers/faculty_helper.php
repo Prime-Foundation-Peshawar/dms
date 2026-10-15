@@ -98,8 +98,68 @@ if (! function_exists('faculty_canonical_dept')) {
             'gynaecology and obstetrics' => 'Gynae and Obstetrics',
             'gynaecology' => 'Gynae and Obstetrics',
             'orthopaedics' => 'Orthopedics',
+            'oral patholgy' => 'Oral Pathology',
+            'oral pathology' => 'Oral Pathology',
+            'sciences of dental material' => 'Sciences of Dental Materials',
+            'sciences of dental materials' => 'Sciences of Dental Materials',
+            'accident and emergency' => 'Accident and Emergency',
+            'medical oncology' => 'Oncology',
         ];
         return $aliases[$key] ?? $raw;
+    }
+}
+
+if (! function_exists('faculty_public_excluded_slugs')) {
+    /** Dual-appointed / PDC staff who must not appear on the DMS directory. */
+    function faculty_public_excluded_slugs(): array
+    {
+        return [
+            'munaza-khattak' => true,
+            'hina-hakim' => true,
+            'amna-umer' => true,
+            'ambereen-humayun' => true,
+            'sadaf-alam' => true,
+            'maryam-tahir' => true,
+            'saima-afridi' => true,
+            'iftikhar-akbar' => true,
+            'muhammad-zain' => true,
+            'hasan-ali-raza' => true,
+            'shahab-adil' => true,
+            'zafar-ul-islam' => true,
+            'muhammad-raza' => true,
+        ];
+    }
+}
+
+if (! function_exists('faculty_slug_is_public')) {
+    function faculty_slug_is_public(string $slugOrName): bool
+    {
+        $slug = faculty_slug($slugOrName);
+        if ($slug === '') {
+            return true;
+        }
+        foreach (array_keys(faculty_public_excluded_slugs()) as $excluded) {
+            if (faculty_slugs_match($slug, $excluded) || $slug === $excluded) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+if (! function_exists('faculty_live_dept_name')) {
+    /** Departments that live/master lists differently from current HRMS labels. */
+    function faculty_live_dept_name(string $empName, string $depName): string
+    {
+        $depName = faculty_canonical_dept($depName);
+        $map = [
+            'fazli-wahab' => 'Critical Care',
+            'muhammad-ishfaq' => 'Accident and Emergency',
+            'shumaila-farman' => 'Accident and Emergency',
+        ];
+
+        return $map[faculty_slug($empName)] ?? $depName;
     }
 }
 

@@ -6,7 +6,7 @@ $EXTRA = $extra ?? null;
 $DIRECTORY = $directory ?? null;
 $slug = $slug ?? '';
 
-$display_name = trim((string) ($EXTRA['name'] ?? $DIRECTORY['empName'] ?? 'Faculty Member'));
+$display_name = trim((string) ($DIRECTORY['empName'] ?? $EXTRA['name'] ?? 'Faculty Member'));
 $photoRel = trim((string) ($EXTRA['photo'] ?? ''));
 $photo = '';
 if ($photoRel !== '') {
@@ -17,7 +17,7 @@ if ($photoRel !== '') {
     }
 }
 $desig = faculty_normalize_designation((string) ($DIRECTORY['desTitle'] ?? $EXTRA['designation'] ?? ''));
-$dept = (string) ($EXTRA['department'] ?? $EXTRA['department_name'] ?? $DIRECTORY['depName'] ?? '');
+$dept = (string) ($DIRECTORY['depName'] ?? $EXTRA['department'] ?? $EXTRA['department_name'] ?? '');
 $is_hod = ! empty($EXTRA['hod']) || ! empty($EXTRA['is_hod']);
 
 $dirQuals = [];

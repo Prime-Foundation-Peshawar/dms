@@ -21,12 +21,17 @@ class FacultyProfileService
         if ($slug === '') {
             return null;
         }
+        if (! faculty_slug_is_public($slug)) {
+            return null;
+        }
         $row = $this->model->findBySlugOrAlias($slug);
-        if ($row) {
+        if ($row && faculty_slug_is_public((string) ($row['name'] ?? '')) && faculty_slug_is_public((string) ($row['slug'] ?? ''))) {
             return $row;
         }
-        // fuzzy
         foreach ($this->model->publicRows() as $rec) {
+            if (! faculty_slug_is_public((string) ($rec['slug'] ?? '')) || ! faculty_slug_is_public((string) ($rec['name'] ?? ''))) {
+                continue;
+            }
             $keys = array_merge([$rec['slug'] ?? ''], $rec['aliases'] ?? []);
             foreach ($keys as $key) {
                 if (faculty_slugs_match($slug, (string) $key)) {
@@ -37,6 +42,7 @@ class FacultyProfileService
                 return $rec;
             }
         }
+
         return null;
     }
 }
