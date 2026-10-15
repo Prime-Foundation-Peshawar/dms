@@ -110,7 +110,7 @@ class Faculty extends BaseController
             return redirect()->to(site_url('faculty'));
         }
         return view('faculty/profile', [
-            'page_title' => ($dirRow['empName'] ?? $extra['name'] ?? 'Faculty') . ' | Peshawar Medical College',
+            'page_title' => ((($extra ?? [])['name'] ?? '') ?: ($dirRow['empName'] ?? 'Faculty')) . ' | Peshawar Medical College',
             'page_description' => 'Faculty profile at Peshawar Medical College.',
             'canonical_url' => site_url('faculty-profile?n=' . rawurlencode($n)),
             'extra' => $extra,

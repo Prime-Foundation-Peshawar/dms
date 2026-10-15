@@ -6,7 +6,7 @@ $EXTRA = $extra ?? null;
 $DIRECTORY = $directory ?? null;
 $slug = $slug ?? '';
 
-$display_name = trim((string) ($DIRECTORY['empName'] ?? $EXTRA['name'] ?? 'Faculty Member'));
+$display_name = trim((string) ($EXTRA['name'] ?? $DIRECTORY['empName'] ?? 'Faculty Member'));
 $photoRel = trim((string) ($EXTRA['photo'] ?? ''));
 $photo = '';
 if ($photoRel !== '') {
