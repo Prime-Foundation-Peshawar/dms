@@ -131,6 +131,27 @@ if (! function_exists('faculty_public_excluded_slugs')) {
     }
 }
 
+if (! function_exists('faculty_profile_is_public')) {
+    function faculty_profile_is_public(?array $rec): bool
+    {
+        if (! $rec) {
+            return false;
+        }
+        if (array_key_exists('public', $rec) && $rec['public'] === false) {
+            return false;
+        }
+        $keys = array_merge([(string) ($rec['slug'] ?? '')], $rec['aliases'] ?? []);
+        $keys[] = (string) ($rec['name'] ?? '');
+        foreach ($keys as $key) {
+            if (! faculty_slug_is_public((string) $key)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
 if (! function_exists('faculty_slug_is_public')) {
     function faculty_slug_is_public(string $slugOrName): bool
     {

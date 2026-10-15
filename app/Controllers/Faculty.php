@@ -18,6 +18,9 @@ class Faculty extends BaseController
         $faculty_photos = [];
         $faculty_cv_slugs = [];
         foreach (model(\App\Models\FacultyProfileModel::class)->publicRows() as $rec) {
+            if (! faculty_profile_is_public($rec)) {
+                continue;
+            }
             $canon = trim((string) ($rec['slug'] ?? ''));
             $hasCv = ! empty($rec['photo'])
                 || ! empty($rec['qualifications'])
@@ -99,6 +102,9 @@ class Faculty extends BaseController
                     }
                 }
             }
+        }
+        if ($extra && ! faculty_profile_is_public($extra)) {
+            return redirect()->to(site_url('faculty'));
         }
         if (! $extra && ! $dirRow) {
             return redirect()->to(site_url('faculty'));
