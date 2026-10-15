@@ -1,38 +1,71 @@
-# CI4 / DMS
-/vendor/
-/writable/cache/*
-/writable/session/*
-/writable/debugbar/*
-/writable/logs/*
-/writable/*.db
-/writable/db_credentials.json
-!/writable/**/index.html
-!/writable/**/.gitkeep
-.env
-.env.*
-!.env.example
-.gitignore.ci4
-.env.ci4example
+# Server / runtime logs
 error_log
 **/error_log
 *.log
+logs/
+tmp/
+temp/
+cache/
+
+# Archived previous production site (kept on server only)
+/old/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+credentials.json
+*.pem
+
+# Dependencies (if added later)
+/vendor/
+/node_modules/
+composer.lock
+package-lock.json
+yarn.lock
+
+# OS / editor junk
 .DS_Store
 Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
 .idea/
 .vscode/
-/old/
-/output/
-.php-ini
-.php-version
-.user.ini
+*.code-workspace
+
+# Backups and local copies
 *.bak
+*.old
+*_old.php
 * copy.php
-# Keep migration SQL in db/changes
+*copy.php
 *.sql
 !db/changes/
 !db/changes/*.sql
-!deploy/local-mysql-snapshot.sql
-# Large local media sources
-/public/assets/videos/pmc-hero-source.mp4
-/public/assets/videos/frames/
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# cPanel / hosting artifacts
+.well-known/
+cgi-bin/
+.php-ini
+.php-version
+.user.ini
+.ftpquota
+.softaculous/
+.cagefs/
+
+# 4K source + extract frames (web uses compressed pmc-hero-720/480)
+/assets/videos/pmc-hero-source.mp4
+/assets/videos/frames/
+
+# Local tooling
 .cursor/
+.claude/
+agent-transcripts/
+todo.zip
