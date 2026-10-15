@@ -3,6 +3,7 @@
  * Production .env helpers used by the production deploy.
  *
  *   php deploy/production-env.php ensure-key /path/to/.env
+ *   php deploy/production-env.php relax-https /path/to/.env
  *   php deploy/production-env.php check-db /path/to/.env
  *   php deploy/production-env.php write-db /path/to/.env db user pass
  *
@@ -67,6 +68,18 @@ if ($cmd === 'ensure-key') {
     }
     file_put_contents($path, $text);
     echo "encryption key generated\n";
+    exit(0);
+}
+
+if ($cmd === 'relax-https') {
+    $line = 'app.forceGlobalSecureRequests = false';
+    if (preg_match('/(?:^|\n)[ \t]*app\.forceGlobalSecureRequests[ \t]*=/i', $text)) {
+        $text = preg_replace('/(?:^|\n)[ \t]*app\.forceGlobalSecureRequests[ \t]*=[^\r\n]*/i', "\n" . $line, $text, 1) ?? $text;
+    } else {
+        $text = rtrim($text, "\r\n") . "\n" . $line . "\n";
+    }
+    file_put_contents($path, $text);
+    echo "app.forceGlobalSecureRequests=false\n";
     exit(0);
 }
 

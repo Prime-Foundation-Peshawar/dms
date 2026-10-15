@@ -161,6 +161,7 @@ jobs:
               echo "Created .env from .env.example"
             fi
             "$PHP_BIN" "$TARGET/deploy/sync-env-app.php" "$TARGET/.env" "$PUBLIC_URL" || rollback "could not set the public base URL"
+            "$PHP_BIN" "$TARGET/deploy/production-env.php" relax-https "$TARGET/.env" || rollback "could not adjust the HTTPS setting"
             "$PHP_BIN" "$TARGET/deploy/production-env.php" ensure-key "$TARGET/.env" || rollback "could not set the encryption key"
 
             db_ready() {
@@ -181,6 +182,7 @@ jobs:
               DB_PASS="$(openssl rand -base64 24 | tr -d '/+=' | head -c 24)Aa1"
               uapi Mysql create_database name="$DB_NAME" > /tmp/dms-uapi-db.txt 2>&1 || true
               uapi Mysql create_user name="$DB_USER" password="$DB_PASS" > /tmp/dms-uapi-user.txt 2>&1 || true
+              uapi Mysql set_password user="$DB_USER" password="$DB_PASS" > /tmp/dms-uapi-pass.txt 2>&1 || true
               uapi Mysql set_privileges_on_database user="$DB_USER" database="$DB_NAME" privileges='ALL PRIVILEGES' > /tmp/dms-uapi-priv.txt 2>&1 || true
               "$PHP_BIN" "$TARGET/deploy/production-env.php" write-db "$TARGET/.env" "$DB_NAME" "$DB_USER" "$DB_PASS" || rollback "could not write database credentials"
               unset DB_PASS
@@ -191,7 +193,7 @@ jobs:
             fi
             if [ "$DB_STATE" -eq 2 ]; then
               echo "---- cPanel database setup ----"
-              sed -n '1,40p' /tmp/dms-uapi-db.txt /tmp/dms-uapi-user.txt /tmp/dms-uapi-priv.txt 2>/dev/null || true
+              sed -n '1,40p' /tmp/dms-uapi-db.txt /tmp/dms-uapi-user.txt /tmp/dms-uapi-pass.txt /tmp/dms-uapi-priv.txt 2>/dev/null || true
               rollback "production database login failed"
             fi
             if [ "$DB_STATE" -eq 3 ]; then
@@ -208,8 +210,11 @@ jobs:
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
 
-            HOME_CODE="$(curl -sk -o /tmp/dms-home.body -w '%{http_code}' -H 'Accept: text/html' "${PUBLIC_URL}")"
-            ACP_CODE="$(curl -sk -o /tmp/dms-acp.body -w '%{http_code}' -H 'Accept: text/html' "${PUBLIC_URL}acp")"
+            echo "---- response headers ----"
+            curl -skI -H 'Accept: text/html' "${PUBLIC_URL}" | head -n 15 || true
+            curl -skI -H 'Accept: text/html' "${PUBLIC_URL}acp" | head -n 15 || true
+            HOME_CODE="$(curl -skL --max-redirs 5 -o /tmp/dms-home.body -w '%{http_code}' -H 'Accept: text/html' "${PUBLIC_URL}")"
+            ACP_CODE="$(curl -skL --max-redirs 5 -o /tmp/dms-acp.body -w '%{http_code}' -H 'Accept: text/html' "${PUBLIC_URL}acp")"
             echo "HTTP ${HOME_CODE} /"
             echo "HTTP ${ACP_CODE} /acp"
             head -c 240 /tmp/dms-home.body 2>/dev/null || true
