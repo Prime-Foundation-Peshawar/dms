@@ -74,15 +74,16 @@ class Faculty extends BaseController
     public function profile()
     {
         $n = (string) $this->request->getGet('n');
+        helper('faculty');
+        if ($n === '' || ! faculty_slug_is_public($n)) {
+            return redirect()->to(site_url('faculty'));
+        }
         $profileSvc = new FacultyProfileService();
         $dirSvc = new FacultyDirectoryService();
-        $extra = $n !== '' ? $profileSvc->lookup($n) : null;
-        $directory = $n !== '' ? null : null;
-        // directory stub if no CV
-        helper('faculty');
+        $extra = $profileSvc->lookup($n);
         $dirRow = null;
         if ($n !== '') {
-            $extraEmpId = trim((string) ($extra['emp_id'] ?? ''));
+            $extraEmpId = trim((string) (($extra ?? [])['emp_id'] ?? ''));
             foreach ($dirSvc->publicDirectory() as $row) {
                 $rowEmpId = trim((string) ($row['empId'] ?? ''));
                 if ($extraEmpId !== '' && $rowEmpId !== '' && $extraEmpId === $rowEmpId) {
@@ -98,6 +99,9 @@ class Faculty extends BaseController
                     }
                 }
             }
+        }
+        if (! $extra && ! $dirRow) {
+            return redirect()->to(site_url('faculty'));
         }
         return view('faculty/profile', [
             'page_title' => ($dirRow['empName'] ?? $extra['name'] ?? 'Faculty') . ' | Peshawar Medical College',
