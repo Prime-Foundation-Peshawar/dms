@@ -5,6 +5,11 @@ on:
     branches:
       - staging
   workflow_dispatch:
+    inputs:
+      reset_from_local:
+        description: Drop MySQL tables and import deploy/local-mysql-snapshot.sql from local SQLite
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy-staging
@@ -43,13 +48,14 @@ jobs:
         uses: appleboy/ssh-action@v1.2.0
         env:
           GH_TOKEN: ${{ github.token }}
+          RESET_FROM_LOCAL: ${{ github.event.inputs.reset_from_local || 'false' }}
         with:
           host: ${{ secrets.STAGING_SSH_HOST }}
           username: ${{ secrets.STAGING_SSH_USER }}
           key: ${{ secrets.STAGING_SSH_KEY }}
           passphrase: ${{ secrets.STAGING_SSH_PASSPHRASE }}
           port: ${{ secrets.STAGING_SSH_PORT }}
-          envs: GH_TOKEN
+          envs: GH_TOKEN,RESET_FROM_LOCAL
           script: |
             set -euo pipefail
             TARGET="${{ secrets.STAGING_PATH }}"
@@ -71,9 +77,72 @@ jobs:
             git reset --hard "origin/$BRANCH"
             git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             chmod -R u+rwX,go-w "$TARGET" || true
-            php "$TARGET/db/apply.php"
+
+            PHP_BIN="php"
+            if [ -x /opt/cpanel/ea-php84/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php84/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php82/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php82/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php81/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php81/root/usr/bin/php"
+            fi
+            echo "Using PHP: $($PHP_BIN -v | head -1)"
+
+            COMPOSER_CMD=""
+            if command -v composer >/dev/null 2>&1; then
+              COMPOSER_CMD="composer"
+            elif [ -x /opt/cpanel/composer/bin/composer ]; then
+              COMPOSER_CMD="/opt/cpanel/composer/bin/composer"
+            elif [ -f "$HOME/composer.phar" ]; then
+              COMPOSER_CMD="$PHP_BIN $HOME/composer.phar"
+            elif [ -f "$TARGET/composer.phar" ]; then
+              COMPOSER_CMD="$PHP_BIN $TARGET/composer.phar"
+            else
+              echo "Downloading composer.phar into deploy target"
+              curl -fsSL https://getcomposer.org/download/latest-stable/composer.phar -o "$TARGET/composer.phar"
+              COMPOSER_CMD="$PHP_BIN -d allow_url_fopen=On $TARGET/composer.phar"
+            fi
+            (cd "$TARGET" && $COMPOSER_CMD install --no-dev --optimize-autoloader) || {
+              echo "WARNING: composer install failed; retrying with allow_url_fopen=On"
+              (cd "$TARGET" && "$PHP_BIN" -d allow_url_fopen=On "$TARGET/composer.phar" install --no-dev --optimize-autoloader) || echo "WARNING: composer install still failed"
+            }
+
+            for d in writable/cache writable/logs writable/session writable/uploads; do
+              mkdir -p "$TARGET/$d"
+              chmod -R u+rwX "$TARGET/$d" 2>/dev/null || true
+            done
+            chmod -R ug+rwX "$TARGET/writable" 2>/dev/null || true
+
+            if [ -f "$TARGET/.env" ]; then
+              "$PHP_BIN" "$TARGET/deploy/sync-env-db.php" "$TARGET/.env" || echo "WARNING: env sync failed"
+              "$PHP_BIN" "$TARGET/deploy/sync-env-app.php" "$TARGET/.env" "https://staging.riphahpsh.edu.pk/dms/" || echo "WARNING: env app sync failed"
+            else
+              echo "WARNING: $TARGET/.env missing"
+            fi
+
+            # Drop stale page/HTML cache (wrong baseURL was being served as localhost).
+            find "$TARGET/writable/cache" -mindepth 1 ! -name 'index.html' ! -name '.gitkeep' -delete 2>/dev/null || true
+            rm -f "$TARGET/writable/cache/"* 2>/dev/null || true
+
+            if [ "${RESET_FROM_LOCAL:-false}" = "true" ]; then
+              echo "---- RESET staging DB from local snapshot ----"
+              "$PHP_BIN" "$TARGET/deploy/reset-from-snapshot.php" "$TARGET/.env" "$TARGET/deploy/local-mysql-snapshot.sql"
+            else
+              "$PHP_BIN" "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed (see above); continuing deploy"
+              (cd "$TARGET" && "$PHP_BIN" spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
+            fi
+
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
+            echo "---- smoke /dms/ ----"
+            curl -sS -o /tmp/dms-home.body -w "HTTP %{http_code}\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/about\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/about" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/faculty\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/faculty" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/departments\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/departments" || true
+            curl -sS -o /dev/null -w "HTTP %{http_code} /dms/gallery\n" -H "Accept: text/html" "https://staging.riphahpsh.edu.pk/dms/gallery" || true
+            head -c 400 /tmp/dms-home.body 2>/dev/null || true
+            echo ""
+            echo "---- CI4 writable/logs (today) ----"
+            ls -la "$TARGET/writable/logs" 2>/dev/null || true
+            tail -n 60 "$TARGET/writable/logs/log-$(date +%Y-%m-%d).log" 2>/dev/null || true
             echo "---- recent error_log (if any) ----"
             tail -n 40 "$TARGET/error_log" 2>/dev/null || true
-            tail -n 40 "$HOME/public_html/error_log" 2>/dev/null || true
-            tail -n 40 "$HOME/logs/"*error* 2>/dev/null || true

@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "mbbs-admissions-open-2026-27",
+    "title": "MBBS Admissions Open 2026-27",
+    "excerpt": "Apply by 09 Nov 2026. Provisional Merit List: 10 November 2026.",
+    "body_html": "<p>Applications are open for <strong>MBBS Session 2026-27</strong> at Peshawar Medical College.</p><ul><li><strong>Apply by:</strong> 09 November 2026</li><li><strong>Provisional Merit List:</strong> 10 November 2026</li></ul><p class=\"adm-cta-row\" style=\"display:flex;flex-wrap:wrap;gap:10px;margin-top:1.25rem;\"><a href=\"https://caspr.kmu.edu.pk/\" target=\"_blank\" rel=\"noopener\" class=\"btn-pmc btn-pmc-primary\"><i class=\"bi bi-send\"></i> Apply Now</a><a href=\"assets/images/news/kmu-mbbs-bds-admissions.jpeg\" target=\"_blank\" rel=\"noopener\" class=\"btn-pmc btn-pmc-outline\"><i class=\"bi bi-download\"></i> Advertisement</a></p>",
+    "body_text": "Applications are open for MBBS Session 2026-27 at Peshawar Medical College. Apply by 09 November 2026. Provisional Merit List: 10 November 2026. Apply at https://caspr.kmu.edu.pk/",
+    "category": "Admissions",
+    "cover_image": "assets/images/news/kmu-mbbs-bds-admissions.jpeg",
+    "event_date": "2026-11-09",
+    "location": "Peshawar Medical College — Admissions",
+    "status": "published"
+  },
+  {
+    "slug": "convocation-2026",
+    "title": "Convocation 2026",
+    "excerpt": "Last date for registration is October 27, 2026.",
+    "body_html": "<p><strong>Convocation 2026</strong> registration is open for graduating students of Peshawar Medical College.</p><p><strong>Last date for registration:</strong> 27 October 2026.</p><p>Please complete registration before the deadline. Further schedule and venue details will be shared by the college administration.</p><p class=\"adm-cta-row\" style=\"display:flex;flex-wrap:wrap;gap:10px;margin-top:1.25rem;\"><a href=\"https://convocation.riphahpsh.edu.pk/\" target=\"_blank\" rel=\"noopener\" class=\"btn-pmc btn-pmc-primary\"><i class=\"bi bi-send\"></i> Register Now</a><a href=\"assets/images/news/convocation2026.jpeg\" target=\"_blank\" rel=\"noopener\" class=\"btn-pmc btn-pmc-outline\"><i class=\"bi bi-download\"></i> Advertisement</a></p>",
+    "body_text": "Convocation 2026 registration is open. Last date for registration: 27 October 2026. Register at https://convocation.riphahpsh.edu.pk/",
+    "category": "Convocation",
+    "cover_image": "assets/images/news/convocation2026.jpeg",
+    "event_date": "2026-10-27",
+    "location": "Peshawar Medical College",
+    "status": "published"
+  },
+  {
+    "slug": "pmc-retains-1-ranking-among-private-medical-colleges-in-kp",
+    "title": "PMC Retains #1 Ranking Among Private Medical Colleges in KP",
+    "excerpt": "Following the latest PM&DC inspection, PMC secured the highest score among all private medical colleges in KP with over 80%.",
+    "body_html": "<p>Following the latest <strong>PM&DC inspection</strong>, Peshawar Medical College secured the highest score among all private medical colleges in Khyber Pakhtunkhwa with over <strong>80%</strong> — reinforcing our commitment to academic and clinical excellence.</p>",
+    "body_text": "Following the latest PM&DC inspection, PMC secured the highest score among all private medical colleges in KP with over 80%.",
+    "category": "Achievement",
+    "cover_image": null,
+    "event_date": "2025-05-15",
+    "location": "Peshawar Medical College",
+    "status": "published"
+  }
+]

@@ -1,0 +1,7286 @@
+-- Exported from D:\projects\php\www\dms/writable/dms.db at 2026-10-14T05:28:35+00:00
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `department_activities`;
+CREATE TABLE `department_activities` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `department_id` BIGINT NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `date_label` VARCHAR(191) NULL,
+  `body` TEXT NULL,
+  `sort_order` BIGINT NOT NULL DEFAULT 0,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- department_activities: 0 rows
+
+DROP TABLE IF EXISTS `departments`;
+CREATE TABLE `departments` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `slug` VARCHAR(191) NOT NULL,
+  `name` VARCHAR(191) NOT NULL,
+  `icon` VARCHAR(191) NULL,
+  `group_name` VARCHAR(191) NOT NULL DEFAULT 'Other',
+  `hod` VARCHAR(191) NULL,
+  `intro_json` TEXT NULL,
+  `faculty_seed_json` TEXT NULL,
+  `hidden` TINYINT(1) NOT NULL DEFAULT 0,
+  `oric_id` BIGINT NULL,
+  `content_updated_at` DATETIME NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `departments` (`id`,`slug`,`name`,`icon`,`group_name`,`hod`,`intro_json`,`faculty_seed_json`,`hidden`,`oric_id`,`content_updated_at`,`created_at`,`updated_at`) VALUES
+(199,'anatomy','Anatomy','bi-body-text','Basic','Professor Dr. Jehanzeb Khan','["The Department of Anatomy provides foundational knowledge of human structure essential to clinical practice. Through lectures, dissection, histology, and imaging correlation, students develop a clear understanding of gross and microscopic anatomy.","Faculty emphasize applied anatomy relevant to surgery, medicine, and diagnostic specialties, preparing MBBS students for clinical years with strong morphological and spatial reasoning."]','[{"name":"Professor Dr. Jehanzeb Khan","qualification":"MBBS, M.Phil","reg":"1780-N"},{"name":"Professor Dr. Ihsan Ullah Wazir","qualification":"MBBS, M.Phil","reg":"1887-N"},{"name":"Professor Dr. Mohammad Saeed","qualification":"MBBS, M.Phil","reg":"2131-N"},{"name":"Professor Dr. Muhammad Imran Qureshi","qualification":"MBBS, M.Phil","reg":"2205-N"},{"name":"Professor Dr. Noman Ullah Wazir","qualification":"MBBS, M.Phil, PhD","reg":"17344-N"},{"name":"Assistant Professor Dr. Mariya Azam Khattak","qualification":"MBBS, M.Phil","reg":"19170-D"}]',0,4,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(200,'physiology','Physiology','bi-activity','Basic','Professor Dr. Robina Riaz','["The Department of Physiology teaches normal body-system function — the foundation for understanding disease mechanisms and therapeutics in later clinical training.","Practicals and tutorials reinforce cardiovascular, respiratory, renal, and neurophysiology concepts required for competent clinical reasoning."]','[{"name":"Professor Dr. Robina Riaz","qualification":"MBBS, Diploma in Gynae and Obs, M.Phil (Physiology), MHPE, PGD, PhD","reg":"3929-N"},{"name":"Professor Dr. Farzana Salman","qualification":"MBBS, M.Phil, PGD, CHPE, PhD","reg":"4576-N"},{"name":"Professor Dr. Momina Haq","qualification":"MBBS, M.Phil, CHPE","reg":"20339-N"},{"name":"Assistant Professor Dr. Marina Hidayat","qualification":"BDS, M.Phil","reg":""},{"name":"Assistant Professor Dr. Fatima Saadat","qualification":"BDS, M.Phil","reg":"21384-D"}]',0,5,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(201,'biochemistry','Biochemistry','bi-moisture','Basic','Professor Dr. Sadia Haroon','["The Department of Biochemistry covers molecular and metabolic processes essential to health, laboratory diagnostics, and clinical decision-making.","Students learn biochemical pathways and their clinical relevance through lectures, practicals, and case-based discussions."]','[{"name":"Professor Dr. Sadia Haroon","qualification":"MBBS, M.Phil","reg":"13072-P"},{"name":"Professor Dr. Shamaila Asim","qualification":"MBBS, M.Phil, PhD","reg":"9330-N"},{"name":"Assistant Professor Dr. Sikandar Ali Khan","qualification":"MBBS, M.Phil","reg":"23145-N"},{"name":"Assistant Professor Dr. Sara Yar Khan","qualification":"BDS, M.Phil","reg":"22465-D"}]',0,3,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(202,'pathology','Pathology','bi-eyedropper','Basic','Professor Dr. Fozia Rauf','["The Department of Pathology bridges basic science and clinical practice through the study of disease mechanisms, morphology, haematology, microbiology, and chemical pathology.","Teaching prepares students to interpret laboratory findings and understand the pathological basis of medicine."]','[{"name":"Professor Dr. Fozia Rauf","qualification":"MBBS, FCPS (Histopathology)","reg":"9167-N"},{"name":"Professor Dr. Mohsina Haq","qualification":"MBBS, M.Phil (Microbiology), PhD (Microbiology), CHPE","reg":"17218-N"},{"name":"Professor Dr. Ambreen Gul","qualification":"MBBS, M.Phil (Chemical Pathology), CHPE","reg":"11850-N"},{"name":"Professor Dr. Mian Ihsanullah","qualification":"MBBS, DCP, M.Phil (Chemical Pathology)","reg":"475-N"},{"name":"Professor Dr. Ashraf Khan","qualification":"MBBS, DCH, DCP, M.Phil (Hematology)","reg":"2445-N"},{"name":"Professor Dr. Sadaf Alam","qualification":"MBBS, M.Phil Histopathology, FCPS Histopathology","reg":"12281-N"},{"name":"Assistant Professor Dr. Sardar Muhammad","qualification":"MBBS, DOMS, M.Phil Microbiology","reg":""},{"name":"Assistant Professor Dr. Shabina Saifullah","qualification":"MBBS, M.Phil (Chemical Pathology)","reg":"8611-N"},{"name":"Assistant Professor Dr. Sumira Abbas","qualification":"MBBS, FCPS (Hematology), CHPE, CHR","reg":"21012-N"},{"name":"Assistant Professor Dr. Sarah Yousuf","qualification":"MBBS, FCPS (Histopathology), M.Phil (Histopathology)","reg":"80451-N"},{"name":"Assistant Professor Dr. Ashfaq Ahmad","qualification":"MBBS, M.Phil (Microbiology)","reg":"25375-N"},{"name":"Assistant Professor Dr. Haseeba Arif","qualification":"BDS, CHPE, CHR, M.Phil (Microbiology)","reg":"18937-D"}]',0,8,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(203,'pharmacology','Pharmacology','bi-capsule-pill','Basic','Professor Dr. Shafaq Zafar','["The Department of Pharmacology focuses on mechanisms of drug action, therapeutics, adverse effects, and rational prescribing.","Students develop safe prescribing habits aligned with clinical scenarios and essential medicine principles."]','[{"name":"Professor Dr. Shafaq Zafar","qualification":"MBBS, M.Phil, CHPE, PhD","reg":"14188-N"},{"name":"Professor Dr. Riaz Nasim","qualification":"MBBS, M.Phil","reg":"598-N"},{"name":"Assistant Professor Dr. Amber Javaid","qualification":"MBBS, M.Phil, CHPE","reg":"10512-N"},{"name":"Assistant Professor Dr. Erum Rehman","qualification":"BDS, M.Phil, CHPE, CHR","reg":"18609-D"},{"name":"Assistant Professor Dr. Muhammad Shahid","qualification":"MBBS, M.Phil, CHPE","reg":"28805-N"}]',0,5010,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(204,'forensic-medicine','Forensic Medicine','bi-shield-check','Basic','Professor Dr. Rubina Salma Yasmin','["The Department of Forensic Medicine covers medico-legal responsibilities, injury interpretation, and the interface of medicine and law.","Training prepares graduates for ethical and legal duties expected of medical practitioners."]','[{"name":"Professor Dr. Rubina Salma Yasmin","qualification":"MBBS, MCPS, M.Phil, CHPE, PGD","reg":"814-N"},{"name":"Assistant Professor Dr. Muhammad Bilal Khan","qualification":"MBBS, DMJ, CHPE, PGD","reg":"28264-N"},{"name":"Assistant Professor Dr. Muhammad Wasif","qualification":"MBBS, M.Phil (FMT), MSHCM, CHPE, CHR","reg":"30470-N"}]',0,5011,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(205,'chs','CHS','bi-people-fill','Basic','Professor Dr. Mohammad Aman Khan','["Community Health Sciences (CHS) prepares students for population health, prevention, epidemiology, and community-oriented primary care.","Field exposure and community placements connect classroom learning with real public-health needs in KP."]','[{"name":"Professor Dr. Mohammad Aman Khan","qualification":"MBBS, M.Phil, MCPS, DOMS, DCEH","reg":"1706-N"},{"name":"Professor Dr. Saeed Anwar","qualification":"MBBS, MPH, ADHPE","reg":"1960-N"},{"name":"Professor Dr. Farhat R Malik","qualification":"MBBS, MPH, CHPE, PGD","reg":"7155-N"},{"name":"Assistant Professor Dr. Faqir Muhammad Anwar","qualification":"MD, MPH","reg":"1282-N"},{"name":"Assistant Professor Dr. Aziza Alam","qualification":"MBBS, M.Phil, CHPE","reg":"7401-N"}]',0,5007,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(206,'dhpe','DHPE & R','bi-mortarboard-fill','Basic','Assistant Professor Dr. Neelofar Shaheen','["The Department of Health Professions Education & Research (DHPE & R) supports teaching excellence, curriculum development, and educational scholarship across PMC.","Faculty contribute to faculty development, assessment design, and research capacity building."]','[{"name":"Assistant Professor Dr. Neelofar Shaheen","qualification":"MBBS, MHPE","reg":"13134-N"},{"name":"Assistant Professor Dr. Urooj Saleem","qualification":"BDS, MHPE","reg":"10935-D"},{"name":"Assistant Professor Dr. Uzma Siddique","qualification":"BDS, MHPE","reg":"9198-D"}]',1,11,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(207,'medicine','Medicine','bi-heart-pulse-fill','Clinical','Professor Dr. Jehanzeb Afridi','["The Department of Medicine provides clinical training in internal medicine through ward work, outpatient clinics, and bedside teaching at affiliated hospitals.","Students develop history-taking, examination, diagnostic reasoning, and patient-management skills under consultant supervision."]','[{"name":"Professor Dr. Muhammad Subhan","qualification":"MBBS, FCPS","reg":"2542-N"},{"name":"Professor Dr. Najib Ul Haq","qualification":"MBBS, MCPS, MRCP (UK)","reg":"1795-N"},{"name":"Professor Dr. Jehanzeb Afridi","qualification":"MBBS, FCPS Medicine, CHPE","reg":"5101-N"},{"name":"Professor Dr. Faridullah Shah","qualification":"MBBS, FCPS","reg":"3190-N"},{"name":"Professor Dr. Noor Mohammad","qualification":"MBBS, FCPS","reg":"4053-N"},{"name":"Professor Dr. Fazli Wahab","qualification":"MBBS, FCPS (MEDICINE), FCPS (PULMONOLOGY), CHPE","reg":"7321-N"},{"name":"Professor Dr. Bakht Biland Khan","qualification":"MBBS, FCPS (Medicine), FRCP (Edinburgh,UK), CHPE","reg":"6180-N"},{"name":"Associate Professor Dr. Muhammad Abbas","qualification":"MBBS, FCPS","reg":"14841-N"},{"name":"Associate Professor Dr. Saima Mehboob","qualification":"MBBS, FCPS","reg":"13297-N"},{"name":"Assistant Professor Dr. Muhammad Qasim","qualification":"MBBS, FCPS","reg":"17354-N"},{"name":"Senior Registrar Dr. Abdul Samad","qualification":"MBBS, Dip. Card","reg":"852-N"},{"name":"Senior Registrar Dr. Nafees Ahmad","qualification":"MBBS, FCPS MEDICINE, ECFMG CERTIFIED(USA)","reg":"14584-N"},{"name":"Senior Registrar Dr. Yasir Iqbal","qualification":"MBBS, FCPS (Med), MRCP, CHPE","reg":"29023-N"}]',0,1,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(208,'surgery','Surgery','bi-scissors','Clinical','Professor Dr. Mohammad Tayeb','["The Department of Surgery trains students in surgical assessment, operative principles, and peri-operative care across affiliated teaching hospitals.","Clinical rotations emphasize safe practice, communication, and early recognition of surgical emergencies."]','[{"name":"Professor Dr. Mohammad Tayeb","qualification":"MBBS, FCPS","reg":"9016-N"},{"name":"Professor Dr. Ijaz Ahmad","qualification":"MBBS, FCPS","reg":"2237-N"},{"name":"Professor Dr. Muzaffur Ud Din Sadiq","qualification":"MBBS, FRCS","reg":"1831-N"},{"name":"Associate Professor Dr. Sahibzada Salma Rahman","qualification":"MBBS, MCPS, FCPS, CHPE","reg":"10023-N"},{"name":"Associate Professor Dr. Sheikh Muhammad Ibqar Azeem","qualification":"MBBS, FCPS, CHPE, CHR","reg":"13791-N"},{"name":"Associate Professor Dr. Ahmad Arsalan Tahir","qualification":"MBBS, FCPS, FRCS","reg":"17595-N"},{"name":"Assistant Professor Dr. Muhammad Ishfaq","qualification":"MBBS, FCPS","reg":"19531-N"},{"name":"Assistant Professor Dr. Shahid Ullah Ahmad","qualification":"MBBS, FCPS, CHR","reg":"15170-N"},{"name":"Assistant Professor Dr. Waleed Mabood","qualification":"MBBS, FCPS, MRCS (UK), FACS (USA), CHPE, CHR, ATLS","reg":"23916-N"},{"name":"Assistant Professor Dr. Ambareen Subhan","qualification":"MBBS, FCPS","reg":"20087-N"},{"name":"Assistant Professor Dr. Shoaib Muhammad","qualification":"MBBS, FCPS, FMAS, CHPE","reg":"19009-N"},{"name":"Assistant Professor Dr. Nasir Bakhtiar","qualification":"","reg":""},{"name":"Senior Registrar Dr. Asad Ullah Khan","qualification":"MBBS, FCPS","reg":"18341-N"}]',0,5001,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(209,'gynaecology','Gynae and Obstetrics','bi-gender-female','Clinical','Professor Dr. Tehniyat Attiya Ur Razaq','["Gynae and Obstetrics provides training in women’s health, antenatal care, labour-ward practice, and common gynaecological conditions.","Students gain clinical exposure in teaching-hospital settings with a focus on respectful, evidence-based care."]','[{"name":"Professor Dr. Tehniyat Attiya Ur Razaq","qualification":"MBBS, FCPS, CHPE","reg":"6459-N"},{"name":"Professor Dr. Shahnaz Parveen","qualification":"MBBS, FCPS","reg":"1871-N"},{"name":"Professor Dr. Samdana Wahab","qualification":"MBBS, FCPS, CHPE, MHR","reg":"7886-N"},{"name":"Associate Professor Dr. Shamim Akhtar","qualification":"MBBS, FCPS, CHPE","reg":"43247-P"},{"name":"Associate Professor Dr. Shandana Bawar","qualification":"MBBS, FCPS, MRCOG","reg":"9071-N"},{"name":"Assistant Professor Dr. Farzana Burki","qualification":"MBBS, FCPS, CHPE, MRCPI (Part 2)","reg":"14305-N"},{"name":"Assistant Professor Dr. Robina Qadeer","qualification":"MBBS, FCPS, CHPE","reg":"13006-N"},{"name":"Assistant Professor Dr. Afrah Aman","qualification":"MBBS, FCPS, CHPE, CHR","reg":"17887-N"},{"name":"Assistant Professor Dr. Sobia Siraj","qualification":"MBBS, FCPS","reg":"19166-N"},{"name":"Assistant Professor Dr. Asma Ghani","qualification":"MBBS, FCPS, MRCOG, CHPE","reg":"18364-N"},{"name":"Senior Registrar Dr. Sana Nafees","qualification":"MBBS, FCPS","reg":"21041-N"}]',0,5003,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(210,'paediatrics','Paediatrics','bi-person-fill','Clinical','Professor Dr. Saima Ali','["The Department of Paediatrics focuses on child health, growth and development, neonatal care, and common paediatric illnesses.","Hospital-based teaching builds competence in assessment and management of infants and children."]','[{"name":"Professor Dr. Saima Ali","qualification":"MBBS, DCH(PK), FCPS(Paediatrics,PK), FRCPCH (UK), MHPE(PK), MRCPS(Glasgow)","reg":"7435-N"},{"name":"Professor Dr. Saffi Ullah","qualification":"MBBS, MRCPCH (London), MRCPS (Glasgow)","reg":"9141-N"},{"name":"Assistant Professor Dr. Hameed Ullah","qualification":"MBBS, MRCPCH, MRCPS","reg":"9601-N"},{"name":"Senior Registrar Dr. Imtiaz Khan","qualification":"MBBS, MCPS, CHPE","reg":"12076-N"},{"name":"Professor Dr. Shazia Aurangzeb","qualification":"MBBS, MCPS, FCPS","reg":"8628-N"},{"name":"Assistant Professor Dr. Rabbia Shaheen","qualification":"MBBS, FCPS, CHPE","reg":"19131-N"},{"name":"Assistant Professor Dr. Abdul Hameed","qualification":"MBBS, FCPS, CHPE","reg":"25638-N"},{"name":"Assistant Professor Dr. Sana Nafis","qualification":"MBBS, FCPS","reg":"23264-N"},{"name":"Senior Registrar Dr. Bilal","qualification":"MBBS, FCPS","reg":"17291-N"}]',0,5002,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(211,'ent','ENT','bi-ear-fill','Clinical','Professor Dr. Shafi Ullah','["The ENT department covers disorders of the ear, nose, and throat with clinical and operative teaching for MBBS students.","Students learn examination techniques, common ENT presentations, and appropriate referral pathways."]','[{"name":"Professor Dr. Shafi Ullah","qualification":"MBBS, FCPS","reg":"4289-N"},{"name":"Professor Dr. Mohammad Habib","qualification":"MBBS, DLO, FCPS, CHPE","reg":"4164-N"},{"name":"Professor Dr. Arif Raza Khan","qualification":"MBBS, FCPS, DHPE, CHPE","reg":"4026-N"},{"name":"Assistant Professor Dr. Farhan Salam","qualification":"MBBS, FCPS","reg":"14626-N"},{"name":"Associate Professor Dr. Naseem Ul Haq","qualification":"MBBS, MCPS, FCPS, CHPE","reg":"4670-N"}]',0,5020,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(212,'ophthalmology','Ophthalmology','bi-eye-fill','Clinical','Professor Dr. Hafeez Ur Rahman','["The Department of Ophthalmology trains students in eye examination, common ocular diseases, and vision-related public health issues.","Clinical teaching develops skills in recognition of sight-threatening conditions and timely referral."]','[{"name":"Professor Dr. Hafeez Ur Rahman","qualification":"MBBS, FCPS (Ophthalmology), ICO (UK), AD-HPE AKU","reg":"6392-P"},{"name":"Professor Dr. Ayesha Sumera","qualification":"MBBS, FCPS, Dip. (Ophthalmology), MHPE","reg":"6714-N"},{"name":"Professor Dr. Mir Ali Shah","qualification":"MBBS, MCPS. Ophthalmology, ICO (Cambridge), FCPS Ophthalmology, Fellowship Retina (Netherlands), MCPS-HPE","reg":"2186-N"},{"name":"Professor Dr. Ibrar Hussain","qualification":"MBBS, MCPS, FCPS Ophthalmology, FRCS, Fellowship in Oculoplastic surgery (England)","reg":"3570-N"},{"name":"Associate Professor Dr. Faisal Nawaz","qualification":"MBBS, FCPS (Ophthalmology), FCPS (Vitreoretina)","reg":"5663-N"},{"name":"Assistant Professor Dr. Abdul Munim","qualification":"MBBS, FCPS (Ophthalmology), FCPS (Vitreo Retina), FICO (UK)","reg":"16590-N"},{"name":"Assistant Professor Dr. Muhammad Usman","qualification":"MBBS, FCPS (Ophthalmology), FCPS (Vitreo Retina)","reg":"70849-P"},{"name":"Senior Registrar Dr. Muhammad Zaheer Ullah Baber","qualification":"MBBS, FCPS (Ophthalmology), FCPS (Retina), ICO (London)","reg":"27313-N"}]',0,5030,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(213,'orthopaedics','Orthopedics','bi-bandaid-fill','Clinical','Professor Dr. Mahmood Ul Hassan','["Orthopedics focuses on musculoskeletal injury and disease, trauma care, and rehabilitation principles.","Students participate in clinics, wards, and trauma-related teaching at affiliated hospitals."]','[{"name":"Professor Dr. Mahmood Ul Hassan","qualification":"MBBS, FCPS (ortho), MCPSHPE, POA fellowship in Arthroplasty","reg":"7960-N"},{"name":"Associate Professor Dr. Saeed Ahmad","qualification":"MBBS, FCPS (ortho), Fellowship in Paediatric Orthopaedic","reg":"15419-N"},{"name":"Assistant Professor Dr. Akhtar Hussain","qualification":"MBBS, FCPS (ortho)","reg":"15870-N"},{"name":"Assistant Professor Dr. Hidayat Ullah","qualification":"MBBS, FCPS (ortho)","reg":"14917-N"}]',0,5027,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(214,'dermatology','Dermatology','bi-droplet-half','Clinical','Professor Dr. Miraj Muhammad Khan','["Comprehensive Dermatology Outpatient (OPD) Services","Dermatological Procedures and Minor Skin Surgery","Skin Biopsy and Histopathological Examination","Electrocautery","Intralesional Therapy"]','[{"name":"Professor Dr. Miraj Muhammad Khan","qualification":"MBBS, Diploma in Dermatological Sciences, FACHARTZ","reg":"1921-N"},{"name":"Assistant Professor Dr. Hafsa Usman","qualification":"MBBS, FCPS, CHPE","reg":"18690-N"},{"name":"Assistant Professor Dr. Farah Sagheer","qualification":"MBBS, FCPS, CHR, DHPE","reg":"20164-N"},{"name":"Senior Registrar Dr. Nargis Jabeen","qualification":"FCPS (Dermatology)","reg":""}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(215,'radiology','Radiology','bi-radioactive','Clinical','Professor Dr. Abdul Majid','["Radiology introduces imaging modalities and interpretation skills essential for modern clinical practice.","Teaching links radiological findings with clinical scenarios across medical and surgical specialties."]','[{"name":"Professor Dr. Abdul Majid","qualification":"MBBS, FCPS","reg":"44336-S"},{"name":"Associate Professor Dr. Zeenat Adil","qualification":"MBBS, D.M.R.D, FRCR","reg":"7576-N"},{"name":"Assistant Professor Dr. Abdul Aziz Zia","qualification":"MBBS, D.M.R.D","reg":"968-N"},{"name":"Assistant Professor Dr. Ambreen Muhammad","qualification":"MBBS, FCPS","reg":"13856-N"},{"name":"Assistant Professor Dr. Adnan Yousaf","qualification":"MBBS, FCPS","reg":"11205-N"},{"name":"Senior Registrar Dr. Madiha Romasa Ilyas","qualification":"MBBS, MCPS","reg":"7451-N"},{"name":"Senior Registrar Dr. Saima Rabbani","qualification":"MBBS, FCPS","reg":"25104-N"}]',0,5004,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(216,'anaesthesia','Anaesthesia','bi-lungs-fill','Clinical','Professor Dr. Rukhsana Samad','["The Department of Anaesthesia covers peri-operative care, airway management, pain control, and principles of safe anaesthesia.","Students observe and learn critical skills relevant to emergency and operative medicine."]','[{"name":"Professor Dr. Rukhsana Samad","qualification":"MBBS, FCPS, MCPS","reg":"39-N"},{"name":"Professor Dr. Neelam Noreen","qualification":"MBBS, Diploma in Anaesthesia, FCPS","reg":"4089-N"},{"name":"Associate Professor Dr. Adil Hussain","qualification":"MBBS, Diploma in Anaesthesia","reg":"1913-N"},{"name":"Assistant Professor Dr. Ihsan Ul Haq","qualification":"MBBS, Diploma in Anaesthesia","reg":"4634-N"},{"name":"Senior Registrar Dr. Muhammad Naeem Anjum","qualification":"MBBS, Diploma in Anaesthesia","reg":"17430-N"},{"name":"Senior Registrar Dr. Abdul Rauf","qualification":"MBBS, Diploma in Anaesthesia","reg":"22140-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(217,'psychiatry','Psychiatry','bi-hypnotize','Clinical','Professor Dr. Muhammad Irfan','["Psychiatry training covers mental health assessment, common psychiatric disorders, and patient-centred biopsychosocial care.","Students develop communication skills and an understanding of stigma-sensitive clinical practice."]','[{"name":"Professor Dr. Muhammad Irfan","qualification":"MBBS, MCPS, FCPS, Dip CBT, MS, PhD, CHPE","reg":"10719-N"},{"name":"Professor Dr. Mohammad Idrees","qualification":"MBBS, MCPS, FCPS, CHPE","reg":"875-N"},{"name":"Senior Registrar Dr. Asiya Munir","qualification":"MBBS, FCPS (Psychiatry)","reg":"29963-N"}]',0,9,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(218,'cardiology','Cardiology','bi-heart-fill','Clinical','Associate Professor Dr. Muhammad Abdur Rauf','["Cardiology training covers cardiovascular assessment, common heart diseases, and hospital-based clinical exposure.","Inpatient services: 2 CCU, One 8-bed Kuwait Teaching Hospital, Second one 12 beded at Prime Teaching Hospital,16-bed Interventional Cardiology Ward, and 16-bed General Cardiology Ward.","Non-invasive services: Echocardiography, Exercise tolerance testing, Holter monitoring, Ambulatory blood pressure monitoring, and CT coronary angiography.","Two cardiac catheterization laboratories providing coronary angiography, primary and complex PCI, CTO\/post-CABG\/bifurcation\/left-main intervention, PTMC, and pacemaker implantation."]','[{"name":"Professor Dr. Saqib Qureshi","qualification":"MBBS, FCPS (Cardiology), CHPE","reg":"3398-N"},{"name":"Associate Professor Dr. Muhammad Abdur Rauf","qualification":"MBBS, FCPS (Cardiology)","reg":"14299-N"},{"name":"Senior Registrar Dr. Rahid Ullah","qualification":"MBBS, FCPS (Cardiology)","reg":"18991-N"},{"name":"Senior Registrar Dr. Naveed Danish","qualification":"MBBS, FCPS (Cardiology)","reg":"18353-N"},{"name":"Senior Registrar Dr. Farhat Shireen","qualification":"MBBS, FCPS (Cardiology)","reg":"21393-N"}]',0,5035,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(219,'cardiac-surgery','Cardiac Surgery','bi-heart-pulse','Clinical','Assistant Professor Dr. Aamir Zeb','["Cardiac Surgery provides teaching related to surgical management of cardiac disease in tertiary-care settings."]','[{"name":"Assistant Professor Dr. Aamir Zeb","qualification":"MBBS, FCPS","reg":"17510-N"},{"name":"Assistant Professor Dr. Muhammad Ishfaq","qualification":"MBBS, FCPS (General Surgery)","reg":"19531-N"},{"name":"Senior Registrar Dr. Asif Ali","qualification":"MBBS, FCPS (General Surgery)","reg":"26366-N"},{"name":"Senior Registrar Dr. Shumaila Farman","qualification":"MBBS, FCPS (General Surgery)","reg":"27920-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(220,'neurosurgery','Neurosurgery','bi-radioactive','Clinical','Associate Professor Dr. Akram Ullah','["Neurosurgery provides exposure to disorders of the brain, spine, and peripheral nerves requiring surgical assessment and care."]','[{"name":"Associate Professor Dr. Akram Ullah","qualification":"MBBS, FCPS (Neurosurgery), MCPS, FACS, ASCD, ESBD, EDISC, CHPE, CHR","reg":"14422-N"},{"name":"Associate Professor Dr. Muhammad Zubair","qualification":"MD, MS (Neurosurgery), MCPS, ASCD, FACS","reg":"10946-N"},{"name":"Assistant Professor Dr. Sajid Khan","qualification":"MBBS, FCPS (Neurosurgery), ASCD, CHPE, CHR","reg":"17017-N"},{"name":"Assistant Professor Dr. Arif Hussain","qualification":"MBBS, FCPS (Neurosurgery), MCPS, CHPE, CHR, ASCD","reg":"20338-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(221,'neurology','Neurology','bi-lightning-charge','Clinical','Assistant Professor Dr. Bakht Jehan','["Neurology focuses on disorders of the nervous system, clinical assessment, and neurological decision-making."]','[{"name":"Assistant Professor Dr. Bakht Jehan","qualification":"MBBS, FCPS","reg":"5106-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(222,'pulmonology','Pulmonology','bi-lungs','Clinical','Professor Dr. Fazli Maula','["Pulmonology covers respiratory diseases, clinical assessment, and hospital-based respiratory care teaching."]','[{"name":"Professor Dr. Fazli Maula","qualification":"MBBS, MCPS (Chest diseases including TB), FCPS (Pulmonology)","reg":"4945-N"},{"name":"Senior Registrar Dr. Mehmood Khattak","qualification":"MBBS, FCPS","reg":"13020-N"},{"name":"Senior Registrar Dr. Ahmed Usman","qualification":"MBBS, FCPS (Pulmonology)","reg":"25599-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(223,'gastroenterology','Gastroenterology','bi-hospital','Clinical','Assistant Professor Dr. Mian Shah Yousaf','["Gastroenterology focuses on diseases of the digestive system with clinical teaching in hospital settings."]','[{"name":"Assistant Professor Dr. Mian Shah Yousaf","qualification":"MBBS (Gold Medalist), FCPS (Gastroenterology), Fellowship in EUS and ERCP, CHPE","reg":"17803-N"},{"name":"Assistant Professor Dr. Arbab Muhammad Kashif Khan","qualification":"MBBS, FCPS (Gastroenterology)","reg":"17318-N"},{"name":"Assistant Professor Dr. Noman Khan","qualification":"MBBS (Gold Medalist), FCPS (Gastroenterology), MRCP-II (UK), CHPE","reg":"20380-N"},{"name":"Senior Registrar Dr. Yasir Abbas","qualification":"MBBS, FCPS","reg":"14302-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(224,'nephrology','Nephrology','bi-droplet','Clinical','Associate Professor Dr. Najm UD Din','["Nephrology focuses on kidney disease, fluid and electrolyte disorders, and related clinical management."]','[{"name":"Associate Professor Dr. Najm UD Din","qualification":"MBBS, FCPS","reg":"4104-N"},{"name":"Assistant Professor Dr. Shahid Rizwan Safir","qualification":"MBBS, FCPS","reg":"7668-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(225,'urology','Urology','bi-clipboard2-pulse','Clinical','Professor Dr. Mir Alam Jan','["Urology covers diseases of the urinary tract and male reproductive system with clinical and operative teaching."]','[{"name":"Professor Dr. Mir Alam Jan","qualification":"FCPS (Surgery), FCPS (Urology)","reg":"1919-N"},{"name":"Senior Registrar Dr. Muhammad Hisham Naeem","qualification":"FCPS (Urology)","reg":"26983-N"},{"name":"Senior Registrar Dr. Izhar Ali","qualification":"FCPS Urology, Fellowship in Pead’s Urology","reg":"21826-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(226,'endocrinology','Endocrinology','bi-clipboard-pulse','Clinical','Assistant Professor Dr. Kifayat Ali','["Endocrinology focuses on hormonal disorders, diabetes care, and metabolic disease in clinical practice."]','[{"name":"Assistant Professor Dr. Kifayat Ali","qualification":"MBBS, FCPS (Med), FCPS (Endo), MRCP (UK), CHPE, CHR","reg":"23931-N"},{"name":"Assistant Professor Dr. Sana","qualification":"MBBS, FCPS (Med), FCPS (Endo), MRCP (UK), CHPE, CHR","reg":"23110-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(227,'oncology','Oncology','bi-virus','Clinical','Assistant Professor Dr. Bilal Ahmad','["Oncology provides teaching related to cancer diagnosis, multidisciplinary care, and supportive management."]','[{"name":"Assistant Professor Dr. Bilal Ahmad","qualification":"MBBS, FCPS (Medical Oncology), SCE-MRCP UK (Medical Oncology), Certificate Of Palliative Care, CHPE","reg":"22170-N"},{"name":"Senior Registrar Dr. Syeda Sama Bilal","qualification":"MBBS, FCPS (Medical Oncology), Palliative Care Course, CHPE","reg":"20409-N"},{"name":"Senior Registrar Dr. Uzma Rahim","qualification":"MBBS, FCPS (Clinical Haematology), EHA Exam","reg":"27012-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(228,'family-medicine','Family Medicine','bi-house-heart','Clinical','Assistant Professor Dr. Humaira Khattak','["Family Medicine emphasizes comprehensive, continuity-based care across ages and common community presentations."]','[{"name":"Professor Dr. Najib Ul Haq","qualification":"MBBS, MCPS, MRCP (UK)","reg":"1795-N"},{"name":"Assistant Professor Dr. Humaira Khattak","qualification":"MBBS, MCPS (Family Med.)","reg":"5930-N"},{"name":"Assistant Professor Dr. Aminul Haq","qualification":"MBBS, MCPS (Family Med.), FCPS (Medicine)","reg":"4120-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(229,'critical-care','Critical Care','bi-activity','Clinical','Professor Dr. Zia Ullah','["Critical Care focuses on management of acutely ill patients and principles of intensive care medicine."]','[{"name":"Professor Dr. Zia Ullah","qualification":"MBBS, FCPS (Pulmonology)","reg":"3584-N"},{"name":"Professor Dr. Fazli Wahab","qualification":"MBBS, FCPS (MEDICINE), FCPS (PULMONOLOGY), CHPE","reg":"7321-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(230,'accident-emergency','Accident and Emergency','bi-ambulance','Clinical','Assistant Professor Dr. Muhammad Ishfaq','["Accident and Emergency provides teaching in acute assessment, triage, and initial management of medical and surgical emergencies.","Students learn structured approaches to common emergency presentations in affiliated teaching hospitals."]','[{"name":"Assistant Professor Dr. Muhammad Ishfaq","qualification":"MBBS, FCPS","reg":"19531-N"},{"name":"Senior Registrar Dr. Asif Ali","qualification":"MBBS, FCPS","reg":"26366-N"},{"name":"Senior Registrar Dr. Shumaila Farman","qualification":"MBBS, FCPS","reg":"27920-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32'),
+(231,'paeds-cardiology','Paeds Cardiology','bi-heart','Clinical','Assistant Professor Dr. Zia Ur Rahman','["Paeds Cardiology covers diagnosis and management of congenital and acquired heart disease in children.","Teaching links paediatric medicine with cardiac assessment in tertiary-care settings."]','[{"name":"Assistant Professor Dr. Zia Ur Rahman","qualification":"MBBS, FCPS","reg":"16502-N"}]',0,NULL,'2026-08-09','2026-10-13 15:49:32','2026-10-13 15:49:32');
+-- departments: 33 rows
+
+DROP TABLE IF EXISTS `event_media`;
+CREATE TABLE `event_media` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `event_id` BIGINT NOT NULL,
+  `path` VARCHAR(191) NOT NULL,
+  `caption` VARCHAR(191) NULL,
+  `sort_order` BIGINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- event_media: 0 rows
+
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE `events` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `excerpt` TEXT NULL,
+  `body_html` TEXT NULL,
+  `category` VARCHAR(191) NULL,
+  `cover_image` VARCHAR(191) NULL,
+  `event_date` TEXT NULL,
+  `location` VARCHAR(191) NULL,
+  `status` VARCHAR(191) NOT NULL DEFAULT 'published',
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  `body_text` TEXT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `events` (`id`,`slug`,`title`,`excerpt`,`body_html`,`category`,`cover_image`,`event_date`,`location`,`status`,`created_at`,`updated_at`,`body_text`) VALUES
+(35,'mbbs-admissions-open-2026-27','MBBS Admissions Open 2026-27','Apply by 09 Nov 2026. Provisional Merit List: 10 November 2026.','<p>Applications are open for <strong>MBBS Session 2026-27</strong> at Peshawar Medical College.</p><ul><li><strong>Apply by:</strong> 09 November 2026</li><li><strong>Provisional Merit List:</strong> 10 November 2026</li></ul><p class="adm-cta-row" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:1.25rem;"><a href="https://caspr.kmu.edu.pk/" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary"><i class="bi bi-send"></i> Apply Now</a><a href="assets/images/news/kmu-mbbs-bds-admissions.jpeg" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-download"></i> Advertisement</a></p>','Admissions','assets/images/news/kmu-mbbs-bds-admissions.jpeg','2026-11-09','Peshawar Medical College — Admissions','published','2026-10-13 19:00:52','2026-10-13 19:00:52','Applications are open for MBBS Session 2026-27 at Peshawar Medical College. Apply by 09 November 2026. Provisional Merit List: 10 November 2026. Apply at https://caspr.kmu.edu.pk/'),
+(36,'convocation-2026','Convocation 2026','Last date for registration is October 27, 2026.','<p><strong>Convocation 2026</strong> registration is open for graduating students of Peshawar Medical College.</p><p><strong>Last date for registration:</strong> 27 October 2026.</p><p>Please complete registration before the deadline. Further schedule and venue details will be shared by the college administration.</p><p class="adm-cta-row" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:1.25rem;"><a href="https://convocation.riphahpsh.edu.pk/" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary"><i class="bi bi-send"></i> Register Now</a><a href="assets/images/news/convocation2026.jpeg" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-download"></i> Advertisement</a></p>','Convocation','assets/images/news/convocation2026.jpeg','2026-10-27','Peshawar Medical College','published','2026-10-13 19:00:52','2026-10-13 19:00:52','Convocation 2026 registration is open. Last date for registration: 27 October 2026. Register at https://convocation.riphahpsh.edu.pk/'),
+(37,'pmc-retains-1-ranking-among-private-medical-colleges-in-kp','PMC Retains #1 Ranking Among Private Medical Colleges in KP','Following the latest PM&DC inspection, PMC secured the highest score among all private medical colleges in KP with over 80%.','<p>Following the latest <strong>PM&DC inspection</strong>, Peshawar Medical College secured the highest score among all private medical colleges in Khyber Pakhtunkhwa with over <strong>80%</strong> — reinforcing our commitment to academic and clinical excellence.</p>','Achievement',NULL,'2025-05-15','Peshawar Medical College','published','2026-10-13 19:00:52','2026-10-13 19:00:52','Following the latest PM&DC inspection, PMC secured the highest score among all private medical colleges in KP with over 80%.');
+-- events: 3 rows
+
+DROP TABLE IF EXISTS `faculty_profile_aliases`;
+CREATE TABLE `faculty_profile_aliases` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `profile_id` BIGINT NOT NULL,
+  `alias` VARCHAR(191) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `faculty_profile_aliases` (`id`,`profile_id`,`alias`) VALUES
+(1345,835,'fouzia-rauf'),
+(1346,835,'fozia-rauf'),
+(1347,836,'ihsan-ullah'),
+(1348,836,'ihsanullah'),
+(1349,836,'mian-ihsan'),
+(1350,836,'mian-ihsanullah'),
+(1351,837,'ashraf-khan'),
+(1352,838,'mohsina'),
+(1353,838,'mohsina-haq'),
+(1354,839,'ambreen-gul'),
+(1355,840,'sadaf-alam'),
+(1356,841,'sardar-muhammad'),
+(1357,842,'shabina-saifullah'),
+(1358,843,'sumira-abbas'),
+(1359,844,'sara-yousaf'),
+(1360,844,'sarah-yousaf'),
+(1361,844,'sarah-yousuf'),
+(1362,845,'haseeba-arif'),
+(1363,846,'shafaq-zafar'),
+(1364,847,'riaz-nasim'),
+(1365,848,'amber-javaid'),
+(1366,848,'amber-javed'),
+(1367,849,'erum-rehman'),
+(1368,850,'muhammad-shahid'),
+(1369,851,'robina-riaz'),
+(1370,851,'robina-usman'),
+(1371,852,'farzana-khan'),
+(1372,852,'farzana-salman'),
+(1373,853,'munaza-khattak'),
+(1374,854,'momina-haq'),
+(1375,855,'marina-hidayat'),
+(1376,856,'fatima-saadat'),
+(1377,857,'mohammad-irfan'),
+(1378,857,'muhammad-irfan'),
+(1379,858,'muhammad-abbas'),
+(1380,859,'najm-ud-din'),
+(1381,859,'najam-ud-din'),
+(1382,860,'mohammad-idrees'),
+(1383,860,'muhammad-idrees'),
+(1384,861,'asiya-munir'),
+(1385,862,'kifayat-ali'),
+(1386,863,'sana'),
+(1387,864,'jehanzeb-khan'),
+(1388,864,'jehanzeb'),
+(1389,864,'khan-jehanzeb'),
+(1390,865,'muhammad-saeed'),
+(1391,865,'m-saeed'),
+(1392,865,'saeed-muhammad'),
+(1393,865,'mohammad-saeed'),
+(1394,866,'muhammad-imran-qureshi'),
+(1395,866,'imran-qureshi'),
+(1396,866,'m-imran-qureshi'),
+(1397,867,'fazli-wahab'),
+(1398,868,'zia-ullah'),
+(1399,869,'ihsan-ullah-wazir'),
+(1400,869,'ihsanullah-wazir'),
+(1401,869,'ihsan-wazir'),
+(1402,870,'noman-ullah-wazir'),
+(1403,870,'nomanullah-wazir'),
+(1404,870,'noman-wazir'),
+(1405,871,'ambereen-humayun'),
+(1406,871,'ambereen'),
+(1407,871,'amber-humayun'),
+(1408,872,'mariya-azam-khattak'),
+(1409,872,'mariya-khattak'),
+(1410,872,'maria-azam-khattak'),
+(1411,873,'abdur-rauf'),
+(1412,873,'abdul-rauf'),
+(1413,874,'ihsan-ul-haq'),
+(1414,875,'muhammad-naeem-anjum'),
+(1415,876,'neelam-rashad'),
+(1416,876,'neelam-noreen'),
+(1417,876,'neelam'),
+(1418,877,'rukhsana-samad'),
+(1419,878,'hina-hakim'),
+(1420,879,'sadia-haroon'),
+(1421,880,'sara-yar-khan'),
+(1422,881,'shamaila-asim'),
+(1423,881,'shamaila-wadud'),
+(1424,882,'sikandar-ali'),
+(1425,882,'sikandar-ali-khan'),
+(1426,883,'aziza-alam'),
+(1427,884,'faqir-muhammad-anwar'),
+(1428,884,'faqir-anwar'),
+(1429,885,'farhat-r-malik'),
+(1430,885,'farhat-malik'),
+(1431,886,'m-aman-khan'),
+(1432,886,'mohammad-aman-khan'),
+(1433,886,'muhammad-aman-khan'),
+(1434,887,'saeed-anwar'),
+(1435,888,'farhat-shireen'),
+(1436,889,'muhammad-abdur-rauf'),
+(1437,890,'naveed-danish'),
+(1438,891,'rahid-ullah'),
+(1439,892,'saqib-qureshi'),
+(1440,892,'mohammad-saqib-qureshi'),
+(1441,892,'muhammad-saqib-qureshi'),
+(1442,893,'farah-sagheer'),
+(1443,894,'hafsa-usman'),
+(1444,895,'miraj-muhammad-khan');
+INSERT INTO `faculty_profile_aliases` (`id`,`profile_id`,`alias`) VALUES
+(1445,895,'miraj-mohammad-khan'),
+(1446,895,'mairaj-muhammad-khan'),
+(1447,895,'mairaj-mohammad-khan'),
+(1448,896,'nargis-jabeen'),
+(1449,897,'humaira-khattak'),
+(1450,898,'najib-ul-haq'),
+(1451,898,'najibul-haq'),
+(1452,898,'najeeb-ul-haq'),
+(1453,898,'najeebul-haq'),
+(1454,898,'najibulhaq'),
+(1455,899,'muhammad-wasif'),
+(1456,900,'rubina-salma-yasmin'),
+(1457,901,'muhammad-bilal-khan'),
+(1458,901,'m-bilal-khan'),
+(1459,902,'arbab-m-kashif-khan'),
+(1460,902,'arbab-muhammad-kashif-khan'),
+(1461,902,'arbab-mohammad-kashif-khan'),
+(1462,903,'shumaila-farman'),
+(1463,904,'sana-nafis'),
+(1464,905,'nasir-bakhtiar'),
+(1465,906,'mian-shah-yousaf'),
+(1466,907,'noman-khan'),
+(1467,908,'asma-ghani'),
+(1468,909,'farzana-burki'),
+(1469,910,'samdana-wahab'),
+(1470,911,'shehnaz-parveen'),
+(1471,911,'shahnaz-parveen'),
+(1472,912,'bilal-ahmad'),
+(1473,913,'syeda-sama-bilal'),
+(1474,914,'uzma-rahim'),
+(1475,915,'akram-ullah'),
+(1476,916,'arif-hussain'),
+(1477,917,'muhammad-zubair-bashir'),
+(1478,917,'muhammad-zubair'),
+(1479,918,'sajid-khan'),
+(1480,919,'aminul-haq'),
+(1481,919,'amin-ul-haq'),
+(1482,920,'faisal-nawaz'),
+(1483,921,'abdul-munim'),
+(1484,922,'shahid-rizwan-safir'),
+(1485,922,'shahid-rizwan'),
+(1486,923,'muhammad-usman'),
+(1487,924,'ibrar-hussain'),
+(1488,925,'mir-ali-shah'),
+(1489,926,'aamir-zeb'),
+(1490,927,'zaheer-babar'),
+(1491,927,'muhammad-zaheer-ullah-baber'),
+(1492,927,'zaheer-ullah-baber'),
+(1493,928,'hafeez-ur-rahman'),
+(1494,928,'hafeez-ur-rehman'),
+(1495,929,'akhtar-hussain'),
+(1496,930,'mahmood-ul-hassan'),
+(1497,931,'saeed-ahmad'),
+(1498,932,'hidayat-ullah'),
+(1499,933,'abdul-hameed'),
+(1500,934,'rabbia-shaheen'),
+(1501,935,'saffiullah'),
+(1502,935,'saffi-ullah'),
+(1503,936,'saima-ali'),
+(1504,937,'shazia-aurangzeb'),
+(1505,938,'hameed-ullah'),
+(1506,938,'hameedullah'),
+(1507,939,'imtiaz-khan'),
+(1508,940,'ahmad-arsalan-tahir'),
+(1509,941,'ambareen-subhan'),
+(1510,942,'ijaz-ahmad'),
+(1511,943,'muhammad-asad'),
+(1512,943,'asad-ullah-khan'),
+(1513,943,'asadullah-khan'),
+(1514,944,'muhammad-ibqar-azeem'),
+(1515,944,'sheikh-muhammad-ibqar-azeem'),
+(1516,944,'ibqar-azeem'),
+(1517,945,'muhammad-ishfaq'),
+(1518,946,'muhammad-shoaib'),
+(1519,946,'shoaib-muhammad'),
+(1520,947,'muhammad-tayyeb'),
+(1521,947,'mohammad-tayeb'),
+(1522,947,'muhammad-tayeb'),
+(1523,948,'bilal'),
+(1524,949,'shandana-bawar'),
+(1525,950,'muzafar-ud-din-sadiq'),
+(1526,950,'muzaffur-ud-din-sadiq'),
+(1527,950,'muzaffar-ud-din-sadiq'),
+(1528,951,'salma-rehman'),
+(1529,951,'sahibzada-salma-rahman'),
+(1530,951,'sahibzada-salma-rehman'),
+(1531,952,'shahid-ullah'),
+(1532,952,'shahid-ullah-ahmad'),
+(1533,953,'waleed-mahbood'),
+(1534,953,'waleed-mabood'),
+(1535,954,'izhar-ali'),
+(1536,955,'mir-alam-jan'),
+(1537,956,'bakht-jehan'),
+(1538,957,'muhammad-hisham-naeem'),
+(1539,958,'adil-hussain'),
+(1540,959,'ahmed-usman'),
+(1541,959,'ahmad-usman'),
+(1542,960,'fazli-maula'),
+(1543,961,'yasir-iqbal'),
+(1544,962,'nafees-ahmad');
+INSERT INTO `faculty_profile_aliases` (`id`,`profile_id`,`alias`) VALUES
+(1545,962,'nafees-ahmed'),
+(1546,963,'bakht-biland-khan'),
+(1547,963,'bakht-biland'),
+(1548,964,'jehanzeb-afridi'),
+(1549,964,'jehan-zeb'),
+(1550,964,'jehan-zeb-afridi'),
+(1551,965,'shafi-ullah'),
+(1552,965,'shafiullah'),
+(1553,966,'arif-raza-khan'),
+(1554,966,'arif-raza'),
+(1555,967,'muhammad-habib-khattak'),
+(1556,967,'mohammad-habib'),
+(1557,967,'muhammad-habib'),
+(1558,967,'habib-khattak'),
+(1559,968,'naseem-ul-haq'),
+(1560,968,'naseemulhaq'),
+(1561,968,'haq-nu'),
+(1562,969,'farhan-salam'),
+(1563,970,'tehniyat-attiya-ur-razaq'),
+(1564,970,'tehniyat-attiya'),
+(1565,970,'attiya-ur-razaq'),
+(1566,971,'robina-qadeer'),
+(1567,972,'afrah-aman'),
+(1568,973,'shamim-akhtar');
+-- faculty_profile_aliases: 224 rows
+
+DROP TABLE IF EXISTS `faculty_profiles`;
+CREATE TABLE `faculty_profiles` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `slug` VARCHAR(191) NOT NULL,
+  `name` VARCHAR(191) NOT NULL,
+  `department_slug` VARCHAR(191) NULL,
+  `department_name` VARCHAR(191) NULL,
+  `designation` VARCHAR(191) NULL,
+  `photo` VARCHAR(191) NULL,
+  `is_hod` TINYINT(1) NOT NULL DEFAULT 0,
+  `is_public` TINYINT(1) NOT NULL DEFAULT 1,
+  `qualifications_json` TEXT NULL,
+  `experience_json` TEXT NULL,
+  `skills_json` TEXT NULL,
+  `publications_json` TEXT NULL,
+  `extra_json` TEXT NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  `emp_id` VARCHAR(191) NULL,
+  `dept_override` BIGINT DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `faculty_profiles` (`id`,`slug`,`name`,`department_slug`,`department_name`,`designation`,`photo`,`is_hod`,`is_public`,`qualifications_json`,`experience_json`,`skills_json`,`publications_json`,`extra_json`,`created_at`,`updated_at`,`emp_id`,`dept_override`) VALUES
+(835,'fozia-rauf','Fozia Rauf',NULL,'Pathology','Professor (Histopathology)','assets/images/faculty/fozia-rauf.jpg',1,1,'["MBBS","FCPS (Histopathology)"]','["Head, Department of Pathology, Peshawar Medical College (20-05-2024-till date)","Professor, Department of Pathology, Peshawar Medical College (01-01-2016)"]','[]','["Immunohistochemical Expression of p53 in Breast Carcinoma in Women from Khyber Pakhtunkhwa, Pakistan: A Cross-Sectional Study. International Journal of Medicine, Volume 8, Issue 8. 06-08-2026 Sidra Mashal¹; Umer²; Aiman Ajmeer³; Nazli Gul4; Khalid Javed5*; Fozia Rauf; Abdal Ahmad7","Histomorphological Study of the Protective Roles of Margalla Honey (Multifloral) and Silymarin in Valproate-Induced Hepatotoxicity in Male Rats. S. Ammara Iftikhar, Jehanzeb Khan, Fozia Rauf, Sarah Yousuf, Faiza Shafqat and Abdal Ahmad, IJDDT, Volume 16 Issue 66s, 2026","Unraveling the nexus: Tumor-Infiltrating Lymphocytes (TILs), tumor stage and PD-L1 expression in colorectal carcinoma; Abdal Ahmad, Aiman Ajmeer, Hamza Farooq and Fozia Rauf Published: 26 Sept 2025","Immunohistochemical expression of programmed death ligand (pd-l1) in gastric adenocarcinoma and non-neoplastic EGFT Epithelium, Shah Faisal, Fozia Rauf, Danyal Khattak, Saria Saeed Ali, Muhammad Tayyab, Natasha Kamran, 2025-09-29","Immunohistochemical Expression of Epidermal Growth Factor Receptor (EGFR) in Oral Squamous Cell Carcinoma and Oral Potentially Malignant Disorders. Applied; Aamir, R., Rauf, F., Iqbal, F., Yousuf, S., Rehman, A., Sheikh, A. K., & Muhammad, S. (2024).","Correlation of serum CA 15-3 with histological types of breast cancer; Nowshad, M., Rauf, F., Sharif, N., Ishfaq, I., Gul, A., & Naeemullah, N. (2023). Correlation of serum CA 15-3 with histological types of breast cancer. International Journal of Health Sciences, 7(S1), 2121² 2129. 18 Jan 2023 https:\/\/doi.org\/10.53730\/ijhs.v7nS1.14464","Comparison of special stains (Giemsa stain and Modified Toluidine Blue stain) with immunohistochemistry as gold standard for the detection of H. pylori in gastric biopsies; Hina Khan, Fozia Rauf, Noor Muhammad, Mehwish Javaid, Sadaf Alam, Sabeen Nasir Volume 23, Issue 2, May 2022, Pages 75-81","Histomorphological Differences Between Right and Left Sided Colon Cancers. Saeed, S., Yousuf, S., Ziaullah, S., & Rauf, F. (2022). International Journal of Pathology, 30-37","Comparison of Human Papillomavirus 16 Expression by Immunohistochemistry in Cervical Carcinomas and Non-Neoplastic Cervical Mucosa. Yousuf, S., Rauf, F., & Sheikh, A. K. (2022). Journal of Postgraduate Medical Institute, 36(4), 244-52.","Detection of Epstein Barr Virus (EBV) Antigen in Oral Squamous Cell Carcinoma (OSCC) by Immunohistochemistry in Patients from KPK Province of Pakistan. Immunohistochemical Expression of Mesenchymal Epithelial Transition Factor Receptor (C-MET) In Colorectal Carcinoma. Sana Ghani1, Fozia Rauf2, Asif Rehman3, Muhammad Irfan4, Fatima Iqbal5, Yousaf Jamal Accepted for publication:15\/04\/2021,","Detection Of H. Pylori in Gastric Biopsies: A Cost-Effective Method for Developing Countries; Hina Khan1, Sadaf Alam2, Shahnawaz Khan3, Mumtaz Khan4, Fozia Rauf5; Professional Med J 2019;26(8):1348-1353.","Safety and Feasibility of Laparoscopic Cholecystectomy in Acute Cholecystitis. Tayeb M, Rauf F, Bakhtiar N. J Coll Physicians Surg Pak. 2018 Oct;28(10):798-800.","A Histopathological Study of Cholecystectomy Specimens in Gujrat – Pakistan Abdul Rauf1, Qamar Zaman Choudhary2 and Muhammad Ali3; Med. Forum, Vol. 29, No. 4","Role of benign ovarian cysts in the development of adenomyosis; Saudi Med Journal; 2016 Sept, Sadaf Alam, Sajjad Ahmad, Muhammad M Khan, Sabeen Nasir, Naveed Sharif, Sara Ziaullah, Ahmareen Khalid, Fozia Rauf","Is it necessary to submit grossly normal looking gall bladder specimens for histopathological examination? Tayeb M, Rauf F, Ahmad K, Khan FM. Asian Pac J Cancer Prev. 2015; 16(4):1535-8","Effect of Age on Prognosis in Different Molecular Subtypes of Female Breast Carcinoma. Sharif N, Ahmad S,Khan MM, Khalid A, Alam S, Ziaullah S, Nasir S, Rauf F. Gomal Journal of Medical Sciences, 2015 July-Sept;3:151 –5","Primary Pleomorphic Leiomyosarcoma of Male Breast; Muhammad Mumtaz Khan1, Mohammad Atique2, Naveed Sharif1, Fouzia Rauf1, Sajjad Ahmad1; Gomal Journal of Medical Sciences January-June 2013, Vol. 11, No. 1","Phytobezoar in a jejunal diverticulum as a cause of small bowel obstruction: a case report. Tayeb M, Khan FM, Rauf F, Khan MM.; J Med Case Reports 2011 Sept, 27;5: 482.","Situs inversus totals with perforated duodenal ulcer: a case report. Tayeb M, Khan FM, Rauf F.; J Med Case Reports 2011 Jul 3; 5:279","Nipple Adenoma of Breast: A Masquerader of Malignancy. Aftab K, Kayani N, Rauf F. Journal of the College of Physicians and Surgeons Pakistan 2010, Vol. 20 (7): 472-474.","Frequency of primary solid malignant neoplasms in different age groups as seen in our practice. Ahmed Z, Azad NS, Rauf F, Yaqoob N, Husain A, Ahsan A, Ahmed R, Kayani N, Pervez S, Hassan SH.; J Ayub Med Coll Abbottabad. 2007 Jul-Sep;19(3):56-63","Gastrointestinal stromal tumors: A demographic, morphologic and immunohistochemical study. Rauf F, Bhurgri Y, Pervez S. Indian J Gastroenterol 2007; 26:214-6","Metaplastic carcinoma of the breast, an intriguing rarity. Rauf F, Kiyani N, Bhurgri Y. Asian Pac J Cancer Prev. 2006 Oct-Dec;7(4):667-71","Subependymal Giant Cell Astrocytoma: Case Series. Ahmad Z, Rauf F, Azad NS, Ahsan A.; J Pak Med Assoc. 2006 Oct; 56(10):463-5.","“Mixed Epithelial and Stromal Tumor of Kidney: A Case Report”. Rauf F, Yaqoob N, Husain A.; J Pak Med Assoc. 2006 Jul; 56(7):340-1.","“Synchronous Occurrence of Gastrointestinal Stromal Tumor& Gastric Adeno Carcinoma: A Case Report”. Rauf F, Ahmad Z, Muzzafar S, HussainiAS.; J Pak Med Assoc. 2006 Apr;56(4):184-6."]','{"aliases":["fouzia-rauf","fozia-rauf"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','58',0),
+(836,'mian-ihsan','Mian Ihsan',NULL,'Pathology','Professor (Chemical Pathology)','assets/images/faculty/mian-ihsan.jpeg',0,1,'["MBBS","DCP","M.Phil (Chemical Pathology)"]','["Professor, Department of Pathology, Peshawar Medical, 2nd May 2014 till date."]','["Former Member of admission and Scrutiny Committee, KMC from 2004 to 2008.","Former Chairman\/member Disciplinary Committee, KIMS Kohat 2009 to 2014.","Former Incharge Admission and Scrutiny Committee KIMS Kohat 2010 to 2014.","Former Chairman Social Welfare Society KIMS Kohat, 2012 to 2014.","Former Vice Principal Academic, Student Affairs and administration KIMS, Kohat 2010 to 2014.","Former Convener Purchase Committee, KIMS Kohat 2012 to 2014."]','[]','{"aliases":["ihsan-ullah","ihsanullah","mian-ihsan","mian-ihsanullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','847',0),
+(837,'ashraf-khan','Ashraf Khan',NULL,'Pathology','Professor (Hematology)','assets/images/faculty/ashraf-khan.jpeg',0,1,'["MBBS","DCH","DCP","M.Phil (Hematology)"]','["Peshawar Medical College, Peshawar Professor of Hematology Jan-2020 to Till Date"]','[]','["Serum Anticardiolipin antibodies in recurrent abortion; annals vol.10no.4 oct-dec 2004","Obstruction due to Intestinal Tuberculosis Strictureplasty Versus Resection Anastomosis; Pakistan Journal of Surgery\/Vol:24, Issue 3,2003","Estimating the burden of Intestinal Helminthes among pregnant women in KP; K.JMS January June,2014, Vol, No.1","Serial Serum Ferritin Levels of Monitoring response to iron chelation therapy in patients of Beta Thalassemia major; Medical Forum Vol.29, No.06 June,2018","Frequency of Iron deficiency anemia in Chronic Kidney disease patients on hemodialysis; Medical Forum Vol29, No. 11 November,2018","Frequency of Hyponatremia and Hypokalemia in Children with protein energy; Medical Forum, Vol.29, NO.06 June,2018","Frequency of Hepatitis B and C in chronic patients of chronic renal failure; Journal of Saidu Medical College 2019, Vol 9 (1)"]','{"aliases":["ashraf-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1308',0),
+(838,'mohsina-haq','Mohsina Haq',NULL,'Pathology','Professor (Microbiology)','assets/images/faculty/mohsina-haq.jpg',0,1,'["MBBS","M.Phil (Microbiology)","PhD (Microbiology)","CHPE"]','["Professor Microbiology, Peshawar Medical College, June 2024 - Till Date","Director Advance Basic Medical & Dental Science, Oct 2025 - Till Date Peshawar Medical College Peshawar Medical College"]','[]','["Comparative Efficacy of Intramuscular Meglumine Antimoniate and Miltefosine in the Management of Cutaneous Leishmaniasis; Majid Khan, Zarka Sarwar, Samia Nawaz, Bubrak Amin, Mohsina Haq, and Mehran Khan; Genetics and Molecular Research (GMR), E-ISSN: 1676-5680.","Barriers To Immunization Coverage in Under-Five Children in Rural Communities: A Cross-Sectional Study from Rural Punjab, Pakistan. Abdulhamid Shaban1, Nishat Waqas2, Abdur Rehman Jalali3, Hussain Ramzan4, Sultan Mohammed Alanazi5, Mohsina Haq5; Genetics and Molecular Research 25(12s):2026","Vol. 32 No. 3 (2025) | JPTCP Journal of population therapeutics and clinical pharmacology Antimicrobial resistance patterns in pathogens isolated from peritoneal drain fluids in abdominal surgeries Dr. Muhammad Kalim, Dr. Zainab, Dr. Zubeda Irshad, Dr. Naseer Ahmed, Dr. Mohsina Haq","Frequency of Raised Total Serum Ig E, Sputum Eosinophilia and Blood Eosinophil Count in Patients with Severe Persistent Asthma; Dr Mian Mufarih Shah1, Dr Muhammad Abbas2, Dr Momina Haq3, Dr Sumira Abbas4*, Dr Munaza Khattak5, Dr Farhan Abbas Baloch6; Vol.31 No.6 (2024): JPTCP (2101-2117); DOI: 10.53555\/jptcp.v31i6.6828","Vol. 12 No. 3 (2024) | Kurdish Studies Kurdish Sciences Association of IL28B rs12979860 and rs8099917 Gene Polymorphisms with Response to Combination Therapy of Sofosbuvir and Daclatasvir in HCV- Infected Patients from the Khyber Pakhtunkhwa Population Dr. Mohsina Haq, Dr. Jawad Ahmed, Dr. Ihsan Ullah, Dr. Najeeb ul Haq, Dr. Arbab Muhammad Kashif Khan, Dr. Abbas Saleem Khan","Vol. 31 No. 6 (2024) | JPTCP Journal of population therapeutics and clinical pharmacology The predictive power between il28b gene variants (rs12979860 and rs8099917) and the response of hepatitis c virus in patients on sofosbuvir and daclatasvir. Dr. Mohsina Haq, Dr. Jawad Ahmed, Dr. Ihsan Ullah, Dr. Hala Rajab, Dr. Sami Siraj, Dr. Najeeb ul Haq, Dr. Abbas Saleem Khan","(2023) 192: 915–918 Irish Journal of Medical Science (1971) Incidence of SARS coV-2 re-infection in Anti-nucleocapsid IgG positive Healthcare Workers. A Prospective Cohort Study Saima Mehboob Asif rehman, Mohsina Haq, Hala rajab, Momina Haq, Momina haq, Jawad Ahmedm Sajjad Ahmad, Saeed Anwar, Mohammad Abbas, Najib ul haq","Volume 37: 1 – 6 | January-December 2023 | Impact factor 3.5 International Journal of Immunopathology and Pharmacology Anti-nucleocapsid IgG antibodies in SARS-CoV-2 recovered health care workers: One year follow-up study Ashfaq Ahmad, Mohsina Haq, Asif Rehman, Najibul Haq","Volume 20 | Issue 20 | April 29, 2023 | Impact factor 1.3 Journal of Cancer Research and Therapeutics Description of clinicopathological characteristics of oral potentially malignant disorders with special focus on two histopathologic grading systems and subepithelial inflammatory infiltrate Abbas Saleem Khan, Zafar Ali Khan, Muhammad Nisar, Saleha Saeed, Hoor Maryam, Mohsina Haq, Tehmina Naushin, Rakhi Issrani","Vol. 36 | No. 4 (Special) | July 2023 | pp.1305-1312 Pakistan Journal of Pharmaceutical Sciences Evaluation of therapeutic potential and anti-hyperchlostrolemic effects of prunes in albino rats: An experimental study Ihteshamul Haq, Mohsina Haq, Owais Ali, Muhammad Jaseem Khan, Noor Ullah, Aamir Ali Khan, Faheem Usman, Ayesha Asif, Farid S. Ataya, Dalia Fouad, Anwaar Iftikhar and Ahad Mehmood","DOI 10.7759\/cureus.36040 | 2023 | Impact factor 1.2 Cureus 15(3): e36040 Predictors of Mortality in Patients With Dengue Fever: Insights From a Comparative Analysis Afsheen Mahmood, Anwar ul Haq, Said Amin, Fawad Rahim, Mohammad Noor, Huma Gul, Sheraz Zafar, Sobia Ahmed Qureshi, Khaula Batul, Mohsina Haq","Vol.36 | No.3(Special) | May 2023 Pakistan Journal of Pharmaceutical Sciences Sustained virological response to antiviral drugs in treatment of different genotypes of HCV cirrhotic patients Amin Ullah, Aqsa Maryam, Ghaffarul Malik, Hira Hameed, Kifayat Hussain, Junaid Ahmad, Ihteshamul Haq, Mohsina Haq, Reem M Aljowaie, Elsayed Mohsen Abougazia, Tse-Wei Chen, Jamshaid Ahmad, Kashif Bashir, Laiba Ahmad, Bashir Ahmad","International Journal of Health Sciences Study of bacterial and hospital acquired factors of urinary tract infections in patients in district Chakwal Maria Abdul Salam, Mohsina Haq, Miss Ambreena, Iram Yousaf Malik, Ashfaq Ahmad, Muhammad Hamza Khan, Sarma Shahid, Muhammad Sadiq Khan, Arsala Zaman, Hameed Ullah, Amir Ullah Khan, Hikmat Ullah Khan","TAVI 2022, vol. 10: 1-7 | Impact factor 7.4 Therapeutic Advances in Vaccines and Immunotherapy Identifying Higher risk subgroups of healthcare workers for priority vaccination against COVID-19 Mohsina Haq, Asif Rehman, Momina Haq, Hala Haq, Hala Rajab, Junaid Ahmed, Jawad Ahmed, Saeed Anwar, Sajjad Ahmed, Najib ul Haq","Ref: BJB-248913 | Volume 84 | Impact Factor: 1.651 | Cat X Brazilian Journal of Biology Frequency, distribution and determinants of Helicobacter pylori infection in adults and adolescents with gastric symptoms: cross sectional epidemiological injury in district Haripur, Pakistan Usman Ayub Awan, Aamer Ali Khattak, Mohsina Haq, Zaheera Saadia, Muhammad Marat, Salma Khalid, Abdul Haseeb, Bilal Ahmed, Musa Ali Irfani, Muhammad Faisal Nadeem, Farakh Javed","Annals of RSCB Vol 26 | issue 1 | 2022 Page 281-289 | Impact factor 0.9 Annals of Romanian Society of Cell Biology Identification of intestinal Parasites in children having diarrhea of district Mardan in KP Pakistan Arif khan, Ihteshamul Haq, Mohsina Haq, Ashfaq Ahmed, Muhammad Farooq, haroon ur Rashid, Wasifa Naushad, Arbab Muhammad Kashif Khan et all","Annals of R.S.C.B. | ISSN: 1583-6258 | vol. 26, issue 1 | 2022, page. 152-163 | Impact factor 0.9 Annals of Romanian Society of Cell Biology Molecular and epidemiological assessment of hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner KP Pakistan Mohsina Haq, Momina Haq, Arbab Muhammad Kashif Khan, Ihteshamul Haq, Sidra Saleh Shah, salman Hussain, Eiman Ismail, Mian Sami Ullah, Tanveer Tara, Kamran Shah, Zeeshan Ahmed, Mohammad Iqbal khan Rahman","Nat. Volatiles and essential oils | 2022 9(1): 745-765 | Impact factor 0.6 Natural volatiles and essential oils Pharmaceutical and medicinal applications of Panax Ginseng and ginsenosides and their therapeutic role in different diseases IhteshamUl Haq, Seher Obaid, Rubina Salma Yasmeenm Munaza Khattak, Amber Javaid, Muhammad Abbas, Mohsina Haq, Faheem Anwar","Nat. Volatiles and essential oils | 2022 9(1): 766-775 | Impact factor 0.6 Natural volatiles and essential oils Clinical features and associated comorbidities in 200 cases of COVID-19 In Peshawar, Pakistan Ihtesham ul Haq, Mohsina Haq, Momina Haq, Seher Obaid, Muhammad Abbas, Abbas Saleem khan et all","Nat. volatiles & essent. Oils | 2022 | 9(1): 1168-1175 Natural volatiles and essential oils Molecular identification and Prevalence rate of Hepatitis C virus among hemodialysis patients in Peshawar KP, Pakistan Muhammad Asghar, Mohsina Haq, Nazma Saleem, Muhammad Ilyas Khan, Bakht Biland Khan, et al","Published march 5 th 2022 | Impact factor 6.0 Journal of Infection Wild poliovirus outbreak in Afghanistan: A wakeup call for global health experts Usman Ayub Awan, Muhammad Wasif Malik, Sehrish Kamran, Haroon Ahmed, Mohsina Haq, Muhammad Sohail Afzal","Nat. volatiles & essent. Oils | 2022 | 9(1): 1159-1167 Natural volatiles and essential oils Molecular Identification of different Gram positive and gram negative bacteria from diabetic foot patients in Khyber teaching hospital Peshawar KP, Pakistan Muhammad Asghar, Mohsina Haq, Ashfaq Ahmad, Bakht Biland Khan, Sunya Sardar, Zia Ullah, Adnan munir et al","Annals of R.S.C.B | vol 26 | issue 1 | 2022 | page 444-463 Annals of Romanian Society of Cell Biology Association of SARS-CoV-2 and ABO blood group types: a systemic review Anees Muhammad, Mohsina Haq, Munaza Khattak, Bakht Biland Khan, Ashfaq Ahmed, Momina Haq, Hala Haq, Anam Haq, Ihsan Ullah, IhteshamUl Haq","Vol. 26 | Issue 1 | 2022 | 867-874 Annals of the Romanian Society for Cell Biology Determine the frequency of bacterial pathogens in neonatal sepsis and their sensitivity to different antibiotics Muhammad Sohail, Mohsina Haq, Bakht Biland Khan, Shah Zaman, Amir Zaman Khan, Saima mehboob, Ihteshamul Haq, Jauhar Nafees, Alia Gul, Muhammad Umair Khan, ObaidUllah Shah","2022 | 9(1) | 1645-1653 Hepatitis C. Nat. Volatiles & Essent. Oils Identification of frequency rate of depression in untreated patients of chronic Hepatitis C Ihteshamul Haq, Mohsina Haq, Bakht Biland, Muhammad Salman Munir Malik, Samavisa Irum, Mian Sami Ullah, Faiza Rashid, Nazif Ullah Qazi, Walid Khan, Muhammad Jawad Ullah, Aroma Mustafa","Vol. 26 | Issue 1 | 2022 | Pages. 1184-1188 Annals of Romanian Society of Cell Biology Detection of Malaria through light microscopy with Florescent microscopy and interference filter Muhammad Israr, Mohsina Haq, Fayaz Ahmed Memon, Hafiz Fahad Ullah saeed, Hefsa Qamar, Mujeeb alam Khan, IhteshamUl Haq","Vol 22 Issue 1 | March, 2022 African Health Sciences Incidence of Dengue fever, serotypes, clinical features and laboratory markers: A case study of 2019 outbreak at district Shangla, KP, Pakistan Abid Ur Rehman, Faheem Anwar, Muhammad Tayyab, Ihteshamul Haq, Mohsina Haq, Ashfaq Ahmed, Hala Haq, Abbas Saleem Khan","Vol. 16 | No.02 | FEB 2022 | 1132-1136 Pakistan Journal of Medical & Health Sciences Epidemiological Features of Cutaneous Leishmaniasis in Hilly and Plot Areas of Tribal Districts, Khyber-Pakhtunkhwa Province Pakistan Waseem Sajjjad, Mohsina Haq, Ihteshamul Haq, Hamid Ali Khan, Noor Ul Basir, Rabia Mazhar, Muhammad Jawad Ullah, Faiza Rashid, Mian Sami Ullah, Jauhar Nafees, Zeeshan Ahmad","Vol. 16 | No.01 | JAN 2022 Pakistan Journal of Medical & Health Sciences Multi-Drug Resistance of Escherichia coli (E.coli) Isolated from Clinical Isolates in District Peshawar Kp Pakistan Ihteshamul Haq, Mohsina Haq, Muhammad Farooq, Amber Javaid, Shafaq Zafar, Ashfaq Ahmad, Arbab Muhammad Kashif Khan, Mohammad Abbas, Bakht Biland Khan, Momina Haq","Vol. 16 | No. 06 | Jun 2022 | 1043-1045 Pakistan Journal of Medical & Health Science Evaluation of Remdesivir Treatment of non-hospitalized patients with Covid 19 Fazal Hanan, Mohsina Haq, Ashfaq Ahmed, Bakht Biland, Ihteshamul Haq, Said Munir, Habib Ullah","Vol. 16 | No. 04 | APR 2022 | 875-877 Pakistan Journal of Medical & Health Sciences Molecular Identification of tdifferent bacteria isolated from infected wounds at Hayatabad Medical Complex Peshawar Pakistan Syed Luqman Shuaib, Mohsina Haq, Bakht Biland Khan, Farishta Haq, Ihteshamul Haq, Ibrar Ahmad, Wahid Ullah, Azhar Nazir, Muhammad Farooq, Hasnain Israr, Shahid Hussain, Kamran Khan","Vol. 16 | No. 03 | 2022 | https:\/\/doi.org\/10.53350\/pjmhs22163827 Pakistan journal of Medical and Health Sciences Molecular and Epidemiological evaluation of Liver functions and its diagnosis between different genotypes of HBV and HCV in Non-Responders of HBV-HCV co infected patients with healthy controls. Ihtesham Ul Haq, Fazli Zahir, Mohsina Haq, Ronaq Zaman, Arbab Muhammad Kashif Khan, Maumana Rehman, Ibrar Ahmad, Hakeem Jan, Zeeshan Nasar, Hassan Arif, Zeeshan Ahmed","DOI: https:\/\/doi.org\/10.1007\/978-3-030-96523-5_3 | June 2022 Hazardous Environmental Micro-pollutants, Health Impacts and Allied Treatment Technologies Marble Dust as an Environmental and Occupational Hazard Salma Khalid, Mohsina Haq, Zia ul Ain Sabiha","Vol:55 | Issue: 08:2022 Journal of Tianjin University Science and Technology Identification the Rate of Anemia During Pregnancy at Ayub Medical Complex Abbottabad Ayesha Imtiaz Malik, Momina Haq, Mohsina Haq, Bushra Rehman, Fazli Hamid, Fayaz Ahmad Memon, Tnveer Tara, Hamid Ali Khan, Sudhair Abbas Bangash and Khalid Khan","Volume 17 | Issue 3 | June 2022 | Pages 415-423 | Impact factor 0.392 Journal of Taibah University Medical Sciences Predictive value of tissue p53 protein expression and serum p53 antibodies in oral potentially malignant disorders: Relative to oral squamous cell carcinoma Abbas S. Khan, Sajjad Ahmad, Zahoor Ullah, Naveed Sadiq, Mohsina Haq, and Ahmareen K. Sheikh","Vol. 16 | No. 08 | August 2022 | 335-337 Pakistan Journal of Medical & Health Sciences Prevalence of SARS-COV-2 Antibodies in Dental Healthcare Providers Shawana Iqbal, Shahab Adil, Najeeb-Ul-Haq, Mohsina Haq, Kawish Syed, Naila Sumbal, Madiha Ishfaq","Vol. 28 | No. 1 | 2022 Pakistan Journal of Chest Medicine Evidence of Mycobacterial Disease in Chronic Obstructive Pulmonary Disease Patients, the importance of Histological Assessme Ara, N. ., Khan, Z. S. ., Alam, S. ., Haq, M. ., Abbas, M. ., & Khan, S. . (2022). Evidence of Mycobacterial Disease in Chronic Obstructive Pulmonary Disease Patients, the importance of Histological Assessment. Pakistan Journal of Chest Medicine, 28(1), 95–102. Retrieved from https:\/\/www.pjcm.net\/index.php\/pjcm\/article\/view\/856","Volume 18 No 1 (2021) | Volume 19 Issue 1 | Jan-March 2021 Pakistan journInternational Journal of Pathologyal of Medical and Health Sciences Predictive Value of serum p53 antibodies in Oral squamous cell carcinoma Abbas Saleem Khan, Sajjad Ahmad, Zahoor Ullah, Mohsina Haq, Muhammad Khalid Usmanm Atta ur Rehman","2021 October | 29(4):2 55-260 | Impact factor: 0.13 Journal Medical Sciences Immunohistochemical expression of p53 in oral squamous cell carcinoma, oral epithelial precursor lesions and normal oral mucosa Abbas Saleem khan, Sajjad Ahmed, Fatima Iqbal, Abdus Saboor, Muhammad Nisar, tehmina Naushin, Ahmareen Khalid Sheikh, Mohsina Haq, Tariq Ahmad, Basheer Rehman","Volume 25 | issue 7 | 2021 page 1846-1855 | Impact factor 0.9 Annals of Romanian Society of Cell Biology Molecular Identification and seroprevalence of SARS-CoV2 IgG antibody among Health Care workers in Peshawar Pakistan Mohsina Haq, Ihteshamul haq, Fazli Zahir, Abbas Saleem khan, Shabir Ahmed, Tanveer Tara, Muhammad Naveed et al","Volume 71 | No 10 page 2364-2368 | 2021 | Impact factor 0.781 Journal of the Pakistan Medical Association Serum p53 antibodies detection in oral squamous cell carcinoma, oral potentially malignant disorders and healthy individuals- a multicentric study Abbas Saleem Khan, Sajjad Ahmed, Zahoor ullah, Mohsina Haq, Muhammad Umar Farooq, Muslim Khan","Volume 34 | No 4 | July 2021 | pp 1305-1313 | Impact Factor 0.7 Pakistan journal of Pharmaceutical Sciences Genome wide association study and phylogenetic analysis of Novel SARS-COV-2 virus among different Countries Syed Umair Ahmad, Muhammad Shehzad Khan, Zainab Jan, Nayab Khan, Asif Ali, Nauman Rehman, Mohsina Haq, Umama Khan, Zohaib Bashir, Muhammad Tayyab, Ihteshamul Haq, Shumaila Bakht, Fazli Zahir","Volume 12 | October–December 2021 | 100863 Clinical Epidemiology and Global Health Epidemiological characteristics and genetic diversity of clinically isolated dengue vector in Khyber Pakhtunkhwa, Pakistan Fazli Zahir, Ihteshamul Haq, Mohsina Haq, Mahrukh, Abbas Saleem Khan, Wasifa Naushad, Hala Rajab, Muhammad Fahim, Sohail Ahmad, Iqbal Munir","Available online 31st December 2021 | Impact factor 1.20 Journal of Taiba University Medical Sciences Predictive value of tissue p53 protein expression and serum p53 antibodies in oral potentially malignant disorders: relative oral squamous cell carcinoma Abbas Saleem Khan, Sajjad Ahmad, Zahoor Ullah, Naveed Sadiq, Mohsina Haq, Ahmareen Khalid Sheikh","EMJ Hepatolo.2021 | 9[1]:83-88 European Medical Journal Frequency distribution of hepatitis C Virus genotypes with reference to age and gender in various districts of Khyber Pakhtoonkhwa, Pakistan Bakht Biland, Mohsina Haq, Sardar Muhammad, Mohsan Subhani, Syed Gardezi, Najibul Haq, Nadeem Tehami","29 June, 2021 | Impact factor 0.3 Clinical Epidemiology and Global Health Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan Zeeshan Qamar, Faheem Anwar, Raiz Ahmad, Ihteshamul Haq, Mohsina Haq, Arbab Muhammad Kashif Khan, Rafiq Hussain, Abdullah, Zeeshan Shahzad, Ibrar Ahmad, Muhammad Salman Munir Malik, Muhammad Kamran Khan, Jawad Khan","Vol 30 | No 1 (2021) | 1-8 Impact factor 1.4 Polish journal of environmental studies Air Pollution and respiratory Health among men exposed to two different environs as occupational exposure Adnan shahzad, zia ul ain Sabiha, Mohsina Haq, Hammad Ullah, Muhammad Hamza Zafar, Salma Khalid","2021 | 11(1) : 50-55 Journal of Saidu Medical College Swat Synergistic effect of Ceftriaxone and diclofenac against Escherichia Coli Amir Zaman Khan, Shah Zaman, Sardar Muhammad, Riaz Nasim, Mohsina Haq, Muhammad Luqman","25 May 2021 | Impact factor 3.04 Infection- Journal of Infectious Diseases SARS-CoV-2: big seroprevalence data from Pakistan—is herd immunity at hand? Mohsina Haq, Asif Rehman, Junaid Ahmad, et al & Najib Ul Haq","September 12, 2020 | http:\/\/dx.doi.org\/10.2139\/ssrn.3922674 Preprints with the LANCET Vertical Transmission of Hepatitis-B Decades After The International Recommendation Of Administering Hepatitis-B Immunoglobulins Along Hepatitis-B Vaccination To Newborn Babies Mohsina Haq, Saadia Zahid, Bushra Khan, Asif Rehman, Shahnaz Parveen, Tahniat Ishaq, Arbab Muhammad Kashif Khan, Umair Qazi, Naveed Sadiq, Saeed Farooq, Sajjad Ahmad, Saeed Anwar, Waqas Hassan, Najibul Haq","January 2020 | 27(1): 35-39 The Professional Medical Journal Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C Najib Ul Haq, Momina Haq, Farzana Salman, Mohsina Haq, Munaza Khattak, Robina Usman, Arbab Muhammad Kashif Khan","2020 | 28(1) | 76-80 | Impact factor: 0.13 Journal of Medical Sciences Effect of Pregnancy and demography on Susceptibility pattern of Azole antifungal agents against clinical isolates of Candida species recovered from Vulvovaginal candidiasis patients Shafaq Zafar, Amber Javed, Farzana Salman, Amir Zaman, Mohsina Haq, Muhammad Khurram","November 09 2020 | Impact factor 1.15 Cureus Does working in a COVID-19 receiving Health Facility influence seroprevalence to SARS-COV-2? Mohammad Noor, Mohsina Haq, Najib ul Haq, Said Amin Fawad Rahim, Sher Bahadur, Raza Ullah, Muhammad Asif Khan et al.","August 2019 | 26(8): 1203-1207 The Professional Medical Journal Comparative study of HBV DNA levels in HBeAg positive and HBeAg negative female patients suffering from Chronic Hepatitis B in Child bearing age Mohsina Haq, Mahmud ur Rehman, Najib Ul Haq, Momina Haq","October 2019 | 26(10): 1651-1654 The Professional Medical Journal Correlation of serum vitamin D levels with serum levels of alkaline phosphatase on patients with detectable HCV RNA Momina Haq, Farzana Salman, Mohsina Haq, Seher obaid, Ambreen Gul, Arbab Muhammad, Kashif Khan","December 2019 | 9(2): 186-90 Journal of Saidu Medical College Swat Bacteriological Profile and Antibiogram of Urinary tract infections at Microbiology Laboratory of a Private Teaching Hospital Mohsina Haq, Sardar Muhammad, Momina Haq, Mohammad Kashif Khan, Mohammad Abbas, Shahzaman Khan","April 2017 | Vol 25, No 2 | Impact factor 0.13 Journal of Medical Sciences Microbiological profile and commonly used antibiotics susceptibility pattern of isolates among burn patients at a tertiary care hospital Aamer Ali Khattak, Usman Ayub Awan, Mohsina Haq, Salma Khalid, Fouzia Ashraf, Muhammad Faisal Nadeem","September-December, 2016 | Vol. 9. No. 3 Khyber Journal of Medical Sciences Awareness Level of Hepatitis B in rural areas of Charsadda Mohsina Haq, Farzeen Khan, Momina Haq"]','{"aliases":["mohsina","mohsina-haq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','745',0),
+(839,'ambreen-gul','Ambreen Gul',NULL,'Pathology','Professor (Chemical Pathology)','assets/images/faculty/ambreen-gul.png',0,1,'["MBBS","M.Phil (Chemical Pathology)","CHPE"]','["Consultant Pathology, Mercy Teaching Hospital Peshawar, Jan 2015 – till date","Professor Pathology, Peshawar Medical College, Peshawar, Feb 2025 – till date"]','["Incharge Infection Prevention and Control Committee Mercy Teaching Hospital, Peshawar Medical College","Member of Infection and Control Committee Peshawar Medical College","Member of Hospital Management Committee Peshawar Medical College","Member of Continuous Quality Improvement Committee","Member Hospital Waste Management Committee"]','["Comparison of HbA1c and Serum Glycated albumin levels as monitoring tool; Professional Medical Journal; January 2018","Frequency of hyperglycemia in patients with acute stroke; Journal of Saidu Medical College; 2019","C-peptide levels as a screening marker for initiating insulin therapy in type 2 diabetics; Professional Medical Journal; November 2019","Correlation of serum vitamin D levels with serum levels of alkaline phosphatase in patients with detectable HCV RNA; Professional Medical Journal; October 2019","Vitamin B12 deficiency among patients with megaloblastic anemia; Journal of Medical Sciences; April 2019","Frequency of hyperlipidemia in the diagnosed type 2 diabetic patients; Journal of Gandhara Medical and Dental Sciences; Jan-March 2021","Pattern of Anemia in Diabetic Patients Presenting to Private Sector’s Tertiary Care Hospitals in Peshawar; Journal of Medical Sciences; October 2022","Correlation of serum CA 15-3 with histological types of breast cancer; International Journal of Health Sciences 7(S1), 2121–2129; January 2023","Association of anxiety and depressive symptoms with hypothyroidism; Journal of Population Therapeutics & Clinical Pharmacology; Vol.31 No.4 (2024): JPTCP (368-374); March 2024","Hypertriglyceridemia in Patients with Ischaemic Heart Disease; Pakistan Journal of Health Sciences Volume 5, Issue 7; July 2024","Comparisons of Biochemical Parameters and Diabetic Ketoacidosis Severity in Adult Patients with Type 1 and Type 2 Diabetes; African Journal of Biological Sciences; August 2024","Association between male erectile dysfunction (med) and levels of vitamin D in individuals with diabetes mellitus (Type II); Journal of Population Therapeutics & Clinical Pharmacology; September 2024","Association of Fibroblast Growth Factor-23 with C-Reactive Protein, Serum Phosphate, and Bone Mineral Density in Chronic Kidney Disease; African Journal of Biological Sciences; September 2024","The new spectrum of Plasmodium vivax malaria severity: A single-center experience; Pakistan Journal of Health Sciences; September 2024","Effects of Zinc, Vitamin A, and Magnesium Co-supplementation on Thyroid Function, Oxidative Stress, and hs-CRP in Patients with Hypothyroidism; African Journal of Biological Sciences; September 2024","Analyzing the correlation of biochemical and perceived hypogonadism in diabetic men: A pilot survey at lady reading hospital; Journal of Population Therapeutics & Clinical Pharmacology; October 2024","Impact of subclinical hypothyroidism on metabolic parameters in polycystic ovarian syndrome; KJMS; Vol. 18 No. 2 (2025)","Determination of the role of serum alpha 1 anti-trypsin protein levels in oral squamous cell carcinoma Patients and in healthy snuff users and non-users; International Journal of Pathology; Vol. 23 No. 4 (2025)"]','{"aliases":["ambreen-gul"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','35',0),
+(840,'sadaf-alam','Sadaf Alam',NULL,'Pathology','Professor','',0,1,'["MBBS","M.Phil Histopathology","FCPS Histopathology"]','["Consultant Histopathology, Peshawar Medical College, Peshawar, 26th June 2014 – till date","Professor, Pathology, Peshawar Medical College, Peshawar, 6-june2024"]','[]','["Role of benign ovarian cysts in the development of adenomyosis; Saudi Medical Journal; 2016; Sadaf Alam1, Sajjad Ahmad, Muhammad M. Khan, Sabeen Nasir, Naveed Sharif, Sara Ziaullah, Ahmareen Khalid, Fozia Rauf","Detection of H. Pylori in gastric biopsies: a cost-effective method for developing countries; The Professional Medical Journal; 2019; Hina Khan, Sadaf Alam2, Shahnawaz Khan, Mumtaz Khan, Fozia Rauf","Comparison Of Glut1 Expression in Oral Squamous Cell Carcinoma with Normal Mucosa; Pakistan Journal of Pathology; 2019; Khalid Usman, Sadaf Alam2, Farzana Salman, Muhammad Mumtaz Khan, Munazza Khattak, Abbas Saleem, Zafar Ali Khan","Comparison of image findings with histopathological diagnosis on ultrasound guided percutaneous liver biopsy in relation to hepatocellular carcinoma; Khyber Medical University Journal; 2018; Abdul Majid, Muhammad Mumtaz Khan, Abdul Aziz Zia, Sadaf Alam4","Role of Thyroid Dysfunction in Infertile Women with Menstrual Disturbances; Gomal Journal of Medical Sciences; 2016; Sabeen Nasir, Muhammad Mumtaz Khan, Sajjad Ahmed, Sadaf Alam4, Sara Ziaullah,","Inter observer variability in interpretation of endometrial biopsies in infertile women; The Professional Medical Journal; 2018; Sabeen Nasir, Muhammad Mumtaz Khan, Naveed Sharif, Sadaf Alam4, Sara Ziaullah, Sajjad Ahmad","Epstein Barr virus LMP-1 positivity in Hodgkin lymphoma subtypes in Khyber Pakhtunkhwa Province of Pakistan; Gomal Journal of Medical Sciences; 2017; Sara Ziaullah, Sajjad Ahmad, Muhammad Mumtaz Khan, Sadaf Alam4, Sabeen Nasir, Naveed Sharif","Effect of age on prognosis in different molecular subtypes of female breast carcinoma; Gomal Journal of Medical Sciences; 2015; Naveed Sharif, Sajjad Ahmed, Muhammad Mumtaz Khan, Ahmareen Khalid, SadafAlam5, Sara Ziaullah, Sabeen Nasir, Fouzia Rauf","Morphological Spectrum of Endometrial Biopsies In Infertile Women; Gomal Journal of Medical Sciences; 2016; Sabeen Nasir, Muhammad Mumtaz Khan, Sajjad Ahmed, Sara Ziaullah, Sadaf Alam5","Cytomorphological spectrum of pleomorphic adenoma in association with clinical parameters.; The Professional Medical Journal; 2019; Fatima Iqbal, Nasiha Bashir, Abbas Saleem, Muhammad Mumtaz Khan, Tehmina Naushin, Sadaf Alam6","Morphological spectrum of endometrium with thyroid hormone profile in infertile female population of Khyber Pakhtunkhwa province of Pakistan; Pakistan Journal of Medical sciences (PJMS); 2020; Sabeen Nasir, Sara Ziaullah, Sadaf Alam3, Muhammad Mumtaz Khan","Comparison of special stains (Giemsa stain and Modified Toluidine Blue stain) with immunohistochemistry as gold standard for the detection of H. pylori in gastric biopsies; Arab Journal of Gastroenterology; 2021; Hina khan, Fozia Rauf, Noor Muhammad, Mehwish Javed, Sadaf Alam5, Sabeen Nasir","Immunohistochemical expression levels of Cyclin E1 in three histologic grades of oral squamous cell carcinoma; Pakistan Journal of Pathology; 2022; Arooj khurshid, Sabeen Nasir, Sadaf Alam3, Madiha Insha, Rabia Alamgir, Natasha Kamran","Expression of P16 in Various Grades of Oral Squamous Cell Carcinoma of Tertiary Care Hospitals of Peshawar; Pakistan Journal of Medical and health Sciences; 2022; Karishma Ali, Sadaf Alam2, Muhammad Mumtaz Khan, Natasha kamran, Sara Zia, Shabana Bkhtiar, Sikandar, Ali, Fatima Ali, Iirfan Ullah","Expression of CD3 Levels of Tumor Infiltrating Lymphocytes (TILs) in Various Grades of Oral Squamous Cell Carcinoma of Tertiary Care Hospitals of Peshawar; Pakistan Journal of Medical and health Sciences; 2022; Natasha Kamran, Sadaf Alam2, Sabeen Nasir, Karishma Ali, Shabana Bakhtiar, Arooj Khurshid, Irfan Ullah","Evaluation of Carica Papaya leaf extract on Megakaryocytes count: An Animal Model; Khyber Journal of Medical Sciences; 2022; Shahida Batool, Shafaq Zafar, Sadaf Alam3, Shahid Farid, Ayesha Iftikhar, Mohsin Ali","Association of Vascular Endothelial Growth Factor (VEGF) in Salivary Gland Tumors; Pakistan journal of medical and health sciences (P J M H S); 2023; Muhammad Zubair Jabbar1, Muhammad Mumtaz Khan2, Sahibzadi Fatima Tariq3, Sadaf Alam4, Kanwal Nazir Arbab5, Abdullah Ahmad Khan6, Nauman Khalid7, Laima Abdullah8, Rabia Jabbar","Comparison Of Immunohistochemical Expression of Epidermal Growth Factor Receptor in Benign and Malignant Salivary Gland Tumors; Advances in basic medical sciences (ABMS); 2022; Aysha Khitab 1, Sadaf Alam1, Sabeen Nasir1, Imad Ali1, Maria Hanif 1, Mehreen Malik1","Clinicopathological Features of Oral Leukoplakia Among Snuff Users and Non-Users: An Analytical Study; Pakistan journal of Health sciences; 2023; Tehmina Naushin, Abbas Saleem Khan, Sadaf Alam, Nasiha Motahir, Fatima Iqbal, Hoor Maryam Younas, Sidra Mehmood, Uzma Mehmood","Mucin-2 Expression in Primary and Recurrent Cases of Pleomorphic Adenoma in Tertiary Care Hospitals of Peshawar; Pakistan journal of medicine and dentistry (PJMD); 2024; Samar Ashfaq1, Sadaf Alam1, Mumtaz Muhammad Khan1, Sabeen Nasir1","Immunohistochemical (IHC) expression of P16 in various grades of oral squamous cell carcinoma (OSCC)with snuff use in tertiary care hospitals of Peshawar; Pakistan journal of Health sciences; 2024; Karishma Ali, Sadaf Alam, Natasha Kamran, Sabeen Nasir, Razia Aamir, Sarah Yousuf","Comparison of immunohistochemical expression of insulin like growth factor 1 receptor (igf-1r) in benign and malignant salivary gland tumors; Journal of Khyber college of Dentistry; 2024; Mehreen Malik1, Sadaf Alam2, Sara Ziaullah2, Maria Hanif3, Noor Jahanzeb3, Ayesha Khitab3"]','{"aliases":["sadaf-alam"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','274',0),
+(841,'sardar-muhammad','Sardar Muhammad',NULL,'Pathology','Assistant Professor','',0,1,'["MBBS","DOMS","M.Phil Microbiology"]','["MS Prime Teaching Hospital","Section Head Microbiology, Peshawar Medical College","Professor Microbiology, Peshawar Medical College"]','[]','[]','{"aliases":["sardar-muhammad"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','480',1),
+(842,'shabina-saifullah','Shabina Saifullah',NULL,'Pathology','Assistant Professor (Chemical Pathology)','assets/images/faculty/shabina-saifullah.jpeg',0,1,'["MBBS","M.Phil (Chemical Pathology)"]','["Assistant Professor (Chemical Pathology& In charge Chemical Section, Lab of Kuwait Teaching Hospital, Peshawar Medical College May 2021- Till Date","In charge & Head of Lab Kuwait Teaching Hospital Dec 2022 till Date"]','[]','["Direct Comparison of High-Sensitivity Cardiac Troponin I versus Conventional Troponin I For the Early Diagnosis of Non-ST Elevation Myocardial Infarction; Pakistan Heart Journal Vol.52 No 01 (as a principal author); March 2019","Glycemic Control among Type-2 Diabetes Mellitus Patients: A Large Sample Hospital Based Study; Med. Forum, Vol.31, No.11(As a principal author); November,2020","Hyperuricemia in Acute Coronary Syndrome Patients at Tertiary Care Hospital Peshawar; Advances in basic medical sciences vol.8 No 1 (as a principal author); 21st June 2024","Association between Male Erectile Dysfunction (Med) and Levels of Vitamin D in Individuals with Diabetes Mellitus (Type II); Journal of Population Therapeutics & Clinical Pharmacology Vol.31 No 06 (as a 4th author); Sept 2024","Association of Fibroblast Growth Factor-23 with C-Reactive Protein, Serum Phosphate, and Bone Mineral Density in Chronic Kidney Disease; African journal of biological sciences 6(14) (2024) (as a 2nd Author); 14th Sept 2024","Association of Oxidative Stress Biomarkers with Polycystic Ovary Syndrome; Pakistan Journal of Health Sciences (Lahore); vol 6 issue 11; Nov, 2025 (PCOS) and Its Metabolic Outcomes, Including Insulin Resistance and; vol 6 issue 11; Nov, 2025"]','{"aliases":["shabina-saifullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','978',0),
+(843,'sumira-abbas','Sumira Abbas',NULL,'Pathology','Assistant Professor (Hematology)','assets/images/faculty/sumira-abbas.jpeg',0,1,'["MBBS","FCPS (Hematology)","CHPE","CHR"]','["Assistant Professor of Hematology with over 4.5 years of experience in diagnostic laboratory services, and undergraduate medical education."]','["Professional Expertise Includes Peripheral Blood Smear Interpretation, Bone Marrow Aspiration and Trephine Biopsy Reporting, Hemoglobin Electrophoresis (HPLC), Coagulation Testing, and The Diagnosis of Benign and Malignant Hematological Disorders.","She also has Experience in Transfusion Medicine, Blood Bank Services, And Laboratory Quality Management"]','["Frequency of common hematological diseases in paediatric patients presenting with clinical features indicative of Bone Marrow Examination. S. Abbas, S. Khan, M. M. Shah et al. P J M H S Vol. 16, No.02, FEB 2022 111. (First Author)","Frequency of Megaloblastic Anemia in pediatric patients presenting with peripheral cytopenia. S. Khan, S. Abbas, A. S. Roghani et al. P J M H S Vol. 16, No.01, JAN 2022 (Corresponding Author)","Psychological and Clinical Predictors of COVID-19 Severity and Outcomes. (Cureus); Shah M, Abbas S, Khan J Z, et al. (November 10, 2021) 13(11): e19458. DOI 10.7759\/cureus.19458 (Co-Author)","Frequency of leukocytosis in acute ischemic stroke. Mian Mufarih Shah, Nazir Shah, Sumira Abbas, Sheraz Jamal khan, Saiqa Zahoor, Afsheen Mehmood. KJMS May-Aug 2019, Number 2 Vol 12. P-312 (Co-Author)","Frequency of pruritic rash in dengue fever presenting to tertiary care hospital. Mian Mufarih Shah, Nazir Shah, Mehwash Iftikhar, Sumira Abbas, Fawad Rahim, Ayesha Jamal. KJMS January – March, Volume 14, No. 1 (Co-Author)","Frequency of Raised Total Serum Ig E, Sputum Eosinophilia and Blood Eosinophil Count in Patients with Severe Persistent Asthma DOI: 10.53555\/jptcp. v31i6.6828 (Corresponding Author)","Frequency of Blood Eosinophilia in Newly Diagnosed Chronic Obstructive Pulmonary Disease Patients DOI: 10.53555\/jptcp. v31i6.6595 (First Author)","Cardiovascular Effects of Splenomegaly and Splenectomy in Beta-Thalassemia Major. Abbas S, Khan HA, Rehman W, Shah MM, Mustafa M, Abbas M. Cureus. 2024 Nov 21;16(11):e74186-. (First Author)","The Correlation of Red Cell Distribution Width with Peripheral Blood Smear: A Study From a Tertiary Care Hospital in Peshawar. Abbas S, Shah MM, Iftikhar M. Cureus. 2024 Nov 22;16(11). (First Author)","Chatgpt-Assisted Machine Learning for Chronic Disease Classification and Prediction: A Developmental and Validation Study. Abbas S, Iftikhar M, Shah MM, Khan SJ, Iftikhar M. Cureus. 2024 Dec 17;16(12). (First Author)","Establishing Normal Reference Ranges for White Blood Cell and Platelet Counts in Adult Males: A Regional Study in Muzaffarabad District.: Kayani JA, Siddiq A, Khan MA, Khalid M, Iqbal S, Abbas S. JPUMHS; 2024: 14: 04, 4-14. http:\/\/doi. org\/10.46536\/jpumhs\/2024\/14.04. 555. Journal of Peoples University of Medical & Health Sciences Nawabshah. (JPUMHS). 2024 Dec 31;14(4):4-12. (Corresponding Author)"]','{"aliases":["sumira-abbas"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1534',0),
+(844,'sarah-yousuf','Sarah Yousuf',NULL,'Pathology','Assistant Professor (Histopathology)','',0,1,'["FCPS (Histopathology)","M.Phil (Histopathology)","MBBS"]','["Peshawar Medical College Peshawar Assistant Professor Pathology Department 2024 – Present"]','[]','["Yousuf S, Rauf F, Danyal, Ahmareen Khalid Sheikh. Comparison Of Human Papillomavirus 16 Expression by Immunohistochemistry in Cervical Carcinomas and Non-Neoplastic Cervical Mucosa, Journal of Postgraduate medical institute, vol 36, no. 4, pp. 244-52","Danyal, Saeed S, Yousuf S, Histomorphological Differences Between Right and Left Sided Colon Cancers, international journal of Pathology, vol 20, no. 1, pp. 30-37","Aamir, R., Rauf, F., Iqbal, F., Yousuf, S., Rehman, A., Sheikh, A. K., & Muhammad, S. (2024). Immunohistochemical Expression of Epidermal Growth Factor Receptor (EGFR) in Oral Squamous Cell Carcinoma and Oral Potentially Malignant Disorders. Applied immunohistochemistry & molecular morphology: AIMM, 32(3), 157–162.","Ali K, Alam S, Kamran N, Nasir S, Aamir R, Yousuf S. Immunohistochemical (IHC) Expression of p16 in Various Grades of Oral Squamous Cell Carcinoma (OSCC) with Snuff Use in Tertiary Care Hospitals of Peshawar: Expression of p16 in Oral Squamous Cell Carcinoma. Pakistan Journal of Health Sciences. 2024 Apr 30:109-15."]','{"aliases":["sara-yousaf","sarah-yousaf","sarah-yousuf"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(845,'haseeba-arif','Haseeba Arif',NULL,'Pathology','Assistant Professor (Microbiology)','assets/images/faculty/haseeba-arif.jpeg',0,1,'["BDS","CHPE","CHR","M.Phil (Microbiology)"]','["Assistant Professor, Microbiology Peshawar Medical College, Peshawar July 2024 – Present"]','[]','["Most Common Pathogenic Organisms Causing Urinary Tract Infection in Diabetic versus Non-Diabetic Patients and Their Antibiotic Sensitivity Pattern. Infectious Diseases Journal of Pakistan. 2023;32(2):35–39.","Antimicrobial Efficacy of Cefoperazone-Sulbactam Plus Tigecycline versus Cefoperazone-Sulbactam Against Respiratory Pathogens and Their Effect on Laboratory Indices. Pakistan Armed Forces Medical Journal. 2023;73(3):931.","Procalcitonin versus C-Reactive Protein: A Comparative Study for the Diagnosis of Neonatal Sepsis. Journal of Saidu Medical College. Vol. 15(3).","Antibiogram Profile of Patients Having Urinary Tract Infection Treated with Commonly Used Antibiotics. Pakistan Journal of Medicine and Dentistry. 2025;14(01)."]','{"aliases":["haseeba-arif"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1840',0),
+(846,'shafaq-zafar','Shafaq Zafar',NULL,'Pharmacology','Professor','',1,1,'["MBBS","M.Phil","CHPE","PhD"]','["16TH Oct 2009 till date"]','["In silico Analysis related to cancer genomics","Real time PCR","Primer Designing","Methylation Specific PCR cell line generation Research Writing."]','[]','{"aliases":["shafaq-zafar"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','272',0),
+(847,'riaz-nasim','Riaz Nasim',NULL,'Pharmacology','Professor','assets/images/faculty/riaz-nasim.jpeg',0,1,'["MBBS","M.Phil"]','["14TH JULY 1983 Till date"]','["Research supervision","Administrative Experience"]','[]','{"aliases":["riaz-nasim"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','404',0),
+(848,'amber-javaid','Amber Javaid',NULL,'Pharmacology','Assistant Professor','',0,1,'["MBBS","M.Phil","CHPE"]','["14TH May 2012 Till date"]','[]','[]','{"aliases":["amber-javaid","amber-javed"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','641',0),
+(849,'erum-rehman','Erum Rehman',NULL,'Pharmacology','Assistant Professor','assets/images/faculty/erum-rehman.png',0,1,'["BDS","M.Phil","CHPE","CHR"]','["10TH FEB 2018 Till date"]','[]','[]','{"aliases":["erum-rehman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1141',0),
+(850,'muhammad-shahid','Muhammad Shahid',NULL,'Pharmacology','Assistant Professor','assets/images/faculty/muhammad-shahid.jpeg',0,1,'["MBBS","M.Phil","CHPE"]','["1 OCT 2019 Till date"]','[]','[]','{"aliases":["muhammad-shahid"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1889',0),
+(851,'robina-riaz','Robina Riaz',NULL,'Physiology','Professor','',1,1,'["MBBS, Khyber Medical College (1986)","Diploma in Gynae and Obs (1998, Punjab University)","M.Phil (Physiology), Riphah International University, Islamabad (2014)","Master’s in Health Professions Education (MHPE), KMU (2016)","Post Graduate Diploma in PGD in Professional Ethics and Teaching Methodology, Riphah International University, Islamabad (January 2020)","PhD Physiology (Khyber Medical University, Peshawar), 2024, PCD No. 35103"]','["Professor, Department of Physiology, Peshawar Medical College (Dec. 2020- Till date)"]','["Supervisor to MPhil Physiology Scholars","Reviewer of articles of Journal Advances in Basic Medical Sciences (ABMS) of Khyber Medical University","Member of ERC for UMR","Supervisor of research for UMR"]','["Khattak M, Usman R, Malik MO, Luqman M, Shaid F, Khattak A. Comparison of estradiol levels in rat model of chronic alternating stress. Pakistan Journal of Physiology. 2025 Sep 30;21(3):41-5.","Madiha Khattak, Muhammad Omar Malik, Robina Usman, Muhammad Luqman, Ammara Khattak, Dur E Shehwar Ali (2025). Effect of Chronic Alternating Stress on Corticosterone, Testosterone and Johnsen Testicular Histology Score in Two Generations of Male Rats. Journal of Population Therapeutics and Clinical Pharmacology, 32(11), 2167-2184. https:\/\/doi.org\/10.53555\/72ha2471","Usman R, Malik MO, Khattak M, Habib SH, Khan RU. Adiponectin level in transgenerational chronic stress rat model: comparison between offspring of stressed versus non-stressed parents. Kurdish Studies. 2024 May 22;12(4):989-96.","Khattak M, Usman R, Malik MO, Luqman M, Khattak A. Comparison of follicle stimulating hormone levels in chronic stress rat model and their offspring. Journal of Population Therapeutics and Clinical Pharmacology, 31(11), 2474-2482. https:\/\/doi.org\/10.53555\/w8pa1f34","Khattak M, Malik MO, Usman R, Habib SH, Khattak US. Comparison of testosterone levels in chronic alternating stress model of Wistar albino rats and their offspring. Kurdish Studies. 2024 May 24;12(4):1009-17.","Usman R, Malik MO, Khattak M, Habib SH, Khan RU. Development of protocol for transgenerational stress in Wistar rats. Journal of Population Therapeutics and Clinical Pharmacology. 2023 Dec 6;30(19):151-70.","Khattak M, Malik MO, Usman R, Habib SH, Saddique U. Developing chronic unpredictable\/alternating stress model in Wistar albino rats. Journal of Population Therapeutics and Clinical Pharmacology. 2023 Dec 7;30(19):223-32.","Khattak M, Usman R, Sultana N, Khattak A. Comparison of Free Androgen Index in polycystic ovary syndrome and non-polycystic ovary syndrome infertile patients. Journal of Ayub Medical College Abbottabad. 2021 Oct 1;33(4).","Usman R, Khattak M, Haq M, Khattak M, Parveen T, Basharat T. Correlation of Vitamin D with obesity parameters in patients of cardiometabolic syndrome. Advances in Basic Medical Sciences. 2020 Jul 24;4(1).","Anwar Z, Abid Z, Ghazanfer T, Usman R, Naheed R, Kamal A, Lashari M, Lashari J. Biochemical and hematological profile of anemic and non-anemic pregnant women. Journal of the Dow University of Health Sciences (JDUHS). 2020 Aug 30;14(2):54-9.","Khattak M, Sultana N, Usman R, Khattak U, Zafar U, Salman H. Luteinizing hormone to follicle stimulating hormone ratio in patients with polycystic ovary syndrome. J Ayub Med Coll Abbottabad. 2020;32(2):255-8.","Haq NU, Haq M, Salman F, Haq M, Khattak M, Usman R, Khan AM. Prevalence of Vitamin D deficiency in patients of chronic hepatitis C. The Professional Medical Journal. 2020 Jan 10;27(01):35-9.","Bibi Y, Usman R, Waheed N, Malik O, Shahzad A, Naheed R. Analysis of effect of Levocarnitine on muscle glycogen content in type 2 diabetes in Pakistan. International Journal of Advanced Biotechnology and Research. 2019;10(1):630-4.","Usman R, Bibi Y, Naheed R, Haq M, Obaid S, Khattak M. Correlation of vitamin D with lipid profile in patients with cardio metabolic syndrome. J Postgrad Med Inst. 2019;33(4):279-85.","Usman R, Jamil B, Waheed N. Comparison between facilitator and peer assisted learning: an interventional study at Peshawar Medical College. JPMA. 2019 Nov;69(11):1588-90.","Usman R, Jamil B. Perceptions of undergraduate medical students about peer assisted learning. The Professional Medical Journal. 2019 Aug 10;26(08):1283-8.","Usman R, Khan F, Khattak M, ul Abideen Z. Correlation of Vitamin D with hypertension in patients with cardiometabolic syndrome. Journal of Postgraduate Medical Institute. 2017 Aug 10;31(3).","Khan F, Usman R, Zafar S, Wadud S. Vitamin D deficiency in patients with diabetic retinopathy. Journal of Postgraduate Medical Institute. 2017 May 12;31(2).","Abideen Z, Salman F, Usman R, Shakireen N, Gul AM. Platelet indices in newly diagnosed patients of myocardial infarction. Khyber Medical University Journal. 2017 Apr 1;9(2).","Usman R, Khan F, Wadud S, Zafar S, Abideen Z. Vitamin D status in patients with cardiometabolic syndrome. J. Med. Sci. 2015 July;23(3):170-173.","Khan F, Usman R, Wadud S, Zafar S, Abideen Z. Association of vitamin D with retinopathy in patients with type 2 diabetes mellitus. J. Med. Sci. 2015 April;23(2):58-61.","Zafar S, Khurram M, Usman R, Khan F, Nasim R. Clotrimazole, fluconazole, ketoconazole and itraconazole susceptibilities of candida species in vulvovaginitis. J. Med. Sci. 2015 July;23(3):130-133.","Yusuf N, Rehman J, Khan MA, Riaz R, Nawab G, Tariq SA. Serum testosterone levels in heroin addicts. Journal of Medical Sciences. 2006 June;14(2):92-95.","Hafeez A, Riaz R, Shah SU, Pervaiz J, Southall D. Integrating health care for mothers and children in refugee camps and at district level. BMJ. 2004 Apr 3;328(7443):834-6."]','{"aliases":["robina-riaz","robina-usman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','21',0),
+(852,'farzana-salman','Farzana Salman',NULL,'Physiology','Professor','',0,1,'["Bachelors of Medicine and Bachelors of Surgery (MBBS) Khyber Medical College 1988","M.Phil. Physiology Riphah International University 2014","Postgraduate Diploma in Professional Ethics and Teaching Methodology (PGD) Riphah International University, Islamabad, Pakistan.2018 – 2019","Certificate Course in Health Profession and Education. (CHPE) Riphah international University, Islamabad, 2018","PhD (Physiology) Khyber Medical University Peshawar, Khyber Pakhtunkhwa, Pakistan. July 2025"]','["Professor Department of Physiology Nov. 2022- Till date Peshawar Medical College, Pakistan"]','[]','["Khan F, Habib SH, Malik MO, Aamir AU. Alpha lipoic acid alone and in combination with resveratrol and super oxide dismutase ameliorates peripheral diabetic neuropathy: a double blind randomized clinical trial.","Khan F, Habib SH, Malik MO, Aamir AU. Impact of triple regime antioxidant therapy and monotherapy on oxidative stress biomarkers in patients with type 2 diabetes mellitus and neuropathy: a double blind randomized controlled trial.","Abdallah B, Chaudhary AJ, Javed MW, Khan MN, Bibi A, Zafar MF, Noor M, Tariq U, Salman F. Association between body mass index and the efficacy of calcium channel blockers for hypertension in cardiovascular disease patients. Cureus. 2025. https:\/\/doi.org\/10.7759\/cureus.81985","Wazir Ullah N, Salman F, Wadud S, Humayun A, Amir A, Haq M. Influence of Vitamin E on pancreatic acinar cell morphology and serum amylase concentrations in alcohol-induced pancreatic toxicity. J Ayub Med Coll Abbottabad. 2024;36(3):625-9.","Wazir Ullah N, Hussain S, Salman F, Haq M, Khattak M, Wadud S. Vitamin E shields against alcoholic toxicity by safeguarding hepatic parenchymal morphology and lowering blood ALT levels. J Ayub Med Coll Abbottabad. 2024;36(2):331-5.","Farogh A, Wazir NU, Mumtaz S, Salman F, Arif A, Umair A. Venous thrombosis risk assessment in hospitalized patients in a tertiary care hospital in Pakistan. J Ayub Med Coll Abbottabad. 2024;36(2):383-7.","Hassan M, Ansari SA, Salman F, Khan RR, Shahzad W. Obstructive sleep apnea in middle-aged smokers. Pakistan Journal of Neurological Sciences. 2020 June;15(2):05-08.","Abedeen ZU, Shakireen N, Ihtesham R, Ihtesham A, Salman F. Lipid profile in newly diagnosed patients of acute myocardial infarction with no other concomitant disease in tertiary care hospital Peshawar. The Professional Medical Journal. 2020;29(03):351-54.","Zafar S, Javaid A, Salman F, Zamman A, Haq M, Khurram M. Effect of pregnancy and demography on susceptibility pattern of azole antifungal agents against clinical isolates of candida species recovered from vulvovaginal candidiasis patients. Journal of Medical Sciences. 2020 January;28(1):76-80.","Najib ul Haq, Haq M, Salman F, Haq M, Khattak M, Usman R, Khan AMK. Prevalence of Vitamin D deficiency in patients of chronic hepatitis C. The Professional Medical Journal. 2020;27(1):35-39.","Usman K, Alam S, Salman F, Khan M, et al. Comparison of GLUT 1 expression in oral squamous cell carcinoma with normal mucosa. Pakistan Journal of Pathology. 2019;30(2):52-56.","Haq M, Salman F, Haq M, Obaid S, Gul A, Khan AMK. Correlation of serum Vitamin D levels with serum levels of alkaline phosphatase in patients with detectable HCV RNA. The Professional Medical Journal. 2019;26(10):1651-1654.","Jan Z, Hasan M, Salman F, Shahzad W, Zarminahil R, Badshah M. An analysis of pattern and burden of patients referred for nerve conduction study in a tertiary care hospital in Pakistan. Pakistan Journal of Neurological Sciences. 2019;14(3):31-35.","Javaid A, Zafar S, Khattak M, Khan F, Wadud S. Effects of administration of Taraxacum officinale extract on renal parameters in cisplatin induced nephrotoxicity in albino mice. Khyber Medical University Journal. 2019 September;11(3):156-163.","Khan F, Usman R, Zafar S, Wadud S. Vitamin D deficiency in patients with diabetic retinopathy. Journal of Postgraduate Medical Institute. 2017;31(2):196-198.","Abideen ZU, Salman F, Usman R, Shakireen N, Gul AM. Platelet indices in newly diagnosed patients of myocardial infarction. Khyber Medical University Journal. 2017;9(2):78-82.","Wadud S, Ahmad M, Khan F. Relationship of glycemic control with thyroid hormone levels in patients with type 2 diabetes mellitus. Journal of Postgraduate Medical Institute. 2017;31(4):353-356.","Usman R, Khan F, Khattak M, Abedeen ZU. Correlation of Vitamin D with hypertension in patients with cardiometabolic syndrome. Journal of Postgraduate Medical Institute. 2017;31(3):299-303.","Khan F, Usman R, Wadud S, et al. Association of Vitamin D with retinopathy in patients with type II diabetes mellitus. Journal of Medical Sciences. 2015 April;23(2):58-61.","Usman R, Khan F, Wadud S, Zafar S, Abideen ZU. Vitamin D status in patients with cardio metabolic syndrome. Journal of Medical Sciences. 2015 July;23(3):172-174.","Zafar S, Khurram M, Usman R, Khan F, Nasim R. Clotrimazole, fluconazole, ketoconazole and itraconazole susceptibilities of candida species in vulvovaginitis. Journal of Medical Sciences. 2015 July;23(3):130-133."]','{"aliases":["farzana-khan","farzana-salman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','20',0),
+(853,'munaza-khattak','Munaza Khattak',NULL,'Physiology','Professor','',0,0,'["BDS ( Mar-1988 - Sep-1992) Khyber College of Dentistry, Peshawar","Master of Public Health ( Aug-2008 - Jul-2010) Peshawar University","M.Phil Physiology 2012- 2014 KMU","PhD (Physiology) 2026 KMU"]','["Professor Physiology Department Peshawar Medical College, Warsak Road 2024 till date"]','[]','["Usman R, Khan F, Khattak M, ul Abideen Z. Correlation of vitamin D with hypertension in patients with cardiometabolic syndrome. Journal of Postgraduate Medical Institute. 2017 Aug 10;31(3).","Javaid A, Zafar S, Khattak M, Khan F, Wadud S. Effects of administration of Taraxacum officinale extract on renal parameters in cisplatin induced nephrotoxicity in albino mice. Khyber Medical University Journal. 2019 Sep 30;11(3):156-9.","Orakzai SA, Khattak M, Muhammad P, Khan A, et al. Comparative sero-analysis between copper levels and the risk of acute myocardial infarction in District Nowshera. Pakistan Journal of Health Sciences. 2024.","Mariyum S, Iqbal A, Obaid S, Khattak M, Mariyum K, et al. Glycated hemoglobin level and clinical parameters of periodontal disease in type 2 diabetes mellitus. Advances in Basic Medical Sciences. 2021.","Shahid T, Mariyum S, Khattak M, Wadud S, Khan F, et al. Evaluation of altered oral changes in COVID-19 PCR positive cases: a cross sectional study. Journal of Saidu Medical College. 2024.","Khalid M, Khattak M, Tariq M, Haq M, Mufti MZ, Malik SN. Osteoporosis in adult thalassemia major patients presenting at a tertiary care hospital. Journal of Rehman Medical Institute. 2024 Oct 7;10(3):16-20.","Wazir NU, Hussain S, Salman F, Haq M, Khattak M, Wadud S. Vitamin E shields against alcoholic toxicity by safeguarding hepatic parenchymal morphology and lowering blood ALT levels. Journal of Ayub Medical College Abbottabad. 2024 Jun 30;36(2):331-5.","Khan M, Orakzai SA, Khan A, Khattak M, Khan Y, et al. Blood trace element (zinc) estimation in patients of viral hepatitis C, liver cirrhosis and hepatocellular carcinoma in tertiary care hospitals of Peshawar. Journal of Peoples University of Medical & Health Sciences. 2024;14(1):70-76. https:\/\/doi.org\/10.46536\/jpumhs\/2024\/14.01.497","Sadiq N, Ara C, Wadud S, Khattak M, et al. A longitudinal study of biochemical variables in women at risk of pre-eclampsia and role of serotonin. Journal of Population Therapeutics and Clinical Pharmacology. 31(6):2123-2129.","Khattak M, Farooq M, Kazmi SKS, Saeed M, Sheikh MU, Shuaib M. Correlation between chest radiographic findings, sputum bacterial load, and treatment outcomes in extensively drug-resistant tuberculosis patients. Pakistan Journal of Chest Medicine. 28(3):371-377.","Haq I, Obaid S, Yasmin RS, Khattak M, Javaid A, et al. Pharmaceutical and medicinal applications of Panax ginseng and ginsenosides and their therapeutic role in different disease. 2022.","Mariyum S, Saleem N, Iqbal A, Iqbal S, Khattak M, Obaid S. A comparison between type-2 diabetics and non-diabetics in terms of papillary bleeding index (PBI). Journal of Gandhara Medical and Dental Science. 2022;9(1):28-32. https:\/\/doi.org\/10.37762\/jgmds.9-1.198","Muhammad A, Haq M, Khattak M, Khan BB, Ahmed A, Haq M, Haq H, et al. Association of SARS-CoV-2 and ABO blood types: a systematic review. Annals of RSCB. 26(1):444-463.","Zabihullah SA, Khan A, Khattak M, Zabihullah SAO, Ahmed S. Frequency of H. pylori in liver cirrhosis patients with overt hepatic encephalopathy: a cross-sectional study. Pakistan Journal of Medical & Health Sciences. 16(11):745-745.","Rehman F, Gul H, Khattak M, Arif S, Idrees U, Khan SJ. Impact of asthma on perinatal outcomes: risks and management strategies in pregnant women. Pakistan Journal of Chest Medicine. 27(3):203-208.","Khan A, Khattak M, Saleem K, Khan SA, Khan MA. Prevalence of different diseases based on histopathological features in biopsies from diseased patients in Malakand division, Khyber Pakhtunkhwa. Journal of Medical Sciences. 2021;29(01).","Usman R, Khattak M, Haq M, Khattak M, Parveen T, Basharat T. Correlation of Vitamin D with obesity parameters in patients of cardiometabolic syndrome. Advances in Basic Medical Sciences. 2020 Jul 24;4(1).","Haq NU, Haq M, Salman F, Haq M, Khattak M, Usman R, Khan AMK. Prevalence of Vitamin D deficiency in patients of chronic hepatitis C. The Professional Medical Journal. 2020;27(01):35-39.","Khan SA, Shah W, Khan MA, Khan MJ, Ali Shah. Significance of endoscopy\/colonoscopy versus microscopy in patients with chronic diarrhea. Journal of Medical Sciences. 2014;22(3):132-136.","Khattak M, Habib SH, Irfan M. Effect of a non-energy restricted ketogenic diet on cognition in sedentary healthy young adults. Physiology International. 2026 Jan 20:2060-25."]','{"aliases":["munaza-khattak"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(854,'momina-haq','Momina Haq',NULL,'Physiology','Professor','',0,1,'["Bachelors of Medicine and Bachelors of Surgery (MBBS) 2008-2013 Peshawar Medical College, Peshawar Riphah International University","M.Phil (Physiology) Session 2015-2016 Peshawar Medical College, Riphah International University","Certificate Course in Health Profession and Education July –December 2018 Riphah International University"]','["Professor 3-10-2025 to till date"]','[]','["Incidence of SARS-CoV-2 re-infection in anti-nucleocapsid IgG-positive healthcare workers: a prospective cohort study. Irish Journal of Medical Sciences. (2023) 192:915-918.","Association of Vitamin D level with diabetic peripheral neuropathy. Liaquat National Journal of Primary Care. 2023;5(1):26-30.","Muhammad A, Haq M, Khattak M, et al. Association of SARS-CoV-2 and ABO blood types: a systematic review. Annals of Romanian Society of Cell Biology. 2022;26(1):444-463.","Multi-drug resistance of Escherichia coli (E. coli) isolated from clinical isolates in District Peshawar, KP, Pakistan. Pakistan Journal of Medical and Health Sciences. 2022 Jan;16(01).","Identifying higher risk subgroups of health care workers for priority vaccination against COVID-19. Therapeutic Advances in Vaccines and Immunotherapy. 2022;10:1-7.","Clinical features and associated comorbidities in 200 cases of COVID-19 in Peshawar, Pakistan. Natural Volatiles and Essential Oils. 2022;9(1):766-775.","Effect of sleep quality on CVS, anxiety and academic performance in medical and dental students. Pakistan Journal of Medical & Health Sciences. 2022 Jul;16(07).","Identification of the rate of anemia during pregnancy at Ayub Medical Complex Abbottabad. Journal of Tianjin University Science and Technology. 2022;55(08).","Frequency of hyperlipidemia in the diagnosed type 2 diabetic patients. Journal of Gandhara Medical & Dental Science. 2021 Jan-Mar;8(1).","Prevalence of Vitamin D deficiency in patients of chronic hepatitis C. The Professional Medical Journal. 2020;27(1):35-39.","Correlation of Vitamin D with obesity parameters in patients of cardiometabolic syndrome. Advances in Basic Medical Sciences. 2020;4(1).","Bacteriological profile and antibiogram of urinary tract infections at microbiology laboratory of a private teaching hospital. Journal of Saidu Medical College. 2019;9(2).","Correlation of serum Vitamin D levels with serum levels of alkaline phosphatase in patients with detectable HCV RNA. The Professional Medical Journal. 2019;26(10):1651-1654.","Correlation of Vitamin D with lipid profile in patients with cardio metabolic syndrome. Journal of Postgraduate Medical Institute. 2019;33(4).","Comparative study of HBV DNA levels in HBeAg positive and HBeAg negative female patients suffering from chronic hepatitis B in child bearing age. The Professional Medical Journal. 2019;26(8):1203-1207.","Awareness level of hepatitis B in rural areas of Charsadda. Khyber Journal of Medical Sciences. 2016;9(3).","Wazir NU, Salman F, Wadud S, Humayun A, Amir A, Haq M. Influence of vitamin E on pancreatic acinar cell morphology and serum amylase concentrations in alcohol-induced pancreatic toxicity. Journal of Ayub Medical College Abbottabad. 2024 Sep 8;36(3):625-9.","Wazir NU, Hussain S, Salman F, Haq M, Khattak M, Wadud S. Vitamin E shields against alcoholic toxicity by safeguarding hepatic parenchymal morphology and lowering blood ALT levels. Journal of Ayub Medical College Abbottabad. 2024 Jun 30;36(2):331-5.","Iqbal N, Al Ibad A, Haq M, Shahzad F, Gul A, Malik SN. The new spectrum of Plasmodium vivax malaria severity: a single-center experience. Pakistan Journal of Health Sciences. 2024 Sep 30:60-4.","Khan MK, Zubair M, Gul A, Tariq M, Haq M, Faiz M. Hypertriglyceridemia in patients with ischaemic heart disease. Pakistan Journal of Health Sciences. 2024 Jul 31:02-5.","Gul N, Rizwan M, Haq M, Haq A, Ahmed I. A study on ocular manifestations seen in patients with cerebral palsy. Pakistan Journal of Neurological Surgery. 2024 Jun 1;28(2):170-6.","Khalid M, Khattak M, Tariq M, Haq M, Mufti MZ, Malik SN. Osteoporosis in adult thalassemia major patients presenting at a tertiary care hospital. Journal of Rehman Medical Institute. 2024 Oct 7;10(3):16-20.","Naz H, Bakth Ranra, Siraj S, Tariq M, Haq M, Muhammad A. Assessment of hematological profile and blood group patterns in pregnant women. Annals of Punjab Medical College. 2025 Mar 31;19(1):5-9. https:\/\/www.apmcfmu.com\/index.php\/apmc\/article\/view\/1684"]','{"aliases":["momina-haq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','897',0),
+(855,'marina-hidayat','Marina Hidayat',NULL,'Physiology','Assistant Professor','',0,1,'["Bachelor of Dental Surgery Peshawar Dental College, 2015","M.Phil Physiology Riphah International University Islamabad, 2022"]','["Assistant Professor Department of Physiology Peshawar Medical College, 1-11-2024 to till date"]','[]','["Hidayat M, Jehandad K, Muhammad A, ul Abideen Z, Sabir U, Haq M. Association of Vitamin D level with diabetic peripheral neuropathy. https:\/\/journals.indexcopernicus.com\/search\/article?articleId=3536320","Right heart adaptation to pulmonary arterial hypertension: physiology and pathobiology: a systematic review. Pak. J. Chest Med. 2021;27(03).","Effects of zinc, vitamin A, and magnesium co-supplementation on thyroid function, oxidative stress, and hs-CRP in patients with hypothyroidism. https:\/\/doi.org\/10.48047\/AFJBS.6.4.2024.6660-6689","Effects of sleep quality on cardiovascular system, anxiety, and academic performance in medical and dental students in Peshawar, Pakistan. https:\/\/doi.org\/10.53350\/pjmhs22167724","Treatment and prevention of anti-glomerular basement membrane disease: a tertiary care hospital study. https:\/\/doi.org\/10.36347\/sjams.2022.v10i09.003","Physiological and biochemical effects of intermittent fasting on insulin sensitivity and glucose metabolism."]','{"aliases":["marina-hidayat"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(856,'fatima-saadat','Fatima Saadat',NULL,'Physiology','Assistant Professor','',0,1,'["Bachelor of Dental Surgery Peshawar Dental College- 2017","M.Phil. physiology Riphah International University, Islamabad- 2021"]','["Assistant professor Physiology department Peshawar Medical College 01.08.2022 till date"]','[]','["Association of Vitamin D and serum ferritin in anemic females of child-bearing age at Malakand, KPK.","The impact of anxiety and depression on asthma control: exploring the connection between mental health and respiratory health.","Chronic obstructive pulmonary disease is an independent risk factor for postoperative complications following operative treatment of distal radius fracture.","Lipid profile in patients of type 2 diabetes mellitus with and without hypertension.","Treatment and prevention of anti-glomerular basement membrane disease: a tertiary care hospital study.","Diagnosis of malaria gametocytes using MP ICT vs PCR in infected patients: a cross-sectional study of asymptomatic relatives."]','{"aliases":["fatima-saadat"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1553',0),
+(857,'muhammad-irfan','Muhammad Irfan',NULL,'Psychiatry','Professor','assets/images/faculty/muhammad-irfan.jpeg',1,1,'["MBBS","MCPS (Psychiatry)","FCPS (Psychiatry)","Dip CBT","MS - Mental Health Policy & Services","Ph.D (Summa Cum Laude) Developing and testing of Culturally Adapted CBT","CHPE"]','["Professor in Psychiatry and Behavioural Sciences at Peshawar Medical College, Peshawar from 02-02-2022 to Till now"]','[]','["Tweneboah-Koduah F, Mintah-Afful N, Narh IL, Eba-Polley K, Menka CN, Osei P, Osei N, Lartey L, Bortieh B, Kumi C, Boafo E, Anyetei JA, Arthur EI, Glover HK, Amoah F, Boye EL, Lamptey Z, Gyan L, Sun J, Taylor J, Briggs P, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Panay N, Atkinson C, Talaulikar V, Eleje GU, Kurmi O, Rathnayake N, Mudalige T, Pathiraja V, Dhanarisi J, Al-Kharusi L, Al-Riyami N, Mbwele B, Madan-Aggarwal I, Toh TH, Ikwuka DC, Mitra PK, Irfan M, Kareem R, Benetti-Pinto C, Kemp HF, Palanisamy R, Shi J, Elneil S, Phiri P, Delanerolle G. Menopause as an Embodied and Occupational Disruption: A Qualitative Study of Women''s Experiences in Ghana (MARIE‐WP2a). BJOG: An International Journal of Obstetrics & Gynaecology. 2026 Jun;133(7):1453-64. https:\/\/obgyn.onlinelibrary.wiley.com\/doi\/full\/10.1111\/1471-0528.70189","Delanerolle G, Ghosh S, Briggs P, Phiri P, Taylor J, Pathiraja V, Mudalige T, Bouchareb Y, Cavalini H, Hinchliff S, Atkinson C, Potocnik K, Saraswat L, Tweneboah-Koduah F, Afful-Mintah N, Kemp HF, Eleje GU, Malachy DE, Mbwele B, Toh TH, Yip-King JS, Yela DA, Rezende GP, Nakamura RM, Benetti-Pinto CL, Irfan M, Kareem R, van Vlymen J, Shetty A, Dangal G, Pant S, Riach K, Rathnayake N, Dasanayake L, Shi JQ, Kurmi O, Khanal S, Elneil S. A perspective on economic barriers and disparities in access to hormone replacement therapy in LMICs (MARIE-WP2b). Scientific Reports. 2026 Apr 26.https:\/\/www.nature.com\/articles\/s41598-026-49559-z","Toh TH, Lee KY, Ngu LH, Jaafar J, Mohd Nasir NF, Azmi AH, Rao V, Jaafar NA, Aiman SN, Eleje GU, Sun J, Taylor J, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Atkinson C, Talaulikar V, Rathnayake N, Mudalige T, Pathiraja V, Dhanarisi J, Fontana D, Al-Kharusi L, Al-Riyami N, Madan-Aggarwal I, Kemp HF, Corkhill V, Majumder K, Palanisamy R, Irfan M, Kareem R, Panay N, Shi J, Elneil S, Phiri P, Delanerolle G; MARIE Collaborative. Bridging the Gap between Evidence and Women’s Menopausal Experience: Aligning Malaysia’s Menopause Guidelines with Cultural, Religious, and Equity Realities (MARIE-Malaysia WP2a). https:\/\/onlinelibrary.wiley.com\/doi\/full\/10.1002\/rfc2.70064","Delanerolle G, Pathiraja V, Eleje GU, Toh TH, Rathnayake N, Tweneboah-Koduah F, Afful-Mintah N, Mudalige T, Sun J, Dhanarisi J, Al-Kharusi L, Al-Riyami N, Mbwele B, Madan-Aggarwal I, Ikwuka DC, Wang X, Mitra PK, Irfan M, Kareem R, Benetti-Pinto C, Dangal G, Taylor J, Briggs P, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Panay N, Atkinson C, Talaulikar V, Umeoranefo IC, Fontana D, Kemp HF, Corkhill V, Majumder K, Egwuatu EC, Njoku CC, Rabiu A, Chimbo C, Ezenkwele EP, Malachy DE, Eleje LI, Ndukwe CO, Oriji SO, Chikezie RU, Enweani-Nwokelo IB, Ezeora NC, Ikpeze OZ, Nweze SO, Osunkwo AC, Edeh GC, John EO, Obi KE, Ekwuazi KE, Egbonna NJ, Ogbonna US, Muhammad HB, Agu KC, Chidozie CP, Okoye OA, Okoro CC, Mbachu II, Ikechebelu JI, Onubogu CU, Nwaogu KC, Obiegbu NP, Nnabuchi OK, Nweje S, Adedayo OO, Kumuyi BR, Akanni OA, Enyinna PK, Alfa Y, Otis TN, Otis MN, Agbo C, Anigwe FC, Anyaeche CJ, Okonkwo ON, Okemeziem BC, Uwakwe BN, Igboabuchi GO, Ndubuisi IF, Nkemdirim AP, Sundarapperuma T, Herath P, Dassanayake D, Herath C, Wijamuni N, Palihawattha T, Illesinghe P, Ambepitiya D, Peris K, Sitheja V, Kannangara W, Thavalingum P, Dulanjala A, Gayani P, Madushika H, Sivakumar A, Madhushani CK, Keerthisinghe C, Hathurusinghe HN, Mudalige U, Lee KY, Aiman Ali Madinah SN, Jaafar NA, Wong XS, Lee JY, Laub YT, Mohamad Mohsin A, Mohd Nasir NF, Law DS, Zamri F, Abidin A, Azmi AH, Abd Kahar R, Adnan FI, Wong XS, Lim GS, Sim EY, Cristelle K, Mohd Haslan A, Abdul Patah N, Rao Nalathambi V, Jaafar J, Wong LL, Ibrahim N, Ting SY, Lo SC, Hamdan N, Ngu MH, Dahian S, Ngu DL, Khoo SY, Mathur M, Puvanendran R, Safdar F, Kathirvel R, Aiyappan R, Yela DA, Rezende GP, Nakamura RM, Prasad B, Noor S, Shilpa K, Singh P, Chatterjee M, Mahinyila O, Shemdoe A, Mpangala K, Mwahi BG, Pembe Z, Kaminyoge M, Alon T, Mwabenga C, Jean Pierre G, Clementine K, Chinwe NH, Olubiyi BF, Sani N, Amalimeh BE, Nwanna UK, Usman IM, Isingizwe SM, Hanyurwimfura JD, Kabutare JMV, Uwimpuhwe D, Melanie M, Kantarama A, Tuyisenge E, Habimana E, Vaidyanathan G, Al Maqrashi M, Bouchareb Y, Shi JQ, Elneil S, Phiri P. Physical and mental health impact of perimenopause, menopause and post menopause in a diverse global population (MARIE Project-Global Chapter WP 2a): cross-sectional quantitative data from a mixed-methods study. EClinicalMedicine. 2026 Jun 23;97:104032.https:\/\/www.thelancet.com\/journals\/eclinm\/article\/PIIS2589-5370(26)00285-3\/fulltext","Madan-Aggarwal I, Pathiraja V, Husain FS, Aiyappan R, Mathur M, Kathirvel R, Puvanendran R, Sun J, Taylor J, Saraswat L, Hinchliff S, Potocnik K, Panay N, Atkinson C, Talaulikar V, Dhanarisi J, Eleje GU, Al-Kharusi L, Al-Riyami N, Toh TH, Irfan M, Kareem R, Benetti-Pinto CL, Mbwele B, Ikwuka DC, Kemp HF, Shi J, Elneil S, Phiri P, Delanerolle G. Multidimensional menopausal symptom burden in Singapore–MARIE work package 2a population analysis. Climacteric. 2026 Jul 8:1-3. https:\/\/www.tandfonline.com\/doi\/abs\/10.1080\/13697137.2026.2685623","Benetti-Pinto C, Rezende GP, Nakamura RM, Yela DA, Sun J, Taylor J, Kurmi O, Hinchliff S, Atkinson C, Potocnik K, Talaulikar V, Shetty A, Saraswat L, Riach K, Shi JQ, Elneil S, Rathnayake N, Pathiraja V, Dhanarisi J, Mudalige T, Toh TH, Al-Riyami N, Al-Kharusi L, Bouchareb Y, Eleje GU, Mintah-Afful N, Aggarwal I, Irfan M, Kareem R, Mbwele B, Ikwuka DC, Kemp HF, Phiri P, Delanerolle G. Menopause in Brazil: lived experiences, inequities, and opportunities for inclusive care (MARIE-Brazil WP2a). Women & Health. 2026 Mar 16;66(3):178-94. https:\/\/www.tandfonline.com\/doi\/full\/10.1080\/03630242.2026.2659044","Delanerolle G, Pathiraja V, Elneil S, Kurmi O, Talaulikar V, Briggs P, Saraswat L, Kemp HF, Bouchareb Y, Benetti-Pinto CL, Mudalige T, Rathnayake N, Sivakumar A, Tweneboah-Koduah F, Afful-Mintah N, Al-Riyami N, Al-Kharusi L, Shi JQ, Eleje GU, Ikwuka D, Mitra P, Mbwele B, Kareem R, Irfan M, Phiri P. Breaking the silence and building strength; rethinking menopause care through exercise and cultural insight. Frontiers in Global Women''s Health. 2026 Feb 16;7:1683735. https:\/\/www.frontiersin.org\/journals\/global-womens-health\/articles\/10.3389\/fgwh.2026.1683735\/full","Al Kharusi L, Al Riyami N, Gowri V, Al Maqrashi M, Bouchareb Y, Pathiraja V, Sun J, Taylor J, Saraswat L, Hinchliff S, Potocnik K, Elliot K, Panay N, Atkinson C, Talaulikar V, Rathnayake N, Mudalige T, Dhanarisi J, Mbwele B, Ikwuka DC, Mitra PK, Irfan M, Kareem R, Tweneboah-Koduah F, Afful-Mintah N, Benetti-Pinto CL, Kurmi O, Toh TH, Madan-Aggarwal I, Kemp HF, Palanisamy R, Shi JQ, Eleje GU, Elneil S, Phiri P, Delanerolle G; MARIE Consortium. Navigating menopausal health in Oman (Marie Oman WP2a). Scientific Reports. 2026 Mar 5;16(1):8652-. https:\/\/www.nature.com\/articles\/s41598-026-41071-8","Shaheen N, Mahboob U, Sethi A, Irfan M. Equity in basic medical education accreditation: A scoping review. Journal of Taibah University Medical Sciences. 2026 Apr 29;21(3):439-51. https:\/\/www.sciencedirect.com\/science\/article\/pii\/S1658361226000417","Shaheen N, Mahboob U, Sethi A, Irfan M. Conceptualising equity in basic medical education accreditation standards: A qualitative study of expert perspectives. Pakistan Journal of Medical Sciences. 2026 Apr 1;42(4):829-40. https:\/\/www.pjms.org.pk\/index.php\/pjms\/article\/view\/14422","Kabir S, Ahmad B, Zahid M, Aleem S, Nooreen S, Waheed Z, Rasool S, Irfan M, Khan Z. Non-pharmacological interventions for tobacco cessation delivered in dental settings in South Asia: a scoping review. Discover Public Health. 2026 Dec;23(1):872. https:\/\/doi.org\/10.1186\/s12982-026-02281-7 https:\/\/link.springer.com\/article\/10.1186\/s12982-026-02281-7#citeas","Khattak M, Habib SH, Irfan M. Effect of a non-energy restricted ketogenic diet on cognition in sedentary healthy young adults. Physiology International. 2026 Jan 20:2060-25. https:\/\/pubmed.ncbi.nlm.nih.gov\/41556984\/","Khan N, Butt MG, Awan F, … Irfan M. Global mental health commentary: using innovation to create a workforce to deliver and implement culturally adapted CBT in Pakistan. BMJ Mental Health. 2025: ;28:e301389.","Ahmad B, Rehman K, Bangash S, Zarkaish R, Babak M, Rehman S, Ihsan S, Khattak FA, Irfan M, Rehman A, Khan AJ, Khan Z. Coping strategies and resilient behavior among frontline healthcare workers: a scoping review. Dialogues in Health. 2025 Oct 23:100252. https:\/\/pubmed.ncbi.nlm.nih.gov\/41324024\/","Shaheen N, Mahboob U, Sethi A, Irfan M. Equity in basic medical education accreditation standards: a scoping review protocol. BMJ Open. 2025 Jan 7;15(1):e086661.","Rehman A, Khattak FA, Rehman K, Ashfaq U, Haq IU, Khan Z, Irfan M, Khan J, Kibria Z. Emergency Related Mental Health Challenges Among Frontline Health Workers in Khyber Pakhtunkhwa, Pakistan: A Cross-Sectional Study. Disaster Medicine and Public Health Preparedness. 2025 Jan;19:e286. https:\/\/doi.org\/10.1017\/dmp.2025.10210 https:\/\/pubmed.ncbi.nlm.nih.gov\/41041902\/","Delanerolle G, Phiri P, Elneil S, Talaulikar V, Eleje GU, Kareem R, Shetty A, Saraswat L, Kurmi O, Benetti-Pinto CL, Muhammad I, Rathnayake N, Toh TH, Madan-Aggarwal I, Shi JQ, Taylor J, Riach K, Potocnik K, Litchfield I, Kemp HF, Briggs P; MARIE Collaborative. Menopause: A Global Health and Wellbeing Issue Needing Urgent Attention. The Lancet Global Health. 2024 Dec 18. https:\/\/www.thelancet.com\/journals\/langlo\/article\/PIIS2214-109X(24)00528-X\/fulltext","Mudalige T, Pathiraja V, Delanerolle G, Cavalini H, Wu S, Taylor J, Kurmi O, Elliot K, Hinchliff S, Atkinson C, Potocnik K, ... Muhammad I. Systematic review and meta-analysis of the pelvic organ prolapse and vaginal prolapse among the global population. BJUI Compass. 2024 Dec 10;6(1):e464.","Wadud S, Fatima S, Nazli R, Ali R, Irfan M. Bioinformatic interpretation of tracking genes of miRNA-let 7b and miRNA-let 7c in depression. J Popul Ther Clin Pharmacol. 2024 Jun 28;31(6):1990-2000.","Delanerolle G, Forbes AK, Cavalini H, Taylor J, Riach K, Hinchcliff S, Atkinson C, Potočnik K, Briggs P, Kurmi O, Talaulikar V, ... Irfan M. An exploration of the mental health impact among menopausal women: The MARIE Project protocol (UK arm). Am J Biomed Sci Res. 2024 May 23;22(5).","Delanerolle G, Cavalini H, Taylor J, Hinchliffe S, Talaulikar V, Zingela Z, Toh TH, Pati S, Rathnayake N, Kurmi O, Shetty A, Irfan M, Kareem R, Eleje GU, Kemp HF, Mintah Afful N, Tweneboah Koduah FK, Benetti Pinto CL, Mamatha S, Aggarwal I, Palo SK, Shi JQ, Phiri P. An Exploration of the Mental Health impact among Menopausal Women: The MARIE Project Protocol (International Arm). American Journal of Biomedical Science & Research. 2024 May 23;22(5):AJBSR-MS. https:\/\/doi.org\/10.34297\/AJBSR.2024.22.002991 https:\/\/research.birmingham.ac.uk\/en\/publications\/an-exploration-of-the-mental-health-impact-among-menopausal-women-2\/","Wadud S, Fatima S, Nazli R, Ali R, Irfan M. Expression analysis of miR-132, miR-182, miR-124, miR-let7b, and miR-let7c in patients with depression. Kurd Stud. 2024 May 20;12(5):253-7.","Wadud S, Fatima S, Irfan M. Role of ascorbic acid in improving mood in patients with depression: a randomized controlled trial. J Postgrad Med Inst. 2024 May 8;38(2):97-101.","Wadud S, Fatima S, Ali R, Nazli R, Khan Z, Irfan M. Identification of target genes and pathways regulated by miRNA-132, miRNA-182, and miRNA-124 in depression: a bioinformatics analysis. Khyber Med Univ J. 2024 Mar 31;16(1):30-7.","Kareem R, Karim R, Sethi MR, Inayat S, Wahab S, Ghayur MS, Malik NN, Irfan M. Translation, cross-cultural adaptation, and validation of ENRICH scale for marital satisfaction in Pashto. Sex Relat Ther. 2023 Aug 22:1-2.","Husain N, Kiran T, Chaudhry IB, Williams C, Emsley R, Arshad U, Ansari MA, Bassett P, Bee P, Bhatia MR, Chew-Graham C, ... Irfan M. A culturally adapted manual-assisted problem-solving intervention (CMAP) for adults with a history of self-harm: a multi-centre randomized controlled trial. BMC Med. 2023 Dec;21(1):1-6.","Rathod S, Pallikadavath S, Graves E, Rahman MM, Brooks A, Rathod P, Bhargava R, Irfan M, Aly R, Al Gahtani HM, Salam Z. Effects of cumulative COVID-19 cases on mental health: Evidence from multi-country survey. World J Psychiatry. 2023 Jul 7;13(7):461.","Khan SI, Irfan M. Stigmatization and self-perception regarding issues related to mental health: A qualitative survey from a lower and middle-income country. Pak J Med Sci. 2023;39(5):1411-1415. doi: 10.12669\/pjms.39.5.7487.","Farooq S, Sheikh S, Dikomitis L, Haq MM, Khan AJ, Sanauddin N, Ali MW, Ali J, Khan MF, Chaudhry I, Husain N, … Irfan M. Traditional healers working with primary care and mental health for early intervention in psychosis in young persons: protocol for the feasibility cluster randomised controlled trial. BMJ Open. 2023 Jul 1;13(7):e072471.","Tahir A, Abdullah M, Abdullah KN, Aliya B, Irfan M. The perceptions of mental health professionals regarding application of animal assisted therapy in Pakistan: A qualitative study. Khyber J Med Sci. 2023 Jan;16(1):15-8.","Sethi MR, Jahangir F, Irshad E, Irfan M. A bumpy road to youth: A cross sectional survey to assess emotional and behavioral issues of children of Peshawar. J Postgrad Med Inst. 2023;37(2):97-102.","Irfan M, Sethi MR. Factor analysis, reliability and validity of a Pashto version of Hamilton rating scale for depression. J Pak Med Assoc. 2023;73(5):1024-8. doi: 10.47391\/JPMA.6978.","Khan L, Hidayat H, Hussain I, Khan J, Ali H, Sethi MR, Irfan M. Assessment Of Patients Satisfaction Attending Outpatient Departments Of Teaching Hospitals Of Peshawar. J Ayub Med Coll Abbottabad. 2023;35(1):64-67. doi: 10.55519\/JAMC-01-10914.","Kareem R, Sethi MR, Inayat S, Irfan M. The effect of COVID-19 vaccination on the menstrual pattern and mental health of the medical students: A mixed-methods study from a low and middle-income country. PLoS One. 2022;17(11):e0277288. doi: 10.1371\/journal.pone.0277288.","Ghayur MS, Kareem R, Wahab S, Inayat S, Karim R, Sethi MR, Malik NN, Irfan M. Translation, Cross-Cultural Adaptation and Validation Of Polycystic Ovarian Syndrome Quality Of Life Scale In Pashto. J Ayub Med Coll Abbottabad. 2022 Oct-Dec;34(4):823-829. doi: 10.55519\/JAMC-04-10920.","Naseer R, Ullah K, Irfan M, Khattak I, Khan AU, Kiran S, Shahzad S. The Entrepreneurial Motivation Of Underdog Entrepreneurs: A Paradigm Shift. Webology. 2021;18(5):2243-60.","Muska A, Mariam B, Sethi MR, Irfan M. DI TÓU ZÚ and musculoskeletal discomfort among them: A survey of the medical students of Peshawar. J Postgrad Med Inst. 2021;34(4):221-6.","Sheikh TI, Vasli N, Pastore S, Kharizi K, Harripaul R, Fattahi Z, Pande S, Naeem F, Hussain A, Mir A, Islam O, Girisha KM, Irfan M, Ayub M, Schwarzer C, Najmabadi H, Shukla A, Sladky VC, Braun VZ, Garcia-Carpio I, Villunger A, Vincent JB. Biallelic mutations in the death domain of PIDD1 impair caspase-2 activation and are associated with intellectual disability. Transl Psychiatry. 2021; 11(1):1-13. doi: 10.1038\/s41398-020-01158-w.","Abdullah M, Sethi MR, Irfan M. Gender Differences Regarding Stigma Towards Mental Illness Among Medical Students of Peshawar. J Ayub Med Coll Abbottabad. 2021;33(1):120-4.","Khan HM, Zeeshan MF, Shah MA, Ali OM, Afridi SK, Ahmad HS, Irfan M. The Urdu Version of the Safety Attitude Questionnaire (SAQ) for Inpatient Settings in Pakistan: Psychometric Properties and Baseline Data. J Ayub Med Coll Abbottabad. 2021;33(1):109-15.","Haq M, Rehman A, Noor M, Ahmad J, Ahmad J, Irfan M, Anwar S, Ahmad S, Amin S, Rahim F, Haq NU. Seroprevalence and Risk Factors of SARS CoV-2 in Health Care Workers of Tertiary-Care Hospitals in the Province of Khyber Pakhtunkhwa, Pakistan (medrxiv.org)۔ doi: 10.1101\/2020.09.29.20203125.","Latif M, Husain MI, Gul M, Naz S, Irfan M, Aslam M, Awan F, Sharif A, Rathod S, Farooq S, Ayub M, Naeem F. Culturally adapted trauma-focused CBT-based guided self-help (CatCBT GSH) for female victims of domestic violence in Pakistan: feasibility randomized controlled trial. Behav Cogn Psychother. 2021;49(1):50-61. doi: 10.1017\/S1352465820000685.","Ain NU, Ahmad H, Rehman S, Emman S, Sethi MR, Irfan M. Dysfunctional beliefs and attitudes about sleep in undergraduate medical and dental students. J Postgrad Med Inst. 2020;34(1):49-53.","Irfan M, Naeem F, Afridi MI, Javed A. Prevention of occupational stress in health-care workers during COVID-19 pandemic. Indian J Psychiatry. 2020; 62 (Suppl 3): S495-7. doi: 10.4103\/psychiatry.IndianJPsychiatry.","Naeem F, Irfan M, Javed A. Coping with COVID-19: Urgent need for building resilience through Cognitive Behaviour Therapy. Khyber Med Univ J. 2020;12(1):1-3. doi: 10.35845\/kmuj.2020.20194.","Naeem F, Munshi T, Gratzer D, Rodie D, Irfan M, Rao S, et al. Video intervention for the psychiatric waiting room: proof-of-concept randomised controlled trial of RESOLVE (Relaxation Exercise, SOLVing problem and cognitive Errors). Br J Psych Open. 2019;5(5):e77-82. doi:10.1192\/bjo.2019.59.","Algahtani HMS, Almulhim A, AlNajjar FA, Ali MK, Irfan M, Ayub M, et al. Cultural adaptation of cognitive behavioural therapy (CBT) for patients with depression and anxiety in Saudi Arabia and Bahrain: a qualitative study exploring views of patients, carers, and mental health professionals. Cogn Behav Tharp. 2019;12:e44-60. doi:10.1017\/S1754470X1900028X.","Rathod S, Persaud A, Naeem F, Pinninti N, Tribe R, Eylem O, … Irfan M. Culturally Adapted Interventions in Mental Health: Global Position Statement. World Cultural Psychiatry Res Rev. 2019;14(1-2):21-29.","Salam Z, Sadiq Z, Tajamul U, Sethi MR, Irfan M. Internet gaming disorder in students of Peshawar: A cross-sectional survey. J Ayub Med Coll Abbottabad. 2019;31(4):548–52.","Niazi A, Qayyum M, Ikram Z, Sher S, Sethi MR, Irfan M. Emotional intelligence and self-perception of medical and dental students of Peshawar–Pakistan. J Postgrad Med Inst. 2019;33(4):324-30.","Ali M, Sethi MR, Irfan M. Effect of social support on mindfulness of medical and dental students. J Postgrad Med Inst. 2019;33(3):222-6.","Irfan M, Saleem U, Sethi MR, Abdullah AS. Do we need to care: emotional intelligence and empathy of medical and dental students. J Ayub Med Coll Abbottabad. 2019;31(1):76–81.","Awan NR, Irfan M, Azeemi MMUH, Firaz M, Farooq S. Knowledge and awareness about schizophrenia using a vignette. J Postgrad Med Inst. 2019;33(1):52-6.","Irfan M, Abdullah AS, Sethi MR, Saleem U, Zeeshan MF, Haq NU. Assessment of personality disorders in students appearing for medical school entrance examination. J Pak Med Assoc. 2018;68(12):1763-8.","Irfan M, Abdullah AS, Sethi MR, Saleem U, Khan U, Haq NU. Psychological distress in students appearing for the medical school entrance examination in Peshawar. J Pak Med Assoc. 2018;68(11):1603-7.","Ali M, Liaqat A, Sethi MR, Irfan M. Effect of social support on burnout in medical students. J Postgrad Med Inst. 2018;32(3):266-70.","Khan SA, Khan MA, Khan M, Sethi MR, Irfan M. Frequency of body-focused repetitive behaviours in medical students of Peshawar. J Postgrad Med Inst. 2018;32(3):283-7.","Rathod S, Irfan M, Bhargava R, Pinninti N, Scott J, Algahtani HM, Guo Z, Gupta R, Nadkarni P, Naeem F, Howells F, Sorsdahi K, Thorne K, Osman-Hicks V, Pallikadavath S, Phiri P, Carr H, Graves L, Kingdon D. Multinational comparative cross-sectional survey of views of medical students about acceptable terminology and subgroups in schizophrenia. BMJ Open. 2018;8:e021461. doi:10.1136\/bmjopen-2017-021461.","Aslam M, Khan N, Khan MA, Bhatti SA, Javed K, Noreen A, Saleem R, Manzoor S, Khan MY, Irfan M, Naeem F. Psychiatric morbidity in primary care in Pakistan: A cross-sectional study. J Postgrad Med Inst. 2018;32(2):179-83.","Ali O, Salam Z, Saeed T, Sethi MR, Irfan M. Quality of life of medical and dental students of Peshawar. J Postgrad Med Inst. 2018;32(2):188-93.","Ali M, Sethi MR, Irfan M. Psychological distress among undergraduate medical students of Peshawar, Pakistan. J Postgrad Med Inst. 2018;32(2):194-7.","Irfan M, Sethi MR, Khan I, Awan NR, Naz F, Saleem U, Naeem F. Translation and validation in Pashto (1): Hospital Anxiety and Depression Scale. J Postgrad Med Inst. 2017;31(4):387-93.","Irfan M, Sethi MR, Khan I, Awan NR, Naz F, Saleem U, Naeem F. Translation and validation in Pashto (2): Bradford Somatic Inventory. J Postgrad Med Inst. 2017;31(4):394-9.","Irfan M, Sethi MR, Khan I, Awan NR, Naz F, Saleem U, Naeem F. Translation and validation in Pashto (3): World Health Organization Disability Assessment Schedule 2.0. J Postgrad Med Inst. 2017;31(4):400-4.","Abid M, Irfan M, Naeem F. Relationship between mindfulness and bullying behavior among school children: An exploratory study from Pakistan. J Postgrad Med Inst. 2017;31(3):256-9.","Tahir M, Irfan M. National essential medicines list of Pakistan: Use in prescriptions and awareness in medical practitioners. J Postgrad Med Inst. 2017;31(3):292-4.","Afridi H, Ahmad R, Sethi MR, Irfan M. Is there a relationship between irritable bowel syndrome and generalized anxiety disorder? J Postgrad Med Inst. 2017;31(3):271-5.","Awan NR, Jehangir SF, Irfan M, Naeem F, Farooq S. Explanatory model of illness of the patients with schizophrenia and the role of educational intervention. Schizoph Res. 2017;10:pii: S0920-9964(17)30125-1. doi:10.1016\/j.schres.2017.03.006.","Rathod S, Pinninti N, Irfan M, Gorczynski P, Rathod P, Gega L, et al. Mental Health Service Provision in Low- and Middle-Income Countries. Health Services Insights. 2017;10:1-7. doi:10.1177\/1178632917694350.","Irfan M, Saeed S, Awan NR, Gul M, Aslam M, Naeem F. Psychological healing in Pakistan: From Sufism to culturally adapted cognitive behavior therapy. J Contemp Psychother. 2017;47(1):1-6. doi:10.1007\/s10879-016-9354-3.","Sabiha ZA, Adnan S, Khaliq H, Irfan M. A cross-sectional study on the choice of female medical students in selection of their future specialties. J Postgrad Med Inst. 2016;30(3):230-4.","Barbour V, Irfan M, Poff D, Wise M. Discussion document on best practice for issues around theses publishing. Committee On Publication Ethics; 2017.","Barbour V, Astaneh B, Irfan M. Challenges in publication ethics. Ann R Coll Surg Engl. 2016;98(4):241-3.","Irfan M, Almeida JMC, Irfan UM, Raza UA, Farooq S. Schizophrenia diagnosis and treatment by general practitioners: A cross-sectional study in district Peshawar, Pakistan. J Pak Med Assoc. 2015;65(9):937-42.","Farooq S, Nazar Z, Akhter J, Irfan M, Subhan F, Ahmed Z, Khatak IH, Naeem F. Effect of fasting during Ramadan on serum lithium level and mental state in bipolar affective disorder. Int Clin Psychopharmacol. 2010;25(6):323-7.","Irfan M. Implementation of mental health policy in Pakistan: A dream in search of reality? J Postgrad Med Inst. 2010;24(2):83-4.","Idrees M, Khan I, Sarwar R, Irfan M. Frequency of first rank symptoms in patients of schizophrenia: A hospital-based study. Gomal J Med Sci. 2010;8(1):50-3.","Nazar Z, Akhtar J, Farooq S, Irfan M, Shaheen R, Ahmed M, et al. Adverse side effects of Lithium and fasting (Ramadan). J Postgrad Med Inst. 2009;23(1):7-13.","Farooq S, Nazar Z, Akhtar J, Irfan M, Naeem S. From DOTS to STOPS - Public health intervention for schizophrenia in low and middle-income countries. J Pak Psych Soc. 2008;5(2):68-7.","Farooq S, Irfan UM, Irfan M. Recognition of systematic reviews is vital for scientific research and clinical practice. J Coll Phys Surg Pak. 2008;18(7):460-2.","Nazar Z, Shaheen R, Akhtar J, Ahmed M, Irfan M, Sajjad R, Farooq S. Presence and severity of Depressive symptoms in Schizophrenia. J Postgrad Med Inst. 2008;22(2):124-9.","Khan A, Chiragh S, Irfan M, Sherin A. Frequency of seizures and epilepsy after ischaemic stroke. J Postgrad Med Inst. 2008;22(2):130-5.","Farooq S, Nazar Z, Akhtar J, Irfan M, Irfan UM. Cochrane corner in Journal of Pakistan Psychiatric Society – A popular tool for disseminating Cochrane systematic reviews. J Pak Psych Soc. 2008;5(1):46-7.","Nazar Z, Irfan M, Shafique M. Curriculum of Behavioral Sciences and Psychiatry for Medical Students of Pakistan: An Outline. J Pak Psych Soc. 2007;4(2):76-7.","Ghani F, Irfan M. Providing Evidence for Medical and Mental Health Practice through Systematic Reviews. J Pak Psych Soc. 2006;3(2):70-3.","Irfan M. 2nd International Conference on Schizophrenia (IConS II). J Pak Psych Soc. 2006;3(2):113-4.","Shoaib RM, Irfan M. Gender Identity Disorder: A Case Report. J Postgrad Med Inst. 2005;19(2):234-7.","Shah F, Irfan M, Khan H, Zareef M. Helicobacter Pylori infection in Type II Diabetic patients with non-ulcer dyspepsia. J Med Sci. 2004;12(1):29-32."]','{"aliases":["mohammad-irfan","muhammad-irfan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','837',0),
+(858,'muhammad-abbas','Muhammad Abbas',NULL,'Medicine','Associate Professor','assets/images/faculty/muhammad-abbas.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["muhammad-abbas"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','840',0),
+(859,'najm-ud-din','Najm UD Din',NULL,'Nephrology','Associate Professor','assets/images/faculty/najm-ud-din.jpeg',1,1,'[]','[]','[]','[]','{"aliases":["najm-ud-din","najam-ud-din"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1572',0),
+(860,'mohammad-idrees','Mohammad Idrees',NULL,'Psychiatry','Professor','',0,1,'["MBBS","MCPS","FCPS (Psychiatry)","CHPE"]','["Professor — Psychiatry Department Peshawar medical college, Peshawar 18th September 2018 – Till now"]','[]','["Idrees M, Khan I, Irfan M, Sarwar R. FREQUENCY OF ANXIETY AND DEPRESSION IN PATIENTS WITH MIGRAINE. Journal of Medical Sciences. 2010 Dec 6;18(4):172-4.","Idrees M, Khan I, Sarwar R, Irfan M. Frequency of first rank symptoms in patients of schizophrenia: a hospital based study. Gomal Journal of Medical Sciences. 2010;8(1).","Akhtar J, Haque MM, Idrees M, Awan NR, Irfan M. Knowledge and practice of general practitioners of Bannu about schizophrenia. Journal of Postgraduate Medical Institute. 2010;24(4).","Idrees M, Khan I, Irfan M, Sarwar R. First rank symptoms in the diagnosis of schizophrenia. Journal of Postgraduate Medical Institute. 2010;24(4)."]','{"aliases":["mohammad-idrees","muhammad-idrees"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1224',0),
+(861,'asiya-munir','Asiya Munir',NULL,'Psychiatry','Senior Registrar','',0,1,'["MBBS","FCPS (Psychiatry)"]','["Have been working as senior registrar from 2025 – Present"]','[]','[]','{"aliases":["asiya-munir"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1983',0),
+(862,'kifayat-ali','Kifayat Ali',NULL,'Endocrinology','Assistant Professor','assets/images/faculty/kifayat-ali.jpg',1,1,'["MBBS","FCPS (Medicine)","FCPS (Endocrinology)","MRCP (UK)","CHPE (KMU)","CHR (AKU)","Fellowship in Endocrinology (HMC)"]','["Assistant Professor, Endocrinology, Peshawar Medical College (14 May 2026 – Present)","Senior Registrar, Endocrinology (20 Apr 2025 – 13 May 2026)","Fellowship in Endocrinology, Hayatabad Medical Complex (4 Jan 2023 – 4 Jan 2025)"]','["Diabetes","Thyroid","PCOS","Infertility","Short stature","Obesity and weight loss","Hormonal imbalance","Metabolic disorders"]','["Frequency of hypocalcemia in patients with CKD","Frequency of undiagnosed heart failure in diabetic patients with DFU","Frequency of MRSA in diabetic foot patients","Impact of levothyroxine therapy on pregnancy outcomes with Anti TPO positive women","The prevalence of Vit B12 deficiency in Type 2 DM with neuropathy"]','{"aliases":["kifayat-ali"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1965',0),
+(863,'sana','Sana',NULL,'Endocrinology','Assistant Professor','assets/images/faculty/sana.jpg',0,1,'["MBBS (KMC)","FCPS (Medicine)","FCPS (Endocrinology)","MRCP (UK)","CHPE","CHR"]','["Assistant Professor, Endocrinology, Peshawar Medical College (1 Jun 2026 – Present)","Senior Registrar, Endocrinology (14 Jan 2024 – 31 May 2026)"]','["Diabetes and its complication management","Thyroid disorders (hypothyroid and hyperthyroid)","Advanced obesity management","PCOS and menstrual irregularities","Infertility","Short stature"]','["Prevalence of Sexual Dysfunction in Patient with Subclinical Hypothyroidism and Subclinical Hyperthyroidism","Clinicopathological Profile of Patient with Solitary Thyroid Nodule Presented to OPD at a Tertiary Care Hospital Pakistan","Frequency of Osteomalacia and Vitamin D Deficiency in Elderly Patient Presenting at a Tertiary Care Hospital"]','{"aliases":["sana"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','2052',0),
+(864,'jehanzeb-khan','Jehanzeb Khan',NULL,'Anatomy','Professor & HOD','',1,1,'["M.B.B.S","M. Phil (Anatomy)"]','["Instruction, Facilitation, Assessment & mentorship of Undergraduate and Postgraduate Students since Dec., 1988 till date","HOD, Anatomy, KMC (Oct., 2011 to March, 2012) & PMC (Since 24-04-2026)"]','[]','["Khan J and Janjua M.Z. (1998). Localization of the facial motor nucleus in Sprague – dawley albino rat: A morphometric and retrograde tracing study with horseradish peroxidase (HRP). JPMI; 12(2): 29 – 36.","Khan J and Janjua M.Z. (1999). Effect of survival time on retrograde neuronal labeling with horseradish peroxidase (HRP), using rat’s facial nucleus as a model. JPMI; 13(2): 1 – 7.","Khan J and Janjua M.Z. (1999). Morphology of the facial branchiomotor nucleus: A retrograde neuron tracer study utilizing horseradish peroxidase (HRP) as a neuronal tracer. JMS; 9(3): 27 – 37.","Ilahi M, Khan J, Inayat Q and Abidi TS. (2006). Histological changes in parts of foregut of rat after indomethacin administration. JAMC; 18(3): 29 – 34.","Inayat Q, Khan J, Ilahi M and Azeem R (2007). A histological study of the liver of mice exposed to cypermethrin. JMS; 15(1): 27 – 31.","Inayat Q, Khan J, Ilahi M and Azeem R (2007). A histological and morphometric study of the kidney of mice after oral administration of cypermethrin. JMS; 15(2): 145 – 150.","Inayat Q, Ilahi M and Khan J (2007). A morphometric and histological study of the kidney of mice after dermal Application of cypermethrin. JPMA; 57(12): 587 – 591.","Wazir FU, Wazir IU, Javed M, Muhammad F, Saeed M, Khan J and Shah H. (2006). Morphological changes induced by cotton seed flour in rat testes. Biomedica; 22: 105-9","Wazir IU, Wazir FU, Javed M, Muhammad F, Saeed M, Haq N , Jehanzeb M and Khan HU (2008). Quantitative assessment of liver fibrosis in patients with chronic hepatitis C using special stains. GJMS; 6 (1): 25-29","Wazir NU, Saeed M, Wazir IU, Khan J, Wazir FU and Huma Z (2021). Hepatocytes protection by vitamin E in Alcoholic Liver Injury: A Light Microscopic Study. PJMHS; 15(10): 2869-74","Wazir NU, Khan J, Huma Z , Khan F, Ara N and Humayun A (2021). Counter effects of vitamen E against outcomes of alcohol toxicity in pancreatic acini: Histomorphometric study. PJMHS; 15(11): 2974-78","Iftikhar SA, Khan J, Rauf F, Yousuf S, Shafqat F, Ahmad A (2026), Histmorphological study of the protective roles of Margalla honey (Multifloral) and Silymarine in Valproate induced hepatotoxicity in male rats."]','{"aliases":["jehanzeb-khan","jehanzeb","khan-jehanzeb"]}','2026-10-13 15:49:32','2026-10-13 16:11:46','318',0),
+(865,'muhammad-saeed','Muhammad Saeed',NULL,'Anatomy','Professor','',0,1,'["M.B.B.S","M. Phil (Anatomy)"]','["G.D.M.O (Pakistan Army), 01.06.1978 – 15.09.1980","M.O\/Registrar Surgical A unit, Govt. Lady Reading Hospital, Peshawar, 11.11.1980 – 23.05.1983","M.O, Govt. Lady Reading Hospital, Peshawar, 20.04.1986 – 20.10.1986","Demonstrator (Anatomy), K.M.C, Peshawar, 24.04.1983 – 19.04.1986 & 21.10.1986 – 31.07.1992","Assistant Professor (Anatomy), K.M.C, Peshawar, 01.08.1992 – 21.09.1998","Associate Professor (Anatomy), K.M.C, Peshawar, 22.09.1998 – 30.09.2006","Professor & Head (Anatomy), P.M.C, Peshawar, 01.08.2005 – 23.04.2026","Professor (Anatomy), P.M.C, Peshawar, 24.04.2026 – till date"]','["The technique of Horseradish Peroxidase of tracing neuronal connections was introduce by me for the first time in Pakistan through my M. Phil research."]','["Saeed M. and Janjua M.Z. (1997). Termination of ulnar and radial nerves in the cuneate and external cuneate nuclei. A transganglionic horseradish peroxidase (HRP) study. JPMI; 11 (1): 34-40","Saeed M. and Janjua M.Z. (1997). Topographical organization of motoneurons of the ulnar and radial nerves in albino rat. A retrograde horseradish peroxidase (HRP) study. JPMI; 11 (1): 77-82","Saeed M. and Janjua M.Z. (1997). Columnar organization of the neurons in the ventral horn of the cervical and upper thoracic spinal cord in albino rat. JPMI; 11 (2): 186-91","Saeed M. and Janjua M.Z. (2000). Segmental distribution, number and size of motoneurons of the ulnar and radial nerves in albino rat. A retrograde horseradish peroxidase (HRP) study. JMS; 9 (3): 1-10","Saeed M. and Janjua M.Z. (2000). Segmental distribution, number and size of sensory neurons projecting into the ulnar and radial nerves in albino rat. A retrograde horseradish peroxidase (HRP) study. JMS; 9 (3): 38-46","Wazir FU, Wazir IU, Javed M, Muhammad F, Saeed M, Khan J and Shah H. (2006). Morphological changes induced by cottonseed flour in rat testes. Biomedica; 22: 105-9","Wazir IU, Wazir FU, Javed M, Muhammad F, Saeed M, Haq N, Jehanzeb M and Khan HU (2008). Quantitative assessment of liver fibrosis in patients with chronic hepatitis C using special stains. GJMS; 6 (1): 25-29","Wazir IU, Wazir FU, Javed M, Saeed M, Haq N and Khan HU (2008). Effect of vitamin E supplements in therapy of chronic Hepatitis C: A histological study. GJMS; 6 (2): 81-86","Khan ZS, Saeed M and Hamid SM (2020). Effects of cannabis sativa extract and its combination with vitamin C administration on histomorphological changes in the testicular tissue of male mice. KMUJ; 12(3): 229-33","Wazir NU, Saeed M, Wazir IU, Khan J, Wazir FU and Huma Z (2021). Hepatocytes protection by vitamin E in Alcoholic Liver Injury: A Light Microscopic Study. PJMHS; 15(10): 2869-74"]','{"aliases":["muhammad-saeed","m-saeed","saeed-muhammad","mohammad-saeed"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','10',0),
+(866,'muhammad-imran-qureshi','Muhammad Imran Qureshi',NULL,'Anatomy','Professor','assets/images/faculty/muhammad-imran-qureshi.jpeg',0,1,'["M.B.B.S","M. Phil (Anatomy)"]','["Lecturer, Department of Anatomy, Ayub Medical College, Abbottabad, May 1990 to March 1993","Lecturer on Deputation to Federal Postgraduate Medical Institute Lahore for M. Phil (Anatomy), March 1993 to February 1995","Lecturer, Department of Anatomy, Ayub Medical College, Abbottabad, Feb 1995 to May 1998","Assistant Professor, Department of Anatomy, Ayub Medical College, Abbottabad, May 1998 to July 2001","Associate Professor, Department of Anatomy, Ayub Medical College, Abbottabad, July 2001 to March 2002","Associate Professor, Department of Anatomy, Women Medical College, Abbottabad, March 2002 to November 2005","Associate Professor, Department of Anatomy, Peshawar Medical College, Peshawar, November 2005 to December 2007","Professor, Department of Anatomy, Peshawar Medical College, Peshawar, January 2008 to Date","Supervisor M. Phil, March 2009 to 2022"]','["Undergraduate Examiner of First & Second Prof. MBBS in Bahauddin Zakariya University, Multan.","Undergraduate Examiner of First & Second Prof. MBBS in Khyber Medical University, Peshawar","Undergraduate Examiner of First & Second Prof. MBBS in Riphah International University, Islamabad.","Postgraduate (M. Phil Anatomy) Examiner in the University of Punjab.","Postgraduate (M. Phil Anatomy) in Riphah International University, Islamabad."]','["M. Phil Thesis: Evaluation Of Reversible And Irreversible Changes In The Thyroid Follicles On The Basis Of Histologic And Morphometric Study In Protein Malnutrition (A Study In Albino Rats)","Effects of protein malnutrition on the thyroid follicular cell size of albino rats. (pp. 27-31, Journal Of Ayub Medical College Abbottabad; Vol.10, No.2, July-Dec.1998)","An Improved Embalming Procedure For Preservation Of The Cadavers (pp. 21-22 Journal Of Ayub Medical College Abbottabad; Vol.112, No.1, Jan.-Mar.2000)","Vascularization Pattern of Insula, A Study On Cadaver Brains. (pp. 14-16, Rawal Medical Journal Rawalpindi Islamabad; Vol.27, No.2, April-June 2000)","Effects Of Protein Malnutrition On The Weight And Serum Albumin Of Albino Rats. (pp. 8-10, Journal Of Ayub Medical College Abbottabad; Vol.13, No.1, Jan.-Mar.2001.)","Complications Of Thyroidectomy For Benign Disease. (pp. 17-18, Journal Of Ayub Medical College Abbottabad; Vol.13, No.1, Jan.-Mar.2001.)","Frequency Of Prescribing Injectable Medicines To Patients By General Practitioners In Hazara, Pakistan (pp. 221-224, Pakistan Journal Of Medical Sciences Karachi; Vol. 17, No.4, Oct-Dec.2001)","Effects of Honey on Lead Induced changes in spermatogenesis JIIMC Vol. 6 No. 2, Dec 2011 ISSN No. 1815-4018; pp 8-13","Anatomical variations of sacral hiatus in dry human sacra: JIIMC, Vol. 10, No. 1 2015, pp 121-123","Prevalence of Congenital Anomalies and Its Association with Consanguinity in Pakistan; pp. 25-29, JHBS M&DC Vol 1(1) January-March 2021","Assessment of Root Anatomy and Variations of Third Mandibular Molars in the Population of Peshawar using Cone Beam Computed Tomography; PJMHS Vol. 16, No. 09, September 2022, pp. 325-327."]','{"aliases":["muhammad-imran-qureshi","imran-qureshi","m-imran-qureshi"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','17',0),
+(867,'fazli-wahab','Fazli Wahab',NULL,'Medicine','Professor','assets/images/faculty/fazli-wahab.jpeg',0,1,'["FCPS (MEDICINE)","FCPS (PULMONOLOGY)","CHPE"]','["Professor Jan 2017  till date"]','[]','["1. Clinical Analysis Of Risk Factors Of Diabetic Foot In 100 Patients. (Dissertation)","2. Risk Factors Stratification In 100 Patients Of Acute Stroke. JPMI Vol. 18(4) 2004","3. Management Of Patients Admitted With COPD Exacerbation In Chest & Medical Units Of Khyber Teaching Hospital, Peshawar. (Journal Of Chest Medicine Vol. 13 (4) 2007.","4. Risk Factors For Multi-Drug Resistant Tuberculosis In Patients At Tertiary Care Hospital, Peshawar. JCPSP 03\/Vol. 19th March 2009 (162-164).","5. Community Survey Of Knowledge And Attitude Of Tuberculosis Among Tuberculosis Patients And Their Attendants In A Rural Setup. PJCM Vol. 21\/4, October-December 2015 (145-148)"]','{"aliases":["fazli-wahab"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','95',1),
+(868,'zia-ullah','Zia Ullah',NULL,'Critical Care','Professor','assets/images/faculty/zia-ullah.jpeg',1,1,'[]','[]','[]','[]','{"aliases":["zia-ullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1601',0),
+(869,'ihsan-ullah-wazir','Ihsan Ullah Wazir',NULL,'Anatomy','Professor','',0,1,'["M.B.B.S","M. Phil (Anatomy)"]','["14-11-1984 till date"]','[]','["FU. Wazir, IU. Wazir, M. Javeed, Fida Muhammad, M. Saeed Jehanzeb Khan and S. Hamayun Shah. Morphological changes Induced by Cottonseed Flour in Rat Testes. Biomedica Vol. 22 ( Jul.- Dec 2006)","Muhammad Javeed, FidaullahWazir, IhsanullahWazir, Fida Muhammad, Fida Muhammad Marwat. Morphological changes Induced by Bifenthrin Toxicity in Rabbit Liver. Journal of Medical Sciences Vol. 14, No. 2 July 2006","FidaullahWazir, Muhammad Javeed, IhsanullahWazir, FidaMuhammad. Light Microscopic Study of Rats Testes for Protective Role of Vitamin E against the Toxic effects of Cottonseed Flour. Journal of Medical Sciences Vol. 15, No. 1 January 2007.","IhsanullahWazir, FidaullahWazir, Muhammad Javeed, Fida Muhammad, Muhammad Saeed, Najeeb-ul-Haq, Muhammad Jehanzeb, Habibullah Khan. Quantitative assessment of liver Fibrosis in Chronic HCV using special stains. Gomel Journal Of Medical Sciences Vol. 6, No. 1 Jan-June 2008.","IhsanullahWazir, FidaullahWazir, Muhammad Javeed, Muhammad Saeed, Najeeb-ul-Haq, Habibullah Khan. Effect of Vitamin E supplements in therapy of Chronic Hepatitis C; A histological study. Gomel Journal Of Medical Sciences Vol. 6, No.2 July- December 2008.","NadeemUllah Khan Wazir, Asad Ur Rahman, Rizwan Amir Khan, Irfan Amir Khan, IhsanUllahWazir. NomanUllahWazir,Muhammad AftabWazir, Tawseef Ahmad, Assessing Stroke Patients'' Treatment and Prognosis to Enhance Therapeutic Strategies. DOI: https:\/\/doi.org\/10.56536\/ijpihs.v4i2.99 Published; - 2023-09-01Vol. 4 No. 2 (2023): International Journal of Pharmacy & Integrated Health Sciences","NomanUllahWazir, Muhammad Saeed, IhsanUllahWazir, Jehanzeb Khan, FidaUllahWazir, ZilliHuma … Hepatocytes Protection by Vitamin E in Alcoholic Liver Injury: A Light Microscopic Study DOI:https:\/\/doi.org\/10.53350\/pjmhs2115102869 P J M H S Vol. 15, No.10, OCT 2021 2869"]','{"aliases":["ihsan-ullah-wazir","ihsanullah-wazir","ihsan-wazir"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','9',0),
+(870,'noman-ullah-wazir','Noman Ullah Wazir',NULL,'Anatomy','Professor','',0,1,'["MBBS","MPhil","PHD","PGD","CHPE"]','["Lecturer, 01-12-2012 to 31-01-2013","PG Trainee (MPhil Anatomy), 01-02-2013 to 19-11-2015","Lecturer, 20-11-2015 to 31-12-2015","Assistant Professor, 01-01-2016 to 31-07-2022","Associate Professor, 01-08-2022 to 10-03-2025","Professor, 11-03-2025 till date"]','[]','["Revolutionizing bone tumor management: cutting-edge breakthroughs in limb-saving treatments. https:\/\/link.springer.com\/article\/10.1007\/s00590-024-03876-z","EFFICACY OF FORMALIN FIXATION IN DETECTING GFAP AND MAP2 IN THE SPINAL CORD VIA IMMUNOFLUORESCENCE AND IMMUNOHISTOCHEMISTRY. https:\/\/jmedsci.com\/Jmedsci\/article\/view\/1878","VITAMIN E SHIELDS AGAINST ALCOHOLIC TOXICITY BY SAFEGUARDING HEPATIC PARENCHYMAL MORPHOLOGY AND LOWERING BLOOD ALT LEVELS. https:\/\/jamc.ayubmed.edu.pk\/jamc\/index.php\/jamc\/article\/view\/13489","Topographic Anatomy and Clinical Impact of Vascular Foramen on the Trochlear Groove of Adult Human Dry Femora. https:\/\/www.cureus.com\/articles\/77478-topographic-anatomy-and-clinical-impact-of-vascular-foramen-on-the-trochlear-groove-of-adult-human-dry-femora#!\/authors","Preemptive Regime Modulates c-fos Expression at Hippocampus in the Rats Postoperative Pain Models. https:\/\/www.sciencedirect.com\/science\/article\/pii\/S1658361225000782?ref=pdf_download&fr=RR-2&rr=96c4415c983d21f5","THYROID DYSFUNCTION ACROSS THE LIFESPAN INSIGHTS INTO PHYSIOLOGY AND DISEASE. https:\/\/www.afjbs.com\/uploads\/paper\/09b7a37fdfef5922311c2acfc79422c8.pdf","Unveiling The Patterns Of Cardiac Fibrosis Using 3d Radiomics In Heart Failure Patients. https:\/\/healthinformaticsjournal.com\/index.php\/IJMI\/article\/view\/437\/433","Influence of Vitamin E on Pancreatic Acinar Cell Morphology and Serum Amylase Concentrations in Alcohol-Induced Pancreatic Toxicity. https:\/\/jamc.ayubmed.edu.pk\/jamc\/index.php\/jamc\/article\/view\/13548","ROBOTIC SURGERY: ASSESSING THE ADVANCEMENTS AND OUTCOMES OF ROBOTIC-ASSISTED SURGERIES. A BIBLIOMETRIC PERSPECTIVE. https:\/\/cuestionesdefisioterapia.com\/index.php\/es\/article\/view\/1515","Superior outcomes of cementless total hip arthroplasty in elderly osteoarthritis patients: Findings from a 5-year retrospective cohort study. https:\/\/www.sciencedirect.com\/science\/article\/pii\/S2773157X24001486?via%3Dihub","Pirfenidone''s Potential for Motor Recovery following Spinal Cord Compression Injury. https:\/\/apmcfmu.com\/index.php\/apmc\/article\/view\/1517","Unveiling the Therapeutic Potential of Vitamin-E in Preventing Inflammation and Stromal Congestion in Alcoholic Liver Injury. https:\/\/www.cureus.com\/articles\/232105-unveiling-the-therapeutic-potential-of-vitamin-e-in-preventing-inflammation-and-stromal-congestion-in-alcoholic-liver-injury#!\/authors","Genomics and Cardiovascular Disease: Investigating genomic markers in predicting heart disease risk. A bibliometric review. https:\/\/www.jneonatalsurg.com\/index.php\/jns\/article\/view\/4803","VENOUS THROMBOEMBOLISM RISK ASSESSMENT IN HOSPITALISED PATIENTS IN A TERTIARY CARE HOSPITAL IN PAKISTAN. https:\/\/jamc.ayubmed.edu.pk\/jamc\/index.php\/jamc\/article\/view\/13243","NEURONAL DEGENERATION CAN BE DECELERATED BY PIRFENIDONE AFTER COMPRESSION SPINAL CORD INJURY. https:\/\/www.jptcp.com\/index.php\/jptcp\/article\/view\/2727","Pirfenidone Reduces Neurological Deficit by Promoting Axonal Growth after Compression Spinal Cord Injury. https:\/\/www.xisdxjxsu.asia\/viewarticle.php?aid=2184","Revitalizing Lower Motor Neurons Function: Role of Pirfenidone in Recovery of Post-Compression Spinal Cord Injury. https:\/\/bmcjms.org\/index.php\/bmcj\/article\/view\/273","Prevalence of In-Stent Restenosis in Patients having Drug Eluting Stents with Lengths Exceeding 40mm: A Single-Center Study. https:\/\/jhrlmc.com\/index.php\/home\/article\/view\/960","The Hepatoprotective Potential of Nigella Sativa Oil Against Cypermethrin-Induced Hepatotoxicity in Rats: A Histomorphological Investigation. https:\/\/theprofesional.com\/index.php\/tpmj\/article\/view\/8193","Pirfenidone: An Encouraging Therapeutic Approach For Enhancing Lateral Spinothalamic Tract Function After Spinal Cord Compression Injury. https:\/\/www.journalrmc.com\/index.php\/JRMC\/article\/view\/2553","Preserving Hepatic Glycogen Stores: Investigating the Therapeutic Influence of Vitamin E in Alcoholic Liver Injury-Induced Intracellular Carbohydrate Depletion. https:\/\/apmcfmu.com\/index.php\/apmc\/article\/view\/1594","Morphometrical Analysis of Diaphyseal Nutrient Foramina of Adult Human Dry Fibulae. https:\/\/medicalforummonthly.com\/index.php\/mfm\/article\/view\/589","Exploring protective potential of Vitamin E in mitigating liver steatosis in alcoholic liver injury. https:\/\/www.theprofesional.com\/index.php\/tpmj\/article\/view\/8163","Pirfenidone Confines Glial Scar and Improves Functional Recovery after Compression Spinal Cord Injury. https:\/\/tobreg.org\/index.php\/journal\/article\/view\/1155","Hepatocytes Protection by Vitamin E in Alcoholic Liver Injury: A Light Microscopic Study. https:\/\/pjmhsonline.com\/published-issues\/2021\/october\/102869","FROM DIAGNOSIS TO TREATMENT THE PROGRESSION OF ACUTE KIDNEY INJURY MANAGEMENT IN INTENSIVE CARE UNITS. https:\/\/www.afjbs.com\/uploads\/paper\/ef3a9801f9b24a40039bb4fb2a752180.pdf","Counter effects of Vitamin E against Outcomes of Alcohol Toxicity in Pancreatic Acini: Histomorphometric Study. https:\/\/pjmhsonline.com\/published-issues\/2021\/november\/112974","Modified Postoperative Strategy for Substantiation of Fibrotic Glial Scar Formation after Aneurysm Clip Compression Spinal Cord Injury in Rats. https:\/\/www.xisdxjxsu.asia\/viewarticle.php?aid=2231","Collagen Deposition Reduction by Vitamin E in Alcoholic Liver Injury. https:\/\/pjmhsonline.com\/index.php\/pjmhs\/article\/view\/223","Hypogonadism in Benign Prostate Hyperplasia: A Cross Sectional Study. https:\/\/www.thejas.com.pk\/index.php\/pjhs\/article\/view\/66","Developing Sciatic nerve compression model in rats using aneurysm clip and validating it by histological and behavior studies. https:\/\/www.jptcp.com\/index.php\/jptcp\/article\/view\/2767","Frequency and Patterns of Congenital Talipes Equinovarus (Clubfoot) Deformity in Children. https:\/\/apmcfmu.com\/index.php\/apmc\/article\/view\/1313","Ethnicity Based Anatomical Variations in Malleus on Computerized Tomographic Scan. https:\/\/www.ajsmu.com\/index.php\/AJSMU\/article\/view\/293","Neuro-inflammation and Its Impact on Neurodegenerative Diseases: A Systematic Review. https:\/\/jmhsr.com\/index.php\/jmhsr\/article\/view\/299","Estimation of the frequency of second mesiobuccal root canal in maxillary first permanent molar teeth in subjects visiting teaching dental hospitals of Peshawar. https:\/\/theprofesional.com\/index.php\/tpmj\/article\/view\/4439","Effectiveness of preemptive regime; buprenorphine or tramadol with lidocaine and isoflurane on smooth post-operative recovery in novel uterine surgical model. https:\/\/sciencescholar.us\/journal\/index.php\/ijhs\/article\/view\/13787","Epidemiological Trends in Cleft Lip and Cleft Palate Frequency: An Analytical Perspective. https:\/\/apmcfmu.com\/index.php\/apmc\/article\/view\/1371","HISTOMORPHOMETRIC STUDY REVEALING THE PROTECTIVE ROLE OF VITAMINS C IN DOXORUBICIN INDUCED TOXICITY IN RAT TESTES. https:\/\/kjms.com.pk\/old\/content\/histomorphometric-study-revealing-protective-role-vitamins-c-doxorubicin-induced-toxicity","The Preventive Role of Vitamin E Against Imatinib Induced Toxicity on Liver of Albino Rats: A Histomorphometric Study. https:\/\/medicalforummonthly.com\/index.php\/mfm\/article\/view\/3785","ASSESSING STROKE PATIENTS'' TREATMENT AND PROGNOSIS TO ENHANCE THERAPEUTIC STRATEGIES. https:\/\/ijpihs.pk\/index.php\/IJPIHS\/article\/view\/99","Influence of Fasting on Emergency Visits to A Tertiary Care Hospital by Fasting Diabetic Patients in Ramadan. https:\/\/jhrlmc.com\/index.php\/home\/article\/view\/920","ATTENUATION OF CISPLATIN ASSOCIATED TESTICULAR TOXICITY BY 6-HYDROXYFLAVONE. https:\/\/journalofkcd.com\/kcd\/article\/view\/373","Protective Role of Vitamins E in Doxorubicin Induced Toxicity in Rat Testes: A Histomorphometric Study. https:\/\/kjms.com.pk\/old\/sites\/default\/files\/KJMS-20%20%281%29.pdf","Oral administration of apigenin 7-O-β-D glucoside reverses hyperlipidemia and associated vascular dysfunction in rats. https:\/\/www.xisdxjxsu.asia\/viewarticle.php?aid=2357","Calibrated behaviors assessment in spinal cord compression injury model in rats. https:\/\/sciencescholar.us\/journal\/index.php\/ijhs\/article\/view\/14079","Genetic Predisposition to Kidney Diseases Uncovering the Role of Genomics in Nephrology. https:\/\/jnmc.com.pk\/index.php\/website\/article\/view\/28","AI-Driven Diagnostic Tools for Cardiovascular Risk Assessment: Opportunities and Challenges. https:\/\/www.seejph.com\/index.php\/seejph\/article\/view\/5896","Insomnia and Neuroticism in Pakistani Medical Students: ACross-Sectional Study (https:\/\/www.mdpi.com\/2227-9032\/13\/21\/2778)"]','{"aliases":["noman-ullah-wazir","nomanullah-wazir","noman-wazir"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','650',0),
+(871,'ambereen-humayun','Ambereen Humayun',NULL,'Anatomy','Associate Professor','',0,1,'["BDS","MPhil"]','["Associate Professor, 1st OCT 2025…till date","Assistant Professor, 20th dec,2020 to 30th Sept 2025","Lecturer, 01.11.2012 to 20.12.2020"]','[]','["Protective role of vitamin E in doxorubicin induced toxicity in rat testes’’ (A Histomorphometric Study). Farooq Khan, Nighat Ara, Shamila Hafizi, Nomanullah Wazir, Fahadullah and Ambereen Humayun","Frequency of Palatogingival Groove in maxillary incisors”. Aamir Mehmood Khan, Shahzad Ali, Fayyaz Alam, Asmat Ullah, Ambereen Humayun, Sundas Nisar.","The preventive role of vitamin E against Imatinib-Induced toxicity on liver of albino rats’’ (A Histomorphometric Study). Nighat Ara, Farooq Khan, Noman Ullah Wazir, Fahad Ullah, Ambereen Humayun, Riffat Shameem","Clinicopathological Analysis of Pre-Operative Diagnosis and Histopathological diagnosis in Hysterectomy Specimens in Females Undergoing Abdominal Hysterectomy- A three years’ experience. Shahnaz Parveen, Sadia Zahid, Naila Nasr Malik, Rukhsana Karim, Syeda Asma Safdar, Ambereen Humayun.","Histomorphometric study revealing protective role of vitamin C in doxorubicin induced toxicity in rat testes’’. Farooq Khan, Nighat Ara, Shahabuddin, Noman Ullah, Ahmad Nabi, Ambereen Humayun","Estimation of the frequency of 2nd mesiobuccal root canal in maxillary first permanent molar teeth in subjects visiting teaching dental hospitals of peshawar. Ambereen Humayun, Munawar Aziz Khattak, Aamir Mehmood Khan, Nighat Ara, Farooq Khan, Noman Ullah Wazir","Counter effects of Vitamin E against outcomes of Alcohol toxicity in Pancreatic acini: Histpmorphometric study. Noman Ullah Wazir, Jehanzeb Khan, Zilli Huma, Farooq Khan, Nighat Ara, Ambereen Humayun","Collagen deposition Reduction by vitamin E in alcoholic liver injury. Noman Ullah Wazir, Farooq Khan, Nighat Ara, Ambereen Humayun, Nadeem Ullah Wazir, Saima Mumtaz","Association Between Kinematic Center And Anatomy, The Function Of Temporomandibular Joint. Zahid Sarfaraz, Syeda Gulrukh saba, Ambereen Humayun, Zakirullah Khan, Waqas Ali, Maira Iqbal.","Assessment of root anatomy and variations of third mandibular molars in the population of Peshawar using CBCT. Asma Amir, Imran Qureshi, Ambereen Humayun, Farooq Khan, Imran Khattak, Yusra Jamil Khattak.","Evaluation of the Occlusal Contact Between the Opposing Teeth & the Cusp of Carabelli in Maxillary Permanent First Molars in Patients visiting Peshawar Dental College.”. Sana Arbab, Munawwar Aziz Khattak, Imran Khattak, Yusra Jamil, Faiza Ijaz, Ambereen Humayun.","Enucleation with or without Adjuvant Therapy versus Marsupialization with or without Secondary Enucleation in the treatment of Keratocystic Odontogenic Tumors. Ambereen Humayun, Sobia Tariq, Mohammad Umar, Noor-ul- Wahab, Atif Iqbal Butt, Sufyan Ammar.","Influence of Vitamin E on Pancreatic Acinar Cell Morphology and Serum Amylase Concentrations in Alcohol-Induced Pancreatic Toxicity.”. Noman Ullah Wazir, Farzana Salman, Shamaila Wadud, Ambereen Humayun, Asma Amir, Momina Haq","Pirfenidone: An Encouraging Therapeutic Approach for Enhancing Lateral Spinothalamic Tract Function After Spinal Cord Compression Injury. Noman Ullah Wazir1, Ambereen Humayun2, Irum Javaid3, Asma Amir4, Nayyab Khattak5, Ayesha Iftikhar6."]','{"aliases":["ambereen-humayun","ambereen","amber-humayun"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','665',0),
+(872,'mariya-azam-khattak','Mariya Azam Khattak',NULL,'Anatomy','Assistant Professor','',0,1,'["BDS","MPhil Anatomy","CHPE"]','["Lecturer, From 2020 till date"]','[]','["Omicron: A New Rise to Epidemic in Journal of Pharmaceutical Research International 2022","Anatomical Variations of Rhinogenic Headache and Its Relation with Sinusitis: A Computerized Tomography (CT) Scan Study in Pakistan journal of Medicine and Dentistry (PJMD) 2022, Vol. 11(03)","Relationship of Brodsky tonsillar grading in adults with age, gender, body mass index and neck circumference, in Annals of Jinnah Sindh Medical University 2022, Vol. 8 (1)","Anatomy and Physiology of Right Heart Adaptation to Pulmonary Arterial Hypertension along with treatment, in Pakistan Journal of Medical and Health Sciences, 2022","Morphological Variations in Malleus among the Male and Female, in Journal of Pakistan Medical Association(JPMA), 2023","Usage of Epworth Sleepiness Scale, Modified Mallampati Scoring and Brodsky Grading in Adults with Hypertrophic Palatine tonsils, in Journal of Aziz Fatimah Medical & Dental College, 2023","Morphological assessment of oral exfoliated cells in oral submucous fibrosis and healthy individuals in Rawal Medical Journal, 2023","Association of Body mass Index with Neck circumference & snoring in Adult patients with hypertrophic Tonsils, in Annals of Punjab Medical College, 2024","Pirfenidone’s Potential for motor recovery following spinal cord compression injury in Annals of Punjab Medical College, 2024","Ethnicity based anatomical variations in Malleus on Computerized Tomographic Scan in Annals of Jinnah Sindh Medical University, 2024"]','{"aliases":["mariya-azam-khattak","mariya-khattak","maria-azam-khattak"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1632',0),
+(873,'abdur-rauf','Abdul Rauf',NULL,'Anaesthesia','Senior Registrar','assets/images/faculty/abdur-rauf.jpeg',0,1,'["MBBS","Diploma in Anaesthesia"]','["4 Years"]','[]','[]','{"aliases":["abdur-rauf","abdul-rauf"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1769',0),
+(874,'ihsan-ul-haq','Ihsan Ul Haq',NULL,'Anaesthesia','Assistant Professor','assets/images/faculty/ihsan-ul-haq.jpeg',0,1,'["MBBS","DA"]','["22 Years"]','["Spinal Epidural caudal anesthesia management of difficult intubation CVP line."]','[]','{"aliases":["ihsan-ul-haq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','685',0),
+(875,'muhammad-naeem-anjum','Muhammad Naeem Anjum',NULL,'Anaesthesia','Senior Registrar','assets/images/faculty/muhammad-naeem-anjum.jpeg',0,1,'["MBBS","Diploma in Anaesthesia"]','["3 Years"]','[]','[]','{"aliases":["muhammad-naeem-anjum"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1726',0),
+(876,'neelam-rashad','Neelam Noreen',NULL,'Anaesthesia','Professor','',0,1,'["MBBS","DA","FCPS (Anesthesia)"]','["37 Years"]','[]','["Comparison between ondansetron and metoclopramide in Post-Operative Nausea and Vomiting after laparoscopic cholecystectomy as Principle Author.","To determine the frequency of failed spinal anesthesia during cesarean section as Principle Author","Comparison of Hemodynamic changes with Laryngeal mask insertion and Endotracheal Intubation in Intermediate Duration Surgery as Principle author.","Efficacy of ondansetron and metoclopramide against post operative nausea and vomiting in patients undergoing laparoscopic cholecystectomy as 2nd Author","Need of Oxygen Administration in Post Anesthesia Care unit (PACU) with respect to Type of Anesthesia and Surgery as 3rd Author","Comparison of mean induction time and emergence from anesthesia between Sevoflurane and halothane in children as 4th Author","Randomized control trial of tramadol versus ketamine in the prevention of shivering during spinal anesthesia as 4th Author","The effect of Perioperative Forced Air Warming Blanket on Older Adult Patients Undergoing Spinal Surgery with General Anesthesia 3rd Author","Influence of Intraoperative Hemodynamic Stability on Wound Dehiscence in Patients Receiving General Anesthesia for Major Abdominal Surgery 2nd Author","Influence of Perioperative Hemodynamic Instability and Glycemic Control on Postoperative Complications in Patients Undergoing Major Abdominal Surgery 1st Author","Comparative Study of Intrathecal Bupivacaine with Dexmedetomidine vs Fentanyl in Lower Limb Orthopedic Surgeries 4th Author","Postoperative Pain relief in Patients Unilateral Modified radical Mastectomy; Comparison Between Ultrasound Guided thoracic Paravertebral Block 3rd Author"]','{"aliases":["neelam-rashad","neelam-noreen","neelam"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1664',0),
+(877,'rukhsana-samad','Rukhsana Samad',NULL,'Anaesthesia','Professor','',1,1,'["MBBS","MCPS Anesthesiology","FCPS Anesthesiology"]','["45 Years"]','["45 years of experience as anesthetists","Assessment of high risk multimorbid, geriatric and rare congenital anomaly cases.","Complex difficult airway management","Cardiothoracic, neurosurgical, pediatric, trauma\/disaster monitoring.","Regional techniques for various blocks for pain management","Critical care management","Teaching, training and examining under and post-graduate students.","Act as supervision, article reviewer and examiner to CPSP."]','["Muscle pain after succinylcholine injection and its management. Journal of surgery Pakistan (International) 8 (3) July – September, 2003. 19-22","Typhoid perforation – results of surgical treatment. Journal of Pakistan Medical Association Vol. 32 February, 1982. 46-47","Caudal Epidural Analgesia for Hemorrhoidectomy in males: A comparative study of lignocaine vs. Bupivacaine. Journal of Rawalpindi Medical College. JRMC vol. 7 (2) July – Dec, 2003 page 47-92","Anesthetic management of foreign body tracheobronchial tree with sevoflurane; A double blind comparison with Halothane. Journal of Surgery Pakistan (International) 2006. (JSP); 2006; 11 (3); 93-96","Role of clinical assessment and plain chest radiograph in the management of suspected tracheobronchial foreign body. Journal of Surgery Pakistan (international) (JSP); 2008; 13(3) 99-102","Occulacardiac Relix in strabismus surgery under general Anesthesia. Journal of Medical Sciences. J.Med.Sci, April 2013; Vol. 21 No.2","Comparison of Caudal Tramadol – Bupivacaine and Ketamine – Bupivacaine for post- operative analgesia in children. JSP. Journal of Surgery, Pakistan. Vol. 18 No 2 (April-June) 2013."]','{"aliases":["rukhsana-samad"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','60',0),
+(878,'hina-hakim','Hina Hakim',NULL,'Biochemistry','Assistant Professor','',0,0,'["BDS","M.phil","CHR","CHPE","PGD","HQ&RM"]','["Senior lecturer Department of Biochemistry, Peshawar Medical and dental College Peshawar (22.01.2022 till3107.2022)","Assistant professor Biochemistry department 01.08.2022 till date Peshawar medical college and dental college"]','[]','["Diagnosis of Malaria Gametocytes Using MP ICT Vs PCR in Infected Patients: A Cross-Sectional Study of Asymptomatic Relatives","Glycated Albumin''s Clinical Effectiveness in the Diagnosis of Diabetes","Association of Zinc Concentration in Seminal Plasma and Blood with Several Parameters of Semen in Infertile Males","Association between Vitamin D and serum ferritin levels in anemic women of child bearing age in Malakand KPK","Effect of cholecalciferol recommended daily allowances on vitamin d status and fabroblast growth factor- 23, in Acute burn patients","AN ASSOCIATION BETWEEN TYPE 2 DIABETES MELLITUS AND A CLINICAL PERIODONTAL PARAMETER: POCKET DEPTH","A comparison of the effects of hydrochlorothiazide and captopril on glucose and lipid metabolism in patients with hypertension.","Effects of Vitamin D on Respiratory Function and Immune Status for Patients with Chronic Obstructive Pulmonary Disease (COPD): A Systematic Review","Frequency of undiagnosed Chronic Obstructive Pulmonary Disease amongst Coronary Artery Disease patients: A single centre study"]','{"aliases":["hina-hakim"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1552',0),
+(879,'sadia-haroon','Sadia Haroon',NULL,'Biochemistry','Professor','',1,1,'[]','[]','[]','[]','{"aliases":["sadia-haroon"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','883',0),
+(880,'sara-yar-khan','Sara Yar Khan',NULL,'Biochemistry','Assistant Professor','',0,1,'["Bachelor of Dental Surgery 2018 Gandhara University, Sardar Begum Dental College.","M.Phil. Biochemistry 2024 Khyber medical University Peshawar."]','["Senior Lecturer Department of Biochemistry, Jinnah Medical College Peshawar (November 2022 to sept 2024)","Assistant Professor Department of Biochemistry Peshawar Medical College (Sept 2024 till date)"]','[]','["Khan HB, Khattak MS, Durrani M, Hussain A, Khan SY, Rehman AU. Exploring the Role of Vitamin D3 in Addressing Lung Dysfunction and Small Airways Degeneration in Chronic Obstructive Pulmonary Disease. Pak J Chest Med.2021;27(04):282-287","Dr Chaman Ara, Dr Sara Yar Khan, Dr Sheherbano Yahya, Dr Umair Wadood, Dr Shahnaz Fatima, Dr Sofia Irshad. ASSOCIATION OF LIPID LEVELS DURING GESTATION WITH PREECLAMPSIA AND GESTATIONAL DIABETES MELLITUS: THE POTENTIAL ROLE OF STATINS. J Popl Ther Clin Pharmacol [Internet]. 2024 Jun. 29 [cited 2024 Jul. 4];31(6):2081-6. Available from: https:\/\/www.jptcp.com\/index.php\/jptcp\/article\/view\/6825","Effect of meal frequency on insulin regulation in Athletes, A cross sectional study","Impact of zinc biofortified wheat flour on the serum levels of IL2, IL12 and Interferon gamma in adolescent girls","Association of plasma and muscle Amino acid profile with resting energy expenditure and inflammation in stable chronic obstructive pulmonary disease","Physiological and biochemical effects of intermittent fasting on insulin sensitivity and glucose metabolism","Effect of vitamin D on respiratory function and immune status for patients with chronic obstructive disease"]','{"aliases":["sara-yar-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1848',0),
+(881,'shamaila-asim','Shamaila Asim',NULL,'Biochemistry','Professor','',0,1,'["MBBS, Dec 2000 – Khyber Medical College Peshawar","M.Phil in Biochemistry, Feb, 2014 – Riphah International University Islamabad, Pakistan","Ph.D. in Biochemistry, Jan,2025 – Khyber Medical University Hayatabad, Peshawar, Khyber Pakhtunkhwa, Pakistan"]','["Lecturer at Peshawar Medical & Dental College Warsak Road Peshawar (1st Jan 2009-30th April 2014)","Assistant Professor at Peshawar Medical & Dental College Warsak Road Peshawar (1st May 2014 to 30th sept 2020)","Associate Professor in Biochemistry department, Peshawar Medical & Dental College Warsak Road Peshawar (1st Oct 2020 to 31st Jan 2025)","Professor in Biochemistry department, Peshawar Medical & Dental College Warsak Road Peshawar (1st Feb 2025 Till Date)"]','[]','["Relationship of glycemic control with thyroid hormone levels in patients with type 2 diabetes mellitus.","Association of vitamin D with retinopathy in Patients with type 2 diabetes mellitus.","Vitamin D status in patients with cardio metabolic syndrome","Vitamin D deficiency in patients with diabetic retinopathy.","Effects Of Administration of Taraxacum Officinale’s Extract on Renal Parameters in Cisplatin Induced Nephrotoxicity in Albino Mice.","Diagnosis of malaria gametocytes using MP ICT vs PCR in infected patients: a cross-sectional study of asymptomatic relatives.","The biochemical and physiologic effect of zinc and vitamin A supplementation to increase cellular immune response of pulmonary tuberculosis patients: a systematic review.","Biochemical role of vitamin D and impact of anti-tuberculosis treatment on haematological parameters in newly diagnosed pulmonary and abdominal tuberculosis patients: a systematic review.","An association between type 2 diabetes mellitus and a clinical periodontal parameter: pocket depth.","Identification of target genes and pathways regulated by miRNA-132, miRNA-182, and miRNA-124 in depression: a bioinformatics analysis.","Role of ascorbic acid in improving mood in patients with depression: a randomized controlled trial.","VITAMIN E SHIELDS AGAINST ALCOHOLIC TOXICITY BY SAFEGUARDING HEPATIC PARENCHYMAL MORPHOLOGY AND LOWERING BLOOD ALT LEVELS.","Expression analysis of miR-132, miR-182, miR-124, miR-let7b, and miR-let7c in patients with depression.","Bioinformatic interpretation of tracking genes of miRNA-let 7b and miRNA-let 7c in depression.","A longitudinal study of biochemical variables in women at risk of pre-eclampsia and role of serotonin.","Influence of vitamin E on pancreatic acinar cell morphology and serum amylase concentrations in alcohol-induced pancreatic toxicity.","Evaluation of altered oral changes in COVID-19 PCR-positive cases: a cross-sectional study.","Effects of vitamin D on respiratory function and immune status for patients with chronic obstructive pulmonary disease (COPD): a systematic review."]','{"aliases":["shamaila-asim","shamaila-wadud"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','113',0),
+(882,'sikandar-ali','Sikandar Ali Khan',NULL,'Biochemistry','Assistant Professor','',0,1,'["MBBS (2010-2015): Peshawar medical and dental college, Peshawar (Riphah International University Islamabad)","June, 2019 to dill date Diploma in clinical pathology Waiting for exit exam, 2 years training completed Student, Peshawar, Pakistan","March, 2021 to Sep,2021 Certificate of health profession education (CHPE) Khyber Medical University Peshawar, Pakistan","Feb, 2017 to Nov,2021 MPhil Haematology Khyber Medical University Peshawar, Pakistan Topic: Prevalence of mutations in HFE gene and its association with serum iron and serum ferritin levels.","June 2022 to Dec 2022 Certificate of health research (CHR) Khyber Medical University Peshawar, Pakistan","Feb, 2022 to Feb, 2024 MPhil Biochemistry Khyber Medical University Peshawar, Pakistan","May, 2024 to November 2024 Diploma in health profession education (DHPE) Khyber Medical University Peshawar, Pakistan"]','["Pak International Medical College Demonstrator (Department of Biochemistry)","From Feb 2017 till May 2021 Khyber Girls Medical College, Peshawar Demonstrator (Department of Biochemistry)","From April, 2022 till October, 2024 Peshawar Medical and Dental College Assistant Professor (Department of Biochemistry)","From October 2024 to till date"]','[]','["Carbon Dioxide – Induced Anxiety; Effects of Carbon Dioxide on Behavior, Physiology, and Biochemistry in Patients with Panic Disorders and Healthy Subjects.","A comparison of the effects of hydrochlorothiazide and captopril on glucose and lipid metabolism in patients with hypertension","Vitamin D status and its correlation with depression.","CDCA8, a mitosis-related gene, as a prospective pan-cancer biomarker: implications for survival prognosis and oncogenic immunology","Effect of Meal Frequency on Insulin Regulation in Athletes: A Cross-Sectional Study","Effect of meal frequency on insulin response and total insulin secretion in physically active people","Vitamin D deficiency and its adverse results in COVID-19","Association of Zinc concentration in seminal plasma and blood with several parameters of semen in infertile males","Expression of P16 in various grades of oral squamous cell carcinoma of tertiary care hospitals of Peshawar.","Epidemiology and susceptibility profile of Aspergillus species; An experience from tertiary care hospital","Frequency of Hypovitaminosis D in children with growing pains.","The impact of Toxoplasma Gondii infection on the Vitamin D3 levels among women in childbearing age, treatment and its effect on fetal brain development.","Effects of low molecular weight and unfractionated heparin on lipoprotein lipase and lipid profile in hemodialysis patients.","Frequency and risk factors of multi drug resistance tuberculosis in Khyber Pakhtunkhwa Pakistan, A retrospective study","Comparing frequency of cardiovascular autonomic neuropathy in diabetic cirrhotic with non-diabetic cirrhotic patients.","Situation of corona virus in Pakistan regarding diagnosis, lab facilities, medical equipment and isolation wards in hospitals.","Glycated albumin clinical effectiveness in the diagnosis of Diabetes.","A comparative study of stress levels serum cortisol and thyroid hormones in pregnant vs non pregnant women","Biochemical Markers of Estrogen and Their Relationship with Gallstone Formation and Inflammatory Bowel Disease in Women with Uterine Fibroids: A Cross-Sectional Study","Association of Different Formulation with Oral Contraceptive Agents in Lipid and Carbohydrates Metabolism in Women"]','{"aliases":["sikandar-ali","sikandar-ali-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1865',0),
+(883,'aziza-alam','Aziza Alam',NULL,'CHS','Assistant Professor','',0,1,'["MBBS (KMC)","DIHL (UOP)","D.C.H (UOP)","M. Phil (Community Medicine)","CHPE (KMU)"]','["19 Years"]','["Public Health Specialist with special interest in Child Health and Nutrition"]','["18"]','{"research_preferences":["Public Health Specialist with special interest in Child Health and Nutrition"],"aliases":["aziza-alam"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','2066',0),
+(884,'faqir-muhammad-anwar','Faqir Muhammad Anwar',NULL,'CHS','Assistant Professor','',0,1,'["MD","MPH"]','[]','[]','[]','{"aliases":["faqir-muhammad-anwar","faqir-anwar"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(885,'farhat-r-malik','Farhat R. Malik',NULL,'CHS','Professor','',0,1,'["MBBS (KMC)","MPH (IMS- UOP)","CHPE (RU)","PGD (RU)"]','["20 Years"]','["Public Health Person with special interest in Reproductive Health & NCDs"]','["54"]','{"research_preferences":["Public Health Person with special interest in Reproductive Health & NCDs"],"aliases":["farhat-r-malik","farhat-malik"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','249',0),
+(886,'m-aman-khan','Mohammad Aman Khan',NULL,'CHS','Professor','',1,1,'["MBBS (KMC)","DOMS (UOP)","MCPS (CPSP)","Diploma in Community Eye Health (Institute of ophthalmology, University of London)","Attended a course of Executive MBA (Preston University)","MPhil (University of London)"]','["More than 40 Years"]','["Public Health Issues in Nutrition, Social and Emotional life and integrating it in health of individuals and families working at community level","Working on handwashing, water supply on community level and green environment everywhere"]','["More than 30 Publication in Local and international Journals"]','{"research_preferences":["Public Health Issues in Nutrition, Social and Emotional life and integrating it in health of individuals and families working at community level","Working on handwashing, water supply on community level and green environment everywhere"],"aliases":["m-aman-khan","mohammad-aman-khan","muhammad-aman-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','715',0),
+(887,'saeed-anwar','Saeed Anwar',NULL,'CHS','Professor','',0,1,'["MPH (Gomal University)","Advanced Diploma in Health Professions Education (AKU)","MBBS (KMC – UoP)"]','["More than 40 years"]','["Winner of the BMJ South Asia Award for research paper of the year 2017","Grant Writing","Managing Public Health Interventions."]','["https:\/\/www.researchgate.net\/profile\/Saeed-Anwar-8 (46 publications in impact factor local and international journals including Lancet Global Health)"]','{"research_preferences":["Winner of the BMJ South Asia Award for research paper of the year 2017","Grant Writing","Managing Public Health Interventions."],"aliases":["saeed-anwar"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','45',0),
+(888,'farhat-shireen','Farhat Shireen',NULL,'Cardiology','Senior Registrar','assets/images/faculty/farhat-shireen.jpeg',0,1,'["MBBS","FCPS (Cardiology)","MRCP-UK","Fellowship in Interventional Cardiology"]','["Senior Registrar, Kuwait Teaching Hospital, Peshawar, Sep 2025-present"]','["Coronary interventions - expert","Pericardiocentesis - advanced","Peripheral vascular interventions - intermediate","Echocardiography - intermediate"]','[]','{"aliases":["farhat-shireen"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1986',0),
+(889,'muhammad-abdur-rauf','Muhammad Abdur Rauf',NULL,'Cardiology','Associate Professor','assets/images/faculty/muhammad-abdur-rauf.jpeg',1,1,'["MBBS","IMM\/MCPS","FCPS (Cardiology)","FACC","FESC","Certificate in Interventional Cardiology","FSCAI","MEAPCI"]','["Head of Cardiology Department and Director, Cath Lab, Peshawar Medical College \/ Kuwait Teaching Hospital, Oct 2025-present","Associate Professor of Cardiology, Peshawar Medical College, Oct 2025-present"]','["Complex and primary PCI","Bifurcation, CTO, post-CABG and left-main PCI","PTMC","Echocardiography","Renal denervation\/IVUS exposure","Cath-lab governance and postgraduate supervision"]','["Khan J, Raza S, Nishtar S, Hadi N, Rauf MA, Saleem A. Hidden Cardiovascular Risk: Early Menopause Triggering Acute Coronary Syndrome (ACS) in Young Patients. Cureus 2026;18(2): e103193. doi:10.7759\/cureus.103193","Amin QNU, Rauf MA, Khan D, Arshad. Diagnostic accuracy of D-dimers in patients with non-ST-segment elevation myocardial infarction using Troponin-I as the gold standard. Pakistan Journal of Cardiovascular Intervention. 2025;5(1):15-21.","Razaq, A., Iqbal, W., Shah, S. T., Abdur Rauf, M., Aldekhail, N. M., Van Nieuwerburgh, F., & Siraj, S.. Impact of ABCB1 gene polymorphism on clopidogrel plasma concentration and cardiovascular events in post-PCI patients. Pharmacogenomics.2025; 1-8. https:\/\/doi.org\/10.1080\/14622416.2025.2534325","Rauf MA, Ziyad M, Mahmood N, et al. Evaluating the safety and efficacy of ticagrelor versus clopidogrel following percutaneous coronary intervention in chronic coronary disease. Cureus. 2025;17(1):e77610. doi:10.7759\/cureus.77610","Ziyad M, Shah S, Rauf MA, et al. Drug-eluting balloons versus stenting for provisional bifurcation lesions: Short-term outcomes and future directions. Cureus. 2025;17(2):e78436. doi:10.7759\/cureus.78436","Ahmad F, Ikramullah, Farhad A, Ahmad W, Afridi AK, Rauf MA. Thrombolytic therapy success rate and time to thrombolysis in patients with ST-elevation myocardial infarction. Khyber Journal of Medical Sciences. 2024;17(2).","Amin QNU, Rauf MA, Shah SHA, Shakir SU, Shah SKU, Ali A, Ali N. Comparison of intracoronary verapamil and adenosine for no-reflow in normotensive patients with acute coronary syndrome. Pakistan Heart Journal. 2024;57(4):343-348.","Ikramullah, Ahmad F, Rauf MA, Haq A, Ayaz S, Misbahuddin S, Ali L. ST-segment resolution in post-primary PCI patients at Lady Reading Hospital, Peshawar. Journal of Saidu Medical College Swat. 2024;14(3).","Awan MS, Khan ZU, Khan M, Maqbool MF, Rauf MA, Jalil S, Daud MY. Factors leading to late presentation of ST-elevation myocardial infarction for thrombolytic therapy. Journal of Saidu Medical College Swat. 2024;14(3).","Bashar JU, Khan FR, Shaikh SA, Khan AN, Rauf MA, Zeeshan MA, Aslam M. Beyond medicine: How diet influences cardiovascular interventions in Pakistan. Journal of Population Therapeutics and Clinical Pharmacology. 2024;31(6).","Ashraf T, Aamir KF, Nadeem A, Hassan MU, Raza H, Rauf MA, et al. Impact of educational intervention on hypertension management by primary care physicians: A randomized controlled trial. PEC Innovation. 2024;4:100285.","Rauf MA, Shafiullah S, Abbas M, Ziyad M, Awan MS, Shah ST. Hyperuricemia in patients with acute coronary syndrome. Advances in Basic Medical Sciences. 2024;8(1).","Bashar KU, Khan FR, Rauf MA, Ali M, Khan A, Khan AN. Survival outcomes after left main coronary artery bypass grafting versus stenting in diabetic patients. Journal of Population Therapeutics and Clinical Pharmacology. 2024;31(6).","Hadi N, Asfandiyar, Alam S, Rauf MA, Mehmood T, Raza S, Khan J. Prevalence of ECG findings in COVID-19 patients. Journal of Pharmaceutical Negative Results. 2023.","Shah ST, Shah I, Hadi NU, Rauf MA, Nawaz T, Sanaullah. Outcomes of late presenters with inferior wall myocardial infarction complicated by complete heart block treated with PCI. Pakistan Journal of Medical and Health Sciences. 2023;17(5).","Zakria M, Hussain A, Ahmad N, Ahmed N, Rauf MA, Siraj S. Rosuvastatin efficacy and SLCO1B1 genetic variations. European Review for Medical and Pharmacological Sciences. 2023;27:4708-4717.","Din IU, Waleed M, Ghaffar S, Rauf MA, Khan MI, Khan MI. Pre-dilation ballooning and slow-flow phenomenon in STEMI patients. Pakistan Journal of Medical and Health Sciences. 2023;17(2).","Rauf MA, Raza S, Safi SI, Arafat Y, Khan J, Khan N. Cardiac events in dengue fever patients. International Journal of Health Sciences. 2023;7(S1).","Din IU, Ahmad T, Khan I, Arafat Y, Khan SU, Rauf MA. Aberrant lipid profiles in patients with coronary artery disease. Pakistan Journal of Medical and Health Sciences. 2022;16(6).","Khan IA, Rauf MA, Arafat Y, Shah ST, Rizwana, Ullah S. Left atrial and left atrial appendage thrombus in severe mitral stenosis. Indo American Journal of Pharmaceutical Sciences. 2022;9(5).","Ashraf J, Din IU, Rauf MA, Arafat Y, Khan I, Ahmad T. Risk factors for cardiovascular disease among high-school students. Pakistan Journal of Medical and Health Sciences. 2022;16(6).","Din IU, Rauf MA, Arafat Y, Khan I, Mustafa B, Ahmad T. Pleural effusion after coronary artery bypass grafting. Pakistan Journal of Medical and Health Sciences. 2022;16(6).","Ullah S, Sharif H, Khaleeque M, Jan MH, Ahmed A, Rauf MA, et al. Ticagrelor versus clopidogrel in acute coronary syndrome: A systematic review. Indo American Journal of Pharmaceutical Sciences. 2022;9(5).","Rauf MA, Arafat Y, Din IU, Shah ST, Sumia, Khan SU. Safety of Chinese COVID-19 vaccine in cardiac patients. Pakistan Journal of Medical and Health Sciences. 2022;16(5).","Rauf MA, Rizwana, Aman T, Noe M, Roghani M, Mehmood N. Hypertension in adolescents of private schools. Indo American Journal of Pharmaceutical Sciences. 2022;9(5).","Hassan MU, Shah B, Shasawar, Hussain C, Rauf MA, Khan A, et al. Femoral versus transradial coronary [title incomplete in the supplied CV]. Indo American Journal of Pharmaceutical Sciences. 2021;8(12).","Ashraf A, Ashraf S, Faheem M, Ali U, Hadi UN, Rauf MA. Gender differences in ischemic heart disease with COPD. Pakistan Journal of Chest Medicine. 2018;24(2).","Khan MA, Rauf MA, Hassan M, Khan I, Jan R, Awan ZA. Enoxaparin use in elective percutaneous coronary intervention. Journal of Postgraduate Medical Institute. 2018;32(2).","Sami A, Iftekhar MF, Rauf MA, Sher A. Subclinical hypothyroidism in obese adults. Pakistan Journal of Medical Sciences. 2018;34(4).","Rauf MA, Khan MA, Ashraf A, Samiullah, Khan N, Hassan M, et al. Percutaneous balloon mitral valvotomy: Early outcomes. Journal of Postgraduate Medical Institute. 2018;32(2).","Rauf MA, Khan N, Mehmood N, Gul AM, Hafizullah M. Outcomes after percutaneous mitral commissurotomy. Pakistan Heart Journal. 2017;50(3).","Ullah S, Jan SU, Jan T, Ahmad HN, Jan MY, Rauf MA. Five-year bibliometric analysis of JCPSP. Journal of College of Physicians and Surgeons Pakistan. 2016;26(11).","Ullah S, Rauf MA, Ullah S, Khan I. Left atrial enlargement in atrial fibrillation. Journal of Cardiovascular Diseases. 2014;12(1).","Hameedullah, Ghaffar R, Rauf MA, Awan ZA. Localization and ablation of accessory pathway. Pakistan Heart Journal. 2014;47(4).","Gul AM, Hafizullah M, Shahzeb, Shah I, Ali N, Ali J, Rauf MA, et al. Left ventricular systolic dysfunction in rheumatic mitral stenosis. Pakistan Heart Journal. 2013;46(4).","Ahmed F, Rauf MA, Maula F, Mehmood N. Adverse events following H1N1 vaccination. Journal of Postgraduate Medical Institute. 2013;27(1).","Ahmad F, Ilyas M, Rauf MA, Adnan Y, Rafiullah, Hafizullah M. Electrolyte disorders in congestive heart failure. Pakistan Heart Journal. 2013;46(3).","Iqbal MA, Khan M, Faheem M, Rauf MA, Khan SB, Shah I, et al. Complications of acute right ventricular myocardial infarction. Journal of Postgraduate Medical Institute. 2013;27(3).","Shahzeb, Ali J, Irfan M, Gul AM, Rauf MA. High-degree atrioventricular blocks. Pakistan Heart Journal. 2013;46(3).","Iqbal MA, Rauf MA, Khan N, Adil M, Hafizullah M. Acute decompensated heart failure. Pakistan Heart Journal. 2013;46(3).","Maula F, Khan MN, Adil M, Ullah J, Rauf MA, Samiullah. Echocardiographic findings in chronic obstructive pulmonary disease. Pakistan Journal of Chest Medicine. 2013;19(1).","Ilyas M, Ahmad F, Rauf MA, Shah SFA, Hafizullah M. Left atrial volume and diastolic dysfunction. Pakistan Heart Journal. 2013;46(2).","Khan N, Rauf MA, Iqbal MA, Hafizullah M. Outcomes of acute decompensated heart failure. Pakistan Heart Journal. 2013;46(2).","Khan SB, Ataullah, Ali J, Rauf MA, Gul AM, Irfan M, et al. CT coronary angiography versus conventional coronary angiography. Pakistan Heart Journal. 2013;46(1).","Ahmed I, Ali J, Rauf MA, Aman W, Gul AM, Hafizullah M. Patterns of left main stem coronary artery disease. Pakistan Heart Journal. 2013;46(1).","Irfan M, Ali J, Khan IH, Rauf MA, Shahzeb, Gul AM, et al. Brain natriuretic peptide levels in patients with decompensated heart failure. Pakistan Heart Journal. 2013;46(1).","Iqbal MA, Rauf MA, Faheem M, Shah I, Khan N, Khan SB, et al. Inferior myocardial infarction with right ventricular involvement. Pakistan Heart Journal. 2012;45(4).","Rauf MA, Aman W, Shah ST, Khan N, Khan SB, Khan I, et al. Risk-factor control in coronary artery disease. Journal of Postgraduate Medical Institute. 2012;26(3).","Iqbal MA, Shah I, Rauf MA, Khan N, Khan SB, Hafizullah M. Frequency of right ventricular myocardial infarction. Pakistan Heart Journal. 2012;45(2).","Rauf MA, Aman W, Khan N, Shah ST, Khan I, Mahmood N, et al. Secondary prevention of coronary artery disease. Pakistan Heart Journal. 2012;45(1).","Khan SB, Rafiullah, Hadi A, Shah ST, Khan S, Ikramullah, Rauf MA, et al. Arrhythmias after thrombolysis. Pakistan Heart Journal. 2011;44(3-4).","Ahmed H, Rauf MA, Farooqi JI, Khan N, Saad, Imtiaz, et al. Hepatitis-B vaccination status of hospital staff. Journal of Postgraduate Medical Institute. 2009;23(3).","Rauf MA, Zeb S , Adil M , Gul AM , Hafizullah M. A 13-Year-Old Girl with Muscle Weakness and Ventricular Tachycardia. Pak Heart J 2012 Vol. 45 (02) : 133 - 137","Comparison Of Blood Bnp Levels In Patients With Decompensated Congestive Heart Failure Due To Different Etiology And Its Correlation With Echocardiographic Parameters M Irfan, MA Rauf, M Hafizullah, AM Gul. Global Heart 9(1), e174-e175, Elsevier, 2014\/3\/1.","Effect of intervention on the control of risk factors in coronary artery disease (CAD) patients Muhammad A Rauf, Mohammad H Ullah, Wahaj A Khan, MN Khan, Syed T Shah, Nida M Rauf. CIRCULATION 125(19), E866-E866, LIPPINCOTT WILLIAMS & WILKINS, 2012\/5\/15.","Short term clinical outcomes after percutaneous mitral commissurotomy for mitral stenosis MA Rauf, NM Rauf, W Aman, M Hafizullah Global Heart 9 (1), e188.Elsevier,2014\/3\/1.","Short Term Clinical Outcomes After Percutaneous Mitral Commissurotomy For Mitral Stenosis Based On Wilkin''S Score MA Rauf, N Mahmood, W Aman, M Hafizullah, MF Iftikhar, AM Gul Journal of the American College of Cardiology 64 (16), C196."]','{"aliases":["muhammad-abdur-rauf"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1244',0),
+(890,'naveed-danish','Naveed Danish',NULL,'Cardiology','Senior Registrar','assets/images/faculty/naveed-danish.jpeg',0,1,'["MBBS","FCPS (Cardiology)","Fellowship in Interventional Cardiology"]','["Senior Registrar, Kuwait Teaching Hospital \/ Peshawar Medical College (current)"]','["Coronary angiography and PCI","Management of cardiac emergencies","Undergraduate and postgraduate teaching","CME workshop organization"]','["Frequency of Stress Hyperglycemia and Incident Diabetes Mellitus in Patients Presenting with Acute Coronary Syndrome, Naveed Danish1, Samiullah Khan2, Muhammad Niaz Khan3, Muhammad Saad Bin Nasir3, Muhammad Kashif Iltaf2 and Hammad Shah4, Med. Forum, Vol. 32, No. 10, October, 2021","Correlation of red cell distribution width with inflammatory markers and its prognostic value in patients with diabetes and coronary artery disease, Afrasyab Altaf , Miqdad Ali Khan, Aftab Alam, Momin Khan, Mazhar Mahmood, Hammad Shah , Naveed Danish, Momin Salahuddin ,Cardiology Department, Rehman Institute of Medical Sciences, Peshawar, Pakistan, ISSN 2450-7458","Frequency of Accelerated Idioventricular Rhythm in Patients with Acute ST Elevation Myocardial Infarction Receiving Thrombolytic Therapy , Noshed Khan1, Samiullah Khan2, Naveed Danish4, Muhammad Niaz Khan5, Sadullah Shah1 and Raza Muhammad3, Med. Forum, Vol. 32, No. 11 , November, 2021","Relationship of Gender to Prevalence, Knowledge, Attitude and Practice among Healthcare Workers Regarding Needlestick Injuries in Tertiary Care Hospitals Afrasyab Altaf1, Ayman Javaid2, Mohsin Shabir3, Sohrab Khan3, Naveed Danish3,Ghassan Jamshed Khan2, Arshad Islam2, Pakistan Journal of Public Health https:\/\/doi.org\/10.32413\/pjph.v12i3.1079 www.pjph.org","Efficacy of Xylocaine and Nitrate Combination in Preventing Radial Artery Spasm and Pain during Transradial Coronary Interventions, Abdul Waris, Naveed Danish, Muhammad Niaz Khan, DOI: https:\/\/doi.org\/10.35787\/jimdc.v14i2.1157","Correlation Between Complexity of Coronary Lesions and Delta High-sensitivity Troponin (hs-cTn) I Levels in Patients of Non-ST Elevation Myocardial Infarction, Muhammad Hammad Azam, Muhammad Abdul Wahab , Naveed Danish , Muhammad Taha , Shitba Naeem and 3 Shaheer Khan Muhammad, https:\/\/doi.org\/10.54393\/pjhs.v5i09.2039","Correlation between Grace Risk Score and Coronary Angiographic Complexity in High Risk NSTEMI Patients, Muhammad Hammad Azam, Muhammad Abdul Wahab, Naveed Danish, Waqar Ahmad Khan, Shitba Naeem, Shaheer Khan Muhammad , DOI: 10.55958\/jcvd.v20i2.184","Frequency of Atrial Fibrillation among patients with ischemic heart disease, Samiullah Shakir, Naveed Danish, Javid Hayat, Asfandyar Ahmad, Ambar Ashraf, https:\/\/pakheartjournal.com\/index.php\/pk\/article\/view\/2445","Association of Hemoglobin Level with In Hospital Outcomes in Patients with STEMI Treated with Primary Percutaneous Coronary Intervention, Syed Kashifullah Shah1, Naveed Danish1, Shakeel Akhtar1, Muhammad Shahab Ud Din Khalil1, Nasir Ali1, Qazi Najeeb Ullah Amin1 1Hayatabad Medical Complex, Peshawar, Pakistan, DOI: https:\/\/doi.org\/10.47144\/phj.v56i2.2514","The Relationship between Serum Calcium Levels and Angiographic Severity of Coronary Artery Disease in Patients with Chronic Coronary Syndrome Muhammad Hammad Azam1, Naveed Danish1, Muhammad Abdul Wahab1, Atta ur Rehman1, Shitba Naeem2, Shaheer Khan Muhammad2 1Department of Cardiology, Hayatabad Medical Complex, Peshawar, Pakistan, 2The National Institute of Cardiovascular Diseases, Karachi, Pakistan, DOI:10.47144\/phj.v57i3.2822"]','{"aliases":["naveed-danish"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','2044',0),
+(891,'rahid-ullah','Rahid Ullah',NULL,'Cardiology','Senior Registrar','assets/images/faculty/rahid-ullah.jpeg',0,1,'["MBBS","FCPS (Cardiology)","FCPS Interventional Cardiology"]','["Senior Registrar, Prime Teaching Hospital, Peshawar, Nov 2024-present"]','["Coronary and peripheral angiography","Primary and elective PCI","PTMC","Coronary IVUS","Echocardiography","ECG","CTO and rotational atherectomy training"]','["Frequency of Left Ventricular Thrombus in ST Elevation Myocardial Infarction Patients Treated with Primary Percutaneous Coronary Intervention. https:\/\/jszmc.com\/ojs\/index.php\/jszmc\/article\/view\/227","Frequency of Right Ventricular Infarction in Patients with Acute Inferior Wall Myocardial Infarction Presenting at a Tertiary Care Hospital, Peshawar. Pakistan Heart Journal. 2023;56(2).","Treatment and Outcome of In-Stent Restenosis with Drug-Eluting Balloons: A Real-Life Single-Centre Study. DOI: 10.29054\/APMC\/2023.1287.","Frequency of New-Onset Right Bundle Branch Block in Acute Myocardial Infarction and Its Coronary Angiographic Findings in Patients Presenting at a Tertiary Care Hospital, Peshawar. Pakistan Journal of Cardiovascular Intervention.","Efficacy of Primary Percutaneous Coronary Intervention Performed Through a Transradial Approach in Patients with ST-Segment Elevation Myocardial Infarction at a Tertiary Care Cardiac Centre."]','{"aliases":["rahid-ullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1872',0),
+(892,'saqib-qureshi','Saqib Qureshi',NULL,'Cardiology','Professor','assets/images/faculty/saqib-qureshi.jpeg',0,1,'["MBBS","FCPS (Cardiology)","CHPE"]','["Chairman, Cardiovascular Unit (current).","Ex Professor Qazi Hussain Ahmad Medical Complex","EX-Senior Registrar Lady reading Hospital Pesahawar"]','["Cardiovascular unit leadership","Head of cardiology"]','[]','{"aliases":["saqib-qureshi","mohammad-saqib-qureshi","muhammad-saqib-qureshi"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1772',0),
+(893,'farah-sagheer','Farah Sagheer',NULL,'Dermatology','Assistant Professor','',0,1,'["MBBS","FCPS","CHR","DHPE"]','["Dr. Farah is a qualified Dermatologist with extensive experience in clinical dermatology, postgraduate medical education, and academic administration. She has been actively involved in teaching and training postgraduate medical trainees and has contributed to academic development, curriculum planning & monitoring and evaluation."]','["Comprehensive clinical diagnosis and management of dermatological disorders","Dermatological procedures, including skin biopsy, cryotherapy, electrocautery, and intralesional therapy","Clinical skills training and BLS instruction as an AHA-certified BLS Instructor","Medical education and postgraduate training","Monitoring and evaluation of academic and training programmes","Research, academic writing, and evidence-based practice"]','["Dr. Farah Sagheer has contributed to 15 peer-reviewed publications in national and international medical and dermatology journals. Her research work includes multiple randomized controlled trials and clinical studies focusing on psoriasis, acne, cutaneous leishmaniasis, pityriasis versicolor, anogenital warts, chronic actinic dermatitis, molluscum contagiosum, keloids, alopecia areata, pemphigus, and other dermatological conditions. Her publications reflect a strong commitment to evidence-based dermatological practice and clinical research."]','{"aliases":["farah-sagheer"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','2050',0),
+(894,'hafsa-usman','Hafsa Usman',NULL,'Dermatology','Assistant Professor','',0,1,'["MBBS","FCPS","CHPE"]','[]','[]','[]','{"aliases":["hafsa-usman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1608',0),
+(895,'miraj-muhammad-khan','Miraj Muhammad Khan',NULL,'Dermatology','Professor','assets/images/faculty/miraj-muhammad-khan.jpeg',1,1,'["MBBS (with distinction in general medicine), Peshawar, Pakistan1978","Diploma in Tuberculosis and Chest Diseases","Diploma in Dermatological Sciences","Diploma in Dermatology and Venereology","FACHARTZ\/ Academy Fellowship (Dermatology)","UAE Qualified MOH"]','[]','[]','["\"Single Dose Fluconazole in the treatment of PITYRIASIS VERSICOLOR.\" Journal of Pakistan Association of Dermatologist 17: 28-31. Volume 17 No:1 , January- March 2007","\"Compasrion of two dosage regime of Ketoconazole in the treatment of PITYRIASIS VERSICOLOR.\" Journal of Postgraduate Medical Institute; Vol. 20 No.3., July- September 2006","\"HIV\/ AIDS; experience at two tertiary care hospitals of Peshawar Professional Med J.\" 13(4):627-31. Khyber Teaching Hospital and Postgraduate Medical Institute Hayatabad Medical Complex. December 2006","\"Open Label Study of Intracavernous Injection of Alpostadil Alphadex in the Treatment of Erectile Dysfunction.\" Vol. 19 No.1:52-57 . Journal of Postgraduate Medical Institute, 2005","Cutaneous manifestations of chronic liver disease, journal of Pakistan association of dermatologists, 2005.15.233-237","Intralesional chloroquin in cutaneous leshmaniasis volume 15,number 1,jan-march,2005.journal of pakistan association of dermatologists"]','{"aliases":["miraj-muhammad-khan","miraj-mohammad-khan","mairaj-muhammad-khan","mairaj-mohammad-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','13',0),
+(896,'nargis-jabeen','Nargis Jabeen',NULL,'Dermatology','Senior Registrar','',0,1,'["FCPS Dermatology","Diploma in Aesthetic medicine","American Board of Aesthetic Medicine and Surgery (ABAMS USA)"]','["Senior Registrar Mercy Teaching Hospital (Jan 2026 till date)"]','["Diagnosis and management of dermatological disorders","Dermatologic procedures (skin biopsy, electrocautery, cryotherapy, intralesional injections)","Management of dermatologic emergencies","Laser and aesthetic dermatology (laser procedures, chemical peels, hydrafacial, PRP, microneedling, mesotherapy)","Patient counseling and follow-up","Teaching Dermatology to junior doctors","Clinical research and medical writing","Good communication and teamwork","Documentation and record keeping"]','["Efficacy of oral Terbinafine with meglumine antimoniate \/ Glucantime I\/L vs Glucantime I\/L alone in treatment of cutaneous leishmaniasis ( Journal of Neonatal Surgery\/ Year 2025\/ volume 14\/ issue 32s)","Comparison of Efficacy of microneedling plus Platelet rich plasma and Fractional CO2 LASER plus platelet rich plasma in the treatment of post۔acne scars ( European Journal of Clinical Pharmacy\/ Year 2025\/ Volume 7\/ Issue 1)"]','{"aliases":["nargis-jabeen"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(897,'humaira-khattak','Humaira Khattak',NULL,'Family Medicine','Assistant Professor','',1,1,'["MBBS","DFM","MCPS","CHPE"]','["Assistant Professor Family Medicine, Peshawar Medical College, Aug 2022 till date"]','["Special interest in women and child health."]','["AN OBSERVATIONAL STUDY OF SURGICAL SITE INFECTION PREVENTION PRACTICES BY SURGICAL STAFF AMONG THE PRIVATE SECTOR TERTIARY CARE HOSPITALS OF PESHAWAR. Farhat R Malik, Humaira Khattak, Marwah Amjad. Azerbaijan Medical Journal (AMJ ISSN: 0005-2523), Volume 63, Issue 02, October 2023","CURRENT CESAREAN SECTION RATE AND FACTORS AFFECTING THE PATIENT DECISION REGARDING MODE OF DELIVERY. Robina Qadeer, Tehniyat Attiya ur Razaq, Humaira Khattak. Journal of postgrad medical institute (JPMI Vol 38(4), 8th December, 2024). http:\/\/doi.org\/10.54079\/jpmi.38.4.3489","SEXUAL HARASSMENT BETWEEN DOCTORS. Cambridge University Press, ISBN: 9781009673037, 27th March, 2026. Edited by Louise Stone, Australian National University, Contribution from Pakistan by Dr. Hina Jawaid, Tehzeed Zulfiqar, Humaira Khattak"]','{"aliases":["humaira-khattak"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1511',0),
+(898,'najib-ul-haq','Najib Ul Haq',NULL,'Medicine','Professor','assets/images/faculty/najib-ul-haq.png',0,1,'["MBBS, Khyber Medical College, Peshawar","FCPS (Pakistan)","FRCP (Edinburgh)","FRCP (Glasgow)","MRCP (UK)","MCPS","MACG"]','["Professor of Medicine, Peshawar Medical College, 2005 to till date","Professor of Medicine, Khyber Medical College, 1999 to 2003","Associate Professor, Department of Medicine, Khyber Medical College, 1996 to 1999","Assistant Professor, Department of Medicine, Khyber Medical College, Peshawar, 1991-1996","Senior Registrar (Medicine), Khyber Medical College, Peshawar, 1983-1991","Registrar and Medical Officer in Casualty, CCU and Medicine in recognized Teaching Hospital, Peshawar, 1981-1983","Capt. Pakistan Army Medical Core, 1979-1981","House Job appointments, 1978-1979"]','["Ph.D Molecular Biology examiner, Punjab University","FCPS Medicine and Gastroenterology examiner, CPSP","External examiner MBBS, Cyberjaya University and IMU Malaysia","MBBS examination examiner","Supervisor for FCPS Part 2 trainees MED-S-025-147"]','["Association of IL28B rs12979860 and rs8099917 Gene Polymorphisms with Response to Combination Therapy of Sofosbuvir and Daclatasvir in HCV-Infected Patients from the Khyber Pakhtunkhwa Population. Dr. Mohsinah Haq, Dr. Jawad Ahmed, Dr. Ihsan Ullah, Dr. Najeeb ul Haq, Dr. Arbab Muhammad Kashif Khan, Dr. Abbas Saleem Khan. Kurdish Studies June 2024 Volume: 12, No: 3, pp 416-420","The predictive power between il28b gene variants (rs12979860 and rs8099917) and the response of hepatitis c virus in patients on sofosbuvir and daclatasvir. Journal of Population Therapeutics & Clinical Pharmacology. Dr. Mohsina Haq, Dr. Jawad Ahmed, Dr. Ihsan Ullah, Dr Hala Rajab, Dr. Sami Siraj, Dr. Najeeb ul Haq, Dr. Abbas Saleem Khan","Current practices of waste management in teaching hospitals and presence of incinerators in densely populated areas. BMC Public Health (2021) 21:1340. Salma Khalid, Najibul Haq, Zia-ul-Ain Sabiha, Abdul Latif, Muhammad Amjad Khan, Javaid Iqbal and Nowsher Yousaf","SARS-CoV-2: big seroprevalence data from Pakistan — is herd immunity at hand? Infection 2021. http:\/\/doi.org\/10.1007\/s15010-021.01629.2","Does Working in a COVID-19 Receiving Health Facility Influence Seroprevalence to SARS-CoV-2. Cureus Medical Journal 12(11): e11389. DOI 10.7759\/cureus.11389; Nov 09, 2020","The Association of PPE Availability, Training and Practices with COVID-19 Sero-prevalence in Nurses and Paramedics in Tertiary Care Hospital Hospitals of Peshawar, Pakistan. Journal of Disaster Medicine and Public Health Preparedness USA October 2020","Prevalence of vitamin D deficiency in patients of chronic hepatitis C. The Professional Medical Journal. Volume.27 Issue. 1, January 2020","Comparative Study of HBV DNA Levels in HBeAg Positive and Negative Female Patients Suffering from Chronic Hepatitis B in child Bearing Age. Professional Med J Aug 2019;26(08):1203-7","Assessment of personality disorders in students appearing for medical school entrance examination. JPMA Vol. 68, No. 12, December 2018","Psychological distress in students appearing for the medical school entrance examination in Peshawar. JPMA Nov 2018;68(11):1603-7","Community engagement and integrated health and polio immunization campaigns in conflict-affected areas of Pakistan: a cluster randomized controlled trial. The Lancet Global Health Volume 5 Issue 6, June 2017","Identification of mutation sites in hepatitis C virus genotype 3a in non-responders to combination therapy with interferon-alfa and ribavirin in residents of Khyber Pakhtunkhwa province Pakistan. Journal of Ayub Medical College. Oct-Dec 2016 Vol. 28 No. 4","The Need Based Optimal Concessions and its Implications in Medical Field. Vol 32 No-1 (2016) Al-IDAH","Frequency and risk factors for hepatitis C. Gomal Journal of Medical Sciences July-December 2011, Vol. 9, No. 2 166","An upper Gastrointestinal Endoscopic study of fifty cases of cirrhosis liver. Journal of postgraduate Medical Institute 2011","Vaccination status against Hepatitis B in doctors working in Hayat Shaheed Hospital Peshawar 2011","Impaired Glucose Tolerance in HCV \/ HBV Cirrhosis. Journal of Postgraduate Medical Institute 2011","Oral snuff and carcinoma oesophagus. Gomal Journal of Medical Sciences January-June 2009, Vol. 7, No. 1 58","Role of interferon anti body in predicting the response to interferon therapy in HCV patients. JPMA Vol. 57, No. 12, December 2007 582","Vaccination against Hepatitis B. Pakistan Oral & Dent. Jr. Dec. 2006 Vol. 26 No. 2","Variations of serum sialic acid level in liver cirrhosis. JAMC 2005 Vol. 17, No. 3","Hepatitis in Dental Practice – a study conducted on 1498 patients. Pak Oral Dental J 2005 Vol. 25, No. 1","Immunogenicity of 10 and 20 μg hepatitis B vaccine in a two-dose schedule. Vaccine Volume 21, Issue 23, 2003","Seroconersion of HBeAg in chronic hepatitis B Lamivudine vs placebo. J Med Sci 2003, Vol 11, No. 1","Latex agglutination and Immunochromatographic Screening tests versus reverse passive hemagglutination for hepatitis BsAg in serum. Pakistan J. Med Res. Vol. 40. No.2001","Pre & Post Intervention Blood Lead Level; Results from Arms and Ammunition Factory Workers in Darrah Adam Khel, NWFP. Professional Vol. 07. No. 03, Aug, Sep, 2000","Snuff use – A risk factor for squamous cell Carcinoma Oesophagus in Pakistani patients. Journal of Gastroenterology and Hepatology (11th Asian Pacific Congress of Digestive Endoscopy Hong Kong, China) March 10-14, 2000","Percutaneous Needle Biopsy in Exudative Ascites - Can it solve the diagnostic dilemma? Abstract, American College of Gastroenterology 1999 annual meeting","Chronic Liver disease in Northern Pakistan. Hepatology (Suppl.) October, 1999 Issue","Vaccination status against Hepatitis B in doctors working in Hayat Shaheed Teaching Hospital Peshawar. JPMI 1998 Vol.12, No.1","Efficacy of Haemaccel infusion after total ascitic fluid paracentesis in chronic patients. JMS Volume 8 No.1, March 1998","An upper Gastrointestinal Endoscopic Study of fifty cases of cirrhosis liver. JPMI Vol 11 No1 1997","Efficacy and Tolerability of Isradipine in mild to moderate Hypertension in pathans. JMS Vol. 7 No. 1 March 1997","An Unusual Presentation of Sweet''s Syndrome. JMS Vol. 7 No. 1 March 1997","Management of Chronic Hepatitis C. JMS Journal of Medical Sciences, Vol.7 No.2 September 1997","Clinical Profile of Cirrhosis Liver. JMS Vol.6 No.3 December 1996","Yield of Stool Microscopy and Culture in 50 Cases with Acute Diarrhea. JMS Vol.6 No.3 December 1996","Clinical Profile of Portal Hypertension. JMS Vol.6 No.3 December 1996","Percutaneous Needle Biopsy in Exudative Ascites. JPMA Vol: 46, No.11 November, 1996","Chorea—a rare presentation of Joint cell arthritis. JPMA Vol:46 No.11, November, 1996","Hairy Cell Leukemia. JMS Vol.6 No.2 September 1996","Polycythemia Rubra Vera. JPMI 1996 10, No.1","Fluoride abundance in drinking water and related health hazards: A case study from Kheshki area, Nowshera Distt: NWFP. Geol.Bull.Univ. Peshawar, Vol.27 pp 113-116, 1994","Single oral dose kinetics of theograde--a slow release theophylline preparation. Journal of Pakistan Medical Research. Vol 32, No 1, 1993","Sick Sinus Syndrome. Journal of Medical Sciences, April 1992","Renal amyloidosis presenting as Nephrotic Syndrome. Journal of Medical Sciences, Jan 1992","Duodenal ulcer--changing concepts. Journal of Medical Sciences September 1991","Endoscopic evaluation of upper GI hemorrhage, a 10 year study. Journal of Medical Sciences, June 1991","Endoscopic evaluation of 110 patients presenting with dysphagia. Journal of Medical Sciences, May 1991","Hypoparathyroidism and epilepsy-tetany or epilepsy. Journal of Medical Sciences, Dec 1990","A study of renal biopsies in Nephrotic Syndrome. Journal of Medical Sciences, Dec 1990","Hepatitis (HBsAg Positive) two years experience. Journal of Medical Sciences, Sep 1990","Pattern of Liver pathology in 38 consecutive patients undergoing liver biopsy. Post Graduate Medical Journal Sep 1990","One year study of supraventricular tachycardia in CCU setting. Presented in International Cardiology Conference Combined Military Hospital, Rawalpindi, Pakistan, 1983","Atrial Fib\/Flutter in a Cardiac care unit- one year experience. Presented in National Symposium on cardiology Peshawar Pakistan, 1982","Corona Virus – Some important religious aspects of its prevention. Al Idaah.39-2 (Dec.2021), 222-245. DOI http:\/\/doi.org\/10.37556\/al-idah.039.02.0754","Women right in inheritance. Tarjumanul Quran June 2018. https:\/\/www.tarjumanulquran.org\/uploads\/apr-2016\/apr-2016-islam-main-orat-ki-warasat.pdf","Fasting and its requirements. Tarjumanul Quran April 2016. https:\/\/tarjumanulquran.org\/articles\/jun-2018-rozah-or-oskay-taqaazay","ٹرانس جینڈر (تحفظ ِحقوق) ایکٹ۲۰۱۸ء مقاصد و مضمرات. ماہنامہ میثاق نومبر 2022. https:\/\/meesaq.tanzeemdigitallibrary.com\/shumarah\/2022\/11\/73","بحالت ِ روزہ آنکھ میں دوا ڈالنا اور انجکشن ایک تحقیقی جائزہ. میثاق 2023. https:\/\/meesaq.tanzeemdigitallibrary.com\/shumarah\/2023\/4\/118","روزے کا مقصد اور طبّی مسائل. میثاق مارچ 2024. https:\/\/meesaq.tanzeemdigitallibrary.com\/shumarah\/2024\/3\/42","احیائے اسلام میں عقیدے کا مقام. ترجمان القرآن ، ستمبر 2024. https:\/\/www.tarjumanulquran.org\/articles\/sep-2024-ahya-islam-main-aqeeday-ka-muqam","غزہ میں قیامت اور امت مسلمہ. ترجمان القرآن نومبر 2024. https:\/\/www.tarjumanulquran.org\/articles\/nov-2024-gaza-main-qayamat-aor-muslim-ummah"]','{"academic_roles":["Member Board of Governors, Sheikh Zayed Islamic Center for Islamic and Arabic Studies, University of Peshawar","Vice Chair, Management Committee, Mercy Education Complex \/ Mercy Pak School Nasir Pur, Peshawar","Member Board of Governors, Frontier Education Foundation KP","Ph. D Molecular Biology examiner (Punjab University)","FCPS Medicine & Gastroenterology examiner (College of Physicians & Surgeons, Pakistan)","External Examiner MBBS, Cyberjaya University College of Medical Sciences and International Medical University, Malaysia","MBBS Examination examiner","Supervisor for training FCPS (Part 2) trainees MED-S-025-147"],"memberships":["Member of PMRC Technical Advisory Committee and Convener of Expert Panels of Gastroenterology","Life Member Medical Research Society of Pakistan","Life Member Pakistan Society of Gastroenterology and GI Endoscopy","Member Pakistan Society of Physicians","Ex-President Pakistan Society of Gastroenterology and GI Endoscopy","Member of the Ethical Committee, Khyber Teaching Hospital, Peshawar","Ex-Member Syndicate, University of Peshawar","Ex-Member Senate, University of Peshawar","Ex-Member Senate, Khyber Medical University","Ex member Institutional management Committee (IMC) Khyber Hospital Peshawar","Ex-Member Pakistan Medical and Dental Council Islamabad (Twice)","Ex Member HEC panel member for Biological and Health Sciences","Ex Honorary Director, Pakistan Medical and Research Council (PMRC), Khyber Medical College, Peshawar, June 2000","Ex-Member of Postgraduate Education Committee of Pakistan Medical & Dental Council, Islamabad"],"courses":["Medical Education, 1991","Construction of MCQs, 1995","Evaluation of Clinical Competence and Planning, 1986","Clinical Examination, 1993","Research Methodology, 2000","Hospital Administration, National Institute of Public Administration Pakistan (NIPA), 1995","Computers in Medical Application, College of Physicians & Surgeons Pakistan, 1996","Internet and e mail (U G C) Pakistan, 1996"],"books":["تلاوت قرآن ، اہمیت اور تقاضے (اردو اور انگریزی زبان)","قرآن کیوں اور کیسے سیکھیں؟","تبدیلی بذریعہ تعلیم","میڈیکل کے طالب علموں کے لیے احادیث کورس (اردو اور انگریزی)","رمضان میں مریضوں کےلئے ہدایات، شریعت اسلامی کی روشنی میں","مریضوں کے وضو نماز اور طہارت کے مسائل","ڈاکٹروں اور دواساز کمپنیوں کے تعلقات ۔ اسلامی اصولوں کی روشنی میں","شعبہ طب میں مرد وزن کے باہمی تعامل کے مسائل اور شرعی رہنمائی (اردو اور انگریزی زبان)","صحت نامہ ۔ صحت اللہ کی امانت ہے","صاف اور صحت بخش پانی کے حصول کے آسان اور ارزان طریقے","اندرون خانہ فضائی آلودگی اور ہماری صحت","علمِ تشریح الابدان۔برائے طلباء تحصص فقہ اسلامی والافتاء","شعبہ طب میں فیصلوں کے لئے ہدایات ، شریعت اسلامی کی روشنی میں"],"book_chapters":["Islamic Hospital Guidelines (Chapter of Necessity and Mitigation Islamic guidelines) (English)","FIMA Year book 2017 (Chapter on Medical Confidentiality) (English)","FIMA Year Book 2020 (Chapter - COVID-19: Implications on our communal prayers) (English)"],"registrations":["PM&DC 1795-N","GMC London (UK) 09258","FCPS supervisor MED-S-025-147"],"research_preferences":["Liver disease","Hepatitis B and C","Medical Ethics in Islamic Perspective"],"aliases":["najib-ul-haq","najibul-haq","najeeb-ul-haq","najib-ul-haq","najeebul-haq","najibulhaq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','4',0),
+(899,'muhammad-wasif','Muhammad Wasif',NULL,'Forensic Medicine','Assistant Professor','assets/images/faculty/muhammad-wasif.png',0,1,'["MBBS","M.Phil (FMT)","MSHCM","CHPE","CHR"]','["6months teaching experience as assistant professor in Peshawar medical college"]','[]','["Pattern of injury and its contributory factors and seasonal variations in poisoning cases presented to Khyber medical college Peshawar.","Retrospective study on sexual assault. Injury , demographics , reporting delays and mental health outcomes in sexual assault survivors in Peshawar","Pattern of injuries in bomb blast at police lines and its associated demographic factors","Pattern of injury and its associated demographic and seasonal pattern in medicolegal deaths reported at department of forensic medicine Khyber medical college Peshawar","Pattern of injuries in Road Traffic Accident at Peshawar, An autopsy based study","Trends of poisoning in Peshawar An autopsy based study in Peshawar","Prevalence and pattern of injury in sexual assault cases presented at Khyber medical college Peshawar.","Trends of asphyxia death and its association with various demographic factors reported to forensic medicine department Peshawar, an autopsy based retrospective study.","Assessment of hypertension in elderly population of Peshawar University.","Clinical profile of acute pancreatitis and application of different severity indices in patients treated at Rehman Medical Institute, Peshawar","Prevalence of Hypertension in 5 rural areas of Peshawar","The prevalence of visual problems among elderly population in university campus Peshawar.","Prevalence of diabetes mellitus and its associated symptoms in geraitic population of Peshawar.","Predictors of quality of life among decompensated chronic liver disease patients"]','{"aliases":["muhammad-wasif"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1907',0),
+(900,'rubina-salma-yasmin','Rubina Salma Yasmin',NULL,'Forensic Medicine','Professor','assets/images/faculty/rubina-salma-yasmin.png',1,1,'["MBBS","MCPS","M.Phil","CHPE","PGD"]','["Professor, Peshawar Medical College, Peshawar, 1st Aug 2022 till present"]','[]','["Incidence of firearm injuries and mortality in Peshawar K.P.K. “OPHTHALMOLOGY INTERNATIONAL” • JULY 2015 - SEPTEMBER 2015. Authorship 2nd","Mortality due to Road Traffic Accidents in Peshawar. “OPHTHALMOLOGY INTERNATIONAL” • JULY 2015 - SEPTEMBER 2015. Authorship 2nd","Asphyxial Deaths in Peshawar KPK. Pakistan. “OPHTHALMOLOGY INTERNATIONAL” • OCTOBER 2015 - DECEMBER 2015. Authorship 2nd","Causes of un-natural Deaths in Peshawar. “OPHTHALMOLOGY INTERNATIONAL” • OCTOBER 2015 - DECEMBER 2015. Authorship 2nd","Poisoning as Cause of U-natural Deaths in Peshawar KPK. “OPHTHALMOLOGY INTERNATIONAL” • JANUARY 2016 - MARCH 2016. Authorship 2nd","External POSTMORTEM, helping to Diagnose the Cause of Death (An autopsy based study). “OPHTHALMOLOGY INTERNATIONAL” • JULY 2016 - SEPTEMBER 2016. Authorship 2nd","Mortalities & Morbidities due to Bomb Blast Injuries in Peshawar, KPK. “OPHTHALMOLOGY INTERNATIONAL” • APRIL 2016 - JUNE 2016. Authorship 2nd","Medico-Legal Importance of Personal Identity (An autopsy based study). “OPHTHALMOLOGY INTERNATIONAL” • JULY 2017 - SEPTEMBER 2017. Authorship 3rd","DETERMINATION OF STATURE FROM COREALATION BETWEEN HEIGHT AND HAND LENGTH AND HAND BREADTH IN GENERAL MALE POPULATION OF KHYBER PAKHTUNKHWA, PAKISTAN. Medico-Legal Importance of Personal Identity (An autopsy based study). “MEDICA FORUM, VOL 31, NO:9” • SEPTEMBER 2020. ISSN 2519-7134 (online) ISSN1029-385-X (print). Authorship 3rd","Value 0f Maxillary sinus morphology in identification of male gender by using digital radiography. Pakistan Journal of Medical & Health Sciences Vol. 14, Oct, - Dec., 2020. Authorship 3rd","Sex determination from measurements of the sternum using multislice computed tomography of the chest in Pashtun population of swat. Pak-Euro Journal of Medical and Life Sciences Vol.4 No.4 2021:pp.197-205. www.readersinsight.net\/pjmls. PJMLS Online ISSN:2707-4471. Print ISSN:2707-448X. Submission URL: https:\/\/readersinsight.net\/PJMLS\/authorDashboard\/submission\/2261. Authorship 4th","Pharmaceutical And Medicinal Applications Of Panax Ginseng And Gensenosides And Their Theuropatic Role in Different Disease. NVEO Natural Volatiles & Essential Oils. Nat.Volatile & Essent. Oils; 2022; 9(1):745-765. Authorship 3rd","Prevalence of Aluminum Phosphide Intoxication amongst Victims of Poisoning _ Lady Reading Hospital Peshawar. Annals of R.S.C.B.,ISSN:1583-6258,Vol. 26, issue 1, 2022, pages. 875-879. https:\/\/www.annalsofrscb.ro\/index.php\/journal\/article\/view\/10913. Authorship 2nd","Participant-Reported Effects of Armed Conflict and Displacement on Behaviour and Attitudes in Malakand District of Pakistan. Pak-Euro Journal of Medical and Life Sciences Vol,5 No.1, 2022: pp.155-160. http:\/\/www.readersinsight.net\/pjmls. Authorship 1st","Frequency and Pattern of Injuries in Victims of Violence at District Sanghar. Pakistan Journal of Medical & Health Sciences Vol.16 Apr 2022. http:\/\/doi.org\/10.53350\/pjmhs22164365. Authorship 1st","Prevalence and Severity of Injuries in patients Following Road Traffic Accidents: A Medicolegal Aspect. Pakistan Journal Of Medical and health Sciences Vol 16, no.04 Apr 2022. http:\/\/doi.org\/10.53350\/pjmhs22164351. Authorship 6th","Pattern of homicidal deaths in district Swat. Journal of Rehman Medical Institute Vol 8, No.1 January-March 2022. www.jrmi.pk. Authorship 3rd","Cheiloscopy: A Study of Most common Morphological Pattern of Lip Prints Among Male Students and Employees of Peshawar Medical College. Pakistan Journal of Medical and Health Sciences Vol. 16. No. 07, July 2022. DOI: https:\/\/doi.org\/10.53350\/pjmhs22167260. Authorship 5th","Predominant Lip Pattern Found among Female students and Employees of Peshawar Medical College. Pakistan Journal of Medical and Health Sciences Vol. 16. No. 07. July 2022. DOI: http:\/\/doi.org\/10.53350\/pjmhs22167272. Authorship 5th","Prevalence of Poisons in Dead Bodies Reported to Khyber Medical College, Peshawar. Pakistan Journal of Medical and Health Sciences Vol. 16, No. o7, July 2022. DOI: https:\/\/doi.org\/10.53350\/pjmhs22167861. Authorship 4th","Pattern of Fingerprints and Its Association with Gender among Medical Students of Peshawar Medical College. PAKISTAN JOURNAL OF HEALTH SCIENCES Volume 5, Issue 6 (June 2024). DOI: https:\/\/doi.org\/10.54393\/pjhs.v5i06. 1667. Authorship 3rd","Causes of Induced Abortion In Married Women Of District Turbat Of Baluchistan, Pakistan. Pakistan Journal of Medical Sciences, J Med Sci 2024 October – December;32(4):346-349. https:\/\/doi.org\/10.52764\/jms.24.32.4.10. Authorship 2nd","Behind the Bullet: Forensic Analysis of Firearm Injury Pattern and Demographic Trends in Peshawar. Trends in Medical and Biological Sciences | 1(1), 17-22, 2025. http:\/\/scholarsacademiaworld.com\/index.php\/TMBS. Authorship 3rd","A RETROSPECTIVE STUDY ON SEXUAL ASSAULT: INJURIES, DEMOGRAPHICS, REPORTING DELAYS, AND MENTAL HEALTH IMPACTS IN CASES PRESENTED TO KHYBER MEDICAL COLLEGE PESHAWAR. 58| BMC J Med Sci 2025. https:\/\/doi.org\/10.70905\/bmcj.06.02.0540. Authorship 2nd"]','{"aliases":["rubina-salma-yasmin"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','538',0),
+(901,'muhammad-bilal-khan','Muhammad Bilal Khan',NULL,'Forensic Medicine','Assistant Professor','assets/images/faculty/muhammad-bilal-khan.png',0,1,'["MBBS","DMJ","CHPE","PGD"]','["Assistant Professor Forensic medicine at Peshawar Medical College, Peshawar. 10 Jan 2025- Present"]','[]','["Prevalence of Aluminum Phosphide Intoxication amongst Victims of Poisoning – Lady Reading Hospital Peshawar. Annals of R.S.C.B., ISSN:1583-6258, Vol. 26, Issue 1, 2022, Pages. 875 – 879","Female Sexual Assualt: Prevalence of Positive Cases from a Tertiary Care Center of Province Khyber Pakhtunkhwa. P J M H S Vol. 17, No. 02, February, 2023 609. DOI: https:\/\/doi.org\/10.53350\/pjmhs2023172609","Investigation of the Criminal Suspects in Local Population Through Forensic Indicators, A Cross-Sectional Study. P J M H S Vol. 16, No. 04, APR 2022. DOI: https:\/\/doi.org\/10.53350\/pjmhs2216463","Pattern of Injuries in Bomb Blast at Police Lanes and its Association with Different Demographic Factors. Vol. 5 No. 2 (2024): Journal of Rehman College of Dentistry. DOI: https:\/\/doi.org\/10.52442\/jrcd.v5i2.102","PATTERNS OF INJURIES IN BOMB BLAST VICTIMS: A TERTIARY CARE HOSPITAL. Journal of Population Therapeutics & Clinical Pharmacology. DOI: 10.53555\/790b7531","Unveiling Patterns of Medicolegal Injuries: A Demographic and Seasonal Perspective from Peshawar. J Saidu Med Coll 2025, Vol 15 (4). https:\/\/doi.org\/10.52206\/jsmc.2025.15.4.1342","Behind the Bullet: Forensic Analysis of Firearm Injury Patterns and Demographic Trends in Peshawar. Trends in Medical and Biological Sciences 1(1), 17-22, 2025. https:\/\/scholarsacademiaworld.com\/index.php\/TMBS"]','{"aliases":["muhammad-bilal-khan","m-bilal-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1881',0),
+(902,'arbab-m-kashif-khan','Arbab M. Kashif Khan',NULL,'Gastroenterology','Assistant Professor','assets/images/faculty/arbab-m-kashif-khan.jpeg',0,1,'["MBBS","FCPS (Gastroenterology)"]','["6 years after post graduation. 15 years after graduation"]','["Director Endo Suites","Advance endoscopist doing all therapeutic endoscopies","ERCP, Endoscopic Ultrasound and cholangioscopy"]','["Comparative Analysis of Intravenous Ceftriaxone and Ciprofloxacin for the Treatment of Bacterial Peritonitis in Liver Cirrhosis. https:\/\/www.researchgate.net\/publication\/365185126_Comparative_Analysis_of_Intravenous_Ceftriaxone_and_Ciprofloxacin_for_the_Treatment_of_Bacterial_Peritonitis_in_Liver_Cirrhosis","Frequency of Hyponatremia among Patients with Chronic Liver Disease. https:\/\/psimj.com\/wp-content\/uploads\/2024\/06\/15.-Frequency-of-Hyponatremia-among-Patients-with-Chronic-Liver-Disease.pdf","Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan. https:\/\/www.sciencedirect.com\/science\/article\/pii\/S2213398421001172","GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE. https:\/\/www.jptcp.com\/index.php\/jptcp\/article\/view\/4592","CORRELATION OF SERUM VITAMIN D LEVELS WITH SERUM LEVELS OF ALKALINE PHOSPHATASE IN PATIENTS WITH DETECTABLE HCV RNA.","A common presentation of uncommon disease – Biliary Fasciola Hepatica. https:\/\/journals.sagepub.com\/doi\/abs\/10.1177\/00494755231174264","Prevalence of Hepatitis C virus and determination of its genotypes in subjects of Tehsil Daggar District Buner, KP, Pakistan. https:\/\/cegh.net\/article\/S2213-3984(21)00117-2\/fulltext","Predictive Potential Of Il28b Gene In Hcv Patients, Resistant To Daclatasvir And Sofosbuvir In KPK Population. https:\/\/europepmc.org\/article\/med\/38406928","Prevalence of Vitamin D deficiency in patients of Chronic Hepatitis C. https:\/\/theprofesional.com\/index.php\/tpmj\/article\/view\/3094","Correlation of serum vitamin D levels with serum levels of alkaline phosphatase. https:\/\/theprofesional.com\/index.php\/tpmj\/article\/view\/3154"]','{"aliases":["arbab-m-kashif-khan","arbab-muhammad-kashif-khan","arbab-mohammad-kashif-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1411',0),
+(903,'shumaila-farman','Shumaila Farman',NULL,'Cardiac Surgery','Senior Registrar','assets/images/faculty/shumaila-farman.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["shumaila-farman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','2043',1),
+(904,'sana-nafis','Sana Nafis',NULL,'Paediatrics','Assistant Professor','assets/images/faculty/sana-nafis.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["sana-nafis"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1597',0),
+(905,'nasir-bakhtiar','Nasir Bakhtiar',NULL,'Surgery','Assistant Professor','assets/images/faculty/nasir-bakhtiar.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["nasir-bakhtiar"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(906,'mian-shah-yousaf','Mian Shah Yousaf',NULL,'Gastroenterology','Assistant Professor','assets/images/faculty/mian-shah-yousaf.jpeg',1,1,'["MBBS (Gold Medalist)","FCPS (Gastroenterology)","Fellowship in EUS and ERCP (WEO)","CHPE"]','["15 years"]','["Advance Interventional Gastroenterologist","Expert in therapeutic endoscopies","ERCP, Endoscopic Ultrasound, Cholangioscopy+EHL"]','["Mian Shah Yousaf, Fouzia Jehangir, Zamin Hussain, Aizza Saeed, Syeda Fatima Rizvi, Shahzada Khalid Sohail. Comparative Immunohistochemical Expression of HER2\/neu in Intestinal-type and Diffuse-type Gastric Adenocarcinoma: A Cross-Sectional Study. IJPRT 2026 Jul. 30;16(2):1746-57.","Khan P, Yousaf MS, Kamani L, Ali R. Chronic Giardiasis: Devil of a developing country. Pak J Med Sci. 2025 Dec;41(12):3558-3560. doi: 10.12669\/pjms.41.12.12123. PMID: 41451013; PMCID: PMC12728711.","Yousaf M S, Khan N, Fareed G, et al. (January 05, 2025) Short-Term Outcomes of Laparoscopic Sleeve Gastrectomy for Weight Loss and Gastroesophageal Reflux Disease. Cureus 17(1): e76943. doi:10.7759\/cureus.76943","Dr Gohar Ali khan, Dr Tahir Ullah, Dr Mian Shah Yousaf, Dr Naimat Ullah Shah, Dr Shad Muhammad Khan, Dr Asmat Saeed. Dietary Patterns and Their Impact on Irritable Bowel Syndrome (IBS) Symptoms in Young Adults. Afr.J.Bio.Sc. 6(12) (2024). doi:10.48047\/AFJBS.6.12.2024.6646-6652","Dr Mian Shah Yousaf, Dr Gohar Ali Khan, Dr Tahir Ullah, Dr Muhammad Iqbal Qasim, Dr Naimat Ullah Shah, Dr Shad Muhammad Khan. Prevalence and Risk Factors of Non-Alcoholic Fatty Liver Disease (NAFLD) in Adults with Metabolic Syndrome. Afr.J.Bio.Sc. 6(16) (2024) doi:10.48047\/AFJBS.6.16.2024.4162-4168","Dr Naveed Pervez, Dr Tahir Ullah2, Dr Mian Shah Yousaf, Dr Najma Fida, Dr Saad Aziz, Dr Intikhab Alam. Assessment of Gastroesophageal Reflux Disease as a Contributor to Pulmonary Dysfunction: A Physiological Perspective. Afr.J.Bio.Sc. 6(16) (2024). doi:10.48047\/AFJBS.6.16.2024.3384-3389","Shah J, Adnan SH, Yousaf MS, Din SJU, Haq MU, Siddiqui N, Shahid M, Elhamid ASA, Rauf S, Afnan M. A Multi-Hospital Comparative Study on the Efficacy of Probiotics Versus Placebo in Preventing Antibiotic-Associated Diarrhea in Adult Patients. Cureus. 2024 Oct 5;16(10):e70881. doi: 10.7759\/cureus.70881. PMID: 39497860; PMCID: PMC11533712.","Khan MI, Shah J, Ullah M, Rasheed H, Khan S, Yousaf MS, Ullah A. Prevalence of Iron Deficiency Among Patients With Helicobacter pylori Infection at a Tertiary Care Hospital. Cureus. 2024 Aug 30;16(8):e68168. doi: 10.7759\/cureus.68168. PMID: 39347179; PMCID: PMC11439128.","Dr Ihsan Ullah, Dr Rahid Gul, Dr Tahir Ullah, Dr Naimat Ullah Shah, Dr Sajjad Ahmad, Dr Mian Shah Yousaf. Gastroesophageal Reflux Disease (GERD) Symptoms and Quality of Life Among Healthcare Workers. Afr.J.Bio.Sc. 6(8) (2024) doi:10.48047\/AFJBS.6.8.2024.3752-3757","IQBAL N, KHAN A, YOUSAF MS, KHAN MA, ALAM I, REHMAN RU, AHMAD Y, KHAN MA. PREVALENCE AND RISK FACTORS OF GASTROESOPHAGEAL REFLUX DISEASE (GERD) IN MEDICAL COLLEGE STUDENTS. Biol. Clin. Sci. Res. J., Volume, 2024: 816. DOI: https:\/\/doi.org\/10.54112\/bcsrj.v2024i1.816","Dr Mian Shah Yousaf, Dr Noman Khan, Dr Wajid Iqbal, Dr. Arbab Muhammad Kashif Khan, Dr Masood Muhammad Karim, & Dr Muhammad Abbas. (2024). GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE. Journal of Population Therapeutics and Clinical Pharmacology, 31(2), 2153–2164. https:\/\/doi.org\/10.53555\/jptcp.v31i2.4592.","Yousaf MS, Kamani L, Fareed G, Khan AMK. A common presentation of uncommon disease - Biliary Fasciola Hepatica. Trop Doct. 2023 Oct;53(4):502-504. doi: 10.1177\/00494755231174264. Epub 2023 May 10. PMID: 37165596.","Hasan MK, Yousaf MS, Tehami N, Ala K, Arain UA, Ahmad S, Kadir S, Abbas Z, Niaz SK. Optimal stent placement strategy for malignant hilar biliary obstruction: a management dilemma. Gastrointest Endosc. 2021 Feb;93(2):532-533. doi: 10.1016\/j.gie.2020.08.019. PMID: 33478669.","Faisal Aslam, Yousaf MS et al, Screening For Prior Exposure To Hepatitis B Virus Infection In Patients Undergoing Chemotherapy., Indo Am. J. P. Sci, 2021; 08(10).","Yousaf MS, Shafqat S, Gill RC, Khursheed AA, Parkash O. Adenoma detection rate as a quality indicator for colonoscopy: a descriptive cross-sectional study from a tertiary care hospital in Pakistan. Endosc Int Open. 2020 Nov;8(11):E1707-E1712. doi: 10.1055\/a-1244-1646. Epub 2020 Oct 22. PMID: 33140028; PMCID: PMC7581484.","Parkash O, Yousaf MS, Fareed G. Rosai-Dorfman''s disease, an uncommon cause of common clinical presentation. J Pak Med Assoc. 2019 Aug;69(8):1213-1215. PMID: 31431783."]','{"aliases":["mian-shah-yousaf"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1330',0),
+(907,'noman-khan','Noman Khan',NULL,'Gastroenterology','Assistant Professor','assets/images/faculty/noman-khan.jpeg',0,1,'["MBBS (Gold Medalist)","FCPS (Gastroenterology)","MRCP-II (UK)","CHPE"]','["13 years"]','["Endoscopy, Colonoscopy, ERCP","Advance Therapeutic Endoscopies"]','["Diagnostic Accuracy of Endoscopic Findings (Duodenal Fissuring) in Diagnosis of Celiac Disease","GASTROINTESTINAL EFFICACY OF OMEPRAZOLE IN PATIENTS WITH GASTROESOPHAGEAL REFLUX DISEASE","PREVALENCE OF EXTRAINTESTINAL MANIFESTATIONS AMONG PATIENTS WITH ULCERATIVE COLITIS","Short-term Outcomes of Laparoscopic Sleeve Gastrectomy for Weight Loss and Gastroesophageal Reflux Disease","The Knowledge of Healthcare Professionals in Quetta District about Post-Exposure Prophylaxis for Hepatitis B","CLINICIANS APPROACH TO EUTHANASIA IN THE PROVINCE OF KHYBER PAKHTUNKHWA"]','{"aliases":["noman-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1651',0),
+(908,'asma-ghani','Asma Ghani',NULL,'Gynaecology','Assistant Professor','',0,1,'["MBBS","FCPS","MRCOG","CHPE"]','["Assistant Professor Mercy Teaching Hospital 15th Jul, 2023 till Date."]','["Management of High Risk Pregnancies","Infertility"]','["Incidence of vaginal birth after previous cesarean section and fetal outcomes in a tertiary care hospital in Peshawar. DOI:https:\/\/doi.org\/10.29309\/TPMJ\/2025.32.06.8851","MORBIDLY ADHERENT PLACENTA IN PATIENTS WITH PLACENTA PREVIA AND FETO-MATERNAL OUTCOME. DOI: 10.53555\/jptcp.v30i19.3795","Maternal and Fetal Outcome in Cardiac Patients a Cross-Sectional Study at Tertiary Care Setting. DOI: https:\/\/doi.org\/10.53350\/pjmhs020231711148","Impact of Obesity on Reproductive and Biochemical Parameters in Women with Polycystic Ovary Syndrome. DOI: https:\/\/doi.org\/10.48047\/AFJBS.6.8.2024.3792-3799","Effectiveness of Balloon Tamponades Vs Uterine Packing in Post-partum Hemorrhage. DOI: https:\/\/doi.org\/10.48047\/AFJBS.6.16.2024.3344-3349"]','{"aliases":["asma-ghani"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1724',0),
+(909,'farzana-burki','Farzana Burki',NULL,'Gynaecology','Assistant Professor','',0,1,'["MBBS","FCPS","CHPE","MRCPI (PART2)"]','[]','[]','[]','{"aliases":["farzana-burki"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1296',0),
+(910,'samdana-wahab','Samdana Wahab',NULL,'Gynaecology','Professor','',0,1,'["MBBS","FCPS","CHPE","MHR"]','["25 YEARS"]','["Urogynaecology","Endoscopic surgeries"]','["Wahab S, Zahoor F, Qazi Q, Razza A, Zaib L. The patients'' experiences in Gynae\/Obstetrical walk-in services in Lady Reading Hospital, Peshawar. J Med Sci 2022 April;30(2):121-125","Wahab S, Kamran Q, Karim R, Khan R, Pervaiz M. Assessment of immediate perineal com-plications of normal Vaginal delivery Versus Vaginal delivery with Episiotomy in term Pregnancy in a Tertiary Care Hospital. J Med Sci 2023 January;31(1):31-35","Wahab S, Ghayur MS, Karim R, Qazi Q, Hayat N, Wahab Z. Patterns of Polycystic Ovarian Syndrome, Its Impact on Mental Well-Being, Health-Related Life Quality, And Marital Satisfaction in Patients Presenting to The Outpatient Departments in Tertiary Care Hospitals of Peshawar. J Postgrad Med Inst. 2025;39(1):1-9. http:\/\/doi.org\/10.54079\/jpmi.39.1.3477","Noureen S, Wahab S, Rehman K, Musa N, Rehman R, Afridi SK. Determinants of Self-Induced Abortion In Unintended Pregnancies: Insights from Private Maternity Clinics, Peshawar. J Saidu Med Coll. 2025;15(2):184-191. https:\/\/doi.org\/10.52206\/jsmc.2025.15.2.103","Qazi. Q, Sultan S., Khan N, Wahab. S, Khan. H. Maternal and perinatal outcomes of induced labour for breech presentations. BMCJ 2024 July-December;5(2)","Zeb L, Khattak S, Wahab S. Comparison of Maternal and Fetal Complications in Relation to General Anesthesia vs Spinal Anesthesia During Caesarean Section. J Saidu Med Coll Swat 2022;12(3):128-132.DOI:https:\/\/doi.org\/10.52206\/jsmc.2022.12.3.454","Ghayur MS, Kareem R, Wahab S, Inayat S, Karim R, Sethi MR, et al. Translation, cross-cultural adaptation, and validation of the polycystic ovarian syndrome quality of life scale in Pashto. J Ayub Med Coll Abbottabad 2022;34(4):823–9. DOI: 10.55519\/JAMC-04-10920","Rabia Kareem, Rukhsana Karim, MifrahRauf Sethi, Sumaira Inayat, Samdana Wahab, Mahjabeen S Ghayur, Naila Nasr Malik & Muhammad Irfan (2023) Translation, cross-cultural adaptation, and validation of ENRICH scale for marital satisfaction in Pashto, Sexual and Relationship Therapy, 38:4, 848-859, DOI: 10.1080\/14681994.2023.2251409","Hayat N, Wahab S, Abid F, Azmat S, Azmat M, Rafiq A. Histopathological spectrum of ovarian lesions undergoing surgical management in a tertiary care hospital, an observational study. Gomal J Med Sci 2024 AprJun;22(2):127-31.","Qayyum. H, Wahab. S. Frequency of common signs and symptoms of ectopic pregnancy. Health & Allied. 2025: Vol. 3 Issue.1 2025. DOI: https:\/\/doi.org\/10.71000\/3vp56j57","Burhan, S., & Anwar, S. (2025). The Efficacy of Misoprostol and Prostaglandin E2 in Induction of Labor. Indus Journal of Bioscience Research, 3(6), 165–168. https:\/\/doi.org\/10.70749\/ijbr.v3i6.1574","Qudsia, Sitwat, Samdana, Wajeeha. Efficacy of misoprostol and prostaglandin E2 Gel for induction of labor in term pregnancy JPMI (2019) Vol 33( 4) 331-336.","Metformin''s Role in improving symptoms of polycystic ovarian syndrome (Vol.27 No.2 April-June 2013)","Decreased Amniotic Fluid Index and Adverse Pregnancy Outcome at Term JPMI 2010 Vol. 24 No.4)","Relationship of Age, Parity, and Duration of Subfertility as Risk Factors for Ectopic Pregnancy (GJMS July-December 2013, vol. 11, No.2).","The Diagnostic Validity of Pre-operative Serum CA125 level in women with Ovarian Masses. (JPMI 2012 Vol 26 No.01:73-78","Frequency and pattern of distribution of antenatally diagnosed congenital anomalies and the associated risk factors. JPMI 2014 28(2):184-8","Wahab S, Kareem R. Sawyer Syndrome with A Germ Cell Tumor. J Med Sci 2021 October;29(4):295-296","Wahab S, Burki F, Kareem R. Clear cell Carcinoma of the Endometrium in Postmenopausal Pakistani female. Case report. J Med Sci 2023 January;31(1):82-84"]','{"aliases":["samdana-wahab"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1488',0),
+(911,'shehnaz-parveen','Shehnaz Parveen',NULL,'Gynaecology','Professor','',0,1,'["MBBS","FCPS"]','[]','[]','[]','{"aliases":["shehnaz-parveen","shahnaz-parveen"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(912,'bilal-ahmad','Bilal Ahmad',NULL,'Medical Oncology','Assistant Professor','',1,1,'["MBBS","FCPS (Medical Oncology)","SCE-MRCP UK (Medical Oncology)","Certificate Of Palliative Care","CHPE"]','["Consultant Medical Oncologist\/Hematologist (Peshawar Medical College)"]','["Expert in managing multiple solid organ and hematological malignancies","Chemotherapy","Immunotherapy","Palliative & Supportive Care","Personalized Cancer Management","Skilled in Oncology Procedures","Medical Education","Research","Multidisciplinary Tumor Board meetings"]','["Frequency of Chemotherapy Induced Febrile Neutropenia: A Tertiary Care Hospital Study.","Tolerance of Sorafinib in patients with residual HCC Post TACE.","Role of Ki67 in response rate of neoadjuvant chemotherapy in hormonal positive breast cancer.","Evaluation of pathological complete response following neoadjuvant chemotherapy.","Severity of neutropenia in patients with non-Hodgkin B-cell lymphoma on R-CHOP chemotherapy regimen.","Frequency of HER2 Over-expression in metastatic gastric and gastro-esophageal junction adenocarcinoma.","Radiological misdiagnosis of intracranial solitary fibrous tumor: a case report STAT6 immunohistochemistry resolves the diagnostic challenge","Feasibility and Policy Implications of a Pragmatically Adapted Pediatric-Inspired Induction Regimen for Adults with Acute Lymphoblastic Leukemia in a Resource-Restricted Setting: A Prospective Observational Study"]','{"aliases":["bilal-ahmad"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1638',1),
+(913,'syeda-sama-bilal','Syeda Sama Bilal',NULL,'Medical Oncology','Senior Registrar','',0,1,'["MBBS","FCPS (Medical Oncology)","Palliative Care Course (Riphah International)","CHPE"]','["Consultant Medical Oncologist Peshawar Medical College"]','["Hematological and Solid Organ Malignancies","Chemotherapy","Palliative & Supportive Care","Oncology Procedures","Multidisciplinary Tumor Board-meetings","Oncological Emergencies","Medical Education","Research"]','["Tolerance of sorafenib in patients with residual HCC post TACE","Role of Ki-67 in response rate of neoadjuvant chemotherapy in hormone-positive breast cancer","Feasibility and Policy Implications of a Pragmatically Adapted Pediatric-Inspired Induction Regimen for Adults with Acute Lymphoblastic Leukemia in a Resource-Restricted Setting: A Prospective Observational Study"]','{"aliases":["syeda-sama-bilal"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','2025',1),
+(914,'uzma-rahim','Uzma Rahim',NULL,'Medical Oncology','Senior Registrar','',0,1,'["MBBS","FCPS (Clinical Haematology)","EHA Exam"]','["Consultant Clinical Hematologist (Peshawar Medical College)"]','["Haemato-Oncology","Bone Marrow Transplantation","Benign Haematology","Transfusion Medicine","Paediatric Haematology","Diagnostic Haematology","Bone Marrow Aspiration & Trephine Biopsy","Intrathecal Chemotherapy","Ultrasound guided Central Venous Line Insertion","Bone Marrow Harvest","Research & Medical Education"]','["Autoimmune Hemolytic Anemia: Response to First-line Therapy.","Correlation of CD3+ T-cell Infusion Dose with Acute GVHD after Allogeneic HSCT.","Pattern of Immune Reconstitution Post-Allo HSCT.","Correlation of FibroScan and Liver Biopsy in β-Thalassemia Major Undergoing Stem Cell Transplant.","Outcome of HSCT in β-Thalassemia Major.","HSCT in Infantile Osteopetrosis.","Prognostic Factors Affecting Day +100 Survival after Allogeneic HSCT for Acute Leukaemia."]','{"aliases":["uzma-rahim"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1932',1),
+(915,'akram-ullah','Akram Ullah',NULL,'Neurosurgery','Associate Professor','assets/images/faculty/akram-ullah.jpeg',1,1,'["MBBS","FCPS (Neurosurgery)","MCPS","FACS","ASCD","ESBD","EDISC","CHPE","CHR"]','["Associate professor of neurosurgery prime teaching hospital PMC Peshawar 8th may 2026 till date"]','["Expert in Brain & Spine Pathologies","Advanced neurosurgical techniques (cranial, spinal, and trauma)","Clinical teaching and mentoring","Research design and execution","Conference presentation and scientific writing"]','["Frequency of Post-Operative Cerebrospinal Fluid Leak after Infratentorial Surgery","Microsurgical Resection of Intracranial Dermoid and Epidermoid Tumors (IDET)","Evaluation of the Efficacy of the Non-Decompressive Single Stage Bilateral Craniotomy in Treatment of Traumatic Brain Injury","Medication and Facial Nerve","Outcome of Surgical Treatment for Lumber Disc Herniation Causing Painful Incomplete Foot-Drop","Outcome of Anterior Cervical Discectomy with PEEK Cage Fixation for Single Level Cervical Disc Disease","Outcome of Endoscopic Third Ventriculostomy: An Experience of 80 Treated Patients","RETRO MASTOID SUBOCCIPITAL MICROVASCULAR DECOMPRESSION TECHNIQUE FOR THE TREATMENT OF TRIGEMINAL NEURALGIA: A CASE SERIES STUDY","NON DISCOGENIC SCIATICA MIMICKING DISORDERS","Pediatric Traumatic Brain Injury; Experience in Tertiary Care Hospitals of KPK, A Multi- Center Study","SURGICAL MANAGEMENT OF CRANIAL DERMOID\/EPIDERMOID TUMORS A MULTI-CENTER STUDY","Clinical Outcomes of Craniotomy in the Management of Cranial Arachnoid Cyst: An experience from Ali Institute of Neurosciences, Irfan General Hospital Peshawar: A Retrospective Case Series","Incidental Durotomy in Lumbar Microdiskectomy; Incidence, Management and Early Sequelae","Thoracic and lumbar spine Pott’s spine surgery results five institutional a multicenter study compares transpedicular decompression with and without general reconstructive surgery","Sub Temporal Trans Tentorial Approach in Excision of Mid Brain Tumor","Visual Outcome after Microsurgical removal of Craniopharyngioma via Pterional Craniotomy This article may be cited as: Khaliq A, Azam F, Ali M, Asadullah, Akramullah, Zubair M. Visual Outcome after Microsurgical removal of Craniopharyngioma via Pterional Craniotomy","Hemorrhagic Stroke May Be the Sequelae of Brain Tumors","HYDROCEPHALUS; CAUSES OF HYDROCEPHALUS AMONG DIFFERENT AGE GROUPS","Effectiveness of Discectomy for Pain Control in Lumber Radiculopathy","Maternal Concepts and Practices of Antenatal Care in Patients with Spinal Dysraphism","Radiological misdiagnosis of intracranial solitary fibrous tumor: a case report STAT6 immunohistochemistry resolves the diagnostic challenge"]','{"aliases":["akram-ullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1234',0),
+(916,'arif-hussain','Arif Hussain',NULL,'Neurosurgery','Assistant Professor','assets/images/faculty/arif-hussain.jpeg',0,1,'["MBBS","FCPS (Neurosurgery)","MCPS","CHPE","CHR","ASCD"]','["Senior Registrar Neurosurgery Prime Teaching Hospital, Peshawar April 2021 – Present"]','["Expert in Brain & Spine Pathologies","Advanced neurosurgical techniques (cranial, spinal, trauma)","Clinical teaching and mentoring","Research design and execution","Conference presentation and scientific writing"]','["Clinical Outcome and Complication of Endoscopic Endo Nasal Trans Sphenoidal Surgery (ETSS) for Pituitary Adenoma: A Retrospective Study at Prime Teaching Hospital Peshawar - PJNS | Jan-March 2021","Spectrum of Spinal Dysraphism in Pediatric Patients in Tertiary Care Hospital - PJNS | April-June 2021","Clinical Outcome and Complication of Anterior Cranial Fossa Meningiomas in Tertiary Care Hospital - PJNS | April-June 2021","Neurological Improvement after Decompression for Dorsal Spine Tuberculosis (TB) - PJNS | April-June 2021","Clinical Spectrum and Surgical Outcomes: Institutional Experience from a Single Center Spinal Tumors (Vol VIII, No II, Spring 2023)","Non-Decompressive Single Stage Bilateral Craniotomy in Traumatic Brain Injury (Vol. 17 No 01, 2023) Pakistan Journal of Medical & Health Sciences","Clinical Outcome of Hypoglossal-Facial Nerve Anastomosis in Severe Facial Nerve Paralysis: An Experience from Khyber Pakhtunkhwa (KPK) - Pak Journal of Neural Surgery, 2022, 26(4): 631-637"]','{"aliases":["arif-hussain"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1474',0),
+(917,'muhammad-zubair-bashir','Muhammad Zubair Bashir',NULL,'Neurosurgery','Associate Professor','assets/images/faculty/muhammad-zubair-bashir.jpeg',0,1,'["MD","MS (Neurosurgery)","MCPS","ASCD","FACS"]','[]','["Expert in Brain & Spine Pathologies","Advanced neurosurgical techniques (cranial, spinal, trauma)","Clinical teaching and mentoring","Research design and execution","Conference presentation and scientific writing"]','["Surgical Outcome of Dorso lumbar spinal injury stabilization with Fixatuer Internae.","Management of Carpal Tunnel syndrome :","Clinical Features of Brain Abscess in Addition to Dental Infection Presenting to Neurosurgery Department","Outcome of Endoscopic Third Ventriculostomy: An Experience of 80 Treated Patients.","Visiual outcome after microsurgical removal of Craniopharangioma via Pterional craniotomy.","Early outcome of VP shunt in terms of improvement and complications.","Evaluation of the Efficasy of the Non-Decompresive singale stage Bilatral Craniotomy in Treatment of Traumatic Brain Injury.","Frequency of CSF leak after MVD for idiopathic trigeminal neuralgia,an observation based research.","Clinical Spectrum and Surgical Outcome Of Spinal Tumors: An Institutional Experience,a Single Center Study","PREVALENCE OF POSTOPERATIVE HEMORRHAGE AFTER UNDERGOING INTRACRANIAL PROCEDURES:","Sub Temporal Trans Tentorial Approach in Excision Of Mid Brain Tumor: A Case report","Clinical Outcomes of Craniotomy in the Management of Cranial Arachnoid Cyst:","Clinical Outcomes Of Full Endoscopic Thoracic Discectomy In Acute Disc Herniation: A Case Report From Khyber Pakhtunkhwa","Medication and Facial nerve rehabilitation: A two year Retrospective Analysis of Microsurgical resection outcomes for benign cerebellopontine angle tumors in 31 cases at prime teaching hospital peshawar","Clinical Outcome of Microvascular Decompression In The Management Of Trigeminal Neuralgia In A Single Center: A Prospective Study","Non decompressive single stage Bilatral Craniotomy in traumatic brain injury"]','{"aliases":["muhammad-zubair-bashir","muhammad-zubair"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1264',0),
+(918,'sajid-khan','Sajid Khan',NULL,'Neurosurgery','Assistant Professor','assets/images/faculty/sajid-khan.jpeg',0,1,'["MBBS","FCPS (Neurosurgery)","ASCD","CHPE","CHR"]','[]','["Expert in Brain & Spine Pathologies","Advanced neurosurgical techniques (cranial, spinal, trauma)","Clinical teaching and mentoring","Research design and execution","Conference presentation and scientific writing"]','["Giant tuberculoma resembling brain tumor in a child. Pakistan journal of neurological surgery, Vol20NO2 2016 principal author","Association of extradural hematoma with linear skull fracture, Pakistan journal of neurological surgery, VOL21No22017, co-author","Outcome of endoscopic third ventriculostomy: An experience of 80 treated patients. Pakistan journal of neurological surgery, vol23, NO4 2019","outcome of anterior cervical discectomy with peek cage fixation for single level cervical disc disease, Pakistan journal of neurological surgery, Vol24NO2 2020","outcome of ventriculoperitoneal shunt in terms of improvement and complication. Pak jns.","isodense acute epidural hematoma in an anemic patient","Frequency of intracranial hemmorhage among patients with skull fracture in blunt head trauma. American Journal of Health ,medicine and Nursing practice","endoscopic third ventriculostomy in the treatment of obstructive hydrocephalus due to posterior fossa tumors, A comparative analysis. American Journal of Health ,medicine and Nursing practice","Surgical intervention for the treatment of multiple Glioblastoma. Pakistan Journal of advances in Medicine and Medical research.","Extrusion of Peritoneal catheter of ventriculoperitoneal chunt through rectum. Pak JNS","Frequency of CSF leak after Mvd for idiopathic trigeminal neuralgia, A observation-based Research. International journal of Health siences. 27 nov 2022","the role of dynamic lumbar spine X-ray in the diagnosis of type 1 spondylolisthesis in patients who have previously done lumbar spine surgery. American Journal of Health ,medicine and Nursing practice","classification of guillin barre syndrome based on electrophysiological features. . International journal of Health siences","Analysis of otorhinological manifestation in patients diagnosed with traumatic brain injury. Pakistan Journal of Medical and health sciences.","Non decompressive single stage bilateral craniotomy in traumatic brain injury. Pakistan Journal of Medical and health sciences.","surgical results of sub axial cervical injury in adult patients treated via anterior approach. Pakistan Journal of Medical and health sciences.","evaluation of the efficacy of non decompressive single stage bilateral craniotomy in the treatment of traumatic brain injury. Pakistan Journal of Medical and health sciences.","clinical outcome and complication of anterior cranial fossa meningiomas in tertiary care hospital Peshawar. PAK JNS","Neurological improvement after decompression for dorsal spine tuberculosis, pak jns","clinical outcome of hypoglossal facial anastomosis in severe facial nerve paralysis , An experience from Khyber pukhtunkhwa. Pak jns"]','{"aliases":["sajid-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1232',0),
+(919,'aminul-haq','Aminul Haq',NULL,'Family Medicine','Assistant Professor','assets/images/faculty/aminul-haq.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["aminul-haq","amin-ul-haq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','286',0),
+(920,'faisal-nawaz','Faisal Nawaz',NULL,'Ophthalmology','Associate professor','assets/images/faculty/faisal-nawaz.jpeg',0,1,'["MBBS","FCPS Ophthalmology","FCPS Vitreoretina"]','["Associate professor (PMC)"]','["Cataract, Glaucoma, Squint, Vitreoretina, Refractive Surgery"]','["Frequency of Complications of Silicone Oil in the Surgical Treatment of Rhegmatogenous Retinal Detachment. Mir Ali Shah, Bilal Khan, Faisal Nawaz, Mubashir Rahman. Pak J Ophthalmol 2017, Vol. 33, No. 2","Visual acuity and Intraocular Pressure changes after Nd: YAG Laser Posterior Capsulotomy. Dr. Faisal Nawaz, Naseer Ahmad, Mohammad Alam, Amir","Assessment of Foveal Avascular Zone Size in Diabetic Retinopathy Using Optical Coherence Tomography Angiography (OCTA). Dr. Muhammad Usman, Dr. Faisal Nawaz, Dr. Muhammad Zaheer ullah Babar, Dr. Asif Ali, Mr. MuhammadHarris Tariq","Change in Axial Length and Astigmatism after Scleral Buckling in Patients of Rhegmatogenous Retinal Detachment. Muhammad Zaheer Ullah Babar, Faisal Nawaz, Asif Ali, Muhammad Usman, Abdul Munim. Peshawar Medical College, Peshawar","CORNEAL ENDOTHELIAL CELL CHANGES AFTER PARS PLANA VITRECTOMY; SILICONE VERSUS NON-SILICONE FILLED EYES AND THE EFFECT OF LENS STATUS. Sohaib Abbas, Muhammad Awais Asghar, Naseer Ahmad, Abdul Munim, Arslan Ahmed, Faisal Nawaz","Effect of Intravenous Mannitol on Intraocular Pressure Changes in Vitrectomized Silicon-Oil-Filled and Non Vitrectomized Eyes: A Prospective Comparative Study. NASEER AHMAD, FAISAL NAWAZ, ASIF ALI, ABDUL MUNIM, ABDUL RAFE, HAROON SALEEM, MIR ALI SHAH","Efficacy and Safety of Suprachoroidal Triamcinolone Acetonide in Cases of Resistant Diabetic Macular Edema. YASIR AHMAD, SAUD UL HASSAN MEMON, SHAHID ANWAR BHATTI, FAISAL NAWAZ, WALEED AHMAD, MARIA SALEEM","Efficacy of Novel Endoillumination Assisted Modified Scleral Buckling versus Conventional Scleral Buckling. ASIF ALI, NASEER AHMAD, FAISAL NAWAZ, ABDUL MUNIM, ABDUL RAFE, HAROON SALEEM, MIR ALI SHAH","Comparison of Changes in Intraocular Pressure after Subtenon and Peribulbar Local Anaesthesia for Phacoemulsification. Sher Akbar Khan, Mir Ali Shah, Ibrar Hussain, Faisal Nawaz, Mumtaz Alam","Postoperative Astigmatism following Phacoemulsification: Versus Extracapsular Cataract Extraction. Faisal Nawaz Khan, Naseer Ahmed, Amir Naseem, Muhammad Idrees, Muddasar Hussain","EFFECTIVENESS OF RADIAL OPTIC NEUROTOMY FOR ISCHEMIC CENTRAL RETINAL VEIN OCCLUSION. Mir Ali Shah, Faisal Nawaz, Adnan Alam, Bilal Khan"]','{"aliases":["faisal-nawaz"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1195',0),
+(921,'abdul-munim','Abdul Munim',NULL,'Ophthalmology','Assistant Professor','assets/images/faculty/abdul-munim.jpeg',0,1,'["MBBS","FCPS Ophthalmology","FCPS Vitreo Retina","FICO (UK)"]','["Assistant Professor (PMC)"]','["Cataract, Glaucoma, Squint, Refractive and Retina Surgery"]','["Effectiveness of Temporary Keratoprosthesis in Vitreo-Retinal Surgeries. https:\/\/www.pjo.org.pk\/index.php\/pjo\/issue\/view\/84","Frequency of Pseudophakic Glaucoma in a Tertiary Care Hospital of Pakistan. 890 P J M H S Vol. 17, No. 02, February, 2023","Frequency of Eyelid Lesions in Patients Presenting at Ophthalmology Department of a Tertiary Care Hospital. J M H S Vol. 17, No. 02, February, 2023","Change in Axial Length and Astigmatism after Scleral Buckling in Patients of Rhegmatogenous Retinal Detachment. https:\/\/mail.pjo.org.pk\/index.php\/pjo\/issue\/view\/82","Prevalence of Refractive Errors and Associated Risk Factors Among School Aged Children in Pakistan: A Cross-Sectional Study. International Journal of Pharmacy Research & Technology | Jun -Dec 2025| Vol 15| Issue 2","Correlation Between HbA1c Levels and Severity of Diabetic Retinopathy: A Cross-Sectional Evaluation. https:\/\/ojs.zu.edu.pk\/pjmd\/issue\/view\/142","Mechanisms and Biologic Treatment Strategies in Immune-Mediated Ocular Inflammation. International Journal of Pharmacy Research & Technology | Jan -May 2025| Vol 15| Issue 1","Assessment of Clinical Skills Competency Among Final-Year Medical Students in Pakistan: A Cross-Sectional Study. International Journal of Pharmacy Research & Technology | Jun -Dec 2025| Vol 15| Issue 2","The Effect of Blue Light Exposure on Retinal Health and Visual Function: A Clinical Study of 160 Patients. P J M H S Vol. 18, No. 01, January, 2024","MEASUREMENT OF RETINAL NERVE FIBER LAYER THICKNESS IN PATIENTS OF UNILATERAL AMBLYOPIA USING OPTICAL COHERENCE TOMOGRAPHY, J Ayub Med Coll Abbottabad 2022;34(1)","The incidence and awareness of Rhegmatogenous retinal detachment in Pakistani population. Pak J Pharm Sci . 2021 Sep;34(5):1693-1698","Assessing the schematic molecular insights to therapeutic potential of Brain Derived Neurotrophic Factor in treating and managing glaucoma. Rawal Medical Journal: Vol. 50, No. 3, Jul-Sep 2025","The Key Role of Brain-Derived Neurotrophic Factor (BDNF) in Pathophysiology of Glaucoma and Its Therapeutic Potential. https:\/\/doi.org\/10.54393\/pjhs.v5i10.2267","Clinicopathological Assessments of Brain-Derived Neurotrophic Factor BDNF Physiology in Diabetic Retinopathy: A Systematic Review. https:\/\/doi.org\/10.36283\/ziun-pjmd14-2\/063","Neuro-ophthalmic interface: Investigating the therapeutic potential of Glial cellderived neurotrophic factor (GDNF) in pathology of diabetic retinopathy. https:\/\/www.rmj.org.pk\/fulltext\/27-1723859598.pdf?1769830668","Choroidal Thickness as a Predictor of Myopic Progression in Adolescents: A Longitudinal Study. https:\/\/doi.org\/10.48047\/AFJBS.6.16.2024.4651-4661"]','{"aliases":["abdul-munim"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1231',0),
+(922,'shahid-rizwan-safir','Shahid Rizwan Safir',NULL,'Nephrology','Assistant Professor','assets/images/faculty/shahid-rizwan-safir.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["shahid-rizwan-safir","shahid-rizwan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1612',0),
+(923,'muhammad-usman','Muhammad Usman',NULL,'Ophthalmology','Assistant Professor','assets/images/faculty/muhammad-usman.jpeg',0,1,'["MBBS","FCPS Ophthalmology","FCPS Vitreo Retina"]','["Assistant Professor (PMC) April 2024 till Date"]','["Cataract, Refractive and Retina Surgery"]','["Arif, M, Usman, M. MYOPIA: Increasing Prevalence in Children & Adolescents (Current Concept). Ophthalmology Update. 2017;12(2): 71-73","Arif, M, Usman, M. Convergence Insufficiency & its Relation to the Use of Cellular Phone. Ophthalmology Update. 2017;12(2): 87-89.","Babar MZ, Nawaz F, Ali A, Usman M, Munim A. Change in Axial Length and Astigmatism after Scleral Buckling in Patients of Rhegmatogenous Retinal Detachment. Pakistan Journal of Ophthalmology. 2024 Oct 1;40(4).","Babar MZ, Nawaz F, Munim A, Ali A, Usman M. Effectiveness of Temporary Keratoprosthesis in Vitreo-Retinal Surgeries. Pakistan Journal of Ophthalmology. 2025 Mar 30;41(2).","Erfira E, Febriandriani D, Farida N, Mahrunnisa F, Irawati NB, Hermawati L, Usman M. A Comparative Study of Academic Performance in Myopic Students With and Without Vision Correction. The Avicenna Medical Journal. 2025 Oct 14;6(1):12-6.","Assessment of Foveal Avascular Zone Size in Diabetic Retinopathy Using Optical Coherence Tomography Angiography (OCTA)"]','{"aliases":["muhammad-usman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1539',0),
+(924,'ibrar-hussain','Ibrar Hussain',NULL,'Ophthalmology','Professor','assets/images/faculty/ibrar-hussain.jpeg',0,1,'["MBBS","MCPS","FCPS Ophthalmology","FRCS","Fellowship in Oculoplastic surgery (England)"]','["Professor Ophthalmology and Oculoplastics"]','["Cataract, Squint, Ptosis, Lid surgeries, Orbital surgery, other oculoplastic procedures, Refractive surgery"]','["An original article on “Visual Outcome and Complications of Boston Keratoprosthesis: An Experience from North West Pakistan”. Published in Pak J Ophthalmol 2017, Vol. 33 No. 3:151- 158.","An original article on “Comparison of Changes in Intraocular pressure after Subtenon and Peribulbar Local Anaesthesia for Phacomulsification ”. Published in Pak J Ophthalmol 2017, Vol. 33 No.4.","An original article on “Role of Sub-Conjuctival Bevacizumab in Regression of Corneal Neovascularization”. Published in Pak J Ophthalmol 2014, Vol. 30 No. 2:99- 102.","An original article on “Cosmetic outcome outcome of Y-V medial canthoplasty in Blepharophimosis syndrome” published in JCPSP March 2013, Vol.22, No. 3; 151- 4.","An original article on “ Clinicopathological analysis of eyelid tumours in North West pakistan” published in JPMA Jan 2013, Vol. 63, No.1; 25-27.","An original article on “ Non viral Microbial Keratitis: Etiology, Clinical features and visual outcome” published in JCPSP March 2011, Vol.22, No. 3; 151- 4.","An original article on “Comparison of Efficacy of Ketrolac troethamine & Dexamethasone in reducing Postoperative Inflammation after Phacoemulsification & IOL implantation.” Published in Ophthalmology update 2011, Vol. 9(4); 78 – 81.","An original article on “Corneal Blindness, Keratoplasty and Visual out come”. Published in J. Med. Sci. January 2011, Vol. 19, No. 1: 12- 14.","An original article on “Basal Cell Carcinoma Presentation, Histopathological Features and Correlation with Clinical Behavior”. Published in Pak J Ophthalmol 2011, Vol. 27 No. 1:3- 7.","An original article on “Ophthalmoscopy- A useful but neglected skill by the Non-Ophthalmologist doctors”. Published in Pak Armed Forces Med J 2010; 60(4): 574-7.","An original article on “Microbial Keratitis: Predisposing Factors & Microbiological Review”. Published in Ophthalmology Update Vol. 8. No. 2, April-June 2010: 17- 20.","An original article on “A Study of 49 Fungal Keratitis Cases”. Published in Ophthalmology Update Vol. 8. No. 2, April-June 2010: 42- 44.","An original article on “Short term result of primary acrysof Hydrophobic Acrylic Foldable Intraocular Lens Implantation in children at primary children medical center university of Utah USA”. Published in Pak Armed Forces Med J 2009; 59(4): 508- 13.","An original article on “A Review of 144 Cases of Dacryocystorhinostomy”. Published in Pak J Ophthalmol 2009, Vol. 25 No. 2: 90- 3.","An original article on “Effect of 10\/0 Nylon Sutures on Post Operative Astigmatism”. Published in Ophthalmology Vol. 6. No. 2, April-June, 2008: 6- 9.","An original article on “Causes of amblyopia in children coming to ophthalmology department, Khyber Teaching Hospital Peshawar” Published in Journal of Pakistan Medical Association 2008;58:125-8","An original article on “Inpatient consultation services in Ophthalmology in a Teaching Hospital of North West Frontier Province, Pakistan”. Published in J. Med. Sci. January 2008, Vol. 16, No. 1: 16-19.","An original article on “Management of Traumatic Hyphema with Raised Intraocular Pressure”. Published in Pakistan Journal of Ophthalmology 2007, Vol. 23(4):217-20.","An original article on “Cosmetic outcome of three sutures levator aponeurosis tuck procedure in congenital ptosis”. Published in Journal of College of Physicians and Surgeons Pakistan 2006, Vol. 16(10): 652-4.","An original article on “Why enucleation and evisceration in endophthalmitis patients? What are risk factors?” Published in Journal of Medical Sciences 2006, Vol. 14(1): 48-50.","An original article on “Titrated Cyclocryopexy – A report on long term results” Published in Annals of King Edwards Medical College 2005, Vol. 11(4): 514-8.","An original article on “Causes of Infective Endophthalmitis in patients presented to Khyber Teaching Hospital Peshawar. Published in Pakistan Journal of Ophthalmology 2005, Vol. 21(4); 144-6.","An original article on “Visual outcome in infective endophthalmitis” published in Journal of Medical Sciences 2005, Vol. 13(2); 151-3.","An original article on “Visual outcome in patients with Uveitis and causes of poor visual outcome” published in Pakistan Journal of Ophthalmology 2003, Vol. 19 No. 2: 41-4.","An original article on “Visual outcome of cataract surgery in patients with uveitis” published in Pakistan Journal of Ophthalmology 2002, Vol. 18 No. 1:19-22.","A case report on “Acute retinal necrosis” which has been published in Pakistan Journal of Ophthalmology Vol: 3, No.3, 1997, p 81-83."]','{"aliases":["ibrar-hussain"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1710',0),
+(925,'mir-ali-shah','Mir Ali Shah',NULL,'Ophthalmology','Professor','assets/images/faculty/mir-ali-shah.jpeg',0,1,'["MBBS","MCPS. Ophthalmology","ICO (Cambridge)","FCPS Ophthalmology","Fellowship Retina (Netherlands)","MCPS-HPE"]','["Dean CPSP Faculty of Ophthalmology","Prof of Ophthalmology","HOD Vitreo Retina Peshawar medical college","General Secretary OSP KPK"]','["Cataract, Glaucoma, Squint, Refractive and Retina Surgery"]','["New trends in eye camp surgery. Asia Pacific Journal of Ophthalmology 1991; 1(2).","Presentation of childhood squint. J Postgrad Med Inst 2002; 16(2): 206 – 10.","Management of childhood squint. J Postgrad Med Inst 2003; 17(1): 57 – 61.","Congenital nasolacrimal duct obstruction at Agency Headquarter Hospital Batkhela, NWFP. J Postgrad Med Inst 2004; 18(3): 495 – 9","Macular hole surgery – ICG assisted ILM peeling compared with autologous platelets. Pak J Ophthalmol 2005; 21(1): 16-8.","Local anaesthesia for Dacryocystorhinostomy: Lidocaine vs Lidocaine plus Bupivacaine. Pak J ophthalmol2006;21(4):181-5.","Effectiveness of trabeculectomy in primary open. Angle glaucoma. J Postgrad Inst; 2007; 209 – 11.","Comparison of outcome of surgical procedures for Rhegmatogenous Retinal detachment. Pak Postgraduate Medical Journal. Vol 20.no 2 Apr-Jun 2009; 38-41.","Cataract Surgery in Tertiary Care Hospital, Audit of 1000 cases. Pak Postgraduate Medical Journal. Vol 20. No 3, July – Sept 2009; 80 – 2.","Penetrating Injuries in Children. Ophthalmology Update vol 7 No 4. Oct – Dec 2009; 18 – 20.","Direct Exchange of Silicone oil – A New Technique. Pak Postgraduate Medical Journal. Vol 21.no 1 Jan-Mar 2010; 2-4.","Role of Vitrectomy in Diabetic Vitreous haemorrhage. Ophthalmology Update Vol. 8. No. 3, July – Sept 2010; 34 – 6.","Microbial Keratitis. Ophthalmology Update Vol. 8. No. 3, July – Sep 2010; 49 – 51.","Pars plana Vitrectomy for Vitreous haemorrhage in Eales Disease. Ophthalmology Update vol 8. No 1. Jan – Mar 2010; 45 – 7.","Comparison between the success rate of Trabeculectomy with and without Mitomycin –C in the treatment of Glaucoma. Ophthalmology Update vol 9. No 1. Jan – march 2011; 10–4.","Visual outcome after Endolaser versus Cryopexy in Vitrectomy for Retinal detachment. Ophthalmology Update vol 11. No 2. April – June 2013; 103 –5.","Possibilities and effectiveness of topical anesthesia for simple corneal repair. Rawal Medical Journal 2014; 39(3):300-2.","Visual outcome & Complications of Scleral-fixation Posterior Chamber intraocular Lenses. Ophthalmology Update vol.13, No 2.April-June 2015; 75-8.","Recurrence of Retinal Detachment after Silicone Oil Removal. Ophthalmology Update vol.13, No 2.April-June 2015;110-2.","Effectiveness of Supratarsal triamcinolone injection in patients with vernal keratoconjuntivitis. Pak J Ophthalmol 2015. 31(2): 61-7.","Raised intraocular pressure and recurrence of retinal detachment as complication of external retinal detachment surgery. j ayub med coll abbotabad.2015;27(4):798-800.","Effectiveness of external dacryocystorhinostomy with small skin incision RMJ 2015: 40(1): 62-4.","Demograhic characteristics of cases with Intraocular Foreign body presented to a Tertiary care centre. Pak J Ophthalmol 2015; 31(1):22-6.","Effectiveness of wound closure and wound characteristics in External Dacryo cysto Rhinostomy using cynoacrylate glue.(n-butyl -2- cyboacrylate) for skin wound closure. Ophthalmology Update 2015; 13(4): 220-3.","Clinical and morphological characteristics of intraocular foreign body presented to a tertiary care centre of Khyber Pakhtunkhwa. Ophthalmology Update 2015; 13(4):258-61.","Changes of intraocular pressure in vitrectomised eyes after removal of silicone oil. j ayub med coll abbotabad.2016;28(2):327-30.","Frequency of complications of silicone oil used for internal tamponade in the treatment of retinal detachment. Pak J Ophthalmol 2017; 33(2): 74-8.","Location of retinal tears in ocular trauma. Ophthalmology Update 2017; 15(3):240-242.","The efficacy of dorzolamide plus timolol maleate in the treatment of primary open angle glaucoma presented to a tertiary care center of Khyber Pukhtonkhwa. Al-Shifa J Ophthalmol 2017; 13(2):79-85.","Frequency of different types of Manifest Strabismus in Children. Al-Shifa J Ophthalmol 2017;13(2):86-92 (Corresponding Author).","To determine the Refractive status in Albinism and Idiopathic Congenital Nystagmus at Hayatabad Medical Complex, Peshawar. Ophthalmology Update vol.16, No 1.Jan-March 2018; 455-8.","Comparison of Changes in Intraocular Pressure after Subtenon and Peribulbar Local Anaesthesia for Phacoemulsification Pak J Ophthalmol 2017; 33(4):223-6(corresponding author)."]','{"aliases":["mir-ali-shah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1164',0),
+(926,'aamir-zeb','Aamir Zeb',NULL,'Cardiac Surgery','Assistant Professor','assets/images/faculty/aamir-zeb.jpeg',1,1,'[]','[]','[]','[]','{"aliases":["aamir-zeb"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(927,'zaheer-babar','Zaheer Babar',NULL,'Ophthalmology','Senior Registrar','assets/images/faculty/zaheer-babar.jpeg',0,1,'["MBBS","FCPS Ophthalmology","FCPS (Retina)","ICO (London)"]','["Consultant Ophthalmologist, & Senior Registrar Peshawar Medical College Feb 2024- till date"]','["Cataract, Glaucoma, Squint, Refractive and Retina Surgery"]','["Currently Reviewer at Pakistan Journal of Ophthalmology","Clinical spectrum of Dengue Fever: A single center study. (International Journal of Pathology, 2018 Vol,16-4)","Efficacy of Torniquet Test in diagnosis of Dengue Fever (KJMS 2019 Vol,12-2)","Clinical Outcomes after ST Elevated Myocardial Infarction among Patients with Less Years of Education Treated with Fibrinolysis (Pak Heart J. 2019)","Frequency of Homocysteinemia in Ischemic Stroke Patients (JSMC-2019 Vol 9-2)","Change in Axial Length and Corneal Curvatures after Scleral Buckling in Patients of Rhegmatogenous Retinal Detachment (PJO-2024)","Effectiveness of Temporary Keratoprosthesis in Vitreo-Retinal Surgeries (PJO-2025)","Assessment of Foveal Avascular Zone Size in Diabetic Retinopathy Using Optical Coherence Tomography Angiography (OCTA)"]','{"aliases":["zaheer-babar","muhammad-zaheer-ullah-baber","zaheer-ullah-baber"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1869',0),
+(928,'hafeez-ur-rahman','Hafeez Ur Rahman',NULL,'Ophthalmology','Professor','',1,1,'["MBBS","FCPS (Ophthalmology)","ICO(UK)","AD-HPE AKU"]','["Professor & HOD (PMC) 2008- till Date","Dean\/Principal (PMC) 2025 till Date"]','["Cataract, Glaucoma, Squint Surgery"]','["Role of B-scan in preoperative diagnosis of posterior segment pathologies in cataract patients. Journal of Ophthalmology","Prevalence and mode of presentation of Vertical deviation in squint patients. Rawal Medical Journal","Role of YAG laser Iridotomy in the treatment of Primary Open Angle Glaucoma. Rawal Medical Journal","Prevalence of Cataract and FIMA initiative for its treatment in Sudan. Ophthalmology Update","Etiology of blindness in blind cricket teams of Pakistan.","Co Editor of Multiple FIMA year books."]','{"aliases":["hafeez-ur-rahman","hafeez-ur-rehman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','61',0),
+(929,'akhtar-hussain','Akhtar Hussain',NULL,'Orthopaedics','Assistant Professor','assets/images/faculty/akhtar-hussain.jpeg',0,1,'["MBBS","FCPS (ortho)"]','["7 (seven years)"]','["Trauma and sports surgery"]','["Rafi Ullah1, Akhtar Hussain2, Javed Iqbal3, Anwar Imran4, Sadaf Saddiq5, Naeem Ahmed6. Frequency of Union in Open Tibia Fractures treated with Unreamed Intramedullary Interlocking Nails. J Pak Orthop Assoc. 2020;32(2):","Hidayatullah, Saeed Ahmad, Akhtar Hussain, Femoral Shaft Fractures in children Age 1-5 years treated with single leg waking spica, our experience. JPOA: VOL.35 NO.2 (2023)","Akhtar Hussain, Saeed Ahmad, Khalid Iqbal, Ahmed Zeb, Rafiullah, Imran Afzal, Outcome of open tibial fracture using illizarov ring fixator. PJMHS, 3755, dec 2021","Shehr Yar Khan1,Farmanullah Khan2,Abdus Samad3,Akhtar Hussain4,Asadullah Jan5,Saeed Ahmad6 INCIDENCE OF DISLOCATION AFTER TOTAL HIP REPLACEMENT WITH METAL ON POLYETHYLENE SYSTEM. 70| BMC J Med Sci 2025","Akhtar Husain , Saeed Ahmad , Farmanullah Khan. Short-term Functional Outcomes of Partial Meniscectomy Among Middle-aged Patients. Advances in Basic Medical Sciences. Jan-June 2025 | Vol. 9 No. 1","ABBAS KHAN1, AKHTAR HUSSAIN2, AHMAD ZEB3, YASIR MEHMOOD4, FARMANULLAH5, ZAIN ULLAH6. Postoperative Infection in Arthroscopic ACL Reconstruction Using Hamstring Autograft. P J M H S Vol. 16, No. 11, November, 2022 487","ZULFIQAR ULLAH1, AHMADZEB2, AKHTAR HUSSAIN3, FARMANULLAH KHAN4, SHEHRIYAR KHAN5, MOHAMMAD SHOAIB KHAN. Mean Carrying Angle of Elbow in Children Less Than Ten Years of Age. P J M H S Vol. 16, No. 06, Jun 2022 751.","AHMAD ZEB1, FARMANULLAH KHAN2, AKHTAR HUSAIN3, MUHAMMAD SHOAIB KHAN4, SHEHRYAR KHAN5, KHALID IQBAL6. Accuracy of Mcmurry’s Test in Diagnosis Meniscal Tears. P J M H S Vol. 16, No. 04, APR 2022","Farmanullah Khan1, Abdus Samad2, Afsar Khan3, Akhtar Hussain4, Saeed Ahmad. Outcomes of proximal femoral nailing in adults treated for subtrochanteric femur fractures. Professional Med J 2025;32(12):1525-1730.","Hassan MU, Hassan W, Sattar A, Rafi Ullah, Hussain A. Outcome of infected non-union of long bone fractures of the lower limb using Ilizarov ring fixator. J Pak Orthop Assoc. 2020; 32(1):35-43.","Akef Obeidat, Abdal Ahmad, Mahmood Ul Hassan, Akhtar Hussain , Muhammad Abrar, Saeed Ahmad,SadiaQazi, Hidayat Ullah.Threaded Antibiotic-Coated Locking Nails in Osteomyelitis-Associated Long-Bone Non-Union: Short-Term Outcomes of a Prospective Cohort. Healthcare 2026, 14, 1091","AKHTAR HUSSAIN1, AHMADZEB2, SHEHRIYAR KHAN3, FARMANULLAH KHAN4, ABBAS KHAN5, KHALID WAZIR6Outcomes of Percutaneous Cross K-Wire Fixation for the Management of Supracondylar Displaced Fractures of Elbow in Children . P J M H S Vol. 16, No. 07, July 2022","Ahmad Zeb1, Farmanullah Khan2*, Sabir Khan khattak3, Akhtar Husain4, Shehryar Khan2 Muhammad Shoaib Khan5 and Khalid Iqbal4.Functional Outcome of Primary Total Hip Arthroplasty. OPROJ.000732.10(2).2022"]','{"aliases":["akhtar-hussain"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1362',0),
+(930,'mahmood-ul-hassan','Mahmood ul Hassan',NULL,'Orthopaedics','Professor','assets/images/faculty/mahmood-ul-hassan.jpeg',1,1,'["MBBS","FCPS (ortho)","MCPSHPE","POA fellowship in Arthroplasty"]','["19 (nineteen years)"]','["Trauma management, pain management ,Arthroplasty"]','["Open reduction and internal fixation in the management of late presented cases of displaced paediatric Supracondylar humorous fracture. Hassan MU, khan MS, Ullah K. J Pak Orthop Assoc. 2010; 22 (2)","Treatment of Nonunion of Long Bone Fractures with Surgical Implant Generation Network Nail. Hassan W, Atiq G, Hassan MU. Journal of Surgery Pakistan (International). 2013; 18 (2): 64-67.","Functional and radiological outcome of percutaneous pinning for fractures of distal radius Ghulam Atiq, Waqar Hassan, Ayub Nawaz Khan, Mahmood-ul Hassan Department of Orthopedics surgery, Mercy Teaching Hospital and Hayatabad Medical Complex, Peshawar Medical College, Peshawar, Pakistan","Functional and Radiological Outcome of Minimal Invasive Plate Osteosynthesis for Fractures of Tibia. Atiq G, Khan A, Hassan MU, Mahmood K. J Pak Orthop Assoc. 2014; 26 (2): 20-23.","Management of displaced Supracondylar humerus fracture in children by closed reduction and percutaneous pinning at Mercy Teaching Hospital, Peshawar, Pakistan. Hassan MU, Hassan W, Atiq G. Rawal Medical Journal.2015; 40 (2): 164-67.","Sattar A, Khan MA, Hassan MU, Shabbir M, Faisal Z. Comparison of efficacy of intra articular steroid injection versus hydrostatic shoulder distention in idiopathic frozen shoulder. Pak J Surg 2019; 35(3):250-56.","Sattar A, Shabbir M, Hassan MU, Ibrahim M, Inam M, Faisal Z. Effectiveness of hematoma block versus general anesthesia in close reduction of distal radius fractures. Pak J Surg 2019; 35(3):244-49.","Hassan MU, Hassan W, Sattar A, Rafi Ullah, Hussain A. Outcome of infected non-union of long bone fractures of the lower limb using Ilizarov ring fixator. J Pak Orthop Assoc. 2020; 32(1):35-43.","Naushin T, Khan MM, Ahmed S, Hassan MU, Iqbal F, Bashir N, Khan AS. DETERMINATION OF KI-67 EXPRESSION IN ORAL LEUKOPLAKIA IN SNUFF USERS AND NON-USERS IN KHYBER PAKHTUNKHWA PROVINCE OF PAKISTAN. Professional Med J 2020; 27(4):682-687.","Hassan W, Hassan MU, Rahman SU, NaeemUllah, Khan WM, Bukhari SI. Is Free Hand Technique for Pedicle Screw Insertion Safe in Setup Lacking Advance Navigation System? J Pak Orthop Assoc. 2021; 33 (1): 8-12.","Akef Obeidat, Abdal Ahmad, Mahmood Ul Hassan, Akhtar Hussain , Muhammad Abrar, Saeed Ahmad,SadiaQazi, Hidayat Ullah.Threaded Antibiotic-Coated Locking Nails in Osteomyelitis-Associated Long-Bone Non-Union: Short-Term Outcomes of a Prospective Cohort. Healthcare 2026, 14, 1091"]','{"aliases":["mahmood-ul-hassan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','465',0),
+(931,'saeed-ahmad','Saeed Ahmad',NULL,'Orthopaedics','Associate Professor','assets/images/faculty/saeed-ahmad.jpeg',0,1,'["MBBS","FCPS (ortho)","Fellowship in Paediatric Orthopaedic"]','["10 (ten years)"]','["Arthroplasty, paediartic orthopaedic"]','["Saeed Ahmad, Irfan Qadir, Jahanzeb Mazari and Amer Aziz; Non wedge Technique for Valgus Subtrochanteric Osteotomy in Pediatric Femoral Neck Non-union. Asian Journal of Orthopaedic Research 8 (3) 10-16, 2022.","Saeed Ahmad, Irfan Qadir, Atiq uz Zaman, Chiragh Muhammad Khan, Shahzad Javed, Naeem Ahmad and Amer Aziz; Capsular arthroplasty for neglected developmental dysplasia of hip. Journal of Orthopaedic Surgery. 2018 26(2) 1–5.","Saeed Ahmad, Haseeb Hussain, Ashfaq Ahmed, Rizwan Akram, Ijaz Ahmed, Shahzad Javed, Naeem Ahmad, Amer Aziz; COMPARISON OF THREE DOSES WITH SINGLE DOSE OF EPIDURAL STEROID INJECTION FOR LUMBAR RADICULAR PAIN. Professional Med J 2018;25(9):1323-1327.","Dr. Saeed Ahmad, Dr. Mohammad Ikram, Dr. Ashfaq Ahmed, Dr. Amer Aziz, Dr. Shahzad Javed, Dr. Naeem Ahmed, Dr. Ijaz Ahmed, Dr. Rizwan Akram, Dr. Atiq uz Zaman; Clinical and Radiological outcome of Tibio-talo-calcaneal Arthrodesis with Retrograde intramedullary SIGN Nail. Professional Med J 2016;23(10): 1227 1231.","Saeed Ahmad, Ashfaq Ahmed, Latif Khan, Shahzad Javed, Naeem Ahmed,Amer Aziz; COMPARATIVE ANALYSIS OF ANTERIOR KNEE PAIN IN TRANSPATELLAR AND MEDIAL PARAPATELLAR TENDON APPROACHES IN TIBIAL INTERLOCKING NAILING. J Ayub Med Coll Abbottabad 2016;28(4)","Hidayatullah, Saeed Ahmad, Akhtar Hussain, Femoral Shaft Fractures in children Age 1-5 years treated with single leg waking spica, our experience. JPOA: VOL.35 NO.2 (2023)","Akhtar Hussain, Saeed Ahmad, Khalid Iqbal, Ahmed Zeb, Rafiullah, Imran Afzal, Outcome of open tibial fracture using illizarov ring fixator. PJMHS, 3755, dec 2021.","Irfan Qadir, MBBS, Saeed Ahmad, FCPS, Atiq uz Zaman, FCPS, Chirag Muhammad Khan, FCPS, Shahzad Ahmad, FCPS, Amer Aziz, FRCS, FCPS. One-stage Hip Reconstruction for Developmental Hip Dysplasia in Children over 8 Years of Age. Hip Pelvis 30(4): 260-268, 2018","Ashfaq Ahmed, Saeed Ahmad, Kaleem Ullah, Atiq uz Zaman, Naeem Ahmed, Amer Aziz. Epidemiology of Paediatrics Fractures Admitted at Ghurki Trust Teaching Hospital. J Pak Ortho Assoc.. 2016; 28(1)","Dr. Waqar Alam , Dr. Faaiz Ali Shah, Ashfaq Ahmed, Dr. Saeed Ahmad, Dr. Abdullah Shah. TRADITIONAL BONESETTERS; FREQUENCY OF COMPLICATIONS WITH TREATMENT BY TRADITIONAL BONESETTER. Professional Med J 2016;23(6): 699 704.","Dr. Faaiz Ali Shah, Dr. Waqar Alam, Dr. Sikandar Hayat, Dr. Ashfaq Ahmed, Dr. Saeed Ahmad, Dr. Shahzad Javed, Prof. Dr. Amer Aziz. KEINBOCK’S DISEASE; METAPHYSEAL CORE DECOMPRESSION OF DISTAL RADIUS-A NOVEL TECHNIQUE TO TREAT. Professional Med J 2016;23(9): 1127-1131.","Shams-ur Rehman, Waqar Alam, Muhammad Siraj, Malik Javed Iqbal, Saeed Ahmed; Radiographic measurements of the distal radius in Pakistani population. Pak J Surg Jan - Mar 2016;32(1):338.","Waqar Alam, Roohulla Jan, Muhammad Imran Khan, Shams-ur Rehman, Faaiz Ali Shah, Saeed Ahmad; Our experience of dynamic hip screw fixation for intertrochanteric fracture of femur.Pak J Surg Jul - Sep 2015;31(3):200-3.","Ashfaq Ahmed, Rizwan Akram, Ammar Dogar, Saeed Ahmed, Shahzad Javed, Amer Aziz. Geriatric Fractures: An Experience At a Tertiary Care Hospital. Journal of Surgery Pakistan (International) 21 (3) July - September 2016","Ejaz Ahmad, Ashfaq Ahmed, Saeed Ahmad, Rizwan Akram, Shahzad Javed, Amer Aziz. Neurological outcome after anterior decompression and stabilization with cage in thoracolumbar caries spine. Pak J Surg 2016; 32(4):229-233.","Hamza Arshad, Ashfaq Ahmed, Latif Khan, Saeed Ahmad, Shahzad Javed, Amer Aziz. Comparative analysis of blood loss after total knee replacement in tourniquet and non-tourniquet group. Pak J Surg 2017; 33(1):74-78","Amer Aziz, Shahzad Javed, Ashfaq Ahmed, Ammar Dogar, Saeed Ahmad, Rizwan Akram, Qazi Muhammad Amin. ONE STAGE BILATERAL KNEE AND HIP ARTHROPLASTIES IN 42 YEARS OLD FEMALE. J Ayub Med Coll Abbottabad 2016;28(3).","Mudassar Nazar, Muhammad Shafiq, Ashfaq Ahmed, Saeed Ahmad, Shahzad Javed, Amer Aziz. Autologous Percutaneous Bone Marrow Injection in Long Bone Fractures with Delayed and Nonunion. Journal of Surgery Pakistan (International) 21 (1) January - March 2016"]','{"aliases":["saeed-ahmad"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1380',0),
+(932,'hidayat-ullah','Hidayat Ullah',NULL,'Orthopaedics','Assistant Professor','assets/images/faculty/hidayat-ullah.jpeg',0,1,'["MBBS","FCPS (ortho)"]','["9(Nine years)"]','["Trauma , sports surgery"]','["Threaded Antibiotic-Coated Locking Nails in Osteomyelitis-Associated Long-Bone Non-Union: Short-Term Outcomes of a Prospective Cohort. Healthcare 2026, 14, 1091.","Femoral Condyle Measurements in Anterior Cruciate Ligament Injury: 1 Tesla Magnetic Resonance Imaging Analysis. Pakistan Journal of Health sciences. March 2025 volume 3 issue 6","Normal Dimensions of Lateral Femoral Condyle in Pakistani Population, PAKISTAN JOURNAL OF MEDICINE AND DENTISTRY 2024, VOL. 13 (04)","Femoral Shaft Fractures in Children Age 1-5 Years Treated with Single Leg Walking Spica, Our Experience. JPOA Jun 2023","Radiological outcome of scaphoid nonunion treated with modified Matti-Russe technique. JPOA Dec 2020.","Role of Dynamization in Fracture Healing of Femoral Shaft Fracture Fixed with Interlocking Intramedullary Nail.JPOA Sep 2018.","Common complications of Ilizarov external fixator. Jan-Mar 2018 JPOA","Infective Organisms and their Changing Antibiotic Sensitivity Trends in Infections Occurring in Orthopaedics Implant Surgery. JPOA April 2018.","Peroneal Nerve Palsy Secondary to Prolonged Sitting or Squatting in Farm Workers. Ophthalmology update, Jan-Mar 2018","Outcome of fibular strut graft in neglected neck of femur fracture. JPOA July 2017.","Prevalence of back pain amongst general surgeons at tertiary care hospitals of Peshawar: (A cross sectional study). Ophthalmology update, jul-sep 2017.","Results of minimally invasive plate osteosynthesis in periarticular knee fractures. JPOA March 2017.","Outcome of ilizarov fixator in complex non-union of long bones. JPMA Nov 2015.","Early experience with ponseti technique in the management of CTEV in children less than 1 year of age. JPOA July 2015.","Evaluation of results of open reduction and internal fixation of acetabulum fractures. JMedSci. April 2015."]','{"aliases":["hidayat-ullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1637',0),
+(933,'abdul-hameed','Abdul Hameed',NULL,'Paediatrics','Assistant Professor (Pediatrics)','',0,1,'["MBBS","FCPS","CHPE"]','["Assistant Professor, Pediatrics MTH – January 2026 till date"]','[]','["Clinical Spectrum of Juvenile Idiopathic Arthritis in Children in Tertiary Care Hospital https:\/\/doi.org\/10.36283\/PJMD13-3\/004","Meningitis in Children Presenting With First-Time Fits And Fever https:\/\/doi.org\/10.36552\/pjns.v29i3.1152","Frequency of Celiac Disease in Pediatric Patients With Chronic Diarrhea. Cureus 17(5): e84428. doi:10.7759\/cureus.84428","Probiotics'' Effectiveness in Antibiotic-Induced Diarrhea. DOI: https:\/\/doi.org\/10.53350\/pjmhs2023175240"]','{"aliases":["abdul-hameed"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1773',0),
+(934,'rabbia-shaheen','Rabbia Shaheen',NULL,'Paediatrics','Assistant Professor (Pediatrics)','',0,1,'["MBBS","FCPS","CHPE"]','["Assistant Professor, Pediatrics MTH – 1st Oct 2025 till date"]','[]','["Frequency of Hypocalcemia in Breastfed Infants Presenting with Afebrile Fits PJMHS, Vol. 17, No. 5, May 2023 DOI: 10.53350\/pjmhs2023175486","Association of Iron Deficiency Anemia with Acute Illness BMC Journal of Medical Sciences, Published December 30, 2024 DOI: 10.70905\/bmcj.05.02.0429","Frequency of Meningitis in Neonates with Late-Onset Sepsis: A Cross-Sectional Study KJMS, Vol. 17, No. 3, July–September 2024 DOI: https:\/\/doi.org\/10.70520\/kjms.v17i3.537","Comparison of Efficacy of Azithromycin Versus Ceftriaxone in the Treatment of Enteric Fever PJMHS, Vol. 17, No. 3, March 2023 DOI: 10.53350\/pjmhs2023173432","Frequency of Thrombocytopenia in Plasmodium vivax Malaria Among Children PJMHS, Vol. 17, No. 3, March 2023 DOI: 10.53350\/pjmhs2023173476"]','{"aliases":["rabbia-shaheen"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1542',0);
+INSERT INTO `faculty_profiles` (`id`,`slug`,`name`,`department_slug`,`department_name`,`designation`,`photo`,`is_hod`,`is_public`,`qualifications_json`,`experience_json`,`skills_json`,`publications_json`,`extra_json`,`created_at`,`updated_at`,`emp_id`,`dept_override`) VALUES
+(935,'saffiullah','Saffi Ullah',NULL,'Paediatrics','Professor','',0,1,'["Mbbs(Peshawar)","MRCPCH(London)","MRCPS(Glasgow)"]','["Dr Saffi Ullah has more than two decade of clinical experience in the field of paediatrics including over 15 years of teaching and training doctors in paediatrics."]','["General paediatrics"]','["“Knowledge of safe swaddling practices among mothers of neonates visiting a tertiary-care hospital in a developing country”, Original article published in journal of Gandhara medical and dental science(JGMDS),Vol,10,No.2(2023)","“Evaluation of maternal knowledge and perceptions on neonatal jaundice(A hospital based survey)”, Original article published in Khyber journal of medical sciences(KJMS),Vol,13,No3,(2020)","“Assessment of maternal knowledge of world health organization recognized neonatal danger signs” ,Original article published in journal of postgraduate medical institute(JPMI),Vol.34,No1(2020)","“Anxiety among children 5-10 years of age visiting dental teaching hospitals in Peshawar city” ,Original article published in journal of Saidu medical college(J Saidu Med Coll Swat),Vol 9,No.2(2019)","“Awareness and acceptance of Rota virus vaccine among mothers of neonates attending Kuwait teaching hospital,Peshawar,Pakistan” ,Original article published in Khyber medical college journal(KMUJ),Vol 11,No.3(2019)","“Awareness and acceptance of human papilloma virus vaccine among medical students of Peshawar medical college”, Original article published in Khyber journal of medical sciences(KJMS),Vol,9,No3,(2016)","“To determine etiology of global developmental delay in young children”, Original article published in Khyber journal of medical sciences(KJMS),Vol,9,No2,(2016)","“Smith Lemli Opitz Syndrome: A case report”, case report published in Khyber medical university journal(KMUJ),Vol,7,No1,(2015)","“ Awareness of parents regarding the beta Thalassemia major disease”, Original article published in Khyber medical college journal(KMUJ),Vol,7,No2,(2015)","“A unique method of care of umbilical stump:Interesting similarity among practices in Africa and Asia”,Pictorial published in Journal of Ayub medical college(JAMC),Vol.27,No2(2015)","“If its itchy its scabies..Not always”, a case report published in Journal of postgraduate medical institute(JPMI),Vol.29,No3(2015)","“A study of the spectrum of presenting symptoms, diagnostic investigations, treatment and outcome of severe malaria in the admitted children of Kuwait teaching hospital, Peshawar” ,Original article published in Journal of postgraduate medical institute(JMPI),Vol 29,No.4(2015)","“Hypovitaminosis D in healthy students of a medical college”,Original article published in Khyber medical college journal(KMUJ),Vol 7,No.4(2015)"]','{"aliases":["saffiullah","saffi-ullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','521',0),
+(936,'saima-ali','Saima Ali',NULL,'Paediatrics','Professor','',1,1,'["MBBS","DCH(PK)","FCPS(Paediatrics,PK)","FRCPCH (UK)","MHPE(PK)","MRCPS(Glasgow)"]','["Dr Saima has 28 years of clinical experience in the field of pediatrics along with over 21 years of teaching and training."]','["Medical educationist","An author of multiple chapters in Two books of neonatology"]','["Mohammad Tahir, Faisal Raza Malik, Saima Ali, Zafarullah Kundi. “Chelation practices and iron overload in thalassemia major” ANNALS OF PIMS. July-Sep 2006, 2(3)148-152","“Transfusion transmitted HBV, HCV, and HIV infections in multi transfused patients of thalassemia major”. ANNALS OF PIMS. April-June 2007,3(2) 80-83","”Primary Nocturnal Enuresis in Pediatric Age group” Jouranal of Saidu Medical College. March 2007","Saima Ali, Tahir Chaudary, Qurat-ul-ain Naqvi.“Effect of maternal literacy on child health. Myth or reality” ANNALS OF PIMS. April-June 2011,7(2)100-103","“Role Of Pneumatic Lithotripsy In Pediatric Bladder Stones” KMUJ,April-June 2014; Vol. 6(2) 60-64","“Etiology and Postnatal Management of Prenatal Hydronephrosis: a Study of Two Teaching Hospitals of Khyber Pakhtunkhwa”, PJMR,2014; 53(2) 39-41","“Smith Lemli Opitz syndrome: a case report.KMUJ,2015;Vol 7(1).","“Efficacy of Gagne’s nine events of instructions in improving the performance of undergraduate final year students.” Advances in health professions education.2015;Vol 1(2).","“Parents’ awareness regarding the Beta thalassemia major disease”.KMUJ ,April-June, 2015;Vol 7(2)","Hypovitaminosis d in healthy students of a medical college. Khyber Med Univ J 2015; 7(4): 162-164.","A study of the spectrum of presenting symptoms, diagnostic investigations, treatment and outcome of severe malaria in the admitted children of kuwait teaching hospital, peshawar, pakistan. J Postgrad Med Inst 2015; 29(4): 288-93.","“Role of Spiritual Sentiments in improving the compliance of water intake in patients with urolithiasis”. J Relig Health. 2016 Jun 24. http:\/\/www.ncbi.nlm.nih.gov\/pubmed\/27342410","ATTITUDE OF NURSING STUDENTS TOWARDS E-LEARNING. Adv Health Prof Educ. 2016;2(1):24-29","Effectiveness of various teaching methodology in developing clinical reasoning skill in undergraduate female medical students. Khyber Med Univ J 2018;10(2):71-75. DOI: https:\/\/doi.org\/10.35845\/kmuj.2018.17766","Effectiveness of Direct Observation of Procedural Skills (DOPS) in Postgraduate Training in Urology at Institute of Kidney Diseases, Peshawar. Journal of the College of Physicians and Surgeons Pakistan 2019, Vol. 29 (6): 516-519. https:\/\/jcpsp.pk\/archive\/2019\/Jun2019\/06.pdf","Design, development & Validation of an assessment tool for undergraduate Medical students of community health. Vol. 16 No. 03 (2022): Pakistan Journal of Medical & Health Sciences https:\/\/pjmhsonline.com\/index.php\/pjmhs\/article\/download\/593\/588\/613"]','{"academic_roles":["Head of department and professor of pediatrics","Focal person and lead facilitator for conducting neonatal resuscitation courses of Khyber Pakhtunkhwa"],"books":["Pakistan Neonatal Resuscitation Manual (one among eight authors, national and international)"],"book_chapters":["National Guidelines for Small & Sick New born Care At Primary & Secondary Healthcare Facilities In Pakistan"],"aliases":["saima-ali"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','54',0),
+(937,'shazia-aurangzeb','Shazia Aurangzeb',NULL,'Paediatrics','Professor','',0,1,'["MBBS","MCPS","FCPS"]','["HOD Pediatrics MTH – July 2019 till Date.","Training and supervising trainees since July 2018 till date."]','[]','["Clinical feature, etiological factors, neurological imaging and outcome in children with ischemic Stroke. ( Pakistan journal of neurological surgery Vol 14, No 1, Jan. –Jun., 2010 )","Risk factors of epilepsy in children( KJMS Volume 6 January – June, 2013 Number 1)","To determine etiology and outcome of infantile hydrocephalus.( KJMS Volume 6 January – June, 2013 Number 1)","To determine the etiology of global developmental delay in young children.( KJMS Volume 9 May – August, 2016 Number","Association between iron deficiency anemia and febrile seizures.( JPMI Vol 30 No 4 2016)"]','{"aliases":["shazia-aurangzeb"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','226',0),
+(938,'hameed-ullah','Hameed Ullah',NULL,'Paediatrics','Assistant Professor','',0,1,'["MBBS","MRCPCH","MRCPS"]','["8 years"]','["Pediadiatric medicine and clinical teaching"]','[]','{"aliases":["hameed-ullah","hameedullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','938',0),
+(939,'imtiaz-khan','Imtiaz Khan',NULL,'Paediatrics','Senior Registrar','assets/images/faculty/imtiaz-khan.jpeg',0,1,'["MBBS","MCPS","CHPE"]','["18 Years"]','["Diagnosis and management of common and complex child illnesses","Basic and advanced life support","Clinical decision making and problem solving"]','["Hypovitaminosis D In Healthy students of a Medical College","If It’s Itchy, Its Scabies ... Not Always"]','{"aliases":["imtiaz-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1707',0),
+(940,'ahmad-arsalan-tahir','Ahmad Arsalan Tahir',NULL,'Surgery','Associate Professor','assets/images/faculty/ahmad-arsalan-tahir.jpeg',0,1,'["MBBS","FCPS","FRCS"]','["8 years"]','["Laparoscopic hepatobiliary surgery and GI oncology"]','["Causes and Management of Blunt Liver Trauma in a tertiary Care Hospital in Peshawar","Consenting practice for Post-Operative Diarrhea in patients undergoing Laparoscopic Cholecystectomy needs attention","Outcomes of Lateral Pancreatojejunostomy in patients with Chronic Pancreatitis","Role of Minimally Invasive Surgery (Laparoscopic Surgery) in the Management of Acute Abdomen","Socioeconomic, Laboratory and Associated Factors in Patients Suffering from Acute Appendicitis","Accuracy of C-Reactive Protein Level in the Diagnosis of Acute Appendicitis on Histopathology","To compare outcome of open versus Laparoscopic repair for primary Ventral Hernias","Does a subcuticular non-absorbable skin suture give better outcome than clips in elective open colorectal surgery?","Histopathological patterns of breast diseases in females presenting to a tertiary care hospital in Peshawar","Correlation Between Body Mass Index and Fibroadenoma","Histopathological findings in clinically diagnosed acute appendicitis patients in tertiary care hospital in Peshawar","A Comparative study between closed and open Hemorrhoidectomy in terms of surgical site infection","Single incision laparoscopic surgery in cholecystectomy: current trends and challenges","Deep venous thrombosis prophylaxis, standards and practice","Clinical outcomes of compression along with ultrasound guided foam sclerotherapy in the management of venous ulcers: A prospective study at tertiary care hospital Peshawar","Comparison of the outcomes of On-Lay and Sub-Lay mesh repair in patients with ventral abdominal wall hernias"]','{"aliases":["ahmad-arsalan-tahir"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1153',0),
+(941,'ambareen-subhan','Ambareen Subhan',NULL,'Surgery','Assistant Professor','',0,1,'["MBBS","FCPS"]','["Currently doing Fellowship in Breast surgery (Breast unit) 11\/August\/2025- till date"]','["ATLS instructor at CPSP","Fellowship in Breast Surgery"]','["Nasir Bakhtiar, M.T., Ullah, S., Subhan, A., Azeem, S.M.I. and Tahir, A.A., 2025. DEEP VENOUS THROMBOSIS PROPHYLAXIS, STANDARDS AND PRACTICES.: JPUMHS; 2025: 15: 01,119-128. http:\/\/doi. org\/10.46536\/jpumhs\/2025\/15.01. 605. Journal of Peoples University of Medical & Health Sciences Nawabshah.(JPUMHS), 15(01), pp.119-128.","Tahir, A.A., Ullah, Z., Ishfaq, M., Ahmad, Z., Subhan, A. and Ihtesham, A., 2023. HISTOPATHOLOGICAL FINDINGS IN CLINICALLY DIAGNOSED ACUTE APPENDICITIS PATIENTS IN TERTIARY CARE HOSPITAL OF PESHAWAR.: http:\/\/doi. org\/10.46536\/jpumhs\/2023\/13.03. 450. Journal of Peoples University of Medical & Health Sciences Nawabshah.(JPUMHS), 13(3), pp.72-75.","Ullah S, Tahir AA, Ishfaq M, Bakhtiar N, Subhan A, Farooq M. CLINICAL OUTCOMES OF COMPRESSION ALONG WITH ULTRASOUND GUIDED FOAM SCLEROTHERAPY IN THE MANAGEMENT OF VENOUS ULCERS: A PROSPECTIVE STUDY AT TERTIARY CARE HOSPITAL, PESHAWAR.: JPUMHS; 2024: 14: 04, 41-49. http:\/\/doi. org\/10.46536\/jpumhs\/2024\/14.04. 559. Journal of Peoples University of Medical & Health Sciences Nawabshah.(JPUMHS). 2024 Dec 31;14(4):41-9.","Tahir AA, Subhan A, Bakhtiar N, Ishfaq M, Farooq M, Tayyeb M. Comparison of the Outcomes of On-Lay and Sub-Lay Mesh Repair in Patients with Ventral Abdominal Wall Hernias: On-Lay and Sub-Lay Repair in Ventral Hernias. Pakistan Journal of Health Sciences. 2025 Apr 30:215-20.","Nasir Bakhtiar MT, Subhan A, Tahir AA. Outcomes of Lateral Pancreaticojejunostomy in Patients with Chronic Pancreatitis. Pain.;51:79-.","Hussain F, Subhan A. Papillary neoplasm on core biopsy camouflaging high-grade invasive ductal carcinoma in a male breast: a case of histological underestimation. Surgery. 2026 Apr 7;90(1):8-.","Subhan A, Hussain F. The masked lobular carcinoma: Triple-positive invasive lobular carcinoma of the male breast with discordant core biopsy findings. Surgery. 2026 Jul 27;90(2)."]','{"aliases":["ambareen-subhan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1701',0),
+(942,'ijaz-ahmad','Ijaz Ahmad',NULL,'Surgery','Professor','',0,1,'["MBBS","FCPS"]','["25 Years"]','[]','[]','{"aliases":["ijaz-ahmad"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1285',0),
+(943,'muhammad-asad','Muhammad Asad',NULL,'Surgery','Senior Registrar','assets/images/faculty/muhammad-asad.jpeg',0,1,'["MBBS","FCPS"]','["11 Years"]','["Laparoscopic, GI and hepatobiliary oncology"]','["A Comparative Study of Predictive Models for Postoperative Pancreatic Fistula: Assessing the Pancreatic Fistula Risk Score and Duct-to-Parenchyma Ratio in cohort of Pakistani population. Asad Ullah Khan, Syed Irfan Kabir et all. current status: (Accepted for publication in Journal of cancer and allied specialty)","Initial Experience of Pancreaticoduodenectomy in a Newly Developed Hepato- Pancreato-Biliary Unit Serving in a Lower-Middle-Income Country. J Cancer Allied. Neelma, Azwa Rashid, Muhammad Waqas, Muhammad Hammad Ur Rehman","Early Postoperative Complications and Surgical Anatomy After Ileostomy Reversal Among the Population of Khyber Pakhtunkhwa, Pakistan. Asad Ullah Khan, Muhammad Haris, Maaz Rehman et all. Cureus 13(11): e19660. DOI 10.7759\/cureus.19660","A role for arthropods as vectors of multidrug resistant Enterobacterales in surgical site infections from South Asia. Brekhna Hassan, Muhammad Ijaz, Asad Ullah Khan et all. https:\/\/doi.org\/10.1038\/s41564-021-00965-1","Causes and Management of Blunt Liver Trauma in a Tertiary Care Hospital in Peshawar. Asad Ullah Khan, Kamran Ahmad, Abeer Jehanzeb Khan, Nasir Bakhtiar, Ahmad Arsalan Tahir et all. DOI: https:\/\/doi.org\/10.54393\/pjhs.v3i05.197","To compare outcome of open versus laparoscopic repair for primary ventral hernias. Sahibzada Saifullah Khalid, Baharul Amin, Ahmad Arsalan Tahir, Asad Ullah Khan et all. DOI: https:\/\/doi.org\/10.53350\/pjmhs22168475","Role of Minimally Invasive Surgery (Laparoscopic Surgery) in the Management of Acute Abdomen. Nasir Bakhtiar, Muhammad Tayyeb, Ahmad Arsalan Tahir, Tufail Ahmad, Muhammad Ishfaq, Asadullah Khan. DOI: https:\/\/doi.org\/10.53350\/pjmhs221610553","Accuracy of C-Reactive Protein level in the diagnosis of acute appendicitis on Histopathology. Asad Ullah Khan, Maaz Rehman, Muhammad Ishfaq, Habibullah Yousafzai et all. DOI: https:\/\/doi.org\/10.53350\/pjmhs20221612696"]','{"aliases":["muhammad-asad","asad-ullah-khan","asadullah-khan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1606',0),
+(944,'muhammad-ibqar-azeem','Muhammad Ibqar Azeem',NULL,'Surgery','Associate Professor','assets/images/faculty/muhammad-ibqar-azeem.jpeg',0,1,'["MBBS","FCPS","CHPE","CHR"]','["10 Years and 6 months as Clinician, Teacher (UG\/PG), Supervisor, Researcher, Academician, Administrator"]','["CPSP Surgery Supervisor"]','["Identifying risk factors for gallstones in postpartum women: A case–control study from a tertiary care setting of Peshawar","DEEP VENOUS THROMBOSIS PROPHYLAXIS, STANDARDS AND PRACTICES.","The prevalence of post-operative Seroma formation after Ventral Hernia Repair in patients using Abdominal Binder versus not using Abdominal-Binder","COMPARISON OF POSTOPERATIVE PAIN INDESARDA VS LICHTENSTEIN MESH REPAIR IN THETREATMENT OF INGUINAL HERNIAS","Exploring Association of Anemia with Diabetic Foot Ulcer and its Impact on Disease Outcome in a Tertiary Care Hospital","Comparison of mean hospital stay and mean time for first passage of first flatus in patients having post-operative nasogastric intubation with no intubation after small bowel anastomosis","Comparison of drain versus no-drain strategy inThyroidectomy","Early Outcomes of Laparoscopic Sleeve Gastrectomy (LSG) in Morbidly Obese Patients","Comparison of the Outcomes of Laparoscopic Approach with Open Method for Primary Ventral Hernia Repair","Frequency of early complications of laparoscopic sleeve gastrectomy, using four ports, for morbidly obese patients in population of Khyber Pakhtunkhwa province, Pakistan","Primary anastomosis versus colostomy in patients with penetrating colonic injuries: A comparative study","Splenic injury in blunt abdominal trauma","Common intra-abdominal pathologies on diagnosticlaparoscopy among patients with non-acute abdominal pain"]','{"aliases":["muhammad-ibqar-azeem","sheikh-muhammad-ibqar-azeem","ibqar-azeem"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','985',0),
+(945,'muhammad-ishfaq','Muhammad Ishfaq',NULL,'Surgery','Assistant Professor','assets/images/faculty/muhammad-ishfaq.jpeg',0,1,'["MBBS","FCPS"]','["6 Years"]','["Laparoscopic Surgery","Bariatric Surgery","Micro surgical procedures for male factor sub fertility"]','["Laparoscopic transperitoneal adrenalectomy: The gold standard treatment","Frequency of Gall Bladder Carcinoma after Cholecystectomy Done for Symptomatic Gall Stone Disease in Tertiary Care Hospital of Peshawar.","Role of Minimally Invasive Surgery in the Management of Acute Abdomen.","Accuracy of C-Reactive proteins level in the diagnosis of acute appendicitis on histopathology.","Histopathological findings in clinically diagnosed acute appendicitis patients in tertiary care hospital Peshawar."]','{"aliases":["muhammad-ishfaq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1482',1),
+(946,'muhammad-shoaib','Muhammad Shoaib',NULL,'Surgery','Assistant Professor','assets/images/faculty/muhammad-shoaib.jpeg',0,1,'["MBBS","FCPS","FMAS","CHPE"]','["Assistant Professor General Surgery, Mercy Teaching Hospital, Peshawar (Sep 2024 - Present)"]','["Open Surgery","Minimally Invasive Surgery","Perioperative Care","Bariatric & Metabolic Surgery","Endocrine Surgery","Team leadership, OR management, and teaching residents","Evidence-based practice and adherence to surgical safety protocols"]','["Article titled “Compare the outcomes of laparoscopic appendectomy versus conventional open appendectomy” published in reputable journal in 2020. http:\/\/www.medforum.pk\/index.php?id=31827-compare-the-outcomes-of-laparoscopic-appendectomy-versus-conventional-open-appendectomy","Article titled “Compare laparoscopic appendectomy versus  open appendectomy in terms of surgical site infection” published in reputable journal in 2021. http:\/\/pjmhsonline.com\/publishedissues\/2021\/august\/82375","Article titled “Incidence of primary complications after modified radical mastectomy in breast cancer ” published in reputable journal in 2022. https:\/\/pjmhsonline.com\/index.php\/pjmhs\/article\/view\/561","COMPARISON OF GALL BLADDER REMOVEL WITH AND WITHOUT ENDOBAG DURING LAPAROSCOPIC CHOLECYSTECTOMY IN TERM OF PORT SITE INFECTION in Journal of population therapeutics and pharmacology https:\/\/www.jptcp.com\/index.php\/jptcp\/article\/view\/3533"]','{"aliases":["muhammad-shoaib","shoaib-muhammad"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1781',0),
+(947,'muhammad-tayyeb','Muhammad Tayyeb',NULL,'Surgery','Professor','assets/images/faculty/muhammad-tayyeb.jpeg',1,1,'["MBBS","FCPS"]','["20 Years"]','["Laparoscopic hepatobiliary surgery and GI oncology"]','["Nasir Bakhtiar, Muhammad Tayyeb, Ahmad Arsalan Tahir, Tufail Ahmad, Muhammad Ishfaq, Asadullah Khan. Role of Minimally Invasive Surgery (Laparoscopic Surgery) in the Management of Acute Abdomen. PJMHS 2022 Oct, 16 (10): 553-55","Nasir Bakhtiar, Muhammad Tayyeb, AmbareenSubhan, Ahmad Arsalan Tahir. Outcome of Lateral Pancreatojejunostomy in Patients with Chronic Pancreatitis. JSMDC 2024 June; 10(01):33-37.","Tayeb M, Rauf F, Bakhtiar N .Safety and Feasibility of Laparoscopic Cholecystectomy in Acute Cholecystitis. J Coll Physicians Surg Pak. 2018 Oct; 28(10):798-800.","Tayeb M, Rauf F, Ahmad K, Khan FM. Is it necessary to submit grossly normal looking gall bladder specimens for histopathological examination? Asian Pac J Cancer Prev. 2015; 16(4): 1535-8","Tayeb Mohammad, Khan Muhammad R, Riaz Nazia. Laparoscopic cholecystectomy in cirrhotic patients: Feasibility in a developing country. Saudi J Gastroenterology Year : 2008 | Volume : 14 | Issue : 2 | Page : 66-69","Tayeb M, Raza SA, Khan MR, Azami R. Conversion from laparoscopic to open cholecystectomy: Multivariate analysis of preoperative risk factors. J Post grad Med. 2005 Jan-Feb; 51(1):17-20, discussion 21-2.","Rajab Ali, Muhammad R. Khan, Turab Pishori, Mohammad Tayeb. Laparoscopic Appendectomy for acute appendicitis: Is this a feasible option for developing countries? Saudi J Gastroenterology; Year 2010 (Jan-March), volume 16, issue 1, page 25-28.","Riaz N, Khan M R, Tayeb M. Gallstone ileus: retrospective review of a single center’s experience using two surgical procedures. Singapore Med J 2008; 49(8) : 624","M Tayeb, R Khan, Z Sophie. Presentation and management of carotid body tumors. JPMA VOL53, 7; Jul 2003: 306-310.","K.M. Pal, Pashtoon Murtaza Kasi, Mohammad Tayyeb, S.M. Faisal Mosharraf and Zafar Fatmi. Clinical Study: Correlates of Morbidity and Mortality in Severe Necrotizing Pancreatitis. International Scholarly Research Network. (ISRN Surgery) Volume 2012, Article ID 215193, 5 pages. doi:10.5402\/2012\/215193","Shah RU, Khan FM, Javed M, Tayyeb M, Babar TS. Operability and Curative resection rate in gastric carcinoma: An experience at Peshawar, Pakistan. Gomal J Med Sci 2014; 12:72-5","Jamal A, Sarwar CM, Tayyeb M, Sadiq S. Minimally Invasive Laparoscopic Adrenalectomy in Pakistan. Department of Surgery, The Aga Khan University, Karachi, Pakistan. Internet Journal of Surgery Dec. 2005.Volume 7, Number 1. ISSN: 1528-8242.","Tayeb M, Khan FM, Rauf F, Khan MM. Phytobezoar in a jejunal diverticulum as a cause of small bowel obstruction: a case report. J Med Case Reports 2011 Sept, 27;5: 482.","Tayeb M, Khan FM, Rauf F. Situs inversus total is with perforated duodenal ulcer: a case report. J Med Case Reports 2011 Jul 3; 5:279","Comparison of the outcomes of On-Lay and Sub-Lay mesh repair in patients with ventral abdominal wall hernias","Deep venous thrombosis prophylaxis standards and practices.","Role of minimally invasive surgery (Laparoscopic surgery) in the management of acute abdomen","Outcomes of Lateral Pancreatojejunostomy in patients with Chronic Pancreatitis","Frequency of Gall Bladder carcinoma after cholecystectomy for symptomatic gallstone diseases in tertiary care hospital, Peshawar"]','{"aliases":["muhammad-tayyeb","mohammad-tayeb","muhammad-tayeb"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','56',0),
+(948,'bilal','Bilal',NULL,'Paediatrics','Senior Registrar','assets/images/faculty/bilal.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["bilal"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1923',0),
+(949,'shandana-bawar','Shandana Bawar',NULL,'Gynaecology & Obstetrics','Associate Professor','assets/images/faculty/shandana-bawar.jpeg',0,1,'[]','[]','[]','[]','{"aliases":["shandana-bawar"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1838',0),
+(950,'muzafar-ud-din-sadiq','Muzafar ud Din Sadiq',NULL,'Surgery','Professor','assets/images/faculty/muzafar-ud-din-sadiq.jpeg',0,1,'["MBBS","FRCS"]','["Professor of Surgery Peshawar Medical College & Allied Teaching Hospitals (Mercy, Kuwait and Prime) Peshawar, Pakistan (Since 01\/10\/2018-Till date)"]','["Open Surgery","Minimally Invasive Surgery","Perioperative Care","Bariatric & Metabolic Surgery","Endocrine Surgery","Team leadership, OR management, and teaching residents","Evidence-based practice and adherence to surgical safety protocols"]','["TOTAL PARENTERAL NUTRITION IN CRITICALLY ILL SURGICAL PATIENTS (Principal Author) JPMI – 1996; VOL 10 No. 1 84-88","GASTRIC CARCINOMA- AN EXPERIENCE OF 38 CASES (Principal Aurhor) JMS– 1996; VOL 6 No. 3 1-8","INTSTINAL TUBERCULOSIS- SURGICAL ASPECTS (Principal Author) JPMI-1996; VOL 10 No: 2 1-5","SPARAXIN IN THE TREATMENT OF CLEAN SURGICAL WOUNDS (Co-Author) JPMI- 1999; VOL 13 No. 2 73-77","FINE NEEDLE ASPIRATION BIOPSY AND CYTOLOGY IN THE DIAGNOSIS OF BREAST LUMPS (CO-Author) JPMI- 2000; VOL 14 No: 2 64-67","BILIARY ASCARIASIS- PRESENTATION AND MANAGEMENT (Principal Author) JMS","EFFICACY OF ALVARADO SCORING SYSTEM IN THE DIAGNOSIS OF ACUTE APPENDICITIS (Principal Author) JPMI-2002; VOL 16 No. 1 70-77","BACTERIOLOGY OF SURGICAL WOUND INFECTIONS (Co-Author) JMS July 2007; VOL 15 No:2 138-141","FREQUENCY OF HELICOBACTER PYLORI IN PATIENTS PRESENTING WITH PERFORATED PEPTIC ULCER (Co-Author) JPMI 2007 ; VOL 21 No. 1 25-30","FREQUENCY OF CARCINOMA GALL BLADDER IN PATIENTS UNDERGOING SURGERY FOR CHRONIC CHOLECYSTITIS WITH CHOLELITHIASIS (Co-Author) JMS Jan.2006; VOL 14 No. 1 26-29","SINGLE LAYER INTERRUPTED SERO-SUBMUCOSAL INTESTINAL ANASTOMOSIS (CoAuthor) JMS Jan 2006; VOL 14 NO. 1 10-13","FREQUENCY AND MANAGEMENT OF INTESTINAL TUBERCULOSIS; A HOSPITAL BASED STUDY (Co-Author) JPMI 2008; VOL 21 NO. 4 238-241","POSTOP NG DECOMPRESSION IS NOT WARRENTED IN ELECTIVE CLOSURE OF GUT STOMAS AND BILIOENTERIC ANASTOMOSIS JPMI July\/Sept 2008; VOL 22 NO. 3 219-224","FREQUENCY OF ADHESION OBSTRUCTION FOLLOWING PREVIOUS LAPAROTOMY. AN EXPERIENCE AT LRH. Accepted for publication in JMS in Press."]','{"aliases":["muzafar-ud-din-sadiq","muzaffur-ud-din-sadiq","muzaffar-ud-din-sadiq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1185',0),
+(951,'salma-rehman','Salma Rehman',NULL,'Surgery','Associate Professor','assets/images/faculty/salma-rehman.jpeg',0,1,'["MBBS","MCPS","FCPS","CHPE"]','["Working as Associate Professor of Surgery in Mercy Teaching Hospital (From June 2019 till date)"]','["Open Surgery","Minimally Invasive Surgery","Perioperative Care","Bariatric & Metabolic Surgery","Endocrine Surgery","Team leadership, OR management, and teaching residents","Evidence-based practice and adherence to surgical safety protocols"]','["Effectiveness of GTN in the treatment of chronic anal fissure A.P.M.C Vol: 5 No. 2 July-December 2011","The Out-Come of lateral internal Sphincterotomy in patients with chronic Anal fissure Rawal Medical Journal. 2014; 39(1): 65-67","Polyneuropathy in a cohort of diabetic patients having symptoms of polyneuropathy using electro diagnostic procedure Published in : Pak Armed Forces Med J Apr – Jun 2011;61(2):262-5.","Frequency of incidental carcinoma in multi nodular goiter RMJ 2014; 39(3) 297-99","Comparison of Learning Styles among post graduates’ residents and full time specialty clinicians pursuing higher educational degrees Pakistan Armed Forces Medical journal Vol. 69No.4(2019): August","Comparison of post operative pain in Desarda vs Liechtenstein mesh repair in the treatment of inguinal hernias Gomal Journal of Medical Sciences October-December 2023, Vol. 21, No. 4"]','{"aliases":["salma-rehman","sahibzada-salma-rahman","sahibzada-salma-rehman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','562',0),
+(952,'shahid-ullah','Shahid Ullah',NULL,'Surgery','Assistant Professor','assets/images/faculty/shahid-ullah.jpeg',0,1,'["MBBS","FCPS","CHR"]','["Assistant professor surgery Mercy Teaching Hospital Peshawar from may 2020 till date"]','["Open Surgery","Minimally Invasive Surgery","Perioperative Care","Bariatric & Metabolic Surgery","Endocrine Surgery","Team leadership, OR management, and teaching residents","Evidence-based practice and adherence to surgical safety protocols"]','["W Mabood, S Afridi, A Hamza, I Azeem, S Khalil. Comparison of drain versus no-drain strategy in Thyroidectomy. Pak J Surg 2022; 38(2):76-81","Hussain A, Azeem SMI, Ullah I, Ahmad S, Khan MF, Shahzad M. Prevalence, distribution and determinants of intestinal tuberculosis in adult indoor patients with acute small intestinal obstruction in population of Peshawar Division, Pakistan. Gomal J Med Sci 2020 Jul-Sep; 18 (3):107-15. https:\/\/doi.org\/10.46903\/gjms\/18.03.832","Jan WA,Gul-e-Lala, Khan AR, Aslam V, Khan SM, Ahmad SU role of endotrainers in laparoscopic surgical training of young surgeons, J. Med. Sci. (Peshawar, Print) October 2014, Vol. 22, No. 4: 185-188","F Salam, E Ahmad, SU Ahmad, D Arsalan, Y Maqsood, MA Ansari. A clinical review of presentation and diagnosis of cervical lymphadenopathy and its relationship neck tuberculosis. Pak J Surg 2020; 36(2):157-160","S Ahmad, K Ullah, SMI Azeem, A Hussain, M Shahzad, V Aslam, Primary anastamosis versus colostomy in patients with penetrating colonic injuries: A comparative study, Pak J Surg 2020; 36(3):208-211","MUMTAZ N, JAN WA, AHMAD SU, ASLAM V, KHAN S, IKRAM M, Early Experience with Laparoscopic Inguinal Hernia Repair, J F J M C VOL.6 NO.1 JAN – MAR 2012"]','{"aliases":["shahid-ullah","shahid-ullah-ahmad"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1149',0),
+(953,'waleed-mahbood','Waleed Mahbood',NULL,'Surgery','Assistant Professor','assets/images/faculty/waleed-mahbood.jpeg',0,1,'["MBBS","FCPS","MRCS (UK)","FACS (USA)","CHPE","CHR","ATLS"]','["Assistant Professor General Surgery, Mercy Teaching Hospital, Peshawar (Oct 2025 - Present)"]','["Open Surgery","Minimally Invasive Surgery","Perioperative Care","Bariatric & Metabolic Surgery","Endocrine Surgery","Team leadership, OR management, and teaching residents","Evidence-based practice and adherence to surgical safety protocols"]','["EFFICACY OF PYODINE AND HYDROCOLLOID DRESSING IN DIABETIC FOOT INFECTIONS (Naeem M, Saeed T, Mabood W, Ahmad M, Waheed R. EFFICACY OF PYODINE AND HYDROCOLLOID DRESSING IN DIABETIC FOOT INFECTIONS. Journal Of Medical Sciences. 2019 Oct 7;27 (3):181-4.)","XANTHOGRANULOMATOUS CHOLECYSTITIS: A PSEUDO TUMOR SIMULATING GALLBLADDER CARCINOMA (Mabood W, Arshad W. XANTHOGRANULOMATOUS CHOLECYSTITIS: A PSEUDO TUMOR SIMULATING GALLBLADDER CARCINOMA. Journal Of Medical Sciences. 2019 Oct 7;27(3):239-41.)","PILONIDAL DISEASE: THE CHANGING TREND IN INCIDENCE BASED ON OCCUPATION (Naeem M, Mabood W, Imran M, Khattak I, Ahmad M. Pilonidal disease: The changing trend in incidence based on occupation. Pak. J. Surg. 2019;35(4):301-5. )","CLINICAL AND RESEARCH LABORATORIES IN PESHAWAR CITY OF KP PROVINCE: ANALYSIS OF BIO-SECURITY MEASURES PREDICTS INSECURITY (Asghar M, Asghar N, Rehman N, Naeem M, Khalid S, Samad A, Shumail H, Mabood W. Clinical and research laboratories in Peshawar city of KP Province: Analysis of bio-security measures predicts insecurity. Pak J Surg. 2019;35(4):306-10.)","CLINICAL PATTERNS OF BACTERIAL AND FUNGAL INFECTIONS IN DIABETIC PATIENTS (Rehman WM. Clinical patterns of bacterial and fungal infections in diabetic patients. Pak J Surg. 2019;35(4):275-77.)","PILONIDAL SINUS EXCISION UNDER LOCAL ANESTHESIA: A DAY CASE EXPERIENCE (Naeem M, Mabood W, Imran M, Waheed R, Ali S. PILONIDAL SINUS DISEASE EXCISION UNDER LOCAL ANESTHESIA: A DAY CASE EXPERIENCE. Journal Of Medical Sciences. 2020 Apr 21;28(1):21-4.)","MINI LAPAROTOMY CHOLECYSTECTOMY; MUSCLE SPLITTING VS MUSCLE DIVIDING INCISION; A RANDOMIZED STUDY (Naeem M, Mabood W, Waheed MR, Khattak IA, Mabood J, Urooj H. Mini Laparotomy Cholecystectomy; Muscle Splitting vs Muscle dividing Incision; A randomized study. J Med Sci 2020 April;28(2):181-184)","ABDOMINAL TUBERCULOSIS; CHALLENGES IMPOSED ON SURGEONS OWING TO IT’S VARIABLE PRESENTATIONS (Mabood W, Khattak IA, Arshad W, Mabood J, Nasarullah HM. Abdominal tuberculosis; Challenges imposed on surgeons owing to its variable presentations. Pak J Surg. 2020;36(4):286-91.)","Published as a hospital lead and collaborative author in “Journal of Associations of Anaesthesia” titled “TIMING OF SURGERY FOLLOWING SARS- COV-2 INFECTION: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111\/anae.15458)","Published as a hospital lead and collaborative author in “British Journal of Surgery” titled “SARS-COV-2 VACCINATION MODELLING FOR SAFE SURGERY TO SAVE LIVES: DATA FROM AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (DOI: 10.1093\/bjs\/znab101)","THE PATTERN OF COMPLICATIONS OF OPEN VS LAPAROSCOPIC CHOLECYSTECTOMY; A COMPARATIVE STUDY (Naeem M, Mabood W, Ali S, Khattak IA, Arshad W; The pattern of complications of open vs laparoscopic cholecystectomy. J Khyber Coll Dentistry. 2020;(4):44-48. )","THE IMPACT OF PANDEMICS ON SURGICAL RESIDENCY PROGRAM; A SURVEY IN TERTIARY CARE HOSPITALS OF PESHAWAR, PAKISTAN (Ali S, Ahmed F, Mabood W, Rehman FU. The impact of Pandemics on surgical residency Program; A survey in tertiary care hospitals of Peshawar, Pakistan. J Med Sci 2021 April;29(2):79-83 )","Published as hospital lead and collaborative author in “ Journal of Associations of Anaesthesia” titled “ EFFECTS OF PRE-OPERATIVE ISOLATION ON POSTOPERATIVE PULMONARY COMPLICATIONS AFTER ELECTIVE SURGERY: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111\/anae.15560)","RIPASA SCORE; IT’S SENSITIVITY, SPECIFICITY IN DIAGNOSING SUSPECTED ACUTE APPENDICITIS ( Khattak IA, Mabood W, Naeem M, Ali S, Khattak MAK Ripasa score;it’s sensitivity, specificity in diagnosing suspected acute appendicitis. J Saidu Med Coll Swat. 2021;11(3):151-6 )","Published as hospital lead and collaborative author in “ Journal of Associations of Anaesthesia” titled “SARS-COV-2 INFECTION AND VENOUS THROMBOEMBOLISM AFTER SURGERY: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111\/anae.15563)","COMPARISON OF DRAIN VS NO-DRAIN STRATEGY IN TOTAL THYROIDECTOMY (W Mabood, S Afridi, A Hamza, I Azeem, S Khalil. Comparison of drain vs no-drain strategy in total thyroidectomy. Pak J Surg. 2022; 38(2):76-81)","DIAGNOSTIC ACCURACY OF ALVARADO AND APPENDICITIS INFLAMMATORY RESPONSE SCORE IN THE DIAGNOSIS OF ACUTE APPENDICITIS ( Paracha SA, Khattak IA, Mabood W, Afridi MKK, Saidal K, Jabeen M. Diagnostic Accuracy of Alvarado and Appendicitis Inflammatory Response Score in the Diagnosis of Acute Appendicitis. Med Forum 2022;33(8):44-48)","Published as collaborative author in LANCET titled “ELECTIVE SURGERY SYSTEM STRENGTHENING: DEVELOPMENT, MEASUREMENT, AND VALIDATION OF THE SURGICAL PREPAREDNESS INDEX ACROSS 1632 HOSPITALS IN 119 COUNTRIES” (DOI:https:\/\/doi.org\/10.1016\/S0140-6736(22)01846-3)","Published as a hospital lead and collaborative author in “British Journal of Surgery” titled “REDUCING THE ENVIRONMENTAL IMPACT OF SURGERY ON A GLOBAL SCALE: SYSTEMATIC REVIEW AND CO-PRIORITIZATION WITH HEALTHCARE WORKERS IN 132 COUNTRIES” ( https:\/\/doi.org\/10.1093\/bjs\/znad092)","COMPARISON OF POSTOPERATIVE PAIN IN DESARDA VS LICHTENSTEIN MESH REPAIR IN THE TREATMENT OF INGUINAL HERNIAS (Ullah K, Ahmad S, Azeem SMI, Mabood W, Rahman SS, Bakhtiar N. Comparison of postoperative pain in desarda versus Lichtenstein mesh repair in the treatment of inguinal hernias. Gomal J Med Sci 2023 Oct-Dec;21(4):245-9. https:\/\/doi.org\/1046903\/gjms\/21.04.1331)","Published as a hospital lead and collaborative author in LANCET titled “Access to and quality of elective care: a prospective cohort study using hernia surgery as a tracer condition in 83 countries” (https:\/\/doi.org\/10.1016\/ S2214-109X(24)00142-6)","DIAGNOSTIC ACCURACY OF FINE NEEDLE ASPIRATION CYTOLOGY IN PALPABLE BREAST LUMP TAKING HISTOPATHOLOGY AS GOLD STANDARD ( Ghazan S, Khan israr M, Ahmed Khattak I, Mabood W, Hussain N, Ghani A. Diagnostic Accuracy Of Fine Needle Aspiration Cytology In Palpable Breast Lump Taking Histopathology As Gold Standard. BMC J Med Sci. 2024;5(2):78-82.https:\/\/doi.org\/10.70905\/bmcj.05.02.0426)","THE PREVALENCE OF POST-OPERATIVE SEROMA FORMATION AFTER VENTRAL HERNIA REPAIR IN PATIENTS USING ABDOMINAL BINDER VERSUS NOT USING ABDOMINAL-BINDER (S Ahmad, SMI Azeem, KaleemUllah,W Mabood, SS Rehman, U Ullah.The Prevalence Of Post-Operative Seroma Formation After Ventral Hernia Repair In Patients Using Abdominal Binder Versus Not Using Abdominal-Binder . Pak J Surg. 2024; 40(1):64-67)","PREDICTORS AND EARLY OUTCOMES OF SURGICAL SITE INFECTIONS AFTER STOMA REVERSAL: A SECONDARY CARE HOSPITAL EXPERIENCE (Khattak IA, Paracha SA, Khan MI, Alam SI, Mabood W, Afridi MK. Predictors and early outcomes of surgical site infections after stoma reversal: a secondary care hospital experience. Gomal J Med Sci 2025 Jul-Sep;23(3):337-42. https:\/\/doi.org\/1046903\/gjms\/23.3.2018)","ASSESSMENT OF LONG-TERM CLINICAL OUTCOMES FOLLOWING LASER PROCTOLOGY AND CONVENTIONAL HEMORRHOIDECTOMY (Khan, M. N., Mabood, W., Rashed, M., Hussain, Y., Salman, M, & Saeeda. Assessment of longterm clinical outcomes following laser proctology and conventional hemorrhoidectomy. European Journal of Clinical Pharmacy. 2025. 7(1) 9241-9248)","ANATOMICAL BASIS AND ROLE OF TRANEXAMIC ACID IN PREVENTION OF SEROMA FORMATION AFTER VENTRAL HERNIOPLASTY: A COMPARATIVE CLINICAL STUDY ( Khan ZA, Salman M, Shah B, Saeeda, Mabood W, Jalal SZ. Anatomical Basis and Role of Tranexamic Acid in Prevention of Seroma Formation After Ventral Hernioplasty: A Comparative Clinical Study. \" CME J Ger Med, vol. 18, no. 6, 2026, pp. 509-514.)","Obesity as a Predictor of Postoperative Complications Following General Surgical Procedures. Khan, S., Luqman, M., Khan, M. N., Afridi, U., Salman, M., & Mabood, W. (n.d.). Obesity as a predictor of postoperative complications following general surgical procedures. J Surg Radiol, V5 (4) 211-219"]','{"aliases":["waleed-mahbood","waleed-mabood"]}','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(954,'izhar-ali','Izhar Ali',NULL,'Urology','Senior Registrar (Pead’s Urology)','',0,1,'["FCPS Urology","Fellowship in Pead’s Urology"]','["4 Years"]','["Endourology & Pead’s Reconstructive Urology"]','["Predictors of Renal Scarring Following First Febrile Urinary Tract Infection in Children: A Prospective Cohort Study(https:\/\/geneticsmr.com\/index.php\/gmr\/article\/view\/2133)","Predictors of Testicular Salvage and Loss in Pediatric Testicular Torsion: A Systematic Review (https:\/\/www.jneonatalsurg.com\/index.php\/jns\/article\/view\/10449)","Comparative analysis of mini PCNL vs standard PCNL in terms of stone free rates, hospital stay and post-operative complications in pediatric population: A systemic review. (Gomel journal of medical sciences)","Pre and Post Mean Serum Prostatic Specific Antigen Levels after Transurethral Resection of the Prostate (TURP) in Patients with Benign Prostatic Hyperplasia","Comparative Analysis of Mean Hospital Stay in Patients Undergoing Percutaneous Nephrolithotomy (PCNL) With Versus Without Nephrostomy Tube. (journal of health and rehabilalitation research vol 4).","Analysis of Stenting versus Non-Stenting in patients undergoing Ureteroscopic Lithotripsy for management of Ureteric Calculi.(PJMHS vol 17).","“Frequency of complications of transurethral pneumatic lithotripsy in paediatric bladder stone disease” (International journal of endorsing health sciences research).","Comparison of Outcome (in terms of Side Effects) of Alpha Blockers versus Anticholinergic on Double J Stent Related Symptoms at Ayub Teaching Hospital, Abbotabad.","Association Between Overnight Smartphone Notifications and Day Time Sleepiness among Undergraduate Medical Students: A Multicenter Cross-Sectional Study (European Journal of Clinical Pharmacy).","“Short and Long Term Outcomes of Deflux Injection Versus Ureteral Reimplantation Paediatric Vesicoureteral Reflux: A Narrative Review” (Annals of Medicine and Surgery)"]','{"aliases":["izhar-ali"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','2029',0),
+(955,'mir-alam-jan','Mir Alam Jan',NULL,'Urology','Professor','assets/images/faculty/mir-alam-jan.jpeg',1,1,'["FCPS (Surgery)","FCPS (Urology)"]','["22 Years"]','["Reconstructive Urology"]','["Intrarvesical postgraduate instillation in acute Urinary retention in female JPMI, Vol.10, No 2,1996","Transurethral Resection Versus Transurethral Incision of the prostate JPMI Vol.21, No.1,March 2007.","Surgical Treatment of Vesicovaginal Fistula.An Audit of 69 cases. JPMI Vol 26 No.2 April-june 2012 3rd Author","Management of vesioivaginal Fistula-An experience with 32 cases.Annals of PIMS Vol,8(3) july-september 2012 1st Author (as Assistant Professor)","Outcome of urethroplasty in the Management of Traumatic Urethral Strictures. Journal of Medical; Sciences (Peshawar Print). January 2014,Vol 22,No.1. 1st Author is Assistant professor","Percutaneous Nephrostomy for the relief of upper ureneary tract obstruction. An experience with 200 cases. JPMI Vol 24 No 2 April-june 2010. 2nd Author","Radical Nephrectomy in the management of localized Renal carcinoma. Gomal journal of medical sciences Oct-Dec 2015, Vol.13 No.4. 1st Author as Associate Professor","Circumferential sub coronal deg loving incision for the Management of penile fracture.. KJMS Sep-Dec 2015. Vol 8, No.3 1st Author as associate professor."]','{"aliases":["mir-alam-jan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1047',0),
+(956,'bakht-jehan','Bakht Jehan',NULL,'Neurology','Assistant Professor','assets/images/faculty/bakht-jehan.jpeg',1,1,'[]','[]','[]','[]','{"aliases":["bakht-jehan"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1376',0),
+(957,'muhammad-hisham-naeem','Muhammad Hisham Naeem',NULL,'Urology','Senior Registrar (Urology)','assets/images/faculty/muhammad-hisham-naeem.jpeg',0,1,'["FCPS (Urology)"]','["9 Months"]','["Endourology"]','[]','{"aliases":["muhammad-hisham-naeem"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1992',0),
+(958,'adil-hussain','Adil Hussain',NULL,'Anaesthesia','Associate Professor','',0,1,'["MBBS","Diploma in Anaesthesia"]','[]','[]','[]','{"aliases":["adil-hussain"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','43',0),
+(959,'ahmed-usman','Ahmed Usman',NULL,'Pulmonology','Senior Registrar','assets/images/faculty/ahmed-usman.jpeg',0,1,'["MBBS","FCPS (Pulmonology)"]','["Senior Registrar, Pulmonology (Peshawar Medical College) {16 months experience}"]','[]','["Pharmacologic effects of nebulized furosemide as an adjunct therapy in mechanically ventilated COPD exacerbation patients","Prognostic value of arterial blood gases in predicting ICU mortality in patients under general anesthesia","Pattern of arrhythmias in hospitalized patients with COPD and their association with disease severity","A comprehensive audit on the management of acute exacerbation of COPD"]','{"aliases":["ahmed-usman","ahmad-usman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1920',0),
+(960,'fazli-maula','Fazli Maula',NULL,'Pulmonology','Professor','assets/images/faculty/fazli-maula.jpeg',1,1,'["MCPS (Chest diseases including TB)","FCPS (Pulmonology)"]','["Professor Pulmonology department Peshawar Medical College (2020- till date)"]','[]','["Histopathological pattern of bronchial biopsies in patients with suspected bronchogenic carcinoma.","Tobacco trends among medical and non-medical students.","Drug prescribing practices for upper respiratory tract infections among chest physicians, ENT surgeons, and general practitioners.","Histopathological patterns of lymph node biopsies in three teaching hospitals in Bannu.","Patterns of indications for flexible bronchoscopy in a tertiary care teaching hospital.","Frequency of side effects following H1N1 influenza vaccination.","Frequency of bronchial asthma in post-pulmonary tuberculosis patients.","Echocardiographic findings in COPD patients.","Prevalence of overweight and obesity among healthcare employees.","Spirometric findings in subjects presenting with dyspnea in Bannu District.","Frequency of coal workers'' pneumoconiosis in patients presenting to chest opd","Treatment Outcomes and Factors Impacting Unsuccessful Outcome Among Extrapulmonary Tuberculosis Patients"]','{"aliases":["fazli-maula"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1378',0),
+(961,'yasir-iqbal','Yasir Iqbal',NULL,'Medicine','Senior Registrar','assets/images/faculty/yasir-iqbal.jpeg',0,1,'["FCPS (Med)","MRCP","CHPE"]','["1 year experience at Mercy Teaching Hospital as SR"]','[]','["Comprehension Of Lifestyle Modification In Patient With Type 2 Diabetes Mellitus: A Kap Study","Risk Stratification, Intention To Fast, And Outcomes Of Fasting During Ramadan In People With Diabetes Presenting To A Tertiary Care Hospital","Antibiotic Sensitivity Pattern Among Diabetic Patients Admitted With Urinary Tract Infection","Comprehension Of Long-Term Medications In Patient With Type 2 Diabetes Mellitus: A Kap Study"]','{"aliases":["yasir-iqbal"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1979',0),
+(962,'nafees-ahmad','Nafees Ahmad',NULL,'Medicine','Senior Registrar','assets/images/faculty/nafees-ahmad.jpeg',0,1,'["FCPS MEDICINE","ECFMG CERTIFIED(USA)"]','["Two Year Senior Registrar In Medicine In MTH"]','[]','["1. Prevelance And Clinical Burden Of Cirrhosis In Patient Presenting With Upper Gastrointestinal Bleeding","2. Pervelance Of Electrolytes Abnormalities In Patient Presenting With Hepatic Encephalopathy","3. Gastric Pathologies And Helicobacter Pylori: A Correlative Study.","4. Efficacy And Safety Of Glp-1 Receptor Agonists In Obesity Management Among Otherwise Healthy Adults","5. Evaluation of Pleural fluid Adenosine Deaminase Activity and its Biochemical and Physiological Significance in the Diagnosis of Tuberculous Pleural Effusion Among Symptomatic Patients (ON GOING)"]','{"aliases":["nafees-ahmad","nafees-ahmed"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1845',0),
+(963,'bakht-biland-khan','Bakht Biland Khan',NULL,'Medicine','Professor','assets/images/faculty/bakht-biland-khan.jpeg',0,1,'["FCPS (Medicine)","FRCP (Edinburgh,UK)","CHPE"]','["Consultant Physician & Hepatologist Mercy Teaching Hospital (2007 – Present)"]','[]','["Wilson’s Disease – Clinical Profile","Air Pollution Caused by Automobiles (Project)","Comparison Between Spacer and Nebulizer in Acute Severe Asthma","Sweet’s Syndrome – Case Report","Hypomagnesemia – Case Report","Sister Mary Joseph Nodule in Abdominal Malignancy – Case Report","Incidence and Prevalence of Diabetes Mellitus in NWFP","Positivity of PCR in Suspected Cases of Tuberculosis","Prevalence of Hepatitis C Genotype in District Mardan","Assessment of Risk Factors and Clinical Presentation in Liver Cirrhosis (Pakistan)","PSG Activity Report (WGN August 2015)","Molecular Identification of Bacteria from Infected Wounds – Hayatabad Medical Complex","Risk Factors & Clinical Presentation in Liver Cirrhosis (Duplicate Study – Expanded Analysis)","Prevalence of Active HCV Infection & Genotypes in District Mardan","Applications of Nanomaterials for Health and Environmental Protection","Frequency of Bacterial Pathogens in Neonatal Sepsis & Antibiotic Sensitivity","Seroprevalence of HSV Antibodies in ICU Patients – Doctor’s Hospital Lahore","Frequency of Depression in Untreated Chronic Hepatitis C Patients","Multi-Drug Resistant E. coli in Clinical Isolates – Peshawar","Evaluation of Alpha-Fetoprotein in Chronic Hepatitis C (ELFA Method)","Molecular Identification of Bacteria in Diabetic Foot Patients – KTH Peshawar","Molecular Identification & Prevalence of HCV in Hemodialysis Patients","Association of SARS-CoV-2 with ABO Blood Groups – Systematic Review","Frequency of Depression in Untreated Chronic Hepatitis C (Extended Study)","Distribution of HCV Genotypes by Age & Gender – KP Pakistan","Evaluation of Remdesivir in Non-Hospitalized COVID-19 Patients","Prevalence of Iron Deficiency Anemia in School Children – District Bannu","Inflammatory Bowel Disease – Prevalence & Management at PIMS Islamabad","Impact of Hepatitis B & C on Labor Productivity in Pakistan","Economic Burden of Hepatitis B & C in Pakistan (Direct & Indirect Costs)"]','{"aliases":["bakht-biland-khan","bakht-biland"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','80',0),
+(964,'jehanzeb-afridi','Jehanzeb Afridi',NULL,'Medicine','Professor','assets/images/faculty/jehanzeb-afridi.jpeg',1,1,'["FCPS Medicine","CHPE"]','["Professor Medicine MTH August 2013 upto date"]','[]','["Vaccination and status against Hepatitis “B” in doctors working in Hayat Shaheed Teaching Hospital Peshawar. JPMI vol. 12, No.1, Peshawar Pakistan.","Pre & Post Intervention Blood Lead Level; Results from Arms and Ammunition Factory Workers in Darrah Adam Khel, NWFP. Dr. Zahoorullah Senior Research Center Khyber Medical College, Peshawar .Prof. Najib-ul-Haq Professor of Medicine, Khyber Medical College, Peshawar. Dr. Tasleem Akhtar Senior Research Officer, PMRC, Research Center Khyber Medical College, Peshawar. Dr. Zahid Hussain Assistant Professor Deptt. of Forensic Medicine Khyber Medical College, Peshawar. Dr. Jehan Zeb Afridi Register Medical Unit ‘D’ Khyber Hospital, Peshawar. Professional Vol 07. No. 03, Aug, Sep, 2000.","Risk of Hepatitis in Surgical Practice. Faiz ur Rehman, Najib-ul-Haq, Muhammad Humayun, Jehanzeb Afridi, JPMI vol16(2) 157-160---2002.","Virological response to conventional Interferon therapy combined with Ribavirin against various HCV Genotypes in Khyber Pakhtunkhwa, Pakistan. Sajid Ali,Bashir, Ahmad,Ijaz Ali, Nourin Mahmood, Naveed Anwar, Ilyas Saeedi, jehanzeb Afridi. Asian pacific journal of cancer prevention, vol 17, 2016.","Rate of Active Hepatitis B Virus Infection and Correlation of Hbeag and HBV DNA in Hbsag Positive Patients in Three Districts of Khyber Pakhtunkhwa. Sajid Ali 1* , Nourin Mahmood 1 , Bashir Ahmad 2 , Ibrar Ahmad 2 , Ijaz Ali 3 and Jehanzeb Afridi 4. Research & Reviews: Journal of Medical and Health Sciences e-ISSN:2319-9865 p-ISSN:2322-0104. RRJMHS| Volume 6 | Issue 2 | March, 2017","HCV prevalence in the volunteer blood donors in Peshawar, Khyber Pakhtunkhwa Sajid Ali*1 Nourin Mahmood1, Jehan Zeb Afridi2, Fazal Jalil1, Ihtisham Ul Haq1Izaz Ali1 Fazal Jalil1, Hamza Hameed1, Tanveer Ahmad1, Najeeb Ur Rehman3,Bashir Ahmad4. International Journal of Biosciences | IJB | ISSN: 2220-6655 (Print) 2222-5234 (Online) http:\/\/www.innspub.net Vol. 12, No. 4, p. 431-436, 2018","Epidemics of dengue virus in the recent outbreak in 2017, in District Mardan, Khyber-Pakhtunkhwa province of Pakistan Sajid Ali*1, Nourin Mahmood1, Jehan Zeb Afridi2, Bashir Ahmad3, Abdullah1, Misbahud Din1, Munib Ahmad1, Faisal Hayat Khan1, Fazal Jalil1 International Journal of Biosciences | IJB |ISSN: 2220-6655 (Print) 2222-5234 (Online) http:\/\/www.innspub.net Vol. 12, No. 3, p. 280-284, 2018.","SOFOSBUVIR RIBAVIRIN COMBINATION THERAPY RESPONSE IN CHRONIC HCV PATIENTS IN KHYBER PAKHTUNKHWA Jehanzeb Afridi 1, Nourin Mahmood2, Sajid Ali2*, Bashir Ahmad3, Fazal Jalil2, Rahem Sher2. J Med Sci 2018; 26: (3) 246-249","Real Time PCR Based Detection of Hepatitis C Virus Major Genotypes in Chronic HCV Patients in Khyber Pakhtunkhwa Nourin Mahmood1, Sajid Ali1, *, Jehanzeb Afridi2, Bashir Ahmad3, Ijaz Ali4and Fazal Jalil1 Jundishapur J Microbiol. 2018 December; 11(12):e80931.","Response of sofosbuvir in chronic hepatitis C patient in Khyberpakhtunkhwa. Jehanzeb Afridi1,Ziauddin2, Nourin Mahmood3, Sajid Ali3, Basher Ahmad4, Fazal Jalil 3, Ijaz Ali4,Najeebul Haq1 KJMS Septemer-December, 2019, Vol. 12, No.3","Frequency of Helicobacter pylori in Stool Specimens of Patients Suspected of Upper Gastrointestinal Symptoms in District Bunir Noor Muhammad1, Jehanzeb Afridi1, Nourin Mahmood2and Sajid Ali2, * Jundishapur J Microbiol. 2020 August; 13(8):e104471.Published online 2020 October 5. doi: 10.5812\/jjm.104471.Research Article"]','{"aliases":["jehanzeb-afridi","jehan-zeb","jehan-zeb-afridi"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','32',0),
+(965,'shafi-ullah','Shafi Ullah',NULL,'ENT','Professor','assets/images/faculty/shafi-ullah.jpg',1,1,'["MBBS","FCPS"]','["19 Years"]','["OTOLOGY.","Reconstructive surgery"]','["1.Hafeez M,Gul I,Shafiullah,Arif A.Microbiology and drug sensitivitypattern in CSOM in a Tertiary care hospital. JMed SCI24(4)2016.","Din I, Khan AR, Shafi Ullah, Khan W, Muhammad G Outcome of myringoplasty of graft success rate in patients with chronic otitis media. JMedSci.23(4).2016.","Outcome of posterosuperior based flaps in subtotal tympanic membrane perforations. Shafiullah, Muhammad Habib Khattak, Muhammad Salman Haider Qureshi JMed Sci. October 2016 Vol.24(4)","Microbiology and drug sensitivity pattern in chronic suppurative otitis media in a tertiary care hospital of KPK. Muhammad Hafeez, IslamGul, Shafiullah, Israr Ud Din, Asadullah Arif. JMed Sci. October 2016 Vol.24(4)","Dr. Muhammad Habib Khattak, M Asghar, Shafiullah, Usman Orakzai. Incidence of acute streptococcal pharyngitis (General of medical Sciences KMC Peshawar July 2015 Vol 23).","Dr. Habib Khattak, Farhan Salam, Naseem ul Haq, Shafiullah, Arif Raza Khan. Autografts in nasal septal surgery- Our experience. PGS, Karachi October – December 2023 Vol 3.","Muhammad Habib Khattak, Fazal Wahid, Ikram Ullah, Shafi Ullah. A management of peritonsillar ABSCESS (Annals of PIMS Islamabad vol. 7 April 2011)","MUHAMMAD SALEEM AFRIDI FAZAL-I-WAHID SAEED KHAN SHAFIULLAH. Nasal polyps - Clinical Profile and Management in a Tertiary Care Hospital. Journal of Fatima Jinnah medical College Lahore Vol. 6 issue 4 Oct- Dec,2012","MUHAMMAD SALEEM AFRIDI FAZAL-I-WAHID SAEED KHAN SHAFIULLAH An audit of pediatric Nasal foreign bodies studied at Lady Reading Hospital, Peshawar. Journal of Fatima Jinnah Medical college, Lahore Vol. 6, Issue 4 October – December 2012"]','{"aliases":["shafi-ullah","shafiullah"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','52',0),
+(966,'arif-raza-khan','Arif Raza Khan',NULL,'ENT','Professor','assets/images/faculty/arif-raza-khan.jpg',0,1,'["MBBS","FCPS","DHPE","CHPE"]','["39 Years"]','["ENDOSCOPIC SINUS SURGERY.","RHINOLOGY"]','["Shahabi I, Khan AR, Yousaf N.Removal of large Frontal Sinus Osteoma with unilateral osteoplastic flap Pak J Otolaryngol 1997, 13:87-8. Case Report","Khan AR. Treatment of Nasopharyngeal Carcinoma.JPMI:1999.13 (1) 10-12. Original Article.","Khan AR. Khan MU, Khan S, Khan,H, Non Malignant Osseous Tumors od Facial Skeleton. Pak J Otolaryngol.2000; 16:98-9. Original Article.","Arif S, Khan AR. Changes in Fibrinogen Level in Liver cirrhosis. JAMC.2002;14(2).19-21.","Rashid A, Khan AR. Yousaf N. Cholesterol Granuloma in Neck-A rara case. JPMI.1999, 13:147-9. Case Report.","Khan AR. Khan M, Khan S, Khan H. Treatment of Nasopharyngeal Carcinoma- Recent Advances. JPMI. 1999, 13:10-13. Review Article","Khan NS, Khan AR, Shahedin. Incidence of foreign bodies in tracheobronchial tree of Children. J Med Sci 2004, 12:08-10. Original Article.","Khan AR, Arif S. Actinomycosis in Neck Glands. JAMC. 16(2):84-6.","Khan AR, NS. Management of Whistle as a foreign body tracheobronchial tree. JPMI.2004, 18(4):602-6. Original Article.","Khan NS, Khan AR, Shahedin, Sattar F. Management of subglottic foreign body: a therapeutic challenge.JPMI.2004, 18(4):658-662. Original Article.","Hussain A, Yousaf N, Khan AR.Outcome of Myringoplasty.JPMI.2004, 18(4):693-95. Original Article.","Khan AR. Arif S. Ear Nose Throat injuries in children.JAMC.2005, 17(1): 54-6. Original Article","Hussain A Khan AR Frequency of intracranial Complications in Chromic Otitis Media. JAMC.2005, 17(1):75-7. Original Article","Hussain A, Yousaf N,Khan AR. Outcome of onlay pedicle skin flap and temporalis fascia sandwich graft in closure of tympanic membrane perforation. J.Med Sci.2005.13(2):165-67. Original Article","Hussain A, Yousaf N, Khan AR. Comparative Study of underlay and overlay techniques in closure of tympanic membrane perforation. J Med Sci. 2005. 13(1):40-3. Original Article","Khan AR, Haq NU, Ullah I, Din S, Khan NS. Causes and Complication of Ear, Nose and Throat Injuries in Children A Study of 80 Cases. JMS.2006. 14(1):57-60","Ullah I, Ali S,Ahmad N, Yousaf M.Khan AR. Complications of the Nasal Septa Corrective Surgery,. JMS,Jan 2007Vol 15(1).56-58.original Article","Ali F, Khan AR,Khan NS,Din S.Cervical Lvmphadewpathy Study of 100 Cases. JMS.July 2007. Vol 15(2),121-124,original Article","Khan AR , Jan A,Nawaz G, Zaman N . Adenoid Cystic Carcinoma of Larvinx. JCPSP,2006.16:669-17.Case Report.","Khan AR, Khan A,Ali f,Din S,Khan NS comparison between silk Ligatoion and Bipolar Cautry in Tonillectomy ,GJMS ,2007.5(1)13-16Original Article","Khan AR,Ali F Khan NS ,Din S, Using Comuter Technology in Teaching and Learning ,JMS,2008:16(2).84-86,Orignal Article","Din IK ,Rehman IU ,Rasool G,Khan AR,Din S. Intralesional Bleomvcin Therapy of Cystic Hygroma in Children. J Med Sci ,2008:16(2)-87-90 Original Article","Khan NS,Khan AR, Din S. Modified Radical Mastoidectomy ,Long Term Personal Experience . J Med Sci 2008:16(2);91-93 Original Article","Khan NS, Khan AR, Din S,Dawar A Frequency of Allergic Fungal Etiology of Chronic Rhino sinusitis . JPMI:2008,22(3).215-18.Original Article","Khan NS,Khan AR, Ali F,Din S Management of Tonsillectomy Hemorrhage by Bipolar Versus Dissection Method .J Med Sci ,2009:17(1):27-29 Original Article","Yousaf M, Ullah I ,Khan AR, Ahmed N . Ali S The Presentation Pattern of Otitis Media with Effusion , J Med Sci,2009: 17(1).53-56 Original Article","Khan AR, Ali F , Iman NU Khan NS,Din S,Invasive Sinu Orbital Aspergillosis in lmmunocompetent Host. J Med Sci,2009:17(2)87-91 Original Article","Khan AZ Khan AR, Results of Silver Nitrate Cauterization in Adult Patients with Epistaxis,J Med Sci 2010.18(2).107-09.Original Article","Hafeez M,Khan AR,N Ahmad ,Khan Ns BU Causes of Hoarseness in North of Pakistan ,J Med Sci .2010,18(3)151-53,Original Article","Dawar A Khan AR, Tonsillectomy without the Use of Post Operative antibiotics .JmedSci 2011,19(1).54-56Original Article","Khan AR, ,Ali F Din S Khan NS Dawar A ,Frequency of Allergic fungal Chronic Rhino sinusitis .Pak J Otol.2011.27.(1).12-14Original Article","Hassan SZ Khan AR,Hussain A ,Ali F Din S ,Clinical Profile of Carcinoma larynx in 50 adult patients Med Sci 2011,19(2.)78-81 Original Article","Khan AU ,Nawaz G,Khan AR, Raza ,An audit of 75 cases of cervical lymphadenopathy ,J Med Sci 2011(2).95-97Original Article","Khan N, Khan AR,Khan A , Khan S . Frequency of heaving loss in noisy Occupational sitting .J Med Sci .2012.20(4)192-195Original Article","Khan AR, Khan SA, Khan AU, Waheed R. Prevalence of Infection in Tonsillar SurgeryJMed Sci:2012.20(4): 196-197 Original Article.","Khan AR, Khan SA Khan AU Waheed R. Analyses of ENT diseases at KTH- Peshawar Jmed Sci.2013. 21 (1) 7-9 Original Article.","Nawaz G, Khan AR, Rehman A Shahabi I, Ahmed I. Emergency Management of otogenic intracranial Assesses in ENT Setup J Med Sci . 2013. 21(4):217-221. Original Article.","Khan AR, Khan SA Khan AU Waheed R. Intranasal Splints and Nasal Septal Surgery. J Med Sci 2014.22 (3). 143-145. Original Article.","Hafeez M, Din I, Khan AR, Rehman FU, Arif AU. An Audit of Foreign bodies Tracheopronchial tree at a Tertiary Care Hospital. JmedSci. 26(4)2016 297-300","Din I, Khan AR, Shafi Ullah, Khan W, Muhammad G Outcome of myringoplasty of graft success rate in patients with chronic otitis media. JmedSci.23(4).2016.","I Naila, Khan AR, A Sunia the ethesda system of cytological evaluation for thyroid nodules J Med Sci 2017.25 (1). Original Article","Rehman F:Khan AR:Nawaz G:Arif A: EARLY COMPLICATIONS OF TRACHEOSTOMY ANDFUTURE STRATEGY J Med Sci 2017.25 (4). Original Article","Hussain A, Ullah I, Zada B, Din I, Khan AR. Benign looking thyroid swelling and malignancies. J Med Sci 2018; 26: (2) 102-104. Original Article","Khan AR, Hafeez M, Arif AU. Ultrasonic cutting in multinodar thyroid swellings. J Med Sci 2019; 27: (1) 7-10 Original Article","Haider I, Amin B, Badshah A, Khan AR. Hepatocellular carcinoma: Management update J Med Sci 2019; 27: (1) 52-60. Review Article","Khan AR, Hussain I, Arif MAUA Rare presentation of cyst in hypopharynx.J Med Sci 2019; 27: (2) 150-152 Case Report","Khan AR, Arif MAU Mometasone Furoate Intra Nasal Spray for the Treatment of Bilateral Nasal Polyposis J Med Sci 2019; 27: (3) 203-209. Original Article","Khan I, Orakzai KA, Khan AR, Junaid M, Din IU, Azia A. Diagnostic accuracy of fine needle aspiration cytology (FNAC) In Thyroid Swellings: Study from a Tertiary Healthcare Facility in KPK. JmedSci. 2019.27(4)359-62 Original Article","47. Khan AA, Khan AR, Junaid M, Ali S, Alam M, Qasim A. Enlarged adenoids and allergy in otitis media- An experience at a tertiary care hospital. J Med Sci 2020 Jan;28(1):6-9. Original Article","48. Khan AR, Hafeez M, Arif AU. Tonsillectomy by Harmonic scalpel: A systematic review of evidence for postoperative hemorrhage. J Med Sci 2020 Jan;28(1):87-93. Original Article","49. Jan WA, Haq MIU, Khan AR. Assessment of advanced trauma life support course among trainees as key treatment objectives: a case of CPSP regional centre Peshawar, Pakistan. J Med Sci 2020 April;28(2):136-139. Original Article","50. Din IU, Hafeez M, Khan AR, Din Imran, Junaid M.Frequency of Malignency in patients presenting with parotid swelling. J Med Sci 2020 April;28(2):167-71. Original Article","51. Din IU, Hafeez M, Junaid M,Khan AR (Corressponding),Khan I. Clinical Outcome of Rigid bronchoscopy in patients with foreign body tracheobronchial Inhalation. J Med Sci 2020; 28(4)345-47. Original Article.","52.Haq NU,Salam F,Khan AR(Corresponding).Harmonic Scalpel method Vs Conventional Procedure for hospital stayduring Thyroid surgery.Pak journal of surgery. 2023.39(1) 54-56.Original Article.","53. Salam F,Haq NU,Khan AR(Corresponding).Selecting best approach to the Frontal Sinus. Pak journal of surgery. 2023.39(2) 102-06.Original Article."]','{"aliases":["arif-raza-khan","arif-raza"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1497',0),
+(967,'muhammad-habib-khattak','Muhammad Habib Khattak',NULL,'ENT','Professor','assets/images/faculty/muhammad-habib-khattak.jpg',0,1,'["MBBS","DLO","FCPS","CHPE"]','["30 Years"]','["Pediatric otorhinolaryngology and Endoscopic Otology"]','["Dr. Muhammad Habib Khattak, M Asghar, Shafiullah, Usman Orakzai. Incidence of acute streptococcal pharyngitis (General of medical Sciences KMC Peshawar July 2015 Vol 23).","Dr. Habib Khattak, Farhan Salam, Naseem ul Haq, Shafiullah, Arif Raza Khan. Autografts in nasal septal surgery- Our experience. PGS, Karachi October – December 2023 Vol 3.","Muhammad Habib Khattak, Fazal Wahid, Ikram Ullah, Shafi Ullah. A management of peritonsillar ABSCESS (Annals of PIMS Islamabad vol. 7 April 2011)","Tahir Ahmad, Ijaz Ahmad, M Tayeb, M Habib Khattak. Comparison of effectiveness of Epley\/Maneur + beta histine in management of BPPV. (PJMHS, Lahore Vol. 15 April 2021)","Bakht zada, Tahir, M Tayeb, Dr. Muhammad Habib. BPPV in adult patients between 15 to 40 years of age study on treatment outcome in teaching hospital. (PJMHS Lahore Vol.15 June 2021)","Bakt Zada, Tahir, Rehan, Muhammad Habib. Management of post tracheostomy haemorrhage and evaluation of causing factors. (PJMHS, Lahore, Vol.15 July 2021)","Sakhawat Khan, Mubashir, Muhammad Habib ijaz. Compare post of outcomes of Elective tracheostomy with emergency tracheostomy. (PJMHS Lahore Vol. 14 October to December 2014.","Bakht Zada, Ijaz Muhammad Habib, Zafar. Incidence of allergic fungal sinusitis among patients with nasal polyps and its risk factors. (PJMHS Lahore July 2021 Vol. 15)","Bakht zada, Tahir, Muhammad Habib, Rehan, Tayeb. Efficacy of grommet insertation for improvement hearing among patients of secretary of otitis media. (PJMGS Lahore Vol. 15 July 2021)","Naseer Ahamd, Ihsan Ullah, Muhammad Javed, Muhammad Habib Khattak. Removal of Bead from TBT- A therapeutic challenge. (JPMI LRH Peshawar Vol. 20 2006.","Muhammad Habib Khattak, Bakhta Zada, Zafar Iqbal, Muhammad Naseem. Compare the outcomes Underly and Onlay Myringoplasty. (PJMHS Lahore Vol.16 March 2022.","M Naseem Khan, Kamran Chudri, Muhammad Habib, AbduSatar. Compare Bipolar Diathermy and Suture Ligation for haemostasis in Tonsillectomy and terms of blood loss. (PJMHS Lahore, vol.16 Jan 2022)","Naseem Ul Haq, Bakhtzada, Muhammad Habib, Zafar Iqbal. Study the effect of bilateral nasal packing on systalic blood pressure and prevaliance of complication associated with nasal packing in septoplasty patients. (PJMHS Lahore, Vol.15 Dec 2021)","Shafi Ullah, Muhammad Habib, Salman. Outcome of meatal Flap with graft in Myringoplasty. (Gmed Sci KMC Peshawar Oct 2016 Vol. 24)"]','{"aliases":["muhammad-habib-khattak","mohammad-habib","muhammad-habib","habib-khattak"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','972',0),
+(968,'naseem-ul-haq','Naseem Ul Haq',NULL,'ENT','Associate Professor','assets/images/faculty/naseem-ul-haq.jpg',0,1,'["MBBS","MCPS","FCPS","CHPE"]','["35 Years"]','["Head and Neck surgery"]','["Wahid F, Saleem M, Zada B, Rehman HU, Haq NU, Javed. M. Tympanoplasty Type I- Different approaches and their surgical outcomes. Pak armed Forces Med J. 2021 3(suppl 3)","Rehman HU, Wahid F, Zada B, Javed M, Ha NU,. Anteror trimming Vs outer displacement of Inferior turbinates. J Saidu Med College.2021.11(4)","Rehman HU, Wahid F, Zada B, Haq NU. Medical Vs Surgical treatment ofr enlarged inferior turbinates. Pak Armed forces Med N.2121 71.","Haq NU, Zada B, Habib M, et at. Study the effect of bilateral nasal packing on systemic PB and prevalence of complications.","Wahid F, Khan MR, Khan M, Haq NU et al. Pattern of FAI in head and neck regions at a tertiary care Hospital. JPMA,2016:66,849","Nawaz G, Haq NU, Khan Ar. Bomb blast injuries to the Ear; the Peshawar experience. J Med Sci,2014.22(40).193-96","Rehman HU, Wahid F, Riaz M, Muhammad Ay, Anwer K, Javaid M, Khan N, Khan Q, Haq NU. Presentation and Management of CSOM at LRH. JFJMC,2013.7(4)","Rehman HU, Wahid F, Khan MR, Khan N, Javed M, Khan Q, Haq NU. Thyroidectomy for the treatment of Multinodular Goiter. Pak J Med & Health Sci. 2013, 7 (July- Sep)","Said M, Wahid F, Haq UN, Khan N. Epistaxis, A prospective study of its aetiology and management. Pak J Med & Health Sciences. 2013, 7 (July – Sept)","Khan N, Haq NU, Islam Z, et al. Frequency of extrapulmonary tuberculosis in patients with cervical lymphadenopathy. Pak J Med & Health Sciences. 2013. 7 (1) 1176.80","Ullah T, Shadman, Iqbal I, Haq NU etal. Cleft Rhinoplasty; combining Erich Rhinoplasty with the Dibbell Tajima Technique. Pak J of plast Surg.2012 1(1).17-21","Ullah T, Bilal M, Haq UN, Abenoval F. Reconstruction of rare craniofacial clefts, an early experience. JPMI.2011;25(8)","Ullah T, Haq UN, Bilal M, Laiq N,. Aplasia Cutis Congenital Scalp; Management options; JPMI,2010.24(1)36-40.","Khan AR, Haq NU, Ullah I, Din Shah, Khan NS. Causes of Ear Nose, Throat injuries in children. 2006.14(1).57-60."]','{"aliases":["naseem-ul-haq","naseemulhaq","haq-nu"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1457',0),
+(969,'farhan-salam','Farhan Salam',NULL,'ENT','Assistant Professor','assets/images/faculty/farhan-salam.jpg',0,1,'["MBBS","FCPS"]','["16 years"]','["Head and Neck surgery"]','[]','{"aliases":["farhan-salam"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','973',0),
+(970,'tehniyat-attiya-ur-razaq','Tehniyat Attiya ur Razaq',NULL,'Gynae and Obstetrics','Professor','',1,1,'["MBBS","FCPS","CHPE"]','["Professor\/ HOD of Obs & Gynae Department, Peshawar Medical College, Peshawar 1st March 2013 Till date."]','["Supervisor post graduate training","Vice chair person SOGP Peshawar chapter (Society of Obstetrics and Gynecology Pakistan)","Faculty of ALSO – CPSP","Member of MCQs checking team – CPSP","Extended TOACs setter – CPSP","Member of PAK Menopause Society","Laparoscopic surgery","Special interest in ethical topics related to reproductive health"]','["Management of ectopic pregnancy A two year Hospital based survey in Tertiary care Hospital, Peshawar. Journal of Medical Sciences (JMS-1998, Vol 8 No.1 14-19)","Knowledge and attitude of students regarding HIV\/ AIDs in Peshawar University. Rawal Medical Journal (June 2008 33(1)21-4","The frequency and age presentation of G6PD deficiency in 200 patients of hemolytic anemia. Journal of Postgraduate Medical Sciences 2006 Vol: 20: No.2 170-173.","The clinical and etiological profile of urinary tract infection. Journal of Postgraduate Medical Sciences 2008 Vol: 22, No.3 205-209.","HIV\/ AIDs Transmission from mother to child with special attention towards transmission through breast feeding. Rawal Medical Journal: Vol 32, No.1 Jan-June 2007.","Incidence, out come and management of cord prolapse. Middle East Journal of family Medicine. (Jan 2010)","Pyrexia of unknown origin: An etiologic frequency in a tertiary care Hospital. Gomal Medical Journal of Medical Sciences.","Frequency and risk factors for Hepatitis C among pregnant women. Gomal Journal of Medical Sciences July-Dec 2011, vol 9 (no 2).","Central Retinal Vein occlusion, Study of Risk Factors in 93 patients. Ophthalmology Updates 2011.","Postpartum Hemorrhage: a preventable complication of labour, published in The Professional Medical Journal Oct to Dec 2011, vol 18(no 04) 604-610.","Does pregnancy affect severity of diabetic retinopathy a study of 38 cases. Ophthalmology International, Official Journal of Peshawar Medical College, vol 10, No 1 ,Jan-March 2012.","Frequency of metabolic syndrome and its components in 300 Pakistani obese patients. Rawal Medical Journal Jul-Sep 2017, Vol 42, No.3","Vertical Transmission Of Hepatitis B Decades After The International Recommendation Of Administering Hepatitis B Immunoglobulin’s Along Hepatitis B Vaccination To Newborn Babies. Journal Vaccine 2022","Current caesarean section rate and factors affecting the patient decision regarding the mode of delivery. JPMI Vol 38(4), 2025","The Urinary Incontinence in Women in Pakistan: Prevalence, Awareness, Current Management, and the Case for Establishing Female Continence Clinics. Vol. 3 No. 2 (2025): July to Dec 2025","Association of meconium-stained amniotic fluid with the mode of delivery and neonatal outcome:  A retrospective study"]','{"aliases":["tehniyat-attiya-ur-razaq","tehniyat-attiya","attiya-ur-razaq"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','28',0),
+(971,'robina-qadeer','Robina Qadeer',NULL,'Gynae and Obstetrics','Assistant Professor','',0,1,'["MBBS","FCPS","CHPE"]','["AP 2 YEARS"]','["Communication + team work"]','["Urinary Incontinence in Women in Pakistan: Prevalence, Awareness, Current Management, and the Case for Establishing Female Continence Clinics","Prenatal Checkups and Maternal Outcomes in Khyber Pakhtunkhwa: A Narrative Review","Maternal Iron and Folic Acid Deficiency in Pregnancy and Its Relationship with Maternal and Neonatal Haemoglobin Concentration E-ISSN 2250-0944  ISSN 2250-1150  doi: 10.31838\/ijprt\/16.01.611","Association of Obesity with Adverse Maternal and Perinatal Outcome in Pregnant Women P J M H S  Vol. 16, No. 10, October, 2022","Current Cesarean Section Rate and Factors Affecting the Patient Decision Regarding Mode of Delivery JPMI Vol 38(4)","Impact of Standardized Gestational Diabetes Screening on Maternal and Neonatal Health 194   P J M H S  Vol. 17, No. 11, November, 2023","Comparative anatomical study of fimbrial end of fallopian tubes in ectopic pregnancy Journal of Neonatal Surgery ISSN(Online): 2226-0439 Vol. 14,issue.32s (2025)"]','{"aliases":["robina-qadeer"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1384',0),
+(972,'afrah-aman','Afrah Aman',NULL,'Gynae and Obstetrics','Assistant Professor','',0,1,'["MBBS","FCPS","CHPE","CHR"]','["Assistant Professor 4 Years"]','[]','["Comparative Anatomical Study of Fimbrial end of fallopian tubes in Ectopic Pregnancy Journal of Neonatal Surgery 2226-0439","Manual Removal versus Spontaneous Delivery of Placenta During Caesarean Section: A Comparative Study of Blood Loss and Maternal Outcomes Journal of saidu medical college ISSN (P): 1819-4583 ISSN (E): 3007-9470","PROPORTION AND RISK FACTORS OF URINARY INCONTINENCE AMONG PERIMENOPAUSAL WOMEN Vol.31 No. 08 (2024) JPTCP (3412 - 3419)","Frequency of Risk Factor and Pattern of Uro-Genital Fistula Presenting in a Tertiary Care Hospital Dr Naila Raziq \/Afr.J.Bio.Sc. 6(13) (2024)","Efficacy of oral versus vaginal progestogens for early pregnancy maintenance in women with recurrent miscarriages: a randomized controlled trial KMUJ 2024, Vol. 16  No.1","Does an Increase in Maternal Age Affect the Placental Delivery Method in Cesarean Section Avicenna J Med Sci (Vol. 2, Issue, 1 2022)","FREQUENCY OF GESTATIONAL DIABETES MELLITUS IN PATIENTS WITH OBESITY DURING PREGNANCY Vol.31 No. 11 (2024) JPTCP (2011-2017)"]','{"aliases":["afrah-aman"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1610',0),
+(973,'shamim-akhtar','Shamim Akhtar',NULL,'Gynae and Obstetrics','Associate Professor','',0,1,'["MBBS","FCPS","CHPE"]','["Associate Professor: 1-2-2025 till date"]','[]','["The Role Of Life Style Factors In Infertility. IJDDT, Volume16 Issue 59s, 2026","Laparoscopic findings in patients with secondary infertility Acta Scientific MEDICAL SCIENCES (ISSN: 2582-0931) Volume 6 Issue 6 June 2022","Factors associated with gestational diabetes mellitus and its outcome in pregnancy PJMHS vol 16. No 03,Mar 2022, pages 751-53","Inter pregnancy interval and labour outcome after previous 1 cesarean section Acta Scientific Women''s Health (ISSN: 2582-3205) Volume 4 Issue 5 May 2022","Efficacy of manual vacuum aspiration  for the management of incomplete miscarriage Annals  of R.S.C.B-ISSN 1583-6258, vol 25, issue 3,2021, pages 9043-47","A Descriptive Study on Types of Violence, It’s Effects on Ante Natal Patient’s Health and Pregnancy Outcomes Acta Scientific MEDICAL SCIENCES (ISSN: 2582-0931) Volume 5 Issue 11 November 2021","Effect of myo-inositol and metformin on anthropometric parameters of women in polysystic ovarian disease IJPAS, February 2020.9(2):X-X ISSN 2277-4998","Association of intra uterine fetal death with maternal morbidity IJPAS, February 2020.9(2):X-X ISSN 2277-4998","Comparison of oxytocin and prostaglandin E2 for induction of labour in patients with pre labour rupture membrane PJMHS VOL:6 NO 1 JAN-MARCH 2012"]','{"aliases":["shamim-akhtar"]}','2026-10-13 15:49:32','2026-10-13 15:49:32','1014',0);
+-- faculty_profiles: 139 rows
+
+DROP TABLE IF EXISTS `gallery_albums`;
+CREATE TABLE `gallery_albums` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `icon` VARCHAR(191) NULL,
+  `sort_order` BIGINT NOT NULL DEFAULT 0,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `gallery_albums` (`id`,`slug`,`title`,`icon`,`sort_order`,`created_at`,`updated_at`) VALUES
+(3,'campus','PMC Campus','bi-buildings',0,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(4,'facilities','Facilities','bi-house-heart',1,'2026-10-13 19:28:30','2026-10-13 19:28:30');
+-- gallery_albums: 2 rows
+
+DROP TABLE IF EXISTS `gallery_items`;
+CREATE TABLE `gallery_items` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `album_id` BIGINT NOT NULL,
+  `image_path` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NULL,
+  `caption` VARCHAR(191) NULL,
+  `span` VARCHAR(191) NULL,
+  `sort_order` BIGINT NOT NULL DEFAULT 0,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `gallery_items` (`id`,`album_id`,`image_path`,`title`,`caption`,`span`,`sort_order`,`created_at`,`updated_at`) VALUES
+(13,3,'assets/images/campus/pmc.jpg','Main Campus — Warsak Road','25-Kanal campus on Warsak Road, Peshawar',NULL,0,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(14,3,'assets/images/campus/pmc-building.jpg','Department of Medical Sciences (DMS)','Modern Architecture',NULL,1,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(15,3,'assets/images/campus/pmc-building2.jpg','Administrative Block','Department of Medical Sciences (DMS)',NULL,2,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(16,4,'assets/images/campus/girls-hostel.png','Girls Hostel','On-campus accommodation for female students',NULL,0,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(17,4,'assets/images/campus/gym-pmc.png','Sports & Gym','Sports and gymnasium facilities',NULL,1,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(18,4,'assets/images/campus/library-pmc.png','Library & LRC','Learning resource centre',NULL,2,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(19,4,'assets/images/campus/cafe.jpg','Cafeteria','Student cafeteria',NULL,3,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(20,4,'assets/images/campus/masjid.jpg','Masjid','Campus mosque',NULL,4,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(21,4,'assets/images/campus/pmc-transport.jpg','Transportation','College transport services',NULL,5,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(22,4,'assets/images/campus/daycare.jpg','Day Care Center','Day care facility on campus',NULL,6,'2026-10-13 19:28:30','2026-10-13 19:28:30'),
+(23,4,'assets/images/campus/first-aid.png','Counseling & Aid','Counseling and first-aid services',NULL,7,'2026-10-13 19:28:30','2026-10-13 19:28:30');
+-- gallery_items: 11 rows
+
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `version` VARCHAR(191) NOT NULL,
+  `class` VARCHAR(191) NOT NULL,
+  `group` VARCHAR(191) NOT NULL,
+  `namespace` VARCHAR(191) NOT NULL,
+  `time` BIGINT NOT NULL,
+  `batch` BIGINT NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `migrations` (`id`,`version`,`class`,`group`,`namespace`,`time`,`batch`) VALUES
+(1,'2026-10-13-143000','App\Database\Migrations\CreateDmsSchema','default','App',1791902820,1),
+(2,'2026-10-13-153000','App\Database\Migrations\AddCmsBodyFields','default','App',1791905529,2),
+(3,'2026-10-13-154500','App\Database\Migrations\AddNewsExpiresAt','default','App',1791906000,3),
+(4,'2026-10-13-160000','App\Database\Migrations\AddFacultyEmpId','default','App',1791907450,4),
+(5,'2026-10-13-161500','App\Database\Migrations\AddFacultyDeptOverride','default','App',1791907760,5),
+(6,'2026-10-13-180000','App\Database\Migrations\CreateGalleryTables','default','App',1791915916,6);
+-- migrations: 6 rows
+
+DROP TABLE IF EXISTS `news_media`;
+CREATE TABLE `news_media` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `news_id` BIGINT NOT NULL,
+  `path` VARCHAR(191) NOT NULL,
+  `caption` VARCHAR(191) NULL,
+  `sort_order` BIGINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- news_media: 0 rows
+
+DROP TABLE IF EXISTS `news_posts`;
+CREATE TABLE `news_posts` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `excerpt` TEXT NULL,
+  `body_html` TEXT NULL,
+  `category` VARCHAR(191) NULL,
+  `cover_image` VARCHAR(191) NULL,
+  `published_at` DATETIME NULL,
+  `status` VARCHAR(191) NOT NULL DEFAULT 'published',
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  `body_text` TEXT NULL,
+  `expires_at` DATETIME NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `news_posts` (`id`,`slug`,`title`,`excerpt`,`body_html`,`category`,`cover_image`,`published_at`,`status`,`created_at`,`updated_at`,`body_text`,`expires_at`) VALUES
+(44,'mbbs-admissions-open-2026-27','MBBS Admissions Open 2026-27','Apply by 09 Nov 2026 Provisional Merit List: 10 November 2026.','<p>Apply by 09 Nov 2026</p>
+<p>Apply by 09 Nov 2026 Provisional Merit List: 10 November 2026.</p>','Admissions','assets/images/news/kmu-mbbs-bds-admissions.jpeg','2026-10-01 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','Apply by 09 Nov 2026
+
+Apply by 09 Nov 2026 Provisional Merit List: 10 November 2026.','2026-11-09 23:59:59'),
+(45,'convocation-2026','Convocation 2026','Last Date for Registration is October 27, 2026','<p>Last Date for Registration is October 27, 2026</p>','Convocation','assets/images/news/convocation2026.jpeg','2026-10-13 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','Last Date for Registration is October 27, 2026','2026-10-27 23:59:59'),
+(46,'mbbs-admissions-applications-closed','MBBS Admissions — Applications Closed','Applications for MBBS Session 2025–26 are closed. See Admissions for next-cycle guidance.','<p>Applications for MBBS Session 2025–26 are closed. See Admissions for next-cycle guidance.</p>','Admissions',NULL,'2025-06-15 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','Applications for MBBS Session 2025–26 are closed. See Admissions for next-cycle guidance.','2025-06-15 23:59:59'),
+(47,'pmc-retains-1-ranking-among-private-medical-colleges-in-kp','PMC Retains #1 Ranking Among Private Medical Colleges in KP','Following the latest PM&DC inspection, PMC secured the highest score among all private medical colleges in KP with over 80%.','<p>Following the latest PM&amp;DC inspection, PMC secured the highest score among all private medical colleges in KP with over 80%.</p>','Achievement',NULL,'2025-05-15 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','Following the latest PM&DC inspection, PMC secured the highest score among all private medical colleges in KP with over 80%.',NULL),
+(48,'umr-society-annual-medical-research-conference-2025','UMR Society Annual Medical Research Conference 2025','The PMC Undergraduate Medical Research Society organised its annual conference showcasing student projects.','<p>The PMC Undergraduate Medical Research Society organised its annual conference showcasing student projects.</p>','Research',NULL,'2025-04-22 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','The PMC Undergraduate Medical Research Society organised its annual conference showcasing student projects.','2025-05-22 23:59:59'),
+(49,'international-medical-education-symposium-2025-pmc-hosts-delegates','International Medical Education Symposium 2025 — PMC Hosts Delegates','PMC hosted an international symposium on modern medical education, attended by 200+ delegates.','<p>PMC hosted an international symposium on modern medical education, attended by 200+ delegates.</p>','Conference',NULL,'2025-02-18 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','PMC hosted an international symposium on modern medical education, attended by 200+ delegates.','2025-03-20 23:59:59'),
+(50,'annual-sports-gala-2025-pmc-sports-society','Annual Sports Gala 2025 — PMC Sports Society','A week-long celebration of sportsmanship and team spirit featuring cricket, football, and more.','<p>A week-long celebration of sportsmanship and team spirit featuring cricket, football, and more.</p>','Society',NULL,'2025-03-10 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','A week-long celebration of sportsmanship and team spirit featuring cricket, football, and more.','2025-04-09 23:59:59'),
+(51,'sws-blood-donation-drive-winter-2025-exceeds-target','SWS Blood Donation Drive — Winter 2025 Exceeds Target','The Social Welfare Society conducted a successful blood donation drive with over 150 units collected.','<p>The Social Welfare Society conducted a successful blood donation drive with over 150 units collected.</p>','Society',NULL,'2025-01-28 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','The Social Welfare Society conducted a successful blood donation drive with over 150 units collected.','2025-02-27 23:59:59'),
+(52,'annual-convocation-2024-90-doctors-graduate-from-pmc','Annual Convocation 2024 — 90+ Doctors Graduate from PMC','PMC celebrated another cohort at the Annual Convocation 2024 with degrees conferred to over 90 new MBBS graduates.','<p>PMC celebrated another cohort at the Annual Convocation 2024 with degrees conferred to over 90 new MBBS graduates.</p>','General',NULL,'2024-12-05 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','PMC celebrated another cohort at the Annual Convocation 2024 with degrees conferred to over 90 new MBBS graduates.','2025-01-04 23:59:59'),
+(53,'pmc-scholarship-policy-updated-for-session-2024-25','PMC Scholarship Policy Updated for Session 2024–25','The updated scholarship policy for MBBS Session 2024–25 has been announced.','<p>The updated scholarship policy for MBBS Session 2024–25 has been announced.</p>','Admissions',NULL,'2024-10-01 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','The updated scholarship policy for MBBS Session 2024–25 has been announced.','2025-06-30 23:59:59'),
+(54,'pmc-faculty-research-published-in-international-peer-reviewed-journals','PMC Faculty Research Published in International Peer-Reviewed Journals','Multiple PMC faculty members have had research papers published in internationally peer-reviewed medical journals.','<p>Multiple PMC faculty members have had research papers published in internationally peer-reviewed medical journals.</p>','Research',NULL,'2024-08-14 10:00:00','published','2026-10-13 15:49:32','2026-10-13 15:49:32','Multiple PMC faculty members have had research papers published in internationally peer-reviewed medical journals.',NULL);
+-- news_posts: 11 rows
+
+DROP TABLE IF EXISTS `pages`;
+CREATE TABLE `pages` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `slug` VARCHAR(191) NOT NULL,
+  `title` VARCHAR(191) NOT NULL,
+  `label` VARCHAR(191) NULL,
+  `section` VARCHAR(191) NULL,
+  `description` TEXT NULL,
+  `view_key` VARCHAR(191) NULL,
+  `body_html` TEXT NULL,
+  `seo_json` TEXT NULL,
+  `status` VARCHAR(191) NOT NULL DEFAULT 'published',
+  `priority` DOUBLE NOT NULL DEFAULT 0.5,
+  `changefreq` VARCHAR(191) NOT NULL DEFAULT 'monthly',
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  `body_text` TEXT NULL,
+  `use_cms` TINYINT(1) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `pages` (`id`,`slug`,`title`,`label`,`section`,`description`,`view_key`,`body_html`,`seo_json`,`status`,`priority`,`changefreq`,`created_at`,`updated_at`,`body_text`,`use_cms`) VALUES
+(211,'home','Peshawar Medical College | PMC — MBBS in Peshawar','Home','College','PMC Peshawar: a top private medical college in Peshawar and KP. PM&DC recognized MBBS, #1 private in KP (2024). Teaching hospitals, KMU admissions, Warsak Road.','home',NULL,'{"label":"Home","section":"College","title":"Peshawar Medical College | PMC — MBBS in Peshawar","description":"PMC Peshawar: a top private medical college in Peshawar and KP. PM&DC recognized MBBS, #1 private in KP (2024). Teaching hospitals, KMU admissions, Warsak Road.","priority":"1.0","changefreq":"weekly"}','published',1,'weekly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(212,'pmc','PMC Peshawar | MBBS at a Private Medical College in KP','Peshawar Medical College','College','MBBS in Peshawar at PMC — a private medical college with PM&DC recognition, teaching hospitals, and first rank among private medical colleges of KP in 2024.','pmc','<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <span class="page-hero-eyebrow">Department of Medical Sciences</span>
+        <h1>Peshawar Medical College</h1>
+        <div class="breadcrumb-pmc">
+          <a href="/">Home</a>
+          <span class="sep"><i class="bi bi-chevron-right"></i></span>
+          <a href="/about">About</a>
+          <span class="sep"><i class="bi bi-chevron-right"></i></span>
+          <span class="current">Peshawar Medical College</span>
+        </div>
+      </div>
+      <div class="col-lg-4 d-flex justify-content-lg-end justify-content-start">
+        <div class="pmc-hero-logo">
+          <img src="/assets/images/logo/pmclogo.png" alt="Peshawar Medical College logo" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content">
+
+          <!-- Intro — college scope (department overview lives on about.php) -->
+          <div class="about-intro fu">
+            <span class="sec-eyebrow">College Profile</span>
+            <h2 class="sec-title" style="font-size:1.75rem;">Peshawar Medical College</h2>
+            <p class="about-lead">
+              The undergraduate medical college of the <strong>Department of Medical Sciences</strong> — delivering the MBBS programme with ethics-centred teaching and hospital-based clinical training. Peshawar Medical College is a leading medical college in Peshawar and among the top private medical colleges in Khyber Pakhtunkhwa and Pakistan — PM&amp;DC recognized.
+            </p>
+            <p>
+              Founded in 2005 under aberasgise Pring Eoundation, Peshawar Medical College (PMC) stands as a premier center of excellence in medical education, research, and holistic patient care with high ethical values in Khyber Pakhtunkhwa. Recognized by the Pakistan Medical and Dental Council (PMDC) and component of Riphah International University Peshawar Campus, PMC is dedicated to preparing compassionate, competent, and ethical healthcare leaders. Through an integrated curriculum that pairs rigorous academic study with early clinical exposure across its attached teaching hospitals-including Kuwait Teaching Hospital, Mercy Teaching Hospital, and Prime Teaching Hospital-the institution ensures graduates possess both advanced clinical acumen and a deep commitment to societal well-being.
+            </p>
+            <p>
+              Driven by a vision of innovation and continuous discovery, Peshawar Medical College places a strong emphasis on undergraduate medical research and evidence-based practice. State-of-the-art lecture halls, modern diagnostic and simulation laboratories, and extensive digital library resources foster an environment of intellectual curiosity and active learning. Guided by a distinguished faculty, PMC integrates professional skill development with core Islamic and universal ethical values, nurturing healthcare professionals who excel in clinical practice, champion community health initiatives, and contribute meaningfully to the evolution of global health sciences.
+            </p>
+            <p>
+              The College is recognized by the <strong>Pakistan Medical &amp; Dental Council (PM&amp;DC)</strong>. PMC achieved a commendable score of 96.47% in the recent PM&DC inspection conducted under the 2024 criteria. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
+            </p>
+            <p>
+              For department overview, campus facilities, and location, see <a href="/about"><strong>About PMC</strong></a>. Values are on <a href="/vision-mission"><strong>Vision &amp; Mission</strong></a>.
+            </p>
+          </div>
+
+          <!-- Quick facts -->
+          <div class="about-facts fu fu-delay-1">
+            <div class="about-fact">
+              <i class="bi bi-patch-check-fill"></i>
+              <div>
+                <strong>PM&amp;DC Recognised</strong>
+                <!-- <span>#1 private (KP, 2024)</span> -->
+              </div>
+            </div>
+            <div class="about-fact">
+              <i class="bi bi-mortarboard-fill"></i>
+              <div>
+                <strong>MBBS Programme</strong>
+                <span>Five-year undergraduate</span>
+              </div>
+            </div>
+            <div class="about-fact">
+              <i class="bi bi-hospital-fill"></i>
+              <div>
+                <strong>3 Teaching Hospitals</strong>
+                <span>Clinical training sites</span>
+              </div>
+            </div>
+            <div class="about-fact">
+              <i class="bi bi-people-fill"></i>
+              <div>
+                <strong>Board of Governors</strong>
+                <span>Academic stewardship</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graduate attributes -->
+          <div class="about-block fu" id="attributes">
+            <div class="about-block-head">
+              <h3>Graduate Attributes</h3>
+              <p>Minimum capabilities PMC aspires to develop in every medical graduate.</p>
+            </div>
+            <div class="about-attr-grid">
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>In-depth knowledge of basic medical sciences</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Clinical acumen with solutions for local health problems</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Ability to manage emergencies under pressure and workload</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Use of information technology in research and evaluation</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Holistic care — biological, psychological, and social</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Commitment to ethical values in medical practice</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Capacity to serve as effective community leaders</span></div>
+            </div>
+          </div>
+
+          <!-- MBBS programme -->
+          <div class="about-block fu" id="mbbs">
+            <div class="about-block-head">
+              <h3>MBBS</h3>
+              <p>Five-year undergraduate medical education at Peshawar Medical College.</p>
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <a href="/student-guide" class="pmc-hosp-card">
+                  <i class="bi bi-book-fill"></i>
+                  <strong>Student Guide</strong>
+                  <span>Policies &amp; student life</span>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="/curriculum" class="pmc-hosp-card">
+                  <i class="bi bi-journal-text"></i>
+                  <strong>Curriculum</strong>
+                  <span>Integrated MBBS map</span>
+                </a>
+              </div>
+            </div>
+            <p>
+              The education system is designed to train students on application of knowledge of basic sciences to clinical problems, use computers and IT in line with current trends of medical education, and achieve professional and ethical excellence at the end of education in medical college.
+            </p>
+            <p>
+              The education system and curriculum is designed to meet the challenges of contemporary global health needs and based on an <strong>integrated teaching system</strong>. It also incorporates the preliminary application of knowledge of basic sciences to clinical problems from the first professional. Students are given opportunities of exposure to real-life clinical problems relevant to their level of knowledge.
+            </p>
+            <p>
+              Use of computers and IT is part of teaching, and students are taught relevant computer software from the first year. The college self-learning resource centre is open to students and teachers, with hands-on assistance and training.
+            </p>
+            <p>
+              Internal assessment is an integral part of the evaluation system, and part of it is computer-based evaluation on subjects already taught. Students are also given training in research methodologies and paper writing. They are expected to produce at least <strong>five research papers in five years</strong> and are encouraged to submit papers to national and international conferences. The college sponsors expenses for presentation of papers accepted at national conferences.
+            </p>
+            <p>
+              Teachers and students engage in regular dialogue through the tutorial system, and teacher accessibility is facilitated to develop respectful, professional teacher–student relations. Standards outlined by professional bodies such as PM&amp;DC, CPSP, and HEC are followed in letter and spirit.
+            </p>
+            <div class="about-block-head" style="margin-top:28px;">
+              <h3 style="font-size:1.15rem;">Educational Outcomes</h3>
+              <p>Our MBBS graduates are trained to:</p>
+            </div>
+            <div class="about-attr-grid">
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Provide just, equitable and ethically driven health care for common illnesses, including preventive and therapeutic services</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Communicate effectively with patients, caregivers, colleagues and other health personnel</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Advance biomedical research and evidence-based health care interventions</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Demonstrate effective teamwork in health care provision</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Employ critical thinking, lifelong learning and self-accountability</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Model exemplary moral conduct and mentor junior colleagues</span></div>
+              <div class="about-attr"><i class="bi bi-check2-circle"></i><span>Serve as socially responsible, honest and patriotic citizens</span></div>
+            </div>
+            <div class="about-cta-row">
+              <a href="/admissions" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> MBBS Admissions</a>
+              <a href="/curriculum" class="btn-pmc btn-pmc-outline"><i class="bi bi-journal-text"></i> Curriculum</a>
+            </div>
+          </div>
+
+          <!-- Clinical training -->
+          <div class="about-block fu" id="clinical">
+            <div class="about-block-head">
+              <h3>Clinical Training</h3>
+              <p>Students rotate through affiliated teaching hospitals for real-world bedside experience.</p>
+            </div>
+            <div class="pmc-hosp-grid">
+              <a class="pmc-hosp-card" href="https://kth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
+                <i class="bi bi-hospital"></i>
+                <strong>Kuwait Teaching Hospital</strong>
+                <span>Major tertiary care centre</span>
+              </a>
+              <a class="pmc-hosp-card" href="https://mth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
+                <i class="bi bi-heart-pulse"></i>
+                <strong>Mercy Teaching Hospital</strong>
+                <span>High-volume community care</span>
+              </a>
+              <a class="pmc-hosp-card" href="https://pth.riphahpsh.edu.pk/" target="_blank" rel="noopener">
+                <i class="bi bi-building"></i>
+                <strong>Prime Teaching Hospital</strong>
+                <span>Modern clinical &amp; surgical training</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Campus gallery -->
+          <div class="about-block fu" id="gallery">
+            <div class="about-block-head">
+              <h3>Campus Gallery</h3>
+              <p>A glimpse of PMC buildings and grounds on Warsak Road.</p>
+            </div>
+            <div class="pmc-gallery-grid">
+              
+                <button type="button"
+                  class="pmc-gallery-item"
+                  data-img=""
+                  data-title=""
+                  onclick="openPmcLightbox(this)"
+                  aria-label="Open ">
+                  <img src=""
+                    alt=""
+                    loading="lazy" decoding="async" />
+                  <span class="pmc-gallery-zoom"><i class="bi bi-zoom-in"></i></span>
+                </button>
+              
+            </div>
+            <div class="about-cta-row">
+              <a href="/gallery" class="btn-pmc btn-pmc-primary"><i class="bi bi-images"></i> Full Photo Gallery</a>
+              <a href="/admissions" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions</a>
+              <a href="/faculty" class="btn-pmc btn-pmc-outline"><i class="bi bi-people"></i> Faculty</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Lightweight lightbox -->
+<div class="pmc-lightbox" id="pmcPageLightbox" onclick="closePmcLightboxBackdrop(event)">
+  <button type="button" class="lb-close" onclick="closePmcLightbox()" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+  <button type="button" class="lb-prev" onclick="pmcLbNav(-1)" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+  <button type="button" class="lb-next" onclick="pmcLbNav(1)" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+  <div class="lb-inner">
+    <div id="pmcLbImgWrap"></div>
+    <div class="lb-caption" id="pmcLbCaption"></div>
+    <div class="lb-counter" id="pmcLbCounter"></div>
+  </div>
+</div>
+
+<script>
+  let pmcLbItems = [];
+  let pmcLbCurrent = 0;
+
+  function openPmcLightbox(el) {
+    pmcLbItems = [...document.querySelectorAll(''.pmc-gallery-item[data-img]'')];
+    pmcLbCurrent = Math.max(0, pmcLbItems.indexOf(el));
+    renderPmcLightbox();
+    document.getElementById(''pmcPageLightbox'').classList.add(''open'');
+    document.body.style.overflow = ''hidden'';
+  }
+
+  function closePmcLightbox() {
+    document.getElementById(''pmcPageLightbox'').classList.remove(''open'');
+    document.body.style.overflow = '''';
+  }
+
+  function closePmcLightboxBackdrop(e) {
+    if (e.target === document.getElementById(''pmcPageLightbox'')) closePmcLightbox();
+  }
+
+  function pmcLbNav(dir) {
+    if (!pmcLbItems.length) return;
+    pmcLbCurrent = (pmcLbCurrent + dir + pmcLbItems.length) % pmcLbItems.length;
+    renderPmcLightbox();
+  }
+
+  function renderPmcLightbox() {
+    const el = pmcLbItems[pmcLbCurrent];
+    if (!el) return;
+    const img = el.dataset.img || '''';
+    const title = el.dataset.title || '''';
+    document.getElementById(''pmcLbImgWrap'').innerHTML =
+      `<img src="${img}" class="lb-img" alt="${title}" />`;
+    document.getElementById(''pmcLbCaption'').textContent = title;
+    document.getElementById(''pmcLbCounter'').textContent = `${pmcLbCurrent + 1} / ${pmcLbItems.length}`;
+  }
+
+  document.addEventListener(''keydown'', (e) => {
+    const box = document.getElementById(''pmcPageLightbox'');
+    if (!box || !box.classList.contains(''open'')) return;
+    if (e.key === ''Escape'') closePmcLightbox();
+    if (e.key === ''ArrowLeft'') pmcLbNav(-1);
+    if (e.key === ''ArrowRight'') pmcLbNav(1);
+  });
+</script>','{"label":"Peshawar Medical College","section":"College","title":"PMC Peshawar | MBBS at a Private Medical College in KP","description":"MBBS in Peshawar at PMC — a private medical college with PM&DC recognition, teaching hospitals, and first rank among private medical colleges of KP in 2024.","priority":"0.95","changefreq":"monthly","schema":"Course","course_name":"MBBS"}','published',0.95,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32','Department of Medical Sciences
+ Peshawar Medical College
+ 
+ Home
+ 
+ About
+ 
+ Peshawar Medical College
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ College Profile
+ Peshawar Medical College
+ 
+ The undergraduate medical college of the Department of Medical Sciences — delivering the MBBS programme with ethics-centred teaching and hospital-based clinical training. Peshawar Medical College is a leading medical college in Peshawar and among the top private medical colleges in Khyber Pakhtunkhwa and Pakistan — PM&DC recognized.
+ 
+ 
+ Founded in 2005 under aberasgise Pring Eoundation, Peshawar Medical College (PMC) stands as a premier center of excellence in medical education, research, and holistic patient care with high ethical values in Khyber Pakhtunkhwa. Recognized by the Pakistan Medical and Dental Council (PMDC) and component of Riphah International University Peshawar Campus, PMC is dedicated to preparing compassionate, competent, and ethical healthcare leaders. Through an integrated curriculum that pairs rigorous academic study with early clinical exposure across its attached teaching hospitals-including Kuwait Teaching Hospital, Mercy Teaching Hospital, and Prime Teaching Hospital-the institution ensures graduates possess both advanced clinical acumen and a deep commitment to societal well-being.
+ 
+ 
+ Driven by a vision of innovation and continuous discovery, Peshawar Medical College places a strong emphasis on undergraduate medical research and evidence-based practice. State-of-the-art lecture halls, modern diagnostic and simulation laboratories, and extensive digital library resources foster an environment of intellectual curiosity and active learning. Guided by a distinguished faculty, PMC integrates professional skill development with core Islamic and universal ethical values, nurturing healthcare professionals who excel in clinical practice, champion community health initiatives, and contribute meaningfully to the evolution of global health sciences.
+ 
+ 
+ The College is recognized by the Pakistan Medical & Dental Council (PM&DC). PMC achieved a commendable score of 96.47% in the recent PM&DC inspection conducted under the 2024 criteria. It is guided by a Board of Governors and welcomes local, overseas Pakistani, and international students regardless of color, creed, gender, ethnicity, or religion.
+ 
+ 
+ For department overview, campus facilities, and location, see About PMC. Values are on Vision & Mission.
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ PM&DC Recognised
+ 
+ 
+ 
+ 
+ 
+ 
+ MBBS Programme
+ Five-year undergraduate
+ 
+ 
+ 
+ 
+ 
+ 3 Teaching Hospitals
+ Clinical training sites
+ 
+ 
+ 
+ 
+ 
+ Board of Governors
+ Academic stewardship
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Graduate Attributes
+ Minimum capabilities PMC aspires to develop in every medical graduate.
+ 
+ 
+ In-depth knowledge of basic medical sciences
+ Clinical acumen with solutions for local health problems
+ Ability to manage emergencies under pressure and workload
+ Use of information technology in research and evaluation
+ Holistic care — biological, psychological, and social
+ Commitment to ethical values in medical practice
+ Capacity to serve as effective community leaders
+ 
+ 
+
+ 
+ 
+ 
+ MBBS
+ Five-year undergraduate medical education at Peshawar Medical College.
+ 
+ 
+ 
+ 
+ 
+ Student Guide
+ Policies & student life
+ 
+ 
+ 
+ 
+ 
+ Curriculum
+ Integrated MBBS map
+ 
+ 
+ 
+ 
+ The education system is designed to train students on application of knowledge of basic sciences to clinical problems, use computers and IT in line with current trends of medical education, and achieve professional and ethical excellence at the end of education in medical college.
+ 
+ 
+ The education system and curriculum is designed to meet the challenges of contemporary global health needs and based on an integrated teaching system. It also incorporates the preliminary application of knowledge of basic sciences to clinical problems from the first professional. Students are given opportunities of exposure to real-life clinical problems relevant to their level of knowledge.
+ 
+ 
+ Use of computers and IT is part of teaching, and students are taught relevant computer software from the first year. The college self-learning resource centre is open to students and teachers, with hands-on assistance and training.
+ 
+ 
+ Internal assessment is an integral part of the evaluation system, and part of it is computer-based evaluation on subjects already taught. Students are also given training in research methodologies and paper writing. They are expected to produce at least five research papers in five years and are encouraged to submit papers to national and international conferences. The college sponsors expenses for presentation of papers accepted at national conferences.
+ 
+ 
+ Teachers and students engage in regular dialogue through the tutorial system, and teacher accessibility is facilitated to develop respectful, professional teacher–student relations. Standards outlined by professional bodies such as PM&DC, CPSP, and HEC are followed in letter and spirit.
+ 
+ 
+ Educational Outcomes
+ Our MBBS graduates are trained to:
+ 
+ 
+ Provide just, equitable and ethically driven health care for common illnesses, including preventive and therapeutic services
+ Communicate effectively with patients, caregivers, colleagues and other health personnel
+ Advance biomedical research and evidence-based health care interventions
+ Demonstrate effective teamwork in health care provision
+ Employ critical thinking, lifelong learning and self-accountability
+ Model exemplary moral conduct and mentor junior colleagues
+ Serve as socially responsible, honest and patriotic citizens
+ 
+ 
+ MBBS Admissions
+ Curriculum
+ 
+ 
+
+ 
+ 
+ 
+ Clinical Training
+ Students rotate through affiliated teaching hospitals for real-world bedside experience.
+ 
+ 
+ 
+ 
+ Kuwait Teaching Hospital
+ Major tertiary care centre
+ 
+ 
+ 
+ Mercy Teaching Hospital
+ High-volume community care
+ 
+ 
+ 
+ Prime Teaching Hospital
+ Modern clinical & surgical training
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Campus Gallery
+ A glimpse of PMC buildings and grounds on Warsak Road.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Full Photo Gallery
+ Admissions
+ Faculty
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ let pmcLbItems = [];
+ let pmcLbCurrent = 0;
+
+ function openPmcLightbox(el) {
+ pmcLbItems = [...document.querySelectorAll(''.pmc-gallery-item[data-img]'')];
+ pmcLbCurrent = Math.max(0, pmcLbItems.indexOf(el));
+ renderPmcLightbox();
+ document.getElementById(''pmcPageLightbox'').classList.add(''open'');
+ document.body.style.overflow = ''hidden'';
+ }
+
+ function closePmcLightbox() {
+ document.getElementById(''pmcPageLightbox'').classList.remove(''open'');
+ document.body.style.overflow = '''';
+ }
+
+ function closePmcLightboxBackdrop(e) {
+ if (e.target === document.getElementById(''pmcPageLightbox'')) closePmcLightbox();
+ }
+
+ function pmcLbNav(dir) {
+ if (!pmcLbItems.length) return;
+ pmcLbCurrent = (pmcLbCurrent + dir + pmcLbItems.length) % pmcLbItems.length;
+ renderPmcLightbox();
+ }
+
+ function renderPmcLightbox() {
+ const el = pmcLbItems[pmcLbCurrent];
+ if (!el) return;
+ const img = el.dataset.img || '''';
+ const title = el.dataset.title || '''';
+ document.getElementById(''pmcLbImgWrap'').innerHTML =
+ ``;
+ document.getElementById(''pmcLbCaption'').textContent = title;
+ document.getElementById(''pmcLbCounter'').textContent = `${pmcLbCurrent + 1} / ${pmcLbItems.length}`;
+ }
+
+ document.addEventListener(''keydown'', (e) => {
+ const box = document.getElementById(''pmcPageLightbox'');
+ if (!box || !box.classList.contains(''open'')) return;
+ if (e.key === ''Escape'') closePmcLightbox();
+ if (e.key === ''ArrowLeft'') pmcLbNav(-1);
+ if (e.key === ''ArrowRight'') pmcLbNav(1);
+ });',1),
+(213,'about','About PMC | Medical College in Peshawar since 2005','About Us','College','About Peshawar Medical College: medical education in Peshawar since 2005, three teaching hospitals, PM&DC recognition, and Riphah International University affiliation.','about','<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <span class="page-hero-eyebrow">Department of Medical Sciences</span>
+    <h1>About Us</h1>
+    <div class="breadcrumb-pmc">
+      <a href="/">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">About Us</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content">
+
+          <!-- Intro — department scope (college detail lives on pmc.php) -->
+          <div class="about-intro fu">
+            <span class="sec-eyebrow">Introduction</span>
+            <h2 class="sec-title" style="font-size:1.75rem;">Department of Medical Sciences</h2>
+            <p class="about-lead">
+              A constituent department of <strong>Riphah International University – Peshawar Campus</strong>, comprising <strong>Peshawar Medical College</strong> and postgraduate medical programmes.
+            </p>
+            <p>
+              PMC is the oldest component department of the Peshawar Campus. It coordinates undergraduate MBBS education through Peshawar Medical College, postgraduate pathways, and clinical training across affiliated teaching hospitals — with a focus on the health needs of Khyber Pakhtunkhwa and Pakistan.
+            </p>
+            <p>
+              For the MBBS college profile, graduate attributes, clinical hospitals, and campus gallery, see <a href="/pmc"><strong>Peshawar Medical College</strong></a>. Department values are on <a href="/vision-mission"><strong>Vision &amp; Mission</strong></a>.
+            </p>
+          </div>
+
+          <!-- Quick facts -->
+          <div class="about-facts fu fu-delay-1">
+            <div class="about-fact">
+              <i class="bi bi-calendar3"></i>
+              <div>
+                <strong>Since 2005</strong>
+                <span>Medical education</span>
+              </div>
+            </div>
+            <div class="about-fact">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div>
+                <strong>25 Kanals</strong>
+                <span>Sher Ali Town, Peshawar</span>
+              </div>
+            </div>
+            <div class="about-fact">
+              <i class="bi bi-hospital-fill"></i>
+              <div>
+                <strong>3 Hospitals</strong>
+                <span>Affiliated teaching sites</span>
+              </div>
+            </div>
+            <div class="about-fact">
+              <i class="bi bi-diagram-3-fill"></i>
+              <div>
+                <strong>UG + PG</strong>
+                <span>PMC &amp; postgraduate pathways</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Programmes bridge -->
+          <div class="about-block fu" id="programmes">
+            <div class="about-block-head">
+              <h3>Colleges &amp; Programmes</h3>
+              <p>Where teaching and clinical training are delivered within PMC.</p>
+            </div>
+            <div class="pmc-hosp-grid">
+              <a class="pmc-hosp-card" href="/pmc">
+                <i class="bi bi-award"></i>
+                <strong>Peshawar Medical College</strong>
+                <span>MBBS · recognition · attributes · gallery</span>
+              </a>
+              <a class="pmc-hosp-card" href="/pg-medical-education">
+                <i class="bi bi-journal-medical"></i>
+                <strong>PG Medical Education</strong>
+                <span>MPhil & PhD in Basic Sciences</span>
+              </a>
+              <a class="pmc-hosp-card" href="/pmc#mbbs">
+                <i class="bi bi-mortarboard"></i>
+                <strong>MBBS Programme</strong>
+                <span>Integrated teaching &amp; clinical learning</span>
+              </a>
+            </div>
+            <div class="about-cta-row">
+              <a href="/pmc" class="btn-pmc btn-pmc-primary"><i class="bi bi-award"></i> Explore PMC</a>
+              <a href="/admissions" class="btn-pmc btn-pmc-outline"><i class="bi bi-mortarboard"></i> Admissions</a>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="about-block fu" id="location">
+            <div class="about-block-head">
+              <h3>Campus Location</h3>
+              <p>Warsak Rd, Sher Ali Town, Peshawar — accessible, green, and built for student life.</p>
+            </div>
+            <p>
+              The campus is located at <strong>Warsak Rd, Sher Ali Town, Peshawar</strong>, spanning <strong>25 kanals</strong> of lush green grounds. It houses administrative offices, teaching complexes, libraries, laboratories, and a cafeteria, with indoor and outdoor sports facilities. Girls’ hostel accommodation is available on campus.
+            </p>
+            <div class="about-map-card mt-4">
+              <div class="about-map-head">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                  <strong>Department of Medical Sciences</strong>
+                  <span>Warsak Rd, Sher Ali Town, Peshawar</span>
+                </div>
+              </div>
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.6119915583963!2d71.53066431549108!3d34.028169326445294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d9165a401d4713%3A0x8f90007120704a47!2sPeshawar%20Medical%20College!5e0!3m2!1sen!2s!4v1608538204785!5m2!1sen!2s"
+                  allowfullscreen loading="lazy" title="Department of Medical Sciences campus map"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campus Life -->
+          <div class="about-block fu" id="campus">
+            <div class="about-block-head">
+              <h3>Life at Campus</h3>
+              <p>Facilities that support learning, wellbeing, and everyday student life.</p>
+            </div>
+            <div class="about-facility-grid">
+              <div class="about-facility"><i class="bi bi-book-half"></i><span>Library &amp; LRC</span></div>
+              <div class="about-facility"><i class="bi bi-house-heart"></i><span>Girls Hostel</span></div>
+              <div class="about-facility"><i class="bi bi-trophy"></i><span>Sports &amp; Gym</span></div>
+              <div class="about-facility"><i class="bi bi-cup-hot"></i><span>Cafeteria</span></div>
+              <div class="about-facility"><i class="bi bi-moon-stars"></i><span>Masjid</span></div>
+              <div class="about-facility"><i class="bi bi-bus-front"></i><span>Transportation</span></div>
+              <div class="about-facility"><i class="bi bi-balloon-heart"></i><span>Day Care Center</span></div>
+              <div class="about-facility"><i class="bi bi-heart-pulse"></i><span>First Aid &amp; Counseling</span></div>
+              <div class="about-facility"><i class="bi bi-shield-check"></i><span>Security</span></div>
+            </div>
+            <div class="about-cta-row">
+              <a href="/admissions" class="btn-pmc btn-pmc-primary"><i class="bi bi-mortarboard"></i> Admissions</a>
+              <a href="/contact" class="btn-pmc btn-pmc-outline"><i class="bi bi-envelope"></i> Contact Us</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>','{"label":"About Us","section":"College","title":"About PMC | Medical College in Peshawar since 2005","description":"About Peshawar Medical College: medical education in Peshawar since 2005, three teaching hospitals, PM&DC recognition, and Riphah International University affiliation.","priority":"0.8","changefreq":"monthly"}','published',0.8,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32','Department of Medical Sciences
+ About Us
+ 
+ Home
+ 
+ About Us
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ Introduction
+ Department of Medical Sciences
+ 
+ A constituent department of Riphah International University – Peshawar Campus, comprising Peshawar Medical College and postgraduate medical programmes.
+ 
+ 
+ PMC is the oldest component department of the Peshawar Campus. It coordinates undergraduate MBBS education through Peshawar Medical College, postgraduate pathways, and clinical training across affiliated teaching hospitals — with a focus on the health needs of Khyber Pakhtunkhwa and Pakistan.
+ 
+ 
+ For the MBBS college profile, graduate attributes, clinical hospitals, and campus gallery, see Peshawar Medical College. Department values are on Vision & Mission.
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Since 2005
+ Medical education
+ 
+ 
+ 
+ 
+ 
+ 25 Kanals
+ Sher Ali Town, Peshawar
+ 
+ 
+ 
+ 
+ 
+ 3 Hospitals
+ Affiliated teaching sites
+ 
+ 
+ 
+ 
+ 
+ UG + PG
+ PMC & postgraduate pathways
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Colleges & Programmes
+ Where teaching and clinical training are delivered within PMC.
+ 
+ 
+ 
+ 
+ Peshawar Medical College
+ MBBS · recognition · attributes · gallery
+ 
+ 
+ 
+ PG Medical Education
+ MPhil & PhD in Basic Sciences
+ 
+ 
+ 
+ MBBS Programme
+ Integrated teaching & clinical learning
+ 
+ 
+ 
+ Explore PMC
+ Admissions
+ 
+ 
+
+ 
+ 
+ 
+ Campus Location
+ Warsak Rd, Sher Ali Town, Peshawar — accessible, green, and built for student life.
+ 
+ 
+ The campus is located at Warsak Rd, Sher Ali Town, Peshawar, spanning 25 kanals of lush green grounds. It houses administrative offices, teaching complexes, libraries, laboratories, and a cafeteria, with indoor and outdoor sports facilities. Girls’ hostel accommodation is available on campus.
+ 
+ 
+ 
+ 
+ 
+ Department of Medical Sciences
+ Warsak Rd, Sher Ali Town, Peshawar
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Life at Campus
+ Facilities that support learning, wellbeing, and everyday student life.
+ 
+ 
+ Library & LRC
+ Girls Hostel
+ Sports & Gym
+ Cafeteria
+ Masjid
+ Transportation
+ Day Care Center
+ First Aid & Counseling
+ Security
+ 
+ 
+ Admissions
+ Contact Us',1),
+(214,'admissions','PMC Admission | MBBS & KMU Medical College Peshawar','Admissions','Academics','PMC admission for MBBS via KMU and PM&DC. Merit, overseas, and foreign seats at a private medical college in Peshawar. Also FCPS/MCPS postgraduate pathways.','admissions','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <span class="page-hero-eyebrow">Department of Medical Sciences</span>
+    <h1>Admissions 2026–27</h1>
+    <div class="breadcrumb-pmc">
+      <a href="/">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">Admissions 2026–27</span>
+    </div>
+  </div>
+</div>
+
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content">
+
+          <div class="adm-intro fu">
+            <span class="sec-eyebrow">MBBS Admissions</span>
+            <h2 class="sec-title" style="font-size:1.75rem;">Peshawar Medical College</h2>
+            <p class="about-lead">
+              Merit-based admissions to a five-year <strong>Bachelor of Medicine, Bachelor of Surgery (MBBS)</strong> programme through the Department of Medical Sciences, Riphah International University – Peshawar Campus.
+            </p>
+            <p>
+              The transparent admission process aims to produce graduates who deliver ethically driven quality health care, advance health research, and serve as socially responsible professionals.
+            </p>
+          </div>
+
+          <div class="adm-facts fu fu-delay-1">
+            <div class="adm-fact">
+              <strong>MBBS</strong>
+              <span>Program</span>
+            </div>
+            <div class="adm-fact">
+              <strong>5 Years</strong>
+              <span>Duration</span>
+            </div>
+            <div class="adm-fact">
+              <strong>KMU</strong>
+              <span>Admission through</span>
+            </div>
+            <div class="adm-fact is-closed">
+              <strong>Open</strong>
+              <span>Applications</span>
+            </div>
+          </div>
+
+          <div class="adm-notice fu">
+            <div class="adm-notice-text">
+              <i class="bi bi-info-circle-fill"></i>
+              <p>
+                Admissions to private-sector MBBS and BDS programs in Khyber Pakhtunkhwa are conducted through
+                <strong>Khyber Medical University (KMU)</strong> in accordance with the rules and regulations of the
+                <strong>Pakistan Medical and Dental Council (PM&amp;DC)</strong>.
+              </p>
+            </div>
+            <div class="adm-quotas">
+              <div class="adm-quota">
+                <strong>15%</strong>
+                <span>Overseas Pakistanis Quota</span>
+              </div>
+              <div class="adm-quota">
+                <strong>5%</strong>
+                <span>Foreign Nationals Quota</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eligibility -->
+          <div class="adm-block fu" id="eligibility">
+            <div class="adm-block-head">
+              <h3>Eligibility Criteria</h3>
+              <p>Minimum requirements for MBBS applicants as per PM&amp;DC and KMU rules.</p>
+            </div>
+            <ul class="adm-check">
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                <span>The candidate must have passed obtaining <strong>minimum 60% marks</strong> in Higher Secondary School Certificate or FSc (Pre-Medical) 12th grade or equivalent qualification from any BISE in Pakistan or abroad.</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Candidates who have passed <strong>MDCAT-2024, 2025 or MDCAT-2026</strong> with minimum <strong>55% marks for MBBS</strong> and <strong>50% marks for BDS</strong>.</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Candidates having <strong>domicile of Khyber Pakhtunkhwa / Merged Districts (MDs)</strong>.</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Candidates applying for <strong>Foreign quota seats</strong> must fulfill eligibility criteria as laid down in section (7) of PM&amp;DC undergraduate education (Admissions, Curriculum and Conduct) Policy &amp; Regulations 2023 and subsequent Notification issued by PM&amp;DC No PF-1-C-PM&amp;DC/Notification/2025/910 Dated <strong>31st October, 2025</strong>.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Merit -->
+          <div class="adm-block fu" id="merit">
+            <div class="adm-block-head">
+              <h3>Merit Weightage</h3>
+              <p>As per Pakistan Medical &amp; Dental Council (PM&amp;DC) criteria.</p>
+            </div>
+            <div class="adm-merit">
+              <div class="adm-merit-row">
+                <div class="adm-merit-label">MDCAT / SAT II / Foreign MCAT / UCAT</div>
+                <div class="adm-merit-bar"><span style="width:50%"></span></div>
+                <div class="adm-merit-pct">50%</div>
+              </div>
+              <div class="adm-merit-row">
+                <div class="adm-merit-label">HSSC or Equivalent</div>
+                <div class="adm-merit-bar"><span style="width:40%"></span></div>
+                <div class="adm-merit-pct">40%</div>
+              </div>
+              <div class="adm-merit-row">
+                <div class="adm-merit-label">Matric / SSC or Equivalent</div>
+                <div class="adm-merit-bar"><span style="width:10%"></span></div>
+                <div class="adm-merit-pct">10%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Process -->
+          <div class="adm-block fu" id="process">
+            <div class="adm-block-head">
+              <h3>Admission Process</h3>
+              <p>Apply online through the KMU centralised admission portal.</p>
+            </div>
+            <p class="adm-portal-link">
+              <i class="bi bi-link-45deg"></i>
+              Visit: <a href="https://caspr.kmu.edu.pk" target="_blank" rel="noopener">caspr.kmu.edu.pk</a>
+            </p>
+            <ol class="adm-steps">
+              <li><span class="adm-step-num">1</span><span>Register / Create an Account</span></li>
+              <li><span class="adm-step-num">2</span><span>Fill online application form</span></li>
+              <li><span class="adm-step-num">3</span><span>Select preferred PAMI KP member colleges</span></li>
+              <li><span class="adm-step-num">4</span><span>Upload required documents</span></li>
+              <li><span class="adm-step-num">5</span><span>Pay online application fee</span></li>
+              <li><span class="adm-step-num">6</span><span>Submit form and download acknowledgment slip</span></li>
+            </ol>
+          </div>
+
+          <!-- Dates -->
+          <div class="adm-block fu" id="dates">
+            <div class="adm-block-head">
+              <h3>Important Dates</h3>
+              <p>Key milestones for the 2026–27 admission cycle.</p>
+            </div>
+            <ul class="adm-dates">
+              <li>
+                <span class="adm-date-event">Admission Portal Opens</span>
+                <span class="adm-date-val">06 October 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">Last Date for Submission</span>
+                <span class="adm-date-val is-deadline">09 November 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">Provisional Merit List</span>
+                <span class="adm-date-val">11 November 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">Submission of Online Objections / Claims</span>
+                <span class="adm-date-val">11 - 12 November 2026</span>
+              </li>
+
+              <li>
+                <span class="adm-date-event">Meeting of Appellate Scrutiny Committee for objections/ claims/ complaints</span>
+                <span class="adm-date-val">16 November 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">Final Merit List</span>
+                <span class="adm-date-val">24 November 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">Placement in Colleges</span>
+                <span class="adm-date-val">8 - 12 December 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">2nd Round of Placement (Vacant Seats)</span>
+                <span class="adm-date-val">21 – 24 December 2026</span>
+              </li>
+              <li>
+                <span class="adm-date-event">3rd Round of Placement (Vacant Seats)</span>
+                <span class="adm-date-val">04 – 07 January 2027</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Documents -->
+          <div class="adm-block fu" id="documents">
+            <div class="adm-block-head">
+              <h3>Required Documents</h3>
+              <p>Prepare these documents before starting your online application.</p>
+            </div>
+            <ul class="adm-docs">
+              <li><i class="bi bi-file-earmark-text"></i> Matric &amp; F.Sc certificates</li>
+              <li><i class="bi bi-file-earmark-text"></i> MDCAT result card</li>
+              <li><i class="bi bi-file-earmark-text"></i> Domicile &amp; CNIC / B-Form</li>
+              <li><i class="bi bi-file-earmark-text"></i> Passport-size photo</li>
+              <li><i class="bi bi-file-earmark-text"></i> IBCC equivalence (for foreign students)</li>
+            </ul>
+          </div>
+
+          <div class="adm-cta-row fu">
+            <a href="https://caspr.kmu.edu.pk/" target="_blank" class="btn-pmc btn-pmc-primary">
+              <i class="bi bi-send"></i> Apply Now
+            </a>
+            <a href="/assets/images/news/kmu-mbbs-bds-admissions.jpeg" class="btn-pmc btn-pmc-outline">
+              <i class="bi bi-download"></i> Advertisement
+            </a>
+            <!-- <a href="assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline">
+              <i class="bi bi-file-earmark-pdf"></i> MPhil Form
+            </a> -->
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Admissions sidebar -->
+      <div class="col-lg-4 fu fu-delay-2">
+        <div class="sidebar-widget">
+          <div class="sw-head"><i class="bi bi-list-ul"></i> On This Page</div>
+          <div class="sw-body">
+            <a class="sw-link" href="#eligibility"><i class="bi bi-check-circle"></i>Eligibility Criteria</a>
+            <a class="sw-link" href="#merit"><i class="bi bi-percent"></i>Merit Weightage</a>
+            <a class="sw-link" href="#process"><i class="bi bi-list-ol"></i>Admission Process</a>
+            <a class="sw-link" href="#dates"><i class="bi bi-calendar-event"></i>Important Dates</a>
+            <a class="sw-link" href="#documents"><i class="bi bi-folder2-open"></i>Required Documents</a>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <div class="sw-head"><i class="bi bi-download"></i> Downloads &amp; Portals</div>
+          <div class="sw-body">
+            <!-- <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Medical Final Prospectus 2025-26.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>Prospectus 2026–27</a> -->
+            <a class="sw-link" href="/assets/uploads/admissions/fee-structure/PMC_Fee structure 2026-27.htm" target="_blank" rel="noopener"><i class="bi bi-receipt"></i>Fee Structure 2026–27</a>
+            <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Scholarship Policy.pdf" target="_blank" rel="noopener"><i class="bi bi-award"></i>Scholarship Policy</a>
+            <a class="sw-link" href="https://caspr.kmu.edu.pk" target="_blank" rel="noopener"><i class="bi bi-globe"></i>KMU CASPR Portal</a>
+            <a class="sw-link" href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" rel="noopener"><i class="bi bi-person-circle"></i>Student Portal</a>
+            <a class="sw-link" href="https://riphahpsh.edu.pk/admissions.php" target="_blank" rel="noopener"><i class="bi bi-building"></i>Campus Admissions Hub</a>
+            <!-- <a class="sw-link" href="assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>MPhil Medical Form</a> -->
+            <a class="sw-link" href="/assets/images/news/kmu-mbbs-bds-admissions.jpeg" target="_blank" rel="noopener"><i class="bi bi-image"></i>2026 Advertisement</a>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <div class="sw-head"><i class="bi bi-telephone"></i> Need Help?</div>
+          <div class="sw-body" style="padding:16px 18px;">
+            <p style="font-size:.88rem;color:var(--gray-mid);margin:0 0 12px;line-height:1.6;">Questions about MBBS admissions at PMC.</p>
+            <a href="/contact" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;">
+              <i class="bi bi-envelope"></i> Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>','{"label":"Admissions","section":"Academics","title":"PMC Admission | MBBS & KMU Medical College Peshawar","description":"PMC admission for MBBS via KMU and PM&DC. Merit, overseas, and foreign seats at a private medical college in Peshawar. Also FCPS\/MCPS postgraduate pathways.","priority":"0.9","changefreq":"weekly","schema":"Course","course_name":"MBBS"}','published',0.9,'weekly','2026-10-13 15:49:32','2026-10-13 15:49:32','Department of Medical Sciences
+ Admissions 2026–27
+ 
+ Home
+ 
+ Admissions 2026–27
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ MBBS Admissions
+ Peshawar Medical College
+ 
+ Merit-based admissions to a five-year Bachelor of Medicine, Bachelor of Surgery (MBBS) programme through the Department of Medical Sciences, Riphah International University – Peshawar Campus.
+ 
+ 
+ The transparent admission process aims to produce graduates who deliver ethically driven quality health care, advance health research, and serve as socially responsible professionals.
+ 
+ 
+
+ 
+ 
+ MBBS
+ Program
+ 
+ 
+ 5 Years
+ Duration
+ 
+ 
+ KMU
+ Admission through
+ 
+ 
+ Open
+ Applications
+ 
+ 
+
+ 
+ 
+ 
+ 
+ Admissions to private-sector MBBS and BDS programs in Khyber Pakhtunkhwa are conducted through
+ Khyber Medical University (KMU) in accordance with the rules and regulations of the
+ Pakistan Medical and Dental Council (PM&DC).
+ 
+ 
+ 
+ 
+ 15%
+ Overseas Pakistanis Quota
+ 
+ 
+ 5%
+ Foreign Nationals Quota
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Eligibility Criteria
+ Minimum requirements for MBBS applicants as per PM&DC and KMU rules.
+ 
+ 
+ 
+ 
+ The candidate must have passed obtaining minimum 60% marks in Higher Secondary School Certificate or FSc (Pre-Medical) 12th grade or equivalent qualification from any BISE in Pakistan or abroad.
+ 
+ 
+ 
+ Candidates who have passed MDCAT-2024, 2025 or MDCAT-2026 with minimum 55% marks for MBBS and 50% marks for BDS.
+ 
+ 
+ 
+ Candidates having domicile of Khyber Pakhtunkhwa / Merged Districts (MDs).
+ 
+ 
+ 
+ Candidates applying for Foreign quota seats must fulfill eligibility criteria as laid down in section (7) of PM&DC undergraduate education (Admissions, Curriculum and Conduct) Policy & Regulations 2023 and subsequent Notification issued by PM&DC No PF-1-C-PM&DC/Notification/2025/910 Dated 31st October, 2025.
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Merit Weightage
+ As per Pakistan Medical & Dental Council (PM&DC) criteria.
+ 
+ 
+ 
+ MDCAT / SAT II / Foreign MCAT / UCAT
+ 
+ 50%
+ 
+ 
+ HSSC or Equivalent
+ 
+ 40%
+ 
+ 
+ Matric / SSC or Equivalent
+ 
+ 10%
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Admission Process
+ Apply online through the KMU centralised admission portal.
+ 
+ 
+ 
+ Visit: caspr.kmu.edu.pk
+ 
+ 
+ 1Register / Create an Account
+ 2Fill online application form
+ 3Select preferred PAMI KP member colleges
+ 4Upload required documents
+ 5Pay online application fee
+ 6Submit form and download acknowledgment slip
+ 
+ 
+
+ 
+ 
+ 
+ Important Dates
+ Key milestones for the 2026–27 admission cycle.
+ 
+ 
+ 
+ Admission Portal Opens
+ 06 October 2026
+ 
+ 
+ Last Date for Submission
+ 09 November 2026
+ 
+ 
+ Provisional Merit List
+ 11 November 2026
+ 
+ 
+ Submission of Online Objections / Claims
+ 11 - 12 November 2026
+ 
+
+ 
+ Meeting of Appellate Scrutiny Committee for objections/ claims/ complaints
+ 16 November 2026
+ 
+ 
+ Final Merit List
+ 24 November 2026
+ 
+ 
+ Placement in Colleges
+ 8 - 12 December 2026
+ 
+ 
+ 2nd Round of Placement (Vacant Seats)
+ 21 – 24 December 2026
+ 
+ 
+ 3rd Round of Placement (Vacant Seats)
+ 04 – 07 January 2027
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Required Documents
+ Prepare these documents before starting your online application.
+ 
+ 
+ Matric & F.Sc certificates
+ MDCAT result card
+ Domicile & CNIC / B-Form
+ Passport-size photo
+ IBCC equivalence (for foreign students)
+ 
+ 
+
+ 
+ 
+ Apply Now
+ 
+ 
+ Advertisement
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ On This Page
+ 
+ Eligibility Criteria
+ Merit Weightage
+ Admission Process
+ Important Dates
+ Required Documents
+ 
+ 
+ 
+ Downloads & Portals
+ 
+ 
+ Fee Structure 2026–27
+ Scholarship Policy
+ KMU CASPR Portal
+ Student Portal
+ Campus Admissions Hub
+ 
+ 2026 Advertisement
+ 
+ 
+ 
+ Need Help?
+ 
+ Questions about MBBS admissions at PMC.
+ 
+ Contact Us',1),
+(215,'vision-mission','Vision & Mission | Peshawar Medical College','Vision & Mission','College','Vision and mission of Peshawar Medical College: professional competence, ethical values, and medical education for KP and Pakistan.','vision-mission','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Vision & Mission</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+          class="bi bi-chevron-right"></i></span><span class="current">Vision &amp; Mission</span></div>
+  </div>
+</div>
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+          <h2 class="sec-title" style="font-size:1.8rem;">Our Vision &amp; Mission</h2>
+          <div class="pmc-card mb-4"
+            style="border-left:4px solid var(--teal);border-radius:12px;background:var(--teal-pale);">
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:4px 0;">
+              <i class="bi bi-eye-fill" style="font-size:1.6rem;color:var(--teal);flex-shrink:0;margin-top:4px;"></i>
+              <div>
+                <h5 style="margin:0 0 8px;">Vision Statement</h5>
+                <p style="margin:0;">To produce doctors with clear objectives to help in long-term development of the
+                  community through the following attributes: Professional competence, excellence in ethical values and
+                  practice, cognizance of community health needs, research mindedness and lifelong learning, competence
+                  in IT and current health technologies, capability to successfully meet local and global health
+                  challenges, and competitiveness at national and global level.</p>
+              </div>
+            </div>
+          </div>
+          <div class="pmc-card mb-4"
+            style="border-left:4px solid var(--gold);border-radius:12px;background:var(--gold-pale);">
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:4px 0;">
+              <i class="bi bi-bullseye" style="font-size:1.6rem;color:var(--gold);flex-shrink:0;margin-top:4px;"></i>
+              <div>
+                <h5 style="margin:0 0 8px;">Mission Statement</h5>
+                <p style="margin:0;font-weight:700;font-size:1.05rem;color:var(--navy);">To Achieve Excellence in
+                  Professional Competence and Ethical Values.</p>
+              </div>
+            </div>
+            <div class="mission-flower" style="margin-top:20px;text-align:center;">
+              <img src="/assets/images/about/mission.jpg" alt="Mission statement diagram"
+                style="width:100%;max-width:560px;height:auto;margin:0 auto;" />
+            </div>
+          </div>
+          <div class="pmc-card"
+            style="border-left:4px solid var(--navy);border-radius:12px;background:var(--off-white);">
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:4px 0;">
+              <i class="bi bi-quote" style="font-size:1.6rem;color:var(--navy);flex-shrink:0;margin-top:4px;"></i>
+              <div>
+                <h5 style="margin:0 0 8px;">Our Slogan</h5>
+                <p style="margin:0;font-style:italic;font-size:1.05rem;color:var(--navy);">"Come with commitment, grow
+                  with wisdom and leave with professional and ethical competence for a bright future."</p>
+                <p style="margin-top:8px;">We believe in creating your tomorrow today.</p>
+              </div>
+            </div>
+          </div>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>','{"label":"Vision & Mission","section":"College","title":"Vision & Mission | Peshawar Medical College","description":"Vision and mission of Peshawar Medical College: professional competence, ethical values, and medical education for KP and Pakistan.","priority":"0.5","changefreq":"yearly"}','published',0.5,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Vision & Mission
+ HomeVision & Mission
+ 
+
+
+ 
+ 
+ 
+ 
+ Our Vision & Mission
+ 
+ 
+ 
+ 
+ Vision Statement
+ To produce doctors with clear objectives to help in long-term development of the
+ community through the following attributes: Professional competence, excellence in ethical values and
+ practice, cognizance of community health needs, research mindedness and lifelong learning, competence
+ in IT and current health technologies, capability to successfully meet local and global health
+ challenges, and competitiveness at national and global level.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mission Statement
+ To Achieve Excellence in
+ Professional Competence and Ethical Values.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Our Slogan
+ "Come with commitment, grow
+ with wisdom and leave with professional and ethical competence for a bright future."
+ We believe in creating your tomorrow today.',1),
+(216,'contact','Contact Peshawar Medical College | Warsak Road','Contact Us','College','Contact Peshawar Medical College on Warsak Road, Peshawar. Phone, email, and campus map for MBBS admissions and general enquiries.','contact','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Contact Us</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+          class="bi bi-chevron-right"></i></span><span class="current">Contact Us</span></div>
+  </div>
+</div>
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+          <h2 class="sec-title" style="font-size:1.8rem;">Get in Touch</h2>
+          <p>We are here to help. Whether you have questions about admissions, academics, or general information about
+            Department of Medical Sciences, our team is ready to assist you.</p>
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <div class="pmc-card" style="border-radius:14px;">
+                <div style="font-size:1.6rem;color:var(--teal);margin-bottom:12px;"><i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <h4>Location</h4>
+                <p>Warsak Road, Peshawar, Khyber Pakhtunkhwa,
+                  Pakistan.<br />Postal Code: 25160</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card" style="border-radius:14px;">
+                <div style="font-size:1.6rem;color:var(--teal);margin-bottom:12px;"><i class="bi bi-telephone-fill"></i>
+                </div>
+                <h4>Phone</h4>
+                <p><a href="tel:+929152021914" style="color:var(--teal);font-weight:700;">+92-91-5202191 –
+                    94</a><br />
+                    <!--Monday – Saturday: 8:00 AM – 5:00 PM-->
+                    </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card" style="border-radius:14px;">
+                <div style="font-size:1.6rem;color:var(--teal);margin-bottom:12px;"><i class="bi bi-envelope-fill"></i>
+                </div>
+                <h4>Email</h4>
+                <p><a href="mailto:info@riphahpsh.edu.pk"
+                    style="color:var(--teal);font-weight:700;">info@riphahpsh.edu.pk</a><br />For information.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card" style="border-radius:14px;">
+                <div style="font-size:1.6rem;color:var(--teal);margin-bottom:12px;"><i class="bi bi-globe2"></i></div>
+                <h4>Follow Us</h4>
+                <p>Stay updated on news, events, and announcements.</p>
+                <div style="display:flex;gap:9px;margin-top:10px;"><a href="https://www.facebook.com/share/17Mw2CuEkD/"
+                    target="_blank" rel="noopener"
+                    style="width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;"><i
+                      class="bi bi-facebook"></i></a></div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="pmc-card" style="border-radius:14px;">
+                <div style="font-size:1.6rem;color:var(--teal);margin-bottom:12px;"><i class="bi bi-heart-pulse-fill"></i></div>
+                <h4>E-Health Service</h4>
+                <p>Free health information by phone from Peshawar Medical College (Prime Foundation).</p>
+                <p style="margin-bottom:14px;"><a href="tel:0912385262" style="color:var(--teal);font-weight:700;font-size:1.15rem;">091-2385262</a></p>
+                <a href="/e-health" class="btn-pmc btn-pmc-outline" style="font-size:.85rem;padding:8px 16px;">How to use &amp; topic codes <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <h5>Location Map</h5>
+          <div class="ratio ratio-16x9 rounded-3 overflow-hidden mt-3">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.6119915583963!2d71.53066431549108!3d34.028169326445294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d9165a401d4713%3A0x8f90007120704a47!2sPeshawar%20Medical%20College!5e0!3m2!1sen!2s!4v1608538204785!5m2!1sen!2s"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+</section>','{"label":"Contact Us","section":"College","title":"Contact Peshawar Medical College | Warsak Road","description":"Contact Peshawar Medical College on Warsak Road, Peshawar. Phone, email, and campus map for MBBS admissions and general enquiries.","priority":"0.7","changefreq":"yearly"}','published',0.7,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Contact Us
+ HomeContact Us
+ 
+
+
+ 
+ 
+ 
+ 
+ Get in Touch
+ We are here to help. Whether you have questions about admissions, academics, or general information about
+ Department of Medical Sciences, our team is ready to assist you.
+ 
+ 
+ 
+ 
+ 
+ Location
+ Warsak Road, Peshawar, Khyber Pakhtunkhwa,
+ Pakistan.Postal Code: 25160
+ 
+ 
+ 
+ 
+ 
+ 
+ Phone
+ +92-91-5202191 –
+ 94
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Email
+ info@riphahpsh.edu.pkFor information.
+ 
+ 
+ 
+ 
+ 
+ Follow Us
+ Stay updated on news, events, and announcements.
+ 
+ 
+ 
+ 
+ 
+ 
+ E-Health Service
+ Free health information by phone from Peshawar Medical College (Prime Foundation).
+ 091-2385262
+ How to use & topic codes 
+ 
+ 
+ 
+ Location Map',1),
+(217,'departments','Medical Departments | Peshawar Medical College','Departments','Academics','Basic and clinical medical departments at Peshawar Medical College — anatomy to medicine, surgery, and specialties for MBBS training in Peshawar.','departments',NULL,'{"label":"Departments","section":"Academics","title":"Medical Departments | Peshawar Medical College","description":"Basic and clinical medical departments at Peshawar Medical College — anatomy to medicine, surgery, and specialties for MBBS training in Peshawar.","priority":"0.7","changefreq":"monthly"}','published',0.7,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(218,'faculty','Faculty | Peshawar Medical College','Faculty','College','Meet PM&DC registered faculty at Peshawar Medical College, a leading medical college in Peshawar for MBBS and postgraduate teaching.','faculty',NULL,'{"label":"Faculty","section":"College","title":"Faculty | Peshawar Medical College","description":"Meet PM&DC registered faculty at Peshawar Medical College, a leading medical college in Peshawar for MBBS and postgraduate teaching.","priority":"0.7","changefreq":"monthly"}','published',0.7,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(219,'pg-medical-education','FCPS Training Peshawar | CPSP PG at PMC','PG Medical Education','Academics','FCPS and MCPS training in Peshawar at PMC — CPSP-recognised postgraduate medical education in teaching hospitals.','pg-medical-education','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <span class="page-hero-eyebrow">Department of Medical Sciences</span>
+    <h1>Postgraduate Medical Education</h1>
+    <div class="breadcrumb-pmc">
+      <a href="/">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">Postgraduate Programs</span>
+    </div>
+  </div>
+</div>
+
+<section class="pmc-section pg-page">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content">
+
+          <div class="about-intro fu">
+            <span class="sec-eyebrow">Programmes</span>
+            <h2 class="sec-title" style="font-size:1.75rem;">Postgraduate Medical Education</h2>
+            <p>
+              University M.Phil programmes in basic medical sciences sit alongside CPSP-recognised FCPS and MCPS training in clinical specialties. Postgraduate training has been offered since <strong>2011</strong>.
+            </p>
+          </div>
+
+          <div class="pg-director fu">
+            <div class="pg-director-ico"><i class="bi bi-person-badge"></i></div>
+            <div>
+              <span>Director, Basic Medical and Dental Sciences</span>
+              <strong></strong>
+            </div>
+          </div>
+
+          <div class="adm-help is-adm-notice fu">
+            <div class="adm-help-ico"><i class="bi bi-mortarboard-fill"></i></div>
+            <div>
+              <h3>Fall 2026 admissions — extended schedule</h3>
+              <p>Apply by <strong>03 Sep 2026</strong>. Entry test: 04 Sep 2026. Interview: 05 Sep 2026. Diploma in Medical Jurisprudence (DMJ) is also open.</p>
+              <a href="assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary"><i class="bi bi-file-earmark-pdf"></i> Admission Form</a>
+              <a href="assets/images/news/pg-medical-dental-ad-fall-2026.png" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-image"></i> Advertisement</a>
+            </div>
+          </div>
+
+          <div class="row g-4 mb-4 fu fu-delay-1">
+            <div class="col-md-3">
+              <a class="pg-stream-card" href="#basic-sciences">
+                <strong>Basic Sciences</strong>
+                <p>M.Phil programmes in anatomy, physiology, biochemistry, pharmacology, and pathology.</p>
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a class="pg-stream-card" href="#diploma">
+                <strong>Diploma</strong>
+                <p>Diploma in Medical Jurisprudence (DMJ).</p>
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a class="pg-stream-card" href="#clinical-sciences">
+                <strong>Clinical Sciences</strong>
+                <p>FCPS and MCPS training recognised by CPSP.</p>
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a class="pg-stream-card" href="#faculty">
+                <strong>Faculty</strong>
+                <p>Basic medical sciences teaching staff.</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="about-block fu" id="basic-sciences">
+            <div class="about-block-head">
+              <h3>Basic Sciences</h3>
+              <p>HEC-aligned M.Phil programmes in basic medical sciences.</p>
+            </div>
+            <p>
+              Applications are invited for <strong>M.Phil Basic Medical Sciences</strong> in the following disciplines. Pathology is offered with listed specialisations.
+            </p>
+            <div class="pg-panel">
+              <span class="pg-panel-label">M.Phil programmes</span>
+              <div class="pg-chips">
+                <span class="pg-chip">M.Phil Anatomy</span>
+                <span class="pg-chip">M.Phil Biochemistry</span>
+                <span class="pg-chip">M.Phil Physiology</span>
+                <span class="pg-chip">M.Phil Pharmacology</span>
+                <span class="pg-chip">M.Phil Pathology</span>
+              </div>
+              <p class="pg-subhead">Pathology specialisations</p>
+              <div class="pg-chips">
+                <span class="pg-chip">Chemical Pathology</span>
+                <span class="pg-chip">Histopathology</span>
+                <span class="pg-chip">Microbiology</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-block fu" id="diploma">
+            <div class="about-block-head">
+              <h3>Diploma</h3>
+              <p>Diploma in Medical Jurisprudence is open for Fall 2026 applications.</p>
+            </div>
+            <div class="pg-panel">
+              <span class="pg-panel-label">Diploma programmes</span>
+              <div class="pg-chips">
+                <span class="pg-chip">Diploma in Medical Jurisprudence (DMJ)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-block fu" id="clinical-sciences">
+            <div class="about-block-head">
+              <h3>Clinical Sciences</h3>
+              <p>CPSP-recognised FCPS and MCPS programmes, with clinical training at affiliated teaching hospitals.</p>
+            </div>
+            <p>
+              Clinical postgraduate training centres on FCPS and MCPS pathways. Specialty-specific curricula follow CPSP regulations.
+            </p>
+            <div class="row g-4">
+              <div class="col-md-7">
+                <div class="pg-panel">
+                  <span class="pg-panel-label">FCPS</span>
+                  <div class="pg-chips">
+                    <span class="pg-chip">Anesthesia</span>
+                    <span class="pg-chip">Cardiology</span>
+                    <span class="pg-chip">Endocrinology</span>
+                    <span class="pg-chip">Gastroenterology</span>
+                    <span class="pg-chip">General Medicine</span>
+                    <a class="pg-chip pg-chip-link" href="/pg-surgery-residency">General Surgery</a>
+                    <span class="pg-chip">Histopathology</span>
+                    <span class="pg-chip">Neurosurgery</span>
+                    <span class="pg-chip">Obstetrics &amp; Gynaecology</span>
+                    <span class="pg-chip">Ophthalmology</span>
+                    <span class="pg-chip">Orthopedics Surgery</span>
+                    <span class="pg-chip">ENT</span>
+                    <span class="pg-chip">Orbit &amp; Oculoplastics</span>
+                    <span class="pg-chip">Paediatrics</span>
+                    <span class="pg-chip">Paediatric Orthopedic Surgery</span>
+                    <span class="pg-chip">Psychiatry</span>
+                    <span class="pg-chip">Diagnostic Radiology</span>
+                    <span class="pg-chip">Urology</span>
+                    <span class="pg-chip">Vitreo-Retinal Ophthalmology</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="pg-panel">
+                  <span class="pg-panel-label">MCPS</span>
+                  <div class="pg-chips">
+                    <span class="pg-chip">Obstetrics &amp; Gynaecology</span>
+                    <span class="pg-chip">Ophthalmology</span>
+                    <span class="pg-chip">Anesthesia</span>
+                    <span class="pg-chip">Paediatrics</span>
+                    <span class="pg-chip">Diagnostic Radiology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-block fu" id="faculty">
+            <div class="about-block-head">
+              <h3>Faculty</h3>
+              <p>HEC recognised teaching faculty for basic medical sciences<br/>
+                Teaching staff of Basic Medical Sciences, under .</p>
+            </div>
+            <div class="pg-staff-grid">
+              <div class="pg-staff-card">
+                <h4>Anatomy</h4>
+                <ul class="pg-staff-list">
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Physiology</h4>
+                <ul class="pg-staff-list">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Pharmacology</h4>
+                <ul class="pg-staff-list">
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Pathology</h4>
+                <ul class="pg-staff-list">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+              <div class="pg-staff-card">
+                <h4>Biochemistry</h4>
+                <ul class="pg-staff-list">
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>','{"label":"PG Medical Education","section":"Academics","title":"FCPS Training Peshawar | CPSP PG at PMC","description":"FCPS and MCPS training in Peshawar at PMC — CPSP-recognised postgraduate medical education in teaching hospitals.","priority":"0.8","changefreq":"monthly"}','published',0.8,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32','Department of Medical Sciences
+ Postgraduate Medical Education
+ 
+ Home
+ 
+ Postgraduate Programs
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ Programmes
+ Postgraduate Medical Education
+ 
+ University M.Phil programmes in basic medical sciences sit alongside CPSP-recognised FCPS and MCPS training in clinical specialties. Postgraduate training has been offered since 2011.
+ 
+ 
+
+ 
+ 
+ 
+ Director, Basic Medical and Dental Sciences
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Fall 2026 admissions — extended schedule
+ Apply by 03 Sep 2026. Entry test: 04 Sep 2026. Interview: 05 Sep 2026. Diploma in Medical Jurisprudence (DMJ) is also open.
+ Admission Form
+ Advertisement
+ 
+ 
+
+ 
+ 
+ 
+ Basic Sciences
+ M.Phil programmes in anatomy, physiology, biochemistry, pharmacology, and pathology.
+ 
+ 
+ 
+ 
+ Diploma
+ Diploma in Medical Jurisprudence (DMJ).
+ 
+ 
+ 
+ 
+ Clinical Sciences
+ FCPS and MCPS training recognised by CPSP.
+ 
+ 
+ 
+ 
+ Faculty
+ Basic medical sciences teaching staff.
+ 
+ 
+ 
+
+ 
+ 
+ Basic Sciences
+ HEC-aligned M.Phil programmes in basic medical sciences.
+ 
+ 
+ Applications are invited for M.Phil Basic Medical Sciences in the following disciplines. Pathology is offered with listed specialisations.
+ 
+ 
+ M.Phil programmes
+ 
+ M.Phil Anatomy
+ M.Phil Biochemistry
+ M.Phil Physiology
+ M.Phil Pharmacology
+ M.Phil Pathology
+ 
+ Pathology specialisations
+ 
+ Chemical Pathology
+ Histopathology
+ Microbiology
+ 
+ 
+ 
+
+ 
+ 
+ Diploma
+ Diploma in Medical Jurisprudence is open for Fall 2026 applications.
+ 
+ 
+ Diploma programmes
+ 
+ Diploma in Medical Jurisprudence (DMJ)
+ 
+ 
+ 
+
+ 
+ 
+ Clinical Sciences
+ CPSP-recognised FCPS and MCPS programmes, with clinical training at affiliated teaching hospitals.
+ 
+ 
+ Clinical postgraduate training centres on FCPS and MCPS pathways. Specialty-specific curricula follow CPSP regulations.
+ 
+ 
+ 
+ 
+ FCPS
+ 
+ Anesthesia
+ Cardiology
+ Endocrinology
+ Gastroenterology
+ General Medicine
+ General Surgery
+ Histopathology
+ Neurosurgery
+ Obstetrics & Gynaecology
+ Ophthalmology
+ Orthopedics Surgery
+ ENT
+ Orbit & Oculoplastics
+ Paediatrics
+ Paediatric Orthopedic Surgery
+ Psychiatry
+ Diagnostic Radiology
+ Urology
+ Vitreo-Retinal Ophthalmology
+ 
+ 
+ 
+ 
+ 
+ MCPS
+ 
+ Obstetrics & Gynaecology
+ Ophthalmology
+ Anesthesia
+ Paediatrics
+ Diagnostic Radiology
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ Faculty
+ HEC recognised teaching faculty for basic medical sciences
+ Teaching staff of Basic Medical Sciences, under .
+ 
+ 
+ 
+ Anatomy
+ 
+ 
+ 
+ 
+ 
+ 
+ Physiology
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pharmacology
+ 
+ 
+ 
+ 
+ 
+ 
+ Pathology
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biochemistry',1),
+(220,'pg-surgery-residency','PG General Surgery Residency | PMC Peshawar','PG Surgery Residency','Academics','Postgraduate general surgery residency at Peshawar Medical College — structured surgical training in Peshawar teaching hospitals.','pg-surgery-residency','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Postgraduate General Surgery Residency Programme</h1>
+    <nav class="breadcrumb-pmc" aria-label="breadcrumb">
+      <a href="/">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="/medical-education">Education &amp; Research</a><span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">PG General Surgery Residency</span>
+    </nav>
+  </div>
+</div>
+
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- 1. Introduction -->
+          <h2 class="sec-title" style="font-size:1.8rem;">1. Introduction</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            The Department of Medical Sciences – Riphah International University (Peshawar Campus) is the first project of PRIME FOUNDATION. The institute has been established with objectives of contributing towards the quality medical education in line with community health needs of KP &amp; Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
+          </p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            The Department is recognized by Pakistan Medical Commission (PMC) according to 2019 inspection visit by PMC of various public &amp; private sector colleges. It was our honor to stand first among private hospitals of KP with more than 80% score.
+          </p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            The institution is managed by a “Board of Governors”; which comprises of highly dedicated professionals &amp; qualified academicians. The Department has opened its portal for Local, overseas Pakistani &amp; students from other nationalities particularly from brother Muslim countries, regardless of color, creed gender, ethnicity and religion.
+          </p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            The Department aspires to produce medical graduates with the following minimum attributes:
+          </p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            <li>In-depth knowledge of basic medical sciences.</li>
+            <li>Good clinical acumen, coupled with capacity to handle local problems by promoting appropriate solutions.</li>
+            <li>An ability to deal with emergencies and be able to deliver satisfactory services under pressure and increasing workload.</li>
+            <li>An ability to apply information technology in conducting research and evaluation.</li>
+            <li>An ability to take holistic approach to understand patients and their diseases, with due emphasis on biological, psychological &amp; social correlates.</li>
+            <li>Commitment to ethical values in the context of medical issues.</li>
+            <li>Be able to be effective community leaders.</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            The Department has three Teaching hospitals i.e., Kuwait Teaching Hospital, Mercy Teaching Hospital and Prime Teaching Hospital where teaching &amp; training programme for postgraduates residents in department of surgery is already in progress. The training programme in General Surgery at Kuwait teaching hospitals was initiated in 2010 after fulfilling the requirements of the College of Physicians and Surgeons (CPSP), Pakistan. Later on mercy teaching hospital was also approved by CPSP for teaching and training programme.
+          </p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            <strong>Eligibility criteria for the training programme in surgery:</strong><br>
+            • MBBS from an institution recognised by PMDC/PMC<br>
+            • One year internship with six months in Medicine and allied and six months in Surgery and allied disciplines<br>
+            • Candidates who cleared FCPS Part I exam of general surgery<br>
+            • Fresh graduates of less than two years are preferred<br>
+            The selection process is based purely on merit.
+          </p>
+
+          <!-- 2. Vision and Mission Statement -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:30px;">2. Vision and Mission Statement</h2>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="pmc-card" style="border-radius:12px;padding:20px;background:#fff;border:1px solid var(--border-color);height:100%;">
+                <h5 style="font-family:var(--font-head);color:var(--navy);margin-bottom:12px;"><i class="bi bi-eye-fill" style="color:var(--teal);margin-right:6px;"></i>Vision Statement</h5>
+                <p style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-dark);">To produce doctors with clear objectives to help in long term development of the community through the following attributes;</p>
+                <ul style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);padding-left:18px;line-height:1.7;">
+                  <li>Professional competence</li>
+                  <li>Excellence in ethical values and practice</li>
+                  <li>Cognizance of community health needs</li>
+                  <li>Research mindedness and lifelong learning</li>
+                  <li>Competence in IT and current health technologies</li>
+                  <li>Capability to successfully meet the local and global health challenges</li>
+                  <li>Competitiveness at national and global level</li>
+                </ul>
+                <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);"><em>Our Slogan</em><br>“Come with commitment, grow with wisdom and leave with professional and ethical competence for a bright future”. We believe in creating your tomorrow today.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card" style="border-radius:12px;padding:20px;background:#fff;border:1px solid var(--border-color);height:100%;">
+                <h5 style="font-family:var(--font-head);color:var(--navy);margin-bottom:8px;"><i class="bi bi-bullseye" style="color:var(--teal);margin-right:6px;"></i>Mission Statement</h5>
+                <p style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-dark);">To Achieve Excellence in professional competence and ethical values.</p>
+              </div>
+            </div>
+          </div>
+          <!-- CPSP Competency Model Image (used in Mission/Vision context) -->
+          <div class="text-center mb-4">
+            <img src="/assets/images/medical-education/cpsp-competency-model.png" alt="CPSP Competency-Based Model"
+                 class="img-fluid" style="border-radius:12px; max-width:100%; box-shadow:0 4px 12px rgba(0,0,0,.08);">
+          </div>
+
+          <!-- 3. Administrative structure/Hierarchy -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">3. Administrative Structure / Hierarchy</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">[Content to be added]</p>
+
+          <!-- 4. Program Goals -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">4. Program Goals</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            The goal of the General Surgery Residency at the Department of Medical Sciences – Riphah International University (Peshawar Campus) Affiliated hospitals is to provide an educational environment for residents to develop the knowledge and skills necessary to provide a high standard of medical care to patients in their communities throughout their professional medical careers. The program will impart the knowledge necessary to enable the resident to provide complete care of the surgical patient. Upon completion of the educational program, the surgeon will be capable and qualified in all the components of general surgery as defined by the College of Physicians and surgeons Pakistan (CPSP).
+          </p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">Specifically, the program will:</p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            <li>Integrate principles of basic sciences with clinical experiences</li>
+            <li>Promote a broad understanding of the role of surgery and its interaction with other medical disciplines, such as general medicine, psychiatry, and pediatrics</li>
+            <li>Provide for progressive responsibility from initial patient care to complete patient management</li>
+            <li>Foster effective interdisciplinary collaborative relationships</li>
+            <li>Provide surgical residents with the ability to function as teachers and consultants</li>
+            <li>Foster continuing education to promote lifelong individual initiative and creative scholarship</li>
+            <li>Prepare surgical residents to use research technology and skills in conducting studies that assist in solving surgical problems</li>
+            <li>Develop professional leadership and management skills</li>
+            <li>Promote understanding of the economic, legal, and social challenges of contemporary and future surgery</li>
+            <li>Design the curriculum to address each of the CPSP competencies</li>
+          </ul>
+
+          <!-- 5. Core values & code of conduct -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">5. Core Values &amp; Code of Conduct</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">The outer leaves of the model consist of three mega competencies and each of these consists of multiple elements. <strong>A. Professionalism, B. Pedagogy, C. Advocacy</strong>.</p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>A. Professionalism, Ethics and Leadership:</strong></p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>Demonstrate the highest level of personal integrity: honesty, punctuality, regularity, timely task completion.</li>
+            <li>Deal with all patients in a non-discriminatory and prejudice-free manner, demonstrating the same level of care for every human being irrespective of gender, age, ethnic background, culture, socioeconomic status and religion.</li>
+            <li>Establish a trusting relationship with patients, their relatives and care-givers.</li>
+            <li>Deal with all patients with honesty, empathy and compassion, putting patients’ needs first (altruism).</li>
+            <li>Facilitate transfer of information important for promotion of health, prevention and management of disease.</li>
+            <li>Encourage questioning by the patient and be receptive to feedback.</li>
+            <li>Pursue self-directed and life-long learning. Keep abreast of medical literature and assess new knowledge and apply it to resolve patient problems.</li>
+            <li>Knows one’s limitations and ask for help as needed from colleagues, consultations or referrals.</li>
+            <li>Apply quality assurance procedures for improvement in daily work.</li>
+            <li>Be a role model for others.</li>
+            <li>Maintain patient autonomy by demonstrating shared decision-making with the patient and/or family.</li>
+            <li>Obtain informed consent, maintain patient confidentiality and do no harm.</li>
+            <li>Provide cost-effective care while ordering investigations and in management and use resources appropriately.</li>
+            <li>Demonstrate accountability for their decisions and actions, and that of their team.</li>
+            <li>Demonstrate willingness to assume leadership role(s) when needed in given situations or events (rush call/code).</li>
+            <li>Change and bring about change as necessary, as a leader or supportive leader.</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>B. Pedagogy:</strong></p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>Effective clinical/community-based teaching</li>
+            <li>Some evidence of acquisition of theory regarding learning and education</li>
+            <li>Practice some of the best teaching methods.</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>C. Advocacy:</strong></p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">Advocacy is needed at multiple levels:</p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li><strong>Advocacy for the Patient:</strong> Doctors and nurses are the advocates of the patients, otherwise patients are likely to be lost in the system. All care should be timely, putting patients first.</li>
+            <li><strong>Advocacy for the Practice:</strong> Working in a service or practice, doctors must highlight limitations and issues. They must identify solutions for the problems, and recommend and implement improvements for the practice(s) and institutional system(s).</li>
+            <li><strong>Advocacy for the Health System and Society:</strong> Know one’s role in the Health System(s) and build strong referral systems. Keep patient and community interests paramount, above one’s own personal or professional interest. Demonstrate advocacy for elimination of the social determinants of health. Demonstrate advocacy for prevention of serious illnesses of their specialty/sub-specialty.</li>
+            <li><strong>For the Profession:</strong> Strive for building trust in the public for your profession. Demonstrate improvement and enhancement of profession, specialty and sub-specialty. Be conscientious gate-keepers of their profession, specialty and subspecialty.</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            In order to achieve the competencies of CPSP model, all curriculum components including instructional methods should be appropriately aligned to competency network. The theoretical part of the curriculum represents the current body of knowledge necessary for practice. This can be imparted through lectures, grand teaching rounds, clinico-pathological meetings, morbidity/mortality review meetings, literature reviews and presentations, journal clubs, self directed learning, conferences and seminars. Clinical learning is to be organized to provide appropriate expertise and competence necessary to evaluate and manage common clinical problems. Demonstration in outpatient and inpatient clinics, and procedural skills training on simulators, mannequins and patients are all practical training modalities.
+          </p>
+
+          <!-- 6. Clinical Objectives -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">6. Clinical Objectives</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">Objectives for the surgical curriculum identifies what the residents should know and be able to do at the completion of training. These objections include the following:</p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>Manage surgical disorders based on a thorough knowledge of basic and clinical science.</li>
+            <li>Demonstrate appropriate skill in the surgical techniques required of a qualified surgeon.</li>
+            <li>Demonstrate the use of critical thinking when making decisions affecting the life of a patient and the patient’s family.</li>
+            <li>Make sound ethical and legal judgments appropriate for a qualified surgeon.</li>
+            <li>Collaborate effectively with colleagues and other health professionals.</li>
+            <li>Teach and share knowledge with colleagues, residents, students, and other health care providers.</li>
+            <li>Teach patients and their families about the patient’s health needs.</li>
+            <li>Demonstrate acceptance of the value of life‑long learning as a necessary prerequisite to maintaining surgical knowledge and skill.</li>
+            <li>Demonstrate a commitment to scholarly pursuits through the conduct and evaluation of research.</li>
+            <li>Demonstrate leadership in the management of complex programs and organizations.</li>
+            <li>Provide cost‑effective care to surgical patients and families within the community.</li>
+            <li>Respect the religious beliefs of patients and their families and provide surgical care in accordance with those beliefs.</li>
+            <li><strong>Patient Care and Judgment:</strong> The development of sound surgical judgment is an integral part of the skills needed to become a capable general surgeon. The ability to acquire information and integrate it with daily patient care through the examination of the patient, data collection, and the consideration of clinical variables is essential for the capable surgeon.</li>
+            <li><strong>Technical Skills:</strong> The ability to safely perform operative procedures is essential for the surgeon. Manual dexterity, along with sound knowledge of wound healing, principles of tissue handling, and safe conduct of elective and emergency operative procedures, is essential to the resident’s development.</li>
+            <li><strong>Interpersonal Skills:</strong> Relationships with patients, hospital personnel, and the community are essential components to becoming a capable physician. Integrity and compassion are considered to be major components of the General Surgery Residency Program.</li>
+            <li><strong>Scholarly Activity:</strong> The acquisition of knowledge and critical evaluation of medical literature is essential to the resident’s education. Personal experience in clinical research is essential to developing sound analytic thought processes and utilizing the scientific method to collate data and enhance the body of knowledge of general surgery.</li>
+            <li><strong>Teaching Abilities:</strong> The institution is committed to education as an essential component of excellence in patient care. Each resident must develop the ability to teach in both informal clinical settings and in the more structured settings of Basic Science and Morbidity and Mortality (M&M) Conferences.</li>
+            <li><strong>Time Management:</strong> Physicians have many demands placed on their most limited resource – time. Residents must learn to appropriately prioritize their activities and commitments to meet the needs of their patients, their ongoing education, their health, and their family. Inability to bring these components into balance will jeopardize the function of a capable surgeon.</li>
+            <li><strong>Attendance:</strong> Each resident is expected to attend to all clinical duties and conferences in a timely fashion. The education of a surgeon is a multifaceted activity that requires group interaction and participation.</li>
+            <li><strong>Suitability:</strong> As determined by the Program Director and the Clinical Competency Committee, each resident must meet the expectations of the Department of Surgery. To maintain good standing in the program, the committee must determine that the trainee is capable of becoming a CPSP certified surgeon in good standing in his/her community.</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">Progression from the PGY‑1 to the PGY‑4 level involves a graded increase in responsibility at each resident level commensurate with the resident''s skills and abilities. Full‑time faculty surgeons who have wide interests and well‑honed teaching skills cover each of the surgical services.</p>
+
+          <!-- 7. Educational outcomes specific to the programme -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">7. Educational Outcomes Specific to the Programme</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>Goals</strong></p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
+            The major educational goal of the General Surgery residency training programme in the Department of Surgery at the Department of Medical Sciences – Riphah International University (Peshawar Campus) affiliated Hospital is to develop surgeons capable of independently practicing the highest quality clinical surgery relevant to the needs of individuals and families in Pakistan at par with international standards. The four-year residency programme - an organised educational programme with guidance and supervision - facilitates the residents'' personal and professional development while ensuring appropriate and safe patient care. The major strengths of the programme include:
+          </p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>It provides experience in preoperative, operative, and postoperative care for patients in all areas of general surgery, including abdominal, alimentary tract, breast, endocrine, head & neck, skin & soft tissue, vascular and trauma surgery including surgical critical care. The residents are also provided experience in minimal access surgery, cardiothoracic surgery, neurosurgery, orthopaedic surgery, paediatric surgery and urology (during rotations)</li>
+            <li>It provides residents and faculty with educational goals and objectives at the beginning of each rotation, and the opportunity to evaluate each other at the end of the rotation</li>
+            <li>It provides each resident with evaluation of performance on a bi-annual basis to show progression of expertise</li>
+            <li>It provides each resident with supervisory lines of responsibility and fair grievance policies</li>
+            <li>It provides academic activities that are conducted on regular weekly basis within department and within each individual section</li>
+            <li>It provides a working environment that is optimal for resident education and patient care. This environment is safe and provides adequate space for sleep, food, and study facilities</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>Objectives</strong><br>
+          The objective of the programme is to provide supervised, structured and comprehensive training in General Surgery from which trainees would emerge as clinically and academically competent surgeons.</p>
+
+          <!-- 8. Core Competencies -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">8. Core Competencies</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">Program Requirements for Residency Education in General Surgery. Residents must become competent in the following six areas:</p>
+          <ol style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li><strong>Patient Care</strong> – compassionate, appropriate, and effective. Demonstrate manual dexterity, develop and execute patient care plans.</li>
+            <li><strong>Medical Knowledge</strong> – about established and evolving biomedical, clinical, and cognate sciences. Critically evaluate and demonstrate knowledge of pertinent scientific information.</li>
+            <li><strong>Practice-Based Learning and Improvement</strong> – critique personal practice outcomes, recognize the importance of lifelong learning.</li>
+            <li><strong>Interpersonal and Communication Skills</strong> – communicate effectively with health care professionals, counsel and educate patients and families, effectively document practice activities.</li>
+            <li><strong>Professionalism</strong> – maintain high standards of ethical behavior, commitment to continuity of patient care, sensitivity to age, gender and culture.</li>
+            <li><strong>System-Based Practice</strong> – practice high quality, cost effective patient care, demonstrate knowledge of risk-benefit analysis, understand the role of different specialists in overall patient management.</li>
+          </ol>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>Quality Assurance Project</strong> – mandatory for surgery residents; assignments given in 3rd year for completion in 2 years.</p>
+
+          <!-- 9. Teaching/learning facilities -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">9. Teaching / Learning Facilities</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">College provides all well equipped and updated learning facilities to the residents in premises of its hospitals and also in medical college library. Facilities include online access to international journals, updated editions of text and reference books in hospital and college libraries.</p>
+
+          <!-- 10. IMM & FCPS competencies -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">10. IMM &amp; FCPS Competencies</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">To be read from CPSP IMM &amp; FCPS competency manuals.</p>
+
+          <!-- 11. Mandatory workshops -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">11. Mandatory Workshops</h2>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>Introduction to Computer and Internet</li>
+            <li>Research Methodology and Dissertation Writing</li>
+            <li>Primary Surgical Skills</li>
+            <li>Communication Skills</li>
+            <li>Basic Life Support (BLS) Course</li>
+            <li>Any other workshop/s as may be introduced by CPSP.</li>
+          </ul>
+
+          <!-- 12. Rights & Obligations of PGs -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">12. Rights &amp; Obligations of Postgraduates</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">The College believes that there are rights and responsibilities for every resident who shares a living space in college or hospital. Every doctor has a responsibility to his/herself and his/her community to read, understands, and upholds these standards. Each person is vital in determining the type of community that will develop in her living area. Thus, the quality of the residency experience will, in large part, depends on what each resident willing to contribute. It is each resident’s responsibility to be willing to talk with another person about behaviors which make him/her uncomfortable.</p>
+
+          <!-- 13. Research activities -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">13. Research Activities</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">The section of general surgery has a specific focus on promoting the research activities of the residents. Residents are encouraged to participate in ongoing studies, and ideally develop projects of their own that the faculty would be pleased to support and foster. The department of surgery deals with an extensive array of clinical problems that can form the basis of interesting research and publication. Residents are strongly encouraged to author or co-author at least one publication, presentation, or published abstract during their four years of training. For fellowship residents will require a dissertation or two research papers on a topic related to the field of specialization. For residents of General Surgery the synopsis of dissertation or research papers must be submitted to Research and Evaluation Unit (REU) in the first year of the Intermediate Module. All residents are encouraged to get involved in audits and research projects, however research project as per CPSP requirements is mandatory for all. The residents should be able to:</p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>Actively undertake and participate in research related to issues and developments in the field of surgery about their own population of patients and/or the larger population from which their patients are drawn.</li>
+            <li>Apply knowledge of study design and statistical methods to critically appraise the clinical studies and other information on diagnostic and therapeutic effectiveness</li>
+            <li>Be able to use/implement the results of these researches/studies as and when appropriate in their respective clinical practice.</li>
+            <li>Appreciate the importance of ethical standards in research</li>
+            <li>Facilitate the learning of students and other health care professionals (other members of the health care team).</li>
+          </ul>
+
+          <!-- 14. Educational strategies & opportunities -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">14. Educational Strategies &amp; Opportunities</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">Educational strategies directed to the surgical residents include:</p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>Surgical Grand Rounds</li>
+            <li>Morbidity and Mortality (M&M) Conference</li>
+            <li>Basic Science Conference</li>
+            <li>Skills lab</li>
+            <li>Journal Club</li>
+            <li>Visiting Professor Case Conference (if any)</li>
+            <li>Tumor Board Meeting</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">Attendance is mandatory for residents on all rotations except those outside of hospitals. Attendance is monitored through the use of a sign‑in sheet at each academic activity. Attendance at 75% is considered mandatory. For any unexcused absences the first month, the resident receives a memo from the program director. Continued unexcused absences, will result in a formal meeting with the program director and can lead to a resident being placed on probation. The residency coordinator are responsible for collecting the sign‑in sheets for resident academic activities.</p>
+
+          <!-- 15. CME guidelines and activities calendar -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">15. CME Guidelines and Activities Calendar</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered" style="font-size:.9rem;">
+              <thead class="table-light"><tr><th>S.No</th><th>Event</th><th>Frequency</th></tr></thead>
+              <tbody>
+                <tr><td>01</td><td>Teaching Ward Round & Bed Side Teaching</td><td>Twice a week</td></tr>
+                <tr><td>02</td><td>Morbidity & Mortality meeting</td><td>Once a month</td></tr>
+                <tr><td>03</td><td>Journal club</td><td>Once a month</td></tr>
+                <tr><td>04</td><td>Case presentation</td><td>Once a month</td></tr>
+                <tr><td>05</td><td>MDT (Tumor Board) Meeting</td><td>Once a month</td></tr>
+                <tr><td>06</td><td>Short cases & long case discussion</td><td>Once a week</td></tr>
+                <tr><td>07</td><td>CPSP competency achievement</td><td>Continuous process</td></tr>
+                <tr><td>08</td><td>Specialty specific Skills workshop</td><td>Once a year</td></tr>
+                <tr><td>09</td><td>Soft skills workshops</td><td>Once a year</td></tr>
+                <tr><td>10</td><td>MCQs assessment</td><td>Once a year</td></tr>
+                <tr><td>11</td><td>WPBA</td><td>Once a year</td></tr>
+                <tr><td>12</td><td>TOACS</td><td>Once a year</td></tr>
+                <tr><td>13</td><td>Debriefing</td><td>Once a year</td></tr>
+                <tr><td>14</td><td>Departmental Picnic</td><td>Once a year</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 16. Schedule of rotations -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">16. Schedule of Rotations</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>Duration:</strong></p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>The duration of training for the Intermediate Module (IMM) is two years; and residents become eligible to appear in Intermediate Module examination upon completion of IMM training.</li>
+            <li>The General Surgery residency programme extends over four years, during which progressively increasing exposure and responsibilities are given to trainees, both in the operating room and in the pre-and post-operative management of patients.</li>
+            <li>"Rotations are in accordance with college of physicians and surgeons".</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>Rotations:</strong></p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>03 months of rotation in Orthopaedics/Trauma is mandatory for all residents (Surgery, Group A & Group B).</li>
+            <li>The residents in straight fellowship in Surgery shall do three rotations of 02 months each in any of the following specialties: Cardiovascular Surgery, Neurosurgery, Paediatric Surgery, Plastic Surgery, Thoracic Surgery and Urology.</li>
+            <li>The residents in groups A and B will complete rotations of 02 months each in the three specialties included in the opted group except Orthopaedics/Trauma, which they would complete as mandatory rotation.</li>
+          </ul>
+
+          <!-- 17. Departmental Assessment Plan -->
+          <h2 class="sec-title" style="font-size:1.6rem;margin-top:20px;">17. Departmental Assessment Plan</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">A continuous as well as periodic evaluation and feedback process is an essential and integral part of this training programme. The programme uses the following essential evaluation tools:</p>
+          <ul style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">
+            <li>Global assessment of each resident incorporating the six core competencies</li>
+            <li>Focused assessment of residents performed by the faculty, which includes work place based assessments: MiniClex & DOPS</li>
+            <li>In-training examination - This is a periodic examination to evaluate knowledge. It includes Multiple Choice Questions, SEQs, OSCEs or short and long cases.</li>
+            <li>Quarterly/Rotation Evaluations</li>
+            <li>Mid – Term Evaluation</li>
+            <li>Annual Evaluation & Resident Promotion</li>
+            <li>CPSP Examination</li>
+          </ul>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);"><strong>Workplace Based Assessment (WBPA)</strong></p>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);">Workplace based assessment tools like Mini-CEX and DOPS are being used by CPSP for formative assessment. The Faculty of Surgery has identified areas of Mini-CEX and DOPS for each quarter of training. Supervisors and residents are advised to arrange and complete WPBA assignments according to the timeline mentioned in the competency tables, by uploading the respective Performa at the end of each quarter.</p>
+          
+          <h5>MINI-CEX</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered" style="font-size:.85rem;">
+              <thead class="table-light"><tr><th>Competency</th><th>Description</th><th>Quarter</th></tr></thead>
+              <tbody>
+                <tr><td>history taking</td><td>demonstrate the art of history taking in surgical practice</td><td>1st quarter</td></tr>
+                <tr><td>general physical examination</td><td>performs general physical examination systematically</td><td>2nd quarter</td></tr>
+                <tr><td>abdominal examination</td><td>performs abdominal examination following standard guidelines</td><td>3rd quarter</td></tr>
+                <tr><td>lump examination</td><td>demonstrate correct steps of lump examination in a real patient</td><td>4th quarter</td></tr>
+                <tr><td>cervical lymph nodes examination</td><td>performs cervical lymph nodes examination in a real patient</td><td>5th quarter</td></tr>
+                <tr><td>hernia examination</td><td>applies correct clinical methods in the examination of hernia in a real patient</td><td>6th quarter</td></tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <h5>DOPS</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered" style="font-size:.85rem;">
+              <thead class="table-light"><tr><th>Procedure</th><th>Description</th><th>Quarter</th></tr></thead>
+              <tbody>
+                <tr><td>skin suturing</td><td>demonstrate skills for suturing in a real patient</td><td>1st quarter</td></tr>
+                <tr><td>tru-cut biopsy</td><td>performs tru-cut biopsy in a real patient safely</td><td>2nd quarter</td></tr>
+                <tr><td>cvp line placement</td><td>performs cvp line insertion in a real patient safely</td><td>3rd quarter</td></tr>
+                <tr><td>chest intubation</td><td>performs chest intubation in a real patient safely</td><td>4th quarter</td></tr>
+                <tr><td>lump excision</td><td>performs excision of lump in a real patient safely</td><td>5th quarter</td></tr>
+                <tr><td>incision and drainage of an abscess</td><td>performs incision and drainage in a real patient correctly and safely</td><td>6th quarter</td></tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <p class="mt-5"><em>For further details, refer to CPSP curriculum documents and the Department of Medical Sciences – Riphah International University (Peshawar Campus) postgraduate office.</em></p>
+
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+    </div>
+  </div>
+</section>','{"label":"PG Surgery Residency","section":"Academics","title":"PG General Surgery Residency | PMC Peshawar","description":"Postgraduate general surgery residency at Peshawar Medical College — structured surgical training in Peshawar teaching hospitals.","priority":"0.6","changefreq":"yearly"}','published',0.6,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Postgraduate General Surgery Residency Programme
+ 
+ Home
+ Education & Research
+ PG General Surgery Residency
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 1. Introduction
+ 
+ The Department of Medical Sciences – Riphah International University (Peshawar Campus) is the first project of PRIME FOUNDATION. The institute has been established with objectives of contributing towards the quality medical education in line with community health needs of KP & Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
+ 
+ 
+ The Department is recognized by Pakistan Medical Commission (PMC) according to 2019 inspection visit by PMC of various public & private sector colleges. It was our honor to stand first among private hospitals of KP with more than 80% score.
+ 
+ 
+ The institution is managed by a “Board of Governors”; which comprises of highly dedicated professionals & qualified academicians. The Department has opened its portal for Local, overseas Pakistani & students from other nationalities particularly from brother Muslim countries, regardless of color, creed gender, ethnicity and religion.
+ 
+ 
+ The Department aspires to produce medical graduates with the following minimum attributes:
+ 
+ 
+ In-depth knowledge of basic medical sciences.
+ Good clinical acumen, coupled with capacity to handle local problems by promoting appropriate solutions.
+ An ability to deal with emergencies and be able to deliver satisfactory services under pressure and increasing workload.
+ An ability to apply information technology in conducting research and evaluation.
+ An ability to take holistic approach to understand patients and their diseases, with due emphasis on biological, psychological & social correlates.
+ Commitment to ethical values in the context of medical issues.
+ Be able to be effective community leaders.
+ 
+ 
+ The Department has three Teaching hospitals i.e., Kuwait Teaching Hospital, Mercy Teaching Hospital and Prime Teaching Hospital where teaching & training programme for postgraduates residents in department of surgery is already in progress. The training programme in General Surgery at Kuwait teaching hospitals was initiated in 2010 after fulfilling the requirements of the College of Physicians and Surgeons (CPSP), Pakistan. Later on mercy teaching hospital was also approved by CPSP for teaching and training programme.
+ 
+ 
+ Eligibility criteria for the training programme in surgery:
+ • MBBS from an institution recognised by PMDC/PMC
+ • One year internship with six months in Medicine and allied and six months in Surgery and allied disciplines
+ • Candidates who cleared FCPS Part I exam of general surgery
+ • Fresh graduates of less than two years are preferred
+ The selection process is based purely on merit.
+ 
+
+ 
+ 2. Vision and Mission Statement
+ 
+ 
+ 
+ Vision Statement
+ To produce doctors with clear objectives to help in long term development of the community through the following attributes;
+ 
+ Professional competence
+ Excellence in ethical values and practice
+ Cognizance of community health needs
+ Research mindedness and lifelong learning
+ Competence in IT and current health technologies
+ Capability to successfully meet the local and global health challenges
+ Competitiveness at national and global level
+ 
+ Our Slogan“Come with commitment, grow with wisdom and leave with professional and ethical competence for a bright future”. We believe in creating your tomorrow today.
+ 
+ 
+ 
+ 
+ Mission Statement
+ To Achieve Excellence in professional competence and ethical values.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 3. Administrative Structure / Hierarchy
+ [Content to be added]
+
+ 
+ 4. Program Goals
+ 
+ The goal of the General Surgery Residency at the Department of Medical Sciences – Riphah International University (Peshawar Campus) Affiliated hospitals is to provide an educational environment for residents to develop the knowledge and skills necessary to provide a high standard of medical care to patients in their communities throughout their professional medical careers. The program will impart the knowledge necessary to enable the resident to provide complete care of the surgical patient. Upon completion of the educational program, the surgeon will be capable and qualified in all the components of general surgery as defined by the College of Physicians and surgeons Pakistan (CPSP).
+ 
+ Specifically, the program will:
+ 
+ Integrate principles of basic sciences with clinical experiences
+ Promote a broad understanding of the role of surgery and its interaction with other medical disciplines, such as general medicine, psychiatry, and pediatrics
+ Provide for progressive responsibility from initial patient care to complete patient management
+ Foster effective interdisciplinary collaborative relationships
+ Provide surgical residents with the ability to function as teachers and consultants
+ Foster continuing education to promote lifelong individual initiative and creative scholarship
+ Prepare surgical residents to use research technology and skills in conducting studies that assist in solving surgical problems
+ Develop professional leadership and management skills
+ Promote understanding of the economic, legal, and social challenges of contemporary and future surgery
+ Design the curriculum to address each of the CPSP competencies
+ 
+
+ 
+ 5. Core Values & Code of Conduct
+ The outer leaves of the model consist of three mega competencies and each of these consists of multiple elements. A. Professionalism, B. Pedagogy, C. Advocacy.
+ A. Professionalism, Ethics and Leadership:
+ 
+ Demonstrate the highest level of personal integrity: honesty, punctuality, regularity, timely task completion.
+ Deal with all patients in a non-discriminatory and prejudice-free manner, demonstrating the same level of care for every human being irrespective of gender, age, ethnic background, culture, socioeconomic status and religion.
+ Establish a trusting relationship with patients, their relatives and care-givers.
+ Deal with all patients with honesty, empathy and compassion, putting patients’ needs first (altruism).
+ Facilitate transfer of information important for promotion of health, prevention and management of disease.
+ Encourage questioning by the patient and be receptive to feedback.
+ Pursue self-directed and life-long learning. Keep abreast of medical literature and assess new knowledge and apply it to resolve patient problems.
+ Knows one’s limitations and ask for help as needed from colleagues, consultations or referrals.
+ Apply quality assurance procedures for improvement in daily work.
+ Be a role model for others.
+ Maintain patient autonomy by demonstrating shared decision-making with the patient and/or family.
+ Obtain informed consent, maintain patient confidentiality and do no harm.
+ Provide cost-effective care while ordering investigations and in management and use resources appropriately.
+ Demonstrate accountability for their decisions and actions, and that of their team.
+ Demonstrate willingness to assume leadership role(s) when needed in given situations or events (rush call/code).
+ Change and bring about change as necessary, as a leader or supportive leader.
+ 
+ B. Pedagogy:
+ 
+ Effective clinical/community-based teaching
+ Some evidence of acquisition of theory regarding learning and education
+ Practice some of the best teaching methods.
+ 
+ C. Advocacy:
+ Advocacy is needed at multiple levels:
+ 
+ Advocacy for the Patient: Doctors and nurses are the advocates of the patients, otherwise patients are likely to be lost in the system. All care should be timely, putting patients first.
+ Advocacy for the Practice: Working in a service or practice, doctors must highlight limitations and issues. They must identify solutions for the problems, and recommend and implement improvements for the practice(s) and institutional system(s).
+ Advocacy for the Health System and Society: Know one’s role in the Health System(s) and build strong referral systems. Keep patient and community interests paramount, above one’s own personal or professional interest. Demonstrate advocacy for elimination of the social determinants of health. Demonstrate advocacy for prevention of serious illnesses of their specialty/sub-specialty.
+ For the Profession: Strive for building trust in the public for your profession. Demonstrate improvement and enhancement of profession, specialty and sub-specialty. Be conscientious gate-keepers of their profession, specialty and subspecialty.
+ 
+ 
+ In order to achieve the competencies of CPSP model, all curriculum components including instructional methods should be appropriately aligned to competency network. The theoretical part of the curriculum represents the current body of knowledge necessary for practice. This can be imparted through lectures, grand teaching rounds, clinico-pathological meetings, morbidity/mortality review meetings, literature reviews and presentations, journal clubs, self directed learning, conferences and seminars. Clinical learning is to be organized to provide appropriate expertise and competence necessary to evaluate and manage common clinical problems. Demonstration in outpatient and inpatient clinics, and procedural skills training on simulators, mannequins and patients are all practical training modalities.
+ 
+
+ 
+ 6. Clinical Objectives
+ Objectives for the surgical curriculum identifies what the residents should know and be able to do at the completion of training. These objections include the following:
+ 
+ Manage surgical disorders based on a thorough knowledge of basic and clinical science.
+ Demonstrate appropriate skill in the surgical techniques required of a qualified surgeon.
+ Demonstrate the use of critical thinking when making decisions affecting the life of a patient and the patient’s family.
+ Make sound ethical and legal judgments appropriate for a qualified surgeon.
+ Collaborate effectively with colleagues and other health professionals.
+ Teach and share knowledge with colleagues, residents, students, and other health care providers.
+ Teach patients and their families about the patient’s health needs.
+ Demonstrate acceptance of the value of life‑long learning as a necessary prerequisite to maintaining surgical knowledge and skill.
+ Demonstrate a commitment to scholarly pursuits through the conduct and evaluation of research.
+ Demonstrate leadership in the management of complex programs and organizations.
+ Provide cost‑effective care to surgical patients and families within the community.
+ Respect the religious beliefs of patients and their families and provide surgical care in accordance with those beliefs.
+ Patient Care and Judgment: The development of sound surgical judgment is an integral part of the skills needed to become a capable general surgeon. The ability to acquire information and integrate it with daily patient care through the examination of the patient, data collection, and the consideration of clinical variables is essential for the capable surgeon.
+ Technical Skills: The ability to safely perform operative procedures is essential for the surgeon. Manual dexterity, along with sound knowledge of wound healing, principles of tissue handling, and safe conduct of elective and emergency operative procedures, is essential to the resident’s development.
+ Interpersonal Skills: Relationships with patients, hospital personnel, and the community are essential components to becoming a capable physician. Integrity and compassion are considered to be major components of the General Surgery Residency Program.
+ Scholarly Activity: The acquisition of knowledge and critical evaluation of medical literature is essential to the resident’s education. Personal experience in clinical research is essential to developing sound analytic thought processes and utilizing the scientific method to collate data and enhance the body of knowledge of general surgery.
+ Teaching Abilities: The institution is committed to education as an essential component of excellence in patient care. Each resident must develop the ability to teach in both informal clinical settings and in the more structured settings of Basic Science and Morbidity and Mortality (M&M) Conferences.
+ Time Management: Physicians have many demands placed on their most limited resource – time. Residents must learn to appropriately prioritize their activities and commitments to meet the needs of their patients, their ongoing education, their health, and their family. Inability to bring these components into balance will jeopardize the function of a capable surgeon.
+ Attendance: Each resident is expected to attend to all clinical duties and conferences in a timely fashion. The education of a surgeon is a multifaceted activity that requires group interaction and participation.
+ Suitability: As determined by the Program Director and the Clinical Competency Committee, each resident must meet the expectations of the Department of Surgery. To maintain good standing in the program, the committee must determine that the trainee is capable of becoming a CPSP certified surgeon in good standing in his/her community.
+ 
+ Progression from the PGY‑1 to the PGY‑4 level involves a graded increase in responsibility at each resident level commensurate with the resident''s skills and abilities. Full‑time faculty surgeons who have wide interests and well‑honed teaching skills cover each of the surgical services.
+
+ 
+ 7. Educational Outcomes Specific to the Programme
+ Goals
+ 
+ The major educational goal of the General Surgery residency training programme in the Department of Surgery at the Department of Medical Sciences – Riphah International University (Peshawar Campus) affiliated Hospital is to develop surgeons capable of independently practicing the highest quality clinical surgery relevant to the needs of individuals and families in Pakistan at par with international standards. The four-year residency programme - an organised educational programme with guidance and supervision - facilitates the residents'' personal and professional development while ensuring appropriate and safe patient care. The major strengths of the programme include:
+ 
+ 
+ It provides experience in preoperative, operative, and postoperative care for patients in all areas of general surgery, including abdominal, alimentary tract, breast, endocrine, head & neck, skin & soft tissue, vascular and trauma surgery including surgical critical care. The residents are also provided experience in minimal access surgery, cardiothoracic surgery, neurosurgery, orthopaedic surgery, paediatric surgery and urology (during rotations)
+ It provides residents and faculty with educational goals and objectives at the beginning of each rotation, and the opportunity to evaluate each other at the end of the rotation
+ It provides each resident with evaluation of performance on a bi-annual basis to show progression of expertise
+ It provides each resident with supervisory lines of responsibility and fair grievance policies
+ It provides academic activities that are conducted on regular weekly basis within department and within each individual section
+ It provides a working environment that is optimal for resident education and patient care. This environment is safe and provides adequate space for sleep, food, and study facilities
+ 
+ Objectives
+ The objective of the programme is to provide supervised, structured and comprehensive training in General Surgery from which trainees would emerge as clinically and academically competent surgeons.
+
+ 
+ 8. Core Competencies
+ Program Requirements for Residency Education in General Surgery. Residents must become competent in the following six areas:
+ 
+ Patient Care – compassionate, appropriate, and effective. Demonstrate manual dexterity, develop and execute patient care plans.
+ Medical Knowledge – about established and evolving biomedical, clinical, and cognate sciences. Critically evaluate and demonstrate knowledge of pertinent scientific information.
+ Practice-Based Learning and Improvement – critique personal practice outcomes, recognize the importance of lifelong learning.
+ Interpersonal and Communication Skills – communicate effectively with health care professionals, counsel and educate patients and families, effectively document practice activities.
+ Professionalism – maintain high standards of ethical behavior, commitment to continuity of patient care, sensitivity to age, gender and culture.
+ System-Based Practice – practice high quality, cost effective patient care, demonstrate knowledge of risk-benefit analysis, understand the role of different specialists in overall patient management.
+ 
+ Quality Assurance Project – mandatory for surgery residents; assignments given in 3rd year for completion in 2 years.
+
+ 
+ 9. Teaching / Learning Facilities
+ College provides all well equipped and updated learning facilities to the residents in premises of its hospitals and also in medical college library. Facilities include online access to international journals, updated editions of text and reference books in hospital and college libraries.
+
+ 
+ 10. IMM & FCPS Competencies
+ To be read from CPSP IMM & FCPS competency manuals.
+
+ 
+ 11. Mandatory Workshops
+ 
+ Introduction to Computer and Internet
+ Research Methodology and Dissertation Writing
+ Primary Surgical Skills
+ Communication Skills
+ Basic Life Support (BLS) Course
+ Any other workshop/s as may be introduced by CPSP.
+ 
+
+ 
+ 12. Rights & Obligations of Postgraduates
+ The College believes that there are rights and responsibilities for every resident who shares a living space in college or hospital. Every doctor has a responsibility to his/herself and his/her community to read, understands, and upholds these standards. Each person is vital in determining the type of community that will develop in her living area. Thus, the quality of the residency experience will, in large part, depends on what each resident willing to contribute. It is each resident’s responsibility to be willing to talk with another person about behaviors which make him/her uncomfortable.
+
+ 
+ 13. Research Activities
+ The section of general surgery has a specific focus on promoting the research activities of the residents. Residents are encouraged to participate in ongoing studies, and ideally develop projects of their own that the faculty would be pleased to support and foster. The department of surgery deals with an extensive array of clinical problems that can form the basis of interesting research and publication. Residents are strongly encouraged to author or co-author at least one publication, presentation, or published abstract during their four years of training. For fellowship residents will require a dissertation or two research papers on a topic related to the field of specialization. For residents of General Surgery the synopsis of dissertation or research papers must be submitted to Research and Evaluation Unit (REU) in the first year of the Intermediate Module. All residents are encouraged to get involved in audits and research projects, however research project as per CPSP requirements is mandatory for all. The residents should be able to:
+ 
+ Actively undertake and participate in research related to issues and developments in the field of surgery about their own population of patients and/or the larger population from which their patients are drawn.
+ Apply knowledge of study design and statistical methods to critically appraise the clinical studies and other information on diagnostic and therapeutic effectiveness
+ Be able to use/implement the results of these researches/studies as and when appropriate in their respective clinical practice.
+ Appreciate the importance of ethical standards in research
+ Facilitate the learning of students and other health care professionals (other members of the health care team).
+ 
+
+ 
+ 14. Educational Strategies & Opportunities
+ Educational strategies directed to the surgical residents include:
+ 
+ Surgical Grand Rounds
+ Morbidity and Mortality (M&M) Conference
+ Basic Science Conference
+ Skills lab
+ Journal Club
+ Visiting Professor Case Conference (if any)
+ Tumor Board Meeting
+ 
+ Attendance is mandatory for residents on all rotations except those outside of hospitals. Attendance is monitored through the use of a sign‑in sheet at each academic activity. Attendance at 75% is considered mandatory. For any unexcused absences the first month, the resident receives a memo from the program director. Continued unexcused absences, will result in a formal meeting with the program director and can lead to a resident being placed on probation. The residency coordinator are responsible for collecting the sign‑in sheets for resident academic activities.
+
+ 
+ 15. CME Guidelines and Activities Calendar
+ 
+ 
+ S.NoEventFrequency
+ 
+ 01Teaching Ward Round & Bed Side TeachingTwice a week
+ 02Morbidity & Mortality meetingOnce a month
+ 03Journal clubOnce a month
+ 04Case presentationOnce a month
+ 05MDT (Tumor Board) MeetingOnce a month
+ 06Short cases & long case discussionOnce a week
+ 07CPSP competency achievementContinuous process
+ 08Specialty specific Skills workshopOnce a year
+ 09Soft skills workshopsOnce a year
+ 10MCQs assessmentOnce a year
+ 11WPBAOnce a year
+ 12TOACSOnce a year
+ 13DebriefingOnce a year
+ 14Departmental PicnicOnce a year
+ 
+ 
+ 
+
+ 
+ 16. Schedule of Rotations
+ Duration:
+ 
+ The duration of training for the Intermediate Module (IMM) is two years; and residents become eligible to appear in Intermediate Module examination upon completion of IMM training.
+ The General Surgery residency programme extends over four years, during which progressively increasing exposure and responsibilities are given to trainees, both in the operating room and in the pre-and post-operative management of patients.
+ "Rotations are in accordance with college of physicians and surgeons".
+ 
+ Rotations:
+ 
+ 03 months of rotation in Orthopaedics/Trauma is mandatory for all residents (Surgery, Group A & Group B).
+ The residents in straight fellowship in Surgery shall do three rotations of 02 months each in any of the following specialties: Cardiovascular Surgery, Neurosurgery, Paediatric Surgery, Plastic Surgery, Thoracic Surgery and Urology.
+ The residents in groups A and B will complete rotations of 02 months each in the three specialties included in the opted group except Orthopaedics/Trauma, which they would complete as mandatory rotation.
+ 
+
+ 
+ 17. Departmental Assessment Plan
+ A continuous as well as periodic evaluation and feedback process is an essential and integral part of this training programme. The programme uses the following essential evaluation tools:
+ 
+ Global assessment of each resident incorporating the six core competencies
+ Focused assessment of residents performed by the faculty, which includes work place based assessments: MiniClex & DOPS
+ In-training examination - This is a periodic examination to evaluate knowledge. It includes Multiple Choice Questions, SEQs, OSCEs or short and long cases.
+ Quarterly/Rotation Evaluations
+ Mid – Term Evaluation
+ Annual Evaluation & Resident Promotion
+ CPSP Examination
+ 
+ Workplace Based Assessment (WBPA)
+ Workplace based assessment tools like Mini-CEX and DOPS are being used by CPSP for formative assessment. The Faculty of Surgery has identified areas of Mini-CEX and DOPS for each quarter of training. Supervisors and residents are advised to arrange and complete WPBA assignments according to the timeline mentioned in the competency tables, by uploading the respective Performa at the end of each quarter.
+ 
+ MINI-CEX
+ 
+ 
+ CompetencyDescriptionQuarter
+ 
+ history takingdemonstrate the art of history taking in surgical practice1st quarter
+ general physical examinationperforms general physical examination systematically2nd quarter
+ abdominal examinationperforms abdominal examination following standard guidelines3rd quarter
+ lump examinationdemonstrate correct steps of lump examination in a real patient4th quarter
+ cervical lymph nodes examinationperforms cervical lymph nodes examination in a real patient5th quarter
+ hernia examinationapplies correct clinical methods in the examination of hernia in a real patient6th quarter
+ 
+ 
+ 
+ 
+ DOPS
+ 
+ 
+ ProcedureDescriptionQuarter
+ 
+ skin suturingdemonstrate skills for suturing in a real patient1st quarter
+ tru-cut biopsyperforms tru-cut biopsy in a real patient safely2nd quarter
+ cvp line placementperforms cvp line insertion in a real patient safely3rd quarter
+ chest intubationperforms chest intubation in a real patient safely4th quarter
+ lump excisionperforms excision of lump in a real patient safely5th quarter
+ incision and drainage of an abscessperforms incision and drainage in a real patient correctly and safely6th quarter
+ 
+ 
+ 
+ 
+ For further details, refer to CPSP curriculum documents and the Department of Medical Sciences – Riphah International University (Peshawar Campus) postgraduate office.',1),
+(221,'curriculum','MBBS Curriculum | Peshawar Medical College','Curriculum','Academics','MBBS curriculum at Peshawar Medical College: integrated basic sciences, clinical training, and PM&DC-aligned medical education in Peshawar.','curriculum','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Curriculum</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+          class="bi bi-chevron-right"></i></span>Education &amp; Research <span class="sep"><i
+          class="bi bi-chevron-right"></i></span><span class="current">Curriculum</span></div>
+  </div>
+</div>
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+          <h2 class="sec-title" style="font-size:1.8rem;">MBBS Curriculum</h2>
+
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">Our medical
+            education curriculum is designed to provide graduates who can demonstrate excellence in professional
+            competence and ethical values. This curriculum is based on the <strong>Pakistan Medical Council and Higher
+              Education Commission guidelines</strong> and is an <strong>outcome-based, integrated hybrid
+              curriculum</strong> that is oriented to address local and global health needs. We call it the
+            <strong>HuDeba curriculum</strong> — ''Human Development Based'' curriculum.</p>
+
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">To
+            accomplish the mission statement, a structured program has been introduced to encourage professional and
+            personal development of students during their stay in the College. In addition to their regular contact with
+            teaching faculty, they get ample opportunity for interaction with leading professional and social
+            scientists, invited as guest speakers. A conscious effort is made to achieve excellence in professional and
+            ethical conduct.</p>
+
+          <div class="pmc-card mb-4"
+            style="border-radius:12px;background:#f4f7f9;border:1px solid var(--border-color);padding:22px 24px;">
+            <p style="font-family:var(--font-body);font-size:.9rem;color:var(--gray-dark);margin-bottom:0;">
+              <i class="bi bi-journal-check" style="color:var(--teal);font-size:1.2rem;margin-right:8px;"></i>
+              The <strong>Pakistan Medical & Dental Council (PM&DC)</strong> prescribed curriculum of MBBS and BDS
+              degree is strictly followed. For detailed curriculum breakdown, students are advised to visit the official
+              PM&DC website.
+            </p>
+            <a href="https://www.online.pmdc.pk" target="_blank" class="btn-pmc btn-pmc-outline mt-3"
+              style="font-size:.85rem;">
+              <i class="bi bi-globe"></i> Visit PM&DC Curriculum Portal
+            </a>
+          </div>
+
+        </div>
+      </div><!-- Sidebar -->
+      
+    </div>
+  </div>
+</section>','{"label":"Curriculum","section":"Academics","title":"MBBS Curriculum | Peshawar Medical College","description":"MBBS curriculum at Peshawar Medical College: integrated basic sciences, clinical training, and PM&DC-aligned medical education in Peshawar.","priority":"0.5","changefreq":"yearly"}','published',0.5,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Curriculum
+ HomeEducation & Research Curriculum
+ 
+
+
+ 
+ 
+ 
+ 
+ MBBS Curriculum
+
+ Our medical
+ education curriculum is designed to provide graduates who can demonstrate excellence in professional
+ competence and ethical values. This curriculum is based on the Pakistan Medical Council and Higher
+ Education Commission guidelines and is an outcome-based, integrated hybrid
+ curriculum that is oriented to address local and global health needs. We call it the
+ HuDeba curriculum — ''Human Development Based'' curriculum.
+
+ To
+ accomplish the mission statement, a structured program has been introduced to encourage professional and
+ personal development of students during their stay in the College. In addition to their regular contact with
+ teaching faculty, they get ample opportunity for interaction with leading professional and social
+ scientists, invited as guest speakers. A conscious effort is made to achieve excellence in professional and
+ ethical conduct.
+
+ 
+ 
+ 
+ The Pakistan Medical & Dental Council (PM&DC) prescribed curriculum of MBBS and BDS
+ degree is strictly followed. For detailed curriculum breakdown, students are advised to visit the official
+ PM&DC website.
+ 
+ 
+ Visit PM&DC Curriculum Portal',1),
+(222,'examinations','Examinations | Peshawar Medical College','Examinations','Academics','Examinations and assessments for MBBS and postgraduate students at Peshawar Medical College, Peshawar.','examinations',NULL,'{"label":"Examinations","section":"Academics","title":"Examinations | Peshawar Medical College","description":"Examinations and assessments for MBBS and postgraduate students at Peshawar Medical College, Peshawar.","priority":"0.4","changefreq":"yearly"}','published',0.4,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(223,'student-guide','Student Guide | Peshawar Medical College','Student Guide','Academics','Student guide for MBBS students at Peshawar Medical College — policies, facilities, and campus life in Peshawar.','student-guide','<div class="page-hero">
+    <div class="page-hero-grid"></div>
+    <div class="container page-hero-content">
+        <h1>Student Guide</h1>
+        <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+                    class="bi bi-chevron-right"></i></span>Education &amp; Research <span class="sep"><i
+                    class="bi bi-chevron-right"></i></span><span class="current">Student Guide</span></div>
+    </div>
+</div>
+<section class="pmc-section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <div class="page-content fu">
+                    <!-- <h2 class="sec-title" style="font-size:1.8rem;">Student Guide</h2> -->
+                    <!-- <p>Welcome to the Department of Medical Sciences – Riphah International University (Peshawar Campus). This guide provides essential information for enrolled students regarding academic policies, conduct, facilities, and student services.</p> -->
+                    
+                    <!-- College Rules and Regulations -->
+                    <h3 class="mt-4" style="font-family:var(--font-head); color:var(--navy);">College Rules and Regulations</h3>
+                    <p style="font-family:var(--font-body); font-size:.95rem; color:var(--gray-dark);">All students are advised to read these rules carefully, and abide by them all. Any violation of these rules will be tantamount to serious breach of discipline/order.</p>
+                    
+                    <ol style="font-family:var(--font-body); font-size:.95rem; color:var(--gray-dark); line-height:1.8; padding-left:20px;">
+                        <li>Every part of the college building and hostel premises shall be kept clean, i.e., walls, fixtures, classrooms, lab equipment, books, specimens, charts, etc. should not be tampered with, mutilated or damaged in any way or form. Perpetrators will face strict disciplinary actions.</li>
+                        <li>Students are required to show decent and disciplined behavior in the classrooms. Students are forbidden to act in a manner which is unbecoming of in the college premise/hostel/hospitals and even outside the college premises.</li>
+                        <li>Students are required to strictly observe college dress code.</li>
+                        <li>Students are required to observe punctuality on all notified events and in the classes.</li>
+                        <li>Every student is required to attend at least 75% of lectures, lab practical/ clinical rotations/ tutorials etc. Repeated absence from lecture, classes, and demonstrations and from hospital ward will make a student liable to debarring from examination and expulsion from the college.</li>
+                        <li>The students must display their name cards while in the college premises or at the hospitals.</li>
+                        <li>For purpose of leave, the students must apply in writing and give reason for his/her request.</li>
+                        <li>Security measures to handle chemicals, equipment, instruments or reagents are to be strictly observed.</li>
+                        <li>If a student has any complaint, he/she has to submit it in writing to the Vice Principal who will forward it to the Principal/ Dean of the college for necessary action (if required).</li>
+                        <li>Student desirous of addressing the Dean/ Principal by a letter must do so individually. Joint applications shall be considered as breach of discipline &amp; will not be entertained.</li>
+                        <li>Student who wishes to make a representation on any subject has the right of direct access to the Principal or Dean during college hours by prior appointment.</li>
+                        <li>Students are required to follow college notifications, instructions issued by the Principal or on his behalf by some other authority.</li>
+                        <li>Students are not allowed to leave the lecture hall, practical class or hospital ward without the permission of the teacher.</li>
+                        <li>Political activities are strictly forbidden in the college and the hostels in any form. The college Disciplinary Committee will strictly deal with such cases. The punishment may include expulsion from the college.</li>
+                        <li>Students shall not address a press conference, or write or communicate by other means to the press on any issues related to the college, hospital, university or government without prior approval by the college.</li>
+                        <li>No student will be allowed to leave the premises of the college and hospitals during working hours without written permission.</li>
+                        <li>Students are prohibited from usage of foul language, physical jokes or fighting.</li>
+                        <li>Shouting, sloganeering, making noises or singing on the college/hostel/hospital premises are contrary to the decent behavior and conduct, therefore are not allowed.</li>
+                        <li>No person shall be invited to address a meeting or society in the college premises without prior written permission of the Principal/ Dean.</li>
+                        <li>Students are not allowed to bring outsiders in the college/hospitals/hostels premises without prior permission of the Principal/ Dean.</li>
+                        <li>No student will be allowed to take the exam unless he/she has cleared all the dues and produced NOC at the time of submission of examination forms.</li>
+                        <li>All accidents, major or minor shall have to be reported immediately to the college authorities.</li>
+                        <li>Any unauthorized activity is not permitted; either in the college or at hospitals/ hostels.</li>
+                        <li>No poster or banner shall be displayed in the college /hostel/hospital premises without the approval of the Principal/ Dean.</li>
+                        <li>Socially unacceptable activities (gambling/use of narcotics/possession of arms, etc) within the college premises, Hospitals and Hostels are strictly prohibited.</li>
+                        <li>No student will be admitted to the next class unless he/she has deposited the college fee and other dues for the class.</li>
+                        <li>The college administration reserves the right to revise college fee and other subscriptions from time to time during the course of studies.</li>
+                    </ol>
+
+                    <!-- <h5 class="mt-4">Academic Policies</h5>
+                    <ul class="checklist">
+                        <li><i class="bi bi-check-circle-fill"></i>Minimum 75% attendance is compulsory in all subjects
+                            (lectures, practicals, and clinical rotations).</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Internal assessments contribute to eligibility for
+                            university examinations.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Plagiarism and academic dishonesty are strictly
+                            prohibited and may result in disciplinary action.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Students must wear prescribed uniform on campus and
+                            in clinical settings.</li>
+                    </ul>
+                    <h5>Student Services</h5>
+                    <ul class="checklist">
+                        <li><i class="bi bi-check-circle-fill"></i>Library and Learning Resource Centre — open all
+                            weekdays.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Counseling and Student Assistance Program —
+                            confidential support available.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>First Aid room available on campus during college
+                            hours.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Day Care Center for students with young children.
+                        </li>
+                        <li><i class="bi bi-check-circle-fill"></i>Hostel accommodation for female students on campus.
+                        </li>
+                    </ul>
+                    <h5>Code of Conduct</h5>
+                    <p>Students are expected to maintain the highest standards of professional behavior, respect for
+                        peers and faculty, and adherence to the ethical values that define the medical profession. Any
+                        misconduct may be referred to the Discipline Committee.</p>
+                    <a href="https://pmc.prime.edu.pk/student-guide.php" target="_blank"
+                        class="btn-pmc btn-pmc-primary mt-3"><i class="bi bi-arrow-up-right-square"></i> View Full
+                        Student Guide</a> -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>','{"label":"Student Guide","section":"Academics","title":"Student Guide | Peshawar Medical College","description":"Student guide for MBBS students at Peshawar Medical College — policies, facilities, and campus life in Peshawar.","priority":"0.4","changefreq":"yearly"}','published',0.4,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Student Guide
+ HomeEducation & Research Student Guide
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ College Rules and Regulations
+ All students are advised to read these rules carefully, and abide by them all. Any violation of these rules will be tantamount to serious breach of discipline/order.
+ 
+ 
+ Every part of the college building and hostel premises shall be kept clean, i.e., walls, fixtures, classrooms, lab equipment, books, specimens, charts, etc. should not be tampered with, mutilated or damaged in any way or form. Perpetrators will face strict disciplinary actions.
+ Students are required to show decent and disciplined behavior in the classrooms. Students are forbidden to act in a manner which is unbecoming of in the college premise/hostel/hospitals and even outside the college premises.
+ Students are required to strictly observe college dress code.
+ Students are required to observe punctuality on all notified events and in the classes.
+ Every student is required to attend at least 75% of lectures, lab practical/ clinical rotations/ tutorials etc. Repeated absence from lecture, classes, and demonstrations and from hospital ward will make a student liable to debarring from examination and expulsion from the college.
+ The students must display their name cards while in the college premises or at the hospitals.
+ For purpose of leave, the students must apply in writing and give reason for his/her request.
+ Security measures to handle chemicals, equipment, instruments or reagents are to be strictly observed.
+ If a student has any complaint, he/she has to submit it in writing to the Vice Principal who will forward it to the Principal/ Dean of the college for necessary action (if required).
+ Student desirous of addressing the Dean/ Principal by a letter must do so individually. Joint applications shall be considered as breach of discipline & will not be entertained.
+ Student who wishes to make a representation on any subject has the right of direct access to the Principal or Dean during college hours by prior appointment.
+ Students are required to follow college notifications, instructions issued by the Principal or on his behalf by some other authority.
+ Students are not allowed to leave the lecture hall, practical class or hospital ward without the permission of the teacher.
+ Political activities are strictly forbidden in the college and the hostels in any form. The college Disciplinary Committee will strictly deal with such cases. The punishment may include expulsion from the college.
+ Students shall not address a press conference, or write or communicate by other means to the press on any issues related to the college, hospital, university or government without prior approval by the college.
+ No student will be allowed to leave the premises of the college and hospitals during working hours without written permission.
+ Students are prohibited from usage of foul language, physical jokes or fighting.
+ Shouting, sloganeering, making noises or singing on the college/hostel/hospital premises are contrary to the decent behavior and conduct, therefore are not allowed.
+ No person shall be invited to address a meeting or society in the college premises without prior written permission of the Principal/ Dean.
+ Students are not allowed to bring outsiders in the college/hospitals/hostels premises without prior permission of the Principal/ Dean.
+ No student will be allowed to take the exam unless he/she has cleared all the dues and produced NOC at the time of submission of examination forms.
+ All accidents, major or minor shall have to be reported immediately to the college authorities.
+ Any unauthorized activity is not permitted; either in the college or at hospitals/ hostels.
+ No poster or banner shall be displayed in the college /hostel/hospital premises without the approval of the Principal/ Dean.
+ Socially unacceptable activities (gambling/use of narcotics/possession of arms, etc) within the college premises, Hospitals and Hostels are strictly prohibited.
+ No student will be admitted to the next class unless he/she has deposited the college fee and other dues for the class.
+ The college administration reserves the right to revise college fee and other subscriptions from time to time during the course of studies.',1),
+(224,'faculty-research','Faculty Research | Peshawar Medical College','Faculty Research','Academics','Faculty research and publications at Peshawar Medical College, supporting medical research culture in Peshawar and KP.','faculty-research',NULL,'{"label":"Faculty Research","section":"Academics","title":"Faculty Research | Peshawar Medical College","description":"Faculty research and publications at Peshawar Medical College, supporting medical research culture in Peshawar and KP.","priority":"0.5","changefreq":"monthly"}','published',0.5,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(225,'clinical-skill-labs','Clinical Skill Labs | PMC Peshawar','Clinical Skill Labs','Academics','Clinical skill laboratories at Peshawar Medical College for hands-on MBBS training before hospital practice.','clinical-skill-labs','<div class="page-hero"><div class="page-hero-grid"></div><div class="container page-hero-content"><h1>Clinical Skill Labs</h1><div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>Education &amp; Research <span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">Clinical Skill Labs</span></div></div></div>
+<section class="pmc-section"><div class="container"><div class="row g-5"><div class="col-lg-8"><div class="page-content fu">
+<h2 class="sec-title" style="font-size:1.8rem;">Clinical Skill Labs</h2>
+<p>This page is currently under development and will be available soon. Please check back or <a href="/contact" style="color:var(--teal);font-weight:700;">contact us</a> for more information.</p>
+<div class="pmc-card text-center mt-4" style="border-radius:14px;">
+  <div style="font-size:3rem;color:var(--teal);margin-bottom:16px;"><i class="bi bi-tools"></i></div>
+  <h4>Coming Soon</h4>
+  <p>We are working hard to bring you this content. In the meantime, visit us at the college or contact the relevant department.</p>
+  <a href="/contact" class="btn-pmc btn-pmc-primary mt-3"><i class="bi bi-envelope"></i> Contact Us</a>
+</div></div></div><div class="col-lg-4 fu fu-delay-2"><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div><div class="sw-body"><a class="sw-link" href="/about"><i class="bi bi-building"></i>Introduction</a><a class="sw-link" href="/vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a><a class="sw-link" href="/faculty"><i class="bi bi-people"></i>Faculty</a><a class="sw-link" href="/admissions"><i class="bi bi-mortarboard"></i>Admissions</a><a class="sw-link" href="/admissions"><i class="bi bi-door-open"></i>Vacant Seats</a><a class="sw-link" href="/medical-education"><i class="bi bi-book"></i>Medical Education</a><a class="sw-link" href="/curriculum"><i class="bi bi-journal-text"></i>Curriculum</a><a class="sw-link" href="/examinations"><i class="bi bi-clipboard-pulse"></i>Examinations</a><a class="sw-link" href="/umr"><i class="bi bi-flask"></i>UMR Research</a><a class="sw-link" href="/contact"><i class="bi bi-envelope"></i>Contact Us</a></div></div><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-hospital-fill"></i> Teaching Hospitals</div><div class="sw-body"><a class="sw-link" href="https://prime.edu.pk/pf/idx_kth.php" target="_blank"><i class="bi bi-hospital"></i>Kuwait Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_mth.php" target="_blank"><i class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_pth.php" target="_blank"><i class="bi bi-capsule-pill"></i>Prime Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i class="bi bi-people-fill"></i>Community Dev. Center</a></div></div><div class="sidebar-widget"><div class="sw-head" style="background:var(--teal);"><i class="bi bi-mortarboard-fill"></i> Apply Now</div><div class="sw-body" style="padding:18px 20px;"><p style="font-family:var(--font-body);font-size:.84rem;color:var(--gray-mid);margin-bottom:14px;">MBBS admissions information is available on the Admissions page.</p><a href="/admissions" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Admissions Info 2026-27</a><a href="/admissions" class="btn-pmc btn-pmc-outline w-100 justify-content-center mt-2" style="font-size:.82rem;padding:11px;">Check Vacant Seats</a></div></div></div></div></div></section>
+<section class="pmc-section-sm recog-strip"><div class="container"><div class="recog-grid"><div class="recog-cell"><div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div><div class="recog-name">PM&DC</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-building-fill"></i></div><div class="recog-name">Riphah International University</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-award-fill"></i></div><div class="recog-name">CPSP</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-hospital-fill"></i></div><div class="recog-name">Ministry of Health</div></div><div class="recog-cell" style="border-right:none;"><div class="recog-ico"><i class="bi bi-globe-americas"></i></div><div class="recog-name">WHO</div></div></div></div></section>','{"label":"Clinical Skill Labs","section":"Academics","title":"Clinical Skill Labs | PMC Peshawar","description":"Clinical skill laboratories at Peshawar Medical College for hands-on MBBS training before hospital practice.","priority":"0.5","changefreq":"yearly"}','published',0.5,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Clinical Skill LabsHomeEducation & Research Clinical Skill Labs
+
+Clinical Skill Labs
+This page is currently under development and will be available soon. Please check back or contact us for more information.
+
+ 
+ Coming Soon
+ We are working hard to bring you this content. In the meantime, visit us at the college or contact the relevant department.
+ Contact Us
+ Quick NavigationIntroductionVision & MissionFacultyAdmissionsVacant SeatsMedical EducationCurriculumExaminationsUMR ResearchContact Us Teaching HospitalsKuwait Teaching HospitalMercy Teaching HospitalPrime Teaching HospitalCommunity Dev. Center Apply NowMBBS admissions information is available on the Admissions page.Admissions Info 2026-27Check Vacant Seats
+PM&DCRiphah International UniversityCPSPMinistry of HealthWHO',1),
+(226,'e-health','E-Health Service | Peshawar Medical College','E-Health','College','Free e-health information service from Peshawar Medical College — public health guidance by phone for communities in KP.','e-health','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <span class="page-hero-eyebrow">Public Health Service</span>
+    <h1>E-Health Service</h1>
+    <div class="breadcrumb-pmc">
+      <a href="/">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">E-Health Service</span>
+    </div>
+  </div>
+</div>
+
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content">
+
+          <div class="fu">
+            <span class="sec-eyebrow">Free Phone Service</span>
+            <h2 class="sec-title" style="font-size:1.75rem;">Health Information by Phone</h2>
+            <p>
+              A free public health information service from <strong>Peshawar Medical College</strong> (Prime Foundation).
+              Call from any network, listen to the prompts, then enter a 3-digit topic code after the beep.
+            </p>
+          </div>
+
+          <div class="ehealth-dial fu fu-delay-1">
+            <div class="ehealth-dial-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div class="ehealth-dial-body">
+              <span class="ehealth-dial-label">Dial this number</span>
+              <a class="ehealth-dial-num" href="tel:0912385262">091-2385262</a>
+              <span class="ehealth-dial-note">All networks · Keypad · Android · PTCL · Free service</span>
+            </div>
+            <a href="tel:0912385262" class="btn-pmc btn-pmc-primary ehealth-dial-btn">
+              <i class="bi bi-telephone"></i> Call Now
+            </a>
+          </div>
+
+          <div class="about-block fu" id="how-to">
+            <div class="about-block-head">
+              <h3>How to Use</h3>
+              <p>Three simple steps — works on keypad phones, Android, and PTCL lines.</p>
+            </div>
+            <div class="ehealth-steps">
+              <div class="ehealth-step">
+                <span class="ehealth-step-num">1</span>
+                <div>
+                  <strong>Dial</strong>
+                  <p>Call <a href="tel:0912385262">091-2385262</a> from any phone network.</p>
+                </div>
+              </div>
+              <div class="ehealth-step">
+                <span class="ehealth-step-num">2</span>
+                <div>
+                  <strong>Listen</strong>
+                  <p>After connecting, listen carefully to the voice instructions.</p>
+                </div>
+              </div>
+              <div class="ehealth-step">
+                <span class="ehealth-step-num">3</span>
+                <div>
+                  <strong>Enter a 3-digit code</strong>
+                  <p>After the beep, enter the topic code for the health information you need.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-block fu" id="codes">
+            <div class="about-block-head">
+              <h3>Topic Codes</h3>
+              <p>Find your topic, note the 3-digit code, then dial and enter it after the beep.</p>
+            </div>
+
+            <div class="ehealth-filter">
+              <i class="bi bi-search"></i>
+              <input type="search" id="ehealthSearch" placeholder="Search topics or codes…" autocomplete="off" aria-label="Search topic codes" />
+            </div>
+
+            
+              <div class="ehealth-group" data-group>
+                <h4 class="ehealth-group-title">
+                  <span class="ehealth-group-en"></span>
+                  <span class="ehealth-group-ur" lang="ur" dir="rtl"></span>
+                </h4>
+                <ul class="ehealth-topics">
+                  
+                    <li class="ehealth-topic" data-code="" data-ur="">
+                      <span class="ehealth-code"></span>
+                      <span class="ehealth-ur" lang="ur" dir="rtl"></span>
+                    </li>
+                  
+                </ul>
+              </div>
+            
+
+            <p class="ehealth-empty d-none" id="ehealthEmpty">No topics match your search.</p>
+          </div>
+
+          <div class="ehealth-note fu">
+            <i class="bi bi-info-circle-fill"></i>
+            <p>
+              This is a <strong>free public information service</strong>. It is not a substitute for emergency hospital care.
+              For urgent medical emergencies, go to the nearest hospital or call emergency services.
+            </p>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var input = document.getElementById(''ehealthSearch'');
+  var empty = document.getElementById(''ehealthEmpty'');
+  if (!input) return;
+  input.addEventListener(''input'', function () {
+    var q = (input.value || '''').trim().toLowerCase();
+    var any = false;
+    document.querySelectorAll(''[data-group]'').forEach(function (group) {
+      var visibleInGroup = 0;
+      group.querySelectorAll(''.ehealth-topic'').forEach(function (row) {
+        var hay = ((row.getAttribute(''data-code'') || '''') + '' '' + (row.getAttribute(''data-ur'') || '''')).toLowerCase();
+        var show = !q || hay.indexOf(q) !== -1;
+        row.classList.toggle(''d-none'', !show);
+        if (show) visibleInGroup++;
+      });
+      group.classList.toggle(''d-none'', visibleInGroup === 0);
+      if (visibleInGroup > 0) any = true;
+    });
+    empty.classList.toggle(''d-none'', any);
+  });
+})();
+</script>','{"label":"E-Health","section":"College","title":"E-Health Service | Peshawar Medical College","description":"Free e-health information service from Peshawar Medical College — public health guidance by phone for communities in KP.","priority":"0.5","changefreq":"yearly"}','published',0.5,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Public Health Service
+ E-Health Service
+ 
+ Home
+ 
+ E-Health Service
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ Free Phone Service
+ Health Information by Phone
+ 
+ A free public health information service from Peshawar Medical College (Prime Foundation).
+ Call from any network, listen to the prompts, then enter a 3-digit topic code after the beep.
+ 
+ 
+
+ 
+ 
+ 
+ Dial this number
+ 091-2385262
+ All networks · Keypad · Android · PTCL · Free service
+ 
+ 
+ Call Now
+ 
+ 
+
+ 
+ 
+ How to Use
+ Three simple steps — works on keypad phones, Android, and PTCL lines.
+ 
+ 
+ 
+ 1
+ 
+ Dial
+ Call 091-2385262 from any phone network.
+ 
+ 
+ 
+ 2
+ 
+ Listen
+ After connecting, listen carefully to the voice instructions.
+ 
+ 
+ 
+ 3
+ 
+ Enter a 3-digit code
+ After the beep, enter the topic code for the health information you need.
+ 
+ 
+ 
+ 
+
+ 
+ 
+ Topic Codes
+ Find your topic, note the 3-digit code, then dial and enter it after the beep.
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ No topics match your search.
+ 
+
+ 
+ 
+ 
+ This is a free public information service. It is not a substitute for emergency hospital care.
+ For urgent medical emergencies, go to the nearest hospital or call emergency services.
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+(function () {
+ var input = document.getElementById(''ehealthSearch'');
+ var empty = document.getElementById(''ehealthEmpty'');
+ if (!input) return;
+ input.addEventListener(''input'', function () {
+ var q = (input.value || '''').trim().toLowerCase();
+ var any = false;
+ document.querySelectorAll(''[data-group]'').forEach(function (group) {
+ var visibleInGroup = 0;
+ group.querySelectorAll(''.ehealth-topic'').forEach(function (row) {
+ var hay = ((row.getAttribute(''data-code'') || '''') + '' '' + (row.getAttribute(''data-ur'') || '''')).toLowerCase();
+ var show = !q || hay.indexOf(q) !== -1;
+ row.classList.toggle(''d-none'', !show);
+ if (show) visibleInGroup++;
+ });
+ group.classList.toggle(''d-none'', visibleInGroup === 0);
+ if (visibleInGroup > 0) any = true;
+ });
+ empty.classList.toggle(''d-none'', any);
+ });
+})();',1),
+(227,'newsletter','Newsletter | Peshawar Medical College','Newsletter','News','Campus and college newsletters from the Department of Medical Sciences, Peshawar Medical College.','newsletter',NULL,'{"label":"Newsletter","section":"News","title":"Newsletter | Peshawar Medical College","description":"Campus and college newsletters from the Department of Medical Sciences, Peshawar Medical College.","priority":"0.4","changefreq":"monthly"}','published',0.4,'monthly','2026-10-13 15:49:32','2026-10-13 18:25:16',NULL,0),
+(228,'virtual-museum','Virtual Museum | Peshawar Medical College','Virtual Museum','Academics','Virtual museum collections from Peshawar Medical College for students and visitors.','virtual-museum','<div class="page-hero"><div class="page-hero-grid"></div><div class="container page-hero-content"><h1>Virtual Museum</h1><div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>Education &amp; Research <span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">Virtual Museum</span></div></div></div>
+<section class="pmc-section"><div class="container"><div class="row g-5"><div class="col-lg-8"><div class="page-content fu">
+<h2 class="sec-title" style="font-size:1.8rem;">Virtual Museum</h2>
+<p>This page is currently under development and will be available soon. Please check back or <a href="/contact" style="color:var(--teal);font-weight:700;">contact us</a> for more information.</p>
+<div class="pmc-card text-center mt-4" style="border-radius:14px;">
+  <div style="font-size:3rem;color:var(--teal);margin-bottom:16px;"><i class="bi bi-tools"></i></div>
+  <h4>Coming Soon</h4>
+  <p>We are working hard to bring you this content. In the meantime, visit us at the college or contact the relevant department.</p>
+  <a href="/contact" class="btn-pmc btn-pmc-primary mt-3"><i class="bi bi-envelope"></i> Contact Us</a>
+</div></div></div><div class="col-lg-4 fu fu-delay-2"><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div><div class="sw-body"><a class="sw-link" href="/about"><i class="bi bi-building"></i>Introduction</a><a class="sw-link" href="/vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a><a class="sw-link" href="/faculty"><i class="bi bi-people"></i>Faculty</a><a class="sw-link" href="/admissions"><i class="bi bi-mortarboard"></i>Admissions</a><a class="sw-link" href="/admissions"><i class="bi bi-door-open"></i>Vacant Seats</a><a class="sw-link" href="/medical-education"><i class="bi bi-book"></i>Medical Education</a><a class="sw-link" href="/curriculum"><i class="bi bi-journal-text"></i>Curriculum</a><a class="sw-link" href="/examinations"><i class="bi bi-clipboard-pulse"></i>Examinations</a><a class="sw-link" href="/umr"><i class="bi bi-flask"></i>UMR Research</a><a class="sw-link" href="/contact"><i class="bi bi-envelope"></i>Contact Us</a></div></div><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-hospital-fill"></i> Teaching Hospitals</div><div class="sw-body"><a class="sw-link" href="https://prime.edu.pk/pf/idx_kth.php" target="_blank"><i class="bi bi-hospital"></i>Kuwait Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_mth.php" target="_blank"><i class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_pth.php" target="_blank"><i class="bi bi-capsule-pill"></i>Prime Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i class="bi bi-people-fill"></i>Community Dev. Center</a></div></div><div class="sidebar-widget"><div class="sw-head" style="background:var(--teal);"><i class="bi bi-mortarboard-fill"></i> Apply Now</div><div class="sw-body" style="padding:18px 20px;"><p style="font-family:var(--font-body);font-size:.84rem;color:var(--gray-mid);margin-bottom:14px;">MBBS admissions information is available on the Admissions page.</p><a href="/admissions" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Admissions Info 2026-27</a><a href="/admissions" class="btn-pmc btn-pmc-outline w-100 justify-content-center mt-2" style="font-size:.82rem;padding:11px;">Check Vacant Seats</a></div></div></div></div></div></section>
+<section class="pmc-section-sm recog-strip"><div class="container"><div class="recog-grid"><div class="recog-cell"><div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div><div class="recog-name">PM&DC</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-building-fill"></i></div><div class="recog-name">Riphah International University</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-award-fill"></i></div><div class="recog-name">CPSP</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-hospital-fill"></i></div><div class="recog-name">Ministry of Health</div></div><div class="recog-cell" style="border-right:none;"><div class="recog-ico"><i class="bi bi-globe-americas"></i></div><div class="recog-name">WHO</div></div></div></div></section>','{"label":"Virtual Museum","section":"Academics","title":"Virtual Museum | Peshawar Medical College","description":"Virtual museum collections from Peshawar Medical College for students and visitors.","priority":"0.3","changefreq":"yearly"}','published',0.3,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Virtual MuseumHomeEducation & Research Virtual Museum
+
+Virtual Museum
+This page is currently under development and will be available soon. Please check back or contact us for more information.
+
+ 
+ Coming Soon
+ We are working hard to bring you this content. In the meantime, visit us at the college or contact the relevant department.
+ Contact Us
+ Quick NavigationIntroductionVision & MissionFacultyAdmissionsVacant SeatsMedical EducationCurriculumExaminationsUMR ResearchContact Us Teaching HospitalsKuwait Teaching HospitalMercy Teaching HospitalPrime Teaching HospitalCommunity Dev. Center Apply NowMBBS admissions information is available on the Admissions page.Admissions Info 2026-27Check Vacant Seats
+PM&DCRiphah International UniversityCPSPMinistry of HealthWHO',1),
+(229,'student-exchange','Student Exchange | Peshawar Medical College','Student Exchange','Academics','Student exchange and elective opportunities at Peshawar Medical College, Peshawar.','student-exchange','<div class="page-hero"><div class="page-hero-grid"></div><div class="container page-hero-content"><h1>Student Exchange &amp; Electives</h1><div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>Education &amp; Research <span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">Student Exchange &amp; Electives</span></div></div></div>
+<section class="pmc-section"><div class="container"><div class="row g-5"><div class="col-lg-8"><div class="page-content fu">
+<h2 class="sec-title" style="font-size:1.8rem;">Student Exchange &amp; Electives</h2>
+<p>This page is currently under development and will be available soon. Please check back or <a href="/contact" style="color:var(--teal);font-weight:700;">contact us</a> for more information.</p>
+<div class="pmc-card text-center mt-4" style="border-radius:14px;">
+  <div style="font-size:3rem;color:var(--teal);margin-bottom:16px;"><i class="bi bi-tools"></i></div>
+  <h4>Coming Soon</h4>
+  <p>We are working hard to bring you this content. In the meantime, visit us at the college or contact the relevant department.</p>
+  <a href="/contact" class="btn-pmc btn-pmc-primary mt-3"><i class="bi bi-envelope"></i> Contact Us</a>
+</div></div></div><div class="col-lg-4 fu fu-delay-2"><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div><div class="sw-body"><a class="sw-link" href="/about"><i class="bi bi-building"></i>Introduction</a><a class="sw-link" href="/vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a><a class="sw-link" href="/faculty"><i class="bi bi-people"></i>Faculty</a><a class="sw-link" href="/admissions"><i class="bi bi-mortarboard"></i>Admissions</a><a class="sw-link" href="/admissions"><i class="bi bi-door-open"></i>Vacant Seats</a><a class="sw-link" href="/medical-education"><i class="bi bi-book"></i>Medical Education</a><a class="sw-link" href="/curriculum"><i class="bi bi-journal-text"></i>Curriculum</a><a class="sw-link" href="/examinations"><i class="bi bi-clipboard-pulse"></i>Examinations</a><a class="sw-link" href="/umr"><i class="bi bi-flask"></i>UMR Research</a><a class="sw-link" href="/contact"><i class="bi bi-envelope"></i>Contact Us</a></div></div><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-hospital-fill"></i> Teaching Hospitals</div><div class="sw-body"><a class="sw-link" href="https://prime.edu.pk/pf/idx_kth.php" target="_blank"><i class="bi bi-hospital"></i>Kuwait Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_mth.php" target="_blank"><i class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_pth.php" target="_blank"><i class="bi bi-capsule-pill"></i>Prime Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i class="bi bi-people-fill"></i>Community Dev. Center</a></div></div><div class="sidebar-widget"><div class="sw-head" style="background:var(--teal);"><i class="bi bi-mortarboard-fill"></i> Apply Now</div><div class="sw-body" style="padding:18px 20px;"><p style="font-family:var(--font-body);font-size:.84rem;color:var(--gray-mid);margin-bottom:14px;">MBBS admissions information is available on the Admissions page.</p><a href="/admissions" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Admissions Info 2026-27</a><a href="/admissions" class="btn-pmc btn-pmc-outline w-100 justify-content-center mt-2" style="font-size:.82rem;padding:11px;">Check Vacant Seats</a></div></div></div></div></div></section>
+<section class="pmc-section-sm recog-strip"><div class="container"><div class="recog-grid"><div class="recog-cell"><div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div><div class="recog-name">PM&DC</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-building-fill"></i></div><div class="recog-name">Riphah International University</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-award-fill"></i></div><div class="recog-name">CPSP</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-hospital-fill"></i></div><div class="recog-name">Ministry of Health</div></div><div class="recog-cell" style="border-right:none;"><div class="recog-ico"><i class="bi bi-globe-americas"></i></div><div class="recog-name">WHO</div></div></div></div></section>','{"label":"Student Exchange","section":"Academics","title":"Student Exchange | Peshawar Medical College","description":"Student exchange and elective opportunities at Peshawar Medical College, Peshawar.","priority":"0.4","changefreq":"yearly"}','published',0.4,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Student Exchange & ElectivesHomeEducation & Research Student Exchange & Electives
+
+Student Exchange & Electives
+This page is currently under development and will be available soon. Please check back or contact us for more information.
+
+ 
+ Coming Soon
+ We are working hard to bring you this content. In the meantime, visit us at the college or contact the relevant department.
+ Contact Us
+ Quick NavigationIntroductionVision & MissionFacultyAdmissionsVacant SeatsMedical EducationCurriculumExaminationsUMR ResearchContact Us Teaching HospitalsKuwait Teaching HospitalMercy Teaching HospitalPrime Teaching HospitalCommunity Dev. Center Apply NowMBBS admissions information is available on the Admissions page.Admissions Info 2026-27Check Vacant Seats
+PM&DCRiphah International UniversityCPSPMinistry of HealthWHO',1),
+(230,'gallery','Photo Gallery | Peshawar Medical College','Gallery','News','Photos of campus life, labs, and events at Peshawar Medical College, Peshawar.','gallery','<style>
+    /* ══ FILTER TABS ══ */
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+    .gf-btn {
+      font-family: var(--font-head);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 9px 22px;
+      border-radius: 100px;
+      border: 2px solid var(--border);
+      background: white;
+      color: var(--gray-dark);
+      cursor: pointer;
+      transition: all .2s;
+      letter-spacing: .02em;
+    }
+    .gf-btn:hover  { border-color: var(--teal); color: var(--teal); }
+    .gf-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
+
+    /* ══ GALLERY GRID ══ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+      background: var(--gray-light);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
+
+    /* Span variants */
+    .gallery-item.span-2     { grid-column: span 2; aspect-ratio: 2/1; }
+    .gallery-item.span-2-row { grid-row: span 2; aspect-ratio: 1/2; }
+
+    .gallery-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s;
+    }
+    .gallery-item:hover .gallery-img { transform: scale(1.06); }
+
+    /* Placeholder (when no image) */
+    .gallery-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px;
+      transition: filter .3s;
+    }
+    .gallery-placeholder i    { font-size: 2rem; color: rgba(255,255,255,.5); }
+    .gallery-placeholder span { font-family: var(--font-head); font-size: .75rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .08em; }
+
+    /* Overlay */
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,.85) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity .25s;
+      display: flex; align-items: flex-end;
+      padding: 18px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay-text {
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.3;
+    }
+    .gallery-overlay-cat {
+      font-family: var(--font-body);
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--teal-light);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 3px;
+    }
+    /* Zoom icon badge */
+    .gallery-zoom {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,.15);
+      backdrop-filter: blur(8px);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: .9rem;
+      opacity: 0; transition: opacity .25s;
+    }
+    .gallery-item:hover .gallery-zoom { opacity: 1; }
+
+    /* ══ LIGHTBOX ══ */
+    .pmc-lightbox {
+      position: fixed; inset: 0;
+      background: rgba(6,14,26,.96);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .pmc-lightbox.open { display: flex; animation: lbFade .25s ease; }
+    @keyframes lbFade { from{opacity:0} to{opacity:1} }
+
+    .lb-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lb-img-wrap {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,.6);
+    }
+    .lb-img {
+      max-width: 88vw;
+      max-height: 76vh;
+      object-fit: contain;
+      display: block;
+    }
+    /* Placeholder in lightbox */
+    .lb-placeholder {
+      width: 600px; max-width: 88vw;
+      height: 400px; max-height: 76vh;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px;
+    }
+    .lb-placeholder i    { font-size: 3rem; color: rgba(255,255,255,.4); }
+    .lb-placeholder span { font-family:var(--font-head); font-size:.8rem; color:rgba(255,255,255,.35); }
+
+    .lb-caption {
+      margin-top: 16px;
+      text-align: center;
+    }
+    .lb-caption-title {
+      font-family: var(--font-head);
+      font-size: .95rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 3px;
+    }
+    .lb-caption-cat {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      color: var(--teal-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+    .lb-counter {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      color: rgba(255,255,255,.35);
+      margin-top: 6px;
+    }
+
+    /* Controls */
+    .lb-close {
+      position: absolute;
+      top: -48px; right: 0;
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.1);
+      border: none; border-radius: 8px;
+      color: white; font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.2); }
+
+    .lb-prev, .lb-next {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+      color: white; font-size: 1.2rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-prev:hover, .lb-next:hover { background: rgba(21,95,122,.5); }
+
+    /* ══ ALBUM SECTION HEADING ══ */
+    .album-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--border);
+    }
+    .album-heading-icon {
+      width: 44px; height: 44px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .album-title {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .album-count {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      font-weight: 700;
+      color: white;
+      background: var(--teal);
+      padding: 2px 10px;
+      border-radius: 100px;
+    }
+
+    /* ══ EMPTY STATE ══ */
+    .gallery-empty {
+      text-align: center;
+      padding: 70px 0;
+    }
+    .gallery-empty i { font-size: 3rem; color: var(--gray-light); margin-bottom: 14px; display: block; }
+
+    /* ══ BACK TO TOP ══ */
+    #backToTop {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 44px; height: 44px; background: var(--teal);
+      color: white; border: none; border-radius: 10px; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 999; opacity: 0; transform: translateY(10px);
+      transition: opacity .25s, transform .25s, background .2s;
+      box-shadow: 0 4px 18px rgba(21,95,122,.35);
+    }
+    #backToTop.visible { opacity: 1; transform: translateY(0); }
+    #backToTop:hover   { background: var(--navy); }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 991.98px) {
+      .gallery-grid { grid-template-columns: repeat(3,1fr); }
+      .gallery-item.span-2 { grid-column: span 2; }
+      .gallery-item.span-2-row { grid-row: span 1; aspect-ratio: 1; }
+    }
+    @media (max-width: 767.98px) {
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-item.span-2     { grid-column: span 2; }
+      .gallery-item.span-2-row { grid-row: span 1; aspect-ratio: 1; }
+      .lb-prev, .lb-next { display: none; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    }
+  </style>
+
+
+
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Photo Gallery</h1>
+    <div class="breadcrumb-pmc">
+      <a href="/">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">Gallery</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GALLERY CONTENT ═══ -->
+<section class="pmc-section bg-off">
+  <div class="container">
+
+    <!-- Intro -->
+    <div class="row mb-5">
+      <div class="col-lg-7">
+        <span class="sec-eyebrow">Visual Journey</span>
+        <h2 class="sec-title">Life at Campus</h2>
+        <p class="sec-desc">Explore our campus, events, clinical training, research activities, student societies, and memorable moments captured across our 20+ year journey.</p>
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="gallery-filters">
+      <button class="gf-btn active" data-filter="all">
+        <i class="bi bi-grid-3x3-gap me-1"></i> All Albums
+      </button>
+      <button class="gf-btn" data-filter="campus">
+        <i class="bi bi-buildings me-1"></i> Campus
+      </button>
+      <button class="gf-btn" data-filter="facilities">
+        <i class="bi bi-buildings me-1"></i> Facilities
+      </button>
+      <!-- <button class="gf-btn" data-filter="events">
+        <i class="bi bi-calendar-event me-1"></i> Events
+      </button>
+      <button class="gf-btn" data-filter="clinical">
+        <i class="bi bi-hospital me-1"></i> Clinical Training
+      </button> -->
+      <!-- <button class="gf-btn" data-filter="research">
+        <i class="bi bi-flask me-1"></i> Research
+      </button>
+      <button class="gf-btn" data-filter="societies">
+        <i class="bi bi-people me-1"></i> Societies
+      </button>
+      <button class="gf-btn" data-filter="convocation">
+        <i class="bi bi-mortarboard me-1"></i> Convocation
+      </button> -->
+    </div>
+
+    <!--
+    ═══════════════════════════════════════════════════════
+    ALBUM 1 — CAMPUS
+    PHP conversion:  foreach ($albums as $album) { ... }
+    ═══════════════════════════════════════════════════════
+    -->
+    <div class="album-section mb-5" data-category="campus">
+      <div class="album-heading">
+        <div class="album-heading-icon"><i class="bi bi-buildings"></i></div>
+        <div>
+          <div class="album-title">PMC Campus</div>
+          <span class="album-count">3 Photos</span>
+        </div>
+        <div class="ms-auto">
+          <button class="gf-btn" style="font-size:.72rem;padding:6px 14px;"
+                  onclick="openAlbumLightbox(''campus'')">
+            <i class="bi bi-play-fill me-1"></i> View Slideshow
+          </button>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="grid-campus">
+        <!-- Item 1 — large -->
+        <div class="gallery-item span-2 fu"
+             data-category="campus"
+             data-title="Main Campus — Warsak Road"
+             data-caption="25-Kanal campus on Warsak Road, Peshawar"
+             data-img="assets/images/campus/pmc.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/pmc.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Main Campus'',''bi-buildings'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="PMC Main Campus"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div>
+              <div class="gallery-overlay-cat">Campus</div>
+              <div class="gallery-overlay-text">Main Campus — Warsak Road</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item fu" data-category="campus"
+             data-title="Department of Medical Sciences (DMS)"
+             data-caption="Modern Architecture"
+             data-img="assets/images/campus/pmc-building.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/pmc-building.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Campus'',''bi-book-half'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Campus"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Campus</div></div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item fu" data-category="campus"
+             data-title="Department of Medical Sciences (DMS)"
+             data-caption="Department of Medical Sciences (DMS)"
+             data-img="assets/images/campus/pmc-building2.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/pmc-building2.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Department of Medical Sciences (DMS)'',''bi-trophy'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Department of Medical Sciences (DMS)"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Administrative Block</div></div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <!-- <div class="gallery-item fu" data-category="campus"
+             data-title="Cafeteria"
+             data-caption="Well-equipped cafeteria serving students and staff"
+             data-img="assets/images/campus/cafe.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/cafe.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Cafeteria'',''bi-cup-hot'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Cafeteria"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Cafeteria</div></div>
+          </div>
+        </div> -->
+
+        <!-- Item 5 -->
+        <!-- <div class="gallery-item fu" data-category="campus"
+             data-title="Girls Hostel"
+             data-caption="On-campus accommodation for female students"
+             data-img="assets/images/campus/hostel.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/hostel.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Girls Hostel'',''bi-house-heart'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Girls Hostel"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Girls Hostel</div></div>
+          </div>
+        </div> -->
+
+        <!-- Item 6 -->
+        <!-- <div class="gallery-item fu" data-category="campus"
+             data-title="College Masjid"
+             data-caption="The beautiful mosque at the heart of our campus"
+             data-img="assets/images/campus/mosque.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/mosque.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Masjid'',''bi-moon-stars'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Masjid"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">College Masjid</div></div>
+          </div>
+        </div> -->
+
+        <!-- Item 7 -->
+        <!-- <div class="gallery-item fu" data-category="campus"
+             data-title="Faculty Block"
+             data-caption="Administrative and faculty offices"
+             data-img="assets/images/campus/pmc-faculty.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/pmc-faculty.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Faculty Block'',''bi-building'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Faculty Block"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Campus</div><div class="gallery-overlay-text">Faculty Block</div></div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!--
+    ALBUM 2 — Facilities
+    -->
+    <div class="album-section mb-5" data-category="facilities">
+      <div class="album-heading">
+        <div class="album-heading-icon"><i class="bi bi-calendar-event"></i></div>
+        <div>
+          <div class="album-title">Facilities</div>
+          <span class="album-count">8 Photos</span>
+        </div>
+        <!-- <div class="ms-auto">
+          <a href="/events" class="gf-btn" style="font-size:.72rem;padding:6px 14px;text-decoration:none;">
+            <i class="bi bi-calendar3 me-1"></i> View All Events
+          </a>
+        </div> -->
+      </div>
+
+      <div class="gallery-grid" id="grid-facilities">
+        <div class="gallery-item span-2 fu" data-category="facilities"
+             data-title="Girls Hostel"
+             data-caption="Girls Hostel"
+             data-img="assets/images/campus/girls-hostel.png"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/girls-hostel.png"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Hostel'',''bi-mortarboard'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="hostel"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Girls Hostel</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Sports & Gym"
+             data-caption="Sports & Gym"
+             data-img="assets/images/news/news3.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/news/news3.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Sports & Gym'',''bi-flask'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Sports & Gym"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Sports & Gym</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Library & LRC"
+             data-caption="Library & LRC"
+             data-img="assets/images/news/pmc.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/news/pmc.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Library & LRC'',''bi-heart-pulse'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Library & LRC"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Library & LRC</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Cafeteria"
+             data-caption="Cafeteria"
+             data-img="assets/images/campus/pmc.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/pmc.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Cafeteria'',''bi-trophy'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Cafeteriaa"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Cafeteria</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Masjid"
+             data-caption="Masjid"
+             data-img="assets/images/campus/library.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/library.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Masjid'',''bi-droplet-half'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Masjid"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Masjid</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item span-2 fu" data-category="facilities"
+             data-title="Transportation"
+             data-caption="Social Welfare Society blood donation campaign"
+             data-img="assets/images/campus/library.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/library.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Blood Donation Drive'',''bi-droplet-half'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Blood Donation"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Transportation</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="facilities"
+             data-title="Blood Donation Drive — SWS"
+             data-caption="Social Welfare Society blood donation campaign"
+             data-img="assets/images/campus/library.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/library.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Blood Donation Drive'',''bi-droplet-half'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Blood Donation"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Day Care Center</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item span-2 fu" data-category="facilities"
+             data-title="Counseling & Aid"
+             data-caption="Counseling & Aid"
+             data-img="assets/images/campus/library.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/library.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Counseling & Aid'',''bi-droplet-half'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Counseling & Aid"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Facilities</div><div class="gallery-overlay-text">Counseling & Aid</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--
+    ALBUM 3 — CLINICAL TRAINING
+    -->
+    <!-- <div class="album-section mb-5" data-category="clinical">
+      <div class="album-heading">
+        <div class="album-heading-icon"><i class="bi bi-hospital"></i></div>
+        <div>
+          <div class="album-title">Clinical Training</div>
+          <span class="album-count">4 Photos</span>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="grid-clinical">
+        <div class="gallery-item span-2-row fu" data-category="clinical"
+             data-title="Kuwait Teaching Hospital"
+             data-caption="Students on clinical rotation at Kuwait Teaching Hospital"
+             data-img="assets/images/campus/pmc.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/pmc.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Kuwait Hospital'',''bi-hospital-fill'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Kuwait Hospital"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Kuwait Teaching Hospital</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="clinical"
+             data-title="Clinical Skill Labs"
+             data-caption="Students practicing in the simulation labs"
+             data-img="assets/images/campus/gym.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/gym.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Skill Labs'',''bi-activity'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Skill Labs"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Clinical Skill Labs</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="clinical"
+             data-title="OPD Rotations"
+             data-caption="Students observing outpatient department procedures"
+             data-img="assets/images/campus/cafe.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/cafe.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''OPD Rotation'',''bi-clipboard-pulse'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="OPD Rotations"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">OPD Rotations</div></div>
+          </div>
+        </div>
+
+        <div class="gallery-item fu" data-category="clinical"
+             data-title="Surgery Ward Rounds"
+             data-caption="4th year students on surgery ward rounds"
+             data-img="assets/images/campus/hostel.jpg"
+             onclick="openLightbox(this)">
+          <img src="/assets/images/campus/hostel.jpg"
+               onerror="this.parentElement.innerHTML=galleryPlaceholder(''Surgery Rounds'',''bi-scissors'')"
+               class="gallery-img" loading="lazy" decoding="async" alt="Surgery Rounds"/>
+          <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          <div class="gallery-overlay">
+            <div><div class="gallery-overlay-cat">Clinical</div><div class="gallery-overlay-text">Surgery Ward Rounds</div></div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Load More -->
+    <!-- <div class="text-center mt-4" id="loadMoreWrap">
+      <button class="btn-pmc btn-pmc-outline" id="loadMoreBtn" onclick="loadMore()">
+        <i class="bi bi-arrow-down-circle"></i> Load More Photos
+      </button>
+    </div> -->
+
+  </div>
+</section>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="pmc-lightbox" id="pmcLightbox" onclick="closeLightboxOnBackdrop(event)">
+  <div class="lb-inner" id="lbInner">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+    <div class="lb-img-wrap" id="lbImgWrap">
+      <!-- content injected by JS -->
+    </div>
+    <div class="lb-caption" id="lbCaption"></div>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+  <button class="lb-prev" onclick="lbNav(-1)" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+  <button class="lb-next" onclick="lbNav(1)"  aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+</div>
+
+<!-- Recognition Strip -->
+<section class="pmc-section-sm recog-strip">
+  <div class="container">
+    <div class="recog-grid">
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div><div class="recog-name">PM&DC</div></div>
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-building-fill"></i></div><div class="recog-name">Riphah University</div></div>
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-award-fill"></i></div><div class="recog-name">CPSP</div></div>
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-hospital-fill"></i></div><div class="recog-name">Ministry of Health</div></div>
+      <div class="recog-cell" style="border-right:none;"><div class="recog-ico"><i class="bi bi-globe-americas"></i></div><div class="recog-name">WHO</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+
+
+<button id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/pmc-global.js"></script>
+<script>
+/* ══════════════════════════════════════════════
+   GALLERY PAGE SCRIPTS
+══════════════════════════════════════════════ */
+
+// ── Placeholder HTML generator ──────────────────────────────────
+function galleryPlaceholder(label, icon) {
+  return `<div class="gallery-placeholder">
+    <i class="bi ${icon || ''bi-image''}"></i>
+    <span>${label}</span>
+  </div>
+  <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+  <div class="gallery-overlay">
+    <div><div class="gallery-overlay-text">${label}</div></div>
+  </div>`;
+}
+
+// ── Filter ───────────────────────────────────────────────────────
+const filterBtns   = document.querySelectorAll(''.gf-btn[data-filter]'');
+const albumSections = document.querySelectorAll(''.album-section'');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener(''click'', () => {
+    filterBtns.forEach(b => b.classList.remove(''active''));
+    btn.classList.add(''active'');
+    const filter = btn.dataset.filter;
+
+    albumSections.forEach(section => {
+      const cat = section.dataset.category;
+      const show = filter === ''all'' || cat === filter;
+      section.style.display = show ? '''' : ''none'';
+      if (show) section.style.animation = ''none'';
+    });
+
+    // Scroll to first visible album
+    const first = [...albumSections].find(s => s.style.display !== ''none'');
+    if (first && filter !== ''all'') first.scrollIntoView({ behavior: ''smooth'', block: ''start'' });
+  });
+});
+
+// ── Lightbox ─────────────────────────────────────────────────────
+let lbItems   = [];
+let lbCurrent = 0;
+
+function openLightbox(el) {
+  // Collect all gallery items currently visible
+  lbItems = [...document.querySelectorAll(''.gallery-item[data-img]'')].filter(e => {
+    return e.closest(''.album-section'').style.display !== ''none'';
+  });
+  lbCurrent = lbItems.indexOf(el);
+  renderLightbox();
+  document.getElementById(''pmcLightbox'').classList.add(''open'');
+  document.body.style.overflow = ''hidden'';
+}
+
+function openAlbumLightbox(category) {
+  lbItems = [...document.querySelectorAll(`.gallery-item[data-category="${category}"][data-img]`)];
+  lbCurrent = 0;
+  renderLightbox();
+  document.getElementById(''pmcLightbox'').classList.add(''open'');
+  document.body.style.overflow = ''hidden'';
+}
+
+function closeLightbox() {
+  document.getElementById(''pmcLightbox'').classList.remove(''open'');
+  document.body.style.overflow = '''';
+}
+
+function closeLightboxOnBackdrop(e) {
+  if (e.target === document.getElementById(''pmcLightbox'')) closeLightbox();
+}
+
+function lbNav(dir) {
+  lbCurrent = ((lbCurrent + dir) + lbItems.length) % lbItems.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const el    = lbItems[lbCurrent];
+  const img   = el.dataset.img   || '''';
+  const title = el.dataset.title || '''';
+  const cap   = el.dataset.caption || '''';
+  const cat   = el.dataset.category || '''';
+
+  const wrap = document.getElementById(''lbImgWrap'');
+  const isFallback = !img || img.endsWith(''/'');
+
+  if (img) {
+    wrap.innerHTML = `<img src="${img}" class="lb-img" alt="${title}"
+      onerror="this.parentElement.innerHTML=''<div class=\\''lb-placeholder\\''><i class=\\''bi bi-image\\''></i><span>${title}</span></div>''"
+    />`;
+  } else {
+    wrap.innerHTML = `<div class="lb-placeholder"><i class="bi bi-image"></i><span>${title}</span></div>`;
+  }
+
+  document.getElementById(''lbCaption'').innerHTML = `
+    <div class="lb-caption-cat">${cat}</div>
+    <div class="lb-caption-title">${title}</div>
+    ${cap ? `<div style="font-family:var(--font-body);font-size:.8rem;color:rgba(255,255,255,.5);margin-top:3px;">${cap}</div>` : ''''}
+  `;
+  document.getElementById(''lbCounter'').textContent = `${lbCurrent + 1} / ${lbItems.length}`;
+}
+
+// Keyboard navigation
+document.addEventListener(''keydown'', e => {
+  const lb = document.getElementById(''pmcLightbox'');
+  if (!lb.classList.contains(''open'')) return;
+  if (e.key === ''ArrowRight'' || e.key === ''ArrowDown'') lbNav(1);
+  if (e.key === ''ArrowLeft''  || e.key === ''ArrowUp'')   lbNav(-1);
+  if (e.key === ''Escape'') closeLightbox();
+});
+
+// ── Fade-up observer ─────────────────────────────────────────────
+const fuEls = document.querySelectorAll(''.fu'');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add(''vis''); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+fuEls.forEach(el => obs.observe(el));
+
+// ── Load More (placeholder) ─────────────────────────────────────
+function loadMore() {
+  document.getElementById(''loadMoreBtn'').innerHTML = ''<i class="bi bi-check-circle"></i> All Photos Loaded'';
+  document.getElementById(''loadMoreBtn'').disabled = true;
+}
+
+// ── Back to top ──────────────────────────────────────────────────
+const btt = document.getElementById(''backToTop'');
+window.addEventListener(''scroll'', () => btt.classList.toggle(''visible'', scrollY > 500));
+btt.addEventListener(''click'', () => window.scrollTo({ top: 0, behavior: ''smooth'' }));
+
+// ── Navbar scroll ────────────────────────────────────────────────
+const nav = document.getElementById(''mainNav'');
+window.addEventListener(''scroll'', () => nav.classList.toggle(''scrolled'', scrollY > 40));
+</script>','{"label":"Gallery","section":"News","title":"Photo Gallery | Peshawar Medical College","description":"Photos of campus life, labs, and events at Peshawar Medical College, Peshawar.","priority":"0.3","changefreq":"monthly"}','published',0.3,'monthly','2026-10-13 15:49:32','2026-10-13 19:28:30','/* ══ FILTER TABS ══ */
+ .gallery-filters {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+ margin-bottom: 40px;
+ justify-content: center;
+ }
+ .gf-btn {
+ font-family: var(--font-head);
+ font-size: .78rem;
+ font-weight: 700;
+ padding: 9px 22px;
+ border-radius: 100px;
+ border: 2px solid var(--border);
+ background: white;
+ color: var(--gray-dark);
+ cursor: pointer;
+ transition: all .2s;
+ letter-spacing: .02em;
+ }
+ .gf-btn:hover { border-color: var(--teal); color: var(--teal); }
+ .gf-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
+
+ /* ══ GALLERY GRID ══ */
+ .gallery-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 14px;
+ }
+ .gallery-item {
+ position: relative;
+ border-radius: var(--r-md);
+ overflow: hidden;
+ aspect-ratio: 1;
+ cursor: pointer;
+ background: var(--gray-light);
+ transition: transform .3s, box-shadow .3s;
+ }
+ .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
+
+ /* Span variants */
+ .gallery-item.span-2 { grid-column: span 2; aspect-ratio: 2/1; }
+ .gallery-item.span-2-row { grid-row: span 2; aspect-ratio: 1/2; }
+
+ .gallery-img {
+ width: 100%; height: 100%;
+ object-fit: cover;
+ display: block;
+ transition: transform .4s;
+ }
+ .gallery-item:hover .gallery-img { transform: scale(1.06); }
+
+ /* Placeholder (when no image) */
+ .gallery-placeholder {
+ width: 100%; height: 100%;
+ background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center;
+ gap: 10px;
+ transition: filter .3s;
+ }
+ .gallery-placeholder i { font-size: 2rem; color: rgba(255,255,255,.5); }
+ .gallery-placeholder span { font-family: var(--font-head); font-size: .75rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .08em; }
+
+ /* Overlay */
+ .gallery-overlay {
+ position: absolute; inset: 0;
+ background: linear-gradient(to top, rgba(10,22,40,.85) 0%, transparent 55%);
+ opacity: 0;
+ transition: opacity .25s;
+ display: flex; align-items: flex-end;
+ padding: 18px;
+ }
+ .gallery-item:hover .gallery-overlay { opacity: 1; }
+ .gallery-overlay-text {
+ font-family: var(--font-head);
+ font-size: .82rem;
+ font-weight: 700;
+ color: white;
+ line-height: 1.3;
+ }
+ .gallery-overlay-cat {
+ font-family: var(--font-body);
+ font-size: .68rem;
+ font-weight: 700;
+ color: var(--teal-light);
+ text-transform: uppercase;
+ letter-spacing: .08em;
+ margin-bottom: 3px;
+ }
+ /* Zoom icon badge */
+ .gallery-zoom {
+ position: absolute;
+ top: 12px; right: 12px;
+ width: 32px; height: 32px;
+ background: rgba(255,255,255,.15);
+ backdrop-filter: blur(8px);
+ border-radius: 8px;
+ display: flex; align-items: center; justify-content: center;
+ color: white; font-size: .9rem;
+ opacity: 0; transition: opacity .25s;
+ }
+ .gallery-item:hover .gallery-zoom { opacity: 1; }
+
+ /* ══ LIGHTBOX ══ */
+ .pmc-lightbox {
+ position: fixed; inset: 0;
+ background: rgba(6,14,26,.96);
+ z-index: 9999;
+ display: none;
+ align-items: center;
+ justify-content: center;
+ }
+ .pmc-lightbox.open { display: flex; animation: lbFade .25s ease; }
+ @keyframes lbFade { from{opacity:0} to{opacity:1} }
+
+ .lb-inner {
+ position: relative;
+ max-width: 90vw;
+ max-height: 90vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
+ .lb-img-wrap {
+ position: relative;
+ border-radius: var(--r-md);
+ overflow: hidden;
+ box-shadow: 0 24px 80px rgba(0,0,0,.6);
+ }
+ .lb-img {
+ max-width: 88vw;
+ max-height: 76vh;
+ object-fit: contain;
+ display: block;
+ }
+ /* Placeholder in lightbox */
+ .lb-placeholder {
+ width: 600px; max-width: 88vw;
+ height: 400px; max-height: 76vh;
+ background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center;
+ gap: 14px;
+ }
+ .lb-placeholder i { font-size: 3rem; color: rgba(255,255,255,.4); }
+ .lb-placeholder span { font-family:var(--font-head); font-size:.8rem; color:rgba(255,255,255,.35); }
+
+ .lb-caption {
+ margin-top: 16px;
+ text-align: center;
+ }
+ .lb-caption-title {
+ font-family: var(--font-head);
+ font-size: .95rem;
+ font-weight: 700;
+ color: white;
+ margin-bottom: 3px;
+ }
+ .lb-caption-cat {
+ font-family: var(--font-body);
+ font-size: .75rem;
+ color: var(--teal-light);
+ font-weight: 600;
+ text-transform: uppercase;
+ letter-spacing: .07em;
+ }
+ .lb-counter {
+ font-family: var(--font-body);
+ font-size: .75rem;
+ color: rgba(255,255,255,.35);
+ margin-top: 6px;
+ }
+
+ /* Controls */
+ .lb-close {
+ position: absolute;
+ top: -48px; right: 0;
+ width: 40px; height: 40px;
+ background: rgba(255,255,255,.1);
+ border: none; border-radius: 8px;
+ color: white; font-size: 1.1rem;
+ cursor: pointer;
+ display: flex; align-items: center; justify-content: center;
+ transition: background .2s;
+ }
+ .lb-close:hover { background: rgba(255,255,255,.2); }
+
+ .lb-prev, .lb-next {
+ position: fixed;
+ top: 50%; transform: translateY(-50%);
+ width: 48px; height: 48px;
+ background: rgba(255,255,255,.1);
+ border: 1px solid rgba(255,255,255,.15);
+ border-radius: 50%;
+ color: white; font-size: 1.2rem;
+ cursor: pointer;
+ display: flex; align-items: center; justify-content: center;
+ transition: background .2s;
+ }
+ .lb-prev { left: 20px; }
+ .lb-next { right: 20px; }
+ .lb-prev:hover, .lb-next:hover { background: rgba(21,95,122,.5); }
+
+ /* ══ ALBUM SECTION HEADING ══ */
+ .album-heading {
+ display: flex;
+ align-items: center;
+ gap: 14px;
+ margin-bottom: 22px;
+ padding-bottom: 14px;
+ border-bottom: 2px solid var(--border);
+ }
+ .album-heading-icon {
+ width: 44px; height: 44px;
+ background: var(--navy);
+ border-radius: 10px;
+ display: flex; align-items: center; justify-content: center;
+ color: var(--gold); font-size: 1.2rem;
+ flex-shrink: 0;
+ }
+ .album-title {
+ font-family: var(--font-head);
+ font-size: 1.1rem;
+ font-weight: 800;
+ color: var(--navy);
+ }
+ .album-count {
+ font-family: var(--font-body);
+ font-size: .75rem;
+ font-weight: 700;
+ color: white;
+ background: var(--teal);
+ padding: 2px 10px;
+ border-radius: 100px;
+ }
+
+ /* ══ EMPTY STATE ══ */
+ .gallery-empty {
+ text-align: center;
+ padding: 70px 0;
+ }
+ .gallery-empty i { font-size: 3rem; color: var(--gray-light); margin-bottom: 14px; display: block; }
+
+ /* ══ BACK TO TOP ══ */
+ #backToTop {
+ position: fixed; bottom: 28px; right: 28px;
+ width: 44px; height: 44px; background: var(--teal);
+ color: white; border: none; border-radius: 10px; font-size: 1.1rem;
+ display: flex; align-items: center; justify-content: center;
+ cursor: pointer; z-index: 999; opacity: 0; transform: translateY(10px);
+ transition: opacity .25s, transform .25s, background .2s;
+ box-shadow: 0 4px 18px rgba(21,95,122,.35);
+ }
+ #backToTop.visible { opacity: 1; transform: translateY(0); }
+ #backToTop:hover { background: var(--navy); }
+
+ /* ══ RESPONSIVE ══ */
+ @media (max-width: 991.98px) {
+ .gallery-grid { grid-template-columns: repeat(3,1fr); }
+ .gallery-item.span-2 { grid-column: span 2; }
+ .gallery-item.span-2-row { grid-row: span 1; aspect-ratio: 1; }
+ }
+ @media (max-width: 767.98px) {
+ .gallery-grid { grid-template-columns: repeat(2,1fr); }
+ .gallery-item.span-2 { grid-column: span 2; }
+ .gallery-item.span-2-row { grid-row: span 1; aspect-ratio: 1; }
+ .lb-prev, .lb-next { display: none; }
+ }
+ @media (max-width: 480px) {
+ .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+ }
+ 
+
+
+
+
+
+
+ 
+ 
+ Photo Gallery
+ 
+ Home
+ 
+ Gallery
+ 
+ 
+
+
+
+
+ 
+
+ 
+ 
+ 
+ Visual Journey
+ Life at Campus
+ Explore our campus, events, clinical training, research activities, student societies, and memorable moments captured across our 20+ year journey.
+ 
+ 
+
+ 
+ 
+ 
+ All Albums
+ 
+ 
+ Campus
+ 
+ 
+ Facilities
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ PMC Campus
+ 3 Photos
+ 
+ 
+ 
+ View Slideshow
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Campus
+ Main Campus — Warsak Road
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ CampusCampus
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ CampusAdministrative Block
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Facilities
+ 8 Photos
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ FacilitiesGirls Hostel
+ 
+ 
+
+ 
+ 
+ 
+ 
+ FacilitiesSports & Gym
+ 
+ 
+
+ 
+ 
+ 
+ 
+ FacilitiesLibrary & LRC
+ 
+ 
+
+ 
+ 
+ 
+ 
+ FacilitiesCafeteria
+ 
+ 
+
+ 
+ 
+ 
+ 
+ FacilitiesMasjid
+ 
+ 
+
+ 
+ 
+ 
+ 
+ FacilitiesTransportation
+ 
+ 
+
+ 
+ 
+ 
+ 
+ FacilitiesDay Care Center
+ 
+ 
+
+ 
+ 
+ 
+ 
+ FacilitiesCounseling & Aid
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ PM&DC
+ Riphah University
+ CPSP
+ Ministry of Health
+ WHO
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+/* ══════════════════════════════════════════════
+ GALLERY PAGE SCRIPTS
+══════════════════════════════════════════════ */
+
+// ── Placeholder HTML generator ──────────────────────────────────
+function galleryPlaceholder(label, icon) {
+ return `
+ 
+ ${label}
+ 
+ 
+ 
+ ${label}
+ `;
+}
+
+// ── Filter ───────────────────────────────────────────────────────
+const filterBtns = document.querySelectorAll(''.gf-btn[data-filter]'');
+const albumSections = document.querySelectorAll(''.album-section'');
+
+filterBtns.forEach(btn => {
+ btn.addEventListener(''click'', () => {
+ filterBtns.forEach(b => b.classList.remove(''active''));
+ btn.classList.add(''active'');
+ const filter = btn.dataset.filter;
+
+ albumSections.forEach(section => {
+ const cat = section.dataset.category;
+ const show = filter === ''all'' || cat === filter;
+ section.style.display = show ? '''' : ''none'';
+ if (show) section.style.animation = ''none'';
+ });
+
+ // Scroll to first visible album
+ const first = [...albumSections].find(s => s.style.display !== ''none'');
+ if (first && filter !== ''all'') first.scrollIntoView({ behavior: ''smooth'', block: ''start'' });
+ });
+});
+
+// ── Lightbox ─────────────────────────────────────────────────────
+let lbItems = [];
+let lbCurrent = 0;
+
+function openLightbox(el) {
+ // Collect all gallery items currently visible
+ lbItems = [...document.querySelectorAll(''.gallery-item[data-img]'')].filter(e => {
+ return e.closest(''.album-section'').style.display !== ''none'';
+ });
+ lbCurrent = lbItems.indexOf(el);
+ renderLightbox();
+ document.getElementById(''pmcLightbox'').classList.add(''open'');
+ document.body.style.overflow = ''hidden'';
+}
+
+function openAlbumLightbox(category) {
+ lbItems = [...document.querySelectorAll(`.gallery-item[data-category="${category}"][data-img]`)];
+ lbCurrent = 0;
+ renderLightbox();
+ document.getElementById(''pmcLightbox'').classList.add(''open'');
+ document.body.style.overflow = ''hidden'';
+}
+
+function closeLightbox() {
+ document.getElementById(''pmcLightbox'').classList.remove(''open'');
+ document.body.style.overflow = '''';
+}
+
+function closeLightboxOnBackdrop(e) {
+ if (e.target === document.getElementById(''pmcLightbox'')) closeLightbox();
+}
+
+function lbNav(dir) {
+ lbCurrent = ((lbCurrent + dir) + lbItems.length) % lbItems.length;
+ renderLightbox();
+}
+
+function renderLightbox() {
+ const el = lbItems[lbCurrent];
+ const img = el.dataset.img || '''';
+ const title = el.dataset.title || '''';
+ const cap = el.dataset.caption || '''';
+ const cat = el.dataset.category || '''';
+
+ const wrap = document.getElementById(''lbImgWrap'');
+ const isFallback = !img || img.endsWith(''/'');
+
+ if (img) {
+ wrap.innerHTML = ``;
+ } else {
+ wrap.innerHTML = `${title}`;
+ }
+
+ document.getElementById(''lbCaption'').innerHTML = `
+ ${cat}
+ ${title}
+ ${cap ? `${cap}` : ''''}
+ `;
+ document.getElementById(''lbCounter'').textContent = `${lbCurrent + 1} / ${lbItems.length}`;
+}
+
+// Keyboard navigation
+document.addEventListener(''keydown'', e => {
+ const lb = document.getElementById(''pmcLightbox'');
+ if (!lb.classList.contains(''open'')) return;
+ if (e.key === ''ArrowRight'' || e.key === ''ArrowDown'') lbNav(1);
+ if (e.key === ''ArrowLeft'' || e.key === ''ArrowUp'') lbNav(-1);
+ if (e.key === ''Escape'') closeLightbox();
+});
+
+// ── Fade-up observer ─────────────────────────────────────────────
+const fuEls = document.querySelectorAll(''.fu'');
+const obs = new IntersectionObserver(entries => {
+ entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add(''vis''); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+fuEls.forEach(el => obs.observe(el));
+
+// ── Load More (placeholder) ─────────────────────────────────────
+function loadMore() {
+ document.getElementById(''loadMoreBtn'').innerHTML = '' All Photos Loaded'';
+ document.getElementById(''loadMoreBtn'').disabled = true;
+}
+
+// ── Back to top ──────────────────────────────────────────────────
+const btt = document.getElementById(''backToTop'');
+window.addEventListener(''scroll'', () => btt.classList.toggle(''visible'', scrollY > 500));
+btt.addEventListener(''click'', () => window.scrollTo({ top: 0, behavior: ''smooth'' }));
+
+// ── Navbar scroll ────────────────────────────────────────────────
+const nav = document.getElementById(''mainNav'');
+window.addEventListener(''scroll'', () => nav.classList.toggle(''scrolled'', scrollY > 40));',0),
+(231,'all-news','News | Peshawar Medical College','News','News','News and notices from Peshawar Medical College — admissions, rankings, and campus updates.','all-news',NULL,'{"label":"News","section":"News","title":"News | Peshawar Medical College","description":"News and notices from Peshawar Medical College — admissions, rankings, and campus updates.","priority":"0.5","changefreq":"weekly"}','published',0.5,'weekly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(232,'events','Events | Peshawar Medical College','Events','News','Events at Peshawar Medical College including academic conferences and student activities.','events',NULL,'{"label":"Events","section":"News","title":"Events | Peshawar Medical College","description":"Events at Peshawar Medical College including academic conferences and student activities.","priority":"0.4","changefreq":"weekly"}','published',0.4,'weekly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(233,'single-news','Campus News | Peshawar Medical College','News Article','News','News from Peshawar Medical College, a leading medical college in Peshawar.','single-news',NULL,'{"label":"News Article","section":"News","title":"Campus News | Peshawar Medical College","description":"News from Peshawar Medical College, a leading medical college in Peshawar.","priority":"0.2","changefreq":"monthly","og_type":"article"}','published',0.2,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(234,'event-single','Event | Peshawar Medical College','Event','News','Event details from Peshawar Medical College, Peshawar.','event-single',NULL,'{"label":"Event","section":"News","title":"Event | Peshawar Medical College","description":"Event details from Peshawar Medical College, Peshawar.","priority":"0.2","changefreq":"monthly","og_type":"article"}','published',0.2,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(235,'vacant-seats','MBBS Vacant Seats Peshawar | PMC Migration','Vacant Seats','Academics','Vacant MBBS seats and migration at PMC Peshawar, a private medical college on Warsak Road.','vacant-seats','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Vacant Seats (Migration)</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+          class="bi bi-chevron-right"></i></span><span class="current">Vacant Seats – Migration</span></div>
+  </div>
+</div>
+
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+
+          <!-- Riphah Eligibility Alert -->
+          <div class="alert mb-4"
+            style="background:linear-gradient(135deg,#fff3e0,#fff);border:1px solid rgba(230,81,0,.25);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px;">
+            <i class="bi bi-exclamation-triangle-fill" style="color:#e65100;font-size:1.5rem;flex-shrink:0;"></i>
+            <span style="font-family:var(--font-body);font-size:.9rem;color:var(--gray-dark);line-height:1.6;">
+              <strong style="color:#bf360c;">Riphah International University Rule:</strong> Applicant having less than
+              <strong>60% marks in any subject/paper</strong> shall not be eligible for migration.
+            </span>
+          </div>
+
+          <h2 class="sec-title" style="font-size:1.6rem;">Vacant Seats in Riphah International University - Peshawar
+            Campus</h2>
+          <!-- <p style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-mid);">Vacant seats available for
+            migration as per the notified schedule. Only seats from <strong>3rd Year MBBS onwards</strong> are open for
+            transfer as per PM&DC regulations.</p> -->
+
+          <!-- Vacant Seats Table -->
+          <div class="table-responsive mb-4">
+            <table class="table table-bordered info-table" style="background:#fff;">
+              <thead style="background:var(--navy);color:white;">
+                <tr>
+                  <th style="padding:14px;">Programme / Year</th>
+                  <th style="padding:14px;">Session</th>
+                  <th style="padding:14px;text-align:center;">Vacant Seats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:13px;font-weight:600;">1<sup>st</sup> Year MBBS</td>
+                  <td style="padding:13px;">2025-26</td>
+                  <td style="padding:13px;text-align:center;font-weight:700;color:var(--gray-dark);">0</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                  <td style="padding:13px;font-weight:600;">2<sup>nd</sup> Year MBBS</td>
+                  <td style="padding:13px;">2024-25</td>
+                  <td style="padding:13px;text-align:center;font-weight:700;color:#2e7d32;font-size:1.1rem;">3</td>
+                </tr>
+                <tr>
+                  <td style="padding:13px;font-weight:600;">3<sup>rd</sup> Year MBBS</td>
+                  <td style="padding:13px;">2023-24</td>
+                  <td style="padding:13px;text-align:center;font-weight:700;color:var(--gray-dark);">0</td>
+                </tr>
+                <tr style="background:#f9fafb;">
+                  <td style="padding:13px;font-weight:600;">4<sup>th</sup> Year MBBS</td>
+                  <td style="padding:13px;">2022-23</td>
+                  <td style="padding:13px;text-align:center;font-weight:700;color:var(--gray-dark);">0</td>
+                </tr>
+                <tr>
+                  <td style="padding:13px;font-weight:600;">Final Year MBBS</td>
+                  <td style="padding:13px;">2021-22</td>
+                  <td style="padding:13px;text-align:center;font-weight:700;color:var(--gray-dark);">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sec-title" style="font-size:1.5rem;">Instructions for Migration on Vacants</h2>
+          <div class="pmc-card mb-4"
+            style="border-radius:12px;background:#f4f7f9;border:1px solid var(--border-color);padding:22px 24px;">
+            <p style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-dark);margin-bottom:18px;">
+              <i class="bi bi-journal-check" style="color:var(--teal);margin-right:6px;"></i>
+              Riphah International University - Peshawar Campus follows <strong>Pakistan Medical & Dental Council
+                (PM&DC)</strong> rules and
+              regulations in letter and spirit.
+            </p>
+
+            <ul style="list-style:none;padding-left:0;margin-bottom:0;">
+              <li
+                style="display:flex;align-items:flex-start;gap:10px;margin-bottom:13px;font-family:var(--font-body);font-size:.9rem;color:var(--gray-dark);line-height:1.7;">
+                <i class="bi bi-dot" style="font-size:1.6rem;color:var(--navy);line-height:1;flex-shrink:0;"></i>
+                <span>Students are allowed to apply against the notified vacant seats <strong>(from 3rd Year MBBS to
+                    Final Year MBBS)</strong> with immediate effect. As per PM&DC Admission Regulations 2023, <strong>no
+                    transfer / migration shall be allowed in the first 2 years of MBBS.</strong></span>
+              </li>
+              <li
+                style="display:flex;align-items:flex-start;gap:10px;margin-bottom:13px;font-family:var(--font-body);font-size:.9rem;color:var(--gray-dark);line-height:1.7;">
+                <i class="bi bi-dot" style="font-size:1.6rem;color:var(--navy);line-height:1;flex-shrink:0;"></i>
+                <span>Students shall <strong>apply online</strong> for migration on vacant seats through the designated
+                  portal.</span>
+              </li>
+              <li
+                style="display:flex;align-items:flex-start;gap:10px;margin-bottom:13px;font-family:var(--font-body);font-size:.9rem;color:var(--gray-dark);line-height:1.7;">
+                <i class="bi bi-dot" style="font-size:1.6rem;color:var(--navy);line-height:1;flex-shrink:0;"></i>
+                <span>Student will be admitted on <strong>merit based on average of professional
+                    examinations</strong>.</span>
+              </li>
+              <li
+                style="display:flex;align-items:flex-start;gap:10px;margin-bottom:13px;font-family:var(--font-body);font-size:.9rem;color:var(--gray-dark);line-height:1.7;">
+                <i class="bi bi-dot" style="font-size:1.6rem;color:var(--navy);line-height:1;flex-shrink:0;"></i>
+                <span>As per Riphah International University rules, applicant having <strong>less than 60% marks in any
+                    subject/paper</strong> shall not be eligible for migration.</span>
+              </li>
+              <li
+                style="display:flex;align-items:flex-start;gap:10px;margin-bottom:0;font-family:var(--font-body);font-size:.9rem;color:var(--gray-dark);line-height:1.7;">
+                <i class="bi bi-dot" style="font-size:1.6rem;color:var(--navy);line-height:1;flex-shrink:0;"></i>
+                <span>No transfer shall be accepted by a college to a vacant seat <strong>until reviewed by the
+                    Authority</strong> to ensure transparency.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Important Dates -->
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <div class="pmc-card text-center"
+                style="border-radius:12px;padding:18px;background:#fff;border:1px solid var(--border-color);">
+                <div
+                  style="font-family:var(--font-body);font-size:.78rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">
+                  Last Date to Apply Online</div>
+                <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:900;color:#d32f2f;">16 January
+                  2026</div>
+                <div style="font-size:.75rem;color:var(--gray-mid);">(Extended)</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card text-center"
+                style="border-radius:12px;padding:18px;background:#fff;border:1px solid var(--border-color);">
+                <div
+                  style="font-family:var(--font-body);font-size:.78rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">
+                  Merit List Display Date</div>
+                <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:900;color:var(--navy);">21 January
+                  2026</div>
+                <div style="font-size:.75rem;color:var(--gray-mid);">Wednesday</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Apply Online Button -->
+          <div class="mt-4">
+            <a href="https://pmc.prime.edu.pk/vacant_admission/" target="_blank" class="btn-pmc btn-pmc-primary" style="font-size:.95rem;padding:13px 30px;">
+              <i class="bi bi-pencil-square"></i> Apply Online for Migration
+            </a>
+            <a href="/admissions" class="btn-pmc btn-pmc-outline ms-2" style="font-size:.95rem;padding:13px 30px;">
+              <i class="bi bi-arrow-left-circle"></i> Back to Admissions
+            </a>
+          </div>
+
+        </div>
+      </div><!-- Sidebar remains unchanged -->
+      
+    </div>
+  </div>
+</section>','{"label":"Vacant Seats","section":"Academics","title":"MBBS Vacant Seats Peshawar | PMC Migration","description":"Vacant MBBS seats and migration at PMC Peshawar, a private medical college on Warsak Road.","priority":"0.5","changefreq":"monthly"}','published',0.5,'monthly','2026-10-13 15:49:32','2026-10-13 18:25:16','Vacant Seats (Migration)
+ HomeVacant Seats – Migration
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ Riphah International University Rule: Applicant having less than
+ 60% marks in any subject/paper shall not be eligible for migration.
+ 
+ 
+
+ Vacant Seats in Riphah International University - Peshawar
+ Campus
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Programme / Year
+ Session
+ Vacant Seats
+ 
+ 
+ 
+ 
+ 1st Year MBBS
+ 2025-26
+ 0
+ 
+ 
+ 2nd Year MBBS
+ 2024-25
+ 3
+ 
+ 
+ 3rd Year MBBS
+ 2023-24
+ 0
+ 
+ 
+ 4th Year MBBS
+ 2022-23
+ 0
+ 
+ 
+ Final Year MBBS
+ 2021-22
+ 0
+ 
+ 
+ 
+ 
+
+ Instructions for Migration on Vacants
+ 
+ 
+ 
+ Riphah International University - Peshawar Campus follows Pakistan Medical & Dental Council
+ (PM&DC) rules and
+ regulations in letter and spirit.
+ 
+
+ 
+ 
+ 
+ Students are allowed to apply against the notified vacant seats (from 3rd Year MBBS to
+ Final Year MBBS) with immediate effect. As per PM&DC Admission Regulations 2023, no
+ transfer / migration shall be allowed in the first 2 years of MBBS.
+ 
+ 
+ 
+ Students shall apply online for migration on vacant seats through the designated
+ portal.
+ 
+ 
+ 
+ Student will be admitted on merit based on average of professional
+ examinations.
+ 
+ 
+ 
+ As per Riphah International University rules, applicant having less than 60% marks in any
+ subject/paper shall not be eligible for migration.
+ 
+ 
+ 
+ No transfer shall be accepted by a college to a vacant seat until reviewed by the
+ Authority to ensure transparency.
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Last Date to Apply Online
+ 16 January
+ 2026
+ (Extended)
+ 
+ 
+ 
+ 
+ 
+ Merit List Display Date
+ 21 January
+ 2026
+ Wednesday
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Apply Online for Migration
+ 
+ 
+ Back to Admissions',0),
+(236,'portal','Student Portal | Peshawar Medical College','Portal','College','Student and faculty portal links for Peshawar Medical College.','portal','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <span class="page-hero-eyebrow">Riphah International University (Peshawar Campus)</span>
+    <h1>Student, Parent &amp; Faculty Portal</h1>
+    <div class="breadcrumb-pmc">
+      <a href="/">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">Portal Login</span>
+    </div>
+  </div>
+</div>
+
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <div class="adm-intro fu">
+            <!-- <span class="sec-eyebrow">MEIS</span> -->
+            <h2 class="sec-title" style="font-size:1.75rem;">Management &amp; Education Information System</h2>
+            <p class="about-lead">
+              MEIS is the central platform for students and parents at Riphah International University – Peshawar Campus.
+              Use the links below to access your academic records, attendance, results, and fee information.
+            </p>
+          </div>
+
+          <!-- Portal Cards -->
+          <div class="adm-block fu fu-delay-1" id="portals">
+            <div class="adm-block-head">
+              <h3>Choose Your Portal</h3>
+              <p>Select the portal that applies to you to proceed to login.</p>
+            </div>
+
+            <div class="portal-grid">
+
+              <div class="portal-card">
+                <div class="portal-card-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <h4>Student Portal</h4>
+                <!-- <p>Access your academic profile, attendance, results, and course information.</p> -->
+                <p>Click the below Button to access the Student Portal</p>
+                <a href="https://prime.edu.pk/sis/login" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary">
+                  <i class="bi bi-box-arrow-in-right"></i> Login
+                </a>
+              </div>
+
+              <div class="portal-card">
+                <div class="portal-card-icon"><i class="bi bi-people-fill"></i></div>
+                <h4>Parent Portal</h4>
+                <p>Click the below Button to access the Parent Portal</p>
+                <!-- <p>Monitor your ward''s attendance, academic performance, and fee status.</p> -->
+                <a href="https://prime.edu.pk/sis/login/parent" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary">
+                  <i class="bi bi-box-arrow-in-right"></i> Login
+                </a>
+              </div>
+
+              <div class="portal-card">
+                <div class="portal-card-icon"><i class="bi bi-info-circle-fill"></i></div>
+                <h4>Faculty Portal</h4>
+                <p>Click the below Button to access the Faculty Portal</p>
+                <!-- <p>Learn more about the Management &amp; Education Information System.</p> -->
+                <a href="https://www.prime.edu.pk/meis" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline">
+                  <i class="bi bi-arrow-up-right"></i> Login
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          
+
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <!-- <div class="col-lg-4 fu fu-delay-2">
+        
+
+        <div class="sidebar-widget">
+          <div class="sw-head"><i class="bi bi-link-45deg"></i> Quick Links</div>
+          <div class="sw-body">
+            <a class="sw-link" href="https://prime.edu.pk/sis/login" target="_blank" rel="noopener"><i class="bi bi-mortarboard"></i>Student Login</a>
+            <a class="sw-link" href="https://prime.edu.pk/sis/login/parent" target="_blank" rel="noopener"><i class="bi bi-people"></i>Parent Login</a>
+            <a class="sw-link" href="https://www.prime.edu.pk/meis" target="_blank" rel="noopener"><i class="bi bi-info-circle"></i>Faculty Login</a>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Portal card styles -->
+<style>
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.portal-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.portal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+.portal-card-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--teal, #009688);
+  color: #fff;
+  font-size: 1.5rem;
+}
+.portal-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.portal-card p {
+  font-size: .88rem;
+  color: var(--gray-mid, #6c757d);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.portal-card .btn-pmc {
+  width: 100%;
+  justify-content: center;
+  font-size: .82rem;
+}
+</style>','{"label":"Portal","section":"College","title":"Student Portal | Peshawar Medical College","description":"Student and faculty portal links for Peshawar Medical College.","priority":"0.3","changefreq":"yearly"}','published',0.3,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Riphah International University (Peshawar Campus)
+ Student, Parent & Faculty Portal
+ 
+ Home
+ 
+ Portal Login
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ Management & Education Information System
+ 
+ MEIS is the central platform for students and parents at Riphah International University – Peshawar Campus.
+ Use the links below to access your academic records, attendance, results, and fee information.
+ 
+ 
+
+ 
+ 
+ 
+ Choose Your Portal
+ Select the portal that applies to you to proceed to login.
+ 
+
+ 
+
+ 
+ 
+ Student Portal
+ 
+ Click the below Button to access the Student Portal
+ 
+ Login
+ 
+ 
+
+ 
+ 
+ Parent Portal
+ Click the below Button to access the Parent Portal
+ 
+ 
+ Login
+ 
+ 
+
+ 
+ 
+ Faculty Portal
+ Click the below Button to access the Faculty Portal
+ 
+ 
+ Login
+ 
+ 
+
+ 
+ 
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+
+
+
+
+
+.portal-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 20px;
+ margin-top: 20px;
+}
+.portal-card {
+ background: #fff;
+ border: 1px solid rgba(0,0,0,.06);
+ border-radius: 16px;
+ padding: 28px 22px;
+ text-align: center;
+ box-shadow: 0 2px 10px rgba(0,0,0,.04);
+ transition: transform .2s ease, box-shadow .2s ease;
+}
+.portal-card:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+.portal-card-icon {
+ width: 58px;
+ height: 58px;
+ margin: 0 auto 16px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 50%;
+ background: var(--teal, #009688);
+ color: #fff;
+ font-size: 1.5rem;
+}
+.portal-card h4 {
+ font-size: 1.05rem;
+ font-weight: 700;
+ margin-bottom: 8px;
+}
+.portal-card p {
+ font-size: .88rem;
+ color: var(--gray-mid, #6c757d);
+ line-height: 1.6;
+ margin-bottom: 18px;
+}
+.portal-card .btn-pmc {
+ width: 100%;
+ justify-content: center;
+ font-size: .82rem;
+}',1),
+(237,'portal-login','Portal Login | Peshawar Medical College','Portal Login','College','Portal login for Peshawar Medical College students and staff.','portal-login','<style>
+/* ═══ Portal Tabs (prominent) ═══ */
+.portal-tabs {
+  display: flex; gap: 12px; margin-bottom: 34px;
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 8px; box-shadow: var(--shadow-sm);
+  overflow-x: auto; /* in case of many tabs on small screens */
+}
+.portal-tab {
+  font-family: var(--font-head); font-size: .9rem; font-weight: 700;
+  padding: 14px 28px; background: white; border: 2px solid transparent;
+  border-radius: var(--r-md); color: var(--gray-dark);
+  cursor: pointer; position: relative; transition: all .25s;
+  flex: 1; text-align: center; white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.portal-tab.active {
+  background: var(--navy); border-color: var(--navy); color: white;
+  box-shadow: 0 6px 14px rgba(10,22,40,.18);
+  transform: scale(1.02);
+}
+.portal-tab:not(.active):hover {
+  background: var(--teal-pale); border-color: var(--teal); color: var(--teal);
+  transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.portal-tab i { font-size: 1.1rem; margin-right: 8px; vertical-align: middle; }
+/* Remove the underline after pseudo-element, use background change instead */
+.portal-tab.active::after { display: none; }
+
+/* ═══ Login Card ═══ */
+.login-card {
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-sm);
+  padding: 30px 28px; max-width: 480px; margin: 0 auto;
+}
+.login-card .lc-icon {
+  width: 64px; height: 64px; background: var(--teal-pale);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px; color: var(--teal); font-size: 1.8rem;
+}
+.login-card h3 {
+  font-family: var(--font-head); font-weight: 800; color: var(--navy);
+  text-align: center; margin-bottom: 6px;
+}
+.login-card p.sub {
+  font-family: var(--font-body); font-size: .85rem; color: var(--gray-mid);
+  text-align: center; margin-bottom: 24px;
+}
+.login-card .btn-login {
+  width: 100%; padding: 12px; border-radius: var(--r-sm);
+  font-family: var(--font-head); font-size: .9rem; font-weight: 700;
+  background: var(--teal); color: white; border: none; cursor: pointer;
+  transition: background .2s; text-align: center; text-decoration: none;
+  display: inline-block;
+}
+.login-card .btn-login:hover { background: #008f80; }
+
+/* Responsive */
+@media(max-width:575px) {
+  .portal-tab { padding: 12px 16px; font-size: .82rem; }
+  .portal-tabs { flex-wrap: nowrap; }
+}
+</style>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Portal Login</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">Portal Login</span></div>
+  </div>
+</div>
+
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+          <p style="font-family:var(--font-body); font-size:.95rem; color:var(--gray-mid); margin-bottom: 0;">
+            Select your role to access the PMC Portal. All users (students, teachers, and parents) use the same central login system.
+          </p>
+
+          <!-- Portal Tabs (now larger, card-like) -->
+          <div class="portal-tabs fu">
+            <button class="portal-tab active" data-portal="student" onclick="switchPortal(''student'')">
+              <i class="bi bi-mortarboard-fill"></i> Student
+            </button>
+            <button class="portal-tab" data-portal="teacher" onclick="switchPortal(''teacher'')">
+              <i class="bi bi-person-workspace"></i> Teacher
+            </button>
+            <button class="portal-tab" data-portal="parent" onclick="switchPortal(''parent'')">
+              <i class="bi bi-people-fill"></i> Parent
+            </button>
+          </div>
+
+          <!-- Student Login Card -->
+          <div class="portal-pane fu" id="pane-student">
+            <div class="login-card">
+              <div class="lc-icon"><i class="bi bi-person-circle"></i></div>
+              <h3>Student Portal</h3>
+              <p class="sub">Access your academic dashboard, fee challan, exam schedule, and results.</p>
+              <a href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" class="btn-login">
+                <i class="bi bi-box-arrow-in-right"></i> Login to Student Portal
+              </a>
+              <p style="font-size:.76rem; color:var(--gray-mid); text-align:center; margin:16px 0 0;">
+                Having trouble? Contact IT at <a href="mailto:info@prime.edu.pk" style="color:var(--teal);">info@prime.edu.pk</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Teacher Login Card -->
+          <div class="portal-pane fu" id="pane-teacher" style="display:none;">
+            <div class="login-card">
+              <div class="lc-icon" style="background:var(--gold-pale); color:var(--gold);"><i class="bi bi-person-badge-fill"></i></div>
+              <h3>Teacher Portal</h3>
+              <p class="sub">Manage your courses, upload grades, access timetables, and communicate with students.</p>
+              <a href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" class="btn-login" style="background:var(--navy);">
+                <i class="bi bi-box-arrow-in-right"></i> Login to Teacher Portal
+              </a>
+              <p style="font-size:.76rem; color:var(--gray-mid); text-align:center; margin:16px 0 0;">
+                Need help? <a href="mailto:faculty.support@prime.edu.pk" style="color:var(--teal);">faculty.support@prime.edu.pk</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Parent Login Card -->
+          <div class="portal-pane fu" id="pane-parent" style="display:none;">
+            <div class="login-card">
+              <div class="lc-icon" style="background:var(--teal-pale); color:var(--navy);"><i class="bi bi-shield-lock-fill"></i></div>
+              <h3>Parent Portal</h3>
+              <p class="sub">Monitor your child''s attendance, academic progress, fee status, and announcements.</p>
+              <a href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" class="btn-login" style="background:var(--gold);">
+                <i class="bi bi-box-arrow-in-right"></i> Login to Parent Portal
+              </a>
+              <p style="font-size:.76rem; color:var(--gray-mid); text-align:center; margin:16px 0 0;">
+                For assistance: <a href="mailto:parents@prime.edu.pk" style="color:var(--teal);">parents@prime.edu.pk</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sidebar (unchanged) -->
+      <div class="col-lg-4 fu fu-delay-2">
+        <div class="sidebar-widget">
+          <div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div>
+          <div class="sw-body">
+            <a class="sw-link" href="/about"><i class="bi bi-building"></i>Introduction</a>
+            <a class="sw-link" href="/vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a>
+            <a class="sw-link" href="/faculty"><i class="bi bi-people"></i>Faculty</a>
+            <a class="sw-link" href="/admissions"><i class="bi bi-mortarboard"></i>Admissions</a>
+            <a class="sw-link" href="/vacant-seats"><i class="bi bi-door-open"></i>Vacant Seats</a>
+            <a class="sw-link" href="/medical-education"><i class="bi bi-book"></i>Medical Education</a>
+            <a class="sw-link" href="/curriculum"><i class="bi bi-journal-text"></i>Curriculum</a>
+            <a class="sw-link" href="/examinations"><i class="bi bi-clipboard-pulse"></i>Examinations</a>
+            <a class="sw-link" href="/umr"><i class="bi bi-flask"></i>UMR Research</a>
+            <a class="sw-link" href="/contact"><i class="bi bi-envelope"></i>Contact Us</a>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <div class="sw-head"><i class="bi bi-hospital-fill"></i> Teaching Hospitals</div>
+          <div class="sw-body">
+            <a class="sw-link" href="https://prime.edu.pk/pf/idx_kth.php" target="_blank"><i class="bi bi-hospital"></i>Kuwait Teaching Hospital</a>
+            <a class="sw-link" href="https://prime.edu.pk/pf/idx_mth.php" target="_blank"><i class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a>
+            <a class="sw-link" href="https://prime.edu.pk/pf/idx_pth.php" target="_blank"><i class="bi bi-capsule-pill"></i>Prime Teaching Hospital</a>
+            <a class="sw-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i class="bi bi-people-fill"></i>Community Dev. Center</a>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <div class="sw-head" style="background:var(--teal);"><i class="bi bi-info-circle-fill"></i> Need Help?</div>
+          <div class="sw-body" style="padding:18px 20px;">
+            <p style="font-family:var(--font-body);font-size:.84rem;color:var(--gray-mid);margin-bottom:14px;">
+              For login issues or portal assistance, please contact the relevant department.</p>
+            <a href="/contact" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Contact IT Support</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pmc-section-sm recog-strip">
+  <div class="container">
+    <div class="recog-grid">
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div><div class="recog-name">PM&DC</div></div>
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-building-fill"></i></div><div class="recog-name">Riphah International University</div></div>
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-award-fill"></i></div><div class="recog-name">CPSP</div></div>
+      <div class="recog-cell"><div class="recog-ico"><i class="bi bi-hospital-fill"></i></div><div class="recog-name">Ministry of Health</div></div>
+      <div class="recog-cell" style="border-right:none;"><div class="recog-ico"><i class="bi bi-globe-americas"></i></div><div class="recog-name">WHO</div></div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+function switchPortal(portal) {
+  document.querySelectorAll(''.portal-tab'').forEach(tab => {
+    tab.classList.toggle(''active'', tab.dataset.portal === portal);
+  });
+  document.getElementById(''pane-student'').style.display = portal === ''student'' ? '''' : ''none'';
+  document.getElementById(''pane-teacher'').style.display = portal === ''teacher'' ? '''' : ''none'';
+  document.getElementById(''pane-parent'').style.display = portal === ''parent'' ? '''' : ''none'';
+}
+</script>','{"label":"Portal Login","section":"College","title":"Portal Login | Peshawar Medical College","description":"Portal login for Peshawar Medical College students and staff.","priority":"0.3","changefreq":"yearly"}','published',0.3,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','/* ═══ Portal Tabs (prominent) ═══ */
+.portal-tabs {
+ display: flex; gap: 12px; margin-bottom: 34px;
+ background: var(--off-white); border: 1px solid var(--border);
+ border-radius: var(--r-lg); padding: 8px; box-shadow: var(--shadow-sm);
+ overflow-x: auto; /* in case of many tabs on small screens */
+}
+.portal-tab {
+ font-family: var(--font-head); font-size: .9rem; font-weight: 700;
+ padding: 14px 28px; background: white; border: 2px solid transparent;
+ border-radius: var(--r-md); color: var(--gray-dark);
+ cursor: pointer; position: relative; transition: all .25s;
+ flex: 1; text-align: center; white-space: nowrap;
+ box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.portal-tab.active {
+ background: var(--navy); border-color: var(--navy); color: white;
+ box-shadow: 0 6px 14px rgba(10,22,40,.18);
+ transform: scale(1.02);
+}
+.portal-tab:not(.active):hover {
+ background: var(--teal-pale); border-color: var(--teal); color: var(--teal);
+ transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.portal-tab i { font-size: 1.1rem; margin-right: 8px; vertical-align: middle; }
+/* Remove the underline after pseudo-element, use background change instead */
+.portal-tab.active::after { display: none; }
+
+/* ═══ Login Card ═══ */
+.login-card {
+ background: white; border: 1px solid var(--border);
+ border-radius: var(--r-lg); box-shadow: var(--shadow-sm);
+ padding: 30px 28px; max-width: 480px; margin: 0 auto;
+}
+.login-card .lc-icon {
+ width: 64px; height: 64px; background: var(--teal-pale);
+ border-radius: 50%; display: flex; align-items: center; justify-content: center;
+ margin: 0 auto 18px; color: var(--teal); font-size: 1.8rem;
+}
+.login-card h3 {
+ font-family: var(--font-head); font-weight: 800; color: var(--navy);
+ text-align: center; margin-bottom: 6px;
+}
+.login-card p.sub {
+ font-family: var(--font-body); font-size: .85rem; color: var(--gray-mid);
+ text-align: center; margin-bottom: 24px;
+}
+.login-card .btn-login {
+ width: 100%; padding: 12px; border-radius: var(--r-sm);
+ font-family: var(--font-head); font-size: .9rem; font-weight: 700;
+ background: var(--teal); color: white; border: none; cursor: pointer;
+ transition: background .2s; text-align: center; text-decoration: none;
+ display: inline-block;
+}
+.login-card .btn-login:hover { background: #008f80; }
+
+/* Responsive */
+@media(max-width:575px) {
+ .portal-tab { padding: 12px 16px; font-size: .82rem; }
+ .portal-tabs { flex-wrap: nowrap; }
+}
+
+
+
+ 
+ 
+ Portal Login
+ HomePortal Login
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ Select your role to access the PMC Portal. All users (students, teachers, and parents) use the same central login system.
+ 
+
+ 
+ 
+ 
+ Student
+ 
+ 
+ Teacher
+ 
+ 
+ Parent
+ 
+ 
+
+ 
+ 
+ 
+ 
+ Student Portal
+ Access your academic dashboard, fee challan, exam schedule, and results.
+ 
+ Login to Student Portal
+ 
+ 
+ Having trouble? Contact IT at info@prime.edu.pk
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ Teacher Portal
+ Manage your courses, upload grades, access timetables, and communicate with students.
+ 
+ Login to Teacher Portal
+ 
+ 
+ Need help? faculty.support@prime.edu.pk
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ Parent Portal
+ Monitor your child''s attendance, academic progress, fee status, and announcements.
+ 
+ Login to Parent Portal
+ 
+ 
+ For assistance: parents@prime.edu.pk
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ Quick Navigation
+ 
+ Introduction
+ Vision & Mission
+ Faculty
+ Admissions
+ Vacant Seats
+ Medical Education
+ Curriculum
+ Examinations
+ UMR Research
+ Contact Us
+ 
+ 
+ 
+ Teaching Hospitals
+ 
+ Kuwait Teaching Hospital
+ Mercy Teaching Hospital
+ Prime Teaching Hospital
+ Community Dev. Center
+ 
+ 
+ 
+ Need Help?
+ 
+ 
+ For login issues or portal assistance, please contact the relevant department.
+ Contact IT Support
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ PM&DC
+ Riphah International University
+ CPSP
+ Ministry of Health
+ WHO
+ 
+ 
+
+
+
+
+
+function switchPortal(portal) {
+ document.querySelectorAll(''.portal-tab'').forEach(tab => {
+ tab.classList.toggle(''active'', tab.dataset.portal === portal);
+ });
+ document.getElementById(''pane-student'').style.display = portal === ''student'' ? '''' : ''none'';
+ document.getElementById(''pane-teacher'').style.display = portal === ''teacher'' ? '''' : ''none'';
+ document.getElementById(''pane-parent'').style.display = portal === ''parent'' ? '''' : ''none'';
+}',1),
+(238,'umr','UMR Society | Peshawar Medical College','UMR','College','Undergraduate Medical Research Society at Peshawar Medical College.','umr','<div class="page-hero"><div class="page-hero-grid"></div><div class="container page-hero-content"><h1>Undergraduate Medical Research (UMR)</h1><div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>Education &amp; Research <span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">UMR Research</span></div></div></div>
+
+<section class="pmc-section"><div class="container"><div class="row g-5"><div class="col-lg-8"><div class="page-content fu">
+
+<!-- Introduction to UMR -->
+<h2 class="sec-title" style="font-size:1.8rem;">Introduction to UMR</h2>
+<p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">We have always believed in the importance of health research for improving health and health services both in letter and spirit. Our undergraduate research program was initiated at the time of admission of our first MBBS batch in 2006. Students were introduced to the basic principles and methods of medical research in structured lectures and were provided an opportunity of hands-on training - learning by doing. Students were encouraged to evolve their ideas into scientific proposals after appropriate background search. These proposals were carefully supervised and developed into simple cross sectional studies. Once data gathering was complete, basic analysis was taught and carried out by students themselves resulting in inference generation.</p>
+
+<p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">It was indeed a breakthrough for all of us at PMC to hold the <strong>"First Annual Undergraduate Medical Research Fair – 2007"</strong>. 23 poster presentations were included in the Fair from first and second year MBBS students. The undergraduate medical research conference is now a regular annual event in March. Not only our own students from all years present their research projects but students from different medical colleges from all over the country also participate in this event.</p>
+
+<p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">Recently, we have developed new, revised curricula for all years of MBBS and BDS. The new curricula are being implemented from year 2018 onward. Our third year students now have a 4-week rotation at the department of UMR during which emphasis is laid on research ethics, skills and proposal development. Our qualified faculty members from basic sciences, clinical sciences and social sciences supervise students'' research projects. Our students are well aware of the importance of research ethics and all research projects have to be approved by the Ethical Review Committee.</p>
+
+<p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">We encourage our students to publish their research studies and provide them with necessary guidance. We are very hopeful that combined efforts of our faculty, students and administration will inshaAllah ensure the establishment of research culture based on ethics and professionalism in near future at our colleges.</p>
+
+<!-- Vision & Mission -->
+<div class="row g-3 mb-4 mt-4">
+  <div class="col-md-6">
+    <div class="pmc-card" style="border-radius:12px;padding:20px;background:#fff;border:1px solid var(--border-color);height:100%;">
+      <h5 style="font-family:var(--font-head);color:var(--navy);margin-bottom:8px;"><i class="bi bi-eye-fill" style="color:var(--teal);margin-right:6px;"></i>Vision</h5>
+      <p style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-dark);margin-bottom:0;">To create leaders in health sciences research.</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="pmc-card" style="border-radius:12px;padding:20px;background:#fff;border:1px solid var(--border-color);height:100%;">
+      <h5 style="font-family:var(--font-head);color:var(--navy);margin-bottom:8px;"><i class="bi bi-bullseye" style="color:var(--teal);margin-right:6px;"></i>Mission</h5>
+      <p style="font-family:var(--font-body);font-size:.88rem;color:var(--gray-dark);margin-bottom:0;">To provide an enabling environment for creativity and excellence in all domains of health sciences research at undergraduate level, directed towards socio-economic well being.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Key Highlights -->
+<div class="row g-4 mb-4">
+  <div class="col-md-6">
+    <div class="pmc-card" style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <i class="bi bi-search" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+        <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Research Training</h6>
+      </div>
+      <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">Structured lectures and hands-on training from first year, covering research methodology, ethics, and proposal development.</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="pmc-card" style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <i class="bi bi-calendar-event" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+        <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Annual Research Fair</h6>
+      </div>
+      <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">Held every March since 2007, with poster presentations from PMC and medical colleges across the country.</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="pmc-card" style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <i class="bi bi-journal-check" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+        <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Ethics &amp; Supervision</h6>
+      </div>
+      <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">All projects approved by the Ethical Review Committee and supervised by qualified faculty from basic, clinical, and social sciences.</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="pmc-card" style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <i class="bi bi-file-earmark-text" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+        <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Publication Support</h6>
+      </div>
+      <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">Guidance and encouragement for students to publish their research in scientific journals.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<a href="https://umr.riphahpsh.edu.pk/" target="_blank" class="btn-pmc btn-pmc-primary mt-2">
+  <i class="bi bi-arrow-up-right-square"></i> Visit Official UMR Page
+</a>
+
+</div></div><!-- Sidebar -->
+<div class="col-lg-4 fu fu-delay-2"><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div><div class="sw-body"><a class="sw-link" href="/about"><i class="bi bi-building"></i>Introduction</a><a class="sw-link" href="/vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a><a class="sw-link" href="/faculty"><i class="bi bi-people"></i>Faculty</a><a class="sw-link" href="/admissions"><i class="bi bi-mortarboard"></i>Admissions</a><a class="sw-link" href="/vacant-seats"><i class="bi bi-door-open"></i>Vacant Seats</a><a class="sw-link" href="/medical-education"><i class="bi bi-book"></i>Medical Education</a><a class="sw-link" href="/curriculum"><i class="bi bi-journal-text"></i>Curriculum</a><a class="sw-link" href="/examinations"><i class="bi bi-clipboard-pulse"></i>Examinations</a><a class="sw-link" href="/umr"><i class="bi bi-flask"></i>UMR Research</a><a class="sw-link" href="/contact"><i class="bi bi-envelope"></i>Contact Us</a></div></div><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-hospital-fill"></i> Teaching Hospitals</div><div class="sw-body"><a class="sw-link" href="https://prime.edu.pk/pf/idx_kth.php" target="_blank"><i class="bi bi-hospital"></i>Kuwait Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_mth.php" target="_blank"><i class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_pth.php" target="_blank"><i class="bi bi-capsule-pill"></i>Prime Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i class="bi bi-people-fill"></i>Community Dev. Center</a></div></div><div class="sidebar-widget"><div class="sw-head" style="background:var(--teal);"><i class="bi bi-mortarboard-fill"></i> Apply Now</div><div class="sw-body" style="padding:18px 20px;"><p style="font-family:var(--font-body);font-size:.84rem;color:var(--gray-mid);margin-bottom:14px;">Admissions for MBBS 2026-27 are open.</p><a href="/admissions" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Apply for MBBS 2026-27</a><a href="/vacant-seats" class="btn-pmc btn-pmc-outline w-100 justify-content-center mt-2" style="font-size:.82rem;padding:11px;">Check Vacant Seats</a></div></div></div></div></div></section>
+
+<section class="pmc-section-sm recog-strip"><div class="container"><div class="recog-grid"><div class="recog-cell"><div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div><div class="recog-name">PM&DC</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-building-fill"></i></div><div class="recog-name">Riphah International University</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-award-fill"></i></div><div class="recog-name">CPSP</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-hospital-fill"></i></div><div class="recog-name">Ministry of Health</div></div><div class="recog-cell" style="border-right:none;"><div class="recog-ico"><i class="bi bi-globe-americas"></i></div><div class="recog-name">WHO</div></div></div></div></section>','{"label":"UMR","section":"College","title":"UMR Society | Peshawar Medical College","description":"Undergraduate Medical Research Society at Peshawar Medical College.","priority":"0.4","changefreq":"yearly"}','published',0.4,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Undergraduate Medical Research (UMR)HomeEducation & Research UMR Research
+
+
+
+
+Introduction to UMR
+We have always believed in the importance of health research for improving health and health services both in letter and spirit. Our undergraduate research program was initiated at the time of admission of our first MBBS batch in 2006. Students were introduced to the basic principles and methods of medical research in structured lectures and were provided an opportunity of hands-on training - learning by doing. Students were encouraged to evolve their ideas into scientific proposals after appropriate background search. These proposals were carefully supervised and developed into simple cross sectional studies. Once data gathering was complete, basic analysis was taught and carried out by students themselves resulting in inference generation.
+
+It was indeed a breakthrough for all of us at PMC to hold the "First Annual Undergraduate Medical Research Fair – 2007". 23 poster presentations were included in the Fair from first and second year MBBS students. The undergraduate medical research conference is now a regular annual event in March. Not only our own students from all years present their research projects but students from different medical colleges from all over the country also participate in this event.
+
+Recently, we have developed new, revised curricula for all years of MBBS and BDS. The new curricula are being implemented from year 2018 onward. Our third year students now have a 4-week rotation at the department of UMR during which emphasis is laid on research ethics, skills and proposal development. Our qualified faculty members from basic sciences, clinical sciences and social sciences supervise students'' research projects. Our students are well aware of the importance of research ethics and all research projects have to be approved by the Ethical Review Committee.
+
+We encourage our students to publish their research studies and provide them with necessary guidance. We are very hopeful that combined efforts of our faculty, students and administration will inshaAllah ensure the establishment of research culture based on ethics and professionalism in near future at our colleges.
+
+
+
+ 
+ 
+ Vision
+ To create leaders in health sciences research.
+ 
+ 
+ 
+ 
+ Mission
+ To provide an enabling environment for creativity and excellence in all domains of health sciences research at undergraduate level, directed towards socio-economic well being.
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ Research Training
+ 
+ Structured lectures and hands-on training from first year, covering research methodology, ethics, and proposal development.
+ 
+ 
+ 
+ 
+ 
+ 
+ Annual Research Fair
+ 
+ Held every March since 2007, with poster presentations from PMC and medical colleges across the country.
+ 
+ 
+ 
+ 
+ 
+ 
+ Ethics & Supervision
+ 
+ All projects approved by the Ethical Review Committee and supervised by qualified faculty from basic, clinical, and social sciences.
+ 
+ 
+ 
+ 
+ 
+ 
+ Publication Support
+ 
+ Guidance and encouragement for students to publish their research in scientific journals.
+ 
+ 
+
+
+
+
+ Visit Official UMR Page
+
+
+
+ Quick NavigationIntroductionVision & MissionFacultyAdmissionsVacant SeatsMedical EducationCurriculumExaminationsUMR ResearchContact Us Teaching HospitalsKuwait Teaching HospitalMercy Teaching HospitalPrime Teaching HospitalCommunity Dev. Center Apply NowAdmissions for MBBS 2026-27 are open.Apply for MBBS 2026-27Check Vacant Seats
+
+PM&DCRiphah International UniversityCPSPMinistry of HealthWHO',1),
+(239,'student-research','Student Research | Peshawar Medical College','Student Research','Academics','Student research opportunities at Peshawar Medical College, Peshawar.','student-research','<div class="page-hero"><div class="page-hero-grid"></div><div class="container page-hero-content"><h1>Social Welfare Society (SWS)</h1><div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i class="bi bi-chevron-right"></i></span>Societies <span class="sep"><i class="bi bi-chevron-right"></i></span><span class="current">Social Welfare Society</span></div></div></div>
+
+<section class="pmc-section"><div class="container"><div class="row g-5"><div class="col-lg-8"><div class="page-content fu">
+
+<h2 class="sec-title" style="font-size:1.8rem;">Introduction to SWS</h2>
+<p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">Social Welfare Society (SWS) is an official society of Peshawar Medical College &amp; Peshawar Dental College. This society is a non-profitable organization which is run by the respected staff and passionate members and volunteers of Peshawar Medical College. It not only provides an organized platform for the students of Peshawar Medical College &amp; Peshawar Dental College but it also grooms &amp; encourages them to help those in need. Hence when members and volunteers graduate they are more empathic, sympathetic due to which they do not hesitate to help those less fortunate than themselves.</p>
+
+<!-- SWS Aim -->
+<div class="pmc-card mb-4" style="border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:white;border:none;padding:22px 24px;">
+  <h5 style="font-family:var(--font-head);color:var(--gold-light);margin-bottom:8px;"><i class="bi bi-bullseye" style="margin-right:6px;"></i>SWS Aim</h5>
+  <p style="font-family:var(--font-body);font-size:.92rem;color:rgba(255,255,255,.9);margin-bottom:0;line-height:1.7;">The main aim of this society is to help less fortunate, disaster stricken, needy people of the society.</p>
+</div>
+
+</div></div><!-- Sidebar -->
+<div class="col-lg-4 fu fu-delay-2"><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-grid-fill"></i> Quick Navigation</div><div class="sw-body"><a class="sw-link" href="/about"><i class="bi bi-building"></i>Introduction</a><a class="sw-link" href="/vision-mission"><i class="bi bi-eye"></i>Vision &amp; Mission</a><a class="sw-link" href="/faculty"><i class="bi bi-people"></i>Faculty</a><a class="sw-link" href="/admissions"><i class="bi bi-mortarboard"></i>Admissions</a><a class="sw-link" href="/vacant-seats"><i class="bi bi-door-open"></i>Vacant Seats</a><a class="sw-link" href="/medical-education"><i class="bi bi-book"></i>Medical Education</a><a class="sw-link" href="/curriculum"><i class="bi bi-journal-text"></i>Curriculum</a><a class="sw-link" href="/examinations"><i class="bi bi-clipboard-pulse"></i>Examinations</a><a class="sw-link" href="/umr"><i class="bi bi-flask"></i>UMR Research</a><a class="sw-link" href="/contact"><i class="bi bi-envelope"></i>Contact Us</a></div></div><div class="sidebar-widget"><div class="sw-head"><i class="bi bi-hospital-fill"></i> Teaching Hospitals</div><div class="sw-body"><a class="sw-link" href="https://prime.edu.pk/pf/idx_kth.php" target="_blank"><i class="bi bi-hospital"></i>Kuwait Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_mth.php" target="_blank"><i class="bi bi-heart-pulse"></i>Mercy Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/idx_pth.php" target="_blank"><i class="bi bi-capsule-pill"></i>Prime Teaching Hospital</a><a class="sw-link" href="https://prime.edu.pk/pf/community-development.php" target="_blank"><i class="bi bi-people-fill"></i>Community Dev. Center</a></div></div><div class="sidebar-widget"><div class="sw-head" style="background:var(--teal);"><i class="bi bi-mortarboard-fill"></i> Apply Now</div><div class="sw-body" style="padding:18px 20px;"><p style="font-family:var(--font-body);font-size:.84rem;color:var(--gray-mid);margin-bottom:14px;">Admissions for MBBS 2026-27 are open.</p><a href="/admissions" class="btn-pmc btn-pmc-primary w-100 justify-content-center" style="font-size:.82rem;padding:11px;">Apply for MBBS 2026-27</a><a href="/vacant-seats" class="btn-pmc btn-pmc-outline w-100 justify-content-center mt-2" style="font-size:.82rem;padding:11px;">Check Vacant Seats</a></div></div></div></div></div></section>
+
+<section class="pmc-section-sm recog-strip"><div class="container"><div class="recog-grid"><div class="recog-cell"><div class="recog-ico"><i class="bi bi-patch-check-fill"></i></div><div class="recog-name">PM&DC</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-building-fill"></i></div><div class="recog-name">Riphah International University</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-award-fill"></i></div><div class="recog-name">CPSP</div></div><div class="recog-cell"><div class="recog-ico"><i class="bi bi-hospital-fill"></i></div><div class="recog-name">Ministry of Health</div></div><div class="recog-cell" style="border-right:none;"><div class="recog-ico"><i class="bi bi-globe-americas"></i></div><div class="recog-name">WHO</div></div></div></div></section>','{"label":"Student Research","section":"Academics","title":"Student Research | Peshawar Medical College","description":"Student research opportunities at Peshawar Medical College, Peshawar.","priority":"0.4","changefreq":"yearly"}','published',0.4,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Social Welfare Society (SWS)HomeSocieties Social Welfare Society
+
+
+
+Introduction to SWS
+Social Welfare Society (SWS) is an official society of Peshawar Medical College & Peshawar Dental College. This society is a non-profitable organization which is run by the respected staff and passionate members and volunteers of Peshawar Medical College. It not only provides an organized platform for the students of Peshawar Medical College & Peshawar Dental College but it also grooms & encourages them to help those in need. Hence when members and volunteers graduate they are more empathic, sympathetic due to which they do not hesitate to help those less fortunate than themselves.
+
+
+
+ SWS Aim
+ The main aim of this society is to help less fortunate, disaster stricken, needy people of the society.
+
+
+
+ Quick NavigationIntroductionVision & MissionFacultyAdmissionsVacant SeatsMedical EducationCurriculumExaminationsUMR ResearchContact Us Teaching HospitalsKuwait Teaching HospitalMercy Teaching HospitalPrime Teaching HospitalCommunity Dev. Center Apply NowAdmissions for MBBS 2026-27 are open.Apply for MBBS 2026-27Check Vacant Seats
+
+PM&DCRiphah International UniversityCPSPMinistry of HealthWHO',1),
+(240,'faculty-all','All Faculty | Peshawar Medical College','All Faculty','College','Full faculty directory of Peshawar Medical College.','faculty-all',NULL,'{"label":"All Faculty","section":"College","title":"All Faculty | Peshawar Medical College","description":"Full faculty directory of Peshawar Medical College.","priority":"0.4","changefreq":"monthly"}','published',0.4,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32',NULL,0),
+(241,'literary-society','Literary Society | Peshawar Medical College','Literary Society','College','Society for literature and arts at Peshawar Medical College.','literary-society','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Literary Society</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+          class="bi bi-chevron-right"></i></span>Societies <span class="sep"><i
+          class="bi bi-chevron-right"></i></span><span class="current">Literature & Arts Society</span></div>
+  </div>
+</div>
+
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+
+          <h2 class="sec-title" style="font-size:1.8rem;">Introduction to SLS</h2>
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">The
+            Students'' Literary Society is a student-centered society of Department of Medical Sciences &amp; Department of Dental Sciences
+             and has been founded to encourage and inculcate literary pursuits in the students of the Aesculapian
+            sciences.</p>
+
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">The purpose
+            for establishing the literary society is to compliment the rigorous and purely scientific study of medical
+            subjects by creating a platform that will encourage the literary and artistic inclination of the students of
+            Department of Medical Sciences.</p>
+
+          <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">The Society
+            organizes various events where students have the opportunity to display their talents. These events vary
+            from debates, quizzes, essay writing, poetry writing, calligraphy and photography.</p>
+
+          <!-- Events Highlight Section -->
+          <!-- <div class="row g-4 mb-4 mt-3">
+            <div class="col-md-6">
+              <div class="pmc-card"
+                style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="bi bi-mic-fill" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+                  <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Debates &amp; Declamation
+                  </h6>
+                </div>
+                <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">
+                  Inter-college and intra-college debating competitions that sharpen critical thinking and public
+                  speaking skills.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card"
+                style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="bi bi-pen-fill" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+                  <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Essay &amp; Poetry Writing
+                  </h6>
+                </div>
+                <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">
+                  Competitions in Urdu, Pashto, and English to foster literary creativity and expression.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card"
+                style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="bi bi-camera" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+                  <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Calligraphy &amp;
+                    Photography</h6>
+                </div>
+                <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">
+                  Exhibitions and contests showcasing artistic talent alongside literary activities.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card"
+                style="border-radius:12px;padding:18px;background:#f8fafb;border:1px solid var(--border-color);">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="bi bi-question-circle" style="font-size:1.4rem;color:var(--teal);flex-shrink:0;"></i>
+                  <h6 style="font-family:var(--font-head);color:var(--navy);margin-bottom:0;">Quizzes</h6>
+                </div>
+                <p style="font-family:var(--font-body);font-size:.85rem;color:var(--gray-dark);margin-bottom:0;">
+                  Subject-based and general knowledge quizzes that challenge students in a lively competitive
+                  environment.</p>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- CTA -->
+          <!-- <a href="https://pmc.prime.edu.pk/idx_sls.php" target="_blank" class="btn-pmc btn-pmc-primary mt-2">
+            <i class="bi bi-arrow-up-right-square"></i> Visit Official Literary Society Page
+          </a> -->
+
+        </div>
+      </div><!-- Sidebar -->
+      
+    </div>
+  </div>
+</section>','{"label":"Literary Society","section":"College","title":"Literary Society | Peshawar Medical College","description":"Society for literature and arts at Peshawar Medical College.","priority":"0.3","changefreq":"yearly"}','published',0.3,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Literary Society
+ HomeSocieties Literature & Arts Society
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ Introduction to SLS
+ The
+ Students'' Literary Society is a student-centered society of Department of Medical Sciences & Department of Dental Sciences
+ and has been founded to encourage and inculcate literary pursuits in the students of the Aesculapian
+ sciences.
+
+ The purpose
+ for establishing the literary society is to compliment the rigorous and purely scientific study of medical
+ subjects by creating a platform that will encourage the literary and artistic inclination of the students of
+ Department of Medical Sciences.
+
+ The Society
+ organizes various events where students have the opportunity to display their talents. These events vary
+ from debates, quizzes, essay writing, poetry writing, calligraphy and photography.',1),
+(242,'sports-society','Sports Society | Peshawar Medical College','Sports Society','College','Sports and athletics at Peshawar Medical College, Peshawar.','sports-society','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Sports Society</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+          class="bi bi-chevron-right"></i></span>Societies <span class="sep"><i
+          class="bi bi-chevron-right"></i></span><span class="current">Sports Society</span></div>
+  </div>
+</div>
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+          <h2 class="sec-title" style="font-size:1.8rem;">Sports Society</h2>
+          <!-- <p>The <strong>PMC Sports Society (SSS)</strong> promotes physical fitness, team spirit, and healthy
+            competition among students. The society organises inter-college sports events, tournaments, and recreational
+            activities throughout the year at the PMC campus sports facilities.</p>
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-trophy-fill"></i></div>
+                <h4>Annual Sports Gala</h4>
+                <p>A highlight of the PMC calendar — a week-long sports festival featuring cricket, football,
+                  basketball, badminton, and athletics.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-person-arms-up"></i></div>
+                <h4>Gym &amp; Fitness</h4>
+                <p>PMC provides a well-equipped gymnasium for students and faculty to maintain physical health and
+                  fitness throughout the academic year.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-people-fill"></i></div>
+                <h4>Team Sports</h4>
+                <p>Cricket, football, volleyball, and basketball teams represent PMC in inter-college competitions
+                  across Khyber Pakhtunkhwa.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-award-fill"></i></div>
+                <h4>Individual Sports</h4>
+                <p>Table tennis, badminton, athletics, and swimming events for individual students to showcase their
+                  sporting talents.</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://pmc.prime.edu.pk/idx_sss.php" target="_blank" class="btn-pmc btn-pmc-primary"><i
+              class="bi bi-arrow-up-right-square"></i> Visit Official Sports Society Page</a> -->
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>','{"label":"Sports Society","section":"College","title":"Sports Society | Peshawar Medical College","description":"Sports and athletics at Peshawar Medical College, Peshawar.","priority":"0.3","changefreq":"yearly"}','published',0.3,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Sports Society
+ HomeSocieties Sports Society
+ 
+
+
+ 
+ 
+ 
+ 
+ Sports Society',1),
+(243,'social-welfare','Social Welfare Society | Peshawar Medical College','Social Welfare','College','Social Welfare Society at Peshawar Medical College — community service in Peshawar.','social-welfare','<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Social Welfare Society</h1>
+    <div class="breadcrumb-pmc"><a href="/">Home</a><span class="sep"><i
+          class="bi bi-chevron-right"></i></span>Societies <span class="sep"><i
+          class="bi bi-chevron-right"></i></span><span class="current">Social Welfare Society</span></div>
+  </div>
+</div>
+<section class="pmc-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="page-content fu">
+          <h2 class="sec-title" style="font-size:1.8rem;">Social Welfare Society</h2>
+          <p>The <strong>Social Welfare Society (SWS)</strong> at PMC is dedicated to serving the community through
+            health awareness campaigns, free medical camps, blood donation drives, and charitable initiatives. It
+            instills in students a sense of civic responsibility and compassionate service.</p>
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-heart-fill"></i></div>
+                <h4>Free Medical Camps</h4>
+                <p>Regular outreach camps in underserved communities of Peshawar, providing free consultations,
+                  medicines, and health education.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-droplet-half"></i></div>
+                <h4>Blood Donation Drives</h4>
+                <p>Bi-annual blood donation campaigns encouraging students and faculty to donate blood for hospital
+                  blood banks.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-megaphone"></i></div>
+                <h4>Health Awareness</h4>
+                <p>Public awareness campaigns on key health issues including hygiene, vaccination, mental health, and
+                  disease prevention.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="pmc-card">
+                <div class="pmc-card-icon"><i class="bi bi-gift"></i></div>
+                <h4>Charitable Initiatives</h4>
+                <p>Fundraising and charitable activities supporting deserving students, patients, and community members
+                  during times of need.</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://pmc.prime.edu.pk/idx_sws.php" target="_blank" class="btn-pmc btn-pmc-primary"><i
+              class="bi bi-arrow-up-right-square"></i> Visit Official SWS Page</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>','{"label":"Social Welfare","section":"College","title":"Social Welfare Society | Peshawar Medical College","description":"Social Welfare Society at Peshawar Medical College — community service in Peshawar.","priority":"0.3","changefreq":"yearly"}','published',0.3,'yearly','2026-10-13 15:49:32','2026-10-13 15:49:32','Social Welfare Society
+ HomeSocieties Social Welfare Society
+ 
+
+
+ 
+ 
+ 
+ 
+ Social Welfare Society
+ The Social Welfare Society (SWS) at PMC is dedicated to serving the community through
+ health awareness campaigns, free medical camps, blood donation drives, and charitable initiatives. It
+ instills in students a sense of civic responsibility and compassionate service.
+ 
+ 
+ 
+ 
+ Free Medical Camps
+ Regular outreach camps in underserved communities of Peshawar, providing free consultations,
+ medicines, and health education.
+ 
+ 
+ 
+ 
+ 
+ Blood Donation Drives
+ Bi-annual blood donation campaigns encouraging students and faculty to donate blood for hospital
+ blood banks.
+ 
+ 
+ 
+ 
+ 
+ Health Awareness
+ Public awareness campaigns on key health issues including hygiene, vaccination, mental health, and
+ disease prevention.
+ 
+ 
+ 
+ 
+ 
+ Charitable Initiatives
+ Fundraising and charitable activities supporting deserving students, patients, and community members
+ during times of need.
+ 
+ 
+ 
+ Visit Official SWS Page',1),
+(244,'education-literature','Educational Literature | Peshawar Medical College','Educational Literature','Academics','Educational literature from Peshawar Medical College faculty and students.','education-literature','<style>
+  /* ── Card styles similar to newsletter page ── */
+  .edu-section { margin-bottom: 48px; }
+  .edu-section-title { 
+    font-family: var(--font-head); 
+    font-size: 1.4rem; 
+    font-weight: 800; 
+    color: var(--navy); 
+    margin-bottom: 24px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+  }
+  .edu-section-title::before { 
+    content: ''''; 
+    display: inline-block; 
+    width: 5px; 
+    height: 32px; 
+    background: var(--teal); 
+    border-radius: 3px; 
+  }
+
+  .edu-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+  }
+  .edu-card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: var(--shadow-lg); 
+    border-color: var(--teal); 
+  }
+
+  .edu-card-img-container {
+    height: 420px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .edu-card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .edu-card-body { 
+    padding: 20px 24px; 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .edu-card-title { 
+    font-family: var(--font-head); 
+    font-size: .95rem; 
+    font-weight: 700; 
+    color: var(--navy); 
+    line-height: 1.4; 
+    margin-bottom: 16px;
+  }
+  .btn-teal {
+    background-color: var(--teal);
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    font-family: var(--font-head);
+    font-size: .8rem;
+    font-weight: 700;
+    border-radius: var(--r-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+    margin-top: auto;
+  }
+  .btn-teal:hover {
+    background-color: #00796b;
+    color: #fff;
+  }
+  .hover-shadow:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+  }
+  .transition {
+    transition: all 0.2s ease;
+  }
+  /* Equal height cards in a row */
+  .row > .d-flex.align-items-stretch .card {
+    height: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .edu-card-img-container {
+      height: 450px !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    .edu-card-img-container {
+      height: 500px !important;
+    }
+  }
+</style>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <h1>Education Literature</h1>
+    <div class="breadcrumb-pmc">
+      <a href="/">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <a href="/medical-education">Education &amp; Research</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">Education Literature</span>
+    </div>
+  </div>
+</div>
+
+<section class="pmc-section bg-off">
+  <div class="container">
+
+    <!-- Intro -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="section-heading mb-3">Education Literature</h2>
+        <p class="section-subhead">
+          A curated collection of health awareness and religious guidance materials prepared by the
+          <strong>Department of Medical Sciences – Riphah International University (Peshawar Campus)</strong>.
+          Each topic is available as a downloadable PDF for easy reference.
+        </p>
+      </div>
+    </div>
+
+    
+
+    
+      <div class="edu-section">
+        <h3 class="edu-section-title"></h3>
+        <div class="row g-4">
+          
+            <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+              <div class="edu-card w-100 hover-shadow transition">
+                <!-- Image container -->
+                <div class="edu-card-img-container">
+                  
+                    <img src="" alt="" loading="lazy">
+                  
+                    <div class="d-flex align-items-center justify-content-center h-100 text-muted">
+                      <i class="bi bi-file-pdf" style="font-size:3rem;"></i>
+                    </div>
+                  
+                </div>
+                <!-- Card body -->
+                <div class="edu-card-body">
+                  <h4 class="edu-card-title"></h4>
+                  <a href="" target="_blank" rel="noopener" class="btn btn-teal w-100">
+                    <i class="bi bi-download me-2"></i> Download PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
+
+  </div>
+</section>
+
+
+
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { x.target.classList.add(''vis''); obs.unobserve(x.target); } }), { threshold: .07 });
+  document.querySelectorAll(''.fu'').forEach(el => obs.observe(el));
+
+  const nav = document.getElementById(''mainNav'');
+  const btt = document.getElementById(''backToTop'');
+  window.addEventListener(''scroll'', () => {
+    nav.classList.toggle(''scrolled'', scrollY > 40);
+    btt.classList.toggle(''visible'', scrollY > 500);
+  }, { passive: true });
+  btt.addEventListener(''click'', () => window.scrollTo({ top: 0, behavior: ''smooth'' }));
+</script>','{"label":"Educational Literature","section":"Academics","title":"Educational Literature | Peshawar Medical College","description":"Educational literature from Peshawar Medical College faculty and students.","priority":"0.4","changefreq":"monthly"}','published',0.4,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32','/* ── Card styles similar to newsletter page ── */
+ .edu-section { margin-bottom: 48px; }
+ .edu-section-title { 
+ font-family: var(--font-head); 
+ font-size: 1.4rem; 
+ font-weight: 800; 
+ color: var(--navy); 
+ margin-bottom: 24px; 
+ display: flex; 
+ align-items: center; 
+ gap: 10px; 
+ }
+ .edu-section-title::before { 
+ content: ''''; 
+ display: inline-block; 
+ width: 5px; 
+ height: 32px; 
+ background: var(--teal); 
+ border-radius: 3px; 
+ }
+
+ .edu-card {
+ background: white;
+ border: 1px solid var(--border);
+ border-radius: var(--r-lg);
+ overflow: hidden;
+ transition: transform .25s, box-shadow .25s, border-color .25s;
+ }
+ .edu-card:hover { 
+ transform: translateY(-4px); 
+ box-shadow: var(--shadow-lg); 
+ border-color: var(--teal); 
+ }
+
+ .edu-card-img-container {
+ height: 420px;
+ background: #f8f9fa;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ overflow: hidden;
+ }
+ .edu-card-img-container img {
+ width: 100%;
+ height: 100%;
+ object-fit: contain;
+ display: block;
+ }
+ .edu-card-body { 
+ padding: 20px 24px; 
+ display: flex;
+ flex-direction: column;
+ flex: 1;
+ }
+ .edu-card-title { 
+ font-family: var(--font-head); 
+ font-size: .95rem; 
+ font-weight: 700; 
+ color: var(--navy); 
+ line-height: 1.4; 
+ margin-bottom: 16px;
+ }
+ .btn-teal {
+ background-color: var(--teal);
+ color: #fff;
+ border: none;
+ padding: 8px 18px;
+ font-family: var(--font-head);
+ font-size: .8rem;
+ font-weight: 700;
+ border-radius: var(--r-sm);
+ text-decoration: none;
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ transition: background 0.2s;
+ margin-top: auto;
+ }
+ .btn-teal:hover {
+ background-color: #00796b;
+ color: #fff;
+ }
+ .hover-shadow:hover {
+ box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+ }
+ .transition {
+ transition: all 0.2s ease;
+ }
+ /* Equal height cards in a row */
+ .row > .d-flex.align-items-stretch .card {
+ height: 100%;
+ }
+
+ @media (min-width: 768px) {
+ .edu-card-img-container {
+ height: 450px !important;
+ }
+ }
+ @media (min-width: 1200px) {
+ .edu-card-img-container {
+ height: 500px !important;
+ }
+ }
+
+
+
+
+ 
+ 
+ Education Literature
+ 
+ Home
+ 
+ Education & Research
+ 
+ Education Literature
+ 
+ 
+
+
+
+ 
+
+ 
+ 
+ 
+ Education Literature
+ 
+ A curated collection of health awareness and religious guidance materials prepared by the
+ Department of Medical Sciences – Riphah International University (Peshawar Campus).
+ Each topic is available as a downloadable PDF for easy reference.
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Download PDF
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+
+
+
+
+
+ const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { x.target.classList.add(''vis''); obs.unobserve(x.target); } }), { threshold: .07 });
+ document.querySelectorAll(''.fu'').forEach(el => obs.observe(el));
+
+ const nav = document.getElementById(''mainNav'');
+ const btt = document.getElementById(''backToTop'');
+ window.addEventListener(''scroll'', () => {
+ nav.classList.toggle(''scrolled'', scrollY > 40);
+ btt.classList.toggle(''visible'', scrollY > 500);
+ }, { passive: true });
+ btt.addEventListener(''click'', () => window.scrollTo({ top: 0, behavior: ''smooth'' }));',1),
+(245,'sitemap-page','Sitemap | Peshawar Medical College','Sitemap','College','HTML sitemap of Peshawar Medical College and the Department of Medical Sciences.','sitemap-page','<style>
+.sitemap-list { list-style: none; padding: 0; margin: 0; }
+.sitemap-list li { margin-bottom: 10px; }
+.sitemap-list a {
+  font-family: var(--font-body);
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sitemap-list a::before { content: ''›''; color: var(--teal); }
+.sitemap-list a:hover { color: var(--teal); }
+</style>
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container page-hero-content">
+    <span class="page-hero-eyebrow">Department of Medical Sciences</span>
+    <h1>Sitemap</h1>
+    <div class="breadcrumb-pmc">
+      <a href="">Home</a>
+      <span class="sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="current">Sitemap</span>
+    </div>
+  </div>
+</div>
+<section class="pmc-section">
+  <div class="container">
+    <div class="page-content">
+      <p>Browse public pages of Peshawar Medical College and the Department of Medical Sciences.</p>
+      <div class="row g-4">
+        
+        <div class="col-md-4">
+          <h2 class="sec-title" style="font-size:1.15rem;"></h2>
+          <ul class="sitemap-list">
+            
+            <li><a href=""></a></li>
+            
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>','{"label":"Sitemap","section":"College","title":"Sitemap | Peshawar Medical College","description":"HTML sitemap of Peshawar Medical College and the Department of Medical Sciences.","priority":"0.3","changefreq":"monthly"}','published',0.3,'monthly','2026-10-13 15:49:32','2026-10-13 15:49:32','.sitemap-list { list-style: none; padding: 0; margin: 0; }
+.sitemap-list li { margin-bottom: 10px; }
+.sitemap-list a {
+ font-family: var(--font-body);
+ font-size: .9rem;
+ font-weight: 500;
+ color: var(--navy);
+ text-decoration: none;
+ display: flex;
+ align-items: center;
+ gap: 6px;
+}
+.sitemap-list a::before { content: ''›''; color: var(--teal); }
+.sitemap-list a:hover { color: var(--teal); }
+
+
+ 
+ 
+ Department of Medical Sciences
+ Sitemap
+ 
+ Home
+ 
+ Sitemap
+ 
+ 
+
+
+ 
+ 
+ Browse public pages of Peshawar Medical College and the Department of Medical Sciences.',1);
+-- pages: 35 rows
+
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE `settings` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `key` VARCHAR(191) NOT NULL,
+  `value` TEXT NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `settings` (`id`,`key`,`value`,`updated_at`) VALUES
+(43,'site_name','Peshawar Medical College','2026-10-13 15:49:32'),
+(44,'hub_base_production','https://riphahpsh.edu.pk/','2026-10-13 15:49:32'),
+(45,'hub_base_staging','https://staging.riphahpsh.edu.pk/riphahpsh/','2026-10-13 15:49:32'),
+(46,'contact_phone','+92-91-5202191','2026-10-13 15:49:32'),
+(47,'contact_email','info@riphahpsh.edu.pk','2026-10-13 15:49:32'),
+(48,'newsletters','[{"title":"July 2026","date":"July, 2026","pdf":"https://prime.edu.pk/pf/downloads/newsletters/July-2026-Newsletter.pdf","image":"https://prime.edu.pk/pf/downloads/newsletters/titles/PRIME-JULY-Monthly-Newsletter.jpg"},{"title":"June 2026","date":"June, 2026","pdf":"https://prime.edu.pk/pf/downloads/newsletters/June-2026-Newsletter-latest.pdf","image":"https://prime.edu.pk/pf/downloads/newsletters/titles/June2026.jpg"},{"title":"May 2026","date":"May, 2026","pdf":"https://prime.edu.pk/pf/downloads/newsletters/May%20Newsletter.pdf","image":"https://prime.edu.pk/pf/downloads/newsletters/titles/May2026.jpg"},{"title":"April 2026","date":"April, 2026","pdf":"https://prime.edu.pk/pf/downloads/newsletters/April-2026-Newsletter.pdf","image":"https://prime.edu.pk/pf/downloads/newsletters/titles/Newsletter-April-2026.jpg"},{"title":"March 2026","date":"March, 2026","pdf":"https://prime.edu.pk/pf/downloads/newsletters/Newsletter_March_2026.pdf","image":"https://prime.edu.pk/pf/downloads/newsletters/titles/Newsletter_March_2026_title.jpg"},{"title":"February 2026","date":"February, 2026","pdf":"https://prime.edu.pk/pf/downloads/newsletters/Newsletter_Feb._2026.pdf","image":"https://prime.edu.pk/pf/downloads/newsletters/titles/Newsletter-Feb.--2026-1.jpg"},{"title":"January 2026","date":"January, 2026","pdf":"https://prime.edu.pk/pf/downloads/newsletters/Newsletter_January_2026.pdf","image":"https://prime.edu.pk/pf/downloads/newsletters/titles/newsletter-12-1-2026.jpg"}]','2026-10-13 18:25:16'),
+(49,'hrms_api_url','https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfo.php','2026-10-13 15:49:32'),
+(50,'vacant_seats','{"intro":"Riphah International University Rule: Applicant having less than 60% marks in any subject/paper shall not be eligible for migration.","heading":"Vacant Seats in Riphah International University - Peshawar Campus","rows":[{"year":"1st Year MBBS","session":"2025-26","seats":"0","note":""},{"year":"2nd Year MBBS","session":"2024-25","seats":"3","note":""},{"year":"3rd Year MBBS","session":"2023-24","seats":"0","note":""},{"year":"4th Year MBBS","session":"2022-23","seats":"0","note":""},{"year":"Final Year MBBS","session":"2021-22","seats":"0","note":""}],"notices":["Students are allowed to apply against the notified vacant seats (from 3rd Year MBBS to Final Year MBBS) with immediate effect. As per PM&DC Admission Regulations 2023, no transfer / migration shall be allowed in the first 2 years of MBBS.","Students shall apply online for migration on vacant seats through the designated portal.","Student will be admitted on merit based on average of professional examinations.","As per Riphah International University rules, applicant having less than 60% marks in any subject/paper shall not be eligible for migration.","No transfer shall be accepted by a college to a vacant seat until reviewed by the Authority to ensure transparency."],"last_date":"16 January 2026 (Extended)","apply_url":"https://pmc.prime.edu.pk/vacant_admission/","apply_label":"Apply Online for Migration"}','2026-10-13 18:25:16');
+-- settings: 8 rows
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(191) NOT NULL,
+  `password_hash` VARCHAR(191) NOT NULL,
+  `name` VARCHAR(191) NULL,
+  `role` VARCHAR(191) NOT NULL DEFAULT 'admin',
+  `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `users` (`id`,`email`,`password_hash`,`name`,`role`,`is_active`,`created_at`,`updated_at`) VALUES
+(7,'admin@riphahpsh.edu.pk','$2y$10$OahMgbYK.qB./rEltrjgDeXYomcoFjK6TwjvYr9kNDsR5/cIpGl8G','CMS Admin','admin',1,'2026-10-13 15:49:32','2026-10-13 15:49:32');
+-- users: 1 rows
+
+SET FOREIGN_KEY_CHECKS=1;

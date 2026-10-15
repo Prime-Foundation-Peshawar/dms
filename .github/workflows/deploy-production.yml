@@ -59,6 +59,22 @@ jobs:
             BRANCH="master"
             REPO="https://x-access-token:${GH_TOKEN}@github.com/Prime-Foundation-Peshawar/dms.git"
             OLD_DIR="old"
+            PUBLIC_URL="https://dms.riphahpsh.edu.pk/"
+
+            rollback() {
+              echo "ERROR: $1"
+              echo "Restoring the previous public site (origin/old-master)"
+              git remote set-url origin "$REPO" || true
+              git fetch --depth=1 origin old-master || true
+              if git rev-parse --verify origin/old-master >/dev/null 2>&1; then
+                git checkout -B "$BRANCH" origin/old-master
+                git reset --hard origin/old-master
+                git clean -fd -e "$OLD_DIR" -e "./$OLD_DIR" -e "./$OLD_DIR/**" -e ".well-known" -e "./.well-known" -e "./.well-known/**" || true
+                git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git" || true
+                echo "Rolled back to $(git rev-parse --short HEAD)"
+              fi
+              exit 1
+            }
 
             mkdir -p "$TARGET"
 
@@ -87,14 +103,123 @@ jobs:
             cd "$TARGET"
             git remote set-url origin "$REPO"
             git fetch --depth=1 --prune origin "$BRANCH"
+            git fetch --depth=1 origin old-master || echo "WARNING: could not fetch old-master for rollback"
             git checkout "$BRANCH"
             git reset --hard "origin/$BRANCH"
-            # Keep the archived old site; do not delete it
-            git clean -fd -e "$OLD_DIR" -e "./$OLD_DIR" -e "./$OLD_DIR/**"
-            git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
+            # Keep the archived site, env, dependencies, uploads, and TLS challenge files.
+            git clean -fd \
+              -e "$OLD_DIR" -e "./$OLD_DIR" -e "./$OLD_DIR/**" \
+              -e ".env" -e "./.env" \
+              -e "vendor" -e "./vendor" -e "./vendor/**" \
+              -e "writable" -e "./writable" -e "./writable/**" \
+              -e "composer.phar" -e "./composer.phar" \
+              -e ".well-known" -e "./.well-known" -e "./.well-known/**"
             chmod -R u+rwX,go-w "$TARGET" || true
-            php "$TARGET/db/apply.php"
+
+            PHP_BIN="php"
+            if [ -x /opt/cpanel/ea-php84/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php84/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php82/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php82/root/usr/bin/php"
+            elif [ -x /opt/cpanel/ea-php81/root/usr/bin/php ]; then
+              PHP_BIN="/opt/cpanel/ea-php81/root/usr/bin/php"
+            fi
+            echo "Using PHP: $($PHP_BIN -v | head -1)"
+
+            COMPOSER_CMD=""
+            if command -v composer >/dev/null 2>&1; then
+              COMPOSER_CMD="composer"
+            elif [ -x /opt/cpanel/composer/bin/composer ]; then
+              COMPOSER_CMD="/opt/cpanel/composer/bin/composer"
+            elif [ -f "$HOME/composer.phar" ]; then
+              COMPOSER_CMD="$PHP_BIN $HOME/composer.phar"
+            elif [ -f "$TARGET/composer.phar" ]; then
+              COMPOSER_CMD="$PHP_BIN $TARGET/composer.phar"
+            else
+              echo "Downloading composer.phar into deploy target"
+              curl -fsSL https://getcomposer.org/download/latest-stable/composer.phar -o "$TARGET/composer.phar"
+              COMPOSER_CMD="$PHP_BIN -d allow_url_fopen=On $TARGET/composer.phar"
+            fi
+            if ! (cd "$TARGET" && $COMPOSER_CMD install --no-dev --optimize-autoloader); then
+              echo "composer install failed; retrying with allow_url_fopen=On"
+              if ! (cd "$TARGET" && "$PHP_BIN" -d allow_url_fopen=On "$TARGET/composer.phar" install --no-dev --optimize-autoloader); then
+                rollback "composer install failed"
+              fi
+            fi
+            if [ ! -f "$TARGET/vendor/codeigniter4/framework/system/Boot.php" ]; then
+              rollback "CodeIgniter vendor files are missing after composer install"
+            fi
+
+            for d in writable/cache writable/logs writable/session writable/uploads; do
+              mkdir -p "$TARGET/$d"
+              chmod -R u+rwX "$TARGET/$d" 2>/dev/null || true
+            done
+            chmod -R ug+rwX "$TARGET/writable" 2>/dev/null || true
+
+            if [ ! -f "$TARGET/.env" ]; then
+              cp "$TARGET/.env.example" "$TARGET/.env"
+              echo "Created .env from .env.example"
+            fi
+            "$PHP_BIN" "$TARGET/deploy/sync-env-app.php" "$TARGET/.env" "$PUBLIC_URL" || rollback "could not set the public base URL"
+            "$PHP_BIN" "$TARGET/deploy/production-env.php" ensure-key "$TARGET/.env" || rollback "could not set the encryption key"
+
+            db_ready() {
+              "$PHP_BIN" "$TARGET/deploy/production-env.php" check-db "$TARGET/.env"
+            }
+
+            set +e
+            db_ready
+            DB_STATE=$?
+            set -e
+            if [ "$DB_STATE" -eq 2 ]; then
+              if ! command -v uapi >/dev/null 2>&1; then
+                rollback "no usable database in .env and cPanel uapi is not available"
+              fi
+              CPUSER="$(whoami)"
+              DB_NAME="${CPUSER}_dms"
+              DB_USER="${CPUSER}_dms"
+              DB_PASS="$(openssl rand -base64 24 | tr -d '/+=' | head -c 24)Aa1"
+              uapi Mysql create_database name="$DB_NAME" > /tmp/dms-uapi-db.txt 2>&1 || true
+              uapi Mysql create_user name="$DB_USER" password="$DB_PASS" > /tmp/dms-uapi-user.txt 2>&1 || true
+              uapi Mysql set_privileges_on_database user="$DB_USER" database="$DB_NAME" privileges='ALL PRIVILEGES' > /tmp/dms-uapi-priv.txt 2>&1 || true
+              "$PHP_BIN" "$TARGET/deploy/production-env.php" write-db "$TARGET/.env" "$DB_NAME" "$DB_USER" "$DB_PASS" || rollback "could not write database credentials"
+              unset DB_PASS
+              set +e
+              db_ready
+              DB_STATE=$?
+              set -e
+            fi
+            if [ "$DB_STATE" -eq 2 ]; then
+              echo "---- cPanel database setup ----"
+              sed -n '1,40p' /tmp/dms-uapi-db.txt /tmp/dms-uapi-user.txt /tmp/dms-uapi-priv.txt 2>/dev/null || true
+              rollback "production database login failed"
+            fi
+            if [ "$DB_STATE" -eq 3 ]; then
+              echo "Importing CMS snapshot into the empty production database"
+              "$PHP_BIN" "$TARGET/deploy/reset-from-snapshot.php" "$TARGET/.env" "$TARGET/deploy/local-mysql-snapshot.sql" || rollback "database import failed"
+            elif [ "$DB_STATE" -ne 0 ]; then
+              rollback "database check failed ($DB_STATE)"
+            fi
+
+            "$PHP_BIN" "$TARGET/db/apply.php" || echo "WARNING: db/apply.php failed; continuing deploy"
+            (cd "$TARGET" && "$PHP_BIN" spark migrate --all) || echo "WARNING: spark migrate failed; continuing deploy"
+            find "$TARGET/writable/cache" -mindepth 1 ! -name 'index.html' ! -name '.gitkeep' -delete 2>/dev/null || true
+
+            git remote set-url origin "https://github.com/Prime-Foundation-Peshawar/dms.git"
             echo "Deployed $(git rev-parse --short HEAD) to $TARGET"
-            if [ -d "$TARGET/$OLD_DIR" ]; then
-              echo "Archived old site at $TARGET/$OLD_DIR ($(find "$TARGET/$OLD_DIR" -type f | wc -l) files)"
+
+            HOME_CODE="$(curl -sk -o /tmp/dms-home.body -w '%{http_code}' -H 'Accept: text/html' "${PUBLIC_URL}")"
+            ACP_CODE="$(curl -sk -o /tmp/dms-acp.body -w '%{http_code}' -H 'Accept: text/html' "${PUBLIC_URL}acp")"
+            echo "HTTP ${HOME_CODE} /"
+            echo "HTTP ${ACP_CODE} /acp"
+            head -c 240 /tmp/dms-home.body 2>/dev/null || true
+            echo ""
+            if [ "$HOME_CODE" != "200" ]; then
+              rollback "homepage returned HTTP ${HOME_CODE}"
+            fi
+            if [ "$ACP_CODE" != "200" ] && [ "$ACP_CODE" != "302" ]; then
+              rollback "/acp returned HTTP ${ACP_CODE}"
+            fi
+            if grep -q "Boot.php" /tmp/dms-home.body /tmp/dms-acp.body 2>/dev/null; then
+              rollback "public page still reports a missing framework boot file"
             fi
