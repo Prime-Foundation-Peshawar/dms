@@ -44,28 +44,42 @@ class Dashboard extends BaseAcpController
         $deptsHidden = model(DepartmentModel::class)->where('hidden', 1)->countAllResults();
 
         $facultyTotal = model(FacultyProfileModel::class)->countAllResults(false);
-        $facultyPublic = model(FacultyProfileModel::class)->where('is_public', 1)->countAllResults();
+        $hasPublic = $db->fieldExists('is_public', 'faculty_profiles');
+        $hasOverride = $db->fieldExists('dept_override', 'faculty_profiles');
+        $hasEmpId = $db->fieldExists('emp_id', 'faculty_profiles');
+        $hasDeptName = $db->fieldExists('department_name', 'faculty_profiles');
+        $facultyPublic = $hasPublic
+            ? model(FacultyProfileModel::class)->where('is_public', 1)->countAllResults()
+            : $facultyTotal;
         $facultyPhoto = (int) ($db->query(
             "SELECT COUNT(*) AS c FROM faculty_profiles WHERE photo IS NOT NULL AND TRIM(photo) != ''"
         )->getRowArray()['c'] ?? 0);
-        $facultyOverride = model(FacultyProfileModel::class)->where('dept_override', 1)->countAllResults();
+        $facultyOverride = $hasOverride
+            ? model(FacultyProfileModel::class)->where('dept_override', 1)->countAllResults()
+            : 0;
         $facultyMissingPhoto = (int) ($db->query(
             "SELECT COUNT(*) AS c FROM faculty_profiles WHERE photo IS NULL OR TRIM(photo) = ''"
         )->getRowArray()['c'] ?? 0);
-        $facultyMissingEmp = (int) ($db->query(
-            "SELECT COUNT(*) AS c FROM faculty_profiles WHERE emp_id IS NULL OR TRIM(emp_id) = ''"
-        )->getRowArray()['c'] ?? 0);
+        $facultyMissingEmp = $hasEmpId
+            ? (int) ($db->query(
+                "SELECT COUNT(*) AS c FROM faculty_profiles WHERE emp_id IS NULL OR TRIM(emp_id) = ''"
+            )->getRowArray()['c'] ?? 0)
+            : $facultyTotal;
         $facultyLinked = max(0, $facultyTotal - $facultyMissingEmp);
-        $facultyComplete = (int) ($db->query(
-            "SELECT COUNT(*) AS c FROM faculty_profiles
-             WHERE photo IS NOT NULL AND TRIM(photo) != ''
-               AND emp_id IS NOT NULL AND TRIM(emp_id) != ''"
-        )->getRowArray()['c'] ?? 0);
-        $facultyNeedsPhoto = (int) ($db->query(
-            "SELECT COUNT(*) AS c FROM faculty_profiles
-             WHERE (photo IS NULL OR TRIM(photo) = '')
-               AND emp_id IS NOT NULL AND TRIM(emp_id) != ''"
-        )->getRowArray()['c'] ?? 0);
+        $facultyComplete = $hasEmpId
+            ? (int) ($db->query(
+                "SELECT COUNT(*) AS c FROM faculty_profiles
+                 WHERE photo IS NOT NULL AND TRIM(photo) != ''
+                   AND emp_id IS NOT NULL AND TRIM(emp_id) != ''"
+            )->getRowArray()['c'] ?? 0)
+            : 0;
+        $facultyNeedsPhoto = $hasEmpId
+            ? (int) ($db->query(
+                "SELECT COUNT(*) AS c FROM faculty_profiles
+                 WHERE (photo IS NULL OR TRIM(photo) = '')
+                   AND emp_id IS NOT NULL AND TRIM(emp_id) != ''"
+            )->getRowArray()['c'] ?? 0)
+            : $facultyMissingPhoto;
 
         $activities = model(DepartmentActivityModel::class)->countAllResults();
         $users = model(UserModel::class)->countAllResults();
@@ -76,12 +90,14 @@ class Dashboard extends BaseAcpController
             ->orderBy('c', 'DESC')
             ->get()->getResultArray();
 
-        $facultyByDept = $db->table('faculty_profiles')
-            ->select("COALESCE(NULLIF(department_name,''), 'Unassigned') as dept, COUNT(*) as c")
-            ->groupBy('dept')
-            ->orderBy('c', 'DESC')
-            ->limit(8)
-            ->get()->getResultArray();
+        $facultyByDept = $hasDeptName
+            ? $db->table('faculty_profiles')
+                ->select("COALESCE(NULLIF(department_name,''), 'Unassigned') as dept, COUNT(*) as c")
+                ->groupBy('dept')
+                ->orderBy('c', 'DESC')
+                ->limit(8)
+                ->get()->getResultArray()
+            : [];
 
         $months = [];
         for ($i = 11; $i >= 0; $i--) {
@@ -90,25 +106,17 @@ class Dashboard extends BaseAcpController
         $newsByMonth = array_fill_keys($months, 0);
         $eventsByMonth = array_fill_keys($months, 0);
 
-        $newsRows = $db->table('news_posts')
-            ->select("strftime('%Y-%m', COALESCE(published_at, created_at)) as ym, COUNT(*) as c")
-            ->where("strftime('%Y-%m', COALESCE(published_at, created_at)) >=", $months[0])
-            ->groupBy('ym')
-            ->get()->getResultArray();
-        foreach ($newsRows as $r) {
-            if (isset($newsByMonth[$r['ym']])) {
-                $newsByMonth[$r['ym']] = (int) $r['c'];
+        foreach ($db->table('news_posts')->select('published_at, created_at')->get()->getResultArray() as $r) {
+            $ym = substr((string) (($r['published_at'] ?? '') !== '' ? $r['published_at'] : ($r['created_at'] ?? '')), 0, 7);
+            if (isset($newsByMonth[$ym])) {
+                $newsByMonth[$ym]++;
             }
         }
 
-        $eventRows = $db->table('events')
-            ->select("strftime('%Y-%m', COALESCE(event_date, created_at)) as ym, COUNT(*) as c")
-            ->where("strftime('%Y-%m', COALESCE(event_date, created_at)) >=", $months[0])
-            ->groupBy('ym')
-            ->get()->getResultArray();
-        foreach ($eventRows as $r) {
-            if (isset($eventsByMonth[$r['ym']])) {
-                $eventsByMonth[$r['ym']] = (int) $r['c'];
+        foreach ($db->table('events')->select('event_date, created_at')->get()->getResultArray() as $r) {
+            $ym = substr((string) (($r['event_date'] ?? '') !== '' ? $r['event_date'] : ($r['created_at'] ?? '')), 0, 7);
+            if (isset($eventsByMonth[$ym])) {
+                $eventsByMonth[$ym]++;
             }
         }
 
@@ -122,21 +130,25 @@ class Dashboard extends BaseAcpController
             $upcomingEvents = model(EventModel::class)->orderBy('event_date', 'DESC')->findAll(6);
         }
 
+        $empSelect = $hasEmpId ? 'emp_id' : 'NULL AS emp_id';
+        $deptSelect = $hasDeptName ? 'department_name' : "'' AS department_name";
         $attentionMissingPhoto = $db->query(
-            "SELECT id, name, emp_id, photo, department_name
+            "SELECT id, name, {$empSelect}, photo, {$deptSelect}
              FROM faculty_profiles
              WHERE photo IS NULL OR TRIM(photo) = ''
              ORDER BY name ASC
              LIMIT 10"
         )->getResultArray();
 
-        $attentionCvOnly = $db->query(
-            "SELECT id, name, emp_id, photo, department_name
-             FROM faculty_profiles
-             WHERE emp_id IS NULL OR TRIM(emp_id) = ''
-             ORDER BY name ASC
-             LIMIT 8"
-        )->getResultArray();
+        $attentionCvOnly = $hasEmpId
+            ? $db->query(
+                "SELECT id, name, emp_id, photo, {$deptSelect}
+                 FROM faculty_profiles
+                 WHERE emp_id IS NULL OR TRIM(emp_id) = ''
+                 ORDER BY name ASC
+                 LIMIT 8"
+            )->getResultArray()
+            : [];
 
         $draftNews = model(NewsPostModel::class)
             ->where('status', 'draft')
