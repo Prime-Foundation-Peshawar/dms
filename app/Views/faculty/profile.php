@@ -16,7 +16,7 @@ if ($photoRel !== '') {
         $photo = base_url(ltrim($photoRel, '/'));
     }
 }
-$desig = faculty_normalize_designation((string) ($DIRECTORY['desTitle'] ?? $EXTRA['designation'] ?? ''));
+$desig = faculty_public_current_post($DIRECTORY, $EXTRA);
 $dept = (string) ($DIRECTORY['depName'] ?? $EXTRA['department'] ?? $EXTRA['department_name'] ?? '');
 $is_hod = ! empty($EXTRA['hod']) || ! empty($EXTRA['is_hod']);
 
@@ -35,7 +35,7 @@ $chapters = faculty_plain_list($EXTRA['book_chapters'] ?? []);
 $registrations = faculty_plain_list($EXTRA['registrations'] ?? []);
 if (! $registrations && $DIRECTORY) {
     if (! empty($DIRECTORY['facPMDCNo'])) {
-        $registrations[] = 'PM&DC ' . $DIRECTORY['facPMDCNo'];
+        $registrations[] = 'PM&DC No. ' . $DIRECTORY['facPMDCNo'];
     }
     if (! empty($DIRECTORY['facFacRegNo'])) {
         $registrations[] = 'Faculty No. ' . $DIRECTORY['facFacRegNo'];

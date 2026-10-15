@@ -493,6 +493,24 @@ if (! function_exists('faculty_normalize_skills')) {
     }
 }
 
+if (! function_exists('faculty_public_current_post')) {
+    /** Live profile JS uses the HRMS post title as-is, except owner/CEO rows. */
+    function faculty_public_current_post(?array $directory, ?array $extra): string
+    {
+        $hrms = trim((string) ($directory['desTitle'] ?? ''));
+        $cv = trim((string) ($extra['designation'] ?? ''));
+        $probe = $hrms !== '' ? $hrms : $cv;
+        if (preg_match('/owner|patron|founder|\bceo\b|chairman of (the )?prime/i', $probe)) {
+            return faculty_normalize_designation($cv !== '' ? $cv : 'Professor');
+        }
+        if ($hrms !== '') {
+            return $hrms;
+        }
+
+        return faculty_normalize_designation($cv);
+    }
+}
+
 if (! function_exists('faculty_explode_publications')) {
     /** @param list<mixed>|mixed $pubs @return list<string> */
     function faculty_explode_publications($pubs): array
@@ -506,16 +524,30 @@ if (! function_exists('faculty_explode_publications')) {
         $out = [];
         $seen = [];
         foreach ($pubs as $raw) {
-            $p = trim(preg_replace('/\s+/', ' ', (string) $raw) ?? '');
-            if ($p === '') {
+            $raw = trim(preg_replace('/\s+/', ' ', (string) $raw) ?? '');
+            if ($raw === '' || strlen($raw) < 40) {
                 continue;
             }
-            $key = strtolower(substr(preg_replace('/\W+/', '', $p) ?? '', 0, 90));
-            if ($key === '' || isset($seen[$key])) {
-                continue;
+            $parts = [$raw];
+            if (preg_match('/\d{4}[A-Z]/', $raw) || strlen($raw) > 550) {
+                if (preg_match('/(?:^|\s)\d{1,2}[\.\)]\s+\S.{20,}/', $raw)) {
+                    $parts = preg_split('/(?:^|\s)\d{1,2}[\.\)]\s+/', $raw) ?: [$raw];
+                } else {
+                    $parts = preg_split('/(?<=\d{4})(?=[A-Z])/', $raw) ?: [$raw];
+                }
             }
-            $seen[$key] = true;
-            $out[] = $p;
+            foreach ($parts as $p) {
+                $p = trim($p, " \t.;•●-–—");
+                if (strlen($p) < 40) {
+                    continue;
+                }
+                $key = strtolower(substr(preg_replace('/\W+/', '', $p) ?? '', 0, 90));
+                if ($key === '' || isset($seen[$key])) {
+                    continue;
+                }
+                $seen[$key] = true;
+                $out[] = $p;
+            }
         }
 
         return $out;
