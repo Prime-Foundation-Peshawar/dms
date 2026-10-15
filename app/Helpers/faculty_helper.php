@@ -152,6 +152,56 @@ if (! function_exists('faculty_profile_is_public')) {
     }
 }
 
+if (! function_exists('faculty_public_registrations')) {
+    /**
+     * Live profile JS always paints HRMS PM&DC / faculty numbers, then extra CV regs.
+     *
+     * @param array<string,mixed>|null $directory
+     * @param array<string,mixed>|null $extra
+     * @return list<string>
+     */
+    function faculty_public_registrations(?array $directory, ?array $extra): array
+    {
+        $out = [];
+        $seen = [];
+        $add = static function (string $label) use (&$out, &$seen): void {
+            $label = trim($label);
+            if ($label === '') {
+                return;
+            }
+            $key = strtolower(preg_replace('/\W+/', '', $label) ?? '');
+            if ($key === '' || isset($seen[$key])) {
+                return;
+            }
+            $seen[$key] = true;
+            $out[] = $label;
+        };
+
+        $pmdc = trim((string) ($directory['facPMDCNo'] ?? ''));
+        $fac = trim((string) ($directory['facFacRegNo'] ?? ''));
+        if (preg_match('/^0+$/', $fac) || strcasecmp($fac, 'n/a') === 0) {
+            $fac = '';
+        }
+        if ($pmdc !== '') {
+            $add('PM&DC No. ' . $pmdc);
+        }
+        if ($fac !== '') {
+            $add('Faculty No. ' . $fac);
+        }
+        foreach (faculty_plain_list($extra['registrations'] ?? []) as $reg) {
+            if ($pmdc !== '' && preg_match('~\bpm\s*&?\s*dc\b~i', $reg)) {
+                continue;
+            }
+            if ($fac !== '' && preg_match('~\bfaculty\s*(no\.?|number|#)\b~i', $reg)) {
+                continue;
+            }
+            $add($reg);
+        }
+
+        return $out;
+    }
+}
+
 if (! function_exists('faculty_slug_is_public')) {
     function faculty_slug_is_public(string $slugOrName): bool
     {

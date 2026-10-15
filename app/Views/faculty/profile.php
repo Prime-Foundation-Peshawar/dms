@@ -32,15 +32,7 @@ $memberships = faculty_plain_list($EXTRA['memberships'] ?? []);
 $courses = faculty_plain_list($EXTRA['courses'] ?? []);
 $books = faculty_plain_list($EXTRA['books'] ?? []);
 $chapters = faculty_plain_list($EXTRA['book_chapters'] ?? []);
-$registrations = faculty_plain_list($EXTRA['registrations'] ?? []);
-if (! $registrations && $DIRECTORY) {
-    if (! empty($DIRECTORY['facPMDCNo'])) {
-        $registrations[] = 'PM&DC No. ' . $DIRECTORY['facPMDCNo'];
-    }
-    if (! empty($DIRECTORY['facFacRegNo'])) {
-        $registrations[] = 'Faculty No. ' . $DIRECTORY['facFacRegNo'];
-    }
-}
+$registrations = faculty_public_registrations($DIRECTORY, $EXTRA);
 $pubs = faculty_explode_publications($EXTRA['publications'] ?? []);
 $initials = 'F';
 if ($display_name !== '') {
