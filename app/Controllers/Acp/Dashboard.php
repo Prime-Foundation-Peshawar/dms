@@ -26,11 +26,12 @@ class Dashboard extends BaseAcpController
         $newsTotal = model(NewsPostModel::class)->countAllResults(false);
         $newsPublished = model(NewsPostModel::class)->where('status', 'published')->countAllResults();
         $newsDraft = model(NewsPostModel::class)->where('status', 'draft')->countAllResults();
-        $newsExpired = (int) ($db->table('news_posts')
-            ->where('expires_at IS NOT NULL')
-            ->where('expires_at !=', '')
-            ->where('expires_at <', $now)
-            ->countAllResults());
+        $newsExpired = $db->fieldExists('expires_at', 'news_posts')
+            ? (int) ($db->table('news_posts')
+                ->where('expires_at IS NOT NULL', null, false)
+                ->where('expires_at <', $now)
+                ->countAllResults())
+            : 0;
 
         $eventsTotal = model(EventModel::class)->countAllResults(false);
         $eventsPublished = model(EventModel::class)->where('status', 'published')->countAllResults();
