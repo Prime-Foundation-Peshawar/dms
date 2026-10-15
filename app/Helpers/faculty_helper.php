@@ -249,6 +249,36 @@ if (! function_exists('faculty_research_preferences')) {
     }
 }
 
+if (! function_exists('faculty_fix_runons')) {
+function faculty_fix_runons(string $text): string {
+  $text = str_ireplace([
+    'Histopatholoyg',
+    'Histopatholoy',
+    'WORKING EXPERIENCE',
+    'Assit. Prof',
+    'Assit Prof',
+  ], [
+    'Histopathology',
+    'Histopathology',
+    '',
+    'Assistant Professor',
+    'Assistant Professor',
+  ], $text);
+  $text = str_replace(['â€”', 'â€“', 'âˆ’'], '-', $text);
+  $text = preg_replace('/\bAT\b/', 'At', $text);
+  $text = preg_replace('/([a-z])([A-Z])/', '$1 $2', $text);
+  $text = preg_replace('/\bUo P\b/', 'UoP', $text);
+  $text = preg_replace('/\bPh D\b/', 'PhD', $text);
+  $text = preg_replace('/([A-Za-z])((?:19|20)\d{2})\b/', '$1 $2', $text);
+  $text = preg_replace('/([A-Za-z])(\d{1,2}[-.\/]\d{1,2}[-.\/]\d{2,4})/', '$1 $2', $text);
+  $text = preg_replace('/(\d)([A-Z][a-z]+)/', '$1 $2', $text);
+  $text = preg_replace('/(\))([A-Z])/', '$1 $2', $text);
+  $text = preg_replace('/\(([A-Za-z .]+)\&/', '($1) &', $text);
+  $text = preg_replace('/\s+/', ' ', $text);
+  return trim($text ?? '');
+}
+}
+
 if (! function_exists('faculty_normalize_designation')) {
     function faculty_normalize_designation(string $raw): string
     {
@@ -261,8 +291,17 @@ if (! function_exists('faculty_normalize_designation')) {
         if (preg_match('/^assit\.?\s*prof\.?$/i', $d) || preg_match('/^asst\.?\s*prof\.?$/i', $d) || preg_match('/^assistant\s*prof\.?$/i', $d)) {
             return 'Assistant Professor';
         }
+        if (preg_match('/^assistant professor(?:\s+pediatrics|\s+paediatrics)?$/i', $d)) {
+            return 'Assistant Professor';
+        }
+        if (preg_match('/^(hod|head of department|unit incharge)\s*(pediatrics|paediatrics)?$/i', $d)) {
+            return 'Professor';
+        }
         if ($d === '' || strcasecmp($d, 'hod') === 0 || strcasecmp($d, 'head of department') === 0) {
             return '';
+        }
+        if (preg_match('/^(Associate Professor|Assistant Professor|Professor|Senior Lecturer|Lecturer|Senior Registrar|Registrar)\s+(?!\()(.+)$/i', $d, $m)) {
+            return $m[1] . ' (' . trim($m[2], " ()") . ')';
         }
 
         return $d;
@@ -270,25 +309,187 @@ if (! function_exists('faculty_normalize_designation')) {
 }
 
 if (! function_exists('faculty_normalize_qualifications')) {
-    /** @param list<mixed>|mixed $items @return list<string> */
-    function faculty_normalize_qualifications($items): array
-    {
+    function faculty_normalize_qualifications($items): array {
         if (is_string($items)) {
             $items = preg_split('/[\n;,|]+/', $items) ?: [];
         }
         if (! is_array($items)) {
             return [];
         }
+      $joined = [];
+      $carry = '';
+      foreach ($items as $q) {
+        $q = trim(preg_replace('/\s+/', ' ', (string) $q) ?? '');
+        if ($q === '') {
+          continue;
+        }
+        if ($carry !== '') {
+          $q = trim($carry . ' ' . $q);
+          $carry = '';
+        }
+        if (preg_match('/\($/', $q) || preg_match('/^(Diploma in|Post\s*Graduate|Postgraduate|Master.?s in|Bachelors? of)$/i', $q)) {
+          $carry = $q;
+          continue;
+        }
+        $joined[] = $q;
+      }
+      if ($carry !== '') {
+        $joined[] = $carry;
+      }
 
-        return faculty_plain_list($items);
+      $text = faculty_fix_runons(implode(' Â· ', $joined));
+      $repl = [
+        'M.B.B.S' => 'MBBS', 'M.B.B.S.' => 'MBBS', 'F.C.P.S' => 'FCPS', 'F.C.P.S.' => 'FCPS',
+        'M.C.P.S' => 'MCPS', 'C.H.P.E' => 'CHPE', 'M.PHIL' => 'M.Phil', 'M.Phil.' => 'M.Phil',
+        'Ph. D' => 'PhD', 'Ph.D' => 'PhD', 'Ph.D.' => 'PhD', 'Bachelors of Medicine and Bachelors of Surgery' => 'MBBS',
+        'Bachelor of Medicine & Bachelor of Surgery' => 'MBBS', 'Bachelor of Medicine and Bachelor of Surgery' => 'MBBS',
+        'Bachelor of Dental Surgery' => 'BDS',
+        'Certificate in Health Professional Education in Health Research' => 'CHR',
+        'Certificate Course in Health Profession and Education' => 'CHPE',
+        'Certificate in Health Professional Education' => 'CHPE',
+        'Certificate in Health Professions Education' => 'CHPE',
+      ];
+      $text = str_ireplace(array_keys($repl), array_values($repl), $text);
+
+      $out = [];
+      $seen = [];
+      $add = static function (string $label) use (&$out, &$seen): void {
+        $label = trim(preg_replace('/\s+/', ' ', $label) ?? '', " ,;Â·|");
+        $label = preg_replace('/^MBBS\s*\(\s*MBBS\s*\)/i', 'MBBS', $label) ?? $label;
+        if ($label === '' || strlen($label) < 2) {
+          return;
+        }
+        $key = strtolower(preg_replace('/\W+/', '', $label) ?? '');
+        if ($key === '' || isset($seen[$key])) {
+          return;
+        }
+        $seen[$key] = true;
+        $out[] = $label;
+      };
+
+      $patterns = [
+        '/\bMBBS\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bBDS\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMD\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFCPS(?:-I|-l)?(?:\s*\([^)]{0,80}\)|\s+(?:Histopathology|Hematology|Haematology|Pathology|Psychiatry|Pediatrics|Paediatrics|Surgery and Allied|Urology|Anesthesiology|Anaesthesia|Anesthesia|Cardiology|Interventional Cardiology|Dermatology|Gastroenterology|Medical Oncology|Neurosurgery|Ophthalmology|Vitreoretina|Vitreo Retina|VR|Retina))?/i',
+        '/\bMCPSHPE\b/i',
+        '/\bMCPS(?:\s*\([^)]{0,50}\)|\s+(?:Anesthesiology|Anaesthesia|Anesthesia|Ophthalmology))?\b/i',
+        '/\bPOA fellowship in Arthroplasty\b/i',
+        '/\bFellowship in Pead(?:\x{2019}|\x27)s Urology\b/iu',
+        '/\bFellowship in Paediatric Orthopaedic\b/i',
+        '/\bMS(?:\s*[-â€“]\s*Mental Health Policy(?:\s+&\s+Services)?)?\b/i',
+        '/\bIMM(?:\s*\/\s*MCPS|\s*\([^)]{0,50}\))?/i',
+        '/\bFRCPCH(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMRCPCH(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMRCPS(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFRCP\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bSCE-MRCP(?:\s+UK)?(?:\s*\([^)]{0,50}\))?/i',
+        '/\bMRCP-II(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMRCOG\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMRCPI(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMHR\b/i',
+        '/\bMRCP(?:-UK)?\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFellowship in EUS and ERCP(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMACG\b/i',
+        '/\bFACC\b/i',
+        '/\bFESC\b/i',
+        '/\bFSCAI\b/i',
+        '/\bMEAPCI\b/i',
+        '/\bCertificate in Interventional Cardiology\b/i',
+        '/\bFellowship in Interventional Cardiology\b/i',
+        '/\bMRCS\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFRCS\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFACS\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFMAS\b/i',
+        '/\bATLS(?:Â®)?\b/i',
+        '/\bM\.?\s*Phil\.?(?:\s*\([^)]{0,50}\)|\s+(?:Histopathology|Chemical Pathology|Hematology|Microbiology|Physiology|Oral Pathology|Community Medicine|FMT)(?:\s+Scholar)?)?/i',
+        '/\bPhD(?:\s*\([^)]{0,80}\))?(?:\s*[â€”â€“-]\s*[^Â·|]{8,90})?(?:\s+(?:Physiology|Microbiology))?/i',
+        '/\b(?:Master of Public Health|MPH)\b(?:\s*\([^)]{0,50}\))?/i',
+        '/\bCHPE\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bCertificate Of Palliative Care\b/i',
+        '/\bPalliative Care Course(?:\s*\([^)]{0,80}\))?/i',
+        '/\bEHA Exam\b/i',
+        '/\bCHR\b/i',
+        '/\bDHPE\b/i',
+        '/\bMHPE\b/i',
+        '/\bPGD\b(?:\s*\([^)]{0,40}\)|\s+in\s+[^,.(]{8,60})?/i',
+        '/\bPGT(?:\s+Pharmacy)?\b/i',
+        '/\bDCP\b/i',
+        '/\bDMJ\b/i',
+        '/\bMSHCM\b/i',
+        '/\bASCD\b/i',
+        '/\bESBD\b/i',
+        '/\bEDISC\b/i',
+        '/\b(?:D\.C\.H\.?|DCH)\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bDOMS\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bDIHL\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bDCEH\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bADHPE\b(?:\s*\([^)]{0,40}\))?/i',
+        '/\bAdvanced Diploma in Health Professions Education(?:\s*\([^)]{0,40}\))?/i',
+        '/\bDiploma in Community Eye Health(?:\s*\([^)]{0,120}\))?/i',
+        '/\bAttended a course of Executive MBA(?:\s*\([^)]{0,80}\))?/i',
+        '/\bDiploma in (?:Anaesthesia|Anesthesia|Gynae and Obs|Tuberculosis and Chest Diseases|Dermatological Sciences|Dermatology and Venereology|Aesthetic [Mm]edicine)\b/i',
+        '/\bFACHARTZ(?:\s*\/\s*Academy Fellowship(?:\s*\([^)]{0,40}\))?)?/i',
+        '/\bAmerican Board of Aesthetic Medicine and Surgery(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFICO(?:\s*\([^)]{0,40}\))?/i',
+        '/\bICO(?:\s*\([^)]{0,40}\))?/i',
+        '/\bAD-HPE\b/i',
+        '/\bFellowship Retina(?:\s*\([^)]{0,40}\))?/i',
+        '/\bFellowship in Oculoplastic surgery(?:\s*\([^)]{0,40}\))?/i',
+        '/\bMCPS-?\s*HPE\b/i',
+        '/\bDA\b/',
+        '/\bDip(?:loma)?(?:\s+in)?\s+CBT\b/i',
+      ];
+      foreach ($patterns as $re) {
+        if (preg_match_all($re, $text, $ms)) {
+          foreach ($ms[0] as $hit) {
+            $hit = preg_replace('/^M\.?\s*Phil\.?/i', 'M.Phil', $hit) ?? $hit;
+            $hit = preg_replace('/^FCPS-l\b/i', 'FCPS-I', $hit) ?? $hit;
+            $hit = preg_replace('/^Master of Public Health\b/i', 'MPH', $hit) ?? $hit;
+            $hit = preg_replace('/^MS\s*[-â€“]\s*(.+)$/i', 'MS ($1)', $hit) ?? $hit;
+            $add($hit);
+          }
+        }
+      }
+      if (!$out) {
+        foreach ($joined as $q) {
+          $add(faculty_fix_runons($q));
+        }
+      }
+      return $out;
     }
 }
 
 if (! function_exists('faculty_normalize_skills')) {
-    /** @param list<mixed>|mixed $items @return list<string> */
-    function faculty_normalize_skills($items): array
-    {
-        return faculty_plain_list($items);
+    function faculty_normalize_skills($items): array {
+        if (is_string($items)) {
+            $items = preg_split('/[\n;|]+/', $items) ?: [];
+        }
+        if (! is_array($items)) {
+            return [];
+        }
+      $out = [];
+      $seen = [];
+      foreach ($items as $raw) {
+        $s = faculty_fix_runons((string) $raw);
+        $s = preg_replace('/\b(Former|Member of|Incharge|In charge)\b/i', '|$1', $s) ?? $s;
+        foreach (preg_split('/[|;]+/', $s) ?: [] as $bit) {
+          $bit = trim($bit, " ,:-");
+          if (strlen($bit) < 8 || strlen($bit) > 88) {
+            continue;
+          }
+          if (preg_match('/^\d{4}/', $bit) || preg_match('/^(college|university|hospital|institute|peshawar medical college)$/i', $bit)) {
+            continue;
+          }
+          $key = strtolower(preg_replace('/\W+/', '', $bit) ?? '');
+          if ($key === '' || isset($seen[$key])) {
+            continue;
+          }
+          $seen[$key] = true;
+          $out[] = $bit;
+        }
+      }
+      return $out;
     }
 }
 
