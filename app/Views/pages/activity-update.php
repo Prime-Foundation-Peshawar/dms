@@ -37,7 +37,7 @@
 
         <div class="fu-intro">
           <h2>Department Activity Form</h2>
-          <p>Select your department and provide the activity details below. Submissions are reviewed by the office before publication.</p>
+          <p>Please select your department and enter the activity details. All submissions are reviewed before they appear on the website.</p>
         </div>
 
         <?php if (! empty($errorMsg)): ?>
