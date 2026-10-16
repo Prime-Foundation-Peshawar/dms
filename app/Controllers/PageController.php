@@ -104,20 +104,22 @@ class PageController extends BaseController
             $data['canonical_url']    = site_url('event-single') . '?slug=' . rawurlencode($event['slug']);
         }
 
-        // Prefer live PHP templates when present. Seeded CMS body_html can bake in
-        // wrong baseURL paths (missing /dms/) and drop dynamic helpers (faculty links).
+        // Gallery, news, events, and vacant seats stay on their templates so
+        // album and listing edits are not replaced by a saved HTML snapshot.
+        $liveTemplates = ['gallery', 'all-news', 'single-news', 'events', 'event-single', 'vacant-seats'];
+        if (! in_array($slug, $liveTemplates, true)
+            && ! empty($page['use_cms'])
+            && (! empty($page['body_html']) || ! empty($page['body_text']))) {
+            return view('pages/content_wrap', array_merge($data, [
+                'viewKey' => 'cms_content',
+            ]));
+        }
+
         $viewKey  = $page['view_key'] ?? $slug;
         $viewFile = APPPATH . 'Views/pages/' . $viewKey . '.php';
         if (is_file($viewFile) && $viewKey !== 'cms_content') {
             return view('pages/content_wrap', array_merge($data, [
                 'viewKey' => $viewKey,
-            ]));
-        }
-
-        // CMS-managed pages (no static template) render body from DB
-        if (! empty($page['use_cms']) && (! empty($page['body_html']) || ! empty($page['body_text']))) {
-            return view('pages/content_wrap', array_merge($data, [
-                'viewKey' => 'cms_content',
             ]));
         }
 
