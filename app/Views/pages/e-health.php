@@ -92,7 +92,7 @@ $ehealth_groups = [
             <span class="sec-eyebrow">Free Phone Service</span>
             <h2 class="sec-title" style="font-size:1.75rem;">Health Information by Phone</h2>
             <p>
-              A free public health information service from <strong>Peshawar Medical College</strong> (Prime Foundation).
+              A free public health information service from <strong>Peshawar Medical College</strong>.
               Call from any network, listen to the prompts, then enter a 3-digit topic code after the beep.
             </p>
           </div>
