@@ -284,7 +284,7 @@ if (empty($albums) || ! is_array($albums)) {
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
-    <span class="page-hero-eyebrow">Department of Dental Sciences</span>
+    <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>Photo Gallery</h1>
     <div class="breadcrumb-pmc">
       <a href="<?= site_url() ?>">Home</a>
