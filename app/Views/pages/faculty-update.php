@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<link href="<?= dds_asset('assets/css/faculty-update.css') ?>" rel="stylesheet"/>
+<link href="<?= dms_asset('assets/css/faculty-update.css') ?>" rel="stylesheet"/>
 
 <div class="page-hero">
   <div class="page-hero-grid"></div>
