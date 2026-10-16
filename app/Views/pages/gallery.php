@@ -284,7 +284,7 @@ if (empty($albums) || ! is_array($albums)) {
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
-    <span class="page-hero-eyebrow">Department of Dental Sciences</span>
+    <span class="page-hero-eyebrow">Department of Medical Sciences</span>
     <h1>Photo Gallery</h1>
     <div class="breadcrumb-pmc">
       <a href="<?= site_url() ?>">Home</a>
@@ -299,8 +299,8 @@ if (empty($albums) || ! is_array($albums)) {
     <div class="row mb-5">
       <div class="col-lg-7">
         <span class="sec-eyebrow">Visual Journey</span>
-        <h2 class="sec-title">Life at Peshawar Dental College</h2>
-        <p class="sec-desc">Explore PDC campus buildings and shared campus facilities that support dental education at Riphah International University – Peshawar Campus.</p>
+        <h2 class="sec-title">Life at Campus</h2>
+        <p class="sec-desc">Explore Riphah International University - Peshawar Campus buildings and shared campus facilities that support medical education.</p>
       </div>
     </div>
 
