@@ -46,10 +46,9 @@ For quick local smoke tests without MySQL, `.env` may use SQLite3 (`writable/dms
 - Change the default password after first login
 - Modules: pages, news, events, departments, faculty, settings, users
 - Page/news/event editors support **Text** and **HTML** modes
-- Seed data is prefilled from the former static site (`tools/build_cms_seed.php` → `php spark db:seed DmsSeeder`)
+- Seed data is prefilled from the former static site (`php spark db:seed DmsSeeder`)
 - CMS pages (`use_cms=1`) render from the database; template pages keep special layouts (home, faculty APIs, news/events listings)
 
 ## Notes
 
-- Legacy flat PHP is kept under `_legacy/` for reference during the port.
 - Do not commit real `.env` passwords.

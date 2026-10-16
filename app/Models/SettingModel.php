@@ -17,14 +17,6 @@ class SettingModel extends Model
         return $row ? (string) $row['value'] : $default;
     }
 
-    /** @return list<array<string,mixed>> */
-    public function newsletters(): array
-    {
-        $raw = $this->getValue('newsletters', '[]');
-        $data = json_decode((string) $raw, true);
-        return is_array($data) ? $data : [];
-    }
-
     /** @return array{intro:string,heading:string,rows:list<array<string,string>>,notices:list<string>,last_date:string,apply_url:string,apply_label:string} */
     public function vacantSeats(): array
     {

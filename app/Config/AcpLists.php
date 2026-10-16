@@ -84,7 +84,6 @@ class AcpLists extends BaseConfig
             'virtual-museum',
             'student-exchange',
             'gallery',
-            'newsletter',
             'education-literature',
             'all-news',
             'single-news',

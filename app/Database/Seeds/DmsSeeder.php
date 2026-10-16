@@ -163,8 +163,7 @@ class DmsSeeder extends Seeder
             }
         }
 
-        // Settings + newsletters
-        $newsletters = json_decode((string) file_get_contents($dataDir . '/newsletters.json'), true) ?: [];
+        // Newsletters live on the campus site (riphahpsh.edu.pk/news-letter.php).
         $this->db->table('settings')->emptyTable();
         $settings = [
             'site_name' => 'Peshawar Medical College',
@@ -172,7 +171,6 @@ class DmsSeeder extends Seeder
             'hub_base_staging' => 'https://staging.riphahpsh.edu.pk/riphahpsh/',
             'contact_phone' => '+92-91-5202191',
             'contact_email' => 'info@riphahpsh.edu.pk',
-            'newsletters' => json_encode($newsletters, JSON_UNESCAPED_UNICODE),
             'hrms_api_url' => 'https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfo.php',
         ];
         foreach ($settings as $key => $value) {
