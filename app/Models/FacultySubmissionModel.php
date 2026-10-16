@@ -20,6 +20,7 @@ class FacultySubmissionModel extends Model
         'des_title',
         'dep_name',
         'research_preferences',
+        'current_research_projects',
         'publications_url',
         'publications_file',
         'publications',
@@ -38,6 +39,10 @@ class FacultySubmissionModel extends Model
     {
         $db = db_connect();
         if ($db->tableExists($this->table)) {
+            if (! $db->fieldExists('current_research_projects', $this->table)) {
+                $db->query('ALTER TABLE `faculty_profile_submissions` ADD COLUMN `current_research_projects` JSON NULL AFTER `research_preferences`');
+            }
+
             return;
         }
         $sql = ROOTPATH . 'db/changes/20261016_2000_faculty_profile_submissions.sql';
@@ -90,7 +95,7 @@ class FacultySubmissionModel extends Model
      */
     public function normalize(array $row): array
     {
-        foreach (['research_preferences', 'publications', 'qualifications', 'skills'] as $key) {
+        foreach (['research_preferences', 'current_research_projects', 'publications', 'qualifications', 'skills'] as $key) {
             $raw = $row[$key] ?? null;
             if (is_array($raw)) {
                 $row[$key] = array_values($raw);

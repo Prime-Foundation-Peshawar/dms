@@ -138,6 +138,10 @@ class Faculty extends BaseController
                 'qualifications' => array_values($rec['qualifications'] ?? []),
                 'skills' => array_values($rec['skills'] ?? []),
                 'research_preferences' => faculty_research_preferences($rec),
+                'current_research_projects' => array_values(array_filter(array_map(
+                    static fn ($item) => is_string($item) || is_numeric($item) ? trim((string) $item) : '',
+                    is_array($rec['current_research_projects'] ?? null) ? $rec['current_research_projects'] : []
+                ), static fn ($item) => $item !== '')),
                 'publications_url' => (string) ($rec['publications_url'] ?? ''),
             ];
             $index[$slug] = $slug;

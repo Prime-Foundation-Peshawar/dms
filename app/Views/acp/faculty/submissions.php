@@ -1,7 +1,7 @@
 <?= $this->extend('acp/layouts/main') ?>
 <?= $this->section('content') ?>
 <div class="acp-page-head">
-  <div><p>Faculty self-updates stay here until you approve them. Approving writes research topics, education, duties, photo, and the publications link onto the live profile.</p></div>
+  <div><p>Faculty self-updates stay here until you approve them. Approving writes research interests, current projects, education, responsibilities, photo, and the publications link onto the live profile.</p></div>
 </div>
 <div class="d-flex gap-2 flex-wrap mb-3">
   <?php foreach (['pending' => 'Pending', 'approved' => 'Approved', 'rejected' => 'Rejected', 'all' => 'All'] as $key => $label): ?>

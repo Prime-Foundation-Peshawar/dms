@@ -177,6 +177,34 @@ $avatarClass = match (true) {
         <?php endif; ?>
 
         <?php
+          $projects = [];
+          foreach ($EXTRA['current_research_projects'] ?? [] as $item) {
+              if (is_string($item) || is_numeric($item)) {
+                  $text = trim((string) $item);
+                  if ($text !== '') {
+                      $projects[] = $text;
+                  }
+              }
+          }
+          if ($projects):
+        ?>
+        <section class="fp-panel">
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-kanban"></i></span>
+            <div>
+              <h3>Current research projects</h3>
+              <p>Active project titles</p>
+            </div>
+          </div>
+          <ul class="fp-research-list">
+            <?php foreach ($projects as $item): ?>
+              <li><?= esc($item) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </section>
+        <?php endif; ?>
+
+        <?php
           $pubsUrl = trim((string) ($EXTRA['publications_url'] ?? ''));
           if ($pubsUrl !== '' && preg_match('#^https?://#i', $pubsUrl)):
         ?>

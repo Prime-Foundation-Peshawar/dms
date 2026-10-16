@@ -26,11 +26,18 @@
         <p><strong>Phone (office, not published):</strong> <?= esc($sub['contact_phone']) ?></p>
       <?php endif; ?>
 
-      <h3 class="h6 mt-3">Research topics</h3>
+      <h3 class="h6 mt-3">Research interests</h3>
       <?php if (empty($sub['research_preferences'])): ?>
         <p class="text-muted">None</p>
       <?php else: ?>
         <ul><?php foreach ($sub['research_preferences'] as $item): ?><li><?= esc((string) $item) ?></li><?php endforeach; ?></ul>
+      <?php endif; ?>
+
+      <h3 class="h6">Current research projects</h3>
+      <?php if (empty($sub['current_research_projects'])): ?>
+        <p class="text-muted">None</p>
+      <?php else: ?>
+        <ul><?php foreach ($sub['current_research_projects'] as $item): ?><li><?= esc((string) $item) ?></li><?php endforeach; ?></ul>
       <?php endif; ?>
 
       <h3 class="h6">Education</h3>

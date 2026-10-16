@@ -57,6 +57,9 @@ class FacultyReviewService
         if (! empty($sub['research_preferences'])) {
             $extra['research_preferences'] = array_values($sub['research_preferences']);
         }
+        if (! empty($sub['current_research_projects'])) {
+            $extra['current_research_projects'] = array_values($sub['current_research_projects']);
+        }
         if (trim((string) ($sub['publications_url'] ?? '')) !== '') {
             $extra['publications_url'] = (string) $sub['publications_url'];
         }

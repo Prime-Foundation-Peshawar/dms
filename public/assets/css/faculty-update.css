@@ -54,6 +54,16 @@
   color: #b91c1c;
   font-weight: 800;
 }
+.fu-optional {
+  color: #6b7280;
+  font-weight: 600;
+  font-size: .85em;
+}
+.fu-confidential {
+  color: #9a3412;
+  font-weight: 600;
+  font-size: .82em;
+}
 .fu-input,
 .fu-select,
 .fu-textarea,

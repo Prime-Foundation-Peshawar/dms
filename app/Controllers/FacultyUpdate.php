@@ -44,6 +44,7 @@ class FacultyUpdate extends BaseController
         $depName  = trim((string) $this->request->getPost('dep_name'));
         $phone    = trim((string) $this->request->getPost('contact_phone'));
         $research = $this->lines((string) $this->request->getPost('research_preferences'), 8);
+        $projects = $this->lines((string) $this->request->getPost('current_research_projects'), 12);
         $quals    = $this->lines((string) $this->request->getPost('qualifications'), 12);
         $skills   = $this->lines((string) $this->request->getPost('skills'), 12);
         $publicationsUrl = $this->cleanUrl((string) $this->request->getPost('publications_url'));
@@ -79,7 +80,8 @@ class FacultyUpdate extends BaseController
             'slug'                  => $slug,
             'des_title'             => $desTitle !== '' ? $desTitle : null,
             'dep_name'              => $depName !== '' ? $depName : null,
-            'research_preferences'  => json_encode($research, JSON_UNESCAPED_UNICODE),
+            'research_preferences'       => json_encode($research, JSON_UNESCAPED_UNICODE),
+            'current_research_projects'  => json_encode($projects, JSON_UNESCAPED_UNICODE),
             'publications_url'      => $publicationsUrl !== '' ? $publicationsUrl : null,
             'publications_file'     => $saved['publications_file'],
             'publications'          => '[]',
