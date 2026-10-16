@@ -181,6 +181,7 @@ $ld_graph = $ld_graph ?? [];
                   <div class="col-lg-4">
                     <div class="mega-col-head"><i class="bi bi-mortarboard-fill"></i> Apply</div>
                     <a class="mega-link" href="<?= site_url('admissions') ?>"><i class="bi bi-pencil-square"></i>Admissions Info</a>
+                    <a class="mega-link" href="<?= site_url('vacant-seats') ?>"><i class="bi bi-pencil-square"></i>Vacant Seats</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/Medical Final Prospectus 2025-26.pdf"
                       target="_blank"><i class="bi bi-file-pdf"></i>Prospectus 2025–26</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/PMC MBBS Prospectus 2024-25.pdf"
@@ -245,8 +246,8 @@ $ld_graph = $ld_graph ?? [];
                     <div class="mega-col-head"><i class="bi bi-flask"></i> Research</div>
                     <a class="mega-link" href="https://umr.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-search"></i>Undergraduate Medical Research (UMR)</a>
-                    <a class="mega-link" href="https://sws.prime.edu.pk/"><i class="bi bi-file-earmark-text"></i>Students
-                      Research</a>
+                    <!-- <a class="mega-link" href="https://sws.prime.edu.pk/"><i class="bi bi-file-earmark-text"></i>Students
+                      Research</a> -->
                     <a class="mega-link" href="<?= site_url('faculty-research') ?>"><i class="bi bi-people"></i>Faculty Research</a>
                     <a class="mega-link" href="https://oric.riphahpsh.edu.pk/" target="_blank"><i
                         class="bi bi-lightbulb"></i>ORIC</a>
@@ -273,7 +274,7 @@ $ld_graph = $ld_graph ?? [];
               </div>
             </div>
           </li>
-
+          <li class="nav-item"><a class="nav-link" href="<?= site_url('gallery') ?>">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="<?= site_url('contact') ?>">Contact</a></li>
         </ul>
       </div>
