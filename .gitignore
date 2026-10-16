@@ -30,6 +30,9 @@ Thumbs.db
 /data/faculty-submissions/*
 !/data/faculty-submissions/.htaccess
 !/data/faculty-submissions/.gitkeep
+/data/activity-submissions/*
+!/data/activity-submissions/.htaccess
+!/data/activity-submissions/.gitkeep
 # Keep migration SQL in db/changes
 *.sql
 !db/changes/
