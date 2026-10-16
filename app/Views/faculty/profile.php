@@ -177,6 +177,22 @@ $avatarClass = match (true) {
         <?php endif; ?>
 
         <?php
+          $pubsUrl = trim((string) ($EXTRA['publications_url'] ?? ''));
+          if ($pubsUrl !== '' && preg_match('#^https?://#i', $pubsUrl)):
+        ?>
+        <section class="fp-panel">
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-link-45deg"></i></span>
+            <div>
+              <h3>Publications list</h3>
+              <p>Link submitted by the faculty member</p>
+            </div>
+          </div>
+          <p><a href="<?= esc($pubsUrl) ?>" target="_blank" rel="noopener"><?= esc($pubsUrl) ?></a></p>
+        </section>
+        <?php endif; ?>
+
+        <?php
           $pub_sections = [
               ['Research papers', 'Main journal and conference papers from the college CV', $main_pubs ?: $pubs, true],
               ['Islamic and ethical articles', 'Writings listed after the main research papers', $other_pubs, false],

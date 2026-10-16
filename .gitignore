@@ -27,6 +27,9 @@ Thumbs.db
 .user.ini
 *.bak
 * copy.php
+/data/faculty-submissions/*
+!/data/faculty-submissions/.htaccess
+!/data/faculty-submissions/.gitkeep
 # Keep migration SQL in db/changes
 *.sql
 !db/changes/

@@ -17,7 +17,10 @@ $routes->get('department-activity', 'Departments::activity');
 $routes->get('faculty', 'Faculty::index');
 $routes->get('faculty-proxy', 'Faculty::proxy');
 $routes->get('faculty-profile', 'Faculty::profile');
+$routes->get('faculty-profiles-api', 'Faculty::profilesApi');
 $routes->get('faculty-all', 'Faculty::redirectAll');
+$routes->get('faculty-update', 'FacultyUpdate::index');
+$routes->post('faculty-update-submit', 'FacultyUpdate::submit');
 $routes->get('medical-education', 'PageController::redirectMedicalEducation');
 $routes->get('newsletter', 'PageController::redirectNewsletter');
 
@@ -87,6 +90,11 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->post('faculty/update/(:num)', 'Faculty::update/$1');
         $routes->post('faculty/delete/(:num)', 'Faculty::delete/$1');
         $routes->post('faculty/set-dept-source', 'Faculty::setDeptSource');
+        $routes->get('faculty/submissions', 'Faculty::submissions');
+        $routes->get('faculty/submissions/(:num)', 'Faculty::submission/$1');
+        $routes->post('faculty/submissions/(:num)/approve', 'Faculty::approve/$1');
+        $routes->post('faculty/submissions/(:num)/reject', 'Faculty::reject/$1');
+        $routes->get('faculty/submissions/(:num)/file/(:segment)', 'Faculty::downloadFile/$1/$2');
 
         $routes->get('gallery', 'Gallery::index');
         $routes->post('gallery/album-store', 'Gallery::storeAlbum');
