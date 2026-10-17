@@ -129,9 +129,11 @@
 </section>
 
 <?php
+helper('faculty');
 $faculty_cv_by_emp = $faculty_cv_by_emp ?? [];
 $faculty_photos = $faculty_photos ?? [];
 $faculty_profiles_url = dms_asset('assets/data/faculty-profiles.json');
+$faculty_excluded_slugs = array_keys(faculty_public_excluded_slugs());
 ?>
 <script>
 // Shared server directory (same source as departments.php faculty counts).
@@ -141,6 +143,8 @@ const FACULTY_PROFILES_URL = <?= json_encode($faculty_profiles_url, JSON_UNESCAP
 // CV / photo maps keyed by HRMS empId only (never by name).
 const CV_BY_EMP = <?= json_encode((object) $faculty_cv_by_emp, JSON_UNESCAPED_SLASHES) ?>;
 const FACULTY_PHOTOS = <?= json_encode((object) $faculty_photos, JSON_UNESCAPED_SLASHES) ?>;
+// Resigned / dual-appointed — never show or link from the public list.
+const EXCLUDED_SLUGS = <?= json_encode(array_values($faculty_excluded_slugs), JSON_UNESCAPED_SLASHES) ?>;
 
 const DEPT_CONFIG = {
   'Anatomy':                  { icon: 'bi-body-text',        order: 1  },
@@ -429,21 +433,37 @@ function empIdOf(mOrRec) {
   ).trim();
 }
 
+function isExcludedSlug(slugOrName) {
+  const s = facultySlug(slugOrName);
+  if (!s) return false;
+  return EXCLUDED_SLUGS.some(ex => ex === s || slugsMatch(s, ex));
+}
+
+function isPublicCvRec(rec) {
+  if (!rec) return false;
+  if (rec.public === false) return false;
+  if (isExcludedSlug(rec.slug) || isExcludedSlug(rec.name)) return false;
+  return true;
+}
+
 /** Resolve CV pack row by HRMS empId only (never by name). */
 function extraForMember(m) {
   const empId = empIdOf(m);
   if (!empId) return null;
   const idx = extraPack.index || {};
   const profiles = extraPack.profiles || {};
-  if (idx[empId] && profiles[idx[empId]]) return profiles[idx[empId]];
-  for (const rec of Object.values(profiles)) {
-    if (empIdOf(rec) === empId) return rec;
+  let rec = null;
+  if (idx[empId] && profiles[idx[empId]]) rec = profiles[idx[empId]];
+  if (!rec) {
+    for (const row of Object.values(profiles)) {
+      if (empIdOf(row) === empId) { rec = row; break; }
+    }
   }
-  return null;
+  return isPublicCvRec(rec) ? rec : null;
 }
 
 function hasWordProfile(extra) {
-  if (!extra) return false;
+  if (!extra || !isPublicCvRec(extra)) return false;
   if (!isFacultyRank(extra.designation)) return false;
   if (extra.photo) return true;
   return ['qualifications', 'experience', 'publications', 'skills']
@@ -459,7 +479,7 @@ function listHasProfile(rec) {
 function appendMissingCvFaculty() {
   const rows = extraPack.profiles ? Object.values(extraPack.profiles) : [];
   for (const rec of rows) {
-    if (!rec || !rec.name || !hasWordProfile(rec)) continue;
+    if (!rec || !rec.name || !isPublicCvRec(rec) || !hasWordProfile(rec)) continue;
     if (!isFacultyRank(rec.designation)) continue;
     if (listHasProfile(rec)) continue;
     allFaculty.push({
@@ -477,6 +497,9 @@ function appendMissingCvFaculty() {
 }
 
 function renderMemberRow(m) {
+  if (isExcludedSlug(m.empName)) {
+    return ''; // resigned / dual — omit from list
+  }
   const empId = empIdOf(m);
   const extra = extraForMember(m);
   const slug = (extra && extra.slug) || (empId && CV_BY_EMP[empId]) || '';
@@ -592,7 +615,8 @@ function clearAllFilters() {
       const profiles = extraPack.profiles || {};
       const index = extraPack.index || {};
       for (const [slug, rec] of Object.entries(profiles)) {
-        if (rec && isFacultyRank(rec.designation)) continue;
+        const keep = rec && isFacultyRank(rec.designation) && isPublicCvRec(rec);
+        if (keep) continue;
         delete profiles[slug];
         for (const [alias, target] of Object.entries(index)) {
           if (target === slug) delete index[alias];
@@ -635,6 +659,7 @@ function clearAllFilters() {
     return getDesigRank(a.desTitle) - getDesigRank(b.desTitle);
   });
   appendMissingCvFaculty();
+  allFaculty = allFaculty.filter(f => !isExcludedSlug(f.empName));
   allFaculty.forEach(f => {
     f.depName = canonicalDept(f.depName) || f.depName;
   });

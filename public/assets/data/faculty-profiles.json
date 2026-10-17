@@ -779,7 +779,8 @@
         "Effects of sleep quality on cardiovascular system, anxiety, and academic performance in medical and dental students in Peshawar, Pakistan. https://doi.org/10.53350/pjmhs22167724",
         "Treatment and prevention of anti-glomerular basement membrane disease: a tertiary care hospital study. https://doi.org/10.36347/sjams.2022.v10i09.003",
         "Physiological and biochemical effects of intermittent fasting on insulin sensitivity and glucose metabolism."
-      ]
+      ],
+      "public": false
     },
     "fatima-saadat": {
       "slug": "fatima-saadat",
@@ -5143,7 +5144,8 @@
         "ANATOMICAL BASIS AND ROLE OF TRANEXAMIC ACID IN PREVENTION OF SEROMA FORMATION AFTER VENTRAL HERNIOPLASTY: A COMPARATIVE CLINICAL STUDY ( Khan ZA, Salman M, Shah B, Saeeda, Mabood W, Jalal SZ. Anatomical Basis and Role of Tranexamic Acid in Prevention of Seroma Formation After Ventral Hernioplasty: A Comparative Clinical Study. \" CME J Ger Med, vol. 18, no. 6, 2026, pp. 509-514.)",
         "Obesity as a Predictor of Postoperative Complications Following General Surgical Procedures. Khan, S., Luqman, M., Khan, M. N., Afridi, U., Salman, M., & Mabood, W. (n.d.). Obesity as a predictor of postoperative complications following general surgical procedures. J Surg Radiol, V5 (4) 211-219"
       ],
-      "emp_id": "1614"
+      "emp_id": "1614",
+      "public": false
     }
   },
   "index": {
@@ -5494,7 +5496,6 @@
     "90": "faqir-muhammad-anwar",
     "1941": "aamir-zeb",
     "312": "shehnaz-parveen",
-    "waleed-mahboob": "waleed-mabood",
-    "1614": "waleed-mabood"
+    "waleed-mahboob": "waleed-mabood"
   }
 }
