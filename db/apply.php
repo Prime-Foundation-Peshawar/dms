@@ -269,19 +269,34 @@ foreach ($groups as $target => $items) {
             continue;
         }
         info("apply $base");
-        if (!$mysqli->multi_query($sql)) {
-            fail("$base failed: " . $mysqli->error);
-        }
-        do {
-            if ($res = $mysqli->store_result()) {
-                $res->free();
+        try {
+            if (!$mysqli->multi_query($sql)) {
+                fail("$base failed: " . $mysqli->error);
             }
+            do {
+                if ($res = $mysqli->store_result()) {
+                    $res->free();
+                }
+                if ($mysqli->errno) {
+                    fail("$base failed: " . $mysqli->error);
+                }
+            } while ($mysqli->more_results() && $mysqli->next_result());
             if ($mysqli->errno) {
                 fail("$base failed: " . $mysqli->error);
             }
-        } while ($mysqli->more_results() && $mysqli->next_result());
-        if ($mysqli->errno) {
-            fail("$base failed: " . $mysqli->error);
+        } catch (mysqli_sql_exception $e) {
+            // Drain any remaining multi_query results so the connection stays usable.
+            while ($mysqli->more_results() && $mysqli->next_result()) {
+                if ($res = $mysqli->store_result()) {
+                    $res->free();
+                }
+            }
+            $msg = $e->getMessage();
+            // Schema already present from an earlier partial apply — record and continue.
+            if (! preg_match('/Duplicate column name|Duplicate key name|already exists/i', $msg)) {
+                fail("$base failed: " . $msg);
+            }
+            info("tolerate $base ($msg)");
         }
         $ins = $mysqli->prepare('INSERT INTO `_sql_changes` (filename, checksum, applied_at) VALUES (?, ?, NOW())');
         if (!$ins) {
