@@ -1817,7 +1817,8 @@
       ],
       "experience": [],
       "skills": [],
-      "publications": []
+      "publications": [],
+      "emp_id": "90"
     },
     "farhat-r-malik": {
       "slug": "farhat-r-malik",
@@ -3449,7 +3450,8 @@
       "qualifications": [],
       "experience": [],
       "skills": [],
-      "publications": []
+      "publications": [],
+      "emp_id": "1941"
     },
     "zaheer-babar": {
       "slug": "zaheer-babar",
@@ -5485,6 +5487,8 @@
     "1068": "abdul-aziz-zia",
     "890": "munaza-khattak",
     "1373": "nasir-bakhtiar",
-    "1261": "sarah-yousuf"
+    "1261": "sarah-yousuf",
+    "90": "faqir-muhammad-anwar",
+    "1941": "aamir-zeb"
   }
 }
