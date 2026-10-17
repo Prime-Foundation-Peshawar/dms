@@ -97,8 +97,13 @@ class Faculty extends BaseController
         if (! $extra && ! $dirRow) {
             return redirect()->to(site_url('faculty'));
         }
+        $liveName = trim((string) ($dirRow['empName'] ?? ''));
+        $pageName = $liveName !== ''
+            ? $liveName
+            : (string) ((($extra ?? [])['name'] ?? '') ?: 'Faculty');
+
         return view('faculty/profile', [
-            'page_title' => ((($extra ?? [])['name'] ?? '') ?: ($dirRow['empName'] ?? 'Faculty')) . ' | Peshawar Medical College',
+            'page_title' => $pageName . ' | Peshawar Medical College',
             'page_description' => 'Faculty profile at Peshawar Medical College.',
             'canonical_url' => site_url('faculty-profile?n=' . rawurlencode($n)),
             'extra' => $extra,
@@ -113,20 +118,32 @@ class Faculty extends BaseController
         $profiles = [];
         $index = [];
         foreach (model(\App\Models\FacultyProfileModel::class)->publicRows() as $rec) {
-            if (! faculty_slug_is_public((string) ($rec['slug'] ?? '')) || ! faculty_slug_is_public((string) ($rec['name'] ?? ''))) {
+            if (! faculty_profile_is_public($rec)) {
                 continue;
             }
-            $slug = (string) $rec['slug'];
             $empId = trim((string) ($rec['emp_id'] ?? ''));
+            // Public list/profile CV pack is empId-keyed only (HRMS is source of name/designation).
+            if ($empId === '') {
+                continue;
+            }
+            $slug = trim((string) ($rec['slug'] ?? ''));
+            if ($slug === '') {
+                continue;
+            }
+            $photo = trim((string) ($rec['photo'] ?? ''));
+            if ($photo !== '' && ! preg_match('#^https?://#i', $photo)) {
+                $photo = base_url(ltrim($photo, '/'));
+            }
             $profiles[$slug] = [
                 'slug' => $slug,
                 'emp_id' => $empId,
-                'name' => (string) ($rec['name'] ?? ''),
-                'aliases' => array_values($rec['aliases'] ?? []),
-                'department' => (string) ($rec['department_name'] ?? ''),
-                'designation' => (string) ($rec['designation'] ?? ''),
+                // Display name/designation/department come from live HRMS on the client;
+                // these DB fields are kept only for ACP / fallback tooling.
                 'qualifications' => array_values($rec['qualifications'] ?? []),
+                'experience' => array_values($rec['experience'] ?? []),
                 'skills' => array_values($rec['skills'] ?? []),
+                'publications' => array_values($rec['publications'] ?? []),
+                'photo' => $photo,
                 'research_preferences' => faculty_research_preferences($rec),
                 'current_research_projects' => array_values(array_filter(array_map(
                     static fn ($item) => is_string($item) || is_numeric($item) ? trim((string) $item) : '',
@@ -134,17 +151,8 @@ class Faculty extends BaseController
                 ), static fn ($item) => $item !== '')),
                 'publications_url' => (string) ($rec['publications_url'] ?? ''),
             ];
+            $index[$empId] = $slug;
             $index[$slug] = $slug;
-            // Index by empId only for HRMS↔CV linking (never by name).
-            if ($empId !== '') {
-                $index[$empId] = $slug;
-            }
-            foreach ($rec['aliases'] ?? [] as $alias) {
-                $aliasSlug = faculty_slug((string) $alias);
-                if ($aliasSlug !== '') {
-                    $index[$aliasSlug] = $slug;
-                }
-            }
         }
 
         return $this->response->setJSON([

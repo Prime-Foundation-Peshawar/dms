@@ -145,6 +145,9 @@ if (! function_exists('faculty_profile_is_public')) {
         if (array_key_exists('public', $rec) && $rec['public'] === false) {
             return false;
         }
+        if (array_key_exists('is_public', $rec) && (int) $rec['is_public'] === 0) {
+            return false;
+        }
         $keys = array_merge([(string) ($rec['slug'] ?? '')], $rec['aliases'] ?? []);
         $keys[] = (string) ($rec['name'] ?? '');
         foreach ($keys as $key) {

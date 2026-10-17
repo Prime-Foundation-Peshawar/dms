@@ -95,53 +95,8 @@ class FacultyDirectoryService
             }
         }
 
-        foreach ($this->profiles->publicRows() as $rec) {
-            if (! $this->cvHasWordProfile($rec)) {
-                continue;
-            }
-            if (! faculty_is_directory_rank((string) ($rec['designation'] ?? 'Faculty'))) {
-                continue;
-            }
-            if (! faculty_slug_is_public((string) ($rec['name'] ?? '')) || ! faculty_slug_is_public((string) ($rec['slug'] ?? ''))) {
-                continue;
-            }
-            $profileEmpId = trim((string) ($rec['emp_id'] ?? ''));
-            if ($profileEmpId !== '' && isset($seenEmpIds[$profileEmpId])) {
-                continue; // already represented by HRMS row
-            }
-            // Profiles without emp_id are CV-only extras; skip if we cannot safely dedupe.
-            if ($profileEmpId === '') {
-                // Keep only when not already covered — no name matching against HRMS.
-                // (Unlinked profiles still appear until emp_id is set in ACP.)
-            }
-            $depName = faculty_live_dept_name((string) $rec['name'], (string) ($rec['department_name'] ?? ''));
-            if ($depName !== '' && ! $this->isPublicDept($depName)) {
-                continue;
-            }
-            $qual = $rec['qualifications'] ?? [];
-            if (is_string($qual)) {
-                $qualText = $qual;
-            } else {
-                $qualText = implode(', ', array_map('strval', $qual));
-            }
-            $out[] = [
-                'empId' => $profileEmpId,
-                'empName' => trim((string) $rec['name']),
-                'desTitle' => trim((string) ($rec['designation'] ?? 'Faculty')) ?: 'Faculty',
-                'depName' => $depName,
-                'hrmsDepName' => '',
-                'dept_override' => ! empty($rec['dept_override']),
-                'cv_only' => $profileEmpId === '',
-                'facPMDCNo' => '',
-                'facFacRegNo' => '',
-                'qualifications' => trim($qualText),
-                'photo' => (string) ($rec['photo'] ?? ''),
-                'profile_id' => (int) ($rec['id'] ?? 0) ?: null,
-            ];
-            if ($profileEmpId !== '') {
-                $seenEmpIds[$profileEmpId] = true;
-            }
-        }
+        // Do not append DB-only rows. Public directory is live HRMS only;
+        // photo/CV fields attach above by empId from faculty_profiles.
 
         $hasFurqan = false;
         foreach ($out as $row) {

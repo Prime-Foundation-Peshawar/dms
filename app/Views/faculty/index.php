@@ -132,11 +132,12 @@
 helper('faculty');
 $faculty_cv_by_emp = $faculty_cv_by_emp ?? [];
 $faculty_photos = $faculty_photos ?? [];
-$faculty_profiles_url = dms_asset('assets/data/faculty-profiles.json');
+// CV pack from DB (faculty-profiles-api), not the static JSON seed file.
+$faculty_profiles_url = site_url('faculty-profiles-api');
 $faculty_excluded_slugs = array_keys(faculty_public_excluded_slugs());
 ?>
 <script>
-// Shared server directory (same source as departments.php faculty counts).
+// Live HRMS directory (name, designation, dept, regs) + DB CV pack (photo/pubs/etc).
 const API_URL = <?= json_encode(site_url('faculty-proxy')) ?>;
 const DEBUG = new URLSearchParams(window.location.search).has('debug');
 const FACULTY_PROFILES_URL = <?= json_encode($faculty_profiles_url, JSON_UNESCAPED_SLASHES) ?>;
@@ -462,38 +463,20 @@ function extraForMember(m) {
   return isPublicCvRec(rec) ? rec : null;
 }
 
+/** DB CV content only — rank/name come from live HRMS list row. */
 function hasWordProfile(extra) {
   if (!extra || !isPublicCvRec(extra)) return false;
-  if (!isFacultyRank(extra.designation)) return false;
   if (extra.photo) return true;
   return ['qualifications', 'experience', 'publications', 'skills']
     .some(key => Array.isArray(extra[key]) && extra[key].length > 0);
 }
 
-function listHasProfile(rec) {
-  const eid = empIdOf(rec);
-  if (!eid) return false;
-  return allFaculty.some(f => empIdOf(f) === eid);
-}
-
-function appendMissingCvFaculty() {
-  const rows = extraPack.profiles ? Object.values(extraPack.profiles) : [];
-  for (const rec of rows) {
-    if (!rec || !rec.name || !isPublicCvRec(rec) || !hasWordProfile(rec)) continue;
-    if (!isFacultyRank(rec.designation)) continue;
-    if (listHasProfile(rec)) continue;
-    allFaculty.push({
-      empId: empIdOf(rec),
-      empName: rec.name,
-      desTitle: String(rec.designation || 'Faculty').split(/[\n;]/)[0].trim(),
-      depName: rec.department || '',
-      facPMDCNo: '',
-      facFacRegNo: '',
-      qualifications: Array.isArray(rec.qualifications)
-        ? rec.qualifications.join(', ')
-        : (rec.qualifications || ''),
-    });
+function dbQualification(extra) {
+  if (!extra) return '';
+  if (Array.isArray(extra.qualifications) && extra.qualifications.length) {
+    return extra.qualifications.join(', ');
   }
+  return String(extra.qualifications || '');
 }
 
 function renderMemberRow(m) {
@@ -504,9 +487,10 @@ function renderMemberRow(m) {
   const extra = extraForMember(m);
   const slug = (extra && extra.slug) || (empId && CV_BY_EMP[empId]) || '';
   const linked = !!slug && (hasWordProfile(extra) || !!(empId && CV_BY_EMP[empId]));
+  // Name + designation always from live HRMS row (m).
   const name = escapeHtml(getDisplayName(m));
   const desig = escapeHtml(m.desTitle || 'Faculty');
-  const qual = escapeHtml(getQualification(m) || '—');
+  const qual = escapeHtml(dbQualification(extra) || getQualification(m) || '—');
   const pmdc = escapeHtml(m.facPMDCNo || '—');
   const facReg = escapeHtml(m.facFacRegNo || '—');
   const initials = escapeHtml(getInitials(m));
@@ -615,7 +599,8 @@ function clearAllFilters() {
       const profiles = extraPack.profiles || {};
       const index = extraPack.index || {};
       for (const [slug, rec] of Object.entries(profiles)) {
-        const keep = rec && isFacultyRank(rec.designation) && isPublicCvRec(rec);
+        // Keep empId-linked CV packs only (no static JSON / no designation filter).
+        const keep = rec && empIdOf(rec) && isPublicCvRec(rec) && hasWordProfile(rec);
         if (keep) continue;
         delete profiles[slug];
         for (const [alias, target] of Object.entries(index)) {
@@ -658,7 +643,7 @@ function clearAllFilters() {
     if (deptDiff !== 0) return deptDiff;
     return getDesigRank(a.desTitle) - getDesigRank(b.desTitle);
   });
-  appendMissingCvFaculty();
+  // Directory is HRMS-only; CV fields come from DB via empId (no JSON / no CV-only rows).
   allFaculty = allFaculty.filter(f => !isExcludedSlug(f.empName));
   allFaculty.forEach(f => {
     f.depName = canonicalDept(f.depName) || f.depName;

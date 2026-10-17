@@ -6,7 +6,8 @@ $EXTRA = $extra ?? null;
 $DIRECTORY = $directory ?? null;
 $slug = $slug ?? '';
 
-$display_name = trim((string) ($EXTRA['name'] ?? $DIRECTORY['empName'] ?? 'Faculty Member'));
+// Live HRMS name wins; DB name is fallback for CV-only edge cases.
+$display_name = trim((string) ($DIRECTORY['empName'] ?? $EXTRA['name'] ?? 'Faculty Member'));
 $photoRel = trim((string) ($EXTRA['photo'] ?? ''));
 $photo = '';
 if ($photoRel !== '') {
