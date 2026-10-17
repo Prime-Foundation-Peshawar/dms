@@ -110,7 +110,7 @@ if (! function_exists('faculty_canonical_dept')) {
 }
 
 if (! function_exists('faculty_public_excluded_slugs')) {
-    /** Dual-appointed / PDC staff who must not appear on the DMS directory. */
+    /** Dual-appointed / PDC / resigned staff who must not appear on the DMS directory. */
     function faculty_public_excluded_slugs(): array
     {
         return [
@@ -127,6 +127,9 @@ if (! function_exists('faculty_public_excluded_slugs')) {
             'shahab-adil' => true,
             'zafar-ul-islam' => true,
             'muhammad-raza' => true,
+            'nasir-bakhtiar' => true,
+            // Resigned
+            'marina-hidayat' => true,
         ];
     }
 }
