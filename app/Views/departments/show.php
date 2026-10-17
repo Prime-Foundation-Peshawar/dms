@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <?php
 helper('faculty');
-$profileSvc = new \App\Services\FacultyProfileService();
+$profileModel = model(\App\Models\FacultyProfileModel::class);
 ?>
 <div class="page-hero dept-page-hero">
   <div class="page-hero-grid"></div>
@@ -51,10 +51,15 @@ $profileSvc = new \App\Services\FacultyProfileService();
           <div class="dept-faculty-grid">
             <?php foreach ($faculty as $member):
               $lookup = trim((string) ($member['empName'] ?? $member['name'] ?? ''));
-              $profile = $profileSvc->lookup($lookup);
+              $empId = trim((string) ($member['empId'] ?? ''));
+              // Link CV by HRMS empId only (never by name).
+              $profile = $empId !== '' ? $profileModel->findByEmpId($empId) : null;
+              if ($profile && ! faculty_profile_is_public($profile)) {
+                $profile = null;
+              }
               $isHod = !empty($dept['hod']) && faculty_slugs_match(faculty_slug($lookup), faculty_slug((string) $dept['hod']));
               $photo = $profile['photo'] ?? ($member['photo'] ?? '');
-              $parts = preg_split('/\s+/', (string) ($member['name'] ?? '')) ?: [];
+              $parts = preg_split('/\s+/', (string) ($member['name'] ?? $lookup)) ?: [];
               $initials = '';
               foreach ($parts as $part) {
                 if ($part === '' || in_array(strtolower($part), ['dr.', 'dr', 'prof.', 'professor', 'associate', 'assistant'], true)) continue;
@@ -64,13 +69,13 @@ $profileSvc = new \App\Services\FacultyProfileService();
               if ($initials === '') $initials = 'D';
             ?>
               <article class="dept-faculty-card<?= $isHod ? ' is-hod' : '' ?>">
-                <?php if ($profile): ?><a class="dept-faculty-link" href="<?= site_url('faculty-profile?n=' . rawurlencode($profile['slug'] ?? faculty_slug($lookup))) ?>"><?php endif; ?>
+                <?php if ($profile): ?><a class="dept-faculty-link" href="<?= site_url('faculty-profile?n=' . rawurlencode($profile['slug'] ?? '')) ?>"><?php endif; ?>
                 <div class="dept-faculty-avatar<?= $photo ? ' has-photo' : '' ?>">
                   <?php if ($photo): ?><img src="<?= esc(base_url(ltrim($photo, '/'))) ?>" alt=""><?php else: ?><?= esc($initials) ?><?php endif; ?>
                 </div>
                 <div class="dept-faculty-info">
                   <div class="dept-faculty-name-row">
-                    <h3><?= esc($member['name']) ?></h3>
+                    <h3><?= esc($member['name'] ?? $lookup) ?></h3>
                     <?php if ($isHod): ?><span class="dept-hod-badge"><i class="bi bi-award-fill"></i> Head of Department</span><?php endif; ?>
                   </div>
                   <p><?= esc($member['qualification'] ?? '') ?></p>

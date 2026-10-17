@@ -129,7 +129,7 @@
 </section>
 
 <?php
-$faculty_cv_slugs = $faculty_cv_slugs ?? [];
+$faculty_cv_by_emp = $faculty_cv_by_emp ?? [];
 $faculty_photos = $faculty_photos ?? [];
 $faculty_profiles_url = dms_asset('assets/data/faculty-profiles.json');
 ?>
@@ -138,7 +138,8 @@ $faculty_profiles_url = dms_asset('assets/data/faculty-profiles.json');
 const API_URL = <?= json_encode(site_url('faculty-proxy')) ?>;
 const DEBUG = new URLSearchParams(window.location.search).has('debug');
 const FACULTY_PROFILES_URL = <?= json_encode($faculty_profiles_url, JSON_UNESCAPED_SLASHES) ?>;
-const CV_SLUGS = <?= json_encode((object) $faculty_cv_slugs, JSON_UNESCAPED_SLASHES) ?>;
+// CV / photo maps keyed by HRMS empId only (never by name).
+const CV_BY_EMP = <?= json_encode((object) $faculty_cv_by_emp, JSON_UNESCAPED_SLASHES) ?>;
 const FACULTY_PHOTOS = <?= json_encode((object) $faculty_photos, JSON_UNESCAPED_SLASHES) ?>;
 
 const DEPT_CONFIG = {
@@ -422,17 +423,21 @@ function slugsMatch(a, b) {
   return true;
 }
 
-function extraFor(name) {
-  const s = facultySlug(name);
-  const tries = [s];
-  if (extraPack.index && extraPack.index[s]) tries.push(extraPack.index[s]);
-  for (const key of tries) {
-    if (extraPack.profiles && extraPack.profiles[key]) return extraPack.profiles[key];
-  }
-  const rows = extraPack.profiles ? Object.values(extraPack.profiles) : [];
-  for (const rec of rows) {
-    const keys = [rec.slug, rec.name, ...(rec.aliases || [])].filter(Boolean);
-    if (keys.some(k => slugsMatch(s, facultySlug(k)) || slugsMatch(s, k))) return rec;
+function empIdOf(mOrRec) {
+  return String(
+    (mOrRec && (mOrRec.empId ?? mOrRec.emp_id ?? mOrRec.empID ?? mOrRec.EmpID)) || ''
+  ).trim();
+}
+
+/** Resolve CV pack row by HRMS empId only (never by name). */
+function extraForMember(m) {
+  const empId = empIdOf(m);
+  if (!empId) return null;
+  const idx = extraPack.index || {};
+  const profiles = extraPack.profiles || {};
+  if (idx[empId] && profiles[idx[empId]]) return profiles[idx[empId]];
+  for (const rec of Object.values(profiles)) {
+    if (empIdOf(rec) === empId) return rec;
   }
   return null;
 }
@@ -446,11 +451,9 @@ function hasWordProfile(extra) {
 }
 
 function listHasProfile(rec) {
-  const keys = [rec.slug, ...(rec.aliases || [])].filter(Boolean);
-  return allFaculty.some(f => {
-    const s = facultySlug(f.empName);
-    return keys.some(k => slugsMatch(s, k));
-  });
+  const eid = empIdOf(rec);
+  if (!eid) return false;
+  return allFaculty.some(f => empIdOf(f) === eid);
 }
 
 function appendMissingCvFaculty() {
@@ -460,6 +463,7 @@ function appendMissingCvFaculty() {
     if (!isFacultyRank(rec.designation)) continue;
     if (listHasProfile(rec)) continue;
     allFaculty.push({
+      empId: empIdOf(rec),
       empName: rec.name,
       desTitle: String(rec.designation || 'Faculty').split(/[\n;]/)[0].trim(),
       depName: rec.department || '',
@@ -473,10 +477,10 @@ function appendMissingCvFaculty() {
 }
 
 function renderMemberRow(m) {
-  const extra = extraFor(m.empName);
-  const nameSlug = facultySlug(m.empName);
-  const slug = (extra && extra.slug) || CV_SLUGS[nameSlug] || nameSlug;
-  const linked = hasWordProfile(extra) || !!CV_SLUGS[nameSlug];
+  const empId = empIdOf(m);
+  const extra = extraForMember(m);
+  const slug = (extra && extra.slug) || (empId && CV_BY_EMP[empId]) || '';
+  const linked = !!slug && (hasWordProfile(extra) || !!(empId && CV_BY_EMP[empId]));
   const name = escapeHtml(getDisplayName(m));
   const desig = escapeHtml(m.desTitle || 'Faculty');
   const qual = escapeHtml(getQualification(m) || '—');
@@ -484,8 +488,7 @@ function renderMemberRow(m) {
   const facReg = escapeHtml(m.facFacRegNo || '—');
   const initials = escapeHtml(getInitials(m));
   const avatarClass = getAvatarClass(m.desTitle);
-  const photo = FACULTY_PHOTOS[nameSlug]
-    || (extra && extra.slug && FACULTY_PHOTOS[extra.slug])
+  const photo = (empId && FACULTY_PHOTOS[empId])
     || (extra && extra.photo)
     || '';
   const avatar = photo
