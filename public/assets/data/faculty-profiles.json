@@ -2865,7 +2865,8 @@
       ],
       "experience": [],
       "skills": [],
-      "publications": []
+      "publications": [],
+      "emp_id": "312"
     },
     "bilal-ahmad": {
       "slug": "bilal-ahmad",
@@ -5489,6 +5490,7 @@
     "1373": "nasir-bakhtiar",
     "1261": "sarah-yousuf",
     "90": "faqir-muhammad-anwar",
-    "1941": "aamir-zeb"
+    "1941": "aamir-zeb",
+    "312": "shehnaz-parveen"
   }
 }
