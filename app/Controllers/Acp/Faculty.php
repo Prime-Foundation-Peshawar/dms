@@ -2,8 +2,10 @@
 
 namespace App\Controllers\Acp;
 
+use App\Libraries\FacultyReviewService;
 use App\Models\DepartmentModel;
 use App\Models\FacultyProfileModel;
+use App\Models\FacultySubmissionModel;
 
 class Faculty extends BaseAcpController
 {
@@ -255,6 +257,90 @@ class Faculty extends BaseAcpController
         }
 
         return implode("\n", array_filter($lines, static fn ($l) => trim($l) !== ''));
+    }
+
+    public function submissions()
+    {
+        $status = (string) ($this->request->getGet('status') ?? 'pending');
+        if (! in_array($status, ['pending', 'approved', 'rejected', 'all'], true)) {
+            $status = 'pending';
+        }
+        $subs = model(FacultySubmissionModel::class);
+        $subs->ensureTable();
+
+        return $this->acpView('faculty/submissions', [
+            'title'  => 'Faculty submissions',
+            'status' => $status,
+            'rows'   => $subs->listByStatus($status, 200),
+            'counts' => [
+                'pending'  => $subs->countByStatus('pending'),
+                'approved' => $subs->countByStatus('approved'),
+                'rejected' => $subs->countByStatus('rejected'),
+                'all'      => (new FacultySubmissionModel())->countAllResults(),
+            ],
+        ]);
+    }
+
+    public function submission(int $id)
+    {
+        helper('faculty');
+        $sub = model(FacultySubmissionModel::class)->findNormalized($id);
+        if (! $sub) {
+            return redirect()->to(site_url('acp/faculty/submissions'))->with('error', 'Submission not found.');
+        }
+        $existing = model(FacultyProfileModel::class)->findBySlugOrAlias((string) ($sub['slug'] ?? ''));
+
+        return $this->acpView('faculty/submission_detail', [
+            'title'    => 'Review submission',
+            'sub'      => $sub,
+            'existing' => $existing,
+        ]);
+    }
+
+    public function approve(int $id)
+    {
+        $note   = trim((string) $this->request->getPost('review_note'));
+        $result = (new FacultyReviewService())->approve($id, (int) session('acp_user_id'), $note);
+        if (empty($result['ok'])) {
+            return redirect()->to(site_url('acp/faculty/submissions/' . $id))
+                ->with('error', $result['error'] ?? 'Approve failed.');
+        }
+
+        return redirect()->to(site_url('acp/faculty/submissions'))
+            ->with('success', 'Submission approved and applied to the live profile.');
+    }
+
+    public function reject(int $id)
+    {
+        $note   = trim((string) $this->request->getPost('review_note'));
+        $result = (new FacultyReviewService())->reject($id, (int) session('acp_user_id'), $note);
+        if (empty($result['ok'])) {
+            return redirect()->to(site_url('acp/faculty/submissions/' . $id))
+                ->with('error', $result['error'] ?? 'Reject failed.');
+        }
+
+        return redirect()->to(site_url('acp/faculty/submissions'))
+            ->with('success', 'Submission rejected.');
+    }
+
+    public function downloadFile(int $id, string $type)
+    {
+        $sub = model(FacultySubmissionModel::class)->findNormalized($id);
+        if (! $sub || ! in_array($type, ['photo', 'publications'], true)) {
+            return $this->response->setStatusCode(404)->setBody('Not found');
+        }
+
+        $rel = $type === 'photo' ? (string) ($sub['photo'] ?? '') : (string) ($sub['publications_file'] ?? '');
+        if ($rel === '' || str_contains($rel, '..') || str_contains($rel, '\\')) {
+            return $this->response->setStatusCode(404)->setBody('File missing');
+        }
+
+        $path = ROOTPATH . 'data/faculty-submissions/' . ltrim($rel, '/');
+        if (! is_file($path)) {
+            return $this->response->setStatusCode(404)->setBody('File missing');
+        }
+
+        return $this->response->download($path, null);
     }
 
 }

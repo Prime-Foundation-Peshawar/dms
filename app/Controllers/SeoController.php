@@ -12,7 +12,7 @@ class SeoController extends BaseController
         $isStaging = str_contains($host, 'staging');
         $body = $isStaging
             ? "User-agent: *\nDisallow: /\n"
-            : "User-agent: *\nAllow: /\nSitemap: " . site_url('sitemap.xml') . "\n";
+            : "User-agent: *\nAllow: /\nDisallow: /faculty-update\nDisallow: /faculty-update-submit\nDisallow: /faculty-profiles-api\nSitemap: " . site_url('sitemap.xml') . "\n";
         return $this->response->setContentType('text/plain')->setBody($body);
     }
 

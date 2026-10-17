@@ -7,6 +7,7 @@
       <i class="bi bi-search"></i>
       <input class="form-control form-control-sm" type="search" placeholder="Filter…" data-acp-filter="#facultyTable">
     </div>
+    <a class="btn-acp btn-acp-outline" href="<?= site_url('acp/faculty/submissions') ?>"><i class="bi bi-inbox"></i> Review updates</a>
     <a class="btn-acp btn-acp-primary" href="<?= site_url('acp/faculty/create') ?>"><i class="bi bi-plus-lg"></i> New profile</a>
   </div>
 </div>

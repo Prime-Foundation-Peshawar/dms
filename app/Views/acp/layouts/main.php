@@ -28,6 +28,7 @@ $navGroups = [
     'Catalog' => [
         ['Departments', 'acp/departments', 'bi-building'],
         ['Faculty', 'acp/faculty', 'bi-people'],
+        ['Submissions', 'acp/faculty/submissions', 'bi-inbox'],
     ],
     'System' => [
         ['Settings', 'acp/settings', 'bi-gear'],
@@ -46,7 +47,8 @@ $navGroups = [
       <?php foreach ($items as [$label, $path, $icon]): ?>
         <?php
           $active = ($path === 'acp' && ($uri === 'acp' || $uri === 'acp/'))
-              || ($path !== 'acp' && str_starts_with($uri, $path));
+              || ($path === 'acp/faculty' && str_starts_with($uri, 'acp/faculty') && ! str_starts_with($uri, 'acp/faculty/submissions'))
+              || ($path !== 'acp' && $path !== 'acp/faculty' && str_starts_with($uri, $path));
         ?>
         <a href="<?= site_url($path) ?>" class="acp-nav <?= $active ? 'active' : '' ?>">
           <i class="bi <?= $icon ?>"></i><?= esc($label) ?>

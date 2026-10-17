@@ -118,4 +118,48 @@ class Faculty extends BaseController
             'slug' => faculty_slug($n),
         ]);
     }
+
+    public function profilesApi()
+    {
+        helper('faculty');
+        $profiles = [];
+        $index = [];
+        foreach (model(\App\Models\FacultyProfileModel::class)->publicRows() as $rec) {
+            if (! faculty_slug_is_public((string) ($rec['slug'] ?? '')) || ! faculty_slug_is_public((string) ($rec['name'] ?? ''))) {
+                continue;
+            }
+            $slug = (string) $rec['slug'];
+            $profiles[$slug] = [
+                'slug' => $slug,
+                'name' => (string) ($rec['name'] ?? ''),
+                'aliases' => array_values($rec['aliases'] ?? []),
+                'department' => (string) ($rec['department_name'] ?? ''),
+                'designation' => (string) ($rec['designation'] ?? ''),
+                'qualifications' => array_values($rec['qualifications'] ?? []),
+                'skills' => array_values($rec['skills'] ?? []),
+                'research_preferences' => faculty_research_preferences($rec),
+                'current_research_projects' => array_values(array_filter(array_map(
+                    static fn ($item) => is_string($item) || is_numeric($item) ? trim((string) $item) : '',
+                    is_array($rec['current_research_projects'] ?? null) ? $rec['current_research_projects'] : []
+                ), static fn ($item) => $item !== '')),
+                'publications_url' => (string) ($rec['publications_url'] ?? ''),
+            ];
+            $index[$slug] = $slug;
+            foreach ($rec['aliases'] ?? [] as $alias) {
+                $aliasSlug = faculty_slug((string) $alias);
+                if ($aliasSlug !== '') {
+                    $index[$aliasSlug] = $slug;
+                }
+            }
+            $nameSlug = faculty_slug((string) ($rec['name'] ?? ''));
+            if ($nameSlug !== '') {
+                $index[$nameSlug] = $slug;
+            }
+        }
+
+        return $this->response->setJSON([
+            'profiles' => $profiles,
+            'index' => $index,
+        ]);
+    }
 }

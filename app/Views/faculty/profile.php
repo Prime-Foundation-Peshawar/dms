@@ -177,6 +177,50 @@ $avatarClass = match (true) {
         <?php endif; ?>
 
         <?php
+          $projects = [];
+          foreach ($EXTRA['current_research_projects'] ?? [] as $item) {
+              if (is_string($item) || is_numeric($item)) {
+                  $text = trim((string) $item);
+                  if ($text !== '') {
+                      $projects[] = $text;
+                  }
+              }
+          }
+          if ($projects):
+        ?>
+        <section class="fp-panel">
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-kanban"></i></span>
+            <div>
+              <h3>Current research projects</h3>
+              <p>Active project titles</p>
+            </div>
+          </div>
+          <ul class="fp-research-list">
+            <?php foreach ($projects as $item): ?>
+              <li><?= esc($item) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </section>
+        <?php endif; ?>
+
+        <?php
+          $pubsUrl = trim((string) ($EXTRA['publications_url'] ?? ''));
+          if ($pubsUrl !== '' && preg_match('#^https?://#i', $pubsUrl)):
+        ?>
+        <section class="fp-panel">
+          <div class="fp-panel-head">
+            <span class="fp-panel-ico"><i class="bi bi-link-45deg"></i></span>
+            <div>
+              <h3>Publications list</h3>
+              <p>Link submitted by the faculty member</p>
+            </div>
+          </div>
+          <p><a href="<?= esc($pubsUrl) ?>" target="_blank" rel="noopener"><?= esc($pubsUrl) ?></a></p>
+        </section>
+        <?php endif; ?>
+
+        <?php
           $pub_sections = [
               ['Research papers', 'Main journal and conference papers from the college CV', $main_pubs ?: $pubs, true],
               ['Islamic and ethical articles', 'Writings listed after the main research papers', $other_pubs, false],
