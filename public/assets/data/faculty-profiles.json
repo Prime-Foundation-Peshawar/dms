@@ -1,5 +1,5 @@
 {
-  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry, and Endocrinology); Anatomy departmental template Oct 2026 (Senior Registrar and above); missing SR+ faculty from departmental templates in D:\\New folder (Oct 2026). ENT and Gynae KTH departmental Word templates Oct 2026.",
+  "source": "Departmental data templates received Aug 2026 (Pathology, Pharmacology, Physiology, Psychiatry, and Endocrinology); Anatomy departmental template Oct 2026 (Senior Registrar and above); missing SR+ faculty from departmental templates in D:\\New folder (Oct 2026). ENT and Gynae KTH departmental Word templates Oct 2026. Radiology CV for Abdul Aziz Zia (Oct 2026).",
   "profiles": {
     "fozia-rauf": {
       "slug": "fozia-rauf",
@@ -4974,6 +4974,38 @@
         "Comparison of oxytocin and prostaglandin E2 for induction of labour in patients with pre labour rupture membrane PJMHS VOL:6 NO 1 JAN-MARCH 2012"
       ],
       "photo": ""
+    },
+    "abdul-aziz-zia": {
+      "slug": "abdul-aziz-zia",
+      "aliases": [
+        "abdul-aziz-zia",
+        "abdul-aziz",
+        "aziz-zia"
+      ],
+      "name": "Abdul Aziz Zia",
+      "department": "Radiology",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/abdul-aziz-zia.jpg",
+      "qualifications": [
+        "MBBS",
+        "DMRD"
+      ],
+      "experience": [
+        "36 years"
+      ],
+      "skills": [
+        "Administration",
+        "Ultrasound"
+      ],
+      "publications": [
+        "Comparison of image findings with histopathological diagnosis on ultrasound guided percutaneous liver biopsy in relation to hepatocellular carcinoma. KMUH Khyber Medical University. https://www.kmuj.kmu.edu.pk/article/view/18102",
+        "Average kidney size in local pediatric population by ultrasonography. Medical Forum Monthly. DOI: 10.60110/medforum.360504. https://medicalforummonthly.com/index.php/mfm/article/view/5276/4747",
+        "Integrated Radiologic and Intraoperative Assessment of Gallbladder Carcinoma: Evaluating the Role of Multidetector CT in T and N Staging. International Journal of Pharmacy Research and Technology. https://ijprt.org/index.php/pub/article/view/2995",
+        "CT Detection of Subarachnoid Hemorrhage Correlated with Clinical Severity Using Hunt and Hess Grading. Pakistan Journal of Neurological Surgery (PJNS).",
+        "Assessment of endometrial thickness and vascularity by transvaginal Doppler ultrasound and their relationship with endometrial microbial infection in reproductive-aged women with subclinical hypothyroidism: a comparative study. Genetics and Molecular Research (GMR). https://geneticsmr.com/index.php/gmr/article/view/2158"
+      ],
+      "emp_id": "1068"
     }
   },
   "index": {
@@ -5183,6 +5215,9 @@
     "attiya-ur-razaq": "tehniyat-attiya-ur-razaq",
     "robina-qadeer": "robina-qadeer",
     "afrah-aman": "afrah-aman",
-    "shamim-akhtar": "shamim-akhtar"
+    "shamim-akhtar": "shamim-akhtar",
+    "abdul-aziz-zia": "abdul-aziz-zia",
+    "abdul-aziz": "abdul-aziz-zia",
+    "aziz-zia": "abdul-aziz-zia"
   }
 }
