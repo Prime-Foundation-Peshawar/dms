@@ -4350,68 +4350,6 @@
       ],
       "emp_id": "1149"
     },
-    "waleed-mahbood": {
-      "slug": "waleed-mahbood",
-      "aliases": [
-        "waleed-mahbood",
-        "waleed-mabood"
-      ],
-      "name": "Waleed Mahbood",
-      "department": "Surgery",
-      "designation": "Assistant Professor",
-      "hod": false,
-      "photo": "assets/images/faculty/waleed-mahbood.jpeg",
-      "qualifications": [
-        "MBBS",
-        "FCPS",
-        "MRCS (UK)",
-        "FACS (USA)",
-        "CHPE",
-        "CHR",
-        "ATLS"
-      ],
-      "experience": [
-        "Assistant Professor General Surgery, Mercy Teaching Hospital, Peshawar (Oct 2025 - Present)"
-      ],
-      "skills": [
-        "Open Surgery",
-        "Minimally Invasive Surgery",
-        "Perioperative Care",
-        "Bariatric & Metabolic Surgery",
-        "Endocrine Surgery",
-        "Team leadership, OR management, and teaching residents",
-        "Evidence-based practice and adherence to surgical safety protocols"
-      ],
-      "publications": [
-        "EFFICACY OF PYODINE AND HYDROCOLLOID DRESSING IN DIABETIC FOOT INFECTIONS (Naeem M, Saeed T, Mabood W, Ahmad M, Waheed R. EFFICACY OF PYODINE AND HYDROCOLLOID DRESSING IN DIABETIC FOOT INFECTIONS. Journal Of Medical Sciences. 2019 Oct 7;27 (3):181-4.)",
-        "XANTHOGRANULOMATOUS CHOLECYSTITIS: A PSEUDO TUMOR SIMULATING GALLBLADDER CARCINOMA (Mabood W, Arshad W. XANTHOGRANULOMATOUS CHOLECYSTITIS: A PSEUDO TUMOR SIMULATING GALLBLADDER CARCINOMA. Journal Of Medical Sciences. 2019 Oct 7;27(3):239-41.)",
-        "PILONIDAL DISEASE: THE CHANGING TREND IN INCIDENCE BASED ON OCCUPATION (Naeem M, Mabood W, Imran M, Khattak I, Ahmad M. Pilonidal disease: The changing trend in incidence based on occupation. Pak. J. Surg. 2019;35(4):301-5. )",
-        "CLINICAL AND RESEARCH LABORATORIES IN PESHAWAR CITY OF KP PROVINCE: ANALYSIS OF BIO-SECURITY MEASURES PREDICTS INSECURITY (Asghar M, Asghar N, Rehman N, Naeem M, Khalid S, Samad A, Shumail H, Mabood W. Clinical and research laboratories in Peshawar city of KP Province: Analysis of bio-security measures predicts insecurity. Pak J Surg. 2019;35(4):306-10.)",
-        "CLINICAL PATTERNS OF BACTERIAL AND FUNGAL INFECTIONS IN DIABETIC PATIENTS (Rehman WM. Clinical patterns of bacterial and fungal infections in diabetic patients. Pak J Surg. 2019;35(4):275-77.)",
-        "PILONIDAL SINUS EXCISION UNDER LOCAL ANESTHESIA: A DAY CASE EXPERIENCE (Naeem M, Mabood W, Imran M, Waheed R, Ali S. PILONIDAL SINUS DISEASE EXCISION UNDER LOCAL ANESTHESIA: A DAY CASE EXPERIENCE. Journal Of Medical Sciences. 2020 Apr 21;28(1):21-4.)",
-        "MINI LAPAROTOMY CHOLECYSTECTOMY; MUSCLE SPLITTING VS MUSCLE DIVIDING INCISION; A RANDOMIZED STUDY (Naeem M, Mabood W, Waheed MR, Khattak IA, Mabood J, Urooj H. Mini Laparotomy Cholecystectomy; Muscle Splitting vs Muscle dividing Incision; A randomized study. J Med Sci 2020 April;28(2):181-184)",
-        "ABDOMINAL TUBERCULOSIS; CHALLENGES IMPOSED ON SURGEONS OWING TO IT’S VARIABLE PRESENTATIONS (Mabood W, Khattak IA, Arshad W, Mabood J, Nasarullah HM. Abdominal tuberculosis; Challenges imposed on surgeons owing to its variable presentations. Pak J Surg. 2020;36(4):286-91.)",
-        "Published as a hospital lead and collaborative author in “Journal of Associations of Anaesthesia” titled “TIMING OF SURGERY FOLLOWING SARS- COV-2 INFECTION: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111/anae.15458)",
-        "Published as a hospital lead and collaborative author in “British Journal of Surgery” titled “SARS-COV-2 VACCINATION MODELLING FOR SAFE SURGERY TO SAVE LIVES: DATA FROM AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (DOI: 10.1093/bjs/znab101)",
-        "THE PATTERN OF COMPLICATIONS OF OPEN VS LAPAROSCOPIC CHOLECYSTECTOMY; A COMPARATIVE STUDY (Naeem M, Mabood W, Ali S, Khattak IA, Arshad W; The pattern of complications of open vs laparoscopic cholecystectomy. J Khyber Coll Dentistry. 2020;(4):44-48. )",
-        "THE IMPACT OF PANDEMICS ON SURGICAL RESIDENCY PROGRAM; A SURVEY IN TERTIARY CARE HOSPITALS OF PESHAWAR, PAKISTAN (Ali S, Ahmed F, Mabood W, Rehman FU. The impact of Pandemics on surgical residency Program; A survey in tertiary care hospitals of Peshawar, Pakistan. J Med Sci 2021 April;29(2):79-83 )",
-        "Published as hospital lead and collaborative author in “ Journal of Associations of Anaesthesia” titled “ EFFECTS OF PRE-OPERATIVE ISOLATION ON POSTOPERATIVE PULMONARY COMPLICATIONS AFTER ELECTIVE SURGERY: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111/anae.15560)",
-        "RIPASA SCORE; IT’S SENSITIVITY, SPECIFICITY IN DIAGNOSING SUSPECTED ACUTE APPENDICITIS ( Khattak IA, Mabood W, Naeem M, Ali S, Khattak MAK Ripasa score;it’s sensitivity, specificity in diagnosing suspected acute appendicitis. J Saidu Med Coll Swat. 2021;11(3):151-6 )",
-        "Published as hospital lead and collaborative author in “ Journal of Associations of Anaesthesia” titled “SARS-COV-2 INFECTION AND VENOUS THROMBOEMBOLISM AFTER SURGERY: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111/anae.15563)",
-        "COMPARISON OF DRAIN VS NO-DRAIN STRATEGY IN TOTAL THYROIDECTOMY (W Mabood, S Afridi, A Hamza, I Azeem, S Khalil. Comparison of drain vs no-drain strategy in total thyroidectomy. Pak J Surg. 2022; 38(2):76-81)",
-        "DIAGNOSTIC ACCURACY OF ALVARADO AND APPENDICITIS INFLAMMATORY RESPONSE SCORE IN THE DIAGNOSIS OF ACUTE APPENDICITIS ( Paracha SA, Khattak IA, Mabood W, Afridi MKK, Saidal K, Jabeen M. Diagnostic Accuracy of Alvarado and Appendicitis Inflammatory Response Score in the Diagnosis of Acute Appendicitis. Med Forum 2022;33(8):44-48)",
-        "Published as collaborative author in LANCET titled “ELECTIVE SURGERY SYSTEM STRENGTHENING: DEVELOPMENT, MEASUREMENT, AND VALIDATION OF THE SURGICAL PREPAREDNESS INDEX ACROSS 1632 HOSPITALS IN 119 COUNTRIES” (DOI:https://doi.org/10.1016/S0140-6736(22)01846-3)",
-        "Published as a hospital lead and collaborative author in “British Journal of Surgery” titled “REDUCING THE ENVIRONMENTAL IMPACT OF SURGERY ON A GLOBAL SCALE: SYSTEMATIC REVIEW AND CO-PRIORITIZATION WITH HEALTHCARE WORKERS IN 132 COUNTRIES” ( https://doi.org/10.1093/bjs/znad092)",
-        "COMPARISON OF POSTOPERATIVE PAIN IN DESARDA VS LICHTENSTEIN MESH REPAIR IN THE TREATMENT OF INGUINAL HERNIAS (Ullah K, Ahmad S, Azeem SMI, Mabood W, Rahman SS, Bakhtiar N. Comparison of postoperative pain in desarda versus Lichtenstein mesh repair in the treatment of inguinal hernias. Gomal J Med Sci 2023 Oct-Dec;21(4):245-9. https://doi.org/1046903/gjms/21.04.1331)",
-        "Published as a hospital lead and collaborative author in LANCET titled “Access to and quality of elective care: a prospective cohort study using hernia surgery as a tracer condition in 83 countries” (https://doi.org/10.1016/ S2214-109X(24)00142-6)",
-        "DIAGNOSTIC ACCURACY OF FINE NEEDLE ASPIRATION CYTOLOGY IN PALPABLE BREAST LUMP TAKING HISTOPATHOLOGY AS GOLD STANDARD ( Ghazan S, Khan israr M, Ahmed Khattak I, Mabood W, Hussain N, Ghani A. Diagnostic Accuracy Of Fine Needle Aspiration Cytology In Palpable Breast Lump Taking Histopathology As Gold Standard. BMC J Med Sci. 2024;5(2):78-82.https://doi.org/10.70905/bmcj.05.02.0426)",
-        "THE PREVALENCE OF POST-OPERATIVE SEROMA FORMATION AFTER VENTRAL HERNIA REPAIR IN PATIENTS USING ABDOMINAL BINDER VERSUS NOT USING ABDOMINAL-BINDER (S Ahmad, SMI Azeem, KaleemUllah,W Mabood, SS Rehman, U Ullah.The Prevalence Of Post-Operative Seroma Formation After Ventral Hernia Repair In Patients Using Abdominal Binder Versus Not Using Abdominal-Binder . Pak J Surg. 2024; 40(1):64-67)",
-        "PREDICTORS AND EARLY OUTCOMES OF SURGICAL SITE INFECTIONS AFTER STOMA REVERSAL: A SECONDARY CARE HOSPITAL EXPERIENCE (Khattak IA, Paracha SA, Khan MI, Alam SI, Mabood W, Afridi MK. Predictors and early outcomes of surgical site infections after stoma reversal: a secondary care hospital experience. Gomal J Med Sci 2025 Jul-Sep;23(3):337-42. https://doi.org/1046903/gjms/23.3.2018)",
-        "ASSESSMENT OF LONG-TERM CLINICAL OUTCOMES FOLLOWING LASER PROCTOLOGY AND CONVENTIONAL HEMORRHOIDECTOMY (Khan, M. N., Mabood, W., Rashed, M., Hussain, Y., Salman, M, & Saeeda. Assessment of longterm clinical outcomes following laser proctology and conventional hemorrhoidectomy. European Journal of Clinical Pharmacy. 2025. 7(1) 9241-9248)",
-        "ANATOMICAL BASIS AND ROLE OF TRANEXAMIC ACID IN PREVENTION OF SEROMA FORMATION AFTER VENTRAL HERNIOPLASTY: A COMPARATIVE CLINICAL STUDY ( Khan ZA, Salman M, Shah B, Saeeda, Mabood W, Jalal SZ. Anatomical Basis and Role of Tranexamic Acid in Prevention of Seroma Formation After Ventral Hernioplasty: A Comparative Clinical Study. \" CME J Ger Med, vol. 18, no. 6, 2026, pp. 509-514.)",
-        "Obesity as a Predictor of Postoperative Complications Following General Surgical Procedures. Khan, S., Luqman, M., Khan, M. N., Afridi, U., Salman, M., & Mabood, W. (n.d.). Obesity as a predictor of postoperative complications following general surgical procedures. J Surg Radiol, V5 (4) 211-219"
-      ]
-    },
     "izhar-ali": {
       "slug": "izhar-ali",
       "aliases": [
@@ -5142,6 +5080,69 @@
         "Assessment of endometrial thickness and vascularity by transvaginal Doppler ultrasound and their relationship with endometrial microbial infection in reproductive-aged women with subclinical hypothyroidism: a comparative study. Genetics and Molecular Research (GMR). https://geneticsmr.com/index.php/gmr/article/view/2158"
       ],
       "emp_id": "1068"
+    },
+    "waleed-mabood": {
+      "slug": "waleed-mabood",
+      "aliases": [
+        "waleed-mahbood",
+        "waleed-mabood",
+        "waleed-mahboob"
+      ],
+      "name": "Waleed Mabood",
+      "department": "Surgery",
+      "designation": "Assistant Professor",
+      "hod": false,
+      "photo": "assets/images/faculty/waleed-mahbood.jpeg",
+      "qualifications": [
+        "MBBS",
+        "FCPS",
+        "MRCS (UK)",
+        "FACS (USA)",
+        "CHPE",
+        "CHR",
+        "ATLS"
+      ],
+      "experience": [
+        "Assistant Professor General Surgery, Mercy Teaching Hospital, Peshawar (Oct 2025 - Present)"
+      ],
+      "skills": [
+        "Open Surgery",
+        "Minimally Invasive Surgery",
+        "Perioperative Care",
+        "Bariatric & Metabolic Surgery",
+        "Endocrine Surgery",
+        "Team leadership, OR management, and teaching residents",
+        "Evidence-based practice and adherence to surgical safety protocols"
+      ],
+      "publications": [
+        "EFFICACY OF PYODINE AND HYDROCOLLOID DRESSING IN DIABETIC FOOT INFECTIONS (Naeem M, Saeed T, Mabood W, Ahmad M, Waheed R. EFFICACY OF PYODINE AND HYDROCOLLOID DRESSING IN DIABETIC FOOT INFECTIONS. Journal Of Medical Sciences. 2019 Oct 7;27 (3):181-4.)",
+        "XANTHOGRANULOMATOUS CHOLECYSTITIS: A PSEUDO TUMOR SIMULATING GALLBLADDER CARCINOMA (Mabood W, Arshad W. XANTHOGRANULOMATOUS CHOLECYSTITIS: A PSEUDO TUMOR SIMULATING GALLBLADDER CARCINOMA. Journal Of Medical Sciences. 2019 Oct 7;27(3):239-41.)",
+        "PILONIDAL DISEASE: THE CHANGING TREND IN INCIDENCE BASED ON OCCUPATION (Naeem M, Mabood W, Imran M, Khattak I, Ahmad M. Pilonidal disease: The changing trend in incidence based on occupation. Pak. J. Surg. 2019;35(4):301-5. )",
+        "CLINICAL AND RESEARCH LABORATORIES IN PESHAWAR CITY OF KP PROVINCE: ANALYSIS OF BIO-SECURITY MEASURES PREDICTS INSECURITY (Asghar M, Asghar N, Rehman N, Naeem M, Khalid S, Samad A, Shumail H, Mabood W. Clinical and research laboratories in Peshawar city of KP Province: Analysis of bio-security measures predicts insecurity. Pak J Surg. 2019;35(4):306-10.)",
+        "CLINICAL PATTERNS OF BACTERIAL AND FUNGAL INFECTIONS IN DIABETIC PATIENTS (Rehman WM. Clinical patterns of bacterial and fungal infections in diabetic patients. Pak J Surg. 2019;35(4):275-77.)",
+        "PILONIDAL SINUS EXCISION UNDER LOCAL ANESTHESIA: A DAY CASE EXPERIENCE (Naeem M, Mabood W, Imran M, Waheed R, Ali S. PILONIDAL SINUS DISEASE EXCISION UNDER LOCAL ANESTHESIA: A DAY CASE EXPERIENCE. Journal Of Medical Sciences. 2020 Apr 21;28(1):21-4.)",
+        "MINI LAPAROTOMY CHOLECYSTECTOMY; MUSCLE SPLITTING VS MUSCLE DIVIDING INCISION; A RANDOMIZED STUDY (Naeem M, Mabood W, Waheed MR, Khattak IA, Mabood J, Urooj H. Mini Laparotomy Cholecystectomy; Muscle Splitting vs Muscle dividing Incision; A randomized study. J Med Sci 2020 April;28(2):181-184)",
+        "ABDOMINAL TUBERCULOSIS; CHALLENGES IMPOSED ON SURGEONS OWING TO IT’S VARIABLE PRESENTATIONS (Mabood W, Khattak IA, Arshad W, Mabood J, Nasarullah HM. Abdominal tuberculosis; Challenges imposed on surgeons owing to its variable presentations. Pak J Surg. 2020;36(4):286-91.)",
+        "Published as a hospital lead and collaborative author in “Journal of Associations of Anaesthesia” titled “TIMING OF SURGERY FOLLOWING SARS- COV-2 INFECTION: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111/anae.15458)",
+        "Published as a hospital lead and collaborative author in “British Journal of Surgery” titled “SARS-COV-2 VACCINATION MODELLING FOR SAFE SURGERY TO SAVE LIVES: DATA FROM AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (DOI: 10.1093/bjs/znab101)",
+        "THE PATTERN OF COMPLICATIONS OF OPEN VS LAPAROSCOPIC CHOLECYSTECTOMY; A COMPARATIVE STUDY (Naeem M, Mabood W, Ali S, Khattak IA, Arshad W; The pattern of complications of open vs laparoscopic cholecystectomy. J Khyber Coll Dentistry. 2020;(4):44-48. )",
+        "THE IMPACT OF PANDEMICS ON SURGICAL RESIDENCY PROGRAM; A SURVEY IN TERTIARY CARE HOSPITALS OF PESHAWAR, PAKISTAN (Ali S, Ahmed F, Mabood W, Rehman FU. The impact of Pandemics on surgical residency Program; A survey in tertiary care hospitals of Peshawar, Pakistan. J Med Sci 2021 April;29(2):79-83 )",
+        "Published as hospital lead and collaborative author in “ Journal of Associations of Anaesthesia” titled “ EFFECTS OF PRE-OPERATIVE ISOLATION ON POSTOPERATIVE PULMONARY COMPLICATIONS AFTER ELECTIVE SURGERY: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111/anae.15560)",
+        "RIPASA SCORE; IT’S SENSITIVITY, SPECIFICITY IN DIAGNOSING SUSPECTED ACUTE APPENDICITIS ( Khattak IA, Mabood W, Naeem M, Ali S, Khattak MAK Ripasa score;it’s sensitivity, specificity in diagnosing suspected acute appendicitis. J Saidu Med Coll Swat. 2021;11(3):151-6 )",
+        "Published as hospital lead and collaborative author in “ Journal of Associations of Anaesthesia” titled “SARS-COV-2 INFECTION AND VENOUS THROMBOEMBOLISM AFTER SURGERY: AN INTERNATIONAL PROSPECTIVE COHORT STUDY” (doi:10.1111/anae.15563)",
+        "COMPARISON OF DRAIN VS NO-DRAIN STRATEGY IN TOTAL THYROIDECTOMY (W Mabood, S Afridi, A Hamza, I Azeem, S Khalil. Comparison of drain vs no-drain strategy in total thyroidectomy. Pak J Surg. 2022; 38(2):76-81)",
+        "DIAGNOSTIC ACCURACY OF ALVARADO AND APPENDICITIS INFLAMMATORY RESPONSE SCORE IN THE DIAGNOSIS OF ACUTE APPENDICITIS ( Paracha SA, Khattak IA, Mabood W, Afridi MKK, Saidal K, Jabeen M. Diagnostic Accuracy of Alvarado and Appendicitis Inflammatory Response Score in the Diagnosis of Acute Appendicitis. Med Forum 2022;33(8):44-48)",
+        "Published as collaborative author in LANCET titled “ELECTIVE SURGERY SYSTEM STRENGTHENING: DEVELOPMENT, MEASUREMENT, AND VALIDATION OF THE SURGICAL PREPAREDNESS INDEX ACROSS 1632 HOSPITALS IN 119 COUNTRIES” (DOI:https://doi.org/10.1016/S0140-6736(22)01846-3)",
+        "Published as a hospital lead and collaborative author in “British Journal of Surgery” titled “REDUCING THE ENVIRONMENTAL IMPACT OF SURGERY ON A GLOBAL SCALE: SYSTEMATIC REVIEW AND CO-PRIORITIZATION WITH HEALTHCARE WORKERS IN 132 COUNTRIES” ( https://doi.org/10.1093/bjs/znad092)",
+        "COMPARISON OF POSTOPERATIVE PAIN IN DESARDA VS LICHTENSTEIN MESH REPAIR IN THE TREATMENT OF INGUINAL HERNIAS (Ullah K, Ahmad S, Azeem SMI, Mabood W, Rahman SS, Bakhtiar N. Comparison of postoperative pain in desarda versus Lichtenstein mesh repair in the treatment of inguinal hernias. Gomal J Med Sci 2023 Oct-Dec;21(4):245-9. https://doi.org/1046903/gjms/21.04.1331)",
+        "Published as a hospital lead and collaborative author in LANCET titled “Access to and quality of elective care: a prospective cohort study using hernia surgery as a tracer condition in 83 countries” (https://doi.org/10.1016/ S2214-109X(24)00142-6)",
+        "DIAGNOSTIC ACCURACY OF FINE NEEDLE ASPIRATION CYTOLOGY IN PALPABLE BREAST LUMP TAKING HISTOPATHOLOGY AS GOLD STANDARD ( Ghazan S, Khan israr M, Ahmed Khattak I, Mabood W, Hussain N, Ghani A. Diagnostic Accuracy Of Fine Needle Aspiration Cytology In Palpable Breast Lump Taking Histopathology As Gold Standard. BMC J Med Sci. 2024;5(2):78-82.https://doi.org/10.70905/bmcj.05.02.0426)",
+        "THE PREVALENCE OF POST-OPERATIVE SEROMA FORMATION AFTER VENTRAL HERNIA REPAIR IN PATIENTS USING ABDOMINAL BINDER VERSUS NOT USING ABDOMINAL-BINDER (S Ahmad, SMI Azeem, KaleemUllah,W Mabood, SS Rehman, U Ullah.The Prevalence Of Post-Operative Seroma Formation After Ventral Hernia Repair In Patients Using Abdominal Binder Versus Not Using Abdominal-Binder . Pak J Surg. 2024; 40(1):64-67)",
+        "PREDICTORS AND EARLY OUTCOMES OF SURGICAL SITE INFECTIONS AFTER STOMA REVERSAL: A SECONDARY CARE HOSPITAL EXPERIENCE (Khattak IA, Paracha SA, Khan MI, Alam SI, Mabood W, Afridi MK. Predictors and early outcomes of surgical site infections after stoma reversal: a secondary care hospital experience. Gomal J Med Sci 2025 Jul-Sep;23(3):337-42. https://doi.org/1046903/gjms/23.3.2018)",
+        "ASSESSMENT OF LONG-TERM CLINICAL OUTCOMES FOLLOWING LASER PROCTOLOGY AND CONVENTIONAL HEMORRHOIDECTOMY (Khan, M. N., Mabood, W., Rashed, M., Hussain, Y., Salman, M, & Saeeda. Assessment of longterm clinical outcomes following laser proctology and conventional hemorrhoidectomy. European Journal of Clinical Pharmacy. 2025. 7(1) 9241-9248)",
+        "ANATOMICAL BASIS AND ROLE OF TRANEXAMIC ACID IN PREVENTION OF SEROMA FORMATION AFTER VENTRAL HERNIOPLASTY: A COMPARATIVE CLINICAL STUDY ( Khan ZA, Salman M, Shah B, Saeeda, Mabood W, Jalal SZ. Anatomical Basis and Role of Tranexamic Acid in Prevention of Seroma Formation After Ventral Hernioplasty: A Comparative Clinical Study. \" CME J Ger Med, vol. 18, no. 6, 2026, pp. 509-514.)",
+        "Obesity as a Predictor of Postoperative Complications Following General Surgical Procedures. Khan, S., Luqman, M., Khan, M. N., Afridi, U., Salman, M., & Mabood, W. (n.d.). Obesity as a predictor of postoperative complications following general surgical procedures. J Surg Radiol, V5 (4) 211-219"
+      ]
     }
   },
   "index": {
@@ -5273,7 +5274,7 @@
     "muzafar-ud-din-sadiq": "muzafar-ud-din-sadiq",
     "salma-rehman": "salma-rehman",
     "shahid-ullah": "shahid-ullah",
-    "waleed-mahbood": "waleed-mahbood",
+    "waleed-mahbood": "waleed-mabood",
     "izhar-ali": "izhar-ali",
     "mir-alam-jan": "mir-alam-jan",
     "muhammad-hisham-naeem": "muhammad-hisham-naeem",
@@ -5310,7 +5311,7 @@
     "sheikh-muhammad-ibqar-azeem": "muhammad-ibqar-azeem",
     "ibqar-azeem": "muhammad-ibqar-azeem",
     "shahid-ullah-ahmad": "shahid-ullah",
-    "waleed-mabood": "waleed-mahbood",
+    "waleed-mabood": "waleed-mabood",
     "shoaib-muhammad": "muhammad-shoaib",
     "asad-ullah-khan": "muhammad-asad",
     "asadullah-khan": "muhammad-asad",
@@ -5491,6 +5492,7 @@
     "1261": "sarah-yousuf",
     "90": "faqir-muhammad-anwar",
     "1941": "aamir-zeb",
-    "312": "shehnaz-parveen"
+    "312": "shehnaz-parveen",
+    "waleed-mahboob": "waleed-mabood"
   }
 }
