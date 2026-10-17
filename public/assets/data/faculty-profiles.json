@@ -704,7 +704,8 @@
         "Haq NU, Haq M, Salman F, Haq M, Khattak M, Usman R, Khan AMK. Prevalence of Vitamin D deficiency in patients of chronic hepatitis C. The Professional Medical Journal. 2020;27(01):35-39.",
         "Khan SA, Shah W, Khan MA, Khan MJ, Ali Shah. Significance of endoscopy/colonoscopy versus microscopy in patients with chronic diarrhea. Journal of Medical Sciences. 2014;22(3):132-136.",
         "Khattak M, Habib SH, Irfan M. Effect of a non-energy restricted ketogenic diet on cognition in sedentary healthy young adults. Physiology International. 2026 Jan 20:2060-25."
-      ]
+      ],
+      "emp_id": "890"
     },
     "momina-haq": {
       "slug": "momina-haq",
@@ -2666,7 +2667,8 @@
       "qualifications": [],
       "experience": [],
       "skills": [],
-      "publications": []
+      "publications": [],
+      "emp_id": "1373"
     },
     "mian-shah-yousaf": {
       "slug": "mian-shah-yousaf",
@@ -5479,6 +5481,8 @@
     "1384": "robina-qadeer",
     "1610": "afrah-aman",
     "1014": "shamim-akhtar",
-    "1068": "abdul-aziz-zia"
+    "1068": "abdul-aziz-zia",
+    "890": "munaza-khattak",
+    "1373": "nasir-bakhtiar"
   }
 }

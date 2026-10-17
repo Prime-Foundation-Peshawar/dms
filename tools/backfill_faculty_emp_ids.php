@@ -1,6 +1,6 @@
 <?php
 /**
- * One-time: set faculty_profiles.emp_id from HRMS where slug match is unique.
+ * Set faculty_profiles.emp_id from PMC + PDC HRMS where slug match is unique.
  * Runtime HRMS↔profile matching uses empId only.
  *
  * Usage: php tools/backfill_faculty_emp_ids.php
@@ -9,16 +9,6 @@ declare(strict_types=1);
 
 $root = dirname(__DIR__);
 chdir($root);
-
-// Minimal CI4 boot via spark's preload
-define('FCPATH', $root . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
-require $root . '/app/Config/Paths.php';
-$paths = new Config\Paths();
-require $paths->systemDirectory . '/Boot.php';
-// Boot::bootSpark isn't right — use CodeIgniter directly through spark db query instead.
-
-// Fallback: direct SQLite + cached/live HRMS JSON without full framework.
-require $root . '/vendor/autoload.php';
 
 function faculty_slug_local(string $name): string
 {
@@ -35,7 +25,34 @@ function faculty_slug_local(string $name): string
     return $n;
 }
 
-// Load .env-ish DB path
+function hrms_fetch(string $url): array
+{
+    $raw = false;
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_TIMEOUT => 40,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_HTTPHEADER => ['User-Agent: Mozilla/5.0'],
+        ]);
+        $raw = curl_exec($ch);
+        curl_close($ch);
+    } else {
+        $raw = @file_get_contents($url);
+    }
+    $decoded = json_decode((string) $raw, true);
+    if (is_array($decoded) && array_is_list($decoded)) {
+        return $decoded;
+    }
+    if (is_array($decoded)) {
+        return $decoded['employees'] ?? $decoded['data'] ?? [];
+    }
+
+    return [];
+}
+
 $dbPath = $root . '/writable/dms.db';
 $env = @file_get_contents($root . '/.env') ?: '';
 if (preg_match("/database\\.default\\.database\\s*=\\s*['\"]?([^'\\\"\\r\\n]+)/", $env, $m)) {
@@ -48,43 +65,42 @@ if (preg_match("/database\\.default\\.database\\s*=\\s*['\"]?([^'\\\"\\r\\n]+)/"
 $db = new SQLite3($dbPath);
 $db->exec('PRAGMA foreign_keys = ON');
 
-// Ensure column exists
-$cols = [];
-$info = $db->query('PRAGMA table_info(faculty_profiles)');
-while ($row = $info->fetchArray(SQLITE3_ASSOC)) {
-    $cols[$row['name']] = true;
-}
-if (empty($cols['emp_id'])) {
-    fwrite(STDERR, "emp_id column missing — run: php spark migrate\n");
-    exit(1);
-}
-
-$cache = $root . '/writable/cache/dms_hrms_faculty_cache.json';
+$urls = [
+    'PMC' => 'https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfo.php',
+    'PDC' => 'https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfoPDC.php',
+];
 $employees = [];
-if (is_file($cache)) {
-    $employees = json_decode((string) file_get_contents($cache), true) ?: [];
+$seen = [];
+foreach ($urls as $source => $url) {
+    foreach (hrms_fetch($url) as $emp) {
+        if (! is_array($emp)) {
+            continue;
+        }
+        $empId = trim((string) ($emp['empId'] ?? ''));
+        $name = trim((string) ($emp['empName'] ?? ''));
+        if ($empId === '' || $name === '') {
+            continue;
+        }
+        $key = $empId . '|' . faculty_slug_local($name);
+        if (isset($seen[$key])) {
+            continue;
+        }
+        $seen[$key] = true;
+        $emp['_source'] = $source;
+        $employees[] = $emp;
+    }
 }
 if (! $employees) {
-    $url = 'https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfo.php';
-    if (preg_match("/hrms\\.apiUrl\\s*=\\s*['\"]?([^'\\\"\\r\\n]+)/", $env, $um)) {
-        $url = trim($um[1], " '\"");
-    }
-    $raw = @file_get_contents($url);
-    $employees = json_decode((string) $raw, true) ?: [];
-    if ($employees) {
-        @file_put_contents($cache, json_encode($employees));
-    }
-}
-if (! $employees) {
-    fwrite(STDERR, "No HRMS data available\n");
+    fwrite(STDERR, "No HRMS data from PMC/PDC APIs\n");
     exit(1);
 }
+echo 'HRMS rows (PMC+PDC unique): ' . count($employees) . "\n";
 
 $bySlug = [];
 $res = $db->query('SELECT id, slug, name, emp_id FROM faculty_profiles');
 while ($row = $res->fetchArray(SQLITE3_ASSOC)) {
     $bySlug[$row['slug']][] = $row;
-    $ar = $db->query("SELECT alias FROM faculty_profile_aliases WHERE profile_id=" . (int) $row['id']);
+    $ar = $db->query('SELECT alias FROM faculty_profile_aliases WHERE profile_id=' . (int) $row['id']);
     while ($a = $ar->fetchArray(SQLITE3_ASSOC)) {
         $bySlug[$a['alias']][] = $row;
     }
@@ -93,23 +109,15 @@ while ($row = $res->fetchArray(SQLITE3_ASSOC)) {
 $linked = 0;
 $skipped = 0;
 $ambiguous = 0;
-$stmt = $db->prepare('UPDATE faculty_profiles SET emp_id = :e WHERE id = :id AND (emp_id IS NULL OR emp_id = \'\')');
+$stmt = $db->prepare("UPDATE faculty_profiles SET emp_id = :e WHERE id = :id AND (emp_id IS NULL OR emp_id = '')");
 
 foreach ($employees as $emp) {
-    if (! is_array($emp)) {
-        continue;
-    }
     $empId = trim((string) ($emp['empId'] ?? ''));
-    $name  = trim((string) ($emp['empName'] ?? ''));
-    if ($empId === '' || $name === '') {
-        continue;
-    }
-    $exists = $db->querySingle("SELECT id FROM faculty_profiles WHERE emp_id=" . $db->escapeString($empId));
-    // escapeString doesn't add quotes — use prepare
+    $name = trim((string) ($emp['empName'] ?? ''));
+    $source = (string) ($emp['_source'] ?? '');
     $chk = $db->prepare('SELECT id FROM faculty_profiles WHERE emp_id = :e');
     $chk->bindValue(':e', $empId, SQLITE3_TEXT);
-    $already = $chk->execute()->fetchArray();
-    if ($already) {
+    if ($chk->execute()->fetchArray()) {
         $skipped++;
         continue;
     }
@@ -123,15 +131,19 @@ foreach ($employees as $emp) {
     if (count($cands) !== 1) {
         if (count($cands) > 1) {
             $ambiguous++;
-            echo "ambiguous empId={$empId} name={$name}\n";
+            echo "ambiguous empId={$empId} name={$name} source={$source}\n";
         }
+        continue;
+    }
+    if (trim((string) ($cands[0]['emp_id'] ?? '')) !== '') {
+        $skipped++;
         continue;
     }
     $stmt->bindValue(':e', $empId, SQLITE3_TEXT);
     $stmt->bindValue(':id', (int) $cands[0]['id'], SQLITE3_INTEGER);
     $stmt->execute();
     $linked++;
-    echo "linked empId={$empId} -> #{$cands[0]['id']} {$cands[0]['name']}\n";
+    echo "linked empId={$empId} ({$source}) -> #{$cands[0]['id']} {$cands[0]['name']}\n";
 }
 
 echo "Done. linked={$linked} already={$skipped} ambiguous={$ambiguous}\n";
