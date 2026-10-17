@@ -130,6 +130,8 @@ if (! function_exists('faculty_public_excluded_slugs')) {
             'nasir-bakhtiar' => true,
             // Resigned
             'marina-hidayat' => true,
+            'waleed-mabood' => true,
+            'waleed-mahbood' => true,
         ];
     }
 }
