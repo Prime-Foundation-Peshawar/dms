@@ -94,6 +94,12 @@
         <?php else: ?>
           <p class="text-muted mb-0">No note recorded.</p>
         <?php endif; ?>
+        <?php if (($sub['status'] ?? '') === 'approved' && ! empty($photos)): ?>
+          <form class="mt-3" method="post" action="<?= site_url('acp/activities/submissions/' . rawurlencode($key) . '/republish-images') ?>">
+            <?= csrf_field() ?>
+            <button class="btn-acp btn-acp-outline" type="submit">Publish images to activity page</button>
+          </form>
+        <?php endif; ?>
       </div>
     <?php endif; ?>
   </div>

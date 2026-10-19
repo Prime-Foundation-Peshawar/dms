@@ -104,6 +104,7 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->get('activities/submissions/(:segment)', 'Activities::submission/$1');
         $routes->post('activities/submissions/(:segment)/approve', 'Activities::approve/$1');
         $routes->post('activities/submissions/(:segment)/reject', 'Activities::reject/$1');
+        $routes->post('activities/submissions/(:segment)/republish-images', 'Activities::republishImages/$1');
         $routes->get('activities/submissions/(:segment)/file/(:num)', 'Activities::file/$1/$2');
 
         $routes->get('gallery', 'Gallery::index');

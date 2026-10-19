@@ -45,14 +45,19 @@ class DepartmentModel extends Model
             ->get()->getResultArray();
         $row['activities'] = array_map(static function ($a) {
             $photos = [];
-            if (! empty($a['photos_json'])) {
-                $decoded = json_decode((string) $a['photos_json'], true);
-                if (is_array($decoded)) {
-                    foreach ($decoded as $p) {
-                        $p = str_replace('\\', '/', trim((string) $p));
-                        if ($p !== '' && ! str_contains($p, '..')) {
-                            $photos[] = $p;
-                        }
+            $rawPhotos = $a['photos_json'] ?? null;
+            if (is_array($rawPhotos)) {
+                $decoded = $rawPhotos;
+            } elseif (is_string($rawPhotos) && $rawPhotos !== '') {
+                $decoded = json_decode($rawPhotos, true);
+            } else {
+                $decoded = null;
+            }
+            if (is_array($decoded)) {
+                foreach ($decoded as $p) {
+                    $p = str_replace('\\', '/', trim((string) $p));
+                    if ($p !== '' && ! str_contains($p, '..')) {
+                        $photos[] = $p;
                     }
                 }
             }

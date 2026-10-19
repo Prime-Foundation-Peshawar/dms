@@ -13,6 +13,10 @@ class Activities extends BaseAcpController
             $status = 'pending';
         }
         $svc = new ActivityReviewService();
+        $synced = $svc->syncMissingPhotos();
+        if ($synced > 0) {
+            session()->setFlashdata('success', $synced . ' approved activit' . ($synced === 1 ? 'y' : 'ies') . ' updated with images.');
+        }
 
         return $this->acpView('activities/submissions', [
             'title'  => 'Activity submissions',
@@ -66,6 +70,18 @@ class Activities extends BaseAcpController
 
         return redirect()->to(site_url('acp/activities/submissions'))
             ->with('success', 'Activity submission rejected.');
+    }
+
+    public function republishImages(string $key)
+    {
+        $result = (new ActivityReviewService())->republishImages($key);
+        if (empty($result['ok'])) {
+            return redirect()->to(site_url('acp/activities/submissions/' . rawurlencode($key)))
+                ->with('error', $result['error'] ?? 'Could not publish images.');
+        }
+
+        return redirect()->to(site_url('acp/activities/submissions/' . rawurlencode($key)))
+            ->with('success', (int) ($result['count'] ?? 0) . ' image(s) published to the activity page.');
     }
 
     public function file(string $key, int $index)

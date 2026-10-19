@@ -169,6 +169,137 @@ class ActivityReviewService
     }
 
     /**
+     * For approved submissions that still have source images, publish them onto
+     * the matching live department activity when photos_json is empty.
+     */
+    public function syncMissingPhotos(): int
+    {
+        $this->ensurePhotosColumn();
+        if (! db_connect()->fieldExists('photos_json', 'department_activities')) {
+            return 0;
+        }
+
+        $fixed = 0;
+        foreach ($this->listByStatus('approved', 5000) as $sub) {
+            $key = (string) ($sub['submission_key'] ?? '');
+            if ($key === '') {
+                continue;
+            }
+
+            $public = is_array($sub['published_photos'] ?? null)
+                ? array_values(array_filter(array_map('strval', $sub['published_photos'])))
+                : [];
+            if ($public === []) {
+                $public = $this->publishPhotos($sub, $key);
+                if ($public !== []) {
+                    $sub['published_photos'] = $public;
+                    $this->write($key, $sub);
+                }
+            }
+            if ($public === []) {
+                continue;
+            }
+
+            if ($this->attachPhotosToActivity($sub, $public)) {
+                $fixed++;
+            }
+        }
+
+        return $fixed;
+    }
+
+    /**
+     * @param array<string,mixed> $sub
+     * @param list<string>        $publicPhotos
+     */
+    private function attachPhotosToActivity(array $sub, array $publicPhotos): bool
+    {
+        $deptId = (int) ($sub['department_id'] ?? 0);
+        $title  = trim((string) ($sub['title'] ?? ''));
+        if ($deptId < 1 || $title === '' || $publicPhotos === []) {
+            return false;
+        }
+
+        $db  = db_connect();
+        $row = $db->table('department_activities')
+            ->where('department_id', $deptId)
+            ->where('title', $title)
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->getRowArray();
+        if (! $row) {
+            return false;
+        }
+
+        $existing = $row['photos_json'] ?? null;
+        if (is_string($existing) && $existing !== '' && $existing !== 'null' && $existing !== '[]') {
+            return false;
+        }
+        if (is_array($existing) && $existing !== []) {
+            return false;
+        }
+
+        $json = json_encode($publicPhotos, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $db->table('department_activities')->where('id', (int) $row['id'])->update([
+            'photos_json' => $json,
+            'updated_at'  => date('Y-m-d H:i:s'),
+        ]);
+
+        return true;
+    }
+
+    /**
+     * Force (re)publish submission images onto the matching live activity.
+     *
+     * @return array{ok:bool,error?:string,count?:int}
+     */
+    public function republishImages(string $key): array
+    {
+        $sub = $this->find($key);
+        if (! $sub) {
+            return ['ok' => false, 'error' => 'Submission not found.'];
+        }
+        if (($sub['status'] ?? '') !== 'approved') {
+            return ['ok' => false, 'error' => 'Only approved submissions can publish images to the site.'];
+        }
+        if (empty($sub['photos'])) {
+            return ['ok' => false, 'error' => 'This submission has no images to publish.'];
+        }
+
+        $this->ensurePhotosColumn();
+        if (! db_connect()->fieldExists('photos_json', 'department_activities')) {
+            return ['ok' => false, 'error' => 'Database column for activity images is missing.'];
+        }
+
+        $public = $this->publishPhotos($sub, $key);
+        if ($public === []) {
+            return ['ok' => false, 'error' => 'Could not copy images. The source files may be missing on the server.'];
+        }
+
+        $sub['published_photos'] = $public;
+        $this->write($key, $sub);
+
+        $deptId = (int) ($sub['department_id'] ?? 0);
+        $title  = trim((string) ($sub['title'] ?? ''));
+        $row    = db_connect()->table('department_activities')
+            ->where('department_id', $deptId)
+            ->where('title', $title)
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->getRowArray();
+        if (! $row) {
+            return ['ok' => false, 'error' => 'Matching published activity not found.'];
+        }
+
+        db_connect()->table('department_activities')->where('id', (int) $row['id'])->update([
+            'photos_json' => json_encode($public, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+            'updated_at'  => date('Y-m-d H:i:s'),
+        ]);
+
+        return ['ok' => true, 'count' => count($public)];
+    }
+
+    /**
      * Copy submission images into public uploads for the live site.
      *
      * @param array<string,mixed> $sub
