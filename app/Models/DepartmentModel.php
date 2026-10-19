@@ -44,10 +44,24 @@ class DepartmentModel extends Model
             ->orderBy('sort_order')
             ->get()->getResultArray();
         $row['activities'] = array_map(static function ($a) {
+            $photos = [];
+            if (! empty($a['photos_json'])) {
+                $decoded = json_decode((string) $a['photos_json'], true);
+                if (is_array($decoded)) {
+                    foreach ($decoded as $p) {
+                        $p = str_replace('\\', '/', trim((string) $p));
+                        if ($p !== '' && ! str_contains($p, '..')) {
+                            $photos[] = $p;
+                        }
+                    }
+                }
+            }
+
             return [
-                'title' => $a['title'],
-                'date' => $a['date_label'],
-                'text' => $a['body'],
+                'title'  => $a['title'],
+                'date'   => str_replace("\u{00E2}\u{20AC}\u{201C}", "\u{2013}", (string) $a['date_label']),
+                'text'   => $a['body'],
+                'photos' => $photos,
             ];
         }, $acts);
         return $row;

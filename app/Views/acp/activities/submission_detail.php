@@ -63,7 +63,7 @@
           <?php endforeach; ?>
         </div>
       <?php endif; ?>
-      <p class="acp-review-hint">Approve publishes title, date, and description on the department page. Images stay here for reference.</p>
+      <p class="acp-review-hint">Approve publishes the title, date, description, and images on the department activity page.</p>
     </div>
 
     <?php if ($pending): ?>

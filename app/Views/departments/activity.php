@@ -1,5 +1,8 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
+<?php
+  $photos = is_array($activity['photos'] ?? null) ? $activity['photos'] : [];
+?>
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
@@ -18,10 +21,26 @@
 </div>
 <section class="pmc-section">
   <div class="container" style="max-width:820px;">
-    <p class="text-muted mb-3"><i class="bi bi-calendar3"></i> <?= esc($activity['date'] ?? '') ?></p>
-    <div class="page-content">
-      <p><?= esc($activity['text'] ?? '') ?></p>
+    <?php if (! empty($activity['date'])): ?>
+      <p class="dept-activity-detail-meta">
+        <span><i class="bi bi-calendar3"></i> <?= esc($activity['date']) ?></span>
+      </p>
+    <?php endif; ?>
+
+    <div class="dept-activity-detail-text page-content">
+      <p><?= nl2br(esc($activity['text'] ?? '')) ?></p>
     </div>
+
+    <?php if ($photos !== []): ?>
+      <div class="dept-activity-gallery">
+        <?php foreach ($photos as $i => $src): ?>
+          <a class="dept-activity-gallery-item" href="<?= esc(base_url(ltrim((string) $src, '/'))) ?>" target="_blank" rel="noopener">
+            <img src="<?= esc(base_url(ltrim((string) $src, '/'))) ?>" alt="<?= esc(($activity['title'] ?? 'Activity') . ' image ' . ((int) $i + 1)) ?>">
+          </a>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+
     <a href="<?= site_url('department?slug=' . rawurlencode($slug)) ?>" class="btn-pmc btn-pmc-outline mt-4"><i class="bi bi-arrow-left"></i> Back to department</a>
   </div>
 </section>

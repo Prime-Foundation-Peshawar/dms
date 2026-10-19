@@ -123,13 +123,23 @@ class ActivityReviewService
             ->first();
         $next = (int) ($max['sort_order'] ?? -1) + 1;
 
-        model(DepartmentActivityModel::class)->insert([
+        $this->ensurePhotosColumn();
+        $publicPhotos = $this->publishPhotos($sub, $key);
+
+        $insert = [
             'department_id' => $deptId,
             'title'         => $title,
             'date_label'    => trim((string) ($sub['date_label'] ?? '')),
             'body'          => $body,
             'sort_order'    => $next,
-        ]);
+        ];
+        if (db_connect()->fieldExists('photos_json', 'department_activities')) {
+            $insert['photos_json'] = $publicPhotos !== []
+                ? json_encode($publicPhotos, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+                : null;
+        }
+
+        model(DepartmentActivityModel::class)->insert($insert);
 
         $sub['status']          = 'approved';
         $sub['reviewed_at']     = date('Y-m-d H:i:s');
@@ -137,12 +147,76 @@ class ActivityReviewService
         $sub['review_note']     = $note;
         $sub['department_id']   = $deptId;
         $sub['department_name'] = (string) ($dept['name'] ?? $sub['department_name'] ?? '');
+        $sub['published_photos'] = $publicPhotos;
 
         if (! $this->write($key, $sub)) {
             return ['ok' => false, 'error' => 'Published, but could not update submission status.'];
         }
 
         return ['ok' => true];
+    }
+
+    private function ensurePhotosColumn(): void
+    {
+        try {
+            $db = db_connect();
+            if ($db->tableExists('department_activities') && ! $db->fieldExists('photos_json', 'department_activities')) {
+                $db->query('ALTER TABLE `department_activities` ADD COLUMN `photos_json` JSON NULL AFTER `body`');
+            }
+        } catch (\Throwable $e) {
+            log_message('error', 'Could not ensure department_activities.photos_json: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Copy submission images into public uploads for the live site.
+     *
+     * @param array<string,mixed> $sub
+     * @return list<string>
+     */
+    private function publishPhotos(array $sub, string $key): array
+    {
+        $photos = is_array($sub['photos'] ?? null) ? $sub['photos'] : [];
+        if ($photos === []) {
+            return [];
+        }
+
+        $safeKey = preg_replace('/[^a-zA-Z0-9._\-]+/', '', $key) ?: 'activity';
+        $out     = [];
+        $n       = 0;
+        foreach ($photos as $rel) {
+            $rel = str_replace('\\', '/', (string) $rel);
+            if ($rel === '' || str_contains($rel, '..')) {
+                continue;
+            }
+            if (! preg_match('#^(photos|drafts)/[a-zA-Z0-9._\-/]+$#', $rel)) {
+                continue;
+            }
+            $src = $this->rootDir() . '/' . $rel;
+            if (! is_file($src)) {
+                continue;
+            }
+            $ext = strtolower(pathinfo($src, PATHINFO_EXTENSION) ?: 'jpg');
+            if (! in_array($ext, ['jpg', 'jpeg', 'png', 'webp', 'gif'], true)) {
+                continue;
+            }
+            $destRel = 'uploads/department-activities/' . date('Y/m') . '/' . $safeKey . '-' . $n . '.' . $ext;
+            $dest    = FCPATH . $destRel;
+            $dir     = dirname($dest);
+            if (! is_dir($dir) && ! mkdir($dir, 0755, true) && ! is_dir($dir)) {
+                continue;
+            }
+            if (@copy($src, $dest)) {
+                @chmod($dest, 0644);
+                $out[] = $destRel;
+                $n++;
+            }
+            if ($n >= 6) {
+                break;
+            }
+        }
+
+        return $out;
     }
 
     /**

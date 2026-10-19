@@ -9,7 +9,7 @@ class DepartmentActivityModel extends Model
     protected $table         = 'department_activities';
     protected $primaryKey    = 'id';
     protected $allowedFields = [
-        'department_id', 'title', 'date_label', 'body', 'sort_order', 'created_at', 'updated_at',
+        'department_id', 'title', 'date_label', 'body', 'photos_json', 'sort_order', 'created_at', 'updated_at',
     ];
     protected $useTimestamps = true;
 
