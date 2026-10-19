@@ -84,6 +84,7 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->get('departments/edit/(:num)', 'Departments::edit/$1');
         $routes->post('departments/update/(:num)', 'Departments::update/$1');
         $routes->post('departments/activity-store/(:num)', 'Departments::storeActivity/$1');
+        $routes->post('departments/activity-toggle/(:num)', 'Departments::toggleActivity/$1');
         $routes->post('departments/activity-delete/(:num)', 'Departments::deleteActivity/$1');
         $routes->post('departments/activities-reorder', 'Departments::reorderActivities');
 

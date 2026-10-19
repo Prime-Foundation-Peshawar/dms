@@ -686,6 +686,26 @@ h1, h2, h3, h4, h5, h6, .font-head { font-family: var(--font-head); font-weight:
   to { opacity: 1; transform: none; }
 }
 
+.acp-sort-item.is-disabled {
+  opacity: .72;
+  background: #f8fafc;
+}
+.acp-activity-toggle {
+  display: flex;
+  align-items: center;
+  margin-right: .35rem;
+}
+.acp-activity-toggle .form-check-input {
+  width: 2.4em;
+  height: 1.25em;
+  cursor: pointer;
+}
+.acp-activity-toggle .form-check-label {
+  min-width: 1.6rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
 /* Activity submission review */
 .acp-review {
   display: grid;

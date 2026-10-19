@@ -39,10 +39,14 @@ class DepartmentModel extends Model
         $row['intro'] = json_decode((string) ($row['intro_json'] ?? '[]'), true) ?: [];
         $row['faculty'] = json_decode((string) ($row['faculty_seed_json'] ?? '[]'), true) ?: [];
         $row['group'] = $row['group_name'] ?? 'Other';
-        $acts = db_connect()->table('department_activities')
+        $db = db_connect();
+        $actBuilder = $db->table('department_activities')
             ->where('department_id', $row['id'])
-            ->orderBy('sort_order')
-            ->get()->getResultArray();
+            ->orderBy('sort_order');
+        if ($db->fieldExists('enabled', 'department_activities')) {
+            $actBuilder->where('enabled', 1);
+        }
+        $acts = $actBuilder->get()->getResultArray();
         $row['activities'] = array_map(static function ($a) {
             $photos = [];
             $rawPhotos = $a['photos_json'] ?? null;

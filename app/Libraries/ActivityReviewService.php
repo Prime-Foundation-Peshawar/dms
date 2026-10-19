@@ -126,6 +126,9 @@ class ActivityReviewService
         $this->ensurePhotosColumn();
         $publicPhotos = $this->publishPhotos($sub, $key);
 
+        $activityModel = model(DepartmentActivityModel::class);
+        $activityModel->ensureEnabledColumn();
+
         $insert = [
             'department_id' => $deptId,
             'title'         => $title,
@@ -138,8 +141,11 @@ class ActivityReviewService
                 ? json_encode($publicPhotos, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
                 : null;
         }
+        if (db_connect()->fieldExists('enabled', 'department_activities')) {
+            $insert['enabled'] = 1;
+        }
 
-        model(DepartmentActivityModel::class)->insert($insert);
+        $activityModel->insert($insert);
 
         $sub['status']          = 'approved';
         $sub['reviewed_at']     = date('Y-m-d H:i:s');
