@@ -100,6 +100,12 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->post('faculty/submissions/(:num)/reject', 'Faculty::reject/$1');
         $routes->get('faculty/submissions/(:num)/file/(:segment)', 'Faculty::downloadFile/$1/$2');
 
+        $routes->get('activities/submissions', 'Activities::submissions');
+        $routes->get('activities/submissions/(:segment)', 'Activities::submission/$1');
+        $routes->post('activities/submissions/(:segment)/approve', 'Activities::approve/$1');
+        $routes->post('activities/submissions/(:segment)/reject', 'Activities::reject/$1');
+        $routes->get('activities/submissions/(:segment)/file/(:num)', 'Activities::file/$1/$2');
+
         $routes->get('gallery', 'Gallery::index');
         $routes->post('gallery/album-store', 'Gallery::storeAlbum');
         $routes->post('gallery/album-update/(:num)', 'Gallery::updateAlbum/$1');
