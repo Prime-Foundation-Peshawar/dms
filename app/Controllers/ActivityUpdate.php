@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\Files\UploadedFile;
 
 /**
  * Public department activity form — intentionally simple for non-technical staff.
- * Submissions stay pending until CMS review (wired next; local preview shows the form).
+ * Submissions stay pending until CMS review. Drafts are stored one-per-department.
  */
 class ActivityUpdate extends BaseController
 {
@@ -18,16 +18,19 @@ class ActivityUpdate extends BaseController
 
         $selectedSlug = trim((string) ($this->request->getGet('dept') ?? ''));
         $recent = $this->recentActivities($selectedSlug, 8);
+        $draft  = $selectedSlug !== '' ? $this->loadDraft($selectedSlug) : null;
 
         return view('pages/activity-update', [
             'page_title'       => 'Activity Submission | Department of Medical Sciences',
             'page_description' => 'Official form for submitting departmental academic activities for the PMC website.',
             'robots'           => 'noindex, nofollow',
             'thanks'           => $this->request->getGet('thanks') !== null,
+            'draftSaved'       => $this->request->getGet('draft') !== null,
             'errorMsg'         => trim((string) ($this->request->getGet('error') ?? '')),
             'departments'      => $depts,
             'selectedSlug'     => $selectedSlug,
             'recent'           => $recent,
+            'draft'            => $draft,
         ]);
     }
 
@@ -41,24 +44,117 @@ class ActivityUpdate extends BaseController
             return redirect()->to(site_url('update-activity?thanks=1'));
         }
 
-        $deptSlug = trim((string) $this->request->getPost('department_slug'));
-        $title    = trim((string) $this->request->getPost('title'));
+        $parsed = $this->parseForm(true);
+        if (isset($parsed['error'])) {
+            return $this->fail($parsed['error']);
+        }
+
+        $photos = $this->storePhotos('photos');
+        if (isset($photos['error'])) {
+            return $this->fail($photos['error']);
+        }
+
+        $photoPaths = $photos['paths'];
+        if ($photoPaths === [] && ! empty($parsed['draft_photos'])) {
+            $photoPaths = $parsed['draft_photos'];
+        }
+
+        $saved = $this->storePending([
+            'department_id'   => $parsed['department_id'],
+            'department_slug' => $parsed['department_slug'],
+            'department_name' => $parsed['department_name'],
+            'title'           => $parsed['title'],
+            'date_label'      => $parsed['date_label'],
+            'body'            => $parsed['body'],
+            'photos'          => $photoPaths,
+            'ip'              => (string) $this->request->getIPAddress(),
+            'submitted_at'    => date('Y-m-d H:i:s'),
+            'status'          => 'pending',
+        ]);
+
+        if (! $saved) {
+            return $this->fail('Could not save. Please try again.');
+        }
+
+        $this->clearDraft($parsed['department_slug']);
+
+        return redirect()->to(site_url('update-activity?thanks=1&dept=' . rawurlencode($parsed['department_slug'])));
+    }
+
+    public function saveDraft()
+    {
+        if (strtoupper($this->request->getMethod()) !== 'POST') {
+            return redirect()->to(site_url('update-activity'));
+        }
+        if (trim((string) $this->request->getPost('website')) !== '') {
+            return redirect()->to(site_url('update-activity'));
+        }
+
+        $parsed = $this->parseForm(false);
+        if (isset($parsed['error'])) {
+            return $this->fail($parsed['error']);
+        }
+
+        $existing = $this->loadDraft($parsed['department_slug']) ?? [];
+        $photos   = $this->storePhotos('drafts/' . $parsed['department_slug']);
+        if (isset($photos['error'])) {
+            return $this->fail($photos['error']);
+        }
+
+        $photoPaths = $photos['paths'];
+        if ($photoPaths === [] && ! empty($existing['photos']) && is_array($existing['photos'])) {
+            $photoPaths = array_values(array_filter(array_map('strval', $existing['photos'])));
+        }
+
+        $ok = $this->writeDraft($parsed['department_slug'], [
+            'department_id'   => $parsed['department_id'],
+            'department_slug' => $parsed['department_slug'],
+            'department_name' => $parsed['department_name'],
+            'title'           => $parsed['title'],
+            'date_label'      => $parsed['date_label'],
+            'body'            => $parsed['body'],
+            'photos'          => $photoPaths,
+            'saved_at'        => date('Y-m-d H:i:s'),
+            'ip'              => (string) $this->request->getIPAddress(),
+            'status'          => 'draft',
+        ]);
+
+        if (! $ok) {
+            return $this->fail('Could not save draft. Please try again.');
+        }
+
+        return redirect()->to(site_url('update-activity?draft=1&dept=' . rawurlencode($parsed['department_slug'])));
+    }
+
+    /**
+     * @return array{department_id:int,department_slug:string,department_name:string,title:string,date_label:string,body:string,draft_photos:list<string>}|array{error:string}
+     */
+    private function parseForm(bool $requireComplete): array
+    {
+        $deptSlug  = trim((string) $this->request->getPost('department_slug'));
+        $title     = trim((string) $this->request->getPost('title'));
         $dateLabel = trim((string) $this->request->getPost('date_label'));
-        $body     = trim((string) $this->request->getPost('body'));
+        $body      = trim((string) $this->request->getPost('body'));
 
         if ($deptSlug === '') {
-            return $this->fail('Please choose your department.');
+            return ['error' => 'Please choose your department.'];
         }
         $dept = model(DepartmentModel::class)->findBySlug($deptSlug);
         if (! $dept) {
-            return $this->fail('Please choose a department from the list.');
+            return ['error' => 'Please choose a department from the list.'];
         }
-        if ($title === '') {
-            return $this->fail('Please write a short title for the activity.');
+
+        if ($requireComplete) {
+            if ($title === '') {
+                return ['error' => 'Please write a short title for the activity.'];
+            }
+            if ($body === '') {
+                return ['error' => 'Please add a brief description of the activity.'];
+            }
+        } elseif ($title === '' && $body === '' && $dateLabel === '') {
+            return ['error' => 'Please enter at least a title or description before saving a draft.'];
         }
-        if ($body === '') {
-            return $this->fail('Please add a brief description of the activity.');
-        }
+
         if (strlen($title) > 190) {
             $title = substr($title, 0, 190);
         }
@@ -69,29 +165,26 @@ class ActivityUpdate extends BaseController
             $body = substr($body, 0, 4000);
         }
 
-        $photos = $this->storePhotos();
-        if (isset($photos['error'])) {
-            return $this->fail($photos['error']);
+        $draftPhotos = [];
+        $keep = $this->request->getPost('draft_photos');
+        if (is_array($keep)) {
+            foreach ($keep as $p) {
+                $p = trim((string) $p);
+                if ($p !== '' && $this->isSafeDraftPhotoPath($deptSlug, $p)) {
+                    $draftPhotos[] = $p;
+                }
+            }
         }
 
-        $saved = $this->storePending([
+        return [
             'department_id'   => (int) $dept['id'],
             'department_slug' => (string) $dept['slug'],
             'department_name' => (string) $dept['name'],
             'title'           => $title,
             'date_label'      => $dateLabel,
             'body'            => $body,
-            'photos'          => $photos['paths'],
-            'ip'              => (string) $this->request->getIPAddress(),
-            'submitted_at'    => date('Y-m-d H:i:s'),
-            'status'          => 'pending',
-        ]);
-
-        if (! $saved) {
-            return $this->fail('Could not save. Please try again.');
-        }
-
-        return redirect()->to(site_url('update-activity?thanks=1&dept=' . rawurlencode($deptSlug)));
+            'draft_photos'    => $draftPhotos,
+        ];
     }
 
     private function fail(string $message)
@@ -145,7 +238,7 @@ class ActivityUpdate extends BaseController
     /**
      * @return array{paths:list<string>}|array{error:string}
      */
-    private function storePhotos(): array
+    private function storePhotos(string $subdir): array
     {
         $files = $this->request->getFileMultiple('photos') ?: [];
         if (! $files) {
@@ -160,7 +253,7 @@ class ActivityUpdate extends BaseController
             'image/webp' => 'webp',
             'image/gif'  => 'gif',
         ];
-        $dir = ROOTPATH . 'data/activity-submissions/photos';
+        $dir = ROOTPATH . 'data/activity-submissions/' . trim($subdir, '/');
         foreach ($files as $file) {
             if (! $file instanceof UploadedFile || $file->getError() === UPLOAD_ERR_NO_FILE) {
                 continue;
@@ -184,7 +277,7 @@ class ActivityUpdate extends BaseController
             $name = date('Ymd-His') . '-' . bin2hex(random_bytes(3)) . '.' . $map[$mime];
             $file->move($dir, $name, true);
             @chmod($dir . '/' . $name, 0644);
-            $paths[] = 'photos/' . $name;
+            $paths[] = trim($subdir, '/') . '/' . $name;
         }
 
         return ['paths' => $paths];
@@ -231,5 +324,78 @@ class ActivityUpdate extends BaseController
         }
 
         return true;
+    }
+
+    private function draftDir(): string
+    {
+        return ROOTPATH . 'data/activity-submissions/drafts';
+    }
+
+    private function draftPath(string $slug): string
+    {
+        $safe = preg_replace('/[^a-z0-9\-]+/i', '', $slug) ?: 'unknown';
+
+        return $this->draftDir() . '/' . $safe . '.json';
+    }
+
+    /** @return array<string,mixed>|null */
+    private function loadDraft(string $slug): ?array
+    {
+        $path = $this->draftPath($slug);
+        if (! is_file($path)) {
+            return null;
+        }
+        $raw = @file_get_contents($path);
+        if ($raw === false || $raw === '') {
+            return null;
+        }
+        $data = json_decode($raw, true);
+        if (! is_array($data)) {
+            return null;
+        }
+
+        return $data;
+    }
+
+    /** @param array<string,mixed> $payload */
+    private function writeDraft(string $slug, array $payload): bool
+    {
+        $dir = $this->draftDir();
+        if (! is_dir($dir) && ! @mkdir($dir, 0755, true) && ! is_dir($dir)) {
+            return false;
+        }
+        $json = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        if ($json === false) {
+            return false;
+        }
+        $path = $this->draftPath($slug);
+        if (@file_put_contents($path, $json . "\n") === false) {
+            return false;
+        }
+        @chmod($path, 0644);
+
+        return true;
+    }
+
+    private function clearDraft(string $slug): void
+    {
+        $path = $this->draftPath($slug);
+        if (is_file($path)) {
+            @unlink($path);
+        }
+    }
+
+    private function isSafeDraftPhotoPath(string $slug, string $path): bool
+    {
+        $safeSlug = preg_replace('/[^a-z0-9\-]+/i', '', $slug) ?: '';
+        if ($safeSlug === '' || str_contains($path, '..') || str_contains($path, '\\')) {
+            return false;
+        }
+        if (! preg_match('#^drafts/' . preg_quote($safeSlug, '#') . '/[a-zA-Z0-9._\-]+$#', $path)) {
+            return false;
+        }
+        $full = ROOTPATH . 'data/activity-submissions/' . $path;
+
+        return is_file($full);
     }
 }

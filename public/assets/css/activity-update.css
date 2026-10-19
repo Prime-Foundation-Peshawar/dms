@@ -110,11 +110,24 @@
   min-height: 140px;
 }
 
-#submitBtn {
-  font-size: 1.15rem;
-  padding: 16px 28px;
+.au-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#submitBtn,
+#draftBtn {
+  font-size: 1.1rem;
+  padding: 16px 20px;
   width: 100%;
   justify-content: center;
+}
+
+@media (max-width: 560px) {
+  .au-actions {
+    grid-template-columns: 1fr;
+  }
 }
 
 .au-drop {
