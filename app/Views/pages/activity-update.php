@@ -119,11 +119,20 @@
             <div class="au-previews" id="photoPreviews" hidden></div>
             <p class="fu-note" id="photoCount">No images selected. This section is optional.</p>
             <?php if ($draftPhotos !== []): ?>
-              <div class="au-draft-photos">
-                <p class="fu-note"><strong><?= count($draftPhotos) ?></strong> image<?= count($draftPhotos) === 1 ? '' : 's' ?> already saved in this draft. New uploads will replace them.</p>
-                <?php foreach ($draftPhotos as $p): ?>
-                  <input type="hidden" name="draft_photos[]" value="<?= esc($p) ?>">
-                <?php endforeach; ?>
+              <div class="au-draft-photos" id="draftPhotosWrap">
+                <p class="fu-note"><strong><?= count($draftPhotos) ?></strong> image<?= count($draftPhotos) === 1 ? '' : 's' ?> saved in this draft. Remove any you do not need, or upload new ones to replace them.</p>
+                <div class="au-previews au-draft-previews">
+                  <?php foreach ($draftPhotos as $p):
+                    $file = basename((string) $p);
+                    $imgUrl = site_url('update-activity-draft-image?dept=' . rawurlencode((string) $selectedSlug) . '&file=' . rawurlencode($file));
+                  ?>
+                    <div class="au-preview au-draft-preview">
+                      <img src="<?= esc($imgUrl) ?>" alt="Draft image">
+                      <input type="hidden" name="draft_photos[]" value="<?= esc($p) ?>">
+                      <button type="button" class="au-preview-remove" aria-label="Remove draft image">&times;</button>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
               </div>
             <?php endif; ?>
           </div>
@@ -183,6 +192,24 @@
     });
   }
 
+  const draftWrap = document.getElementById('draftPhotosWrap');
+  if (draftWrap) {
+    draftWrap.addEventListener('click', function (e) {
+      const btn = e.target.closest('.au-preview-remove');
+      if (!btn) return;
+      const card = btn.closest('.au-draft-preview');
+      if (card) card.remove();
+      const left = draftWrap.querySelectorAll('.au-draft-preview').length;
+      const note = draftWrap.querySelector('.fu-note');
+      if (left === 0) {
+        draftWrap.remove();
+      } else if (note) {
+        note.innerHTML = '<strong>' + left + '</strong> image' + (left === 1 ? '' : 's') +
+          ' saved in this draft. Remove any you do not need, or upload new ones to replace them.';
+      }
+    });
+  }
+
   const input = document.getElementById('photos');
   const drop = document.getElementById('photoDrop');
   const previews = document.getElementById('photoPreviews');
@@ -199,16 +226,24 @@
     input.files = dt.files;
   }
 
+  function hideDraftPhotos() {
+    const wrap = document.getElementById('draftPhotosWrap');
+    if (wrap) wrap.hidden = true;
+  }
+
   function render() {
     previews.innerHTML = '';
     if (!files.length) {
       previews.hidden = true;
-        countEl.textContent = 'No images selected. This section is optional.';
+      countEl.textContent = 'No images selected. This section is optional.';
+      const wrap = document.getElementById('draftPhotosWrap');
+      if (wrap) wrap.hidden = false;
       syncInput();
       return;
     }
+    hideDraftPhotos();
     previews.hidden = false;
-    countEl.textContent = files.length + ' image' + (files.length === 1 ? '' : 's') + ' selected.';
+    countEl.textContent = files.length + ' image' + (files.length === 1 ? '' : 's') + ' selected (will replace draft images).';
     files.forEach((file, idx) => {
       const card = document.createElement('div');
       card.className = 'au-preview';

@@ -95,16 +95,13 @@ class ActivityUpdate extends BaseController
             return $this->fail($parsed['error']);
         }
 
-        $existing = $this->loadDraft($parsed['department_slug']) ?? [];
-        $photos   = $this->storePhotos('drafts/' . $parsed['department_slug']);
+        $photos = $this->storePhotos('drafts/' . $parsed['department_slug']);
         if (isset($photos['error'])) {
             return $this->fail($photos['error']);
         }
 
-        $photoPaths = $photos['paths'];
-        if ($photoPaths === [] && ! empty($existing['photos']) && is_array($existing['photos'])) {
-            $photoPaths = array_values(array_filter(array_map('strval', $existing['photos'])));
-        }
+        // New uploads replace draft images; otherwise keep the ones still listed in the form.
+        $photoPaths = $photos['paths'] !== [] ? $photos['paths'] : $parsed['draft_photos'];
 
         $ok = $this->writeDraft($parsed['department_slug'], [
             'department_id'   => $parsed['department_id'],
@@ -185,6 +182,33 @@ class ActivityUpdate extends BaseController
             'body'            => $body,
             'draft_photos'    => $draftPhotos,
         ];
+    }
+
+    public function draftImage()
+    {
+        $dept = trim((string) $this->request->getGet('dept'));
+        $file = basename(trim((string) $this->request->getGet('file')));
+        if ($dept === '' || $file === '' || $file === '.' || $file === '..') {
+            return $this->response->setStatusCode(404)->setBody('Not found');
+        }
+
+        $safeSlug = preg_replace('/[^a-z0-9\-]+/i', '', $dept) ?: '';
+        $rel      = 'drafts/' . $safeSlug . '/' . $file;
+        if (! $this->isSafeDraftPhotoPath($dept, $rel)) {
+            return $this->response->setStatusCode(404)->setBody('Not found');
+        }
+
+        $full = ROOTPATH . 'data/activity-submissions/' . $rel;
+        $mime = @mime_content_type($full) ?: 'application/octet-stream';
+        if (! str_starts_with($mime, 'image/')) {
+            $mime = 'application/octet-stream';
+        }
+
+        return $this->response
+            ->setHeader('Content-Type', $mime)
+            ->setHeader('Content-Length', (string) filesize($full))
+            ->setHeader('Cache-Control', 'private, max-age=600')
+            ->setBody((string) file_get_contents($full));
     }
 
     private function fail(string $message)

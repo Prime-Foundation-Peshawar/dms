@@ -24,6 +24,7 @@ $routes->post('faculty-update-submit', 'FacultyUpdate::submit');
 $routes->get('update-activity', 'ActivityUpdate::index');
 $routes->post('update-activity-submit', 'ActivityUpdate::submit');
 $routes->post('update-activity-draft', 'ActivityUpdate::saveDraft');
+$routes->get('update-activity-draft-image', 'ActivityUpdate::draftImage');
 $routes->get('medical-education', 'PageController::redirectMedicalEducation');
 $routes->get('newsletter', 'PageController::redirectNewsletter');
 

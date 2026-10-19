@@ -195,6 +195,14 @@
   margin-top: 12px;
 }
 
+.au-draft-photos {
+  margin-top: 14px;
+}
+
+.au-draft-previews {
+  margin-top: 8px;
+}
+
 .au-preview {
   position: relative;
   aspect-ratio: 1;
