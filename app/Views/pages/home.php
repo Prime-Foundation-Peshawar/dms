@@ -534,13 +534,23 @@ if (!function_exists('hs_e')) {
   }
 </style>
 
+<?php
+$heroPosterJpg = FCPATH . 'assets/images/slider/pmc-hero-poster.jpg';
+$heroPosterWebp = FCPATH . 'assets/images/slider/pmc-hero-poster.webp';
+$heroVideo720 = FCPATH . 'assets/videos/pmc-hero-720.mp4';
+$heroVideo480 = FCPATH . 'assets/videos/pmc-hero-480.mp4';
+$heroPosterJpgV = @filemtime($heroPosterJpg) ?: time();
+$heroPosterWebpV = @filemtime($heroPosterWebp) ?: time();
+$heroVideo720V = @filemtime($heroVideo720) ?: time();
+$heroVideo480V = @filemtime($heroVideo480) ?: time();
+?>
 <!-- ═══ HERO — cinematic campus film ═══ -->
 <div id="heroSlider" class="hero-cinematic" aria-label="Peshawar Medical College campus film">
   <div class="hero-slide active">
     <div class="slide-media slide-bg-hero has-video">
       <picture class="hero-poster">
-        <source srcset="assets/images/slider/pmc-hero-poster.webp" type="image/webp">
-        <img src="<?= base_url('assets/images/slider/pmc-hero-poster.jpg') ?>" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+        <source srcset="<?= base_url('assets/images/slider/pmc-hero-poster.webp') ?>?v=<?= $heroPosterWebpV ?>" type="image/webp">
+        <img src="<?= base_url('assets/images/slider/pmc-hero-poster.jpg') ?>?v=<?= $heroPosterJpgV ?>" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
       </picture>
       <video
         class="hero-video"
@@ -550,8 +560,8 @@ if (!function_exists('hs_e')) {
         preload="none"
         disablepictureinpicture
         aria-hidden="true"
-        data-src-720="assets/videos/pmc-hero-720.mp4"
-        data-src-480="assets/videos/pmc-hero-480.mp4"></video>
+        data-src-720="<?= base_url('assets/videos/pmc-hero-720.mp4') ?>?v=<?= $heroVideo720V ?>"
+        data-src-480="<?= base_url('assets/videos/pmc-hero-480.mp4') ?>?v=<?= $heroVideo480V ?>"></video>
     </div>
     <div class="slide-overlay slide-overlay-film"></div>
     <div class="container slide-inner">
