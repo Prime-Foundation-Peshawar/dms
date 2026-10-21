@@ -463,11 +463,12 @@ function extraForMember(m) {
   return isPublicCvRec(rec) ? rec : null;
 }
 
-/** DB CV content only — rank/name come from live HRMS list row. */
+/** Clickable only with education (qualifications) AND bio (experience/skills/publications). */
 function hasWordProfile(extra) {
   if (!extra || !isPublicCvRec(extra)) return false;
-  if (extra.photo) return true;
-  return ['qualifications', 'experience', 'publications', 'skills']
+  const quals = Array.isArray(extra.qualifications) ? extra.qualifications : [];
+  if (!quals.length) return false;
+  return ['experience', 'skills', 'publications']
     .some(key => Array.isArray(extra[key]) && extra[key].length > 0);
 }
 

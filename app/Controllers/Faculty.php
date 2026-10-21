@@ -27,12 +27,7 @@ class Faculty extends BaseController
                 continue;
             }
             $canon = trim((string) ($rec['slug'] ?? ''));
-            $hasCv = ! empty($rec['photo'])
-                || ! empty($rec['qualifications'])
-                || ! empty($rec['experience'])
-                || ! empty($rec['publications'])
-                || ! empty($rec['skills']);
-            if ($canon !== '' && $hasCv) {
+            if ($canon !== '' && faculty_profile_has_cv($rec)) {
                 $faculty_cv_by_emp[$empId] = $canon;
             }
 
@@ -94,7 +89,14 @@ class Faculty extends BaseController
         if ($extra && ! faculty_profile_is_public($extra)) {
             return redirect()->to(site_url('faculty'));
         }
+        // No public profile page until education + bio are filled in CMS.
+        if ($extra && ! faculty_profile_has_cv($extra)) {
+            return redirect()->to(site_url('faculty'));
+        }
         if (! $extra && ! $dirRow) {
+            return redirect()->to(site_url('faculty'));
+        }
+        if (! $extra && $dirRow) {
             return redirect()->to(site_url('faculty'));
         }
         $liveName = trim((string) ($dirRow['empName'] ?? ''));
