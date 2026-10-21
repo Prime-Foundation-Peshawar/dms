@@ -662,13 +662,20 @@ if (! function_exists('faculty_pub_url')) {
 }
 
 if (! function_exists('faculty_profile_has_cv')) {
+    /**
+     * Public profile is clickable only when education AND bio content exist.
+     * Education = qualifications. Bio = experience, skills, or publications.
+     * Photo alone (or quals alone) is not enough.
+     */
     function faculty_profile_has_cv(array $rec): bool
     {
-        if (! empty($rec['photo'])) {
-            return true;
+        $quals = $rec['qualifications'] ?? [];
+        if (! is_array($quals) || $quals === []) {
+            return false;
         }
-        foreach (['qualifications', 'experience', 'publications', 'skills'] as $key) {
-            if (! empty($rec[$key]) && is_array($rec[$key])) {
+        foreach (['experience', 'skills', 'publications'] as $key) {
+            $items = $rec[$key] ?? [];
+            if (is_array($items) && $items !== []) {
                 return true;
             }
         }
