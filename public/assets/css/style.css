@@ -439,6 +439,26 @@
     }
     @keyframes slideProgress { from { width: 0; } to { width: 100%; } }
 
+    /* ACP-managed image slides retain the original pre-video hero treatment. */
+    .home-image-slider { min-height: 90vh; }
+    .home-image-slider .hero-slide.active.has-motion .slide-media {
+      animation: homeImageKenBurns 7.5s ease-out both;
+    }
+    @keyframes homeImageKenBurns {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+    .home-image-slider .slide-overlay { background: rgba(0, 0, 0, .5); }
+    .home-image-slider .slide-grid {
+      position: absolute; inset: 0; z-index: 1; opacity: .04;
+      background-image: linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .home-image-slider .slide-circle-1,
+    .home-image-slider .slide-circle-2 { position: absolute; z-index: 1; border-radius: 50%; pointer-events: none; }
+    .home-image-slider .slide-circle-1 { right: -100px; top: -100px; width: 580px; height: 580px; border: 70px solid rgba(255,255,255,.03); }
+    .home-image-slider .slide-circle-2 { right: 100px; bottom: -140px; width: 340px; height: 340px; border: 50px solid rgba(0,168,150,.06); }
+
     /* ── ABOUT ── */
     .about-visual {
       background-image: url('../images/slider/pmc-hero-poster.jpg?v=20261021');

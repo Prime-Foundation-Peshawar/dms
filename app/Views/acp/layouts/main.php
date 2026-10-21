@@ -24,6 +24,7 @@ $navGroups = [
         ['Events', 'acp/events', 'bi-calendar-event'],
     ],
     'Site modules' => [
+        ['Home slider', 'acp/slider', 'bi-images'],
         ['Gallery', 'acp/gallery', 'bi-images'],
         ['Vacant seats', 'acp/vacant-seats', 'bi-person-plus'],
     ],

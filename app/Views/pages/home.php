@@ -534,6 +534,24 @@ if (!function_exists('hs_e')) {
   }
 </style>
 
+<?php if (! empty($home_slides)): ?>
+<!-- Home slider managed in ACP -->
+<div id="heroSlider" class="home-image-slider" aria-label="Featured announcements">
+  <?php foreach ($home_slides as $index => $slide): ?>
+  <div class="hero-slide <?= $index === 0 ? 'active' : '' ?> <?= !array_key_exists('motion_enabled', $slide) || !empty($slide['motion_enabled']) ? 'has-motion' : '' ?>">
+    <div class="slide-media" style="background-image:url('<?= esc(base_url(ltrim((string) $slide['image_path'], '/')), 'attr') ?>')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-grid"></div><div class="slide-circle-1"></div><div class="slide-circle-2"></div>
+    <div class="container slide-inner"><div class="row align-items-center"><div class="col-lg-7"><div class="slide-content">
+      <?php if (! empty($slide['title'])): ?><h1 class="slide-title"><?= esc($slide['title']) ?></h1><?php endif; ?>
+      <?php if (! empty($slide['text'])): ?><p class="slide-body"><?= esc($slide['text']) ?></p><?php endif; ?>
+      <?php if (! empty($slide['link_url'])): ?><div class="slide-actions"><a href="<?= esc($slide['link_url'], 'attr') ?>" class="btn-pmc btn-pmc-primary"><?= esc($slide['link_label'] ?: 'Learn more') ?></a></div><?php endif; ?>
+    </div></div></div></div>
+  </div>
+  <?php endforeach; ?>
+  <?php if (count($home_slides) > 1): ?><div class="slider-chrome"><button class="slider-prev" type="button" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button><div class="slider-indicators" role="tablist"><?php foreach ($home_slides as $index => $slide): ?><button class="slider-dot <?= $index === 0 ? 'active' : '' ?>" type="button" aria-label="Show slide <?= $index + 1 ?>" aria-selected="<?= $index === 0 ? 'true' : 'false' ?>"><span class="slider-dot-track"><span class="slider-dot-bar"></span></span></button><?php endforeach; ?></div><button class="slider-next" type="button" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button></div><?php endif; ?>
+</div>
+<?php else: ?>
 <?php
 $heroPosterJpg = FCPATH . 'assets/images/slider/pmc-hero-poster.jpg';
 $heroPosterWebp = FCPATH . 'assets/images/slider/pmc-hero-poster.webp';
@@ -581,6 +599,8 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
     </button>
   </div>
 </div>
+
+<?php endif; ?>
 
 <!-- ═══ STATS BAR ═══ -->
 <div class="pmc-stats home-stats">

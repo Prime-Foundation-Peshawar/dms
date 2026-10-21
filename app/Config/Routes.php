@@ -122,6 +122,9 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->get('vacant-seats', 'VacantSeats::index');
         $routes->post('vacant-seats/save', 'VacantSeats::save');
 
+        $routes->get('slider', 'Slider::index');
+        $routes->post('slider/save', 'Slider::save');
+
         $routes->get('settings', 'Settings::index');
         $routes->post('settings/save', 'Settings::save');
 
