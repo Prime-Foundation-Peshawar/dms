@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACP Login · DMS</title>
+  <link rel="icon" type="image/jpeg" href="<?= base_url('assets/images/logo/favicon-logo.jpg') ?>" sizes="32x32">
+  <link rel="apple-touch-icon" href="<?= base_url('assets/images/logo/favicon-logo.jpg') ?>">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url('assets/css/acp.css') ?>?v=<?= @filemtime(FCPATH . 'assets/css/acp.css') ?: time() ?>" rel="stylesheet">
