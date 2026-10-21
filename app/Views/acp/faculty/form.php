@@ -1,9 +1,14 @@
 <?= $this->extend('acp/layouts/main') ?>
 <?= $this->section('content') ?>
 <?php
+$row = is_array($row ?? null) ? $row : [];
 $isEdit = ! empty($row['id']);
 $returnTo = $return_to ?? '';
 $lists = $lists ?? ['qualifications' => '', 'experience' => '', 'skills' => '', 'publications' => ''];
+$photoUrl = trim((string) ($row['photo'] ?? ''));
+if ($photoUrl !== '' && ! preg_match('#^https?://#i', $photoUrl)) {
+    $photoUrl = base_url(ltrim($photoUrl, '/'));
+}
 ?>
 <form method="post" enctype="multipart/form-data" action="<?= site_url($isEdit ? 'acp/faculty/update/' . $row['id'] : 'acp/faculty/store') ?>" class="acp-card acp-fu">
   <?= csrf_field() ?>
@@ -36,14 +41,25 @@ $lists = $lists ?? ['qualifications' => '', 'experience' => '', 'skills' => '', 
         </div>
         <div class="acp-field span-full">
           <label class="form-label">Photo</label>
-          <div class="acp-drop">
-            <strong><i class="bi bi-person-bounding-box"></i> Profile photo</strong>
-            <span data-drop-label>Drop image or click</span>
-            <input type="file" name="photo" accept="image/*">
+          <div class="acp-photo-picker">
+            <div class="acp-photo-preview<?= $photoUrl !== '' ? ' has-photo' : '' ?>" id="facultyPhotoPreview">
+              <?php if ($photoUrl !== ''): ?>
+                <img src="<?= esc($photoUrl) ?>" alt="Current photo" id="facultyPhotoImg">
+              <?php else: ?>
+                <span class="acp-photo-placeholder" id="facultyPhotoPlaceholder"><i class="bi bi-person"></i></span>
+                <img src="" alt="" id="facultyPhotoImg" hidden>
+              <?php endif; ?>
+            </div>
+            <div class="acp-photo-actions">
+              <div class="acp-drop acp-photo-drop" id="facultyPhotoDrop">
+                <strong><i class="bi bi-cloud-upload"></i> Upload photo</strong>
+                <span data-drop-label>Drop an image here, or click to browse</span>
+                <em>JPG, PNG or WEBP · square crop works best</em>
+                <input type="file" name="photo" id="facultyPhotoInput" accept="image/jpeg,image/png,image/webp,image/gif">
+              </div>
+              <p class="form-text mb-0">A clear headshot shows best on the faculty directory and profile page.</p>
+            </div>
           </div>
-          <?php if (! empty($row['photo'])): ?>
-            <img src="<?= base_url($row['photo']) ?>" alt="" class="img-thumbnail mt-2" style="max-height:120px">
-          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -107,4 +123,47 @@ $lists = $lists ?? ['qualifications' => '', 'experience' => '', 'skills' => '', 
     <a class="btn-acp btn-acp-outline" href="<?= esc($returnTo !== '' ? $returnTo : site_url('acp/departments')) ?>">Back</a>
   </div>
 </form>
+<script>
+(function () {
+  const input = document.getElementById('facultyPhotoInput');
+  const preview = document.getElementById('facultyPhotoPreview');
+  const img = document.getElementById('facultyPhotoImg');
+  const placeholder = document.getElementById('facultyPhotoPlaceholder');
+  const drop = document.getElementById('facultyPhotoDrop');
+  if (!input || !preview || !img) return;
+
+  function showFile(file) {
+    if (!file || !/^image\//i.test(file.type)) return;
+    const url = URL.createObjectURL(file);
+    img.src = url;
+    img.hidden = false;
+    preview.classList.add('has-photo');
+    if (placeholder) placeholder.hidden = true;
+  }
+
+  input.addEventListener('change', function () {
+    showFile(input.files && input.files[0]);
+  });
+  ;['dragenter', 'dragover'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) {
+      e.preventDefault();
+      drop.classList.add('is-dragover');
+    });
+  });
+  ;['dragleave', 'drop'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) {
+      e.preventDefault();
+      drop.classList.remove('is-dragover');
+    });
+  });
+  drop.addEventListener('drop', function (e) {
+    const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!file) return;
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    input.files = dt.files;
+    showFile(file);
+  });
+})();
+</script>
 <?= $this->endSection() ?>

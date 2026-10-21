@@ -37,7 +37,7 @@ class Faculty extends BaseAcpController
 
         return $this->acpView('faculty/form', [
             'title'       => 'Create faculty profile',
-            'row'         => $prefill['name'] !== '' ? $prefill : null,
+            'row'         => $prefill,
             'departments' => model(DepartmentModel::class)->orderBy('name', 'ASC')->findAll(),
             'lists'       => [
                 'qualifications' => '',
@@ -53,10 +53,22 @@ class Faculty extends BaseAcpController
     {
         $model = model(FacultyProfileModel::class);
         $name  = trim((string) $this->request->getPost('name'));
+        if ($name === '') {
+            return redirect()->back()->withInput()->with('error', 'Name is required.');
+        }
         $slug  = trim((string) $this->request->getPost('slug')) ?: $this->makeSlug($name);
         $photo = $this->storeUpload('photo', 'faculty', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
 
-        $id = $model->insert($this->payload($slug, $name, $photo, null), true);
+        try {
+            $id = $model->insert($this->payload($slug, $name, $photo, null), true);
+        } catch (\Throwable $e) {
+            log_message('error', 'Faculty create failed: ' . $e->getMessage());
+
+            return redirect()->back()->withInput()->with('error', 'Could not create profile. Check that the slug and empId are unique.');
+        }
+        if (! $id) {
+            return redirect()->back()->withInput()->with('error', 'Could not create profile.');
+        }
 
         return redirect()->to($this->afterSaveUrl((int) $id))->with('success', 'Faculty profile created.');
     }
