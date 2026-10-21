@@ -54,7 +54,7 @@ $profileModel = model(\App\Models\FacultyProfileModel::class);
               $empId = trim((string) ($member['empId'] ?? ''));
               // Link CV by HRMS empId only (never by name).
               $profile = $empId !== '' ? $profileModel->findByEmpId($empId) : null;
-              if ($profile && ! faculty_profile_is_public($profile)) {
+              if ($profile && (! faculty_profile_is_public($profile) || ! faculty_profile_has_cv($profile))) {
                 $profile = null;
               }
               $isHod = !empty($dept['hod']) && faculty_slugs_match(faculty_slug($lookup), faculty_slug((string) $dept['hod']));
