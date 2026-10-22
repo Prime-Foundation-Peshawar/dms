@@ -96,22 +96,49 @@ class Departments extends BaseAcpController
             return redirect()->to(site_url('acp/departments'))->with('error', 'Department not found.');
         }
 
-        $max = model(DepartmentActivityModel::class)
+        $activityModel = model(DepartmentActivityModel::class);
+        $activityModel->ensureEnabledColumn();
+
+        $max = $activityModel
             ->where('department_id', $departmentId)
             ->orderBy('sort_order', 'DESC')
             ->first();
         $next = (int) ($max['sort_order'] ?? -1) + 1;
 
-        model(DepartmentActivityModel::class)->insert([
+        $row = [
             'department_id' => $departmentId,
             'title'         => trim((string) $this->request->getPost('title')),
             'date_label'    => trim((string) $this->request->getPost('date_label')),
             'body'          => trim((string) $this->request->getPost('body')),
             'sort_order'    => $next,
-        ]);
+        ];
+        if (db_connect()->fieldExists('enabled', 'department_activities')) {
+            $row['enabled'] = 1;
+        }
+        $activityModel->insert($row);
 
         return redirect()->to(site_url('acp/departments/edit/' . $departmentId))
             ->with('success', 'Activity added.');
+    }
+
+    public function toggleActivity(int $id)
+    {
+        $activityModel = model(DepartmentActivityModel::class);
+        $activityModel->ensureEnabledColumn();
+        $act = $activityModel->find($id);
+        if (! $act) {
+            return redirect()->to(site_url('acp/departments'))->with('error', 'Activity not found.');
+        }
+        if (! db_connect()->fieldExists('enabled', 'department_activities')) {
+            return redirect()->to(site_url('acp/departments/edit/' . $act['department_id']))
+                ->with('error', 'Enable/disable is not available yet.');
+        }
+
+        $enabled = $this->request->getPost('enabled') ? 1 : 0;
+        $activityModel->update($id, ['enabled' => $enabled]);
+
+        return redirect()->to(site_url('acp/departments/edit/' . $act['department_id']))
+            ->with('success', $enabled ? 'Activity enabled on the website.' : 'Activity disabled on the website.');
     }
 
     public function deleteActivity(int $id)

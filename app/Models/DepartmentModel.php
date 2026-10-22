@@ -39,15 +39,38 @@ class DepartmentModel extends Model
         $row['intro'] = json_decode((string) ($row['intro_json'] ?? '[]'), true) ?: [];
         $row['faculty'] = json_decode((string) ($row['faculty_seed_json'] ?? '[]'), true) ?: [];
         $row['group'] = $row['group_name'] ?? 'Other';
-        $acts = db_connect()->table('department_activities')
+        $db = db_connect();
+        $actBuilder = $db->table('department_activities')
             ->where('department_id', $row['id'])
-            ->orderBy('sort_order')
-            ->get()->getResultArray();
+            ->orderBy('sort_order');
+        if ($db->fieldExists('enabled', 'department_activities')) {
+            $actBuilder->where('enabled', 1);
+        }
+        $acts = $actBuilder->get()->getResultArray();
         $row['activities'] = array_map(static function ($a) {
+            $photos = [];
+            $rawPhotos = $a['photos_json'] ?? null;
+            if (is_array($rawPhotos)) {
+                $decoded = $rawPhotos;
+            } elseif (is_string($rawPhotos) && $rawPhotos !== '') {
+                $decoded = json_decode($rawPhotos, true);
+            } else {
+                $decoded = null;
+            }
+            if (is_array($decoded)) {
+                foreach ($decoded as $p) {
+                    $p = str_replace('\\', '/', trim((string) $p));
+                    if ($p !== '' && ! str_contains($p, '..')) {
+                        $photos[] = $p;
+                    }
+                }
+            }
+
             return [
-                'title' => $a['title'],
-                'date' => $a['date_label'],
-                'text' => $a['body'],
+                'title'  => $a['title'],
+                'date'   => str_replace("\u{00E2}\u{20AC}\u{201C}", "\u{2013}", (string) $a['date_label']),
+                'text'   => $a['body'],
+                'photos' => $photos,
             ];
         }, $acts);
         return $row;

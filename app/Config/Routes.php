@@ -23,6 +23,8 @@ $routes->get('faculty-update', 'FacultyUpdate::index');
 $routes->post('faculty-update-submit', 'FacultyUpdate::submit');
 $routes->get('update-activity', 'ActivityUpdate::index');
 $routes->post('update-activity-submit', 'ActivityUpdate::submit');
+$routes->post('update-activity-draft', 'ActivityUpdate::saveDraft');
+$routes->get('update-activity-draft-image', 'ActivityUpdate::draftImage');
 $routes->get('medical-education', 'PageController::redirectMedicalEducation');
 $routes->get('newsletter', 'PageController::redirectNewsletter');
 
@@ -82,6 +84,7 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->get('departments/edit/(:num)', 'Departments::edit/$1');
         $routes->post('departments/update/(:num)', 'Departments::update/$1');
         $routes->post('departments/activity-store/(:num)', 'Departments::storeActivity/$1');
+        $routes->post('departments/activity-toggle/(:num)', 'Departments::toggleActivity/$1');
         $routes->post('departments/activity-delete/(:num)', 'Departments::deleteActivity/$1');
         $routes->post('departments/activities-reorder', 'Departments::reorderActivities');
 
@@ -98,6 +101,13 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->post('faculty/submissions/(:num)/reject', 'Faculty::reject/$1');
         $routes->get('faculty/submissions/(:num)/file/(:segment)', 'Faculty::downloadFile/$1/$2');
 
+        $routes->get('activities/submissions', 'Activities::submissions');
+        $routes->get('activities/submissions/(:segment)', 'Activities::submission/$1');
+        $routes->post('activities/submissions/(:segment)/approve', 'Activities::approve/$1');
+        $routes->post('activities/submissions/(:segment)/reject', 'Activities::reject/$1');
+        $routes->post('activities/submissions/(:segment)/republish-images', 'Activities::republishImages/$1');
+        $routes->get('activities/submissions/(:segment)/file/(:num)', 'Activities::file/$1/$2');
+
         $routes->get('gallery', 'Gallery::index');
         $routes->post('gallery/album-store', 'Gallery::storeAlbum');
         $routes->post('gallery/album-update/(:num)', 'Gallery::updateAlbum/$1');
@@ -111,6 +121,9 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
 
         $routes->get('vacant-seats', 'VacantSeats::index');
         $routes->post('vacant-seats/save', 'VacantSeats::save');
+
+        $routes->get('slider', 'Slider::index');
+        $routes->post('slider/save', 'Slider::save');
 
         $routes->get('settings', 'Settings::index');
         $routes->post('settings/save', 'Settings::save');

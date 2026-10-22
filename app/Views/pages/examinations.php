@@ -27,7 +27,7 @@ curl_setopt_array($ch, [
     CURLOPT_TIMEOUT        => 15,
     CURLOPT_CONNECTTIMEOUT => 8,
     CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_SSL_VERIFYPEER => false,
+    CURLOPT_SSL_VERIFYPEER => true,
     CURLOPT_USERAGENT      => 'Mozilla/5.0 (compatible; PMC-Website/1.0)',
     CURLOPT_HTTPHEADER     => ['Accept: text/html,application/json'],
 ]);
@@ -38,7 +38,7 @@ curl_close($ch);
 if ($raw_response === false || $http_code < 200 || $http_code >= 300) {
     $context = stream_context_create([
         'http' => ['method' => 'GET', 'header' => "Accept: text/html,application/json\r\nUser-Agent: Mozilla/5.0\r\n", 'timeout' => 15],
-        'ssl'  => ['verify_peer' => false, 'verify_peer_name' => false],
+        'ssl'  => ['verify_peer' => true, 'verify_peer_name' => true],
     ]);
     $raw_response = @file_get_contents($api_url, false, $context);
     if ($raw_response === false) {
@@ -63,19 +63,29 @@ if (!$fetch_error && $raw_response !== '') {
             $extracted_table = $dom->saveHTML($tables->item(0));
             $display_type = 'html_table';
         } else {
-            // Check for <ul> (the new format)
+            // Parse the API's <ul><li><a href="...">Title</a></li></ul>
             $lists = $dom->getElementsByTagName('ul');
             if ($lists->length > 0) {
                 $list_items = [];
-                $lis = $lists->item(0)->getElementsByTagName('li');
-                foreach ($lis as $li) {
-                    $list_items[] = trim($li->textContent);
+                foreach ($lists as $list) {
+                    foreach ($list->getElementsByTagName('li') as $li) {
+                        $anchors = $li->getElementsByTagName('a');
+                        if ($anchors->length === 0) {
+                            continue;
+                        }
+                        $anchor = $anchors->item(0);
+                        $title = trim($anchor->textContent);
+                        $url = trim($anchor->getAttribute('href'));
+                        $parts = parse_url($url);
+                        // Only accept links to the official datesheet host.
+                        if ($title !== '' && is_array($parts)
+                            && strtolower($parts['scheme'] ?? '') === 'https'
+                            && strtolower($parts['host'] ?? '') === 'sas.prime.edu.pk') {
+                            $list_items[] = ['title' => $title, 'url' => $url];
+                        }
+                    }
                 }
-                if (!empty($list_items)) {
-                    $display_type = 'html_list';
-                } else {
-                    $display_type = 'empty_list'; // <ul> exists but has no <li>
-                }
+                $display_type = $list_items ? 'html_list' : 'empty_list';
             } else {
                 $display_type = 'raw'; // no table, no ul
             }
@@ -164,47 +174,34 @@ if (!$fetch_error && $raw_response !== '') {
             </div>
 
           <?php elseif ($display_type === 'html_list'): ?>
-            <!-- Convert list items to table – assume each <li> contains comma/tab separated values? We'll display them as a simple columned table. -->
-            <?php
-              // Attempt to parse each line: common format "Date - Subject - Year - Time"
-              // If structure unknown, we'll present as single column table with full line
-              $rows = [];
-              foreach ($list_items as $line) {
-                  // Try to split by common delimiters
-                  $parts = preg_split('/\s{2,}|\t| – | - |,/', $line);
-                  if (count($parts) >= 3) {
-                      $rows[] = $parts;
-                  } else {
-                      $rows[] = [$line];
-                  }
-              }
-              // Determine columns
-              $max_cols = max(array_map('count', $rows));
-              $headers = ['Date', 'Day', 'Subject', 'Year', 'Time'];
-              // Use only as many headers as needed
-              $headers = array_slice($headers, 0, $max_cols);
-            ?>
-            <div class="alert alert-info">
-              <i class="bi bi-info-circle"></i> The datesheet below has been automatically formatted from the official list.
-            </div>
             <div class="table-responsive">
               <table class="table table-striped table-hover align-middle border">
                 <thead class="table-light">
                   <tr>
-                    <?php foreach ($headers as $h): ?>
-                      <th><?= $h ?></th>
-                    <?php endforeach; ?>
+                    <th style="width:75px;">S.No</th>
+                    <th>Datesheet Title</th>
+                    <th style="width:140px;">Attachment</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($rows as $row): ?>
+                  <?php foreach ($list_items as $index => $item): ?>
                     <tr>
-                      <?php foreach ($row as $cell): ?>
-                        <td><?= htmlspecialchars($cell) ?></td>
-                      <?php endforeach; ?>
-                      <?php for ($i = count($row); $i < $max_cols; $i++): ?>
-                        <td>—</td>
-                      <?php endfor; ?>
+                      <td><?= $index + 1 ?></td>
+                      <td>
+                        <a href="<?= htmlspecialchars($item['url'], ENT_QUOTES, 'UTF-8') ?>"
+                           target="_blank" rel="noopener noreferrer"
+                           class="text-decoration-none fw-semibold">
+                          <i class="bi bi-file-earmark-pdf text-danger me-2"></i>
+                          <?= htmlspecialchars($item['title'], ENT_QUOTES, 'UTF-8') ?>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="<?= htmlspecialchars($item['url'], ENT_QUOTES, 'UTF-8') ?>"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn btn-sm btn-outline-primary">
+                          <i class="bi bi-eye"></i> View PDF
+                        </a>
+                      </td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

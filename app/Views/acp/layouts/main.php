@@ -24,13 +24,15 @@ $navGroups = [
         ['Events', 'acp/events', 'bi-calendar-event'],
     ],
     'Site modules' => [
+        ['Home slider', 'acp/slider', 'bi-images'],
         ['Gallery', 'acp/gallery', 'bi-images'],
         ['Vacant seats', 'acp/vacant-seats', 'bi-person-plus'],
     ],
     'Catalog' => [
         ['Departments', 'acp/departments', 'bi-building'],
         ['Faculty', 'acp/faculty', 'bi-people'],
-        ['Submissions', 'acp/faculty/submissions', 'bi-inbox'],
+        ['Faculty updates', 'acp/faculty/submissions', 'bi-inbox'],
+        ['Activity submissions', 'acp/activities/submissions', 'bi-clipboard-check'],
     ],
     'System' => [
         ['Settings', 'acp/settings', 'bi-gear'],
@@ -50,7 +52,9 @@ $navGroups = [
         <?php
           $active = ($path === 'acp' && ($uri === 'acp' || $uri === 'acp/'))
               || ($path === 'acp/faculty' && str_starts_with($uri, 'acp/faculty') && ! str_starts_with($uri, 'acp/faculty/submissions'))
-              || ($path !== 'acp' && $path !== 'acp/faculty' && str_starts_with($uri, $path));
+              || ($path === 'acp/faculty/submissions' && str_starts_with($uri, 'acp/faculty/submissions'))
+              || ($path === 'acp/activities/submissions' && str_starts_with($uri, 'acp/activities/submissions'))
+              || ($path !== 'acp' && $path !== 'acp/faculty' && $path !== 'acp/faculty/submissions' && $path !== 'acp/activities/submissions' && str_starts_with($uri, $path));
         ?>
         <a href="<?= site_url($path) ?>" class="acp-nav <?= $active ? 'active' : '' ?>">
           <i class="bi <?= $icon ?>"></i><?= esc($label) ?>

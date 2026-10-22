@@ -117,12 +117,30 @@ $profileModel = model(\App\Models\FacultyProfileModel::class);
       <div class="dept-panel-body">
         <?php if (!empty($dept['activities'])): ?>
           <div class="dept-timeline">
-            <?php foreach ($dept['activities'] as $i => $item): ?>
-              <a class="dept-timeline-item" href="<?= site_url('department-activity?slug=' . rawurlencode($slug) . '&i=' . $i) ?>">
-                <div class="dept-timeline-date"><?= esc($item['date'] ?? 'TBA') ?></div>
-                <div class="dept-timeline-body">
+            <?php foreach ($dept['activities'] as $i => $item):
+              $dateRaw = trim((string) ($item['date'] ?? ''));
+              $dateMain = $dateRaw !== '' ? $dateRaw : 'TBA';
+              $dateBits = preg_split('/\s+/', $dateMain) ?: [$dateMain];
+              $dateTop = $dateBits[0] ?? $dateMain;
+              $dateBottom = isset($dateBits[1]) ? implode(' ', array_slice($dateBits, 1)) : '';
+            ?>
+              <a class="dept-activity" href="<?= site_url('department-activity?slug=' . rawurlencode($slug) . '&i=' . $i) ?>">
+                <div class="dept-activity-datebox" aria-label="Date: <?= esc($dateMain) ?>">
+                  <span class="dept-activity-date-top"><?= esc($dateTop) ?></span>
+                  <?php if ($dateBottom !== ''): ?>
+                    <span class="dept-activity-date-bottom"><?= esc($dateBottom) ?></span>
+                  <?php elseif (mb_strlen($dateMain) <= 4): ?>
+                    <span class="dept-activity-date-bottom"><i class="bi bi-calendar3"></i></span>
+                  <?php endif; ?>
+                </div>
+                <div class="dept-activity-body">
+                  <div class="dept-activity-meta">
+                    <i class="bi bi-clock"></i>
+                    <time><?= esc($dateMain) ?></time>
+                  </div>
                   <h3><?= esc($item['title'] ?? '') ?></h3>
                   <p><?= esc($item['text'] ?? '') ?></p>
+                  <span class="dept-activity-more">View details <i class="bi bi-arrow-right"></i></span>
                 </div>
               </a>
             <?php endforeach; ?>

@@ -154,15 +154,32 @@ $returnTo = site_url('acp/departments/edit/' . $row['id']);
 <div class="acp-card acp-fu">
   <div class="acp-card-body">
     <h2 class="acp-form-section-title">Activities <span class="text-muted fw-normal">(drag to reorder)</span></h2>
+    <p class="small text-muted mb-3">Use the switch to show or hide an activity on the public department page.</p>
     <div class="acp-sortable mb-3" data-acp-sortable data-reorder-url="<?= site_url('acp/departments/activities-reorder') ?>">
-      <?php foreach ($activities as $act): ?>
-        <div class="acp-sort-item" data-id="<?= (int) $act['id'] ?>">
+      <?php foreach ($activities as $act):
+        $isEnabled = ! array_key_exists('enabled', $act) || (int) ($act['enabled'] ?? 1) === 1;
+      ?>
+        <div class="acp-sort-item<?= $isEnabled ? '' : ' is-disabled' ?>" data-id="<?= (int) $act['id'] ?>">
           <i class="bi bi-grip-vertical acp-sort-handle"></i>
           <div class="flex-grow-1">
             <strong><?= esc($act['title']) ?></strong>
+            <?php if (! $isEnabled): ?>
+              <span class="acp-badge acp-badge-muted ms-1">Disabled</span>
+            <?php endif; ?>
             <div class="small text-muted"><?= esc($act['date_label'] ?? '') ?></div>
             <div class="small"><?= esc($act['body'] ?? '') ?></div>
           </div>
+          <form method="post" action="<?= site_url('acp/departments/activity-toggle/' . (int) $act['id']) ?>" class="acp-activity-toggle">
+            <?= csrf_field() ?>
+            <div class="form-check form-switch m-0">
+              <input class="form-check-input" type="checkbox" role="switch" name="enabled" value="1"
+                id="actEnabled<?= (int) $act['id'] ?>"
+                <?= $isEnabled ? 'checked' : '' ?>
+                onchange="this.form.submit()"
+                aria-label="Enable activity on website">
+              <label class="form-check-label small" for="actEnabled<?= (int) $act['id'] ?>"><?= $isEnabled ? 'On' : 'Off' ?></label>
+            </div>
+          </form>
           <form method="post" action="<?= site_url('acp/departments/activity-delete/' . $act['id']) ?>">
             <?= csrf_field() ?>
             <button class="btn-acp btn-acp-sm btn-acp-danger" type="submit">Remove</button>

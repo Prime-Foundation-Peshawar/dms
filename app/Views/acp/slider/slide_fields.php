@@ -1,0 +1,16 @@
+<?php $slide = $slide ?? []; $i = $i ?? 0; ?>
+<div class="col-12 slider-slide">
+  <div class="border rounded p-3 bg-light">
+    <div class="d-flex justify-content-between align-items-center mb-3"><span class="acp-sort-handle btn-acp btn-acp-sm btn-acp-outline" style="cursor:grab"><i class="bi bi-grip-vertical"></i> Drag</span><button class="btn-acp btn-acp-sm btn-acp-danger" type="button" data-remove-slide>Remove</button></div>
+    <div class="acp-fields">
+      <div class="acp-field"><label class="form-label">Heading</label><input class="form-control" name="title[<?= esc((string) $i) ?>]" value="<?= esc($slide['title'] ?? '') ?>" placeholder="Your heading"></div>
+      <div class="acp-field"><label class="form-label">Button label</label><input class="form-control" name="link_label[<?= esc((string) $i) ?>]" value="<?= esc($slide['link_label'] ?? '') ?>" placeholder="Learn more"></div>
+      <div class="acp-field span-full"><label class="form-label">Message</label><textarea class="form-control" name="text[<?= esc((string) $i) ?>]" rows="2" placeholder="Optional supporting text"><?= esc($slide['text'] ?? '') ?></textarea></div>
+      <div class="acp-field"><label class="form-label">Button URL</label><input class="form-control" name="link_url[<?= esc((string) $i) ?>]" value="<?= esc($slide['link_url'] ?? '') ?>" placeholder="/admissions or https://…"></div>
+      <div class="acp-field"><label class="form-label">Image path</label><input class="form-control" name="image_path[<?= esc((string) $i) ?>]" value="<?= esc($slide['image_path'] ?? '') ?>" placeholder="assets/images/slider/example.jpg"></div>
+      <div class="acp-field"><label class="form-label">Or upload image</label><input class="form-control" type="file" name="image[<?= esc((string) $i) ?>]" accept="image/jpeg,image/png,image/webp"><div class="form-text">JPEG, PNG or WebP; max 8 MB.</div></div>
+      <div class="acp-field"><label class="form-label">Visibility</label><div class="form-check"><input class="form-check-input" type="checkbox" name="enabled[<?= esc((string) $i) ?>]" id="enabled-<?= esc((string) $i) ?>" <?= !array_key_exists('enabled', $slide) || !empty($slide['enabled']) ? 'checked' : '' ?>><label class="form-check-label" for="enabled-<?= esc((string) $i) ?>">Show this slide</label></div></div>
+      <div class="acp-field"><label class="form-label">Motion</label><div class="form-check"><input class="form-check-input" type="checkbox" name="motion_enabled[<?= esc((string) $i) ?>]" id="motion-<?= esc((string) $i) ?>" <?= !array_key_exists('motion_enabled', $slide) || !empty($slide['motion_enabled']) ? 'checked' : '' ?>><label class="form-check-label" for="motion-<?= esc((string) $i) ?>">Enable image motion</label></div></div>
+    </div>
+  </div>
+</div>

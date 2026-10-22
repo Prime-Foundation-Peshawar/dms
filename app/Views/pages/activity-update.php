@@ -40,8 +40,26 @@
           <p>Please select your department and enter the activity details. All submissions are reviewed before they appear on the website.</p>
         </div>
 
+        <?php if (! empty($draftSaved)): ?>
+          <div class="fu-alert fu-alert-ok" role="status">Draft saved for this department. You can continue later from the same link.</div>
+        <?php endif; ?>
+
         <?php if (! empty($errorMsg)): ?>
           <div class="fu-alert fu-alert-err" role="alert"><?= esc($errorMsg) ?></div>
+        <?php endif; ?>
+
+        <?php
+          $draftTitle = (string) ($draft['title'] ?? '');
+          $draftDate  = (string) ($draft['date_label'] ?? '');
+          $draftBody  = (string) ($draft['body'] ?? '');
+          $draftPhotos = is_array($draft['photos'] ?? null) ? $draft['photos'] : [];
+          $draftSavedAt = (string) ($draft['saved_at'] ?? '');
+        ?>
+
+        <?php if (! empty($draft) && empty($draftSaved)): ?>
+          <div class="fu-alert fu-alert-ok" role="status">
+            Saved draft loaded for this department<?= $draftSavedAt !== '' ? (' (last saved ' . esc($draftSavedAt) . ')') : '' ?>.
+          </div>
         <?php endif; ?>
 
         <form class="fu-form" method="post" action="<?= site_url('update-activity-submit') ?>" enctype="multipart/form-data" novalidate>
@@ -59,12 +77,14 @@
                 </option>
               <?php endforeach; ?>
             </select>
+            <p class="fu-note">Each department keeps one temporary draft. Select the department to restore it.</p>
           </div>
 
           <div class="fu-card">
             <h3>2. Activity Title</h3>
             <label class="fu-label" for="title">Title <span class="req">*</span></label>
             <input class="fu-input" type="text" id="title" name="title" maxlength="190" required
+              value="<?= esc($draftTitle) ?>"
               placeholder="e.g. Workshop on oral hygiene">
           </div>
 
@@ -72,6 +92,7 @@
             <h3>3. Date / Period</h3>
             <label class="fu-label" for="dateLabel">Date or academic period <span class="fu-optional">(optional)</span></label>
             <input class="fu-input" type="text" id="dateLabel" name="date_label" maxlength="120"
+              value="<?= esc($draftDate) ?>"
               placeholder="e.g. March 2026  or  Ongoing">
             <p class="fu-note">Examples: March 2026, Term 2026, Ongoing. Leave blank if not applicable.</p>
           </div>
@@ -80,7 +101,7 @@
             <h3>4. Description</h3>
             <label class="fu-label" for="body">Brief description</label>
             <textarea class="fu-textarea" id="body" name="body" maxlength="4000" required
-              placeholder="Summary of the activity, participants, and key outcomes"></textarea>
+              placeholder="Summary of the activity, participants, and key outcomes"><?= esc($draftBody) ?></textarea>
           </div>
 
           <div class="fu-card">
@@ -97,15 +118,36 @@
             </div>
             <div class="au-previews" id="photoPreviews" hidden></div>
             <p class="fu-note" id="photoCount">No images selected. This section is optional.</p>
+            <?php if ($draftPhotos !== []): ?>
+              <div class="au-draft-photos" id="draftPhotosWrap">
+                <p class="fu-note"><strong><?= count($draftPhotos) ?></strong> image<?= count($draftPhotos) === 1 ? '' : 's' ?> saved in this draft. Remove any you do not need, or upload new ones to replace them.</p>
+                <div class="au-previews au-draft-previews">
+                  <?php foreach ($draftPhotos as $p):
+                    $file = basename((string) $p);
+                    $imgUrl = site_url('update-activity-draft-image?dept=' . rawurlencode((string) $selectedSlug) . '&file=' . rawurlencode($file));
+                  ?>
+                    <div class="au-preview au-draft-preview">
+                      <img src="<?= esc($imgUrl) ?>" alt="Draft image">
+                      <input type="hidden" name="draft_photos[]" value="<?= esc($p) ?>">
+                      <button type="button" class="au-preview-remove" aria-label="Remove draft image">&times;</button>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+            <?php endif; ?>
           </div>
 
           <div class="fu-card">
-            <div class="fu-actions">
+            <div class="fu-actions au-actions">
+              <button type="submit" class="btn-pmc btn-pmc-outline" id="draftBtn"
+                formaction="<?= site_url('update-activity-draft') ?>" formnovalidate>
+                <i class="bi bi-save"></i> Save draft
+              </button>
               <button type="submit" class="btn-pmc btn-pmc-primary" id="submitBtn">
                 <i class="bi bi-send"></i> Submit for review
               </button>
             </div>
-            <p class="fu-note" style="text-align:center;margin-top:12px">Content is published only after administrative approval.</p>
+            <p class="fu-note" style="text-align:center;margin-top:12px">Use Save draft to keep work temporarily. Submit for review when ready. Content is published only after approval.</p>
           </div>
         </form>
       <?php endif; ?>
@@ -150,6 +192,24 @@
     });
   }
 
+  const draftWrap = document.getElementById('draftPhotosWrap');
+  if (draftWrap) {
+    draftWrap.addEventListener('click', function (e) {
+      const btn = e.target.closest('.au-preview-remove');
+      if (!btn) return;
+      const card = btn.closest('.au-draft-preview');
+      if (card) card.remove();
+      const left = draftWrap.querySelectorAll('.au-draft-preview').length;
+      const note = draftWrap.querySelector('.fu-note');
+      if (left === 0) {
+        draftWrap.remove();
+      } else if (note) {
+        note.innerHTML = '<strong>' + left + '</strong> image' + (left === 1 ? '' : 's') +
+          ' saved in this draft. Remove any you do not need, or upload new ones to replace them.';
+      }
+    });
+  }
+
   const input = document.getElementById('photos');
   const drop = document.getElementById('photoDrop');
   const previews = document.getElementById('photoPreviews');
@@ -166,16 +226,24 @@
     input.files = dt.files;
   }
 
+  function hideDraftPhotos() {
+    const wrap = document.getElementById('draftPhotosWrap');
+    if (wrap) wrap.hidden = true;
+  }
+
   function render() {
     previews.innerHTML = '';
     if (!files.length) {
       previews.hidden = true;
-        countEl.textContent = 'No images selected. This section is optional.';
+      countEl.textContent = 'No images selected. This section is optional.';
+      const wrap = document.getElementById('draftPhotosWrap');
+      if (wrap) wrap.hidden = false;
       syncInput();
       return;
     }
+    hideDraftPhotos();
     previews.hidden = false;
-    countEl.textContent = files.length + ' image' + (files.length === 1 ? '' : 's') + ' selected.';
+    countEl.textContent = files.length + ' image' + (files.length === 1 ? '' : 's') + ' selected (will replace draft images).';
     files.forEach((file, idx) => {
       const card = document.createElement('div');
       card.className = 'au-preview';
