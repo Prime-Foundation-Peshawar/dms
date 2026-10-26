@@ -718,7 +718,7 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
       <div class="col-md-6 col-lg-3 fu fu-delay-3">
         <div class="why-card">
           <div class="why-ico"><i class="bi bi-heart-pulse"></i></div>
-          <h4>Ethics &amp; Competence</h4>
+          <h4>Professional Ethics &amp; Competence</h4>
           <p>Outcome-based curricula that form physicians with integrity, research ability, and community focus.</p>
         </div>
       </div>
