@@ -539,7 +539,23 @@ if (!function_exists('hs_e')) {
 <div id="heroSlider" class="home-image-slider" aria-label="Featured announcements">
   <?php foreach ($home_slides as $index => $slide): ?>
   <div class="hero-slide <?= $index === 0 ? 'active' : '' ?> <?= !array_key_exists('motion_enabled', $slide) || !empty($slide['motion_enabled']) ? 'has-motion' : '' ?>">
-    <div class="slide-media" style="background-image:url('<?= esc(base_url(ltrim((string) $slide['image_path'], '/')), 'attr') ?>')"></div>
+    <?php
+    $isVideoSlide = ($slide['media_type'] ?? 'image') === 'video';
+    $isCurrentVideo = ($slide['video_source'] ?? 'current') === 'current';
+    $mediaPath = $isVideoSlide
+        ? ($isCurrentVideo ? \App\Models\SettingModel::CURRENT_VIDEO_720 : (string) $slide['video_path'])
+        : (string) $slide['image_path'];
+    $posterPath = ! empty($slide['image_path'])
+        ? ltrim((string) $slide['image_path'], '/')
+        : \App\Models\SettingModel::CURRENT_POSTER;
+    $mediaVersion = @filemtime(FCPATH . ltrim($mediaPath, '/')) ?: time();
+    $posterVersion = @filemtime(FCPATH . $posterPath) ?: time();
+    ?>
+    <div class="slide-media <?= $isVideoSlide ? 'has-video' : '' ?>" style="background-image:url('<?= esc(base_url($isVideoSlide ? $posterPath : ltrim($mediaPath, '/')) . '?v=' . ($isVideoSlide ? $posterVersion : $mediaVersion), 'attr') ?>')">
+      <?php if ($isVideoSlide): ?>
+        <video class="managed-slide-video" muted playsinline loop preload="none" poster="<?= esc(base_url($posterPath) . '?v=' . $posterVersion, 'attr') ?>" src="<?= esc(base_url(ltrim($mediaPath, '/')) . '?v=' . $mediaVersion, 'attr') ?>" aria-hidden="true"></video>
+      <?php endif; ?>
+    </div>
     <div class="slide-overlay"></div>
     <div class="slide-grid"></div><div class="slide-circle-1"></div><div class="slide-circle-2"></div>
     <div class="container slide-inner"><div class="row align-items-center"><div class="col-lg-7"><div class="slide-content">

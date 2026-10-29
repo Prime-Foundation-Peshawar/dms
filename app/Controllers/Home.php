@@ -23,7 +23,15 @@ class Home extends BaseController
         try {
             $stored = json_decode((string) model(SettingModel::class)->getValue('home_slider', '[]'), true);
             if (is_array($stored)) {
-                $slides = array_values(array_filter($stored, static fn ($slide) => is_array($slide) && ! empty($slide['enabled']) && ! empty($slide['image_path'])));
+                $slides = array_values(array_map([SettingModel::class, 'normaliseSlide'], array_filter($stored, 'is_array')));
+                $slides = array_values(array_filter($slides, static function ($slide) {
+                    if (! $slide['enabled']) {
+                        return false;
+                    }
+                    return $slide['media_type'] === 'video'
+                        ? ($slide['video_source'] === 'current' || $slide['video_path'] !== '')
+                        : $slide['image_path'] !== '';
+                }));
             }
         } catch (\Throwable $e) {
             log_message('error', 'Home slider lookup failed: {0}', [$e->getMessage()]);

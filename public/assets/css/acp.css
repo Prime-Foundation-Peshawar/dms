@@ -225,6 +225,7 @@ h1, h2, h3, h4, h5, h6, .font-head { font-family: var(--font-head); font-weight:
   gap: .4rem;
   grid-column: span 1;
 }
+.acp-field[hidden] { display: none; }
 .acp-field.span-6,
 .acp-field.span-3,
 .acp-field.span-4,

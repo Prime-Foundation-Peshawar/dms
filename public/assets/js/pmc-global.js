@@ -242,6 +242,19 @@ function initSlider() {
 
   initHeroVideo(slider);
 
+  const managedVideos = slider.querySelectorAll('.managed-slide-video');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const avoidVideo = reducedMotion || !!(connection && (connection.saveData || /^(slow-2g|2g)$/i.test(connection.effectiveType || '')));
+  const syncManagedVideos = () => {
+    managedVideos.forEach(video => {
+      const active = video.closest('.hero-slide').classList.contains('active');
+      if (active && !avoidVideo) video.play().catch(() => {});
+      else video.pause();
+    });
+  };
+  syncManagedVideos();
+
   const slides = slider.querySelectorAll('.hero-slide');
   const dots   = slider.querySelectorAll('.slider-dot');
   const prevBtn = slider.querySelector('.slider-prev');
@@ -296,6 +309,7 @@ function initSlider() {
     current = ((n % slides.length) + slides.length) % slides.length;
     void slides[current].offsetWidth;
     slides[current].classList.add('active');
+    syncManagedVideos();
     if (dots[current]) {
       dots[current].classList.add('active');
       dots[current].setAttribute('aria-selected', 'true');
