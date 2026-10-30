@@ -29,6 +29,7 @@ class News extends BaseAcpController
     public function store()
     {
         $model = model(NewsPostModel::class);
+        $model->ensureLinkColumns();
         $title = trim((string) $this->request->getPost('title'));
         $slug  = trim((string) $this->request->getPost('slug')) ?: $this->makeSlug($title);
         $cover = $this->storeUpload('cover_image', 'news', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
@@ -46,7 +47,7 @@ class News extends BaseAcpController
             'expires_at'   => $this->normalizeDateTime($this->request->getPost('expires_at')),
             'status'       => in_array($this->request->getPost('status'), ['published', 'draft'], true)
                 ? $this->request->getPost('status') : 'draft',
-        ], true);
+        ] + $this->postedLink(), true);
 
         $this->attachMedia((int) $id);
 
@@ -70,6 +71,7 @@ class News extends BaseAcpController
     public function update(int $id)
     {
         $model = model(NewsPostModel::class);
+        $model->ensureLinkColumns();
         $row   = $model->find($id);
         if (! $row) {
             return redirect()->to(site_url('acp/news'))->with('error', 'News not found.');
@@ -89,7 +91,7 @@ class News extends BaseAcpController
             'expires_at'   => $this->normalizeDateTime($this->request->getPost('expires_at')),
             'status'       => in_array($this->request->getPost('status'), ['published', 'draft'], true)
                 ? $this->request->getPost('status') : $row['status'],
-        ];
+        ] + $this->postedLink();
         $cover = $this->storeUpload('cover_image', 'news', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
         if ($cover) {
             $data['cover_image'] = $cover;
