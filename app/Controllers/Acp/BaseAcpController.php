@@ -15,6 +15,28 @@ abstract class BaseAcpController extends BaseController
         return view('acp/' . $view, $data);
     }
 
+    /**
+     * Homepage button fields from the news / event forms.
+     * Accepts http(s) URLs or site paths (e.g. "admissions"); anything else is dropped.
+     *
+     * @return array{link_url:?string,link_label:?string}
+     */
+    protected function postedLink(): array
+    {
+        $url   = trim((string) $this->request->getPost('link_url'));
+        $label = trim((string) $this->request->getPost('link_label'));
+        $isWeb = (bool) preg_match('#^https?://[^\s]+$#i', $url);
+        $isPath = (bool) preg_match('#^/?[a-z0-9][a-z0-9\-/_.?=&%]*$#i', $url) && ! str_contains($url, ':');
+        if (! $isWeb && ! $isPath) {
+            $url = '';
+        }
+
+        return [
+            'link_url'   => $url !== '' ? mb_substr($url, 0, 500) : null,
+            'link_label' => $url !== '' && $label !== '' ? mb_substr($label, 0, 60) : null,
+        ];
+    }
+
     protected function makeSlug(string $title): string
     {
         $slug = strtolower(trim($title));

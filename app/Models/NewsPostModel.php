@@ -9,10 +9,23 @@ class NewsPostModel extends Model
     protected $table         = 'news_posts';
     protected $primaryKey    = 'id';
     protected $allowedFields = [
-        'slug', 'title', 'excerpt', 'body_html', 'body_text', 'category', 'cover_image',
+        'slug', 'title', 'excerpt', 'body_html', 'body_text', 'category', 'cover_image', 'link_url', 'link_label',
         'published_at', 'expires_at', 'status', 'created_at', 'updated_at',
     ];
     protected $useTimestamps = true;
+
+    /** Adds the homepage button columns (link_url, link_label) when missing. */
+    public function ensureLinkColumns(): void
+    {
+        try {
+            $db = db_connect();
+            if ($db->tableExists($this->table) && ! $db->fieldExists('link_url', $this->table)) {
+                $db->query("ALTER TABLE `{$this->table}` ADD COLUMN `link_url` VARCHAR(500) NULL AFTER `cover_image`, ADD COLUMN `link_label` VARCHAR(60) NULL AFTER `link_url`");
+            }
+        } catch (\Throwable $e) {
+            log_message('error', 'Could not ensure ' . $this->table . ' link columns: ' . $e->getMessage());
+        }
+    }
 
     /** Apply public visibility: published and not past expiry. */
     protected function applyPublicScope()
@@ -54,7 +67,12 @@ class NewsPostModel extends Model
             $builder->limit($limit);
         }
 
-        return $builder->findAll();
+        $out = [];
+        foreach ($builder->findAll() as $row) {
+            $out[(string) $row['slug']] ??= $row;
+        }
+
+        return array_values($out);
     }
 
     /** @return array<string,mixed>|null */

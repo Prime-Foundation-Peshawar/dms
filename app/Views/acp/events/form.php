@@ -35,6 +35,16 @@
           <label class="form-label">Location</label>
           <?= acp_select('location', config(\Config\AcpLists::class)->eventLocations(), $row['location'] ?? '') ?>
         </div>
+        <div class="acp-field">
+          <label class="form-label">Button link <span class="text-muted fw-normal">(optional)</span></label>
+          <input class="form-control" name="link_url" value="<?= esc($row['link_url'] ?? '') ?>" placeholder="https://… or a site page, e.g. admissions">
+          <p class="form-text mb-0">Homepage card button. Leave blank to link to this item's own page.</p>
+        </div>
+        <div class="acp-field">
+          <label class="form-label">Button label</label>
+          <input class="form-control" name="link_label" maxlength="60" value="<?= esc($row['link_label'] ?? '') ?>" placeholder="Read more">
+          <p class="form-text mb-0">e.g. Apply Now, Register Now.</p>
+        </div>
         <div class="acp-field span-full">
           <label class="form-label">Excerpt</label>
           <textarea class="form-control" name="excerpt" rows="2"><?= esc($row['excerpt'] ?? '') ?></textarea>
@@ -62,6 +72,7 @@
             <span data-drop-label>Drop image or click to browse</span>
             <input type="file" name="cover_image" accept="image/*">
           </div>
+          <p class="form-text mb-0">Shown as the "Advertisement" button on the homepage card.</p>
           <?php if (! empty($row['cover_image'])): ?>
             <img src="<?= base_url($row['cover_image']) ?>" alt="" class="img-thumbnail mt-2" style="max-height:120px">
           <?php endif; ?>

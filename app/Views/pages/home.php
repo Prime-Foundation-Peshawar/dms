@@ -937,33 +937,22 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
         <p class="sec-desc mb-0">Current programme openings and application guidance for Peshawar Medical College and postgraduate medical programmes.</p>
       </div>
     </div>
+    <?php if (! empty($admission_cards)): ?>
     <div class="row g-4">
-      <div class="col-lg-4 col-md-6 fu fu-delay-1">
-        <article class="news-card news-card-text news-card--admissions">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-admissions">Admissions</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: Oct 2026</span>
-            </div>
-            <h3 class="nc-title">MBBS Admissions Open 2026-27</h3>
-            <p class="nc-deadline"><i class="bi bi-clock"></i> Apply by <strong>09 Nov 2026</strong></p>
-            <p class="nc-excerpt">Provisional Merit List: 10 November 2026.</p>
-            <div class="nc-actions nc-actions-split">
-              <a target="_blank" rel="noopener" href="https://caspr.kmu.edu.pk/" class="nc-btn nc-btn-primary">Apply Now <i class="bi bi-arrow-right"></i></a>
-              <a target="_blank" rel="noopener" href="<?= base_url('assets/images/news/kmu-mbbs-bds-admissions.jpeg') ?>" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Advertisement</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <?php foreach ($admission_cards as $i => $card): ?>
+        <?= view('pages/partials/home_news_card', ['card' => $card, 'delay' => $i + 1, 'variant' => 'admissions']) ?>
+      <?php endforeach; ?>
     </div>
-    <!-- <div class="row">
+    <?php else: ?>
+    <div class="row">
       <div class="col-lg-12 fu-scale">
         <div class="alert alert-warning d-inline-flex align-items-center gap-2 py-2 px-3 mb-0 small rounded-pill" role="status">
           <i class="bi bi-exclamation-triangle-fill"></i>
           <span>No admissions are open at the moment.</span>
         </div>
       </div>
-    </div> -->
+    </div>
+    <?php endif; ?>
   </div>
 </section>
 
@@ -1012,68 +1001,22 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
         <a href="<?= site_url('events') ?>" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
       </div> -->
     </div>
+    <?php if (! empty($campus_cards)): ?>
     <div class="row g-4">
-      <!-- <div class="col-lg-4 col-md-6 fu fu-delay-1">
-        <article class="news-card news-card-text news-card--campus">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Update</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Published: 2024</span>
-            </div>
-            <h3 class="nc-title">PM&amp;DC Inspection — Top Private Medical College in KP</h3>
-            <p class="nc-excerpt">PMC stood first among private medical colleges of KP with more than 80% score in the 2024 inspection.</p>
-            <div class="nc-actions">
-              <a href="<?= site_url('pmc') ?>" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div> -->
-      <div class="col-lg-4 col-md-6 fu fu-delay-2">
-        <article class="news-card news-card-text news-card--campus">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Convocation</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Nov 2026</span>
-            </div>
-            <h3 class="nc-title">Convocation 2026</h3>
-            <p class="nc-excerpt">Last Date for Registration is October 27, 2026</p>
-            <div class="nc-actions nc-actions-split">
-              <a target="_blank" rel="noopener" href="https://convocation.riphahpsh.edu.pk/" class="nc-btn nc-btn-primary">Register Now <i class="bi bi-arrow-right"></i></a>
-              <a target="_blank" rel="noopener" href="<?= base_url('assets/images/news/convocation2026.jpeg') ?>" class="nc-btn nc-btn-form"><i class="bi bi-download"></i> Advertisement</a>
-            </div>
-        </article>
-      </div>
-      <!-- <div class="col-lg-4 col-md-6 fu fu-delay-2">
-        <article class="news-card news-card-text news-card--campus">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Research</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i> Apr 2026</span>
-            </div>
-            <h3 class="nc-title">19th UMR Research Conference</h3>
-            <p class="nc-excerpt">Charting the Cosmos of Knowledge: from Research to Reality</p>
-            <div class="nc-actions">
-              <a href="https://umr.prime.edu.pk/conference/19th-umr/" class="nc-btn nc-btn-primary">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div> -->
-      <!-- <div class="col-lg-4 col-md-6 fu fu-delay-3">
-        <article class="news-card news-card-text news-card--campus">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-news">Campus Life</span>
-              <span class="nc-date"><i class="bi bi-calendar3"></i>Nov 2025</span>
-            </div>
-            <h3 class="nc-title">Sports Society</h3>
-            <p class="nc-excerpt">It provides opportunities to participate in various indoor and outdoor sports.</p>
-            <div class="nc-actions">
-              <a href="https://riphahpsh.edu.pk/sports-society" class="nc-btn nc-btn-primary">Read More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-        </article>
-      </div> -->
+      <?php foreach ($campus_cards as $i => $card): ?>
+        <?= view('pages/partials/home_news_card', ['card' => $card, 'delay' => $i + 1, 'variant' => 'campus']) ?>
+      <?php endforeach; ?>
     </div>
+    <?php else: ?>
+    <div class="row">
+      <div class="col-lg-12 fu-scale">
+        <div class="alert alert-light border d-inline-flex align-items-center gap-2 py-2 px-3 mb-0 small rounded-pill" role="status">
+          <i class="bi bi-newspaper"></i>
+          <span>No news found. Please check back soon for campus updates.</span>
+        </div>
+      </div>
+    </div>
+    <?php endif; ?>
   </div>
 </section>
 
