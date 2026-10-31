@@ -10,9 +10,12 @@ class NewsPostModel extends Model
     protected $primaryKey    = 'id';
     protected $allowedFields = [
         'slug', 'title', 'excerpt', 'body_html', 'body_text', 'category', 'cover_image', 'link_url', 'link_label',
-        'published_at', 'expires_at', 'status', 'created_at', 'updated_at',
+        'published_at', 'expires_at', 'start_date', 'event_date', 'location', 'status', 'created_at', 'updated_at',
     ];
     protected $useTimestamps = true;
+
+    /** First day of an event: start_date for multi-day events, otherwise event_date (the last day). */
+    public const FIRST_DAY_SQL = 'COALESCE(start_date, event_date)';
 
     /** Adds the homepage button columns (link_url, link_label) when missing. */
     public function ensureLinkColumns(): void
@@ -25,6 +28,43 @@ class NewsPostModel extends Model
         } catch (\Throwable $e) {
             log_message('error', 'Could not ensure ' . $this->table . ' link columns: ' . $e->getMessage());
         }
+    }
+
+    /** Adds the event columns (start_date, event_date, location) when missing. */
+    public function ensureEventColumns(): void
+    {
+        static $checked = false;
+        if ($checked) {
+            return;
+        }
+        $checked = true;
+        try {
+            $db = db_connect();
+            if ($db->tableExists($this->table) && ! $db->fieldExists('event_date', $this->table)) {
+                $db->query("ALTER TABLE `{$this->table}` ADD COLUMN `start_date` DATE NULL AFTER `expires_at`, ADD COLUMN `event_date` DATE NULL AFTER `start_date`, ADD COLUMN `location` VARCHAR(191) NULL AFTER `event_date`");
+            }
+        } catch (\Throwable $e) {
+            log_message('error', 'Could not ensure ' . $this->table . ' event columns: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Published events that have not started yet, soonest first.
+     *
+     * @return list<array<string,mixed>>
+     */
+    public function upcomingEvents(int $limit = 5): array
+    {
+        $this->ensureEventColumns();
+        $out = [];
+        foreach ($this->applyPublicScope()
+            ->where(self::FIRST_DAY_SQL . ' >=', date('Y-m-d'))
+            ->orderBy('event_date', 'ASC')
+            ->findAll() as $row) {
+            $out[(string) $row['slug']] ??= $row;
+        }
+
+        return array_slice(array_values($out), 0, $limit);
     }
 
     /** Apply public visibility: published and not past expiry. */

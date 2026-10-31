@@ -3,6 +3,7 @@
 namespace App\Controllers\Acp;
 
 use App\Models\DepartmentActivityModel;
+use App\Models\DepartmentDataLogModel;
 use App\Models\DepartmentModel;
 use App\Models\FacultyProfileModel;
 use App\Services\FacultyDirectoryService;
@@ -75,7 +76,7 @@ class Departments extends BaseAcpController
         $intro     = preg_split("/\r\n|\r|\n/", $introText) ?: [];
         $intro     = array_values(array_filter(array_map('trim', $intro), static fn ($l) => $l !== ''));
 
-        $model->update($id, [
+        $data = [
             'name'               => trim((string) $this->request->getPost('name')),
             'icon'               => trim((string) $this->request->getPost('icon')),
             'group_name'         => trim((string) $this->request->getPost('group_name')) ?: 'Other',
@@ -85,7 +86,16 @@ class Departments extends BaseAcpController
             'hidden'             => $this->request->getPost('hidden') ? 1 : 0,
             'oric_id'            => $this->request->getPost('oric_id') !== '' ? (int) $this->request->getPost('oric_id') : null,
             'content_updated_at' => $this->request->getPost('content_updated_at') ?: null,
-        ]);
+        ];
+        $model->update($id, $data);
+
+        // Count as department data received only when the page content actually changed.
+        foreach (['name', 'group_name', 'hod', 'intro_json'] as $field) {
+            if ((string) ($row[$field] ?? '') !== (string) $data[$field]) {
+                model(DepartmentDataLogModel::class)->record($id, DepartmentDataLogModel::TYPE_DEPARTMENT_INFO, (string) $row['slug']);
+                break;
+            }
+        }
 
         return redirect()->to(site_url('acp/departments/edit/' . $id))->with('success', 'Department updated.');
     }

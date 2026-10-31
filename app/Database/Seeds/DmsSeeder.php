@@ -140,13 +140,21 @@ class DmsSeeder extends Seeder
             }
         }
 
-        // Events (from legacy static cards)
-        $this->db->table('event_media')->emptyTable();
-        $this->db->table('events')->emptyTable();
+        // Events share the news list: add the event details to the matching post, or add a new item.
         $eventsFile = $dataDir . '/events.json';
         if (is_file($eventsFile)) {
+            model(\App\Models\NewsPostModel::class)->ensureEventColumns();
             foreach (json_decode((string) file_get_contents($eventsFile), true) ?: [] as $e) {
-                $this->db->table('events')->insert([
+                $fields = [
+                    'start_date' => $e['start_date'] ?? null,
+                    'event_date' => $e['event_date'] ?? null,
+                    'location' => $e['location'] ?? null,
+                ];
+                if ($this->db->table('news_posts')->where('slug', $e['slug'])->countAllResults() > 0) {
+                    $this->db->table('news_posts')->where('slug', $e['slug'])->update($fields);
+                    continue;
+                }
+                $this->db->table('news_posts')->insert($fields + [
                     'slug' => $e['slug'],
                     'title' => $e['title'],
                     'excerpt' => $e['excerpt'] ?? null,
@@ -154,8 +162,7 @@ class DmsSeeder extends Seeder
                     'body_text' => $e['body_text'] ?? null,
                     'category' => $e['category'] ?? null,
                     'cover_image' => $e['cover_image'] ?? null,
-                    'event_date' => $e['event_date'] ?? null,
-                    'location' => $e['location'] ?? null,
+                    'published_at' => $e['event_date'] ?? $now,
                     'status' => $e['status'] ?? 'published',
                     'created_at' => $now,
                     'updated_at' => $now,

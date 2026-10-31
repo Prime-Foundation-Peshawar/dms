@@ -1,13 +1,13 @@
 <?= $this->extend('acp/layouts/main') ?>
 <?= $this->section('content') ?>
 <div class="acp-page-head acp-fu">
-  <div><p>Publish news with optional expiry dates.</p></div>
+  <div><p>One list for news and events. Give an item an event date and it also shows as an upcoming event.</p></div>
   <div class="d-flex gap-2 flex-wrap">
     <div class="acp-search">
       <i class="bi bi-search"></i>
       <input class="form-control form-control-sm" type="search" placeholder="Filter…" data-acp-filter="#newsTable">
     </div>
-    <a class="btn-acp btn-acp-primary" href="<?= site_url('acp/news/create') ?>"><i class="bi bi-plus-lg"></i> New news</a>
+    <a class="btn-acp btn-acp-primary" href="<?= site_url('acp/news/create') ?>"><i class="bi bi-plus-lg"></i> Add news or event</a>
   </div>
 </div>
 <div class="acp-card acp-fu">
@@ -18,6 +18,7 @@
           <th>Title</th>
           <th class="col-narrow">Category</th>
           <th style="width:9rem">Published</th>
+          <th style="width:9rem">Event date</th>
           <th style="width:9rem">Expires</th>
           <th class="col-status">Status</th>
           <th class="col-actions"></th>
@@ -36,6 +37,7 @@
           <td><?= esc($row['title']) ?></td>
           <td><?= esc($row['category'] ?? '') ?></td>
           <td class="small"><?= esc($row['published_at'] ?? '') ?></td>
+          <td class="small"><?= esc(($row['event_date'] ?? '') ?: '—') ?></td>
           <td class="small"><?= esc($row['expires_at'] ?? '—') ?></td>
           <td><span class="acp-badge <?= $badge ?>"><?= esc($eff) ?></span></td>
           <td class="col-actions">
@@ -48,7 +50,7 @@
         </tr>
       <?php endforeach; ?>
       <?php if (! $rows): ?>
-        <tr class="acp-empty-row"><td colspan="6" class="acp-empty">No news yet.</td></tr>
+        <tr class="acp-empty-row"><td colspan="7" class="acp-empty">Nothing here yet.</td></tr>
       <?php endif; ?>
       </tbody>
     </table>

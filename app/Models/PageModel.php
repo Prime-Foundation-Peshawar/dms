@@ -28,6 +28,7 @@ class PageModel extends Model
     /** @return list<array<string,mixed>> */
     public function sitemapRows(): array
     {
-        return $this->where('status', 'published')->orderBy('priority', 'DESC')->findAll();
+        // These two addresses now redirect to News & Events.
+        return $this->where('status', 'published')->whereNotIn('slug', ['events', 'event-single'])->orderBy('priority', 'DESC')->findAll();
     }
 }

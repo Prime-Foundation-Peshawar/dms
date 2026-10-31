@@ -998,7 +998,7 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
         <p class="sec-desc mb-0">Campus notices, research activity, and student life highlights.</p>
       </div>
       <!-- <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
-        <a href="<?= site_url('events') ?>" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
+        <a href="<?= site_url('all-news') ?>" class="btn-pmc btn-pmc-outline"><i class="bi bi-calendar-event"></i> View All</a>
       </div> -->
     </div>
     <?php if (! empty($campus_cards)): ?>

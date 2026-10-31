@@ -22,6 +22,7 @@
         <div class="acp-field">
           <label class="form-label">Role</label>
           <?= acp_select('role', config(\Config\AcpLists::class)->userRoles(), $row['role'] ?? 'admin', '') ?>
+          <p class="form-text mb-0">committee: Patron / Committee members. They can view the Dashboard and Reports only.</p>
         </div>
         <div class="acp-field span-full">
           <label class="form-label">Status</label>

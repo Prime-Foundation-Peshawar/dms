@@ -1,4 +1,4 @@
-<?php /* Shared styles: event-single and single-news detail pages. */ ?>
+<?php /* Shared styles: single-news detail page. */ ?>
 <style>
   .article-header { margin-bottom: 22px; }
   .article-cat-badge {

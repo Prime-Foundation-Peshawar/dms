@@ -12,7 +12,27 @@ class AcpLists extends BaseConfig
     /** @return list<string> */
     public function userRoles(): array
     {
-        return ['admin', 'editor'];
+        return ['admin', 'editor', 'committee'];
+    }
+
+    /**
+     * Roles limited to viewing the dashboard and reports (Patron / Committee members).
+     *
+     * @return list<string>
+     */
+    public function viewOnlyRoles(): array
+    {
+        return ['committee'];
+    }
+
+    /**
+     * ACP paths (GET only) that view-only roles may open.
+     *
+     * @return list<string>
+     */
+    public function viewOnlyPaths(): array
+    {
+        return ['acp', 'acp/reports', 'acp/reports/export', 'acp/website-analytics'];
     }
 
     /** @return list<string> */
@@ -33,12 +53,6 @@ class AcpLists extends BaseConfig
             'Research',
             'Society',
         ];
-    }
-
-    /** @return list<string> */
-    public function eventCategories(): array
-    {
-        return $this->newsCategories();
     }
 
     /** @return list<string> */
@@ -87,8 +101,6 @@ class AcpLists extends BaseConfig
             'education-literature',
             'all-news',
             'single-news',
-            'events',
-            'event-single',
             'portal-login',
             'literary-society',
             'social-welfare',

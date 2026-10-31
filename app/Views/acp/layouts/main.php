@@ -17,11 +17,12 @@ $uri = uri_string();
 $navGroups = [
     'Overview' => [
         ['Dashboard', 'acp', 'bi-speedometer2'],
+        ['Reports', 'acp/reports', 'bi-graph-up-arrow'],
+        ['Website Analytics', 'acp/website-analytics', 'bi-bar-chart-line'],
     ],
     'Content' => [
         ['Pages', 'acp/pages', 'bi-file-earmark-text'],
-        ['News', 'acp/news', 'bi-newspaper'],
-        ['Events', 'acp/events', 'bi-calendar-event'],
+        ['News & Events', 'acp/news', 'bi-newspaper'],
     ],
     'Site modules' => [
         ['Home slider', 'acp/slider', 'bi-images'],
@@ -47,6 +48,10 @@ $navGroups = [
       <p class="brand-sub">Medical Sciences</p>
     </div>
     <?php foreach ($navGroups as $group => $items): ?>
+      <?php $items = array_filter($items, static fn ($item) => acp_can_open($item[1])); ?>
+      <?php if (! $items) {
+          continue;
+      } ?>
       <div class="acp-nav-label"><?= esc($group) ?></div>
       <?php foreach ($items as [$label, $path, $icon]): ?>
         <?php

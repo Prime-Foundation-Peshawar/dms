@@ -3,6 +3,7 @@
 namespace App\Controllers\Acp;
 
 use App\Libraries\FacultyReviewService;
+use App\Models\DepartmentDataLogModel;
 use App\Models\DepartmentModel;
 use App\Models\FacultyProfileModel;
 use App\Models\FacultySubmissionModel;
@@ -60,7 +61,8 @@ class Faculty extends BaseAcpController
         $photo = $this->storeUpload('photo', 'faculty', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
 
         try {
-            $id = $model->insert($this->payload($slug, $name, $photo, null), true);
+            $data = $this->payload($slug, $name, $photo, null);
+            $id   = $model->insert($data, true);
         } catch (\Throwable $e) {
             log_message('error', 'Faculty create failed: ' . $e->getMessage());
 
@@ -69,6 +71,7 @@ class Faculty extends BaseAcpController
         if (! $id) {
             return redirect()->back()->withInput()->with('error', 'Could not create profile.');
         }
+        $this->logFacultyData($data, $slug);
 
         return redirect()->to($this->afterSaveUrl((int) $id))->with('success', 'Faculty profile created.');
     }
@@ -107,6 +110,19 @@ class Faculty extends BaseAcpController
         $photo = $this->storeUpload('photo', 'faculty', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
         $data  = $this->payload($slug, $name, $photo ?: ($row['photo'] ?? null), $row);
         $model->update($id, $data);
+
+        // Count as department data received only when the profile content actually changed.
+        foreach ($data as $field => $value) {
+            if (in_array($field, ['department_slug', 'extra_json'], true)) {
+                continue; // derived on save, not edited by hand
+            }
+            $before = str_ends_with($field, '_json') ? $this->jsonToLines((string) ($row[$field] ?? '[]')) : (string) ($row[$field] ?? '');
+            $after  = str_ends_with($field, '_json') ? $this->jsonToLines((string) $value) : (string) $value;
+            if ($before !== $after) {
+                $this->logFacultyData($data, $slug);
+                break;
+            }
+        }
 
         return redirect()->to($this->afterSaveUrl($id))->with('success', 'Profile updated.');
     }
@@ -189,6 +205,16 @@ class Faculty extends BaseAcpController
         }
 
         return redirect()->to($this->safeReturnTo() ?: site_url('acp/departments'))->with('success', $msg);
+    }
+
+    /** @param array<string,mixed> $data saved profile payload */
+    private function logFacultyData(array $data, string $slug): void
+    {
+        $deptId = DepartmentDataLogModel::departmentIdFor(
+            (string) ($data['department_slug'] ?? ''),
+            (string) ($data['department_name'] ?? '')
+        );
+        model(DepartmentDataLogModel::class)->record($deptId, DepartmentDataLogModel::TYPE_FACULTY_PROFILE, $slug);
     }
 
     private function safeReturnTo(): string

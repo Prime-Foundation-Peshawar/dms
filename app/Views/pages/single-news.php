@@ -9,6 +9,10 @@ $published  = (string) ($news_post['published_at'] ?? '');
 $dateLabel  = $published !== '' ? date('F j, Y', strtotime($published)) : '';
 $deadline   = $category === 'Admissions' && ! empty($news_post['expires_at'])
     ? date('F j, Y', strtotime((string) $news_post['expires_at'])) : '';
+$eventDay   = (string) ($news_post['event_date'] ?? '');
+$eventFrom  = (string) ($news_post['start_date'] ?? '');
+$eventLabel = $eventDay === '' ? '' : ($eventFrom !== '' && $eventFrom !== $eventDay ? date('F j', strtotime($eventFrom)) . ' to ' : '') . date('F j, Y', strtotime($eventDay));
+$location   = trim((string) ($news_post['location'] ?? ''));
 $excerpt    = trim((string) ($news_post['excerpt'] ?? ''));
 $bodyHtml   = (string) ($news_post['body_html'] ?? '');
 $bodyText   = trim((string) ($news_post['body_text'] ?? ''));
@@ -51,11 +55,11 @@ try {
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
-    <h1>News &amp; Updates</h1>
+    <h1>News &amp; Events</h1>
     <div class="breadcrumb-pmc">
       <a href="<?= site_url() ?>">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <a href="<?= site_url('all-news') ?>">News</a>
+      <a href="<?= site_url('all-news') ?>">News &amp; Events</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
       <span class="current"><?= esc($title) ?></span>
     </div>
@@ -76,6 +80,9 @@ try {
             <?php if ($deadline !== ''): ?>
             <span class="byline-item"><i class="bi bi-clock"></i> Apply by <?= esc($deadline) ?></span>
             <?php endif; ?>
+            <?php if ($location !== ''): ?>
+            <span class="byline-item"><i class="bi bi-geo-alt"></i> <?= esc($location) ?></span>
+            <?php endif; ?>
           </div>
         </div>
 
@@ -84,6 +91,24 @@ try {
         <?php endif; ?>
 
         <div class="event-meta-bar">
+          <?php if ($eventLabel !== ''): ?>
+          <div class="emb-item">
+            <div class="emb-icon"><i class="bi bi-calendar-event"></i></div>
+            <div>
+              <span class="emb-label">Event date</span>
+              <span class="emb-value"><?= esc($eventLabel) ?></span>
+            </div>
+          </div>
+          <?php endif; ?>
+          <?php if ($location !== ''): ?>
+          <div class="emb-item">
+            <div class="emb-icon"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <span class="emb-label">Venue</span>
+              <span class="emb-value"><?= esc($location) ?></span>
+            </div>
+          </div>
+          <?php endif; ?>
           <?php if ($dateLabel !== ''): ?>
           <div class="emb-item">
             <div class="emb-icon"><i class="bi bi-calendar-check"></i></div>
@@ -166,7 +191,7 @@ try {
 
       <div class="col-lg-4">
         <div class="sidebar-widget mb-4">
-          <div class="sw-head"><i class="bi bi-newspaper"></i> More News</div>
+          <div class="sw-head"><i class="bi bi-newspaper"></i> More News &amp; Events</div>
           <div class="sw-body" style="padding:16px;">
             <?php if ($more): ?>
               <?php foreach ($more as $row):
@@ -184,15 +209,14 @@ try {
               </a>
               <?php endforeach; ?>
             <?php else: ?>
-              <p class="small text-muted mb-0">No other news yet.</p>
+              <p class="small text-muted mb-0">Nothing else yet.</p>
             <?php endif; ?>
           </div>
         </div>
         <div class="sidebar-widget">
           <div class="sw-head"><i class="bi bi-link-45deg"></i> Quick Links</div>
           <div class="sw-body">
-            <a class="sw-link" href="<?= site_url('all-news') ?>"><i class="bi bi-newspaper"></i>All News</a>
-            <a class="sw-link" href="<?= site_url('events') ?>"><i class="bi bi-calendar-event"></i>Events</a>
+            <a class="sw-link" href="<?= site_url('all-news') ?>"><i class="bi bi-newspaper"></i>All News &amp; Events</a>
             <a class="sw-link" href="<?= site_url('admissions') ?>"><i class="bi bi-door-open"></i>Admissions</a>
             <a class="sw-link" href="<?= site_url('contact') ?>"><i class="bi bi-envelope"></i>Contact</a>
           </div>

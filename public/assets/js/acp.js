@@ -1,6 +1,12 @@
 (function () {
   'use strict';
 
+  if (window.bootstrap) {
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
+      new bootstrap.Tooltip(el, { container: 'body', fallbackPlacements: ['bottom', 'right', 'left'] });
+    });
+  }
+
   document.querySelectorAll('.acp-fu').forEach(function (el, i) {
     setTimeout(function () { el.classList.add('is-in'); }, 40 + i * 45);
   });

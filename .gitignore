@@ -6,6 +6,7 @@
 /writable/logs/*
 /writable/*.db
 /writable/db_credentials.json
+/writable/ga4-service-account.json
 !/writable/**/index.html
 !/writable/**/.gitkeep
 .env

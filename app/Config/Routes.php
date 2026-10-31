@@ -47,6 +47,11 @@ foreach ($static as $slug) {
 }
 
 // Admin Control Panel
+// Events now live in News & Events.
+$routes->addRedirect('acp/events', 'acp/news');
+$routes->addRedirect('acp/events/create', 'acp/news/create');
+$routes->addRedirect('acp/events/edit/(:num)', 'acp/news');
+
 $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($routes) {
     $routes->get('login', 'Auth::login');
     $routes->post('login', 'Auth::attempt');
@@ -54,6 +59,9 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
 
     $routes->group('', ['filter' => 'acpAuth'], static function ($routes) {
         $routes->get('/', 'Dashboard::index');
+        $routes->get('reports', 'Reports::index');
+        $routes->get('reports/export', 'Reports::export');
+        $routes->get('website-analytics', 'WebsiteAnalytics::index');
 
         $routes->get('pages', 'Pages::index');
         $routes->get('pages/create', 'Pages::create');
@@ -71,14 +79,6 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->post('news/media-delete/(:num)', 'News::deleteMedia/$1');
         $routes->post('news/media-reorder', 'News::reorderMedia');
 
-        $routes->get('events', 'Events::index');
-        $routes->get('events/create', 'Events::create');
-        $routes->post('events/store', 'Events::store');
-        $routes->get('events/edit/(:num)', 'Events::edit/$1');
-        $routes->post('events/update/(:num)', 'Events::update/$1');
-        $routes->post('events/delete/(:num)', 'Events::delete/$1');
-        $routes->post('events/media-delete/(:num)', 'Events::deleteMedia/$1');
-        $routes->post('events/media-reorder', 'Events::reorderMedia');
 
         $routes->get('departments', 'Departments::index');
         $routes->get('departments/edit/(:num)', 'Departments::edit/$1');

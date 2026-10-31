@@ -36,7 +36,7 @@ class Users extends BaseAcpController
             'email'         => $email,
             'password_hash' => password_hash($pass, PASSWORD_DEFAULT),
             'name'          => trim((string) $this->request->getPost('name')),
-            'role'          => trim((string) $this->request->getPost('role')) ?: 'admin',
+            'role'          => $this->postedRole(),
             'is_active'     => $this->request->getPost('is_active') ? 1 : 0,
         ]);
 
@@ -67,9 +67,13 @@ class Users extends BaseAcpController
         $data = [
             'email'     => strtolower(trim((string) $this->request->getPost('email'))),
             'name'      => trim((string) $this->request->getPost('name')),
-            'role'      => trim((string) $this->request->getPost('role')) ?: 'admin',
+            'role'      => $this->postedRole(),
             'is_active' => $this->request->getPost('is_active') ? 1 : 0,
         ];
+        if ((int) session()->get('acp_user_id') === $id
+            && in_array($data['role'], config(\Config\AcpLists::class)->viewOnlyRoles(), true)) {
+            return redirect()->back()->with('error', 'You cannot make your own account view-only.');
+        }
         $pass = (string) $this->request->getPost('password');
         if ($pass !== '') {
             if (strlen($pass) < 6) {
@@ -80,6 +84,13 @@ class Users extends BaseAcpController
         $model->update($id, $data);
 
         return redirect()->to(site_url('acp/users'))->with('success', 'User updated.');
+    }
+
+    private function postedRole(): string
+    {
+        $role = trim((string) $this->request->getPost('role'));
+
+        return in_array($role, config(\Config\AcpLists::class)->userRoles(), true) ? $role : 'admin';
     }
 
     public function delete(int $id)

@@ -146,6 +146,7 @@ class CreateDmsSchema extends Migration
             'body_html'    => ['type' => 'LONGTEXT', 'null' => true],
             'category'     => ['type' => 'VARCHAR', 'constraint' => 80, 'null' => true],
             'cover_image'  => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
+            'start_date'   => ['type' => 'DATE', 'null' => true],
             'event_date'   => ['type' => 'DATE', 'null' => true],
             'location'     => ['type' => 'VARCHAR', 'constraint' => 191, 'null' => true],
             'status'       => ['type' => 'VARCHAR', 'constraint' => 20, 'default' => 'published'],

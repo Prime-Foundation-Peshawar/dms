@@ -13,6 +13,7 @@ use CodeIgniter\Filters\PageCache;
 use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\AcpAuth;
+use App\Filters\PageViewCounter;
 
 class Filters extends BaseFilters
 {
@@ -54,6 +55,7 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'acpAuth'       => AcpAuth::class,
+        'pageViews'     => PageViewCounter::class,
     ];
 
     /**
@@ -99,6 +101,7 @@ class Filters extends BaseFilters
         'after' => [
             // 'honeypot',
             // 'secureheaders',
+            'pageViews' => ['except' => ['acp', 'acp/*', 'faculty-proxy', 'faculty-profiles-api', 'update-activity-draft-image', 'robots.txt', 'sitemap.xml']],
         ],
     ];
 

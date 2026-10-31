@@ -41,7 +41,7 @@ $years     = [];
 foreach ($news_posts as $p) {
     $cat = trim((string) ($p['category'] ?? '')) ?: 'General';
     $catCounts[$cat] = ($catCounts[$cat] ?? 0) + 1;
-    if (preg_match('/^(\d{4})/', (string) ($p['published_at'] ?? ''), $m)) {
+    if (preg_match('/^(\d{4})/', (string) (($p['event_date'] ?? '') ?: ($p['published_at'] ?? '')), $m)) {
         $years[(int) $m[1]] = true;
     }
 }
@@ -51,11 +51,7 @@ $featured = $news_posts[0] ?? null;
 
 $upcomingEvents = [];
 try {
-    $upcomingEvents = model(\App\Models\EventModel::class)
-        ->where('status', 'published')
-        ->where('event_date >=', date('Y-m-d'))
-        ->orderBy('event_date', 'ASC')
-        ->findAll(5);
+    $upcomingEvents = model(\App\Models\NewsPostModel::class)->upcomingEvents(5);
 } catch (\Throwable $e) {
     log_message('error', 'All-news upcoming events failed: ' . $e->getMessage());
 }
@@ -65,11 +61,11 @@ try {
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
-    <h1>News &amp; Updates</h1>
+    <h1>News &amp; Events</h1>
     <div class="breadcrumb-pmc">
       <a href="<?= site_url() ?>">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
-      <span class="current">News</span>
+      <span class="current">News &amp; Events</span>
     </div>
   </div>
 </div>
@@ -83,7 +79,7 @@ try {
         <div class="events-filter-bar fu">
           <div class="ef-search-wrap">
             <i class="bi bi-search"></i>
-            <input type="text" class="ef-search" id="evSearch" placeholder="Search news…" />
+            <input type="text" class="ef-search" id="evSearch" placeholder="Search news and events…" />
           </div>
           <select class="ef-select" id="evYear">
             <option value="" selected>All Years</option>
@@ -115,8 +111,8 @@ try {
             <h2 class="featured-event-title"><?= esc($featured['title'] ?? '') ?></h2>
             <p class="featured-event-excerpt"><?= esc($excerptOf($featured, 220)) ?></p>
             <div class="featured-event-meta">
-              <?php if (! empty($featured['published_at'])): ?>
-              <div class="fem-item"><i class="bi bi-calendar3"></i> <?= esc($fmt($featured['published_at'], 'M j, Y')) ?></div>
+              <?php if (($featured['event_date'] ?? '') ?: ($featured['published_at'] ?? '')): ?>
+              <div class="fem-item"><i class="bi bi-calendar3"></i> <?= esc($fmt(($featured['event_date'] ?? '') ?: $featured['published_at'], 'M j, Y')) ?></div>
               <?php endif; ?>
               <div class="fem-item"><i class="bi bi-tag"></i> <?= esc($fCat) ?></div>
             </div>
@@ -130,7 +126,7 @@ try {
         <div class="row g-4" id="eventsGrid">
           <?php foreach ($news_posts as $p):
             $cat  = trim((string) ($p['category'] ?? '')) ?: 'General';
-            $date = (string) ($p['published_at'] ?? '');
+            $date = (string) (($p['event_date'] ?? '') ?: ($p['published_at'] ?? ''));
           ?>
           <div class="col-md-6 ev-item fu" data-cat="<?= esc($catSlug($cat)) ?>" data-year="<?= esc($fmt($date, 'Y')) ?>" data-date="<?= esc($date) ?>">
             <a class="event-card" href="<?= esc($postUrl($p)) ?>">
@@ -177,9 +173,9 @@ try {
           <div class="sw-body" style="padding:16px;">
             <?php if ($upcomingEvents): ?>
               <?php foreach ($upcomingEvents as $ev):
-                $d = (string) ($ev['event_date'] ?? '');
+                $d = (string) (($ev['start_date'] ?? '') ?: ($ev['event_date'] ?? ''));
               ?>
-            <a class="upcoming-card" href="<?= esc(site_url('event-single') . '?slug=' . rawurlencode((string) ($ev['slug'] ?? ''))) ?>">
+            <a class="upcoming-card" href="<?= esc($postUrl($ev)) ?>">
               <div class="upcoming-date-block">
                 <span class="udb-day"><?= esc($fmt($d, 'd') ?: '—') ?></span>
                 <span class="udb-month"><?= esc($fmt($d, 'M')) ?></span>
@@ -211,7 +207,6 @@ try {
         <div class="sidebar-widget fu">
           <div class="sw-head"><i class="bi bi-link-45deg"></i> Quick Links</div>
           <div class="sw-body">
-            <a class="sw-link" href="<?= site_url('events') ?>"><i class="bi bi-calendar-event"></i>All Events</a>
             <a class="sw-link" href="<?= site_url('admissions') ?>"><i class="bi bi-door-open"></i>Admissions</a>
             <a class="sw-link" href="<?= site_url('gallery') ?>"><i class="bi bi-images"></i>Photo Gallery</a>
             <a class="sw-link" href="<?= site_url('contact') ?>"><i class="bi bi-envelope"></i>Contact</a>

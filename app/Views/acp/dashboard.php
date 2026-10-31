@@ -38,23 +38,89 @@ $fmtWhen = static function (?string $raw): string {
     <p class="mb-0 text-muted small"><?= esc(date('l, d F Y')) ?> · CMS overview</p>
   </div>
   <div class="d-flex gap-2 flex-wrap">
-    <a class="btn-acp btn-acp-primary" href="<?= site_url('acp/news/create') ?>"><i class="bi bi-plus-lg"></i> News</a>
-    <a class="btn-acp btn-acp-outline" href="<?= site_url('acp/events/create') ?>"><i class="bi bi-plus-lg"></i> Event</a>
+    <?php if (acp_can_open('acp/news/create')): ?>
+    <a class="btn-acp btn-acp-primary" href="<?= site_url('acp/news/create') ?>"><i class="bi bi-plus-lg"></i> News or Event</a>
+    <?php endif; ?>
+    <?php if (acp_can_open('acp/reports')): ?>
+    <a class="btn-acp btn-acp-outline" href="<?= site_url('acp/reports') ?>"><i class="bi bi-graph-up-arrow"></i> Reports</a>
+    <?php endif; ?>
+    <?php if (acp_can_open('acp/departments')): ?>
     <a class="btn-acp btn-acp-outline" href="<?= site_url('acp/departments') ?>"><i class="bi bi-building"></i> Departments</a>
+    <?php endif; ?>
   </div>
 </div>
+
+<?php if (! empty($report)): ?>
+<?php
+$rp = $report;
+$reportLink = static fn (string $type) => site_url('acp/reports') . '?period=' . $type;
+?>
+<div class="acp-card acp-dash-panel mb-3 acp-fu">
+  <div class="acp-dash-card-head">
+    <div>
+      <div class="acp-form-section-title mb-0">Reports · <?= esc($rp['period']['range_label']) ?></div>
+      <p class="small text-muted mb-0">
+        <?= (int) $rp['totals']['reporting'] ?> of <?= (int) $rp['totals']['departments'] ?> departments sent data
+        · <?= count($rp['missing']['no_activity']) ?> sent no activity
+        · <?= number_format((int) $rp['totals']['faculty_missing']) ?> faculty profiles missing
+        · <?= count($rp['upcoming']) ?> upcoming events
+      </p>
+    </div>
+    <div class="d-flex gap-2 flex-wrap">
+      <a class="btn-acp btn-acp-sm btn-acp-primary" href="<?= $reportLink('month') ?>">Monthly</a>
+      <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= $reportLink('quarter') ?>">Quarterly</a>
+      <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= $reportLink('year') ?>">Annual</a>
+      <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= $reportLink('range') ?>">Date range</a>
+    </div>
+  </div>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="acp-dash-attn-label"><i class="bi bi-trophy"></i> Top contributors</div>
+      <?php if (! $rp['tiers']['top']): ?>
+        <div class="acp-empty py-2">No data received yet this month.</div>
+      <?php else: ?>
+        <ol class="acp-tier-list mb-0">
+          <?php foreach (array_slice($rp['tiers']['top'], 0, 3) as $d): ?>
+            <li><span><?= esc($d['name']) ?></span><strong><?= (int) $d['contributions'] ?></strong></li>
+          <?php endforeach; ?>
+        </ol>
+      <?php endif; ?>
+    </div>
+    <div class="col-md-4">
+      <div class="acp-dash-attn-label"><i class="bi bi-arrow-down-circle"></i> Low contributors <span class="text-muted fw-normal">(<?= count($rp['tiers']['low']) ?>)</span></div>
+      <?php if (! $rp['tiers']['low']): ?>
+        <div class="acp-empty py-2">No low contributors.</div>
+      <?php else: ?>
+        <ol class="acp-tier-list mb-0">
+          <?php foreach (array_slice(array_reverse($rp['tiers']['low']), 0, 3) as $d): ?>
+            <li><span><?= esc($d['name']) ?></span><strong><?= (int) $d['contributions'] ?></strong></li>
+          <?php endforeach; ?>
+        </ol>
+      <?php endif; ?>
+    </div>
+    <div class="col-md-4">
+      <div class="acp-dash-attn-label"><i class="bi bi-lightbulb"></i> Suggestions</div>
+      <ul class="acp-suggest mb-0">
+        <?php foreach (array_slice($rp['suggestions'], 0, 2) as $sg): ?>
+          <li class="tone-<?= esc($sg['tone']) ?>"><span><?= esc($sg['text']) ?></span></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
 
 <div class="row g-3 mb-3 acp-kpi-row">
   <?php foreach ($kpis as $kpi): ?>
   <div class="col-6 col-md-4 col-xl-3 acp-fu">
-    <a class="acp-kpi tone-<?= esc($kpi['tone'] ?? 'teal') ?>" href="<?= site_url($kpi['href']) ?>">
+    <?= acp_link_open($kpi['href'], 'acp-kpi tone-' . ($kpi['tone'] ?? 'teal')) ?>
       <div class="acp-kpi-top">
         <span class="lbl"><?= esc($kpi['label'] ?? '') ?></span>
         <i class="bi <?= esc($kpi['icon'] ?? 'bi-circle') ?>"></i>
       </div>
       <div class="num" data-acp-count="<?= (int) $kpi['total'] ?>">0</div>
       <div class="sub"><?= esc($kpi['sub']) ?></div>
-    </a>
+    <?= acp_link_close($kpi['href']) ?>
   </div>
   <?php endforeach; ?>
 </div>
@@ -65,7 +131,7 @@ $fmtWhen = static function (?string $raw): string {
       <div class="acp-dash-card-head">
         <div>
           <div class="acp-form-section-title mb-0">Publishing activity</div>
-          <p class="small text-muted mb-0">News &amp; events · last 12 months</p>
+          <p class="small text-muted mb-0">Last 12 months</p>
         </div>
       </div>
       <div class="acp-chart-wrap">
@@ -120,7 +186,9 @@ $fmtWhen = static function (?string $raw): string {
     <div class="acp-card acp-chart-card">
       <div class="acp-dash-card-head">
         <div class="acp-form-section-title mb-0">Profiles by department</div>
+        <?php if (acp_can_open('acp/faculty')): ?>
         <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= site_url('acp/faculty') ?>">All</a>
+        <?php endif; ?>
       </div>
       <div class="acp-chart-wrap">
         <canvas id="chartFacultyDepts"></canvas>
@@ -140,7 +208,9 @@ $fmtWhen = static function (?string $raw): string {
             <?php endif; ?>
           </p>
         </div>
+        <?php if (acp_can_open('acp/faculty')): ?>
         <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= site_url('acp/faculty') ?>">Faculty</a>
+        <?php endif; ?>
       </div>
 
       <div class="acp-dash-attn">
@@ -152,13 +222,13 @@ $fmtWhen = static function (?string $raw): string {
             <ul class="acp-feed mb-0">
               <?php foreach ($attentionMissingPhoto as $f): ?>
                 <li>
-                  <a href="<?= site_url('acp/faculty/edit/' . $f['id']) ?>">
+                  <?= acp_link_open('acp/faculty/edit/' . $f['id']) ?>
                     <span class="acp-feed-title"><?= esc($f['name']) ?></span>
                     <span class="acp-feed-meta">
                       <?= esc($f['department_name'] ?: '—') ?>
                       · <?= trim((string) ($f['emp_id'] ?? '')) !== '' ? 'empId ' . esc($f['emp_id']) : 'CV-only' ?>
                     </span>
-                  </a>
+                  <?= acp_link_close('acp/faculty/edit/' . $f['id']) ?>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -172,10 +242,10 @@ $fmtWhen = static function (?string $raw): string {
             <ul class="acp-feed mb-0">
               <?php foreach ($attentionCvOnly as $f): ?>
                 <li>
-                  <a href="<?= site_url('acp/faculty/edit/' . $f['id']) ?>">
+                  <?= acp_link_open('acp/faculty/edit/' . $f['id']) ?>
                     <span class="acp-feed-title"><?= esc($f['name']) ?></span>
                     <span class="acp-feed-meta"><?= esc($f['department_name'] ?: '—') ?></span>
-                  </a>
+                  <?= acp_link_close('acp/faculty/edit/' . $f['id']) ?>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -186,10 +256,10 @@ $fmtWhen = static function (?string $raw): string {
             <ul class="acp-feed mb-0">
               <?php foreach ($draftNews as $n): ?>
                 <li>
-                  <a href="<?= site_url('acp/news/edit/' . $n['id']) ?>">
+                  <?= acp_link_open('acp/news/edit/' . $n['id']) ?>
                     <span class="acp-feed-title"><?= esc($n['title']) ?></span>
                     <span class="acp-feed-meta">Draft</span>
-                  </a>
+                  <?= acp_link_close('acp/news/edit/' . $n['id']) ?>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -204,19 +274,21 @@ $fmtWhen = static function (?string $raw): string {
   <div class="col-lg-6 acp-fu">
     <div class="acp-card acp-dash-panel h-100">
       <div class="acp-dash-card-head">
-        <div class="acp-form-section-title mb-0">Recent news</div>
+        <div class="acp-form-section-title mb-0">Recent news &amp; events</div>
+        <?php if (acp_can_open('acp/news')): ?>
         <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= site_url('acp/news') ?>">View all</a>
+        <?php endif; ?>
       </div>
       <?php if (empty($recentNews)): ?>
-        <div class="acp-empty">No news yet.</div>
+        <div class="acp-empty">Nothing yet.</div>
       <?php else: ?>
         <ul class="acp-feed acp-feed-scroll mb-0">
           <?php foreach ($recentNews as $n): ?>
             <li>
-              <a href="<?= site_url('acp/news/edit/' . $n['id']) ?>">
+              <?= acp_link_open('acp/news/edit/' . $n['id']) ?>
                 <span class="acp-feed-title"><?= esc($n['title']) ?></span>
                 <span class="acp-feed-meta"><?= esc($fmtWhen($n['published_at'] ?? null)) ?></span>
-              </a>
+              <?= acp_link_close('acp/news/edit/' . $n['id']) ?>
               <span class="acp-badge <?= ($n['status'] ?? '') === 'published' ? 'acp-badge-ok' : 'acp-badge-muted' ?>"><?= esc($n['status'] ?? '') ?></span>
             </li>
           <?php endforeach; ?>
@@ -227,19 +299,21 @@ $fmtWhen = static function (?string $raw): string {
   <div class="col-lg-6 acp-fu">
     <div class="acp-card acp-dash-panel h-100">
       <div class="acp-dash-card-head">
-        <div class="acp-form-section-title mb-0">Events</div>
-        <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= site_url('acp/events') ?>">View all</a>
+        <div class="acp-form-section-title mb-0">Upcoming events</div>
+        <?php if (acp_can_open('acp/news')): ?>
+        <a class="btn-acp btn-acp-sm btn-acp-outline" href="<?= site_url('acp/news') ?>">View all</a>
+        <?php endif; ?>
       </div>
       <?php if (empty($upcomingEvents)): ?>
-        <div class="acp-empty">No events yet.</div>
+        <div class="acp-empty">No upcoming events.</div>
       <?php else: ?>
         <ul class="acp-feed acp-feed-scroll mb-0">
           <?php foreach ($upcomingEvents as $e): ?>
             <li>
-              <a href="<?= site_url('acp/events/edit/' . $e['id']) ?>">
+              <?= acp_link_open('acp/news/edit/' . $e['id']) ?>
                 <span class="acp-feed-title"><?= esc($e['title']) ?></span>
                 <span class="acp-feed-meta"><?= esc($fmtWhen($e['event_date'] ?? null)) ?></span>
-              </a>
+              <?= acp_link_close('acp/news/edit/' . $e['id']) ?>
               <span class="acp-badge <?= ($e['status'] ?? '') === 'published' ? 'acp-badge-ok' : 'acp-badge-muted' ?>"><?= esc($e['status'] ?? '') ?></span>
             </li>
           <?php endforeach; ?>
@@ -356,20 +430,10 @@ $fmtWhen = static function (?string $raw): string {
         labels: charts.months.labels,
         datasets: [
           {
-            label: 'News',
+            label: 'News & events',
             data: charts.months.news,
             borderColor: brand[0],
             backgroundColor: 'rgba(21,95,122,.14)',
-            fill: true,
-            tension: .35,
-            pointRadius: 3,
-            pointHoverRadius: 5
-          },
-          {
-            label: 'Events',
-            data: charts.months.events,
-            borderColor: brand[1],
-            backgroundColor: 'rgba(196,135,58,.12)',
             fill: true,
             tension: .35,
             pointRadius: 3,

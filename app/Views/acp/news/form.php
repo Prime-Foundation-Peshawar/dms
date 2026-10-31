@@ -37,6 +37,20 @@
           <p class="form-text mb-0">Hidden from the site after this. For Admissions it shows as "Apply by".</p>
         </div>
         <div class="acp-field">
+          <label class="form-label">Event date <span class="text-muted fw-normal">(events only)</span></label>
+          <input class="form-control" type="date" name="event_date" value="<?= esc($row['event_date'] ?? '') ?>">
+          <p class="form-text mb-0">The day of the event, or the last day if it runs over several days. Leave blank for news.</p>
+        </div>
+        <div class="acp-field">
+          <label class="form-label">Start date <span class="text-muted fw-normal">(events only)</span></label>
+          <input class="form-control" type="date" name="start_date" value="<?= esc($row['start_date'] ?? '') ?>">
+          <p class="form-text mb-0">Only for events running over several days, e.g. an admissions window.</p>
+        </div>
+        <div class="acp-field">
+          <label class="form-label">Location <span class="text-muted fw-normal">(events only)</span></label>
+          <?= acp_select('location', config(\Config\AcpLists::class)->eventLocations(), $row['location'] ?? '') ?>
+        </div>
+        <div class="acp-field">
           <label class="form-label">Button link <span class="text-muted fw-normal">(optional)</span></label>
           <input class="form-control" name="link_url" value="<?= esc($row['link_url'] ?? '') ?>" placeholder="https://… or a site page, e.g. admissions">
           <p class="form-text mb-0">Homepage card button. Leave blank to link to this item's own page.</p>
@@ -57,7 +71,7 @@
       <h2 class="acp-form-section-title">Content</h2>
       <?= view('acp/partials/dual_editor', [
           'nameBase' => 'body',
-          'label' => 'Article body',
+          'label' => 'Body',
           'text' => $row['body_text'] ?? '',
           'html' => $row['body_html'] ?? '',
       ]) ?>

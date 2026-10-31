@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Acp;
 
+use App\Libraries\ReportService;
 use App\Models\DepartmentActivityModel;
 use App\Models\DepartmentModel;
-use App\Models\EventModel;
 use App\Models\FacultyProfileModel;
 use App\Models\NewsPostModel;
 use App\Models\PageModel;
@@ -33,13 +33,8 @@ class Dashboard extends BaseAcpController
                 ->countAllResults())
             : 0;
 
-        $eventsTotal = model(EventModel::class)->countAllResults(false);
-        $eventsPublished = model(EventModel::class)->where('status', 'published')->countAllResults();
-        $eventsDraft = model(EventModel::class)->where('status', 'draft')->countAllResults();
-        $eventsUpcoming = (int) ($db->table('events')
-            ->where('status', 'published')
-            ->where('event_date >=', $today)
-            ->countAllResults());
+        model(NewsPostModel::class)->ensureEventColumns();
+        $eventsUpcoming = count(model(NewsPostModel::class)->upcomingEvents(1000));
 
         $deptsTotal = model(DepartmentModel::class)->countAllResults(false);
         $deptsHidden = model(DepartmentModel::class)->where('hidden', 1)->countAllResults();
@@ -105,7 +100,6 @@ class Dashboard extends BaseAcpController
             $months[] = date('Y-m', strtotime("-{$i} months"));
         }
         $newsByMonth = array_fill_keys($months, 0);
-        $eventsByMonth = array_fill_keys($months, 0);
 
         foreach ($db->table('news_posts')->select('published_at, created_at')->get()->getResultArray() as $r) {
             $ym = substr((string) (($r['published_at'] ?? '') !== '' ? $r['published_at'] : ($r['created_at'] ?? '')), 0, 7);
@@ -114,22 +108,8 @@ class Dashboard extends BaseAcpController
             }
         }
 
-        foreach ($db->table('events')->select('event_date, created_at')->get()->getResultArray() as $r) {
-            $ym = substr((string) (($r['event_date'] ?? '') !== '' ? $r['event_date'] : ($r['created_at'] ?? '')), 0, 7);
-            if (isset($eventsByMonth[$ym])) {
-                $eventsByMonth[$ym]++;
-            }
-        }
-
         $recentNews = model(NewsPostModel::class)->orderBy('published_at', 'DESC')->findAll(6);
-        $upcomingEvents = $db->table('events')
-            ->where('event_date >=', $today)
-            ->orderBy('event_date', 'ASC')
-            ->limit(6)
-            ->get()->getResultArray();
-        if (count($upcomingEvents) < 3) {
-            $upcomingEvents = model(EventModel::class)->orderBy('event_date', 'DESC')->findAll(6);
-        }
+        $upcomingEvents = model(NewsPostModel::class)->upcomingEvents(6);
 
         $empSelect = $hasEmpId ? 'emp_id' : 'NULL AS emp_id';
         $deptSelect = $hasDeptName ? 'department_name' : "'' AS department_name";
@@ -170,21 +150,12 @@ class Dashboard extends BaseAcpController
                 ],
                 [
                     'key'   => 'news',
-                    'label' => 'News',
+                    'label' => 'News & Events',
                     'icon'  => 'bi-newspaper',
                     'total' => $newsTotal,
-                    'sub'   => $newsPublished . ' live · ' . $newsDraft . ' draft',
+                    'sub'   => $newsPublished . ' live · ' . $newsDraft . ' draft · ' . $eventsUpcoming . ' upcoming',
                     'href'  => 'acp/news',
                     'tone'  => 'navy',
-                ],
-                [
-                    'key'   => 'events',
-                    'label' => 'Events',
-                    'icon'  => 'bi-calendar-event',
-                    'total' => $eventsTotal,
-                    'sub'   => $eventsUpcoming . ' upcoming · ' . $eventsDraft . ' draft',
-                    'href'  => 'acp/events',
-                    'tone'  => 'gold',
                 ],
                 [
                     'key'   => 'departments',
@@ -256,7 +227,6 @@ class Dashboard extends BaseAcpController
                 'months' => [
                     'labels' => array_map(static fn ($m) => date('M Y', strtotime($m . '-01')), $months),
                     'news'   => array_values($newsByMonth),
-                    'events' => array_values($eventsByMonth),
                 ],
                 'pagesSource' => [
                     'labels' => ['CMS', 'Template'],
@@ -275,6 +245,7 @@ class Dashboard extends BaseAcpController
             'attentionMissingPhoto' => $attentionMissingPhoto,
             'attentionCvOnly'       => $attentionCvOnly,
             'draftNews'             => $draftNews,
+            'report'                => (new ReportService())->build('month'),
         ]);
     }
 }

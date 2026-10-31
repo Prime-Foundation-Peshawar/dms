@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\EventMediaModel;
-use App\Models\EventModel;
 use App\Models\NewsMediaModel;
 use App\Models\NewsPostModel;
 use App\Models\PageModel;
@@ -31,6 +29,16 @@ class PageController extends BaseController
 
         if ($slug === 'newsletter') {
             return $this->redirectNewsletter();
+        }
+
+        // Events now live in News & Events; keep old and shared links working.
+        if ($slug === 'events') {
+            return redirect()->to(site_url('all-news'), 301);
+        }
+        if ($slug === 'event-single') {
+            $old = trim((string) ($this->request->getGet('slug') ?: $this->request->getGet('n')));
+
+            return redirect()->to(site_url($old !== '' ? 'single-news' : 'all-news') . ($old !== '' ? '?slug=' . rawurlencode($old) : ''), 301);
         }
 
         $page = null;
@@ -76,6 +84,7 @@ class PageController extends BaseController
 
         if ($slug === 'single-news') {
             $newsSlug = trim((string) ($this->request->getGet('slug') ?: $this->request->getGet('n')));
+            model(NewsPostModel::class)->ensureEventColumns();
             $post     = $newsSlug !== '' ? model(NewsPostModel::class)->findPublishedBySlug($newsSlug) : null;
             if (! $post) {
                 throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('news');
@@ -87,26 +96,9 @@ class PageController extends BaseController
             $data['canonical_url']    = site_url('single-news') . '?slug=' . rawurlencode($post['slug']);
         }
 
-        if ($slug === 'events') {
-            $data['event_rows'] = model(EventModel::class)->published();
-        }
-
-        if ($slug === 'event-single') {
-            $eventSlug = trim((string) ($this->request->getGet('slug') ?: $this->request->getGet('n')));
-            $event     = $eventSlug !== '' ? model(EventModel::class)->findPublishedBySlug($eventSlug) : null;
-            if (! $event) {
-                throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('event');
-            }
-            $data['event_row']        = $event;
-            $data['event_media']      = model(EventMediaModel::class)->forEvent((int) $event['id']);
-            $data['page_title']       = $event['title'];
-            $data['page_description'] = $event['excerpt'] ?? ($page['description'] ?? '');
-            $data['canonical_url']    = site_url('event-single') . '?slug=' . rawurlencode($event['slug']);
-        }
-
-        // Gallery, news, events, and vacant seats stay on their templates so
+        // Gallery, news & events, and vacant seats stay on their templates so
         // album and listing edits are not replaced by a saved HTML snapshot.
-        $liveTemplates = ['gallery', 'all-news', 'single-news', 'events', 'event-single', 'vacant-seats'];
+        $liveTemplates = ['gallery', 'all-news', 'single-news', 'vacant-seats'];
         if (! in_array($slug, $liveTemplates, true)
             && ! empty($page['use_cms'])
             && (! empty($page['body_html']) || ! empty($page['body_text']))) {

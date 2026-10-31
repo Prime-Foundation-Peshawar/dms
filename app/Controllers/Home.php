@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\EventModel;
 use App\Models\NewsPostModel;
 use App\Models\PageModel;
 use App\Models\SettingModel;
@@ -52,7 +51,7 @@ class Home extends BaseController
 
     /**
      * Cards for the homepage "Admission Updates" (Admissions category) or "Latest from Campus" (everything else).
-     * Live news (published, not expired) plus upcoming published events, newest first.
+     * Live news and events (published, not expired), newest first. Upcoming events show their event date.
      *
      * @return list<array<string,mixed>>
      */
@@ -60,13 +59,9 @@ class Home extends BaseController
     {
         $cards = [];
         try {
+            model(NewsPostModel::class)->ensureEventColumns();
             foreach (model(NewsPostModel::class)->published() as $row) {
-                $cards[] = $this->newsCard($row);
-            }
-            foreach (model(EventModel::class)->published() as $row) {
-                if ((string) ($row['event_date'] ?? '') >= date('Y-m-d')) {
-                    $cards[] = $this->eventCard($row);
-                }
+                $cards[] = (string) ($row['event_date'] ?? '') >= date('Y-m-d') ? $this->eventCard($row) : $this->newsCard($row);
             }
         } catch (\Throwable $e) {
             log_message('error', 'Home news/events lookup failed: {0}', [$e->getMessage()]);
@@ -74,16 +69,7 @@ class Home extends BaseController
             return [];
         }
 
-        // Same item may exist as both news and event (and rows may be duplicated); keep the first per slug.
-        $seen = [];
-        $out  = [];
-        foreach ($cards as $card) {
-            if (($card['category'] === 'Admissions') !== $admissions || isset($seen[$card['slug']])) {
-                continue;
-            }
-            $seen[$card['slug']] = true;
-            $out[] = $card;
-        }
+        $out = array_values(array_filter($cards, static fn ($card) => ($card['category'] === 'Admissions') === $admissions));
         usort($out, static fn ($a, $b) => $b['sort'] <=> $a['sort']);
 
         return array_slice($out, 0, $limit);
@@ -111,7 +97,7 @@ class Home extends BaseController
         return $this->card($row, [
             'date'     => date('d M Y', $when),
             'deadline' => '',
-            'page'     => site_url('event-single') . '?slug=' . rawurlencode((string) $row['slug']),
+            'page'     => site_url('single-news') . '?slug=' . rawurlencode((string) $row['slug']),
             'sort'     => $when,
         ]);
     }

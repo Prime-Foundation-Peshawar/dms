@@ -12,7 +12,7 @@ class News extends BaseAcpController
         $rows = model(NewsPostModel::class)->orderBy('published_at', 'DESC')->findAll();
 
         return $this->acpView('news/index', [
-            'title' => 'News',
+            'title' => 'News & Events',
             'rows'  => $rows,
         ]);
     }
@@ -20,7 +20,7 @@ class News extends BaseAcpController
     public function create()
     {
         return $this->acpView('news/form', [
-            'title' => 'Create news',
+            'title' => 'Add news or event',
             'row'   => null,
             'media' => [],
         ]);
@@ -30,8 +30,9 @@ class News extends BaseAcpController
     {
         $model = model(NewsPostModel::class);
         $model->ensureLinkColumns();
+        $model->ensureEventColumns();
         $title = trim((string) $this->request->getPost('title'));
-        $slug  = trim((string) $this->request->getPost('slug')) ?: $this->makeSlug($title);
+        $slug  = $this->uniqueSlug(trim((string) $this->request->getPost('slug')) ?: $this->makeSlug($title));
         $cover = $this->storeUpload('cover_image', 'news', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
         [$bodyHtml, $bodyText] = $this->readDualBody();
 
@@ -47,22 +48,22 @@ class News extends BaseAcpController
             'expires_at'   => $this->normalizeDateTime($this->request->getPost('expires_at')),
             'status'       => in_array($this->request->getPost('status'), ['published', 'draft'], true)
                 ? $this->request->getPost('status') : 'draft',
-        ] + $this->postedLink(), true);
+        ] + $this->postedEvent() + $this->postedLink(), true);
 
         $this->attachMedia((int) $id);
 
-        return redirect()->to(site_url('acp/news'))->with('success', 'News created.');
+        return redirect()->to(site_url('acp/news'))->with('success', 'Saved.');
     }
 
     public function edit(int $id)
     {
         $row = model(NewsPostModel::class)->find($id);
         if (! $row) {
-            return redirect()->to(site_url('acp/news'))->with('error', 'News not found.');
+            return redirect()->to(site_url('acp/news'))->with('error', 'Item not found.');
         }
 
         return $this->acpView('news/form', [
-            'title' => 'Edit news',
+            'title' => 'Edit news or event',
             'row'   => $row,
             'media' => model(NewsMediaModel::class)->forNews($id),
         ]);
@@ -72,13 +73,14 @@ class News extends BaseAcpController
     {
         $model = model(NewsPostModel::class);
         $model->ensureLinkColumns();
+        $model->ensureEventColumns();
         $row   = $model->find($id);
         if (! $row) {
-            return redirect()->to(site_url('acp/news'))->with('error', 'News not found.');
+            return redirect()->to(site_url('acp/news'))->with('error', 'Item not found.');
         }
 
         $title = trim((string) $this->request->getPost('title'));
-        $slug  = trim((string) $this->request->getPost('slug')) ?: $this->makeSlug($title);
+        $slug  = $this->uniqueSlug(trim((string) $this->request->getPost('slug')) ?: $this->makeSlug($title), $id);
         [$bodyHtml, $bodyText] = $this->readDualBody();
         $data  = [
             'slug'         => $slug,
@@ -91,7 +93,7 @@ class News extends BaseAcpController
             'expires_at'   => $this->normalizeDateTime($this->request->getPost('expires_at')),
             'status'       => in_array($this->request->getPost('status'), ['published', 'draft'], true)
                 ? $this->request->getPost('status') : $row['status'],
-        ] + $this->postedLink();
+        ] + $this->postedEvent() + $this->postedLink();
         $cover = $this->storeUpload('cover_image', 'news', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
         if ($cover) {
             $data['cover_image'] = $cover;
@@ -99,7 +101,7 @@ class News extends BaseAcpController
         $model->update($id, $data);
         $this->attachMedia($id);
 
-        return redirect()->to(site_url('acp/news/edit/' . $id))->with('success', 'News updated.');
+        return redirect()->to(site_url('acp/news/edit/' . $id))->with('success', 'Saved.');
     }
 
     public function delete(int $id)
@@ -107,7 +109,7 @@ class News extends BaseAcpController
         model(NewsMediaModel::class)->where('news_id', $id)->delete();
         model(NewsPostModel::class)->delete($id);
 
-        return redirect()->to(site_url('acp/news'))->with('success', 'News deleted.');
+        return redirect()->to(site_url('acp/news'))->with('success', 'Deleted.');
     }
 
     public function deleteMedia(int $id)
@@ -139,6 +141,39 @@ class News extends BaseAcpController
         }
 
         return $this->response->setJSON(['ok' => true]);
+    }
+
+    /** Adds -2, -3... when another item already uses the slug, so every item keeps its own page. */
+    private function uniqueSlug(string $slug, int $exceptId = 0): string
+    {
+        $model = model(NewsPostModel::class);
+        $try   = $slug;
+        for ($n = 2; $model->where('slug', $try)->where('id !=', $exceptId)->countAllResults() > 0; $n++) {
+            $try = "{$slug}-{$n}";
+        }
+
+        return $try;
+    }
+
+    /**
+     * Event fields from the form. A single date is stored as event_date; the start date is only kept
+     * when it comes before the last day.
+     *
+     * @return array{start_date:?string,event_date:?string,location:string}
+     */
+    private function postedEvent(): array
+    {
+        $start = trim((string) $this->request->getPost('start_date'));
+        $last  = trim((string) $this->request->getPost('event_date'));
+        if ($last === '' || ($start !== '' && $start > $last)) {
+            [$start, $last] = [$last, $start];
+        }
+
+        return [
+            'start_date' => $start !== '' && $start !== $last ? $start : null,
+            'event_date' => $last !== '' ? $last : null,
+            'location'   => trim((string) $this->request->getPost('location')),
+        ];
     }
 
     private function attachMedia(int $newsId): void
