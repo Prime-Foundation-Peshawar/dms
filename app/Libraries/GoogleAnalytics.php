@@ -8,6 +8,7 @@ namespace App\Libraries;
  * Needs in .env:
  *   ga4.propertyId      numeric GA4 property id (not the G-XXXX measurement id)
  *   ga4.credentialsFile service account JSON key, absolute or relative to the project root
+ *   ga4.streamId        optional web data-stream id (limits reports to one site on a shared property)
  */
 class GoogleAnalytics
 {
@@ -20,6 +21,9 @@ class GoogleAnalytics
     private const CACHE_SECONDS      = 3600;
     private const CACHE_PAST_SECONDS = 86400;
     private const REALTIME_SECONDS   = 120;
+
+    /** Department of Medical Sciences web stream on property 553190416. */
+    public const DEFAULT_STREAM_ID = '15742023929';
 
     /** Plain-English names for Google's traffic groups. */
     public const CHANNELS = [
@@ -60,6 +64,7 @@ class GoogleAnalytics
 
     private string $propertyId;
     private string $credentialsFile;
+    private string $streamId;
 
     /** Reports on the Website Analytics page: dimensions, metrics, and how many rows to keep. */
     private const REPORTS = [
@@ -83,6 +88,7 @@ class GoogleAnalytics
 
     public const DEFAULT_CREDENTIALS = 'writable/ga4-service-account.json';
     public const SETTING_PROPERTY_ID = 'ga4_property_id';
+    public const SETTING_STREAM_ID   = 'ga4_stream_id';
 
     public function __construct()
     {
@@ -95,6 +101,19 @@ class GoogleAnalytics
             }
         }
         $this->propertyId = $property;
+
+        $stream = preg_replace('/\D+/', '', (string) env('ga4.streamId', '')) ?? '';
+        if ($stream === '') {
+            try {
+                $stream = preg_replace('/\D+/', '', (string) model(\App\Models\SettingModel::class)->getValue(self::SETTING_STREAM_ID, '')) ?? '';
+            } catch (\Throwable $e) {
+                $stream = '';
+            }
+        }
+        if ($stream === '') {
+            $stream = self::DEFAULT_STREAM_ID;
+        }
+        $this->streamId = $stream;
 
         $file = trim((string) env('ga4.credentialsFile', ''));
         if ($file === '') {
@@ -126,6 +145,11 @@ class GoogleAnalytics
         return $this->credentialsFile !== '' && is_file($this->credentialsFile);
     }
 
+    public function streamId(): string
+    {
+        return $this->streamId;
+    }
+
     /** Headline numbers for the Reports page. */
     public function summary(array $period): array
     {
@@ -147,7 +171,7 @@ class GoogleAnalytics
                 $requests = [];
                 foreach ($chunk as [$dims, $metrics, $limit]) {
                     $inOrder    = in_array($dims[0], ['date', 'yearMonth', 'dayOfWeek', 'hour'], true);
-                    $requests[] = [
+                    $requests[] = $this->withStreamFilter([
                         'dateRanges' => $ranges,
                         'dimensions' => array_map(static fn ($d) => ['name' => $d], $dims),
                         'metrics'    => array_map(static fn ($m) => ['name' => $m], $metrics),
@@ -155,7 +179,7 @@ class GoogleAnalytics
                         'orderBys'   => [$inOrder
                             ? ['dimension' => ['dimensionName' => $dims[0]]]
                             : ['metric' => ['metricName' => $metrics[0]], 'desc' => true]],
-                    ];
+                    ]);
                 }
                 $res = $this->call(':batchRunReports', ['requests' => $requests]);
                 foreach (array_keys($chunk) as $i => $name) {
@@ -175,7 +199,9 @@ class GoogleAnalytics
             return (int) file_get_contents($path);
         }
         try {
-            $res = $this->call(':runRealtimeReport', ['metrics' => [['name' => 'activeUsers']]]);
+            $res = $this->call(':runRealtimeReport', $this->withStreamFilter([
+                'metrics' => [['name' => 'activeUsers']],
+            ]));
             $n   = (int) ($res['rows'][0]['metricValues'][0]['value'] ?? 0);
             @file_put_contents($path, (string) $n);
 
@@ -190,13 +216,13 @@ class GoogleAnalytics
     private function fetchSummary(array $period): array
     {
         $metrics = ['activeUsers', 'newUsers', 'sessions', 'screenPageViews', 'engagedSessions', 'averageSessionDuration', 'screenPageViewsPerSession'];
-        $res     = $this->call(':runReport', [
+        $res     = $this->call(':runReport', $this->withStreamFilter([
             'dateRanges' => [
                 ['name' => 'now', 'startDate' => $period['start'], 'endDate' => $period['last_day']],
                 ['name' => 'prev', 'startDate' => $period['prev_start'], 'endDate' => $period['prev_last']],
             ],
             'metrics' => array_map(static fn ($m) => ['name' => $m], $metrics),
-        ]);
+        ]));
 
         $totals = ['now' => array_fill_keys($metrics, 0), 'prev' => array_fill_keys($metrics, 0)];
         foreach ($res['rows'] ?? [] as $row) {
@@ -264,7 +290,32 @@ class GoogleAnalytics
 
     private function cachePath(string $kind, array $key): string
     {
-        return WRITEPATH . 'cache/ga4_' . $kind . '_' . md5($this->propertyId . implode('|', $key)) . '.json';
+        return WRITEPATH . 'cache/ga4_' . $kind . '_' . md5($this->propertyId . '|' . $this->streamId . '|' . implode('|', $key)) . '.json';
+    }
+
+    /**
+     * Limit every report to this site's web data stream when configured.
+     *
+     * @param array<string,mixed> $body
+     * @return array<string,mixed>
+     */
+    private function withStreamFilter(array $body): array
+    {
+        if ($this->streamId === '') {
+            return $body;
+        }
+
+        $body['dimensionFilter'] = [
+            'filter' => [
+                'fieldName'    => 'streamId',
+                'stringFilter' => [
+                    'matchType' => 'EXACT',
+                    'value'     => $this->streamId,
+                ],
+            ],
+        ];
+
+        return $body;
     }
 
     /** @return array<string,mixed> decoded API response */

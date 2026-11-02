@@ -45,7 +45,14 @@ class WebsiteAnalytics extends BaseAcpController
             return redirect()->to(site_url('acp/website-analytics'))->with('error', 'Enter the numeric GA4 Property ID (digits only).');
         }
 
-        model(SettingModel::class)->setValue(GoogleAnalytics::SETTING_PROPERTY_ID, $propertyId);
+        $streamId = preg_replace('/\D+/', '', (string) $this->request->getPost('ga4_stream_id')) ?? '';
+        if ($streamId === '') {
+            $streamId = GoogleAnalytics::DEFAULT_STREAM_ID;
+        }
+
+        $settings = model(SettingModel::class);
+        $settings->setValue(GoogleAnalytics::SETTING_PROPERTY_ID, $propertyId);
+        $settings->setValue(GoogleAnalytics::SETTING_STREAM_ID, $streamId);
 
         $file = $this->request->getFile('ga4_credentials');
         if ($file instanceof UploadedFile && $file->isValid() && ! $file->hasMoved()) {
@@ -74,12 +81,12 @@ class WebsiteAnalytics extends BaseAcpController
             return redirect()->to(site_url('acp/website-analytics'))->with('error', 'Upload the service-account JSON key (one-time).');
         }
 
-        $this->syncEnv($propertyId);
+        $this->syncEnv($propertyId, $streamId);
 
         return redirect()->to(site_url('acp/website-analytics'))->with('success', 'Google Analytics connected. Figures will load from GA4.');
     }
 
-    private function syncEnv(string $propertyId): void
+    private function syncEnv(string $propertyId, string $streamId): void
     {
         $envPath = ROOTPATH . '.env';
         if (! is_file($envPath) || ! is_writable($envPath)) {
@@ -88,6 +95,7 @@ class WebsiteAnalytics extends BaseAcpController
         $text = (string) file_get_contents($envPath);
         $lines = [
             'ga4.propertyId'      => $propertyId,
+            'ga4.streamId'        => $streamId,
             'ga4.credentialsFile' => GoogleAnalytics::DEFAULT_CREDENTIALS,
         ];
         foreach ($lines as $key => $value) {
@@ -102,3 +110,4 @@ class WebsiteAnalytics extends BaseAcpController
         file_put_contents($envPath, $text);
     }
 }
+
