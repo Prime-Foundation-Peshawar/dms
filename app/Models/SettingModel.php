@@ -25,6 +25,20 @@ class SettingModel extends Model
         return $row ? (string) $row['value'] : $default;
     }
 
+    public function setValue(string $key, string $value): void
+    {
+        $existing = $this->where('key', $key)->first();
+        $payload  = [
+            'value'      => $value,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+        if ($existing) {
+            $this->db->table($this->table)->where($this->primaryKey, $existing[$this->primaryKey])->update($payload);
+        } else {
+            $this->insert(array_merge(['key' => $key], $payload));
+        }
+    }
+
     /** @return array{intro:string,heading:string,rows:list<array<string,string>>,notices:list<string>,last_date:string,apply_url:string,apply_label:string} */
     public function vacantSeats(): array
     {

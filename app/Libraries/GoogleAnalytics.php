@@ -81,10 +81,25 @@ class GoogleAnalytics
         'hours'     => [['hour'], ['sessions'], 24],
     ];
 
+    public const DEFAULT_CREDENTIALS = 'writable/ga4-service-account.json';
+    public const SETTING_PROPERTY_ID = 'ga4_property_id';
+
     public function __construct()
     {
-        $this->propertyId = trim((string) env('ga4.propertyId', ''));
+        $property = trim((string) env('ga4.propertyId', ''));
+        if ($property === '') {
+            try {
+                $property = trim((string) model(\App\Models\SettingModel::class)->getValue(self::SETTING_PROPERTY_ID, ''));
+            } catch (\Throwable $e) {
+                $property = '';
+            }
+        }
+        $this->propertyId = $property;
+
         $file = trim((string) env('ga4.credentialsFile', ''));
+        if ($file === '') {
+            $file = self::DEFAULT_CREDENTIALS;
+        }
         if ($file !== '' && ! str_starts_with($file, '/') && ! preg_match('/^[A-Za-z]:[\\\\\/]/', $file)) {
             $file = ROOTPATH . $file;
         }
@@ -94,6 +109,21 @@ class GoogleAnalytics
     public function isConfigured(): bool
     {
         return $this->propertyId !== '' && $this->credentialsFile !== '' && is_file($this->credentialsFile);
+    }
+
+    public function propertyId(): string
+    {
+        return $this->propertyId;
+    }
+
+    public function credentialsPath(): string
+    {
+        return $this->credentialsFile;
+    }
+
+    public function hasCredentialsFile(): bool
+    {
+        return $this->credentialsFile !== '' && is_file($this->credentialsFile);
     }
 
     /** Headline numbers for the Reports page. */
@@ -254,27 +284,41 @@ class GoogleAnalytics
         }
 
         $key = json_decode((string) file_get_contents($this->credentialsFile), true);
-        if (! is_array($key) || empty($key['client_email']) || empty($key['private_key'])) {
-            throw new \RuntimeException('The Google service account key file is not valid.');
-        }
-        $tokenUri = (string) ($key['token_uri'] ?? 'https://oauth2.googleapis.com/token');
-        $now      = time();
-        $b64      = static fn (string $s) => rtrim(strtr(base64_encode($s), '+/', '-_'), '=');
-        $unsigned = $b64(json_encode(['alg' => 'RS256', 'typ' => 'JWT'])) . '.' . $b64(json_encode([
-            'iss'   => $key['client_email'],
-            'scope' => self::SCOPE,
-            'aud'   => $tokenUri,
-            'iat'   => $now,
-            'exp'   => $now + 3600,
-        ]));
-        if (! openssl_sign($unsigned, $signature, (string) $key['private_key'], OPENSSL_ALGO_SHA256)) {
-            throw new \RuntimeException('Could not sign with the Google service account key.');
+        if (! is_array($key)) {
+            throw new \RuntimeException('The Google credentials file is not valid JSON.');
         }
 
-        $res = $this->post($tokenUri, http_build_query([
-            'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-            'assertion'  => $unsigned . '.' . $b64($signature),
-        ]), ['Content-Type: application/x-www-form-urlencoded']);
+        $now = time();
+        if (($key['type'] ?? '') === 'authorized_user' || (! empty($key['refresh_token']) && ! empty($key['client_id']))) {
+            $res = $this->post('https://oauth2.googleapis.com/token', http_build_query([
+                'grant_type'    => 'refresh_token',
+                'refresh_token' => (string) $key['refresh_token'],
+                'client_id'     => (string) $key['client_id'],
+                'client_secret' => (string) ($key['client_secret'] ?? ''),
+            ]), ['Content-Type: application/x-www-form-urlencoded']);
+        } else {
+            if (empty($key['client_email']) || empty($key['private_key'])) {
+                throw new \RuntimeException('The Google credentials file is not a valid service-account or OAuth refresh-token JSON.');
+            }
+            $tokenUri = (string) ($key['token_uri'] ?? 'https://oauth2.googleapis.com/token');
+            $b64      = static fn (string $s) => rtrim(strtr(base64_encode($s), '+/', '-_'), '=');
+            $unsigned = $b64(json_encode(['alg' => 'RS256', 'typ' => 'JWT'])) . '.' . $b64(json_encode([
+                'iss'   => $key['client_email'],
+                'scope' => self::SCOPE,
+                'aud'   => $tokenUri,
+                'iat'   => $now,
+                'exp'   => $now + 3600,
+            ]));
+            if (! openssl_sign($unsigned, $signature, (string) $key['private_key'], OPENSSL_ALGO_SHA256)) {
+                throw new \RuntimeException('Could not sign with the Google service account key.');
+            }
+
+            $res = $this->post($tokenUri, http_build_query([
+                'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+                'assertion'  => $unsigned . '.' . $b64($signature),
+            ]), ['Content-Type: application/x-www-form-urlencoded']);
+        }
+
         if (empty($res['access_token'])) {
             throw new \RuntimeException('Google did not return an access token.');
         }

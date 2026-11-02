@@ -62,6 +62,7 @@ $routes->group('acp', ['namespace' => 'App\Controllers\Acp'], static function ($
         $routes->get('reports', 'Reports::index');
         $routes->get('reports/export', 'Reports::export');
         $routes->get('website-analytics', 'WebsiteAnalytics::index');
+        $routes->post('website-analytics/connect', 'WebsiteAnalytics::connect');
 
         $routes->get('pages', 'Pages::index');
         $routes->get('pages/create', 'Pages::create');

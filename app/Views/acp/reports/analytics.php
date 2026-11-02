@@ -73,16 +73,25 @@ $panel = static function (string $title, string $tip, string $icon, string $body
     <?php if (acp_is_view_only()): ?>
       <p class="mb-0">The IT team needs to connect Google Analytics before this page can show website figures.</p>
     <?php else: ?>
-      <p>This page reads its figures directly from Google Analytics. To connect it, do the following once:</p>
-      <ol class="mb-0">
+      <p>This page reads its figures directly from Google Analytics. Connect it once below (no server SSH needed).</p>
+      <ol class="mb-3">
         <li>In Google Cloud, turn on the <strong>Google Analytics Data API</strong> and create a <strong>service account</strong>. Download its JSON key.</li>
-        <li>In Google Analytics, go to Admin → Property access management and add the service account's email address as a <strong>Viewer</strong>.</li>
-        <li>In Google Analytics, go to Admin → Property details and copy the <strong>Property ID</strong> (only numbers, not the G-KLGCNTBPXD code).</li>
-        <li>Save the key on the server as <code>writable/ga4-service-account.json</code>, and add to <code>.env</code>:
-          <pre class="mt-2 mb-0"><code>ga4.propertyId = 123456789
-ga4.credentialsFile = writable/ga4-service-account.json</code></pre>
-        </li>
+        <li>In Google Analytics → Admin → Property access management, add that service account email as a <strong>Viewer</strong>.</li>
+        <li>In Google Analytics → Admin → Property details, copy the numeric <strong>Property ID</strong> (not the G-… measurement ID).</li>
       </ol>
+      <form method="post" action="<?= site_url('acp/website-analytics/connect') ?>" enctype="multipart/form-data" class="acp-form" style="max-width:520px">
+        <?= csrf_field() ?>
+        <label class="form-label">GA4 Property ID (digits only)
+          <input class="form-control" type="text" name="ga4_property_id" inputmode="numeric" pattern="[0-9]+" required
+                 value="<?= esc($gaPropertyId ?? '') ?>" placeholder="123456789">
+        </label>
+        <label class="form-label mt-2">Service account JSON key<?= ! empty($gaHasKey) ? ' <span class="text-muted">(already on server — upload only to replace)</span>' : '' ?>
+          <input class="form-control" type="file" name="ga4_credentials" accept=".json,application/json" <?= empty($gaHasKey) ? 'required' : '' ?>>
+        </label>
+        <div class="mt-3">
+          <button type="submit" class="btn-acp btn-acp-primary"><i class="bi bi-link-45deg"></i> Connect Google Analytics</button>
+        </div>
+      </form>
     <?php endif; ?>
   </div>
 <?php elseif (! $ok): ?>
