@@ -96,8 +96,8 @@ $hospitals = [
     'name'         => 'Prime Teaching Hospital',
     'desc'         => 'Modern diagnostic and surgical facilities for intensive clinical and surgical training rotations.',
     'url'          => 'https://pth.riphahpsh.edu.pk/',
-    'dept_url'     => 'https://pth.riphahpsh.edu.pk/prm_opd.php',
-    'services_url' => 'https://pth.riphahpsh.edu.pk/prm_services.php',
+    'dept_url'     => 'https://pth.riphahpsh.edu.pk/pages/departments.php',
+    'services_url' => 'https://pth.riphahpsh.edu.pk/pages/services.php',
     'highlights'   => ['Neurosurgery', 'Cardiac Surgery', 'ERCP & Endoscopy', 'CT & MRI'],
     'departments'  => [
       'Gastroenterology & Hepatology',
