@@ -33,6 +33,18 @@ function dms_clean_view_html(string $raw): string
     $body = preg_replace('/<\?=\s*site_url\(\)\s*\?>/', '/', $body) ?? $body;
     $body = preg_replace('/<\?=\s*site_url\(\s*[\'"]([^\'"]+)[\'"]\s*\)\s*\?>/', '/$1', $body) ?? $body;
     $body = preg_replace('/<\?=\s*base_url\(\s*[\'"]([^\'"]+)[\'"]\s*\)\s*\?>/', '/$1', $body) ?? $body;
+    // Preserve literal faculty labels before removing PHP from the CMS snapshot.
+    $body = preg_replace_callback(
+        '/<\?=\s*faculty_profile_link_html\(\s*\'([^\']*)\'\s*(?:,\s*\'([^\']*)\'\s*)?\)\s*\?>/',
+        static function ($m) {
+            $name = '<span>' . htmlspecialchars($m[1], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</span>';
+            $qual = ($m[2] ?? '') !== ''
+                ? '<span class="pg-qual">' . htmlspecialchars($m[2], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</span>' : '';
+
+            return $name . $qual;
+        },
+        $body
+    ) ?? $body;
     $body = preg_replace('/<\?=[\s\S]*?\?>/', '', $body) ?? $body;
     $body = preg_replace('/<\?[\s\S]*?\?>/', '', $body) ?? $body;
 
