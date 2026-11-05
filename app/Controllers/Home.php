@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\NewsPostModel;
 use App\Models\PageModel;
 use App\Models\SettingModel;
+use App\Libraries\CareersLibrray;
 
 class Home extends BaseController
 {
@@ -19,6 +20,26 @@ class Home extends BaseController
 
         $posterWebp = FCPATH . 'assets/images/slider/pmc-hero-poster.webp';
         $posterV = @filemtime($posterWebp) ?: time();
+
+        // Careers API integration for campus jobs.
+        $jobs = [];
+        try {
+            $setting = json_decode(
+                (string) model(SettingModel::class)->getValue('careers_api', '{}'),
+                true,
+                512,
+                JSON_THROW_ON_ERROR
+            );
+            $client = new CareersLibrray(
+                (string) ($setting['CAREERS_API_BASE_URL'] ?? ''),
+                (string) ($setting['CAREERS_API_EMAIL'] ?? ''),
+                (string) ($setting['CAREERS_API_PASSWORD'] ?? '')
+            );
+            // These campuses must be assigned to this admin in Careers.
+            $jobs = $client->allJobs([1]);
+        } catch (\Throwable $e) {
+            log_message('error', 'Campus Jobs integration: ' . $e->getMessage());
+        }
 
         $slides = [];
         try {
@@ -44,6 +65,7 @@ class Home extends BaseController
             'canonical_url' => site_url('/'),
             'preload_images' => [base_url('assets/images/slider/pmc-hero-poster.webp') . '?v=' . $posterV],
             'home_slides' => $slides,
+            'jobs' => $jobs,
             'admission_cards' => $this->homeCards(true),
             'campus_cards' => $this->homeCards(false),
         ]);

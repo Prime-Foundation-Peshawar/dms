@@ -1,0 +1,1 @@
+INSERT INTO `settings` (`id`, `key`, `value`, `updated_at`) VALUES ('51', 'careers_api', '{\r\n \"CAREERS_API_BASE_URL\": \"https://careers.riphahpsh.edu.pk/\",\r\n \"CAREERS_API_EMAIL\": \"apiv1@prime.edu.pk\",\r\n \"CAREERS_API_PASSWORD\": \"4f4895a4e6890b4722521534c48127bf0ecd3c44c521ad8221e5e79c63faa9e6\"\r\n}', '2026-11-04 12:26:39');

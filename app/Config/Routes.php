@@ -10,6 +10,7 @@ $routes->setTranslateURIDashes(true);
 $routes->set404Override();
 
 $routes->get('/', 'Home::index');
+$routes->get('careers', 'Careers::index');
 $routes->get('departments', 'Departments::index');
 $routes->get('department', 'Departments::show');
 $routes->get('department-activity', 'Departments::activity');

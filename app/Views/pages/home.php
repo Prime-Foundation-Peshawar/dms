@@ -965,26 +965,25 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
         <h2 class="sec-title">We Are Hiring</h2>
         <p class="sec-desc mb-0">Faculty and staff opportunities at Riphah International University – Peshawar Campus.</p>
       </div>
+      <?php if (!empty($jobs)): ?>
       <div class="col-lg-4 text-lg-end fu fu-delay-1 mt-3 mt-lg-0">
-        <a href="https://careers.riphahpsh.edu.pk" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline"><i class="bi bi-briefcase"></i> Career Portal</a>
+        <a href="<?= site_url('careers') ?>" class="btn-pmc btn-pmc-outline"><i class="bi bi-briefcase"></i> View All Jobs</a>
       </div>
+      <?php endif; ?>
     </div>
-    <div class="row g-4">
-      <div class="col-lg-6 col-md-6 fu fu-delay-2">
-        <article class="news-card news-card-text news-card--career hub-career-portal-card">
-          <div class="nc-body">
-            <div class="nc-meta">
-              <span class="nc-cat nc-cat-career">Career Portal</span>
-            </div>
-            <h3 class="nc-title">Explore Open Roles Online</h3>
-            <p class="nc-excerpt">Browse current vacancies and submit applications through the official Career Portal.</p>
-            <div class="nc-actions">
-              <a href="https://careers.riphahpsh.edu.pk" target="_blank" rel="noopener" class="nc-btn nc-btn-primary">Visit Career Portal <i class="bi bi-box-arrow-up-right"></i></a>
-            </div>
-          </div>
-        </article>
+    <?php if (!empty($jobs)): ?>
+      <div class="career-slider" role="region" aria-label="Latest career opportunities">
+        <div class="career-slider-track" id="careerSliderTrack" tabindex="0" aria-label="Job cards; scroll to see more opportunities">
+          <?php foreach ($jobs as $job): ?>
+            <?= view('pages/partials/job_card', ['job' => $job]) ?>
+          <?php endforeach; ?>
+        </div>
       </div>
-    </div>
+    <?php else: ?>
+      <div class="alert alert-light border" role="status">
+        <i class="bi bi-briefcase me-2" aria-hidden="true"></i>No vacancies to display right now. <a href="<?= site_url('careers') ?>">Visit our Careers page</a> for opportunities and application guidance.
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 
