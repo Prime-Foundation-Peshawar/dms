@@ -2625,8 +2625,7 @@
       font-weight: 800;
       letter-spacing: .12em;
       text-transform: uppercase;
-      /* Match DDS director label (campus brand orange, not medical teal). */
-      color: #C2410C;
+      color: var(--teal);
       margin-bottom: 4px;
     }
     .pg-director a {
