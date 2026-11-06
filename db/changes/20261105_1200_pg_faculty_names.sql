@@ -1,101 +1,35 @@
--- Restore names removed by the CMS seed importer; preserve populated slots and other page edits.
-UPDATE pages SET body_html = REPLACE(body_html, '<strong></strong>', '<strong><span>Prof. Dr. Mohsina Haq</span></strong>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, 'Teaching staff of Basic Medical Sciences, under .', 'Teaching staff of Basic Medical Sciences, under <span>Prof. Dr. Mohsina Haq</span>.') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Anatomy</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Anatomy</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Nouman Ullah Wazir</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Farooq Khan</span><span class="pg-qual">PhD</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Anatomy</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Anatomy</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Nouman Ullah Wazir</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Farooq Khan</span><span class="pg-qual">PhD</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Physiology</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Physiology</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Robina Riaz</span></li>
-                  <li><span>Dr. Munaza Khattak</span></li>
-                  <li><span>Dr. Farzana Khan</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Physiology</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Physiology</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Robina Riaz</span></li>
-                  <li><span>Dr. Munaza Khattak</span></li>
-                  <li><span>Dr. Farzana Khan</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Pharmacology</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Pharmacology</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Shafaq Zafar</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Amber Javaid</span><span class="pg-qual">MPhil</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Pharmacology</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Pharmacology</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Shafaq Zafar</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Amber Javaid</span><span class="pg-qual">MPhil</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Pathology</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Pathology</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Mohsina Haq</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Wasifa Noshad</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Hala Rajab</span><span class="pg-qual">PhD</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Pathology</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Pathology</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Mohsina Haq</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Wasifa Noshad</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Hala Rajab</span><span class="pg-qual">PhD</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Biochemistry</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Biochemistry</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Shumaila Asim</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Zahoor Ullah</span><span class="pg-qual">PhD</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
-UPDATE pages SET body_html = REPLACE(body_html, '<h4>Biochemistry</h4>
-                <ul class="pg-staff-list">
-                  <li></li>
-                  <li></li>
-                </ul>', '<h4>Biochemistry</h4>
-                <ul class="pg-staff-list">
-                  <li><span>Dr. Shumaila Asim</span><span class="pg-qual">PhD</span></li>
-                  <li><span>Dr. Zahoor Ullah</span><span class="pg-qual">PhD</span></li>
-                </ul>') WHERE slug = 'pg-medical-education';
+-- Run in the website database. Updates the CMS row, not the PHP view.
+-- Whitespace independent; populated names and other page content are preserved.
+UPDATE pages SET body_html = INSERT(body_html, LOCATE('<strong', body_html, LOCATE('pg-director', body_html)), (LOCATE('</strong>', body_html, LOCATE('<strong', body_html, LOCATE('pg-director', body_html))) - LOCATE('<strong', body_html, LOCATE('pg-director', body_html)) + 9), '<strong><span>Prof. Dr. Mohsina Haq</span></strong>')
+WHERE slug = 'pg-medical-education' AND LOCATE('pg-director', body_html) > 0 AND LOCATE('<strong', body_html, LOCATE('pg-director', body_html)) > 0 AND LOCATE('</strong>', body_html, LOCATE('<strong', body_html, LOCATE('pg-director', body_html))) > LOCATE('<strong', body_html, LOCATE('pg-director', body_html))
+  AND REPLACE(REPLACE(REPLACE(REPLACE(SUBSTRING(body_html, LOCATE('<strong', body_html, LOCATE('pg-director', body_html)), (LOCATE('</strong>', body_html, LOCATE('<strong', body_html, LOCATE('pg-director', body_html))) - LOCATE('<strong', body_html, LOCATE('pg-director', body_html)) + 9)), CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '') = '<strong></strong>';
+
+UPDATE pages SET body_html = INSERT(body_html, LOCATE('Teaching staff of Basic Medical Sciences, under', body_html), (LOCATE('</p>', body_html, LOCATE('Teaching staff of Basic Medical Sciences, under', body_html)) - LOCATE('Teaching staff of Basic Medical Sciences, under', body_html)), 'Teaching staff of Basic Medical Sciences, under <span>Prof. Dr. Mohsina Haq</span>.')
+WHERE slug = 'pg-medical-education' AND LOCATE('Teaching staff of Basic Medical Sciences, under', body_html) > 0 AND LOCATE('</p>', body_html, LOCATE('Teaching staff of Basic Medical Sciences, under', body_html)) > LOCATE('Teaching staff of Basic Medical Sciences, under', body_html)
+  AND REPLACE(REPLACE(REPLACE(REPLACE(SUBSTRING(body_html, LOCATE('Teaching staff of Basic Medical Sciences, under', body_html), (LOCATE('</p>', body_html, LOCATE('Teaching staff of Basic Medical Sciences, under', body_html)) - LOCATE('Teaching staff of Basic Medical Sciences, under', body_html))), CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '') = 'TeachingstaffofBasicMedicalSciences,under.';
+
+UPDATE pages SET body_html = INSERT(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html)) + 5), '<ul class="pg-staff-list"><li><span>Dr. Nouman Ullah Wazir</span><span class="pg-qual">PhD</span></li><li><span>Dr. Farooq Khan</span><span class="pg-qual">PhD</span></li></ul>')
+WHERE slug = 'pg-medical-education' AND LOCATE('<h4>Anatomy</h4>', body_html) > 0 AND LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html)) > 0 AND LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html))) > LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html))
+  AND REPLACE(REPLACE(REPLACE(REPLACE(SUBSTRING(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Anatomy</h4>', body_html)) + 5)), CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '') = '<ulclass="pg-staff-list"><li></li><li></li></ul>';
+
+UPDATE pages SET body_html = INSERT(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html)) + 5), '<ul class="pg-staff-list"><li><span>Dr. Robina Riaz</span></li><li><span>Dr. Munaza Khattak</span></li><li><span>Dr. Farzana Khan</span></li></ul>')
+WHERE slug = 'pg-medical-education' AND LOCATE('<h4>Physiology</h4>', body_html) > 0 AND LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html)) > 0 AND LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html))) > LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html))
+  AND REPLACE(REPLACE(REPLACE(REPLACE(SUBSTRING(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Physiology</h4>', body_html)) + 5)), CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '') = '<ulclass="pg-staff-list"><li></li><li></li><li></li></ul>';
+
+UPDATE pages SET body_html = INSERT(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html)) + 5), '<ul class="pg-staff-list"><li><span>Dr. Shafaq Zafar</span><span class="pg-qual">PhD</span></li><li><span>Dr. Amber Javaid</span><span class="pg-qual">MPhil</span></li></ul>')
+WHERE slug = 'pg-medical-education' AND LOCATE('<h4>Pharmacology</h4>', body_html) > 0 AND LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html)) > 0 AND LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html))) > LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html))
+  AND REPLACE(REPLACE(REPLACE(REPLACE(SUBSTRING(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Pharmacology</h4>', body_html)) + 5)), CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '') = '<ulclass="pg-staff-list"><li></li><li></li></ul>';
+
+UPDATE pages SET body_html = INSERT(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html)) + 5), '<ul class="pg-staff-list"><li><span>Dr. Mohsina Haq</span><span class="pg-qual">PhD</span></li><li><span>Dr. Wasifa Noshad</span><span class="pg-qual">PhD</span></li><li><span>Dr. Hala Rajab</span><span class="pg-qual">PhD</span></li></ul>')
+WHERE slug = 'pg-medical-education' AND LOCATE('<h4>Pathology</h4>', body_html) > 0 AND LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html)) > 0 AND LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html))) > LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html))
+  AND REPLACE(REPLACE(REPLACE(REPLACE(SUBSTRING(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Pathology</h4>', body_html)) + 5)), CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '') = '<ulclass="pg-staff-list"><li></li><li></li><li></li></ul>';
+
+UPDATE pages SET body_html = INSERT(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html)) + 5), '<ul class="pg-staff-list"><li><span>Dr. Shumaila Asim</span><span class="pg-qual">PhD</span></li><li><span>Dr. Zahoor Ullah</span><span class="pg-qual">PhD</span></li></ul>')
+WHERE slug = 'pg-medical-education' AND LOCATE('<h4>Biochemistry</h4>', body_html) > 0 AND LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html)) > 0 AND LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html))) > LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html))
+  AND REPLACE(REPLACE(REPLACE(REPLACE(SUBSTRING(body_html, LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html)), (LOCATE('</ul>', body_html, LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html))) - LOCATE('<ul', body_html, LOCATE('<h4>Biochemistry</h4>', body_html)) + 5)), CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '') = '<ulclass="pg-staff-list"><li></li><li></li></ul>';
+
+-- A missing row means this is the wrong database or the page has a different slug.
+SELECT slug, use_cms, LOCATE('Prof. Dr. Mohsina Haq', body_html) > 0 AS director_present,
+       LOCATE('Dr. Nouman Ullah Wazir', body_html) > 0 AS anatomy_present,
+       LOCATE('Dr. Zahoor Ullah', body_html) > 0 AS biochemistry_present
+FROM pages WHERE slug = 'pg-medical-education';

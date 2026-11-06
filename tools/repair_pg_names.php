@@ -24,17 +24,61 @@ foreach ($groups[0] as $group) {
     $pairs[str_replace("\r\n", "\n", $blank)] = str_replace("\r\n", "\n", $render($group));
 }
 $quote = static fn (string $s): string => "'" . str_replace("'", "''", $s) . "'";
-$sql = "-- Restore names removed by the CMS seed importer; preserve populated slots and other page edits.\n";
-foreach ($pairs as $before => $after) {
-    $sql .= 'UPDATE pages SET body_html = REPLACE(body_html, ' . $quote($before) . ', ' . $quote($after)
-        . ") WHERE slug = 'pg-medical-education';\n";
+// Locate each slot by its surrounding markup, then check that it is empty.
+// Do not put literal multiline strings in SQL: Git/importers can change line endings.
+$sql = "-- Run in the website database. Updates the CMS row, not the PHP view.\n"
+    . "-- Whitespace independent; populated names and other page content are preserved.\n";
+$compact = static fn (string $expr): string => "REPLACE(REPLACE(REPLACE(REPLACE($expr, CHAR(13), ''), CHAR(10), ''), CHAR(9), ''), ' ', '')";
+$slotSql = static function (string $anchor, string $open, string $close, string $expected, string $replacement) use ($quote, $compact): string {
+    $anchorPos = 'LOCATE(' . $quote($anchor) . ', body_html)';
+    $start = 'LOCATE(' . $quote($open) . ', body_html, ' . $anchorPos . ')';
+    $end = 'LOCATE(' . $quote($close) . ', body_html, ' . $start . ')';
+    $length = '(' . $end . ' - ' . $start . ' + ' . strlen($close) . ')';
+    $slot = 'SUBSTRING(body_html, ' . $start . ', ' . $length . ')';
+    $expected = preg_replace('/\s+/', '', $expected);
+
+    return 'UPDATE pages SET body_html = INSERT(body_html, ' . $start . ', ' . $length . ', ' . $quote($replacement) . ")\n"
+        . "WHERE slug = 'pg-medical-education' AND $anchorPos > 0 AND $start > 0 AND $end > $start\n"
+        . '  AND ' . $compact($slot) . ' = ' . $quote($expected) . ";\n\n";
+};
+$sql .= $slotSql('pg-director', '<strong', '</strong>', '<strong></strong>', '<strong><span>Prof. Dr. Mohsina Haq</span></strong>');
+$intro = 'Teaching staff of Basic Medical Sciences, under';
+$introStart = 'LOCATE(' . $quote($intro) . ', body_html)';
+$introEnd = "LOCATE('</p>', body_html, $introStart)";
+$introLength = "($introEnd - $introStart)";
+$sql .= "UPDATE pages SET body_html = INSERT(body_html, $introStart, $introLength, "
+    . $quote($intro . ' <span>Prof. Dr. Mohsina Haq</span>.') . ")\n"
+    . "WHERE slug = 'pg-medical-education' AND $introStart > 0 AND $introEnd > $introStart\n"
+    . '  AND ' . $compact("SUBSTRING(body_html, $introStart, $introLength)") . ' = ' . $quote(str_replace(' ', '', $intro) . '.') . ";\n\n";
+foreach ($groups[0] as $group) {
+    preg_match('/<h4>[^<]+<\/h4>/', $group, $heading);
+    $ul = substr($group, strpos($group, '<ul'));
+    $blank = preg_replace('/<\?=[\s\S]*?\?>/', '', $ul);
+    $replacement = preg_replace('/\s+</', '<', $render($ul));
+    $sql .= $slotSql($heading[0], '<ul', '</ul>', $blank, $replacement);
 }
+$sql .= "-- A missing row means this is the wrong database or the page has a different slug.\n"
+    . "SELECT slug, use_cms, LOCATE('Prof. Dr. Mohsina Haq', body_html) > 0 AS director_present,\n"
+    . "       LOCATE('Dr. Nouman Ullah Wazir', body_html) > 0 AS anatomy_present,\n"
+    . "       LOCATE('Dr. Zahoor Ullah', body_html) > 0 AS biochemistry_present\n"
+    . "FROM pages WHERE slug = 'pg-medical-education';\n";
 file_put_contents($root . '/db/changes/20261105_1200_pg_faculty_names.sql', $sql);
+$repair = static function (string $html, int &$count) use ($pairs): string {
+    $count = 0;
+    foreach ($pairs as $before => $after) {
+        $parts = preg_split('/\s+/', $before);
+        $pattern = '~' . implode('\\s*', array_map(static fn ($s) => preg_quote($s, '~'), $parts)) . '~';
+        $html = preg_replace_callback($pattern, static fn () => $after, $html, -1, $n);
+        $count += $n;
+    }
+    return $html;
+};
+$count = 0;
 foreach ($pages as &$page) {
     if ($page['slug'] !== 'pg-medical-education') {
         continue;
     }
-    $page['body_html'] = str_replace(array_keys($pairs), array_values($pairs), $page['body_html'], $count);
+    $page['body_html'] = $repair($page['body_html'], $count);
     $text = html_entity_decode(strip_tags($page['body_html']), ENT_QUOTES | ENT_HTML5, 'UTF-8');
     $text = preg_replace("/[ \t]+/", ' ', $text);
     $page['body_text'] = trim(preg_replace("/\n{3,}/", "\n\n", $text));
@@ -54,7 +98,7 @@ $row = $db->table('pages')->where('slug', 'pg-medical-education')->get()->getRow
 if (!$row) {
     throw new RuntimeException('PG page not found in database.');
 }
-$html = str_replace(array_keys($pairs), array_values($pairs), $row['body_html'], $count);
+$html = $repair($row['body_html'], $count);
 if ($count) {
     // Keep a copy so the content edit can be reversed if needed.
     if (!is_file(WRITEPATH . 'cache/pg-medical-education-before-repair.json')) {
