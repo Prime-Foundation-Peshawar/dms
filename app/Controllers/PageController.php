@@ -96,9 +96,38 @@ class PageController extends BaseController
             $data['canonical_url']    = site_url('single-news') . '?slug=' . rawurlencode($post['slug']);
         }
 
-        // Gallery, news & events, and vacant seats stay on their templates so
-        // album and listing edits are not replaced by a saved HTML snapshot.
-        $liveTemplates = ['gallery', 'all-news', 'single-news', 'vacant-seats'];
+        if ($slug === 'events') {
+            $data['event_rows'] = model(EventModel::class)->published();
+        }
+
+        if ($slug === 'event-single') {
+            $eventSlug = trim((string) ($this->request->getGet('slug') ?: $this->request->getGet('n')));
+            $event     = $eventSlug !== '' ? model(EventModel::class)->findPublishedBySlug($eventSlug) : null;
+            if (! $event) {
+                throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('event');
+            }
+            $data['event_row']        = $event;
+            $data['event_media']      = model(EventMediaModel::class)->forEvent((int) $event['id']);
+            $data['page_title']       = $event['title'];
+            $data['page_description'] = $event['excerpt'] ?? ($page['description'] ?? '');
+            $data['canonical_url']    = site_url('event-single') . '?slug=' . rawurlencode($event['slug']);
+        }
+
+        // Keep these on PHP templates so dynamic bits are not replaced by a
+        // saved HTML snapshot. pg-medical-education CMS body was snapshotted
+        // with empty faculty_profile_link_html() output (director + staff).
+        $liveTemplates = [
+            'gallery',
+            'all-news',
+            'single-news',
+            'events',
+            'event-single',
+            'vacant-seats',
+            'pg-medical-education',
+            'pg-surgery-residency',
+            'faculty',
+            'faculty-research',
+        ];
         if (! in_array($slug, $liveTemplates, true)
             && ! empty($page['use_cms'])
             && (! empty($page['body_html']) || ! empty($page['body_text']))) {
