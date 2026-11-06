@@ -104,9 +104,21 @@ class PageController extends BaseController
             $data['canonical_url']    = site_url('event-single') . '?slug=' . rawurlencode($event['slug']);
         }
 
-        // Gallery, news, events, and vacant seats stay on their templates so
-        // album and listing edits are not replaced by a saved HTML snapshot.
-        $liveTemplates = ['gallery', 'all-news', 'single-news', 'events', 'event-single', 'vacant-seats'];
+        // Keep these on PHP templates so dynamic bits are not replaced by a
+        // saved HTML snapshot. pg-medical-education CMS body was snapshotted
+        // with empty faculty_profile_link_html() output (director + staff).
+        $liveTemplates = [
+            'gallery',
+            'all-news',
+            'single-news',
+            'events',
+            'event-single',
+            'vacant-seats',
+            'pg-medical-education',
+            'pg-surgery-residency',
+            'faculty',
+            'faculty-research',
+        ];
         if (! in_array($slug, $liveTemplates, true)
             && ! empty($page['use_cms'])
             && (! empty($page['body_html']) || ! empty($page['body_text']))) {
