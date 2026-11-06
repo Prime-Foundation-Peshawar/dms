@@ -10,7 +10,20 @@ class CareersLibrray
 
     public function __construct(string $baseUrl, string $email, string $password)
     {
-        $this->baseUrl = rtrim($baseUrl, '/');
+        $baseUrl = rtrim(trim($baseUrl), '/');
+        $parts = parse_url($baseUrl);
+        if (filter_var($baseUrl, FILTER_VALIDATE_URL) === false
+            || !is_array($parts)
+            || !in_array(strtolower($parts['scheme'] ?? ''), ['http', 'https'], true)
+            || empty($parts['host'])
+            || isset($parts['query']) || isset($parts['fragment'])
+            || isset($parts['user']) || isset($parts['pass'])) {
+            throw new \InvalidArgumentException(
+                'Invalid CAREERS_API_BASE_URL in the careers_api database setting. '
+                . 'Set an absolute HTTP(S) base URL without credentials, query string, or fragment.'
+            );
+        }
+        $this->baseUrl = $baseUrl;
         $this->email = $email;
         $this->password = $password;
     }
