@@ -535,37 +535,58 @@ if (!function_exists('hs_e')) {
 </style>
 
 <?php if (! empty($home_slides)): ?>
-<!-- Home slider managed in ACP -->
-<div id="heroSlider" class="home-image-slider" aria-label="Featured announcements">
+<!-- ═══ HERO SLIDER (managed in ACP) ═══ -->
+<?php $slideLink = static fn ($url) => preg_match('#^https?://#i', $url) ? $url : site_url(ltrim($url, '/')); ?>
+<div id="heroSlider" aria-roledescription="carousel" aria-label="Campus highlights">
   <?php foreach ($home_slides as $index => $slide): ?>
-  <div class="hero-slide <?= $index === 0 ? 'active' : '' ?> <?= !array_key_exists('motion_enabled', $slide) || !empty($slide['motion_enabled']) ? 'has-motion' : '' ?>">
-    <?php
-    $isVideoSlide = ($slide['media_type'] ?? 'image') === 'video';
-    $isCurrentVideo = ($slide['video_source'] ?? 'current') === 'current';
-    $mediaPath = $isVideoSlide
-        ? ($isCurrentVideo ? \App\Models\SettingModel::CURRENT_VIDEO_720 : (string) $slide['video_path'])
-        : (string) $slide['image_path'];
-    $posterPath = ! empty($slide['image_path'])
-        ? ltrim((string) $slide['image_path'], '/')
-        : \App\Models\SettingModel::CURRENT_POSTER;
-    $mediaVersion = @filemtime(FCPATH . ltrim($mediaPath, '/')) ?: time();
-    $posterVersion = @filemtime(FCPATH . $posterPath) ?: time();
-    ?>
-    <div class="slide-media <?= $isVideoSlide ? 'has-video' : '' ?>" style="background-image:url('<?= esc(base_url($isVideoSlide ? $posterPath : ltrim($mediaPath, '/')) . '?v=' . ($isVideoSlide ? $posterVersion : $mediaVersion), 'attr') ?>')">
-      <?php if ($isVideoSlide): ?>
-        <video class="managed-slide-video" muted playsinline loop preload="none" poster="<?= esc(base_url($posterPath) . '?v=' . $posterVersion, 'attr') ?>" src="<?= esc(base_url(ltrim($mediaPath, '/')) . '?v=' . $mediaVersion, 'attr') ?>" aria-hidden="true"></video>
-      <?php endif; ?>
-    </div>
+  <?php
+  $isVideo   = $slide['media_type'] === 'video';
+  $videoPath = $slide['video_path'] ?: \App\Models\SettingModel::CURRENT_VIDEO_720;
+  $poster    = $slide['image_path'] ?: \App\Models\SettingModel::CURRENT_POSTER;
+  // *word* in the title is highlighted in teal, as on the riphahpsh slider.
+  $title     = preg_replace('/\*(.+?)\*/', '<span class="hl-teal">$1</span>', esc($slide['title']));
+  ?>
+  <div class="hero-slide <?= $index === 0 ? 'active' : '' ?> <?= $slide['motion_enabled'] ? '' : 'no-motion' ?>" role="group" aria-roledescription="slide" aria-label="<?= $index + 1 ?> of <?= count($home_slides) ?>">
+    <?php if ($isVideo): ?>
+      <div class="slide-media has-video" style="background-image:url('<?= base_url($poster) ?>')">
+        <video class="managed-slide-video" muted playsinline loop preload="none" poster="<?= base_url($poster) ?>" src="<?= base_url($videoPath) ?>" aria-hidden="true"></video>
+      </div>
+    <?php else: ?>
+      <div class="slide-media" style="background-image:url('<?= base_url($slide['image_path']) ?>')"></div>
+    <?php endif; ?>
     <div class="slide-overlay"></div>
-    <div class="slide-grid"></div><div class="slide-circle-1"></div><div class="slide-circle-2"></div>
-    <div class="container slide-inner"><div class="row align-items-center"><div class="col-lg-7"><div class="slide-content">
-      <?php if (! empty($slide['title'])): ?><h1 class="slide-title"><?= esc($slide['title']) ?></h1><?php endif; ?>
-      <?php if (! empty($slide['text'])): ?><p class="slide-body"><?= esc($slide['text']) ?></p><?php endif; ?>
-      <?php if (! empty($slide['link_url'])): ?><div class="slide-actions"><a href="<?= esc($slide['link_url'], 'attr') ?>" class="btn-pmc btn-pmc-primary"><?= esc($slide['link_label'] ?: 'Learn more') ?></a></div><?php endif; ?>
-    </div></div></div></div>
+    <div class="container slide-inner">
+      <div class="slide-content">
+        <?php if ($slide['subtitle'] !== ''): ?><p class="slide-brand"><?= esc($slide['subtitle']) ?></p><?php endif; ?>
+        <h1 class="slide-title"><?= $title ?></h1>
+        <p class="slide-body"><?= nl2br(esc($slide['text'])) ?></p>
+        <?php if ($slide['link_url'] !== '' || $slide['link2_url'] !== ''): ?>
+        <div class="slide-actions">
+          <?php if ($slide['link_url'] !== ''): ?><a href="<?= esc($slideLink($slide['link_url']), 'attr') ?>" class="btn-pmc btn-pmc-primary"><?= esc($slide['link_label'] ?: 'Learn more') ?></a><?php endif; ?>
+          <?php if ($slide['link2_url'] !== ''): ?><a href="<?= esc($slideLink($slide['link2_url']), 'attr') ?>" class="btn-pmc btn-pmc-outline-white"><?= esc($slide['link2_label'] ?: 'Learn more') ?></a><?php endif; ?>
+        </div>
+        <?php endif; ?>
+      </div>
+    </div>
   </div>
   <?php endforeach; ?>
-  <?php if (count($home_slides) > 1): ?><div class="slider-chrome"><button class="slider-prev" type="button" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button><div class="slider-indicators" role="tablist"><?php foreach ($home_slides as $index => $slide): ?><button class="slider-dot <?= $index === 0 ? 'active' : '' ?>" type="button" aria-label="Show slide <?= $index + 1 ?>" aria-selected="<?= $index === 0 ? 'true' : 'false' ?>"><span class="slider-dot-track"><span class="slider-dot-bar"></span></span></button><?php endforeach; ?></div><button class="slider-next" type="button" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button></div><?php endif; ?>
+
+  <?php if (count($home_slides) > 1): ?>
+  <!-- Controls -->
+  <div class="slider-chrome">
+    <button class="slider-prev" type="button" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
+    <div class="slider-indicators" role="tablist" aria-label="Slides">
+      <?php foreach ($home_slides as $index => $slide): ?>
+      <?php $dotLabel = mb_strimwidth(str_replace('*', '', $slide['subtitle'] ?: $slide['title']), 0, 18, '…'); ?>
+      <button class="slider-dot <?= $index === 0 ? 'active' : '' ?>" type="button" data-slide="<?= $index ?>" role="tab" aria-label="<?= esc($dotLabel, 'attr') ?>" aria-selected="<?= $index === 0 ? 'true' : 'false' ?>">
+        <span class="slider-dot-track"><span class="slider-dot-bar"></span></span>
+        <span class="slider-dot-label"><?= esc($dotLabel) ?></span>
+      </button>
+      <?php endforeach; ?>
+    </div>
+    <button class="slider-next" type="button" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
+  </div>
+  <?php endif; ?>
 </div>
 <?php else: ?>
 <?php
@@ -946,8 +967,8 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
     <?php else: ?>
     <div class="row">
       <div class="col-lg-12 fu-scale">
-        <div class="alert alert-warning d-inline-flex align-items-center gap-2 py-2 px-3 mb-0 small rounded-pill" role="status">
-          <i class="bi bi-exclamation-triangle-fill"></i>
+        <div class="alert alert-light border d-flex align-items-center gap-2 py-3 px-3 mb-0" role="status">
+          <i class="bi bi-mortarboard" aria-hidden="true"></i>
           <span>No admissions are open at the moment.</span>
         </div>
       </div>
@@ -980,9 +1001,14 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
         </div>
       </div>
     <?php else: ?>
-      <div class="alert alert-light border" role="status">
-        <i class="bi bi-briefcase me-2" aria-hidden="true"></i>No vacancies to display right now. <a href="<?= site_url('careers') ?>">Visit our Careers page</a> for opportunities and application guidance.
+    <div class="row">
+      <div class="col-lg-12 fu-scale">
+        <div class="alert alert-light border d-flex align-items-center gap-2 py-3 px-3 mb-0" role="status">
+          <i class="bi bi-briefcase" aria-hidden="true"></i>
+          <span>No vacancies to display right now. <a href="<?= site_url('careers') ?>">Visit our Careers page</a> for opportunities and application guidance.</span>
+        </div>
       </div>
+    </div>
     <?php endif; ?>
   </div>
 </section>
@@ -1009,8 +1035,8 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
     <?php else: ?>
     <div class="row">
       <div class="col-lg-12 fu-scale">
-        <div class="alert alert-light border d-inline-flex align-items-center gap-2 py-2 px-3 mb-0 small rounded-pill" role="status">
-          <i class="bi bi-newspaper"></i>
+        <div class="alert alert-light border d-flex align-items-center gap-2 py-3 px-3 mb-0" role="status">
+          <i class="bi bi-newspaper" aria-hidden="true"></i>
           <span>No news found. Please check back soon for campus updates.</span>
         </div>
       </div>

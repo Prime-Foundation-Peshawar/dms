@@ -79,44 +79,39 @@ class SettingModel extends Model
 
     /**
      * The banner that was hard-coded on the home page, as an editable slide.
-     * Used to pre-fill the slider until the first save, and as the
-     * front-end fallback when no slide is enabled.
+     * Used to pre-fill the ACP slider until the first save.
      */
     public static function defaultHeroSlide(): array
     {
         return self::normaliseSlide([
-            'media_type'   => 'video',
-            'video_source' => 'current',
-            'eyebrow'      => 'Department of Medical Sciences',
-            'title'        => 'Your *MBBS* Journey Starts Here',
-            'text'         => "Peshawar Medical College offers a PM&DC-recognized five-year MBBS — rigorous basic sciences, early clinical exposure, and mentors who teach medicine with integrity.\n"
-                            . 'Study at Riphah International University – Peshawar Campus and build the competence to serve communities across KP and beyond.',
-            'link_label'   => 'Admissions Info',
-            'link_url'     => 'admissions',
-            'link2_label'  => 'About PMC',
-            'link2_url'    => 'pmc',
-            'enabled'      => true,
+            'media_type'  => 'video',
+            'subtitle'    => 'Department of Medical Sciences',
+            'title'       => 'Your *MBBS* Journey Starts Here',
+            'text'        => 'Peshawar Medical College offers a PM&DC-recognized five-year MBBS — rigorous basic sciences, early clinical exposure, and mentors who teach medicine with integrity.',
+            'link_label'  => 'Admissions Info',
+            'link_url'    => 'admissions',
+            'link2_label' => 'About PMC',
+            'link2_url'   => 'pmc',
         ]);
     }
 
     /** Fills every key a slide can have, so older saved slides keep working. */
     public static function normaliseSlide(array $s): array
     {
-        $type   = ($s['media_type'] ?? 'image') === 'video' ? 'video' : 'image';
-        $source = ($s['video_source'] ?? 'current') === 'new' ? 'new' : 'current';
-
         return [
-            'media_type'     => $type,
-            'video_source'   => $source,
-            'video_path'     => (string) ($s['video_path'] ?? ''),
+            'media_type'     => ($s['media_type'] ?? 'image') === 'video' ? 'video' : 'image',
             'image_path'     => (string) ($s['image_path'] ?? ''),
-            'eyebrow'        => (string) ($s['eyebrow'] ?? ''),
+            // Empty video path = the campus film (older slides marked it with video_source "current").
+            'video_path'     => ($s['video_source'] ?? '') === 'current' ? '' : (string) ($s['video_path'] ?? ''),
+            'subtitle'       => (string) ($s['subtitle'] ?? ''),
             'title'          => (string) ($s['title'] ?? ''),
             'text'           => (string) ($s['text'] ?? ''),
             'link_label'     => (string) ($s['link_label'] ?? ''),
             'link_url'       => (string) ($s['link_url'] ?? ''),
             'link2_label'    => (string) ($s['link2_label'] ?? ''),
             'link2_url'      => (string) ($s['link2_url'] ?? ''),
+            'start_date'     => (string) ($s['start_date'] ?? ''),
+            'end_date'       => (string) ($s['end_date'] ?? ''),
             'enabled'        => ! array_key_exists('enabled', $s) || ! empty($s['enabled']),
             'motion_enabled' => ! array_key_exists('motion_enabled', $s) || ! empty($s['motion_enabled']),
         ];
@@ -124,26 +119,27 @@ class SettingModel extends Model
 
     /**
      * Home slider slides.
-     * Never saved yet → the current banner as one editable slide.
-     * $forHomePage → only enabled slides, falling back to the current banner.
+     * Never saved yet → the current banner as one editable slide (ACP only).
+     * $liveOnly → only enabled slides whose display/expiry dates include today.
      */
-    public function homeSlides(bool $forHomePage = false): array
+    public function homeSlides(bool $liveOnly = false): array
     {
         $raw = $this->getValue(self::HOME_SLIDER_KEY);
         if ($raw === null) {
-            return [self::defaultHeroSlide()];
+            return $liveOnly ? [] : [self::defaultHeroSlide()];
         }
 
         $slides = json_decode($raw, true);
-        $slides = is_array($slides) ? array_values(array_map([self::class, 'normaliseSlide'], array_filter($slides, 'is_array'))) : [];
+        $slides = is_array($slides) ? array_map([self::class, 'normaliseSlide'], array_filter($slides, 'is_array')) : [];
 
-        if ($forHomePage) {
-            $slides = array_values(array_filter($slides, static fn ($s) => $s['enabled']));
-            if ($slides === []) {
-                return [self::defaultHeroSlide()];
-            }
+        if ($liveOnly) {
+            $today  = date('Y-m-d');
+            $slides = array_filter($slides, static fn ($s) => $s['enabled']
+                && ($s['start_date'] === '' || $s['start_date'] <= $today)
+                && ($s['end_date'] === '' || $s['end_date'] >= $today)
+                && ($s['media_type'] === 'video' || $s['image_path'] !== ''));
         }
 
-        return $slides;
+        return array_values($slides);
     }
 }
