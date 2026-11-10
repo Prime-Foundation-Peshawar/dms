@@ -74,7 +74,7 @@ $reportLink = static fn (string $type) => site_url('acp/reports') . '?period=' .
     </div>
   </div>
   <div class="row g-3">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="acp-dash-attn-label"><i class="bi bi-trophy"></i> Top contributors</div>
       <?php if (! $rp['tiers']['top']): ?>
         <div class="acp-empty py-2">No data received yet this month.</div>
@@ -86,7 +86,7 @@ $reportLink = static fn (string $type) => site_url('acp/reports') . '?period=' .
         </ol>
       <?php endif; ?>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="acp-dash-attn-label"><i class="bi bi-arrow-down-circle"></i> Low contributors <span class="text-muted fw-normal">(<?= count($rp['tiers']['low']) ?>)</span></div>
       <?php if (! $rp['tiers']['low']): ?>
         <div class="acp-empty py-2">No low contributors.</div>
@@ -97,14 +97,6 @@ $reportLink = static fn (string $type) => site_url('acp/reports') . '?period=' .
           <?php endforeach; ?>
         </ol>
       <?php endif; ?>
-    </div>
-    <div class="col-md-4">
-      <div class="acp-dash-attn-label"><i class="bi bi-lightbulb"></i> Suggestions</div>
-      <ul class="acp-suggest mb-0">
-        <?php foreach (array_slice($rp['suggestions'], 0, 2) as $sg): ?>
-          <li class="tone-<?= esc($sg['tone']) ?>"><span><?= esc($sg['text']) ?></span></li>
-        <?php endforeach; ?>
-      </ul>
     </div>
   </div>
 </div>

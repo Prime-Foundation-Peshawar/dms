@@ -158,6 +158,10 @@ class ActivityUpdate extends BaseController
         if (strlen($dateLabel) > 120) {
             $dateLabel = substr($dateLabel, 0, 120);
         }
+        // The calendar sends 2026-03-05; save it as "5 March 2026" on submit. Drafts keep the raw date for the calendar.
+        if ($requireComplete && preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateLabel)) {
+            $dateLabel = date('j F Y', strtotime($dateLabel));
+        }
         if (strlen($body) > 4000) {
             $body = substr($body, 0, 4000);
         }

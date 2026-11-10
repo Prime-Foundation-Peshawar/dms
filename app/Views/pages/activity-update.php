@@ -89,12 +89,11 @@
           </div>
 
           <div class="fu-card">
-            <h3>3. Date / Period</h3>
-            <label class="fu-label" for="dateLabel">Date or academic period <span class="fu-optional">(optional)</span></label>
-            <input class="fu-input" type="text" id="dateLabel" name="date_label" maxlength="120"
-              value="<?= esc($draftDate) ?>"
-              placeholder="e.g. March 2026  or  Ongoing">
-            <p class="fu-note">Examples: March 2026, Term 2026, Ongoing. Leave blank if not applicable.</p>
+            <h3>3. Date</h3>
+            <label class="fu-label" for="dateLabel">Date <span class="fu-optional">(optional)</span></label>
+            <input class="fu-input" type="date" id="dateLabel" name="date_label"
+              value="<?= esc(preg_match('/^\d{4}-\d{2}-\d{2}$/', $draftDate) ? $draftDate : '') ?>">
+            <p class="fu-note">Pick the date from the calendar. Leave blank if not applicable.</p>
           </div>
 
           <div class="fu-card">
@@ -107,15 +106,8 @@
           <div class="fu-card">
             <h3>5. Images <span class="fu-optional">(optional)</span></h3>
             <label class="fu-label" for="photos">Attach images</label>
-            <input class="au-file-hidden" type="file" id="photos" name="photos[]" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
-            <div class="au-drop" id="photoDrop" tabindex="0" role="button" aria-label="Attach images by browsing or dropping files">
-              <div class="au-drop-inner" id="photoDropInner">
-                <i class="bi bi-images" aria-hidden="true"></i>
-                <strong>Drop images here</strong>
-                <span>or click to browse from your device</span>
-                <em>JPG or PNG · up to 6 images · max 4 MB each</em>
-              </div>
-            </div>
+            <input class="fu-file" type="file" id="photos" name="photos[]" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+            <p class="fu-note">JPG, PNG, WEBP or GIF — up to 6 images, max 4 MB each</p>
             <div class="au-previews" id="photoPreviews" hidden></div>
             <p class="fu-note" id="photoCount">No images selected. This section is optional.</p>
             <?php if ($draftPhotos !== []): ?>
@@ -211,10 +203,9 @@
   }
 
   const input = document.getElementById('photos');
-  const drop = document.getElementById('photoDrop');
   const previews = document.getElementById('photoPreviews');
   const countEl = document.getElementById('photoCount');
-  if (!input || !drop || !previews || !countEl) return;
+  if (!input || !previews || !countEl) return;
 
   const MAX_FILES = 6;
   const MAX_BYTES = 4 * 1024 * 1024;
@@ -287,29 +278,7 @@
     render();
   }
 
-  drop.addEventListener('click', () => input.click());
-  drop.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      input.click();
-    }
-  });
   input.addEventListener('change', () => addFiles(input.files));
-  ;['dragenter', 'dragover'].forEach((ev) => {
-    drop.addEventListener(ev, (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      drop.classList.add('is-drag');
-    });
-  });
-  ;['dragleave', 'drop'].forEach((ev) => {
-    drop.addEventListener(ev, (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      drop.classList.remove('is-drag');
-    });
-  });
-  drop.addEventListener('drop', (e) => addFiles(e.dataTransfer && e.dataTransfer.files));
 })();
 </script>
 
