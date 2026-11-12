@@ -238,6 +238,7 @@
           <div class="sw-body">
             <!-- <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Medical Final Prospectus 2025-26.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>Prospectus 2026–27</a> -->
             <a class="sw-link" href="<?= base_url('assets/uploads/admissions/fee-structure/PMC_Fee structure 2026-27.htm') ?>" target="_blank" rel="noopener"><i class="bi bi-receipt"></i>Fee Structure 2026–27</a>
+            <a class="sw-link" href="<?= base_url('assets/uploads/admissions/fee-structure/PG-Fee-Structure-RCP-2026.pdf') ?>" target="_blank" rel="noopener"><i class="bi bi-receipt"></i>PG Fee Structure 2026</a>
             <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Scholarship Policy.pdf" target="_blank" rel="noopener"><i class="bi bi-award"></i>Scholarship Policy</a>
             <a class="sw-link" href="https://caspr.kmu.edu.pk" target="_blank" rel="noopener"><i class="bi bi-globe"></i>KMU CASPR Portal</a>
             <a class="sw-link" href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" rel="noopener"><i class="bi bi-person-circle"></i>Student Portal</a>

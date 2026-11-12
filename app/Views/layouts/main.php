@@ -198,6 +198,9 @@ $ld_graph = $ld_graph ?? [];
                     <a class="mega-link"
                       href="https://pmc.prime.edu.pk/downloads/MBBS_Fee_Session 2024-25-Final dated 23.07.2024.htm"
                       target="_blank"><i class="bi bi-receipt"></i>Fee Structure 2024–25</a>
+                    <a class="mega-link"
+                      href="<?= base_url('assets/uploads/admissions/fee-structure/PG-Fee-Structure-RCP-2026.pdf') ?>"
+                      target="_blank"><i class="bi bi-receipt"></i>PG Fee Structure 2026</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/Scholarship Policy.pdf"
                       target="_blank"><i class="bi bi-award"></i>Scholarship Policy</a>
                     <a class="mega-link" href="https://pmc.prime.edu.pk/downloads/Scholarship_Application_Form.pdf"
