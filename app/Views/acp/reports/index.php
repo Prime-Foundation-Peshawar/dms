@@ -18,6 +18,7 @@ if ($period['type'] === 'range') {
 }
 $plural  = static fn (int $n, string $word) => $n . ' ' . $word . ($n === 1 ? '' : 's');
 $outOf   = static fn (int $n, int $total) => number_format($n) . '<small>/' . number_format($total) . '</small>';
+$pct     = static fn (int $n, int $total) => '<span class="pct">' . ($total > 0 ? (int) round($n * 100 / $total) : 0) . '%</span>';
 ?>
 <div class="acp-page-head acp-dash-head acp-report-head">
   <div>
@@ -60,12 +61,12 @@ $outOf   = static fn (int $n, int $total) => number_format($n) . '<small>/' . nu
   </div>
   <div class="col-6 col-md-4 col-xl-3">
     <?= view('acp/reports/_kpi', ['tone' => 'teal', 'label' => 'Faculty Profiles Done', 'icon' => 'bi-person-check', 'href' => '#details',
-        'num' => $outOf((int) $totals['available'], (int) $totals['faculty']), 'sub' => number_format((int) $totals['faculty_updates']) . ' received in this period',
+        'num' => $outOf((int) $totals['available'], (int) $totals['faculty']) . $pct((int) $totals['available'], (int) $totals['faculty']), 'sub' => number_format((int) $totals['faculty_updates']) . ' received in this period',
         'tip' => ['Faculty Profiles Done', 'Faculty members who have provided their details, meaning their profile shows experience, publications or skills.', 'A name with an empty profile is counted as pending.']]) ?>
   </div>
   <div class="col-6 col-md-4 col-xl-3">
     <?= view('acp/reports/_kpi', ['tone' => 'gold', 'label' => 'Faculty Profiles Pending', 'icon' => 'bi-person-x', 'href' => '#details',
-        'num' => number_format((int) $totals['faculty_missing']), 'sub' => 'faculty have not provided details',
+        'num' => $outOf((int) $totals['faculty_missing'], (int) $totals['faculty']) . $pct((int) $totals['faculty_missing'], (int) $totals['faculty']), 'sub' => 'faculty have not provided details',
         'tip' => ['Faculty Profiles Pending', 'Faculty members with no details on the website yet. Open any department in the list below to see their names.', 'If Anatomy has 12 faculty and 5 have provided details, 7 are pending.']]) ?>
   </div>
   <div class="col-6 col-md-4 col-xl-3">

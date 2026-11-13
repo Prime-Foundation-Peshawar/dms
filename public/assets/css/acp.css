@@ -898,6 +898,9 @@ h1, h2, h3, h4, h5, h6, .font-head { font-family: var(--font-head); font-weight:
 .acp-seg-item input { position: absolute; opacity: 0; pointer-events: none; }
 .acp-seg-item.active { background: var(--navy); color: #fff; }
 .acp-kpi .num small { font-size: 1rem; color: var(--gray-mid); }
+.acp-kpi .num .pct { margin-left: .45rem; padding: .1rem .45rem; border-radius: 999px; font-family: var(--font-body, inherit); font-size: .8rem; font-weight: 700; vertical-align: middle; background: #e8eef5; color: var(--navy-mid); }
+.acp-kpi.tone-teal .num .pct { background: var(--teal-pale, #e3f2f7); color: var(--teal); }
+.acp-kpi.tone-gold .num .pct { background: var(--gold-pale); color: var(--gold); }
 .acp-suggest { list-style: none; padding: 0; }
 .acp-suggest li {
   display: flex;
