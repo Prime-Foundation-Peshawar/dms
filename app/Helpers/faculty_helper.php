@@ -1,5 +1,46 @@
 <?php
 
+if (! function_exists('dept_icon')) {
+    /**
+     * Renders a department icon. Stored values may be:
+     *   "bi-*"  Bootstrap Icons
+     *   "fa-*"  Font Awesome Free (solid)
+     *   "ms-*"  Google Material Symbols Rounded (e.g. "ms-cardiology")
+     */
+    function dept_icon(?string $icon, string $fallback = 'bi-building'): string
+    {
+        $icon = trim((string) $icon);
+        if ($icon === '') {
+            $icon = $fallback;
+        }
+        if (str_starts_with($icon, 'ms-')) {
+            return '<span class="material-symbols-rounded dept-ms" aria-hidden="true">' . esc(substr($icon, 3)) . '</span>';
+        }
+        $class = str_starts_with($icon, 'fa-') ? 'fa-solid ' . $icon : 'bi ' . $icon;
+        return '<i class="' . esc($class) . '"></i>';
+    }
+}
+
+if (! function_exists('dept_icon_fonts')) {
+    /** Stylesheets for the non-Bootstrap icon sets used by departments. */
+    function dept_icon_fonts(): string
+    {
+        $ms = [];
+        foreach (config(\Config\AcpLists::class)->departmentIcons() as $icon) {
+            if (str_starts_with($icon, 'ms-')) {
+                $ms[] = substr($icon, 3);
+            }
+        }
+        sort($ms); // Google Fonts requires icon_names in alphabetical order
+        $html = '<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" rel="stylesheet" />' . "\n";
+        if ($ms) {
+            $html .= '<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&icon_names='
+                . implode(',', $ms) . '&display=block" rel="stylesheet" />' . "\n";
+        }
+        return $html;
+    }
+}
+
 if (! function_exists('faculty_slug')) {
     function faculty_slug(string $name): string
     {

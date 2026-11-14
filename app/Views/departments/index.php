@@ -1,4 +1,7 @@
 <?= $this->extend('layouts/main') ?>
+<?= $this->section('head') ?>
+<?= dept_icon_fonts() ?>
+<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <div class="page-hero">
   <div class="page-hero-grid"></div>
@@ -34,7 +37,7 @@
           ?>
             <div class="col-md-6 col-lg-4">
               <a href="<?= site_url('department?slug=' . rawurlencode($slug)) ?>" class="dept-index-card">
-                <div class="dept-index-ico"><i class="bi <?= esc($dept['icon'] ?? 'bi-building') ?>"></i></div>
+                <div class="dept-index-ico"><?= dept_icon($dept['icon'] ?? null) ?></div>
                 <div class="dept-index-main">
                   <h4><?= esc($dept['name']) ?></h4>
                   <div class="dept-index-meta">

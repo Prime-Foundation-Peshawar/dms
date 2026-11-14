@@ -897,6 +897,36 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
         </div>
       </div>
       <div class="campus-tile">
+        <div class="ct-inner ct-bg-10">
+          <div class="ct-ico"><i class="bi bi-easel"></i></div>
+          <div class="ct-lbl">Classrooms</div>
+        </div>
+      </div>
+      <div class="campus-tile">
+        <div class="ct-inner ct-bg-11">
+          <div class="ct-ico"><i class="bi bi-capsule"></i></div>
+          <div class="ct-lbl">Pharmacology Lab</div>
+        </div>
+      </div>
+      <div class="campus-tile">
+        <div class="ct-inner ct-bg-12">
+          <div class="ct-ico"><i class="bi bi-eyedropper"></i></div>
+          <div class="ct-lbl">Basic Sciences Lab</div>
+        </div>
+      </div>
+      <div class="campus-tile">
+        <div class="ct-inner ct-bg-13">
+          <div class="ct-ico"><i class="bi bi-virus"></i></div>
+          <div class="ct-lbl">Pathology Lab</div>
+        </div>
+      </div>
+      <div class="campus-tile">
+        <div class="ct-inner ct-bg-14">
+          <div class="ct-ico"><i class="bi bi-person-standing"></i></div>
+          <div class="ct-lbl">Anatomy Lab</div>
+        </div>
+      </div>
+      <div class="campus-tile">
         <div class="ct-inner ct-bg-2">
           <div class="ct-ico"><i class="bi bi-book-half"></i></div>
           <div class="ct-lbl">Library &amp; LRC</div>
@@ -936,12 +966,6 @@ $heroVideo480V = @filemtime($heroVideo480) ?: time();
         <div class="ct-inner ct-bg-8">
           <div class="ct-ico"><i class="bi bi-emoji-smile"></i></div>
           <div class="ct-lbl">Day Care Center</div>
-        </div>
-      </div>
-      <div class="campus-tile">
-        <div class="ct-inner ct-bg-9">
-          <div class="ct-ico"><i class="bi bi-chat-heart"></i></div>
-          <div class="ct-lbl">Counseling &amp; Aid</div>
         </div>
       </div>
     </div>

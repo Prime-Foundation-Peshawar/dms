@@ -1,4 +1,7 @@
 <?= $this->extend('layouts/main') ?>
+<?= $this->section('head') ?>
+<?= dept_icon_fonts() ?>
+<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <?php
 helper('faculty');
@@ -23,7 +26,7 @@ $profileModel = model(\App\Models\FacultyProfileModel::class);
   <div class="container">
     <section class="dept-panel fu" id="introduction">
       <div class="dept-panel-head">
-        <span class="dept-panel-ico"><i class="bi <?= esc($dept['icon'] ?? 'bi-building') ?>"></i></span>
+        <span class="dept-panel-ico"><?= dept_icon($dept['icon'] ?? null) ?></span>
         <div>
           <h2>Introduction</h2>
           <?php if (!empty($dept['hod'])): ?>

@@ -2,7 +2,7 @@
     {
         "slug": "anatomy",
         "name": "Anatomy",
-        "icon": "bi-body-text",
+        "icon": "fa-skull",
         "group_name": "Basic",
         "hod": "Professor Dr. Jehanzeb Khan",
         "intro": [
@@ -49,7 +49,7 @@
     {
         "slug": "physiology",
         "name": "Physiology",
-        "icon": "bi-activity",
+        "icon": "ms-body_system",
         "group_name": "Basic",
         "hod": "Professor Dr. Robina Riaz",
         "intro": [
@@ -91,7 +91,7 @@
     {
         "slug": "biochemistry",
         "name": "Biochemistry",
-        "icon": "bi-moisture",
+        "icon": "fa-flask",
         "group_name": "Basic",
         "hod": "Professor Dr. Sadia Haroon",
         "intro": [
@@ -128,7 +128,7 @@
     {
         "slug": "pathology",
         "name": "Pathology",
-        "icon": "bi-eyedropper",
+        "icon": "fa-microscope",
         "group_name": "Basic",
         "hod": "Professor Dr. Fozia Rauf",
         "intro": [
@@ -205,7 +205,7 @@
     {
         "slug": "pharmacology",
         "name": "Pharmacology",
-        "icon": "bi-capsule-pill",
+        "icon": "fa-pills",
         "group_name": "Basic",
         "hod": "Professor Dr. Shafaq Zafar",
         "intro": [
@@ -247,7 +247,7 @@
     {
         "slug": "forensic-medicine",
         "name": "Forensic Medicine",
-        "icon": "bi-shield-check",
+        "icon": "fa-fingerprint",
         "group_name": "Basic",
         "hod": "Professor Dr. Rubina Salma Yasmin",
         "intro": [
@@ -279,7 +279,7 @@
     {
         "slug": "chs",
         "name": "CHS",
-        "icon": "bi-people-fill",
+        "icon": "fa-people-group",
         "group_name": "Basic",
         "hod": "Professor Dr. Mohammad Aman Khan",
         "intro": [
@@ -321,7 +321,7 @@
     {
         "slug": "dhpe",
         "name": "DHPE & R",
-        "icon": "bi-mortarboard-fill",
+        "icon": "fa-graduation-cap",
         "group_name": "Basic",
         "hod": "Assistant Professor Dr. Neelofar Shaheen",
         "intro": [
@@ -353,7 +353,7 @@
     {
         "slug": "medicine",
         "name": "Medicine",
-        "icon": "bi-heart-pulse-fill",
+        "icon": "fa-stethoscope",
         "group_name": "Clinical",
         "hod": "Professor Dr. Jehanzeb Afridi",
         "intro": [
@@ -517,7 +517,7 @@
     {
         "slug": "gynaecology",
         "name": "Gynae and Obstetrics",
-        "icon": "bi-gender-female",
+        "icon": "fa-person-pregnant",
         "group_name": "Clinical",
         "hod": "Professor Dr. Tehniyat Attiya Ur Razaq",
         "intro": [
@@ -589,7 +589,7 @@
     {
         "slug": "paediatrics",
         "name": "Paediatrics",
-        "icon": "bi-person-fill",
+        "icon": "fa-baby",
         "group_name": "Clinical",
         "hod": "Professor Dr. Saima Ali",
         "intro": [
@@ -651,7 +651,7 @@
     {
         "slug": "ent",
         "name": "ENT",
-        "icon": "bi-ear-fill",
+        "icon": "fa-ear-listen",
         "group_name": "Clinical",
         "hod": "Professor Dr. Shafi Ullah",
         "intro": [
@@ -693,7 +693,7 @@
     {
         "slug": "ophthalmology",
         "name": "Ophthalmology",
-        "icon": "bi-eye-fill",
+        "icon": "fa-eye",
         "group_name": "Clinical",
         "hod": "Professor Dr. Hafeez Ur Rahman",
         "intro": [
@@ -750,7 +750,7 @@
     {
         "slug": "orthopaedics",
         "name": "Orthopedics",
-        "icon": "bi-bandaid-fill",
+        "icon": "fa-bone",
         "group_name": "Clinical",
         "hod": "Professor Dr. Mahmood Ul Hassan",
         "intro": [
@@ -787,7 +787,7 @@
     {
         "slug": "dermatology",
         "name": "Dermatology",
-        "icon": "bi-droplet-half",
+        "icon": "fa-hand-dots",
         "group_name": "Clinical",
         "hod": "Professor Dr. Miraj Muhammad Khan",
         "intro": [
@@ -827,7 +827,7 @@
     {
         "slug": "radiology",
         "name": "Radiology",
-        "icon": "bi-radioactive",
+        "icon": "fa-x-ray",
         "group_name": "Clinical",
         "hod": "Professor Dr. Abdul Majid",
         "intro": [
@@ -879,7 +879,7 @@
     {
         "slug": "anaesthesia",
         "name": "Anaesthesia",
-        "icon": "bi-lungs-fill",
+        "icon": "fa-syringe",
         "group_name": "Clinical",
         "hod": "Professor Dr. Rukhsana Samad",
         "intro": [
@@ -926,7 +926,7 @@
     {
         "slug": "psychiatry",
         "name": "Psychiatry",
-        "icon": "bi-hypnotize",
+        "icon": "fa-hand-holding-heart",
         "group_name": "Clinical",
         "hod": "Professor Dr. Muhammad Irfan",
         "intro": [
@@ -958,7 +958,7 @@
     {
         "slug": "cardiology",
         "name": "Cardiology",
-        "icon": "bi-heart-fill",
+        "icon": "ms-cardiology",
         "group_name": "Clinical",
         "hod": "Associate Professor Dr. Muhammad Abdur Rauf",
         "intro": [
@@ -1002,7 +1002,7 @@
     {
         "slug": "cardiac-surgery",
         "name": "Cardiac Surgery",
-        "icon": "bi-heart-pulse",
+        "icon": "ms-cardiology",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Aamir Zeb",
         "intro": [
@@ -1038,7 +1038,7 @@
     {
         "slug": "neurosurgery",
         "name": "Neurosurgery",
-        "icon": "bi-radioactive",
+        "icon": "fa-brain",
         "group_name": "Clinical",
         "hod": "Associate Professor Dr. Akram Ullah",
         "intro": [
@@ -1074,7 +1074,7 @@
     {
         "slug": "neurology",
         "name": "Neurology",
-        "icon": "bi-lightning-charge",
+        "icon": "fa-circle-nodes",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Bakht Jehan",
         "intro": [
@@ -1095,7 +1095,7 @@
     {
         "slug": "pulmonology",
         "name": "Pulmonology",
-        "icon": "bi-lungs",
+        "icon": "fa-lungs",
         "group_name": "Clinical",
         "hod": "Professor Dr. Fazli Maula",
         "intro": [
@@ -1126,7 +1126,7 @@
     {
         "slug": "gastroenterology",
         "name": "Gastroenterology",
-        "icon": "bi-hospital",
+        "icon": "fa-utensils",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Mian Shah Yousaf",
         "intro": [
@@ -1162,7 +1162,7 @@
     {
         "slug": "nephrology",
         "name": "Nephrology",
-        "icon": "bi-droplet",
+        "icon": "fa-filter",
         "group_name": "Clinical",
         "hod": "Associate Professor Dr. Najm UD Din",
         "intro": [
@@ -1188,7 +1188,7 @@
     {
         "slug": "urology",
         "name": "Urology",
-        "icon": "bi-clipboard2-pulse",
+        "icon": "fa-droplet",
         "group_name": "Clinical",
         "hod": "Professor Dr. Mir Alam Jan",
         "intro": [
@@ -1219,7 +1219,7 @@
     {
         "slug": "endocrinology",
         "name": "Endocrinology",
-        "icon": "bi-clipboard-pulse",
+        "icon": "fa-vial",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Kifayat Ali",
         "intro": [
@@ -1245,7 +1245,7 @@
     {
         "slug": "oncology",
         "name": "Oncology",
-        "icon": "bi-virus",
+        "icon": "fa-ribbon",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Bilal Ahmad",
         "intro": [
@@ -1276,7 +1276,7 @@
     {
         "slug": "family-medicine",
         "name": "Family Medicine",
-        "icon": "bi-house-heart",
+        "icon": "fa-house-medical",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Humaira Khattak",
         "intro": [
@@ -1307,7 +1307,7 @@
     {
         "slug": "critical-care",
         "name": "Critical Care",
-        "icon": "bi-activity",
+        "icon": "fa-bed-pulse",
         "group_name": "Clinical",
         "hod": "Professor Dr. Zia Ullah",
         "intro": [
@@ -1333,7 +1333,7 @@
     {
         "slug": "accident-emergency",
         "name": "Accident and Emergency",
-        "icon": "bi-ambulance",
+        "icon": "fa-truck-medical",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Muhammad Ishfaq",
         "intro": [
@@ -1365,7 +1365,7 @@
     {
         "slug": "paeds-cardiology",
         "name": "Paeds Cardiology",
-        "icon": "bi-heart",
+        "icon": "ms-cardiology",
         "group_name": "Clinical",
         "hod": "Assistant Professor Dr. Zia Ur Rahman",
         "intro": [

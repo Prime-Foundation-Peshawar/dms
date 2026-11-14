@@ -73,6 +73,7 @@ $ld_graph = $ld_graph ?? [];
   <link href="<?= dms_asset('assets/css/pmc-global.css') ?>" rel="stylesheet" />
   <!-- PMC CSS -->
   <link href="<?= dms_asset('assets/css/style.css') ?>" rel="stylesheet" />
+  <?= $this->renderSection('head') ?>
   <?php if (!empty($preload_images) && is_array($preload_images)): ?>
     <?php foreach ($preload_images as $preload_href): ?>
   <link rel="preload" as="image" href="<?= htmlspecialchars($preload_href) ?>" type="image/webp" fetchpriority="high" />
