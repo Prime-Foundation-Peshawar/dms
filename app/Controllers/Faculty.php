@@ -40,8 +40,18 @@ class Faculty extends BaseController
             }
             $faculty_photos[$empId] = $photo;
         }
+        // Department icons come from the departments table (same as the Departments page / ACP).
+        $dept_icons = [];
+        foreach (model(\App\Models\DepartmentModel::class)->select('name, icon')->findAll() as $d) {
+            $name = trim((string) ($d['name'] ?? ''));
+            $icon = trim((string) ($d['icon'] ?? ''));
+            if ($name !== '' && $icon !== '') {
+                $dept_icons[$name] = $icon;
+            }
+        }
         return view('faculty/index', [
             'page_title' => 'Faculty | Peshawar Medical College',
+            'dept_icons' => $dept_icons,
             'page_description' => 'Meet PM&DC registered faculty at Peshawar Medical College.',
             'canonical_url' => site_url('faculty'),
             'faculty_photos' => $faculty_photos,

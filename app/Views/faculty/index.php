@@ -1,4 +1,7 @@
 <?= $this->extend('layouts/main') ?>
+<?= $this->section('head') ?>
+<?= dept_icon_fonts() ?>
+<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 
 <link href="<?= dms_asset('assets/css/faculty.css') ?>" rel="stylesheet"/>
@@ -147,6 +150,9 @@ const FACULTY_PHOTOS = <?= json_encode((object) $faculty_photos, JSON_UNESCAPED_
 // Resigned / dual-appointed — never show or link from the public list.
 const EXCLUDED_SLUGS = <?= json_encode(array_values($faculty_excluded_slugs), JSON_UNESCAPED_SLASHES) ?>;
 
+// Icons managed in ACP → Departments (bi-* / fa-* / ms-*). DEPT_CONFIG icons are only a fallback.
+const DEPT_ICONS = <?= json_encode((object) ($dept_icons ?? []), JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?>;
+
 const DEPT_CONFIG = {
   'Anatomy':                  { icon: 'bi-body-text',        order: 1  },
   'Physiology':               { icon: 'bi-activity',          order: 2  },
@@ -182,6 +188,8 @@ const DEPT_CONFIG = {
   'Family Medicine':          { icon: 'bi-house-heart',       order: 32 },
   'Critical Care':            { icon: 'bi-activity',          order: 33 },
   'Accident and Emergency':   { icon: 'bi-ambulance',         order: 34 },
+  'Molecular Biology':        { icon: 'fa-dna',               order: 35 },
+  'Islamic Studies':          { icon: 'fa-book-quran',        order: 36 },
   'Administration':           { icon: 'bi-building-fill',     order: 99 },
   'IT & MI':                  { icon: 'bi-display',           order: 100 },
 };
@@ -230,7 +238,18 @@ function canonicalDept(name) {
 }
 
 function getDeptIcon(dept) {
-  return (DEPT_CONFIG[canonicalDept(dept)] || { icon: 'bi-person-badge' }).icon;
+  const name = canonicalDept(dept);
+  return DEPT_ICONS[name] || (DEPT_CONFIG[name] || { icon: 'bi-person-badge' }).icon;
+}
+
+/** Mirrors dept_icon() in faculty_helper.php. */
+function deptIconHtml(icon) {
+  icon = String(icon || 'bi-person-badge');
+  if (icon.startsWith('ms-')) {
+    return `<span class="material-symbols-rounded dept-ms" aria-hidden="true">${escapeHtml(icon.slice(3))}</span>`;
+  }
+  const cls = icon.startsWith('fa-') ? `fa-solid ${icon}` : `bi ${icon}`;
+  return `<i class="${escapeHtml(cls)}"></i>`;
 }
 
 function getDeptOrder(dept) {
@@ -566,7 +585,7 @@ function renderFaculty(faculty) {
     html += `
       <div class="dept-section">
         <div class="dept-header" onclick="toggleDept(this)" role="button" tabindex="0">
-          <div class="dept-icon"><i class="bi ${icon}"></i></div>
+          <div class="dept-icon">${deptIconHtml(icon)}</div>
           <div class="dept-name">${escapeHtml(dept)}</div>
           <span class="dept-count">${members.length} Member${members.length !== 1 ? 's' : ''}</span>
           <i class="bi bi-chevron-down dept-toggle-icon"></i>
