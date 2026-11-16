@@ -105,9 +105,13 @@ class FacultyDirectoryService
                 break;
             }
         }
-        if (! $hasFurqan) {
+        if (!$hasFurqan) {
+            // Not in HRMS: static card keyed to empId 97 so the
+            // faculty_profiles row with emp_id = 97 (photo/CV, editable in ACP) attaches.
+            $staticEmpId = '97';
+            $rec = $this->profiles->findByEmpId($staticEmpId);
             $out[] = [
-                'empId' => '',
+                'empId' => $staticEmpId,
                 'empName' => 'Muhammad Furqan',
                 'desTitle' => 'Director IT',
                 'depName' => 'IT & MI',
@@ -117,8 +121,8 @@ class FacultyDirectoryService
                 'facPMDCNo' => '',
                 'facFacRegNo' => '',
                 'qualifications' => 'MS Computer Science',
-                'photo' => '',
-                'profile_id' => null,
+                'photo' => (string) ($rec['photo'] ?? ''),
+                'profile_id' => isset($rec['id']) ? (int) $rec['id'] : null,
             ];
         }
 
