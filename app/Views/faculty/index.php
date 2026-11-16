@@ -521,16 +521,20 @@ function renderMemberRow(m) {
   const avatar = photo
     ? `<img src="${escapeHtml(photo)}" alt="">`
     : initials;
+  // Non-HRMS admin cards (e.g. Director IT) have no PM&DC / faculty numbers.
+  const hasRegs = !!(m.facPMDCNo || m.facFacRegNo);
+  const regsHtml = (m.cv_only && !hasRegs) ? '' : `
+        <div class="fac-list-regs">
+          <span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC No. ${pmdc}</span>
+          <span class="reg-chip"><i class="bi bi-card-text"></i> Faculty No. ${facReg}</span>
+        </div>`;
   const inner = `
       <div class="fac-list-avatar ${avatarClass}">${avatar}</div>
       <div class="fac-list-main">
         <div class="fac-list-name">${name}</div>
         <div class="fac-list-desig">${desig}</div>
         <div class="fac-list-qual">${qual}</div>
-        <div class="fac-list-regs">
-          <span class="reg-chip"><i class="bi bi-shield-check"></i> PM&amp;DC No. ${pmdc}</span>
-          <span class="reg-chip"><i class="bi bi-card-text"></i> Faculty No. ${facReg}</span>
-        </div>
+        ${regsHtml}
       </div>
       ${linked ? '<i class="bi bi-chevron-right fac-list-go" aria-hidden="true"></i>' : ''}`;
 

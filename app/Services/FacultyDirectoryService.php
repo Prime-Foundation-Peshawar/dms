@@ -109,21 +109,29 @@ class FacultyDirectoryService
             // Not in HRMS: static card keyed to empId 97 so the
             // faculty_profiles row with emp_id = 97 (photo/CV, editable in ACP) attaches.
             $staticEmpId = '97';
+            // Card fields come from that DB row (ACP-editable); literals are fallbacks only.
             $rec = $this->profiles->findByEmpId($staticEmpId);
-            $out[] = [
-                'empId' => $staticEmpId,
-                'empName' => 'Muhammad Furqan',
-                'desTitle' => 'Director IT',
-                'depName' => 'IT & MI',
-                'hrmsDepName' => 'IT & MI',
-                'dept_override' => false,
-                'cv_only' => true,
-                'facPMDCNo' => '',
-                'facFacRegNo' => '',
-                'qualifications' => 'MS Computer Science',
-                'photo' => (string) ($rec['photo'] ?? ''),
-                'profile_id' => isset($rec['id']) ? (int) $rec['id'] : null,
-            ];
+            $str = static fn ($v, string $fallback): string => trim((string) $v) !== '' ? trim((string) $v) : $fallback;
+            $quals = $rec['qualifications'] ?? [];
+            $qualText = is_array($quals) ? implode(', ', array_filter(array_map('strval', $quals))) : (string) $quals;
+            $deptName = faculty_canonical_dept($str($rec['department_name'] ?? '', 'IT & MI'));
+            $isPublic = ! isset($rec['is_public']) || (int) $rec['is_public'] === 1;
+            if ($isPublic) {
+                $out[] = [
+                    'empId' => $staticEmpId,
+                    'empName' => $str($rec['name'] ?? '', 'Muhammad Furqan'),
+                    'desTitle' => $str($rec['designation'] ?? '', 'Director IT'),
+                    'depName' => $deptName,
+                    'hrmsDepName' => $deptName,
+                    'dept_override' => false,
+                    'cv_only' => true,
+                    'facPMDCNo' => '',
+                    'facFacRegNo' => '',
+                    'qualifications' => $str($qualText, 'MS Computer Science'),
+                    'photo' => (string) ($rec['photo'] ?? ''),
+                    'profile_id' => isset($rec['id']) ? (int) $rec['id'] : null,
+                ];
+            }
         }
 
         $memo = $out;
