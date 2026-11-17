@@ -89,6 +89,7 @@ class GoogleAnalytics
     public const DEFAULT_CREDENTIALS = 'writable/ga4-service-account.json';
     public const SETTING_PROPERTY_ID = 'ga4_property_id';
     public const SETTING_STREAM_ID   = 'ga4_stream_id';
+    public const SETTING_CREDENTIALS = 'ga4_credentials_json';
 
     public function __construct()
     {
@@ -123,10 +124,43 @@ class GoogleAnalytics
             $file = ROOTPATH . $file;
         }
         $this->credentialsFile = $file;
+        $this->ensureCredentialsFile();
+    }
+
+    /**
+     * Restore the credentials JSON from settings when the writable file is missing
+     * (e.g. after a fresh deploy that did not keep writable/).
+     */
+    private function ensureCredentialsFile(): void
+    {
+        if ($this->credentialsFile === '' || is_file($this->credentialsFile)) {
+            return;
+        }
+        try {
+            $raw = (string) model(\App\Models\SettingModel::class)->getValue(self::SETTING_CREDENTIALS, '');
+        } catch (\Throwable $e) {
+            return;
+        }
+        if ($raw === '') {
+            return;
+        }
+        $json = json_decode($raw, true);
+        if (! is_array($json)) {
+            return;
+        }
+        $dir = dirname($this->credentialsFile);
+        if (! is_dir($dir)) {
+            @mkdir($dir, 0755, true);
+        }
+        if (@file_put_contents($this->credentialsFile, json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) !== false) {
+            @chmod($this->credentialsFile, 0600);
+        }
     }
 
     public function isConfigured(): bool
     {
+        $this->ensureCredentialsFile();
+
         return $this->propertyId !== '' && $this->credentialsFile !== '' && is_file($this->credentialsFile);
     }
 

@@ -72,13 +72,29 @@ class WebsiteAnalytics extends BaseAcpController
             if (! is_dir($destDir)) {
                 mkdir($destDir, 0755, true);
             }
+            $encoded = json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
             $dest = $destDir . DIRECTORY_SEPARATOR . 'ga4-service-account.json';
-            if (file_put_contents($dest, json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) === false) {
+            if ($encoded === false || file_put_contents($dest, $encoded) === false) {
                 return redirect()->to(site_url('acp/website-analytics'))->with('error', 'Could not save the credentials file to writable/.');
             }
             @chmod($dest, 0600);
+            // Keep a DB copy so a missing writable file after deploy can be restored.
+            $settings->setValue(GoogleAnalytics::SETTING_CREDENTIALS, $encoded);
         } elseif (! is_file(WRITEPATH . 'ga4-service-account.json')) {
-            return redirect()->to(site_url('acp/website-analytics'))->with('error', 'Upload the service-account JSON key (one-time).');
+            $backup = (string) $settings->getValue(GoogleAnalytics::SETTING_CREDENTIALS, '');
+            if ($backup === '' || json_decode($backup, true) === null) {
+                return redirect()->to(site_url('acp/website-analytics'))->with('error', 'Upload the service-account JSON key (one-time).');
+            }
+            if (file_put_contents(WRITEPATH . 'ga4-service-account.json', $backup) === false) {
+                return redirect()->to(site_url('acp/website-analytics'))->with('error', 'Could not restore credentials to writable/.');
+            }
+            @chmod(WRITEPATH . 'ga4-service-account.json', 0600);
+        } else {
+            // File already on disk — backfill DB backup if missing.
+            $existing = (string) file_get_contents(WRITEPATH . 'ga4-service-account.json');
+            if ($existing !== '' && (string) $settings->getValue(GoogleAnalytics::SETTING_CREDENTIALS, '') === '') {
+                $settings->setValue(GoogleAnalytics::SETTING_CREDENTIALS, $existing);
+            }
         }
 
         $this->syncEnv($propertyId, $streamId);
