@@ -3,12 +3,16 @@
 namespace App\Services;
 
 use App\Libraries\HrmsClient;
+use App\Models\DepartmentDataLogModel;
 use App\Models\FacultyProfileModel;
 
 class FacultyDirectoryService
 {
     protected HrmsClient $hrms;
     protected FacultyProfileModel $profiles;
+
+    /** @var array<int,bool>|null */
+    protected static ?array $visibleDeptIds = null;
 
     public function __construct(?HrmsClient $hrms = null, ?FacultyProfileModel $profiles = null)
     {
@@ -27,6 +31,26 @@ class FacultyDirectoryService
     {
         $canon = faculty_canonical_dept($depName);
         return $canon !== '' && ! in_array($canon, $this->hiddenDepts(), true);
+    }
+
+    /**
+     * Same rule as department pages / CMS totals: only people whose dept
+     * maps to a non-hidden CMS department row.
+     */
+    public function belongsToListedDepartment(string $depName): bool
+    {
+        $id = DepartmentDataLogModel::departmentIdFor('', $depName);
+        if ($id <= 0) {
+            return false;
+        }
+        if (self::$visibleDeptIds === null) {
+            self::$visibleDeptIds = [];
+            foreach (db_connect()->table('departments')->select('id')->where('hidden', 0)->get()->getResultArray() as $d) {
+                self::$visibleDeptIds[(int) $d['id']] = true;
+            }
+        }
+
+        return isset(self::$visibleDeptIds[$id]);
     }
 
     /**
@@ -72,7 +96,7 @@ class FacultyDirectoryService
                     $depName = $cvDept;
                 }
                 $depName = faculty_live_dept_name($emp, $depName);
-                if (! $this->isPublicDept($depName)) {
+                if (! $this->isPublicDept($depName) || ! $this->belongsToListedDepartment($depName)) {
                     continue;
                 }
                 if ($empId !== '') {
@@ -116,7 +140,8 @@ class FacultyDirectoryService
             $qualText = is_array($quals) ? implode(', ', array_filter(array_map('strval', $quals))) : (string) $quals;
             $deptName = faculty_canonical_dept($str($rec['department_name'] ?? '', 'IT & MI'));
             $isPublic = ! isset($rec['is_public']) || (int) $rec['is_public'] === 1;
-            if ($isPublic) {
+            // Only if IT & MI (or overridden dept) exists as a CMS department — same as dept pages.
+            if ($isPublic && $this->belongsToListedDepartment($deptName)) {
                 $out[] = [
                     'empId' => $staticEmpId,
                     'empName' => $str($rec['name'] ?? '', 'Muhammad Furqan'),
