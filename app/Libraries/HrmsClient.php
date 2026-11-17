@@ -11,7 +11,7 @@ class HrmsClient
     protected int $ttlSeconds;
     protected string $cachePath;
 
-    public function __construct(?string $url = null, int $ttlSeconds = 900)
+    public function __construct(?string $url = null, int $ttlSeconds = 120)
     {
         $this->url = $url ?: (string) (function_exists('env') ? env('hrms.apiUrl', 'https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfo.php') : 'https://biometric.prime.edu.pk/hrms/apis/getEmployeeInfo.php');
         $setting = null;

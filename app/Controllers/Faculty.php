@@ -96,17 +96,15 @@ class Faculty extends BaseController
                 }
             }
         }
+        // Must still be on the live HRMS directory (resigned / removed from API → hide).
+        if ($dirRow === null) {
+            return redirect()->to(site_url('faculty'));
+        }
         if ($extra && ! faculty_profile_is_public($extra)) {
             return redirect()->to(site_url('faculty'));
         }
         // No public profile page until education + bio are filled in CMS.
-        if ($extra && ! faculty_profile_has_cv($extra)) {
-            return redirect()->to(site_url('faculty'));
-        }
-        if (! $extra && ! $dirRow) {
-            return redirect()->to(site_url('faculty'));
-        }
-        if (! $extra && $dirRow) {
+        if (! $extra || ! faculty_profile_has_cv($extra)) {
             return redirect()->to(site_url('faculty'));
         }
         $liveName = trim((string) ($dirRow['empName'] ?? ''));
@@ -129,13 +127,21 @@ class Faculty extends BaseController
         helper('faculty');
         $profiles = [];
         $index = [];
+        // Only ship CV packs for people currently on the live HRMS directory.
+        $liveEmpIds = [];
+        foreach ((new FacultyDirectoryService())->publicDirectory() as $row) {
+            $id = trim((string) ($row['empId'] ?? ''));
+            if ($id !== '') {
+                $liveEmpIds[$id] = true;
+            }
+        }
         foreach (model(\App\Models\FacultyProfileModel::class)->publicRows() as $rec) {
             if (! faculty_profile_is_public($rec)) {
                 continue;
             }
             $empId = trim((string) ($rec['emp_id'] ?? ''));
             // Public list/profile CV pack is empId-keyed only (HRMS is source of name/designation).
-            if ($empId === '') {
+            if ($empId === '' || empty($liveEmpIds[$empId])) {
                 continue;
             }
             $slug = trim((string) ($rec['slug'] ?? ''));
