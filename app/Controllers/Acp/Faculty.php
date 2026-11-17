@@ -7,16 +7,48 @@ use App\Models\DepartmentDataLogModel;
 use App\Models\DepartmentModel;
 use App\Models\FacultyProfileModel;
 use App\Models\FacultySubmissionModel;
+use App\Services\FacultyDirectoryService;
 
 class Faculty extends BaseAcpController
 {
     public function index()
     {
+        helper('faculty');
         $rows = model(FacultyProfileModel::class)->orderBy('name', 'ASC')->findAll();
+        $knownEmpIds = [];
+        foreach ($rows as $row) {
+            $empId = trim((string) ($row['emp_id'] ?? ''));
+            if ($empId !== '') {
+                $knownEmpIds[$empId] = true;
+            }
+        }
+
+        // HRMS people on the public directory who do not yet have a CMS profile.
+        $pending = [];
+        foreach ((new FacultyDirectoryService())->publicDirectory() as $person) {
+            $empId = trim((string) ($person['empId'] ?? ''));
+            if ($empId === '' || isset($knownEmpIds[$empId])) {
+                continue;
+            }
+            $pending[] = [
+                'id'               => null,
+                'name'             => (string) ($person['empName'] ?? ''),
+                'slug'             => faculty_slug((string) ($person['empName'] ?? '')),
+                'emp_id'           => $empId,
+                'department_name'  => (string) ($person['depName'] ?? ''),
+                'department_slug'  => faculty_slug((string) ($person['depName'] ?? '')),
+                'designation'      => (string) ($person['desTitle'] ?? ''),
+                'is_public'        => 0,
+                'dept_override'    => 0,
+                'hrms_pending'     => true,
+            ];
+        }
+        usort($pending, static fn ($a, $b) => strcasecmp((string) $a['name'], (string) $b['name']));
 
         return $this->acpView('faculty/index', [
-            'title' => 'Faculty profiles',
-            'rows'  => $rows,
+            'title'   => 'Faculty profiles',
+            'rows'    => $rows,
+            'pending' => $pending,
         ]);
     }
 

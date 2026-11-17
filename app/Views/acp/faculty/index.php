@@ -1,7 +1,8 @@
 <?= $this->extend('acp/layouts/main') ?>
 <?= $this->section('content') ?>
+<?php $pending = $pending ?? []; ?>
 <div class="acp-page-head acp-fu">
-  <div><p>CV profiles linked to HRMS by empId. Prefer editing from a department page. Profiles with no empId are CV-only (not in HRMS).</p></div>
+  <div><p>CV profiles linked to HRMS by empId. New HRMS faculty appear below as <strong>Needs profile</strong> until you create their CV. Prefer editing from a department page when useful.</p></div>
   <div class="d-flex gap-2 flex-wrap">
     <div class="acp-search">
       <i class="bi bi-search"></i>
@@ -25,6 +26,29 @@
         </tr>
       </thead>
       <tbody>
+      <?php foreach ($pending as $row):
+        $createUrl = site_url('acp/faculty/create') . '?' . http_build_query([
+            'name' => $row['name'] ?? '',
+            'emp_id' => $row['emp_id'] ?? '',
+            'department_name' => $row['department_name'] ?? '',
+            'department_slug' => $row['department_slug'] ?? '',
+            'designation' => $row['designation'] ?? '',
+        ]);
+      ?>
+        <tr>
+          <td>
+            <?= esc($row['name']) ?>
+            <div class="small text-muted"><?= esc($row['slug']) ?> · <span class="acp-badge acp-badge-warn">Needs profile</span></div>
+          </td>
+          <td><code><?= esc($row['emp_id']) ?></code></td>
+          <td><?= esc($row['department_name'] ?? '') ?></td>
+          <td><?= esc($row['designation'] ?? '') ?></td>
+          <td><span class="acp-badge acp-badge-muted">HRMS only</span></td>
+          <td class="col-actions">
+            <a class="btn-acp btn-acp-sm btn-acp-primary" href="<?= esc($createUrl) ?>">Create</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
       <?php foreach ($rows as $row): ?>
         <tr>
           <td><?= esc($row['name']) ?><div class="small text-muted"><?= esc($row['slug']) ?></div></td>
@@ -44,7 +68,7 @@
           </td>
         </tr>
       <?php endforeach; ?>
-      <?php if (! $rows): ?>
+      <?php if (! $rows && ! $pending): ?>
         <tr class="acp-empty-row"><td colspan="6" class="acp-empty">No faculty profiles yet.</td></tr>
       <?php endif; ?>
       </tbody>
