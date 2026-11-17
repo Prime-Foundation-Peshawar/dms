@@ -1,0 +1,40 @@
+-- Apply the new department icons (fa-* / ms-*) to the live departments table.
+-- The 2026-11-14 change only edited departments.json (seed data), which never runs on deploy.
+UPDATE `departments`
+SET `icon` = CASE `slug`
+  WHEN 'anatomy' THEN 'fa-skull'
+  WHEN 'physiology' THEN 'ms-body_system'
+  WHEN 'biochemistry' THEN 'fa-flask'
+  WHEN 'pathology' THEN 'fa-microscope'
+  WHEN 'pharmacology' THEN 'fa-pills'
+  WHEN 'forensic-medicine' THEN 'fa-fingerprint'
+  WHEN 'chs' THEN 'fa-people-group'
+  WHEN 'dhpe' THEN 'fa-graduation-cap'
+  WHEN 'medicine' THEN 'fa-stethoscope'
+  WHEN 'surgery' THEN 'bi-scissors'
+  WHEN 'gynaecology' THEN 'fa-person-pregnant'
+  WHEN 'paediatrics' THEN 'fa-baby'
+  WHEN 'ent' THEN 'fa-ear-listen'
+  WHEN 'ophthalmology' THEN 'fa-eye'
+  WHEN 'orthopaedics' THEN 'fa-bone'
+  WHEN 'dermatology' THEN 'fa-hand-dots'
+  WHEN 'radiology' THEN 'fa-x-ray'
+  WHEN 'anaesthesia' THEN 'fa-syringe'
+  WHEN 'psychiatry' THEN 'fa-hand-holding-heart'
+  WHEN 'cardiology' THEN 'ms-cardiology'
+  WHEN 'cardiac-surgery' THEN 'ms-cardiology'
+  WHEN 'neurosurgery' THEN 'fa-brain'
+  WHEN 'neurology' THEN 'fa-circle-nodes'
+  WHEN 'pulmonology' THEN 'fa-lungs'
+  WHEN 'gastroenterology' THEN 'fa-utensils'
+  WHEN 'nephrology' THEN 'fa-filter'
+  WHEN 'urology' THEN 'fa-droplet'
+  WHEN 'endocrinology' THEN 'fa-vial'
+  WHEN 'oncology' THEN 'fa-ribbon'
+  WHEN 'family-medicine' THEN 'fa-house-medical'
+  WHEN 'critical-care' THEN 'fa-bed-pulse'
+  WHEN 'accident-emergency' THEN 'fa-truck-medical'
+  WHEN 'paeds-cardiology' THEN 'ms-cardiology'
+  ELSE `icon`
+END
+WHERE `slug` IN ('anatomy', 'physiology', 'biochemistry', 'pathology', 'pharmacology', 'forensic-medicine', 'chs', 'dhpe', 'medicine', 'surgery', 'gynaecology', 'paediatrics', 'ent', 'ophthalmology', 'orthopaedics', 'dermatology', 'radiology', 'anaesthesia', 'psychiatry', 'cardiology', 'cardiac-surgery', 'neurosurgery', 'neurology', 'pulmonology', 'gastroenterology', 'nephrology', 'urology', 'endocrinology', 'oncology', 'family-medicine', 'critical-care', 'accident-emergency', 'paeds-cardiology');
