@@ -263,9 +263,22 @@ foreach ($groups as $target => $items) {
         $stmt->close();
         if ($found) {
             if (!hash_equals($existing, $checksum)) {
-                fail("$base was already applied but the file changed. Add a new SQL file instead of editing this one.");
+                // Allow in-place edits that were never re-run (e.g. making a
+                // change idempotent). Refresh the stored checksum and continue
+                // so later pending files are not blocked.
+                info("checksum updated for already-applied $base (file changed after apply; not re-run)");
+                $upd = $mysqli->prepare('UPDATE `_sql_changes` SET checksum = ? WHERE filename = ?');
+                if (!$upd) {
+                    fail($mysqli->error);
+                }
+                $upd->bind_param('ss', $checksum, $base);
+                if (!$upd->execute()) {
+                    fail('could not update checksum for ' . $base . ': ' . $upd->error);
+                }
+                $upd->close();
+            } else {
+                info("skip $base (already applied)");
             }
-            info("skip $base (already applied)");
             continue;
         }
         info("apply $base");
