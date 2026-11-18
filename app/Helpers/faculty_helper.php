@@ -460,7 +460,6 @@ if (! function_exists('faculty_normalize_qualifications')) {
         $joined[] = $carry;
       }
 
-      $text = faculty_fix_runons(implode(' Â· ', $joined));
       $repl = [
         'M.B.B.S' => 'MBBS', 'M.B.B.S.' => 'MBBS', 'F.C.P.S' => 'FCPS', 'F.C.P.S.' => 'FCPS',
         'M.C.P.S' => 'MCPS', 'C.H.P.E' => 'CHPE', 'M.PHIL' => 'M.Phil', 'M.Phil.' => 'M.Phil',
@@ -472,7 +471,6 @@ if (! function_exists('faculty_normalize_qualifications')) {
         'Certificate in Health Professional Education' => 'CHPE',
         'Certificate in Health Professions Education' => 'CHPE',
       ];
-      $text = str_ireplace(array_keys($repl), array_values($repl), $text);
 
       $out = [];
       $seen = [];
@@ -563,20 +561,33 @@ if (! function_exists('faculty_normalize_qualifications')) {
         '/\bDA\b/',
         '/\bDip(?:loma)?(?:\s+in)?\s+CBT\b/i',
       ];
-      foreach ($patterns as $re) {
-        if (preg_match_all($re, $text, $ms)) {
-          foreach ($ms[0] as $hit) {
-            $hit = preg_replace('/^M\.?\s*Phil\.?/i', 'M.Phil', $hit) ?? $hit;
-            $hit = preg_replace('/^FCPS-l\b/i', 'FCPS-I', $hit) ?? $hit;
-            $hit = preg_replace('/^Master of Public Health\b/i', 'MPH', $hit) ?? $hit;
-            $hit = preg_replace('/^MS\s*[-â€“]\s*(.+)$/i', 'MS ($1)', $hit) ?? $hit;
-            $add($hit);
+      // Match per entry (one CMS line each). An entry with no known degree
+      // abbreviation is kept verbatim, so spelled-out qualifications such as
+      // "Fellow of College of Physicians & Surgeons of Pakistan (Ophthalmology)"
+      // or unlisted ones (DMRD, FRCR, DLO, ...) are not silently dropped.
+      foreach ($joined as $entry) {
+        $line = str_ireplace(array_keys($repl), array_values($repl), faculty_fix_runons($entry));
+        $hits = [];
+        foreach ($patterns as $re) {
+          if (preg_match_all($re, $line, $ms, PREG_OFFSET_CAPTURE)) {
+            foreach ($ms[0] as [$hit, $pos]) {
+              if (strlen($hit) > strlen($hits[$pos] ?? '')) {
+                $hits[$pos] = $hit;
+              }
+            }
           }
         }
-      }
-      if (!$out) {
-        foreach ($joined as $q) {
-          $add(faculty_fix_runons($q));
+        if (! $hits) {
+          $add($line);
+          continue;
+        }
+        ksort($hits);
+        foreach ($hits as $hit) {
+          $hit = preg_replace('/^M\.?\s*Phil\.?/i', 'M.Phil', $hit) ?? $hit;
+          $hit = preg_replace('/^FCPS-l\b/i', 'FCPS-I', $hit) ?? $hit;
+          $hit = preg_replace('/^Master of Public Health\b/i', 'MPH', $hit) ?? $hit;
+          $hit = preg_replace('/^MS\s*[-â€“]\s*(.+)$/i', 'MS ($1)', $hit) ?? $hit;
+          $add($hit);
         }
       }
       return $out;

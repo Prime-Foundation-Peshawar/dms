@@ -34,7 +34,7 @@ $active_nav       = 'pg-medical-education.php'; // adjust as needed
           <!-- 1. Introduction -->
           <h2 class="sec-title" style="font-size:1.8rem;">1. Introduction</h2>
           <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
-            The Department of Medical Sciences – Riphah International University (Peshawar Campus) is the first project of PRIME FOUNDATION. The institute has been established with objectives of contributing towards the quality medical education in line with community health needs of KP &amp; Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
+            The Department of Medical Sciences – Riphah International University (Peshawar Campus) has been established with objectives of contributing towards the quality medical education in line with community health needs of KP &amp; Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
           </p>
           <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
             The Department is recognized by Pakistan Medical Commission (PMC) according to 2019 inspection visit by PMC of various public &amp; private sector colleges. It was our honor to stand first among private hospitals of KP with more than 80% score.
