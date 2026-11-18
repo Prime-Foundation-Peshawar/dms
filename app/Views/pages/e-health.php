@@ -3,10 +3,10 @@
 ?>
 <?php
 $page_title = 'E-Health Service | Peshawar Medical College — Free Health Info by Phone';
-$page_description = 'Free health information phone service by Peshawar Medical College (Prime Foundation). Dial 091-2385262, listen, then enter a 3-digit topic code after the beep.';
+$page_description = 'Free health information phone service by Peshawar Medical College. Dial 091-2385262, listen, then enter a 3-digit topic code after the beep.';
 $extra_head = '<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet" />';
 
-/* Topic codes from PMC / Prime Foundation e-health index (edit here to update). */
+/* Topic codes from PMC e-health index (edit here to update). */
 $ehealth_groups = [
   [
     'title_en' => 'Emergencies & First Aid',

@@ -125,6 +125,7 @@ class PageController extends BaseController
             'vacant-seats',
             'pg-medical-education',
             'pg-surgery-residency',
+            'e-health',
             'faculty',
             'faculty-research',
         ];

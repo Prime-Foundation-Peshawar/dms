@@ -2136,7 +2136,7 @@ INSERT INTO `pages` (`id`,`slug`,`title`,`label`,`section`,`description`,`view_k
               <div class="pmc-card" style="border-radius:14px;">
                 <div style="font-size:1.6rem;color:var(--teal);margin-bottom:12px;"><i class="bi bi-heart-pulse-fill"></i></div>
                 <h4>E-Health Service</h4>
-                <p>Free health information by phone from Peshawar Medical College (Prime Foundation).</p>
+                <p>Free health information by phone from Peshawar Medical College.</p>
                 <p style="margin-bottom:14px;"><a href="tel:0912385262" style="color:var(--teal);font-weight:700;font-size:1.15rem;">091-2385262</a></p>
                 <a href="/e-health" class="btn-pmc btn-pmc-outline" style="font-size:.85rem;padding:8px 16px;">How to use &amp; topic codes <i class="bi bi-arrow-right"></i></a>
               </div>
@@ -2206,7 +2206,7 @@ INSERT INTO `pages` (`id`,`slug`,`title`,`label`,`section`,`description`,`view_k
  
  
  E-Health Service
- Free health information by phone from Peshawar Medical College (Prime Foundation).
+ Free health information by phone from Peshawar Medical College.
  091-2385262
  How to use & topic codes 
  
@@ -2646,7 +2646,7 @@ INSERT INTO `pages` (`id`,`slug`,`title`,`label`,`section`,`description`,`view_k
           <!-- 1. Introduction -->
           <h2 class="sec-title" style="font-size:1.8rem;">1. Introduction</h2>
           <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
-            The Department of Medical Sciences – Riphah International University (Peshawar Campus) is the first project of PRIME FOUNDATION. The institute has been established with objectives of contributing towards the quality medical education in line with community health needs of KP &amp; Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
+            The Department of Medical Sciences – Riphah International University (Peshawar Campus) has been established with objectives of contributing towards the quality medical education in line with community health needs of KP &amp; Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
           </p>
           <p style="font-family:var(--font-body);font-size:.95rem;color:var(--gray-dark);line-height:1.85;">
             The Department is recognized by Pakistan Medical Commission (PMC) according to 2019 inspection visit by PMC of various public &amp; private sector colleges. It was our honor to stand first among private hospitals of KP with more than 80% score.
@@ -2988,7 +2988,7 @@ INSERT INTO `pages` (`id`,`slug`,`title`,`label`,`section`,`description`,`view_k
  
  1. Introduction
  
- The Department of Medical Sciences – Riphah International University (Peshawar Campus) is the first project of PRIME FOUNDATION. The institute has been established with objectives of contributing towards the quality medical education in line with community health needs of KP & Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
+ The Department of Medical Sciences – Riphah International University (Peshawar Campus) has been established with objectives of contributing towards the quality medical education in line with community health needs of KP & Pakistan. The aim is to train excellent medical doctors, having highest standards of professional competence, integrity, commitment and research.
  
  
  The Department is recognized by Pakistan Medical Commission (PMC) according to 2019 inspection visit by PMC of various public & private sector colleges. It was our honor to stand first among private hospitals of KP with more than 80% score.
@@ -3564,7 +3564,7 @@ PM&DCRiphah International UniversityCPSPMinistry of HealthWHO',1),
             <span class="sec-eyebrow">Free Phone Service</span>
             <h2 class="sec-title" style="font-size:1.75rem;">Health Information by Phone</h2>
             <p>
-              A free public health information service from <strong>Peshawar Medical College</strong> (Prime Foundation).
+              A free public health information service from <strong>Peshawar Medical College</strong>.
               Call from any network, listen to the prompts, then enter a 3-digit topic code after the beep.
             </p>
           </div>
@@ -3699,7 +3699,7 @@ PM&DCRiphah International UniversityCPSPMinistry of HealthWHO',1),
  Free Phone Service
  Health Information by Phone
  
- A free public health information service from Peshawar Medical College (Prime Foundation).
+ A free public health information service from Peshawar Medical College.
  Call from any network, listen to the prompts, then enter a 3-digit topic code after the beep.
  
  
