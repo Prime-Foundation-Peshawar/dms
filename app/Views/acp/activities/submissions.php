@@ -35,6 +35,9 @@
         <tr>
           <td>
             <strong><?= esc($row['title'] ?? '') ?></strong>
+            <?php if (! empty($row['category'])): ?>
+              <div class="small text-muted"><?= esc($row['category']) ?></div>
+            <?php endif; ?>
             <?php if (! empty($row['date_label'])): ?>
               <div class="small text-muted"><?= esc($row['date_label']) ?></div>
             <?php endif; ?>

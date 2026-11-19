@@ -11,6 +11,9 @@ use CodeIgniter\HTTP\Files\UploadedFile;
  */
 class ActivityUpdate extends BaseController
 {
+    /** Activity categories offered on the form (stored as the label). */
+    public const CATEGORIES = ['CPD Activities', 'Special Events'];
+
     public function index(): string
     {
         $depts = model(DepartmentModel::class)->visibleDepartments();
@@ -31,6 +34,7 @@ class ActivityUpdate extends BaseController
             'selectedSlug'     => $selectedSlug,
             'recent'           => $recent,
             'draft'            => $draft,
+            'categories'       => self::CATEGORIES,
         ]);
     }
 
@@ -63,6 +67,7 @@ class ActivityUpdate extends BaseController
             'department_id'   => $parsed['department_id'],
             'department_slug' => $parsed['department_slug'],
             'department_name' => $parsed['department_name'],
+            'category'        => $parsed['category'],
             'title'           => $parsed['title'],
             'date_label'      => $parsed['date_label'],
             'body'            => $parsed['body'],
@@ -107,6 +112,7 @@ class ActivityUpdate extends BaseController
             'department_id'   => $parsed['department_id'],
             'department_slug' => $parsed['department_slug'],
             'department_name' => $parsed['department_name'],
+            'category'        => $parsed['category'],
             'title'           => $parsed['title'],
             'date_label'      => $parsed['date_label'],
             'body'            => $parsed['body'],
@@ -124,7 +130,7 @@ class ActivityUpdate extends BaseController
     }
 
     /**
-     * @return array{department_id:int,department_slug:string,department_name:string,title:string,date_label:string,body:string,draft_photos:list<string>}|array{error:string}
+     * @return array{department_id:int,department_slug:string,department_name:string,category:string,title:string,date_label:string,body:string,draft_photos:list<string>}|array{error:string}
      */
     private function parseForm(bool $requireComplete): array
     {
@@ -132,6 +138,10 @@ class ActivityUpdate extends BaseController
         $title     = trim((string) $this->request->getPost('title'));
         $dateLabel = trim((string) $this->request->getPost('date_label'));
         $body      = trim((string) $this->request->getPost('body'));
+        $category  = trim((string) $this->request->getPost('category'));
+        if (! in_array($category, self::CATEGORIES, true)) {
+            $category = '';
+        }
 
         if ($deptSlug === '') {
             return ['error' => 'Please choose your department.'];
@@ -142,6 +152,9 @@ class ActivityUpdate extends BaseController
         }
 
         if ($requireComplete) {
+            if ($category === '') {
+                return ['error' => 'Please choose a category (CPD Activities or Special Events).'];
+            }
             if ($title === '') {
                 return ['error' => 'Please write a short title for the activity.'];
             }
@@ -181,6 +194,7 @@ class ActivityUpdate extends BaseController
             'department_id'   => (int) $dept['id'],
             'department_slug' => (string) $dept['slug'],
             'department_name' => (string) $dept['name'],
+            'category'        => $category,
             'title'           => $title,
             'date_label'      => $dateLabel,
             'body'            => $body,
@@ -342,6 +356,9 @@ class ActivityUpdate extends BaseController
                     'status'          => 'pending',
                     'created_at'      => $payload['submitted_at'],
                 ];
+                if ($db->fieldExists('category', 'department_activity_submissions')) {
+                    $row['category'] = $payload['category'] !== '' ? $payload['category'] : null;
+                }
                 if ($db->fieldExists('photos_json', 'department_activity_submissions')) {
                     $row['photos_json'] = json_encode($payload['photos'] ?? [], JSON_UNESCAPED_UNICODE);
                 }

@@ -144,6 +144,10 @@ class ActivityReviewService
         if (db_connect()->fieldExists('enabled', 'department_activities')) {
             $insert['enabled'] = 1;
         }
+        $category = trim((string) ($sub['category'] ?? ''));
+        if ($category !== '' && db_connect()->fieldExists('category', 'department_activities')) {
+            $insert['category'] = $category;
+        }
 
         $activityModel->insert($insert);
 

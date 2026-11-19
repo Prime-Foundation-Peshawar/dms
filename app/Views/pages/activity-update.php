@@ -49,6 +49,7 @@
         <?php endif; ?>
 
         <?php
+          $draftCategory = (string) ($draft['category'] ?? '');
           $draftTitle = (string) ($draft['title'] ?? '');
           $draftDate  = (string) ($draft['date_label'] ?? '');
           $draftBody  = (string) ($draft['body'] ?? '');
@@ -81,7 +82,18 @@
           </div>
 
           <div class="fu-card">
-            <h3>2. Activity Title</h3>
+            <h3>2. Category</h3>
+            <label class="fu-label" for="category">Select category <span class="req">*</span></label>
+            <select class="au-select" id="category" name="category" required>
+              <option value="">— Select category —</option>
+              <?php foreach (($categories ?? []) as $cat): ?>
+                <option value="<?= esc($cat) ?>" <?= $draftCategory === $cat ? 'selected' : '' ?>><?= esc($cat) ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+
+          <div class="fu-card">
+            <h3>3. Activity Title</h3>
             <label class="fu-label" for="title">Title <span class="req">*</span></label>
             <input class="fu-input" type="text" id="title" name="title" maxlength="190" required
               value="<?= esc($draftTitle) ?>"
@@ -89,7 +101,7 @@
           </div>
 
           <div class="fu-card">
-            <h3>3. Date</h3>
+            <h3>4. Date</h3>
             <label class="fu-label" for="dateLabel">Date <span class="fu-optional">(optional)</span></label>
             <input class="fu-input" type="date" id="dateLabel" name="date_label"
               value="<?= esc(preg_match('/^\d{4}-\d{2}-\d{2}$/', $draftDate) ? $draftDate : '') ?>">
@@ -97,14 +109,14 @@
           </div>
 
           <div class="fu-card">
-            <h3>4. Description</h3>
+            <h3>5. Description</h3>
             <label class="fu-label" for="body">Brief description</label>
             <textarea class="fu-textarea" id="body" name="body" maxlength="4000" required
               placeholder="Summary of the activity, participants, and key outcomes"><?= esc($draftBody) ?></textarea>
           </div>
 
           <div class="fu-card">
-            <h3>5. Images <span class="fu-optional">(optional)</span></h3>
+            <h3>6. Images <span class="fu-optional">(optional)</span></h3>
             <label class="fu-label" for="photos">Attach images</label>
             <input class="fu-file" type="file" id="photos" name="photos[]" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
             <p class="fu-note">JPG, PNG, WEBP or GIF — up to 6 images, max 4 MB each</p>
