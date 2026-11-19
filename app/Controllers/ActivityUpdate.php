@@ -11,8 +11,13 @@ use CodeIgniter\HTTP\Files\UploadedFile;
  */
 class ActivityUpdate extends BaseController
 {
-    /** Activity categories offered on the form (stored as the label). */
+    /** Allowed activity categories — must match the ENUM on department_activities.category. */
     public const CATEGORIES = ['CPD Activities', 'Special Events'];
+
+    public static function isValidCategory(string $category): bool
+    {
+        return in_array($category, self::CATEGORIES, true);
+    }
 
     public function index(): string
     {
@@ -139,8 +144,9 @@ class ActivityUpdate extends BaseController
         $dateLabel = trim((string) $this->request->getPost('date_label'));
         $body      = trim((string) $this->request->getPost('body'));
         $category  = trim((string) $this->request->getPost('category'));
-        if (! in_array($category, self::CATEGORIES, true)) {
-            $category = '';
+        // Reject anything outside the allowed list (empty is only tolerated for drafts).
+        if ($category !== '' && ! self::isValidCategory($category)) {
+            return ['error' => 'Invalid category. Please choose CPD Activities or Special Events.'];
         }
 
         if ($deptSlug === '') {
@@ -357,7 +363,7 @@ class ActivityUpdate extends BaseController
                     'created_at'      => $payload['submitted_at'],
                 ];
                 if ($db->fieldExists('category', 'department_activity_submissions')) {
-                    $row['category'] = $payload['category'] !== '' ? $payload['category'] : null;
+                    $row['category'] = $payload['category'];
                 }
                 if ($db->fieldExists('photos_json', 'department_activity_submissions')) {
                     $row['photos_json'] = json_encode($payload['photos'] ?? [], JSON_UNESCAPED_UNICODE);
