@@ -1,13 +1,41 @@
 <?php
-/** Auto-ported content body from legacy portal.php */
+/**
+ * Portal Login — DMS-themed replacement for https://pmc.prime.edu.pk/portal_login.php
+ * Links mirror the live page's active buttons (Student, Faculty, Parents (SIS)).
+ */
+$portals = [
+    [
+        'key'   => 'student',
+        'icon'  => 'bi-mortarboard-fill',
+        'title' => 'Student Portal',
+        'desc'  => 'Portal for the students.',
+        'url'   => 'https://prime.edu.pk/sis/login',
+        'btn'   => 'Student Login',
+    ],
+    [
+        'key'   => 'faculty',
+        'icon'  => 'bi-person-workspace',
+        'title' => 'Faculty Portal',
+        'desc'  => 'Portal for the faculty & staff.',
+        'url'   => 'https://www.prime.edu.pk/meis',
+        'btn'   => 'Faculty Login',
+    ],
+    [
+        'key'   => 'parent',
+        'icon'  => 'bi-people-fill',
+        'title' => 'Parents (SIS)',
+        'desc'  => 'Portal for the parents.',
+        'url'   => 'https://prime.edu.pk/sis/login/parent',
+        'btn'   => 'Parent Login',
+    ],
+];
 ?>
-
 
 <div class="page-hero">
   <div class="page-hero-grid"></div>
   <div class="container page-hero-content">
     <span class="page-hero-eyebrow">Riphah International University (Peshawar Campus)</span>
-    <h1>Student, Parent &amp; Faculty Portal</h1>
+    <h1>Portal Login</h1>
     <div class="breadcrumb-pmc">
       <a href="<?= site_url() ?>">Home</a>
       <span class="sep"><i class="bi bi-chevron-right"></i></span>
@@ -18,133 +46,103 @@
 
 <section class="pmc-section">
   <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-12">
-        <div class="page-content">
 
-          <div class="adm-intro fu">
-            <!-- <span class="sec-eyebrow">MEIS</span> -->
-            <h2 class="sec-title" style="font-size:1.75rem;">Management &amp; Education Information System</h2>
-            <p class="about-lead">
-              MEIS is the central platform for students and parents at Riphah International University – Peshawar Campus.
-              Use the links below to access your academic records, attendance, results, and fee information.
-            </p>
-          </div>
-
-          <!-- Portal Cards -->
-          <div class="adm-block fu fu-delay-1" id="portals">
-            <div class="adm-block-head">
-              <h3>Choose Your Portal</h3>
-              <p>Select the portal that applies to you to proceed to login.</p>
-            </div>
-
-            <div class="portal-grid">
-
-              <div class="portal-card">
-                <div class="portal-card-icon"><i class="bi bi-mortarboard-fill"></i></div>
-                <h4>Student Portal</h4>
-                <!-- <p>Access your academic profile, attendance, results, and course information.</p> -->
-                <p>Click the below Button to access the Student Portal</p>
-                <a href="https://prime.edu.pk/sis/login" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary">
-                  <i class="bi bi-box-arrow-in-right"></i> Login
-                </a>
-              </div>
-
-              <div class="portal-card">
-                <div class="portal-card-icon"><i class="bi bi-people-fill"></i></div>
-                <h4>Parent Portal</h4>
-                <p>Click the below Button to access the Parent Portal</p>
-                <!-- <p>Monitor your ward's attendance, academic performance, and fee status.</p> -->
-                <a href="https://prime.edu.pk/sis/login/parent" target="_blank" rel="noopener" class="btn-pmc btn-pmc-primary">
-                  <i class="bi bi-box-arrow-in-right"></i> Login
-                </a>
-              </div>
-
-              <div class="portal-card">
-                <div class="portal-card-icon"><i class="bi bi-info-circle-fill"></i></div>
-                <h4>Faculty Portal</h4>
-                <p>Click the below Button to access the Faculty Portal</p>
-                <!-- <p>Learn more about the Management &amp; Education Information System.</p> -->
-                <a href="https://www.prime.edu.pk/meis" target="_blank" rel="noopener" class="btn-pmc btn-pmc-outline">
-                  <i class="bi bi-arrow-up-right"></i> Login
-                </a>
-              </div>
-
-            </div>
-          </div>
-
-          
-
-        </div>
-      </div>
-
-      <!-- Sidebar -->
-      <!-- <div class="col-lg-4 fu fu-delay-2">
-        
-
-        <div class="sidebar-widget">
-          <div class="sw-head"><i class="bi bi-link-45deg"></i> Quick Links</div>
-          <div class="sw-body">
-            <a class="sw-link" href="https://prime.edu.pk/sis/login" target="_blank" rel="noopener"><i class="bi bi-mortarboard"></i>Student Login</a>
-            <a class="sw-link" href="https://prime.edu.pk/sis/login/parent" target="_blank" rel="noopener"><i class="bi bi-people"></i>Parent Login</a>
-            <a class="sw-link" href="https://www.prime.edu.pk/meis" target="_blank" rel="noopener"><i class="bi bi-info-circle"></i>Faculty Login</a>
-          </div>
-        </div>
-      </div> -->
-
+    <div class="portal-intro fu">
+      <span class="portal-badge"><i class="bi bi-shield-lock-fill"></i> MEIS</span>
+      <h2 class="sec-title">Management &amp; Education Information System</h2>
+      <p class="portal-lead">
+        One place for students, parents and faculty of Riphah International University – Peshawar Campus.
+        Choose your portal below to sign in.
+      </p>
     </div>
+
+    <div class="portal-grid">
+      <?php foreach ($portals as $i => $p): ?>
+        <a class="portal-card portal-card--<?= esc($p['key']) ?> fu fu-delay-<?= $i + 1 ?>"
+           href="<?= esc($p['url']) ?>" target="_blank" rel="noopener">
+          <span class="portal-card-icon"><i class="bi <?= esc($p['icon']) ?>"></i></span>
+          <h3><?= esc($p['title']) ?></h3>
+          <p><?= esc($p['desc']) ?></p>
+          <span class="portal-card-btn">
+            <i class="bi bi-box-arrow-in-right"></i> <?= esc($p['btn']) ?>
+            <i class="bi bi-arrow-up-right portal-card-ext" aria-hidden="true"></i>
+          </span>
+          <span class="visually-hidden">(opens in a new tab)</span>
+        </a>
+      <?php endforeach; ?>
+    </div>
+
+
   </div>
 </section>
 
-
-
-<!-- Portal card styles -->
 <style>
+.portal-intro { text-align: center; max-width: 720px; margin: 0 auto 40px; }
+.portal-intro .sec-title { font-size: 1.75rem; margin: 12px 0 10px; }
+.portal-lead { font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; color: var(--navy); margin: 0 auto; }
+.portal-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-head); font-size: .72rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--teal); background: var(--teal-pale);
+  padding: 6px 14px; border-radius: 999px;
+}
+
 .portal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 .portal-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 16px;
-  padding: 28px 22px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,.04);
-  transition: transform .2s ease, box-shadow .2s ease;
+  --accent: var(--teal);
+  --accent-pale: var(--teal-pale);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 36px 26px 28px;
+  box-shadow: var(--shadow-sm); color: var(--text); text-decoration: none;
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
 }
-.portal-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+.portal-card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--accent);
 }
+.portal-card--faculty { --accent: var(--navy); --accent-pale: var(--gray-light); }
+.portal-card--parent  { --accent: var(--gold); --accent-pale: var(--gold-pale); }
+.portal-card:hover, .portal-card:focus-visible {
+  transform: translateY(-6px); box-shadow: var(--shadow-lg);
+  border-color: var(--accent); color: var(--text);
+}
+.portal-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
 .portal-card-icon {
-  width: 58px;
-  height: 58px;
-  margin: 0 auto 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--teal, #009688);
-  color: #fff;
-  font-size: 1.5rem;
+  width: 72px; height: 72px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-pale); color: var(--accent); font-size: 1.9rem;
+  margin-bottom: 18px; transition: background var(--ease), color var(--ease);
 }
-.portal-card h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 8px;
+.portal-card:hover .portal-card-icon { background: var(--accent); color: var(--white); }
+.portal-card h3 {
+  font-family: var(--font-head); font-size: 1.15rem; font-weight: 800;
+  color: var(--navy); margin: 0 0 8px;
 }
 .portal-card p {
-  font-size: .88rem;
-  color: var(--gray-mid, #6c757d);
-  line-height: 1.6;
-  margin-bottom: 18px;
+  font-family: var(--font-body); font-size: .9rem; line-height: 1.6;
+  color: var(--gray-mid); margin: 0 0 22px; flex: 1;
 }
-.portal-card .btn-pmc {
-  width: 100%;
-  justify-content: center;
-  font-size: .82rem;
+.portal-card-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  font-family: var(--font-head); font-size: .85rem; font-weight: 700;
+  padding: 12px 16px; border-radius: var(--r-sm);
+  background: var(--accent); color: var(--white);
+}
+.portal-card-ext { font-size: .75rem; opacity: .75; }
+
+
+@media (max-width: 991px) {
+  .portal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 575px) {
+  .portal-grid { grid-template-columns: 1fr; }
+  .portal-intro .sec-title { font-size: 1.4rem; }
 }
 </style>

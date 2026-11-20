@@ -241,7 +241,7 @@
             <a class="sw-link" href="<?= base_url('assets/uploads/admissions/fee-structure/PG-Fee-Structure-RCP-2026.pdf') ?>" target="_blank" rel="noopener"><i class="bi bi-receipt"></i>PG Fee Structure 2026</a>
             <a class="sw-link" href="https://pmc.prime.edu.pk/downloads/Scholarship Policy.pdf" target="_blank" rel="noopener"><i class="bi bi-award"></i>Scholarship Policy</a>
             <a class="sw-link" href="https://caspr.kmu.edu.pk" target="_blank" rel="noopener"><i class="bi bi-globe"></i>KMU CASPR Portal</a>
-            <a class="sw-link" href="https://pmc.prime.edu.pk/portal_login.php" target="_blank" rel="noopener"><i class="bi bi-person-circle"></i>Student Portal</a>
+            <a class="sw-link" href="<?= site_url('portal') ?>"><i class="bi bi-person-circle"></i>Student Portal</a>
             <a class="sw-link" href="https://riphahpsh.edu.pk/admissions.php" target="_blank" rel="noopener"><i class="bi bi-building"></i>Campus Admissions Hub</a>
             <!-- <a class="sw-link" href="<?= hub_base() ?>assets/images/news/PG-Admission-Form-Medical-Sciences.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i>MPhil Medical Form</a> -->
             <a class="sw-link" href="<?= base_url('assets/images/news/kmu-mbbs-bds-admissions.jpeg') ?>" target="_blank" rel="noopener"><i class="bi bi-image"></i>2026 Advertisement</a>
