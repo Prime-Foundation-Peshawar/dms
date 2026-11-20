@@ -8,7 +8,7 @@ $portals = [
         'key'   => 'student',
         'icon'  => 'bi-mortarboard-fill',
         'title' => 'Student Portal',
-        'desc'  => 'Portal for the students.',
+        'desc'  => 'Login Portals',
         'url'   => 'https://prime.edu.pk/sis/login',
         'btn'   => 'Student Login',
     ],
@@ -16,7 +16,7 @@ $portals = [
         'key'   => 'faculty',
         'icon'  => 'bi-person-workspace',
         'title' => 'Faculty Portal',
-        'desc'  => 'Portal for the faculty.',
+        'desc'  => 'Login Portals',
         'url'   => 'https://www.prime.edu.pk/meis',
         'btn'   => 'Faculty Login',
     ],
@@ -24,7 +24,7 @@ $portals = [
         'key'   => 'parent',
         'icon'  => 'bi-people-fill',
         'title' => 'Parents (SIS)',
-        'desc'  => 'Portal for the parents.',
+        'desc'  => 'Login Portals',
         'url'   => 'https://prime.edu.pk/sis/login/parent',
         'btn'   => 'Parent Login',
     ],
@@ -51,8 +51,7 @@ $portals = [
       <span class="portal-badge"><i class="bi bi-shield-lock-fill"></i> MEIS</span>
       <h2 class="sec-title">Management &amp; Education Information System</h2>
       <p class="portal-lead">
-        One place for students, parents and faculty of Riphah International University – Peshawar Campus.
-        Choose your portal below to sign in.
+        All portals are listed below
       </p>
     </div>
 
