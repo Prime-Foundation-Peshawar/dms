@@ -16,7 +16,7 @@ $portals = [
         'key'   => 'faculty',
         'icon'  => 'bi-person-workspace',
         'title' => 'Faculty Portal',
-        'desc'  => 'Portal for the faculty & staff.',
+        'desc'  => 'Portal for the faculty.',
         'url'   => 'https://www.prime.edu.pk/meis',
         'btn'   => 'Faculty Login',
     ],
