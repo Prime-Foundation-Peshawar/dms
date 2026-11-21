@@ -25,6 +25,12 @@
       <h2 class="acp-review-title"><?= esc($sub['title'] ?? '') ?></h2>
 
       <dl class="acp-review-meta">
+        <?php if (! empty($sub['category'])): ?>
+          <div>
+            <dt>Category</dt>
+            <dd><?= esc($sub['category']) ?></dd>
+          </div>
+        <?php endif; ?>
         <?php if (! empty($sub['date_label'])): ?>
           <div>
             <dt>Date / period</dt>

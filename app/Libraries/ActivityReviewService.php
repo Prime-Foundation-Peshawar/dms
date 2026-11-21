@@ -2,6 +2,7 @@
 
 namespace App\Libraries;
 
+use App\Controllers\ActivityUpdate;
 use App\Models\DepartmentActivityModel;
 use App\Models\DepartmentModel;
 
@@ -117,6 +118,11 @@ class ActivityReviewService
             return ['ok' => false, 'error' => 'Title and description are required to publish.'];
         }
 
+        $category = trim((string) ($sub['category'] ?? ''));
+        if (! ActivityUpdate::isValidCategory($category)) {
+            return ['ok' => false, 'error' => 'A valid category (CPD Activities or Special Events) is required to publish.'];
+        }
+
         $max = model(DepartmentActivityModel::class)
             ->where('department_id', $deptId)
             ->orderBy('sort_order', 'DESC')
@@ -143,6 +149,9 @@ class ActivityReviewService
         }
         if (db_connect()->fieldExists('enabled', 'department_activities')) {
             $insert['enabled'] = 1;
+        }
+        if (db_connect()->fieldExists('category', 'department_activities')) {
+            $insert['category'] = $category;
         }
 
         $activityModel->insert($insert);

@@ -128,6 +128,9 @@ class PageController extends BaseController
             'e-health',
             'faculty',
             'faculty-research',
+            'portal',
+            'pmc',
+            'about',
         ];
         if (! in_array($slug, $liveTemplates, true)
             && ! empty($page['use_cms'])

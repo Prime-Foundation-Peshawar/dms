@@ -346,7 +346,7 @@ $ld_graph = $ld_graph ?? [];
                 href="mailto:info@riphahpsh.edu.pk">info@riphahpsh.edu.pk</a></span></div>
           <!--<div class="foot-contact"><i class="bi bi-clock-fill"></i><span>Mon – Sat: 8:00 AM – 2:00 PM</span></div>-->
           <div class="mt-3">
-            <a href="https://pmc.prime.edu.pk/portal_login.php" class="btn-pmc btn-pmc-teal"
+            <a href="<?= site_url('portal') ?>" class="btn-pmc btn-pmc-teal"
               style="background:var(--teal);color:white;font-size:.82rem;padding:10px 20px;">
               <i class="bi bi-person-circle"></i> Portal
             </a>
