@@ -213,7 +213,6 @@ $ld_graph = $ld_graph ?? [];
                       Criteria</a>
                     <a class="mega-link" href="<?= site_url('admissions') ?>#process"><i class="bi bi-list-ol"></i>Admission
                       Process</a>
-                    <a class="mega-link" href="https://pmc.prime.edu.pk/portal_login.php"><i class="bi bi-person-circle"></i>Student Portal</a>
                   </div>
                   <!-- <div class="col-lg-3">
                     <div class="mega-feature">
@@ -243,6 +242,7 @@ $ld_graph = $ld_graph ?? [];
                     <a class="mega-link" href="<?= site_url('curriculum') ?>"><i class="bi bi-journal-text"></i>Curriculum</a>
                     <a class="mega-link" href="<?= site_url('examinations') ?>"><i class="bi bi-clipboard-pulse"></i>Examinations &
                       Assessments</a>
+                    <a class="mega-link" href="<?= site_url('portal') ?>"><i class="bi bi-person-circle"></i>Portal</a>
                     <!-- <a class="mega-link" href="<?= site_url('clinical-skill-labs') ?>"><i class="bi bi-activity"></i>Clinical Skill
                       Labs</a> -->
                   </div>
