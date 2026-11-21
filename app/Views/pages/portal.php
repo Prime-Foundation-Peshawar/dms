@@ -7,7 +7,7 @@ $portals = [
     [
         'key'   => 'student',
         'icon'  => 'bi-mortarboard-fill',
-        'title' => 'Student Portal',
+        'title' => 'Student',
         'desc'  => 'Login Portals',
         'url'   => 'https://prime.edu.pk/sis/login',
         'btn'   => 'Student Login',
@@ -15,7 +15,7 @@ $portals = [
     [
         'key'   => 'faculty',
         'icon'  => 'bi-person-workspace',
-        'title' => 'Faculty Portal',
+        'title' => 'Faculty',
         'desc'  => 'Login Portals',
         'url'   => 'https://www.prime.edu.pk/meis',
         'btn'   => 'Faculty Login',
@@ -23,7 +23,7 @@ $portals = [
     [
         'key'   => 'parent',
         'icon'  => 'bi-people-fill',
-        'title' => 'Parents (SIS)',
+        'title' => 'Parents',
         'desc'  => 'Login Portals',
         'url'   => 'https://prime.edu.pk/sis/login/parent',
         'btn'   => 'Parent Login',
@@ -48,8 +48,8 @@ $portals = [
   <div class="container">
 
     <div class="portal-intro fu">
-      <span class="portal-badge"><i class="bi bi-shield-lock-fill"></i> MEIS</span>
-      <h2 class="sec-title">Management &amp; Education Information System</h2>
+      <!-- <span class="portal-badge"><i class="bi bi-shield-lock-fill"></i> MEIS</span> -->
+      <h2 class="sec-title">Portal Logins</h2>
       <p class="portal-lead">
         All portals are listed below
       </p>
