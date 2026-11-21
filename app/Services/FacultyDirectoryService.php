@@ -140,8 +140,9 @@ class FacultyDirectoryService
             $qualText = is_array($quals) ? implode(', ', array_filter(array_map('strval', $quals))) : (string) $quals;
             $deptName = faculty_canonical_dept($str($rec['department_name'] ?? '', 'IT & MI'));
             $isPublic = ! isset($rec['is_public']) || (int) $rec['is_public'] === 1;
-            // Only if IT & MI (or overridden dept) exists as a CMS department — same as dept pages.
-            if ($isPublic && $this->belongsToListedDepartment($deptName)) {
+            // Static card is always shown when public (IT & MI is not a CMS department row,
+            // so it must not go through belongsToListedDepartment()).
+            if ($isPublic) {
                 $out[] = [
                     'empId' => $staticEmpId,
                     'empName' => $str($rec['name'] ?? '', 'Muhammad Furqan'),
