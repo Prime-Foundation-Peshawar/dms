@@ -12,8 +12,8 @@ $hospitals = [
     'name'         => 'Kuwait Teaching Hospital',
     'desc'         => 'Major tertiary care centre providing comprehensive clinical rotations across medical and surgical specialties.',
     'url'          => 'https://kth.riphahpsh.edu.pk/',
-    'dept_url'     => 'https://kth.prime.edu.pk/departments.php',
-    'services_url' => 'https://kth.prime.edu.pk/services.php',
+    'dept_url'     => 'https://kth.prime.edu.pk/pages/departments.php',
+    'services_url' => 'https://kth.prime.edu.pk/pages/services.php',
     'highlights'   => ['Cardiology & CCU', 'Angioplasty 24/7', 'CT & MRI', 'Dialysis'],
     'departments'  => [
       'Medicine & Allied',
@@ -57,8 +57,8 @@ $hospitals = [
     'name'         => 'Mercy Teaching Hospital',
     'desc'         => 'Community-focused hospital with high patient volume, ideal for broad, everyday clinical experience.',
     'url'          => 'https://mth.riphahpsh.edu.pk/',
-    'dept_url'     => 'https://mth.prime.edu.pk/departments.php',
-    'services_url' => 'https://mth.prime.edu.pk/services.php',
+    'dept_url'     => 'https://mth.prime.edu.pk/pages/departments.php',
+    'services_url' => 'https://mth.prime.edu.pk/pages/services.php',
     'highlights'   => ['Gynae & Obstetrics', 'Nursery / NICU', 'Emergency 24/7', 'Psychiatry'],
     'departments'  => [
       'General Medicine',
